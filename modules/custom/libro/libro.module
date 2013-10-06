@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the libro feature.
+ */
+
+include_once 'libro.features.inc';

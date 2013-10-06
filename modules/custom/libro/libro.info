@@ -1,0 +1,10 @@
+name = libro
+core = 7.x
+package = Katakrak
+version = 7.x-0.1
+project = libro
+dependencies[] = features
+features[features_api][] = api:2
+features[node][] = libro
+features_exclude[field_base][body] = body
+features_exclude[field_instance][node-libro-body] = node-libro-body
