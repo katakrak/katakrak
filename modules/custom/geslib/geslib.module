@@ -59,35 +59,53 @@ function geslib_import_form_submit($form, &$form_state) {
     'title' => t('Importando artículos de geslib'),
     'operations' => array(
       array('geslib_process_read_file', array($form_state['values']['geslib_file'])),
-      array('geslib_process_import_items', array()),
+      array('geslib_process_create_items'),
+      array('geslib_process_get_data_from_dilve'),
     ),
-    'finished' => 'my_finished_callback',
+    'finished' => 'geslib_process_finish',
+    'file' => 'geslib.batch.inc',
   );
   batch_set($batch);
 }
 
 function geslib_process_read_file($geslib_file_path, &$context) {
+  $geslib_file = file_get_contents($geslib_file_path);
+  $geslib_file_array = explode("\n", $geslib_file);
   if (!isset($context['sandbox']['progress'])) {
     $context['sandbox']['progress'] = 0;
     $context['sandbox']['current_line'] = 0;
-    $geslib_file = file_get_contents($geslib_file_path);
-    $context['sandbox']['geslib_file_array'] = explode("\n", $geslib_file);  
-    $context['sandbox']['max'] = count($context['sandbox']['geslib_file_array']);
-    //$context['sandbox']['geslib_data'] = array();
+    $context['sandbox']['max'] = count($geslib_file_array);
   }
   
-  $geslib_file_array = $context['sandbox']['geslib_file_array'];
-  $limit = 1;
+  
+  
+  $limit = 1000;
  
+  $geslib_lines = array();
   for($i = 0; $i < $limit; $i++) {
     $line = explode("|", $geslib_file_array[$i]);
-    geslib_process_line($line, $context['results']);
+    geslib_process_line($line, $geslib_lines);
     unset($geslib_file_array[$i]);
   }
   
- 
-  $context['sandbox']['geslib_file_array'] = array_values($geslib_file_array);
+  foreach ($geslib_lines as $line) {
+    $record = array();
+    $record['geslib_id'] = $line['geslib_id'];
+    $record['type'] = $line['type'];
+    $record['content'] = serialize($line);
+    try {
+      drupal_write_record('geslib_lines', $record);
+    }
+    catch (Exception $e){
+      watchdog('geslib', $e->getMessage());
+    }
+    
+  }
+  
   $context['sandbox']['progress'] += $limit;
+  file_put_contents($geslib_file_path, implode("\n", $geslib_file_array));
+  
+  
   
   if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
     $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
@@ -95,9 +113,7 @@ function geslib_process_read_file($geslib_file_path, &$context) {
 }
 
 
-function geslib_process_import_items(&$context){
-  $results = $context['results'];
-  dpm($results);
+function geslib_process_create_items(&$context){
 }
 
 /**
@@ -108,98 +124,141 @@ function geslib_process_import_items(&$context){
   */
 function geslib_process_line($line, &$geslib_data) {
   switch ($line[0]) {
+     #Discográficas
+    case "1A":
+      if ($line[1] != 'B') {
+        $item['action'] = $line[1];
+        $item['title'] = geslib_utf8_encode($line[4]);
+        $item['type'] = 'discografica';
+        $item['geslib_id'] = $line[2];
+      }
+      $geslib_data[] = $item;
+      break;
+      # Editoriales
+    case "1L":
+      if ($line[1] != 'B') {
+        $item['action'] = $line[1];
+        $item['title'] = geslib_utf8_encode($line[4]);
+        $item['type'] = 'editorial';
+        $item['geslib_id'] = $line[2];
+        $geslib_data[] = $item;
+      }
+      break;
+    //Materias
     case "3":
-      $item["action"] = $line[1];
-      $item["geslib_id"] = $line[2];
-      $item['name'] = geslib_utf8_encode($line[3]);
-      $geslib_data['materias'][$line[2]] = $item; 
+      if ($line[1] != 'B') {
+        $item["action"] = $line[1];
+        $item["geslib_id"] = $line[2];
+        $item['name'] = geslib_utf8_encode($line[3]);
+        $item['type'] = 'materia';
+        $geslib_data[] = $item; 
+      }
       break;
     # eBooks (igual que articulos)
     case "EB":
     # Articulos
     case "GP4":
-      $item['type'] = 'products';
-      $item['action'] = $line[1];
-      $item['title'] = geslib_utf8_encode($line[3]);
-      $item['geslib_id'] = $line[2];
-      $item['ean'] = $line[7];
-      $item['price'] = str_replace(",", "", $line[29]);
-      $authors = get_multiple_authors(geslib_utf8_encode($line[4]));
-      //dpm($authors);
-      foreach($authors as $author) {
-        $author_name = trim($author);
-        if ($author_name != "") {
-          $item['authors'][] = $author_name;
+      if ($line[1] != 'B') {
+        $item['type'] = 'product';
+        $item['action'] = $line[1];
+        $item['geslib_id'] = $line[2];
+        $item['title'] = geslib_utf8_encode($line[3]);
+        $item['price'] = str_replace(",", "", $line[29]);
+        $authors = get_multiple_authors(geslib_utf8_encode($line[4]));
+        //dpm($authors);
+        foreach($authors as $author) {
+          $author_name = trim($author);
+          if ($author_name != "") {
+            $item['authors'][] = $author_name;
+          }
         }
-      }
-      $item["isbn"] = $line[6];	//ISBN (por si se quiere seleccionar)
-      if ($line[7]) {
-        $item["ean"] = $line[7];
-      } 
-      else {
-        $item["ean"] = str_replace('-','',$line[6]); 
-      }
+        $item["isbn"] = $line[6];	//ISBN (por si se quiere seleccionar)
+        if ($line[7]) {
+          $item["ean"] = $line[7];
+        } 
+        else {
+          $item["ean"] = str_replace('-','',$line[6]); 
+        }
 
-      $item["pages"] = $line[8];
-      $item["edition"] = $line[9];
-      $item["origen_edicion"] = geslib_utf8_encode($line[10]);
-      $item["edition_date"] = $line[11];
-      $item["fecha_reedicion"] = $line[12];
-      $item["year"] = $line[13];
-      $item["ano_ultima_edicion"] = $line[14];
-      $item["location"] = geslib_utf8_encode($line[15]);
-      $item["stock"] = intval($line[16]);
-      $item["seccion"] = geslib_utf8_encode($line[17]);
-      $item["registration_date"] = $line[18];
-      if ($geslib_data["languages"][$line[20]] ) {
-        $item["language"] = $geslib_data["languages"][$line[20]];
-      } else {
-        $item["language"] = $line[20];
+        $item["pages"] = $line[8];
+        $item["edition"] = $line[9];
+        $item["origen_edicion"] = geslib_utf8_encode($line[10]);
+        $item["edition_date"] = $line[11];
+        $item["fecha_reedicion"] = $line[12];
+        $item["year"] = $line[13];
+        $item["ano_ultima_edicion"] = $line[14];
+        $item["location"] = geslib_utf8_encode($line[15]);
+        $item["stock"] = intval($line[16]);
+        $item["seccion"] = geslib_utf8_encode($line[17]);
+        $item["registration_date"] = $line[18];
+        if ($geslib_data["languages"][$line[20]] ) {
+          $item["language"] = $geslib_data["languages"][$line[20]];
+        } else {
+          $item["language"] = $line[20];
+        }
+  //          if ( $this->elements["format"][$line[21]] ) {
+  //            $item["format"] = $this->elements["format"][$line[21]];
+  //          } 
+  //          else {
+  //            $item["format"] = $line[21];
+  //          }
+        # Collection code is relative to publisher, so internal code should include it
+        //$item["collection"][] = array("gid" => $line[32] . "_" . $line[24]);
+        $item["subtitle"] = geslib_utf8_encode($line[26]);
+  //          if ( $this->elements["status"][$line[27]] ) {
+  //            $item["status"] = $this->elements["status"][$line[27]];
+  //          } 
+  //          else {
+  //            $item["status"] = $line[27];
+  //          }
+        //$item["tmr"] = $line[28];
+        //$item["list_price"] = str_replace(",", ".", $line[29]);	// PVP
+        //$item["sell_price"] = str_replace(",", ".", $line[29]);	// PVP
+        //$item["type"] = $line[30];
+        $item["classification"] = $line[31];
+        $item["publisher"][] =  $line[32];
+        $item["cost"] = str_replace(",", ".", $line[33]);
+        $item["weight"] = $line[35];
+        $item["width"] = $line[36];
+        $item["length"] = $line[37];
+        $item["length_unit"] = "cm";
+  //      if ($line[39] != "") {
+  //        $item["body"] = geslib_utf8_encode($line[39]);
+  //      }
+        $item["alt_location"] = geslib_utf8_encode($line[41]);
+        $item["vat"] = $line[42];
+        $item["CDU"] = $line[46];
+        $geslib_data[] = $item;
       }
-//          if ( $this->elements["format"][$line[21]] ) {
-//            $item["format"] = $this->elements["format"][$line[21]];
-//          } 
-//          else {
-//            $item["format"] = $line[21];
-//          }
-      # Collection code is relative to publisher, so internal code should include it
-      $item["collection"][] = array("gid" => $line[32] . "_" . $line[24]);
-      $item["subtitle"] = geslib_utf8_encode($line[26]);
-//          if ( $this->elements["status"][$line[27]] ) {
-//            $item["status"] = $this->elements["status"][$line[27]];
-//          } 
-//          else {
-//            $item["status"] = $line[27];
-//          }
-      $item["tmr"] = $line[28];
-      $item["list_price"] = str_replace(",", ".", $line[29]);	// PVP
-      $item["sell_price"] = str_replace(",", ".", $line[29]);	// PVP
-      $item["type"] = $line[30];
-      $item["classification"] = $line[31];
-      $item["publisher"][] =  $line[32];
-      $item["cost"] = str_replace(",", ".", $line[33]);
-      $item["weight"] = $line[35];
-      $item["width"] = $line[36];
-      $item["length"] = $line[37];
-      $item["length_unit"] = "cm";
-      if ($line[39] != "") {
-        $item["body"] = geslib_utf8_encode($line[39]);
-      }
-      $item["alt_location"] = geslib_utf8_encode($line[41]);
-      $item["vat"] = $line[42];
-      $item["CDU"] = $line[46];
-      $geslib_data['products'][$line[2]] = $item;
       break;
-     # Editoriales
-    case "1L":
-      $item['type'] = 'editorial';
-      $item['action'] = $line[1];
-      $item['title'] = geslib_utf8_encode($line[4]);
-      $geslib_data['editoriales'][$line[2]] = $item;
+    //Estados de artículos  
+    case "E":
+      $item['geslib_id'] = $line[1];
+      $item['estado'] = $line[2];
+      $item['type'] = 'estado';
+      $geslib_data[] = $item;
       break;
-    # Colecciones
-    default:
-      #print_r($line);
+    //Categoria del producto
+    case "5":
+      $item['type'] = 'producto_materia';
+      $item['geslib_id'] = $line[2];
+      $item['materia_id'] = $line[1];
+      $geslib_data[] = $item;
+      break;
+    //Sinopsis
+    case "6E":
+      $item['type'] = 'sinopsis';
+      $item['geslib_id'] = $line[1];
+      $item['sinopsis'] = $line[3];
+      $geslib_data[] = $item;
+      break;
+    //Stock
+    case "B":
+      $item['type'] = 'stock';
+      $item['geslib_id'] = $line[1];
+      $item['stock'] = $line[2];
+      $geslib_data[] = $item;
+      break;
     }
     
   
