@@ -103,6 +103,134 @@ function libro_field_default_fields() {
     ),
   );
 
+  // Exported field: 'commerce_product-libro-field_product_peso'.
+  $fields['commerce_product-libro-field_product_peso'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_product_peso',
+      'foreign keys' => array(),
+      'indexes' => array(
+        'weight' => array(
+          0 => 'weight',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'physical',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'physical_weight',
+    ),
+    'field_instance' => array(
+      'bundle' => 'libro',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'physical',
+          'settings' => array(),
+          'type' => 'physical_weight_formatted',
+          'weight' => 1,
+        ),
+        'line_item' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'node_teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'commerce_product',
+      'field_name' => 'field_product_peso',
+      'label' => 'Peso',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'physical',
+        'settings' => array(
+          'default_unit' => 'g',
+          'unit_select_list' => 1,
+        ),
+        'type' => 'physical_weight_textfield',
+        'weight' => '36',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-libro-field_libro_ano'.
+  $fields['node-libro-field_libro_ano'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_libro_ano',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'locked' => '0',
+      'module' => 'number',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'number_integer',
+    ),
+    'field_instance' => array(
+      'bundle' => 'libro',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'number',
+          'settings' => array(
+            'decimal_separator' => '.',
+            'prefix_suffix' => TRUE,
+            'scale' => 0,
+            'thousand_separator' => ' ',
+          ),
+          'type' => 'number_integer',
+          'weight' => 7,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_libro_ano',
+      'label' => 'Año',
+      'required' => 0,
+      'settings' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'number',
+        'settings' => array(),
+        'type' => 'number',
+        'weight' => '3',
+      ),
+    ),
+  );
+
   // Exported field: 'node-libro-field_libro_autores'.
   $fields['node-libro-field_libro_autores'] = array(
     'field_config' => array(
@@ -157,7 +285,7 @@ function libro_field_default_fields() {
         'module' => 'nlmfield',
         'settings' => array(),
         'type' => 'nlmfield_text',
-        'weight' => '-2',
+        'weight' => '6',
       ),
     ),
   );
@@ -226,7 +354,7 @@ function libro_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '-1',
+        'weight' => '7',
       ),
     ),
   );
@@ -297,7 +425,76 @@ function libro_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '1',
+        'weight' => '2',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-libro-field_libro_idioma'.
+  $fields['node-libro-field_libro_idioma'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_libro_idioma',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '255',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'libro',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 9,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_libro_idioma',
+      'label' => 'Idioma',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '10',
       ),
     ),
   );
@@ -366,7 +563,7 @@ function libro_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '-3',
+        'weight' => '4',
       ),
     ),
   );
@@ -435,44 +632,55 @@ function libro_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '0',
+        'weight' => '8',
       ),
     ),
   );
 
-  // Exported field: 'node-libro-field_libro_peso'.
-  $fields['node-libro-field_libro_peso'] = array(
+  // Exported field: 'node-libro-field_libro_portada'.
+  $fields['node-libro-field_libro_portada'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_libro_peso',
-      'foreign keys' => array(),
-      'indexes' => array(),
+      'field_name' => 'field_libro_portada',
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
       'locked' => '0',
-      'module' => 'number',
-      'settings' => array(),
+      'module' => 'image',
+      'settings' => array(
+        'default_image' => 0,
+        'uri_scheme' => 'public',
+      ),
       'translatable' => '0',
-      'type' => 'number_integer',
+      'type' => 'image',
     ),
     'field_instance' => array(
       'bundle' => 'libro',
-      'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'number',
+          'module' => 'image',
           'settings' => array(
-            'decimal_separator' => '.',
-            'prefix_suffix' => TRUE,
-            'scale' => 0,
-            'thousand_separator' => ' ',
+            'image_link' => '',
+            'image_style' => '',
           ),
-          'type' => 'number_integer',
-          'weight' => 6,
+          'type' => 'image',
+          'weight' => 10,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -482,22 +690,29 @@ function libro_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_libro_peso',
-      'label' => 'Peso',
+      'field_name' => 'field_libro_portada',
+      'label' => 'Portada',
       'required' => 0,
       'settings' => array(
-        'max' => '',
-        'min' => '',
-        'prefix' => '',
-        'suffix' => '',
+        'alt_field' => 0,
+        'default_image' => 0,
+        'file_directory' => 'portadas',
+        'file_extensions' => 'png gif jpg jpeg',
+        'max_filesize' => '',
+        'max_resolution' => '',
+        'min_resolution' => '',
+        'title_field' => 0,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
-        'active' => 0,
-        'module' => 'number',
-        'settings' => array(),
-        'type' => 'number',
-        'weight' => '2',
+        'active' => 1,
+        'module' => 'image',
+        'settings' => array(
+          'preview_image_style' => 'thumbnail',
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'image_image',
+        'weight' => '11',
       ),
     ),
   );
@@ -574,7 +789,143 @@ function libro_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'commerce_product_reference_autocomplete',
-        'weight' => '-4',
+        'weight' => '9',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-libro-field_libro_sinopsis'.
+  $fields['node-libro-field_libro_sinopsis'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_libro_sinopsis',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'text_long',
+    ),
+    'field_instance' => array(
+      'bundle' => 'libro',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 8,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_libro_sinopsis',
+      'label' => 'Sinopsis',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'rows' => '8',
+        ),
+        'type' => 'text_textarea',
+        'weight' => '5',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-libro-field_libro_subtitulo'.
+  $fields['node-libro-field_libro_subtitulo'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_libro_subtitulo',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '255',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'libro',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 6,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_libro_subtitulo',
+      'label' => 'Subtitulo',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '1',
       ),
     ),
   );
@@ -638,13 +989,18 @@ function libro_field_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Autores');
+  t('Año');
   t('Ean');
   t('Editorial');
+  t('Idioma');
   t('Isbn');
   t('Peso');
+  t('Portada');
   t('Price');
   t('Producto');
   t('Páginas');
+  t('Sinopsis');
+  t('Subtitulo');
   t('geslib_id');
 
   return $fields;
