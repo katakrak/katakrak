@@ -226,30 +226,44 @@ function libro_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '3',
+        'weight' => '4',
       ),
     ),
   );
 
-  // Exported field: 'node-libro-field_libro_autores'.
-  $fields['node-libro-field_libro_autores'] = array(
+  // Exported field: 'node-libro-field_libro_categoria'.
+  $fields['node-libro-field_libro_categoria'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '-1',
+      'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_libro_autores',
-      'foreign keys' => array(),
-      'indexes' => array(),
+      'field_name' => 'field_libro_categoria',
+      'foreign keys' => array(
+        'tid' => array(
+          'columns' => array(
+            'tid' => 'tid',
+          ),
+          'table' => 'taxonomy_term_data',
+        ),
+      ),
+      'indexes' => array(
+        'tid' => array(
+          0 => 'tid',
+        ),
+      ),
       'locked' => '0',
-      'module' => 'nlmfield',
+      'module' => 'taxonomy',
       'settings' => array(
-        'additional_namespaces' => '',
-        'nlmfield_namespace' => 'nlm',
-        'nlmfield_namespace_def_url' => 'http://www.ncbi.nlm.nih.gov',
+        'allowed_values' => array(
+          0 => array(
+            'vocabulary' => 'materias',
+            'parent' => '0',
+          ),
+        ),
       ),
       'translatable' => '0',
-      'type' => 'nlmfield_contributor',
+      'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
       'bundle' => 'libro',
@@ -259,12 +273,10 @@ function libro_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'nlmfield',
-          'settings' => array(
-            'token_preset' => 'fullname',
-          ),
-          'type' => 'nlmfield_token_preset',
-          'weight' => '2',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => 12,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -274,18 +286,18 @@ function libro_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_libro_autores',
-      'label' => 'Autores',
+      'field_name' => 'field_libro_categoria',
+      'label' => 'Categoria',
       'required' => 0,
       'settings' => array(
         'user_register_form' => FALSE,
       ),
       'widget' => array(
-        'active' => 0,
-        'module' => 'nlmfield',
+        'active' => 1,
+        'module' => 'options',
         'settings' => array(),
-        'type' => 'nlmfield_text',
-        'weight' => '6',
+        'type' => 'options_select',
+        'weight' => '3',
       ),
     ),
   );
@@ -430,6 +442,80 @@ function libro_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-libro-field_libro_estado'.
+  $fields['node-libro-field_libro_estado'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_libro_estado',
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => 'Disponible',
+          1 => 'No Disponible',
+          2 => 'Descatalogado',
+          3 => 'Agotado',
+          4 => 'Reimpresión',
+          5 => 'Pte. Confirmar',
+          6 => 'Próxima edición',
+          7 => 'Novedad. Próxima aparición',
+          8 => 'Edición no venal',
+        ),
+        'allowed_values_function' => '',
+      ),
+      'translatable' => '0',
+      'type' => 'list_text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'libro',
+      'default_value' => array(
+        0 => array(
+          'value' => '0Disponible',
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => 11,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_libro_estado',
+      'label' => 'Estado',
+      'required' => 1,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_select',
+        'weight' => '12',
+      ),
+    ),
+  );
+
   // Exported field: 'node-libro-field_libro_idioma'.
   $fields['node-libro-field_libro_idioma'] = array(
     'field_config' => array(
@@ -563,7 +649,7 @@ function libro_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '4',
+        'weight' => '5',
       ),
     ),
   );
@@ -856,7 +942,7 @@ function libro_field_default_fields() {
           'rows' => '8',
         ),
         'type' => 'text_textarea',
-        'weight' => '5',
+        'weight' => '6',
       ),
     ),
   );
@@ -986,12 +1072,76 @@ function libro_field_default_fields() {
     ),
   );
 
+  // Exported field: 'taxonomy_term-materias-field_materias_geslib_id'.
+  $fields['taxonomy_term-materias-field_materias_geslib_id'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_materias_geslib_id',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '255',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'materias',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'taxonomy_term',
+      'field_name' => 'field_materias_geslib_id',
+      'label' => 'geslib id',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '1',
+      ),
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
-  t('Autores');
   t('Año');
+  t('Categoria');
   t('Ean');
   t('Editorial');
+  t('Estado');
   t('Idioma');
   t('Isbn');
   t('Peso');
@@ -1001,6 +1151,7 @@ function libro_field_default_fields() {
   t('Páginas');
   t('Sinopsis');
   t('Subtitulo');
+  t('geslib id');
   t('geslib_id');
 
   return $fields;
