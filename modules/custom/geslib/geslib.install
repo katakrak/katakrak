@@ -31,60 +31,60 @@ function geslib_schema() {
     ),
     'primary key' => array('geslib_id', 'type'),
   );
-//$schema['geslib_log'] = array(
-//    'description' => 'Store geslib import activity.',
-//    'fields' => array(
-//      'id' => array(
-//        'description' => 'ID of import',
-//        'type' => 'serial',
-//        'unsigned' => TRUE,
-//        'not null' => TRUE,
-//      ),
-//      'start_date' => array(
-//        'description' => 'Importing beginning date',
-//        'type' => 'datetime',
-//        //'mysql_type' => 'datetime',      // The equivalent MySQL data type in Drupal7
-//        //'pgsql_type' => 'timestamp',    // The equivalent PostgreSQL data type in Drupal7
-//        'not null' => TRUE,
-//      ),
-//      'end_date' => array(
-//        'description' => 'Importing ending date',
-//        'type' => 'datetime',
-//        //'mysql_type' => 'datetime',      // The equivalent MySQL data type in Drupal7
-//        //'pgsql_type' => 'timestamp',    // The equivalent PostgreSQL data type in Drupal7
-//        'not null' => TRUE,
-//      ),
-//      'imported_file' => array(
-//        'description' => 'Imported file',
-//        'type' => 'varchar',
-//        'length' => 128,
-//        'not null' => TRUE,
-//      ),
-//      'component' => array(
-//        'description' => 'Element imported.',
-//        'type' => 'varchar',
-//        'length' => 32,
-//        'not null' => TRUE,
-//      ),
-//      'count' => array(
-//        'description' => 'Number of imported elements.',
-//        'type' => 'int',
-//        'unsigned' => TRUE,
-//      ),
-//      'status' => array(
-//        'description' => 'Import status',
-//        'type' => 'varchar',
-//        'length' => 32,
-//      ), 
-//      'uid' => array(
-//        'description' => 'User id.',
-//        'type' => 'int',
-//        'unsigned' => TRUE,
-//        'not null' => TRUE,
-//        'default' => 0,
-//      ),
-//    ),
-//    'primary key' => array('id'),
-//  );
+  $schema['geslib_log'] = array(
+    'description' => 'Store geslib import activity.',
+    'fields' => array(
+      'id' => array(
+        'description' => 'ID of import',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'start_date' => array(
+        'description' => 'Importing beginning date',
+        'type' => 'int',
+        //'mysql_type' => 'datetime',      // The equivalent MySQL data type in Drupal7
+        //'pgsql_type' => 'timestamp',    // The equivalent PostgreSQL data type in Drupal7
+        'not null' => TRUE,
+      ),
+      'end_date' => array(
+        'description' => 'Importing ending date',
+        'type' => 'int',
+        //'mysql_type' => 'datetime',      // The equivalent MySQL data type in Drupal7
+        //'pgsql_type' => 'timestamp',    // The equivalent PostgreSQL data type in Drupal7
+        'not null' => TRUE,
+      ),
+      'imported_file' => array(
+        'description' => 'Imported file',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+      ),
+      'component' => array(
+        'description' => 'Element imported.',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+      ),
+      'count' => array(
+        'description' => 'Number of imported elements.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+      ),
+      'status' => array(
+        'description' => 'Import status',
+        'type' => 'varchar',
+        'length' => 32,
+      ), 
+      'uid' => array(
+        'description' => 'User id.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('id'),
+  );
   return $schema;
 }

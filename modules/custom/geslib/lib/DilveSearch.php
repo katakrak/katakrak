@@ -137,7 +137,7 @@ class DilveSearch {
           case "05":
           case "06":
             # Its better dilve uris
-            if ( !$book["cover_url"] || $media->MediaFileLinkTypeCode == "06" ) {
+            if (!$book["cover_url"] || $media->MediaFileLinkTypeCode == "06") {
               $book["cover_url"] = $this->get_file_url((string) $media->MediaFileLink, $isbn);
             }
             break;

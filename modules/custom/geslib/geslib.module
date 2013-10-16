@@ -20,17 +20,19 @@ function geslib_menu() {
     'access arguments' => array('geslib_content import'),
     'type' => MENU_NORMAL_ITEM,
   );
+  $items['admin/config/dilve'] = array(
+    'title' => 'LHA Dilve',
+    'description' => 'Dilve options',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('lha_dilve_admin_settings'),
+    'access arguments' => array('administer site configuration'),
+  );
   return $items;
 }
 
 
 function geslib_import_form($form, &$form_state) {
-//  $result = db_select('commerce_product', 'p')->fields('p')
-//  ->execute()->fetchAll();
-//  foreach ($result as $row) {
-//    commerce_product_delete($row->product_id);
-//  }
-  //$libro = commerce_product_load(38);dpm($libro);
+   
   $geslib_dir = DRUPAL_ROOT.'/sites/default/files/geslib';
   $files = scandir(DRUPAL_ROOT.'/sites/default/files/geslib');
   foreach ($files as $key => $value) {
@@ -49,23 +51,76 @@ function geslib_import_form($form, &$form_state) {
     '#type' => 'submit',
     '#value' => 'Submit',
   );
+  $form['borrar items'] = array(
+    '#type' => 'submit',
+    '#value' => 'Borrar todo',
+  );
   
   return $form;
 }
 
-function geslib_import_form_submit($form, &$form_state) {
-  
-  $batch = array(
-    'title' => t('Importando artículos de geslib'),
-    'operations' => array(
-      array('geslib_process_read_file', array($form_state['values']['geslib_file'])),
-      array('geslib_process_create_items'),
-      array('geslib_process_get_data_from_dilve'),
-    ),
-    'finished' => 'geslib_process_finish',
-    'file' => 'geslib.batch.inc',
+/**
+ *
+ */
+function lha_dilve_admin_settings() {
+//  $a = db_select('geslib_lines', 'g')->fields('g')->condition('geslib_id', '2837')->condition('type', 'product')
+//    ->execute()->fetchObject();
+//  dpm($a);
+//  dpm(unserialize($a->content));
+  dpm(commerce_product_load(79947));
+  dpm(explode('|', 'GP4|A|14670|DE LA DEMOCRACIA ATENIENSE A LA DEMOCRACIA PARITAR|PEREZ CANTO PILAR|2829|978-84-9888-051-9|9788498880519|232|1|ICARIA|20090601||2011|    |||0|20111013||001|10|||1|3||0|3,00|17,00|L0|1|78|16,35||297|134|216|||||4,00|||0,00|||||N|N||'));
+  dpm(floatval(NULL));
+//  dpm(intval('0001'));
+  $vocabularies = taxonomy_get_vocabularies();
+  dpm($vocabularies); 
+  dpm(taxonomy_get_term_by_name('Fortiori'));
+  $form['lha_dilve_user'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Nombre de usuario'),
+    '#description' => t('Nombre de usuario en Dilve'),
+    '#size' => 30,
+    '#default_value' => variable_get('lha_dilve_user', ''),
   );
-  batch_set($batch);
+  $form['lha_dilve_pass'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Contraseña'),
+    '#description' => t('Contraseña en Dilve'),
+    '#size' => 30,
+    '#default_value' => variable_get('lha_dilve_pass', ''),
+  );
+  return system_settings_form($form);
+}
+
+function geslib_import_form_submit($form, &$form_state) {
+ 
+  if ($form_state['clicked_button']['#value'] == 'Borrar todo') {
+    $batch = array(
+      'title' => t('Eliminando todos los elementos'),
+      'operations' => array(
+        array('geslib_process_delete_categories', array()),
+        array('geslib_process_delete_products', array()), 
+        array('geslib_process_delete_nodes', array()),
+      ),
+      'finished' => 'geslib_process_finish',
+      'file' => drupal_get_path('module', 'geslib').'/geslib.batch.inc',
+    );
+    batch_set($batch);
+  }
+  else {
+    $batch = array(
+      'title' => t('Importando artículos de geslib'),
+      'operations' => array(
+          array('geslib_process_read_file', array($form_state['values']['geslib_file'])),
+          array('geslib_process_create_publishers', array()), 
+          array('geslib_process_create_categories', array() ),
+          array('geslib_process_create_products', array() ),
+          //array('geslib_process_dilve', array() ),
+      ),
+      'finished' => 'geslib_process_finish',
+      'file' => drupal_get_path('module', 'geslib').'/geslib.batch.inc',
+    );
+    batch_set($batch);
+  }
 }
 
 
@@ -85,13 +140,13 @@ function geslib_process_line($line, &$geslib_data) {
         $item['type'] = 'discografica';
         $item['geslib_id'] = $line[2];
       }
-      $geslib_data[] = $item;
+      //$geslib_data[] = $item;
       break;
       # Editoriales
     case "1L":
       if ($line[1] != 'B') {
         $item['action'] = $line[1];
-        $item['title'] = geslib_utf8_encode($line[4]);
+        $item['title'] = geslib_utf8_encode($line[3]);
         $item['type'] = 'editorial';
         $item['geslib_id'] = $line[2];
         $geslib_data[] = $item;
@@ -118,7 +173,6 @@ function geslib_process_line($line, &$geslib_data) {
         $item['title'] = geslib_utf8_encode($line[3]);
         $item['price'] = str_replace(",", "", $line[29]);
         $authors = get_multiple_authors(geslib_utf8_encode($line[4]));
-        //dpm($authors);
         foreach($authors as $author) {
           $author_name = trim($author);
           if ($author_name != "") {
@@ -134,7 +188,7 @@ function geslib_process_line($line, &$geslib_data) {
         }
 
         $item["pages"] = $line[8];
-        $item["edition"] = $line[9];
+        //$item["edition"] = $line[9];
         $item["origen_edicion"] = geslib_utf8_encode($line[10]);
         $item["edition_date"] = $line[11];
         $item["fecha_reedicion"] = $line[12];
@@ -142,54 +196,29 @@ function geslib_process_line($line, &$geslib_data) {
         $item["ano_ultima_edicion"] = $line[14];
         $item["location"] = geslib_utf8_encode($line[15]);
         $item["stock"] = intval($line[16]);
-        $item["seccion"] = geslib_utf8_encode($line[17]);
+        $item["materia"] = $line[17];
         $item["registration_date"] = $line[18];
-        if ($geslib_data["languages"][$line[20]] ) {
-          $item["language"] = $geslib_data["languages"][$line[20]];
-        } else {
-          $item["language"] = $line[20];
-        }
-  //          if ( $this->elements["format"][$line[21]] ) {
-  //            $item["format"] = $this->elements["format"][$line[21]];
-  //          } 
-  //          else {
-  //            $item["format"] = $line[21];
-  //          }
+        $item["language"] = intval($line[20]);
+        $item["subtitle"] = geslib_utf8_encode($line[26]);
+        $item["status"] = $line[27];
         # Collection code is relative to publisher, so internal code should include it
         //$item["collection"][] = array("gid" => $line[32] . "_" . $line[24]);
-        $item["subtitle"] = geslib_utf8_encode($line[26]);
-  //          if ( $this->elements["status"][$line[27]] ) {
-  //            $item["status"] = $this->elements["status"][$line[27]];
-  //          } 
-  //          else {
-  //            $item["status"] = $line[27];
-  //          }
         //$item["tmr"] = $line[28];
         //$item["list_price"] = str_replace(",", ".", $line[29]);	// PVP
         //$item["sell_price"] = str_replace(",", ".", $line[29]);	// PVP
         //$item["type"] = $line[30];
         $item["classification"] = $line[31];
-        $item["publisher"][] =  $line[32];
+        $item["publisher"] =  $line[32];
         $item["cost"] = str_replace(",", ".", $line[33]);
         $item["weight"] = $line[35];
         $item["width"] = $line[36];
         $item["length"] = $line[37];
         $item["length_unit"] = "cm";
-  //      if ($line[39] != "") {
-  //        $item["body"] = geslib_utf8_encode($line[39]);
-  //      }
         $item["alt_location"] = geslib_utf8_encode($line[41]);
         $item["vat"] = $line[42];
         $item["CDU"] = $line[46];
         $geslib_data[] = $item;
       }
-      break;
-    //Estados de artículos  
-    case "E":
-      $item['geslib_id'] = $line[1];
-      $item['estado'] = $line[2];
-      $item['type'] = 'estado';
-      $geslib_data[] = $item;
       break;
     //Categoria del producto
     case "5":
@@ -202,7 +231,7 @@ function geslib_process_line($line, &$geslib_data) {
     case "6E":
       $item['type'] = 'sinopsis';
       $item['geslib_id'] = $line[1];
-      $item['sinopsis'] = $line[3];
+      $item['sinopsis'] = geslib_utf8_encode($line[3]);
       $geslib_data[] = $item;
       break;
     //Stock
