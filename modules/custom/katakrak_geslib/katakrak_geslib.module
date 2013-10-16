@@ -1,0 +1,170 @@
+<?php
+
+
+/*
+ * Implementation of hook_geslib_publisher
+ */
+function katakrak_geslib_geslib_publisher($op, $publisher) {
+  switch ($op) {
+    case 'create':
+      $term = new stdClass();
+      foreach (taxonomy_get_vocabularies() as $vid => $vocab){
+        if ($vocab->name == 'Editoriales') {
+          $term->vid = $vid ;
+        }
+      }
+      $term->name = ucwords(strtolower($publisher['title']));
+      $term->field_editorial_geslib_id['und'][0]['value'] = $publisher['geslib_id'];
+      taxonomy_term_save($term);
+      break;
+    case 'update':
+      break;
+    case 'delete':
+      break;
+  }
+}
+
+/*
+ * Implementation of hook_geslib_category
+ */
+function katakrak_geslib_geslib_category($op, $category) {
+switch ($op) {
+    case 'create':
+      $term = new stdClass();
+      foreach (taxonomy_get_vocabularies() as $vid => $vocab){
+        if ($vocab->name == 'Materias') {
+          $term->vid = $vid ;
+        }
+      }
+      $term->name = ucwords(strtolower($category['name']));
+      $term->field_materias_geslib_id['und'][0]['value'] = $category['geslib_id'];
+      taxonomy_term_save($term);
+      break;
+    case 'update':
+      break;
+    case 'delete':
+      break;
+  }
+}
+
+function katakrak_geslib_geslib_product($op, $product) {
+  switch ($op) {
+    case 'create':
+      $commerce_product = new stdClass();
+      $commerce_product->type = 'libro';
+      $commerce_product->sku = $product['geslib_id'];
+      $commerce_product->title = $product['title'];
+      $commerce_product->commerce_price['und'][0] = array(
+        'amount' => $product['price'],
+        'currency_code' => 'EUR',
+        'data' => array(
+          'include_tax' =>  'iva'
+        ),
+      );
+      if ($product['weight']) {
+        $commerce_product->field_product_peso['und'][0] = array(
+          'weight' => intval($product['weight']),
+          'unit' => 'g',
+        );
+      }
+      $commerce_product->commerce_stock['und'][0]['value'] = floatval($product['stock']);
+      
+      commerce_product_save($commerce_product);
+
+      $node = new stdClass();
+      $node->type = 'libro';
+      $node->title = $product['title'];
+      $node->field_libro_producto['und'][0]['product_id'] = $commerce_product->product_id;
+      $node->field_libro_isbn['und'][0]['value'] = $product['isbn'];
+      $node->field_libro_ean['und'][0]['value'] = $product['ean'];
+      $node->field_libro_paginas['und'][0]['value'] = $product['pages'];
+      $node->field_libro_subtitulo['und'][0]['value'] = $product['subtitulo'];
+      $node->field_libro_ano['und'][0]['value'] = $product['year'];
+      $node->field_libro_sinopsis['und'][0]['value'] = $product['sinopsis'];
+      $node->field_libro_estado['und'][0]['value'] = $product['status'];
+      $node->field_libro_idioma['und'][0]['value'] = $product['language'];
+      if ($product['materia']) {
+        $materia_tid = get_materia_by_geslib_id($product['materia']);
+        if ($materia_tid)
+          $node->field_libro_categoria['und'][0]['tid'] = $materia_tid;
+      }
+
+      $editorial_tid = get_editorial_by_geslib_id($product['publisher']);
+      if ($editorial_tid)
+        $node->field_libro_editorial['und'][0]['tid'] = $editorial_tid;
+
+      node_save($node);
+      break;
+  }
+}
+
+function get_tid_by_geslib_id($geslib_id, $type) {
+  if ($type == 'editorial') {
+    return db_select('field_data_field_editorial_geslib_id', 'g')->fields('g', array('entity_id'))
+    ->condition('field_editorial_geslib_id_value', $geslib_id)->execute()->fetchField();
+  }
+  if ($type == 'materia') {
+    return db_select('field_data_field_materias_geslib_id', 'g')->fields('g', array('entity_id'))
+    ->condition('field_materias_geslib_id_value', $geslib_id)->execute()->fetchField();
+  }
+}
+
+function get_editorial_by_geslib_id($geslib_id) {
+  return db_select('field_data_field_editorial_geslib_id', 'g')->fields('g', array('entity_id'))
+    ->condition('field_editorial_geslib_id_value', $geslib_id)->execute()->fetchField();
+}
+
+function get_materia_by_geslib_id($geslib_id) {
+  return db_select('field_data_field_materias_geslib_id', 'g')->fields('g', array('entity_id'))
+    ->condition('field_materias_geslib_id_value', $geslib_id)->execute()->fetchField();
+}
+
+/**
+ * Implementation of hook_geslib_dilve
+ */
+
+function katakrak_geslib_dilve_process($libro, $dilve_book) {
+  $libro->title = $dilve_book['title'];
+  if ($dilve_book['subtitle'])
+    $libro->field_libro_subtitulo['und'][0]['value'] = $dilve_book['subtitle'];
+  if ($dilve_book['cover_url']) {
+    //download_cover($dilve_book['cover_url'], $dilve_book['isbn']);
+  }
+  if ($dilve_book['description']) {
+    $libro->field_libro_sinopsis['und'][0]['value'] = $dilve_book['description'];
+  }
+  node_save($libro);
+}
+
+/**
+ * 
+ * @param type $url
+ * @param type $isbn
+ * @return type
+ */
+function download_cover($url, $isbn) {
+  
+  $ext = substr($url, strrpos($url, '.') + 1);
+  
+  $download_path = dirname(__FILE__) . '/../../../../default/files/'. $isbn . '.' . $ext;
+  
+  $fp = fopen ($download_path, 'w+');
+
+  $ch = curl_init($url);
+
+  curl_setopt_array($ch, array(
+  CURLOPT_URL            => $url,
+  CURLOPT_BINARYTRANSFER => 1,
+  CURLOPT_RETURNTRANSFER => 1,
+  CURLOPT_FILE           => $fp,
+  CURLOPT_TIMEOUT        => 50,
+  CURLOPT_USERAGENT      => 'Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)'
+  ));
+
+  $results = curl_exec($ch);
+  if(curl_exec($ch) === false)
+  {
+    echo 'Curl error: ' . curl_error($ch);
+  }
+  return 'sites/default/files/' . $isbn . '.' . $ext;
+}
