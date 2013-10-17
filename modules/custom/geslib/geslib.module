@@ -1,7 +1,7 @@
 <?php
 
-include_once dirname(__FILE__) . '/lib/Encoding.php';
-//include_once dirname(__FILE__) . '/lib/GeslibReader.php';
+include_once dirname(__FILE__) . '/geslib.api.inc';
+include_once dirname(__FILE__) . '/lib/InetBookSearch.php';
 
 
 /**
@@ -63,17 +63,11 @@ function geslib_import_form($form, &$form_state) {
  *
  */
 function lha_dilve_admin_settings() {
-//  $a = db_select('geslib_lines', 'g')->fields('g')->condition('geslib_id', '2837')->condition('type', 'product')
-//    ->execute()->fetchObject();
-//  dpm($a);
-//  dpm(unserialize($a->content));
-  dpm(commerce_product_load(79947));
-  dpm(explode('|', 'GP4|A|14670|DE LA DEMOCRACIA ATENIENSE A LA DEMOCRACIA PARITAR|PEREZ CANTO PILAR|2829|978-84-9888-051-9|9788498880519|232|1|ICARIA|20090601||2011|    |||0|20111013||001|10|||1|3||0|3,00|17,00|L0|1|78|16,35||297|134|216|||||4,00|||0,00|||||N|N||'));
-  dpm(floatval(NULL));
-//  dpm(intval('0001'));
-  $vocabularies = taxonomy_get_vocabularies();
-  dpm($vocabularies); 
-  dpm(taxonomy_get_term_by_name('Fortiori'));
+//  $inet = new InetBookSearch();
+//  dpm($inet->search_ttl("9788496453586"));
+//  dpm($inet->search_google("9788496453586"));
+  $portada = drupal_http_request('http://image.casadellibro.com/libros/0/revolucion-punto-cero-9788496453784.jpg');
+  file_put_contents('/tmp/9788496453784.jpg', $portada->data);
   $form['lha_dilve_user'] = array(
     '#type' => 'textfield',
     '#title' => t('Nombre de usuario'),
@@ -113,6 +107,7 @@ function geslib_import_form_submit($form, &$form_state) {
           array('geslib_process_read_file', array($form_state['values']['geslib_file'])),
           array('geslib_process_create_publishers', array()), 
           array('geslib_process_create_categories', array() ),
+          array('geslib_process_create_autores', array() ),
           array('geslib_process_create_products', array() ),
           //array('geslib_process_dilve', array() ),
       ),
@@ -124,149 +119,3 @@ function geslib_import_form_submit($form, &$form_state) {
 }
 
 
-/**
-  * Process geslib line and insert it in $elements array
-  *
-  * @param $line
-  *     CVS line from geslib file 
-  */
-function geslib_process_line($line, &$geslib_data) {
-  switch ($line[0]) {
-     #Discográficas
-    case "1A":
-      if ($line[1] != 'B') {
-        $item['action'] = $line[1];
-        $item['title'] = geslib_utf8_encode($line[4]);
-        $item['type'] = 'discografica';
-        $item['geslib_id'] = $line[2];
-      }
-      //$geslib_data[] = $item;
-      break;
-      # Editoriales
-    case "1L":
-      if ($line[1] != 'B') {
-        $item['action'] = $line[1];
-        $item['title'] = geslib_utf8_encode($line[3]);
-        $item['type'] = 'editorial';
-        $item['geslib_id'] = $line[2];
-        $geslib_data[] = $item;
-      }
-      break;
-    //Materias
-    case "3":
-      if ($line[1] != 'B') {
-        $item["action"] = $line[1];
-        $item["geslib_id"] = $line[2];
-        $item['name'] = geslib_utf8_encode($line[3]);
-        $item['type'] = 'materia';
-        $geslib_data[] = $item; 
-      }
-      break;
-    # eBooks (igual que articulos)
-    case "EB":
-    # Articulos
-    case "GP4":
-      if ($line[1] != 'B') {
-        $item['type'] = 'product';
-        $item['action'] = $line[1];
-        $item['geslib_id'] = $line[2];
-        $item['title'] = geslib_utf8_encode($line[3]);
-        $item['price'] = str_replace(",", "", $line[29]);
-        $authors = get_multiple_authors(geslib_utf8_encode($line[4]));
-        foreach($authors as $author) {
-          $author_name = trim($author);
-          if ($author_name != "") {
-            $item['authors'][] = $author_name;
-          }
-        }
-        $item["isbn"] = $line[6];	//ISBN (por si se quiere seleccionar)
-        if ($line[7]) {
-          $item["ean"] = $line[7];
-        } 
-        else {
-          $item["ean"] = str_replace('-','',$line[6]); 
-        }
-
-        $item["pages"] = $line[8];
-        //$item["edition"] = $line[9];
-        $item["origen_edicion"] = geslib_utf8_encode($line[10]);
-        $item["edition_date"] = $line[11];
-        $item["fecha_reedicion"] = $line[12];
-        $item["year"] = $line[13];
-        $item["ano_ultima_edicion"] = $line[14];
-        $item["location"] = geslib_utf8_encode($line[15]);
-        $item["stock"] = intval($line[16]);
-        $item["materia"] = $line[17];
-        $item["registration_date"] = $line[18];
-        $item["language"] = intval($line[20]);
-        $item["subtitle"] = geslib_utf8_encode($line[26]);
-        $item["status"] = $line[27];
-        # Collection code is relative to publisher, so internal code should include it
-        //$item["collection"][] = array("gid" => $line[32] . "_" . $line[24]);
-        //$item["tmr"] = $line[28];
-        //$item["list_price"] = str_replace(",", ".", $line[29]);	// PVP
-        //$item["sell_price"] = str_replace(",", ".", $line[29]);	// PVP
-        //$item["type"] = $line[30];
-        $item["classification"] = $line[31];
-        $item["publisher"] =  $line[32];
-        $item["cost"] = str_replace(",", ".", $line[33]);
-        $item["weight"] = $line[35];
-        $item["width"] = $line[36];
-        $item["length"] = $line[37];
-        $item["length_unit"] = "cm";
-        $item["alt_location"] = geslib_utf8_encode($line[41]);
-        $item["vat"] = $line[42];
-        $item["CDU"] = $line[46];
-        $geslib_data[] = $item;
-      }
-      break;
-    //Categoria del producto
-    case "5":
-      $item['type'] = 'producto_materia';
-      $item['geslib_id'] = $line[2];
-      $item['materia_id'] = $line[1];
-      $geslib_data[] = $item;
-      break;
-    //Sinopsis
-    case "6E":
-      $item['type'] = 'sinopsis';
-      $item['geslib_id'] = $line[1];
-      $item['sinopsis'] = geslib_utf8_encode($line[3]);
-      $geslib_data[] = $item;
-      break;
-    //Stock
-    case "B":
-      $item['type'] = 'stock';
-      $item['geslib_id'] = $line[1];
-      $item['stock'] = $line[2];
-      $geslib_data[] = $item;
-      break;
-    }
-}
-
-
-
-  /**
-  * Convert and Fix UTF8 strings
-  *
-  * @param $string
-  *     String to be fixed
-  *
-  * Returns
-  *     $string
-  */
-  function geslib_utf8_encode($string) {
-    if ($string) {
-      return Encoding::fixUTF8(mb_check_encoding($string, 'UTF-8') ? $string : utf8_encode($string));
-    } else {
-      return NULL;
-    }
-  }
-  
-  function get_multiple_authors($string) {
-    $authors = explode(";", $string);
-    if (count($authors) == 1) {
-      $authors = explode("/", $string);
-    }
-    return $authors;
-  }  

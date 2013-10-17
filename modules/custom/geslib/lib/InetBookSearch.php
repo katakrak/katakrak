@@ -58,11 +58,12 @@ class InetBookSearch {
     libxml_use_internal_errors(true);
     $book = array();
     $url = 'http://books.google.com/books?q=isbn%3A'.$isbn;
-    $book_data =  file_get_contents($url);
+    $book_data = drupal_http_request($url);
+    dpm($book_data);
     #print "\n------------------> ".$book_data."\n";
     $dom = new DOMDocument();
     $dom->preserveWhiteSpace = false;
-    $dom->loadHTML($book_data);
+    $dom->loadHTML($book_data->data);
     $xpath = new DOMXpath($dom);
     $books = $xpath->query("//h2[@class='resbdy']//a");
 
@@ -112,17 +113,18 @@ class InetBookSearch {
 
     $url = 'http://www.todostuslibros.com';
     #print "----------------> " . $url;
-    $book_data =  file_get_contents($url . '/busquedas/?keyword='.$isbn);
+    $book_data = drupal_http_request(sprintf("%s/busquedas/?keyword=%s", $url, $isbn));
     #print "\n------------------> ".$book_data."\n";
+    
     $dom = new DOMDocument();
     $dom->preserveWhiteSpace = false;
-    $dom->loadHTML($book_data);
+    $dom->loadHTML($book_data->data);
 
     $xpath = new DOMXpath($dom);
     $books = $xpath->query("//div[@class='details']//h2//a");
 
     if ($books->length > 0) {
-      #print "\n\nTENEMOS EL ENLACE AL LIBRO!!!!!---------------------------------------------\n\n";
+      dpm("TENEMOS EL ENLACE AL LIBRO!");
       #var_dump($books->item(0)->nodeValue);
       #var_dump($books->item(0)->getAttribute('href'));
       $book_path = $books->item(0)->getAttribute('href');
