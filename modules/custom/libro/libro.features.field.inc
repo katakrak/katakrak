@@ -524,39 +524,44 @@ function libro_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_libro_idioma',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
+      'foreign keys' => array(),
       'indexes' => array(
-        'format' => array(
-          0 => 'format',
+        'value' => array(
+          0 => 'value',
         ),
       ),
       'locked' => '0',
-      'module' => 'text',
+      'module' => 'list',
       'settings' => array(
-        'max_length' => '255',
+        'allowed_values' => array(
+          1 => 'Castellano',
+          2 => 'Inglés',
+          3 => 'Catalán',
+          4 => 'Gallego',
+          5 => 'Euskera',
+          6 => 'Francés',
+        ),
+        'allowed_values_function' => '',
       ),
       'translatable' => '0',
-      'type' => 'text',
+      'type' => 'list_text',
     ),
     'field_instance' => array(
       'bundle' => 'libro',
-      'default_value' => NULL,
+      'default_value' => array(
+        0 => array(
+          'value' => '1',
+        ),
+      ),
       'deleted' => '0',
       'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
+          'module' => 'list',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 9,
+          'type' => 'list_default',
+          'weight' => 13,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -570,17 +575,14 @@ function libro_field_default_fields() {
       'label' => 'Idioma',
       'required' => 0,
       'settings' => array(
-        'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'size' => '60',
-        ),
-        'type' => 'text_textfield',
-        'weight' => '10',
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_select',
+        'weight' => '13',
       ),
     ),
   );

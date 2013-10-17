@@ -10,6 +10,12 @@ function geslib_schema() {
   $schema['geslib_lines'] = array(
     'description' => 'Temporary table with all the data for the first import.',
     'fields' => array(
+      'id' => array(
+        'description' => 'Serial',
+        'type' => 'serial',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
       'geslib_id' => array(
         'description' => 'Geslib ID.',
         'type' => 'varchar',
@@ -29,7 +35,7 @@ function geslib_schema() {
         'not null' => TRUE,
       ),
     ),
-    'primary key' => array('geslib_id', 'type'),
+    'primary key' => array('id'),
   );
   $schema['geslib_log'] = array(
     'description' => 'Store geslib import activity.',
