@@ -57,6 +57,10 @@ function geslib_process_read_file($geslib_file_path, &$context) {
   }
 }
 
+/**
+ * Process all the publishers and call the hook 
+ * @param type $context
+ */
 function geslib_process_create_publishers(&$context) {
   if (!isset($context['sandbox']['progress'])) {
     $publishers_db = db_select('geslib_lines', 'g')->condition('type', 'editorial')
@@ -87,6 +91,10 @@ function geslib_process_create_publishers(&$context) {
   }
 }
 
+/**
+ * Process all the categories and call the hook 
+ * @param type $context
+ */
 function geslib_process_create_categories(&$context) {
   if (!isset($context['sandbox']['progress'])) {
     $categories_db = db_select('geslib_lines', 'g')->condition('type', 'materia')
@@ -116,6 +124,10 @@ function geslib_process_create_categories(&$context) {
   }
 }
 
+/**
+ * Process all the authors and call the hook 
+ * @param type $context
+ */
 function geslib_process_create_autores(&$context) {
   if (!isset($context['sandbox']['progress'])) {
     $autores_db = db_select('geslib_lines', 'g')->condition('type', 'autor')
@@ -145,6 +157,10 @@ function geslib_process_create_autores(&$context) {
   }
 }
 
+/**
+ * Process all the products and call the hook 
+ * @param type $context
+ */
 function geslib_process_create_products(&$context) {
   if (!isset($context['sandbox']['progress'])) {
     $products_db = db_select('geslib_lines', 'g')->condition('type', 'product')
@@ -154,7 +170,7 @@ function geslib_process_create_products(&$context) {
     $context['results']['items']['products'] = 0;
   }
   
-  $limit = 1000;
+  $limit = 500;
   
   $lines = db_select('geslib_lines', 'g')->condition('type', 'product')->fields('g')
     ->range(0, $limit)->execute()->fetchAll();
@@ -196,40 +212,14 @@ function geslib_process_create_products(&$context) {
   }
 }
 
-function geslib_process_dilve(&$context){
-  include_once 'lib/DilveSearch.php';
-  if (!isset($context['sandbox']['progress'])) {
-    $nodes = db_select('node', 'n')->condition('type', 'libro')
-      ->fields('n', array('nid'))->execute();
-    $context['sandbox']['progress'] = 0;
-    $context['sandbox']['max'] = $nodes->rowCount();
-    
-  }
-  
-  $dilve  = new DilveSearch(variable_get('lha_dilve_user', ''), variable_get('lha_dilve_pass', ''));
-  $limit = 100;
-  $nids = db_select('node', 'n')->condition('type', 'libro')->fields('n')
-    ->range($context['sandbox']['progress'], $limit)->execute()->fetchAll();
-  foreach ($nids as $nid) {
-    $libro = node_load($nid->nid);
-    $book = $dilve->search($libro->field_libro_ean['und'][0]['value']);
-    
-    if (is_array($book)) {
-      module_invoke_all('dilve_process', $libro, $book);
-      $context['results']['dilve_good']++;
-    }
-    else {
-      $context['results']['dilve_bad']++;
-    }
-    $context['sandbox']['progress'] += 1;
-  }
-  $context['message'] = t("Processed @progress of @max books", array('@progress' => $context['sandbox']['progress'], '@max' => $context['sandbox']['max']));
-  if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
-    $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
-  }
-}
-
-
+/**
+ * Finish callback. Record log of the operations
+ * 
+ * @global type $user
+ * @param type $success
+ * @param type $results
+ * @param type $operations
+ */
 function geslib_process_finish($success, $results, $operations) {
   if ($success) {
     global $user;
@@ -259,6 +249,14 @@ function geslib_process_finish($success, $results, $operations) {
   }
 }
 
+/***********************************************************
+  DELETE FUNCTIONS
+ **********************************************************/
+
+/**
+ * Delete all the taxonomies
+ * @param type $context
+ */
 function geslib_process_delete_categories(&$context) {
   if (!isset($context['sandbox']['progress'])) {
     $terms = db_select('taxonomy_term_data', 't')->fields('t')->execute();
@@ -284,6 +282,10 @@ function geslib_process_delete_categories(&$context) {
   
 }
 
+/**
+ * Delete all the products
+ * @param type $context
+ */
 function geslib_process_delete_products(&$context) {
   if (!isset($context['sandbox']['progress'])) {
     $products = db_select('commerce_product', 'p')->fields('p')->execute();
@@ -308,7 +310,10 @@ function geslib_process_delete_products(&$context) {
   
 }
 
-
+/**
+ * Delete all the nodes
+ * @param type $context
+ */
 function geslib_process_delete_nodes(&$context){
   if (!isset($context['sandbox']['progress'])) {
     $nodes_db = db_select('node', 'n')->fields('n')->condition('type', 'libro')->execute();
