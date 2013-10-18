@@ -97,23 +97,16 @@ function geslib_process_line($line, &$geslib_data) {
         $item['geslib_id'] = $line[2];
         $item['title'] = geslib_utf8_encode($line[3]);
         $item['price'] = str_replace(",", "", $line[29]);
-//        $authors = get_multiple_authors(geslib_utf8_encode($line[4]));
-//        foreach($authors as $author) {
-//          $author_name = trim($author);
-//          if ($author_name != "") {
-//            $item['authors'][] = $author_name;
-//          }
-//        }
-        $item["isbn"] = $line[6];	//ISBN (por si se quiere seleccionar)
+        $item["isbn"] = geslib_utf8_encode($line[6]);	//ISBN (por si se quiere seleccionar)
         if ($line[7]) {
-          $item["ean"] = $line[7];
+          $item["ean"] = intval($line[7]);
         } 
         else {
           $item["ean"] = str_replace('-','',$line[6]); 
         }
 
         $item["pages"] = $line[8];
-        //$item["edition"] = $line[9];
+        $item["edition"] = geslib_utf8_encode($line[9]);
         $item["origen_edicion"] = geslib_utf8_encode($line[10]);
         $item["edition_date"] = $line[11];
         $item["fecha_reedicion"] = $line[12];

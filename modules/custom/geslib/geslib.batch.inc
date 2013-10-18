@@ -13,7 +13,8 @@ function geslib_process_read_file($geslib_file_path, &$context) {
   if (!isset($context['sandbox']['progress'])) {
     $context['sandbox']['progress'] = 0;
     $context['sandbox']['max'] = count($geslib_file_array);
-    $context['results']['lines'] = 0;
+    $context['results']['lines'] = count($geslib_file_array);
+    $context['results']['start_date'] = REQUEST_TIME;
     $context['results']['inter_file'] = substr($geslib_file_path, strrpos($geslib_file_path, '/') +1);
   }
   
@@ -72,7 +73,7 @@ function geslib_process_create_publishers(&$context) {
   
   foreach ($lines as $line) {
     $publisher = unserialize($line->content);
-    module_invoke_all('geslib_publisher', 'create', $publisher);
+    module_invoke_all('geslib_publisher', $publisher['action'], $publisher);
     $context['results']['items']['publishers']++;
     $context['sandbox']['progress']++;
     db_delete('geslib_lines')->condition('geslib_id', $line->geslib_id)->condition('type', $line->type)
@@ -101,7 +102,7 @@ function geslib_process_create_categories(&$context) {
   
   foreach ($lines as $line) {
     $category = unserialize($line->content);
-    module_invoke_all('geslib_category', 'create', $category);
+    module_invoke_all('geslib_category', $category['action'], $category);
     $context['results']['items']['categories']++;
     $context['sandbox']['progress']++;
     db_delete('geslib_lines')->condition('geslib_id', $line->geslib_id)->condition('type', $line->type)
@@ -130,7 +131,7 @@ function geslib_process_create_autores(&$context) {
   
   foreach ($lines as $line) {
     $autor = unserialize($line->content);
-    module_invoke_all('geslib_autor', 'create', $autor);
+    module_invoke_all('geslib_autor', $autor['action'], $autor);
     $context['results']['items']['autores']++;
     $context['sandbox']['progress']++;
     db_delete('geslib_lines')->condition('geslib_id', $line->geslib_id)->condition('type', $line->type)
@@ -161,19 +162,19 @@ function geslib_process_create_products(&$context) {
   foreach ($lines as $line) {
     $product = unserialize($line->content);
     
-//    $sinopsis = db_select('geslib_lines', 'g')->condition('type', 'sinopsis')->condition('geslib_id', $line->geslib_id)
-//      ->fields('g', array('content'))->execute()->fetchObject();
-//    $sinopsis = unserialize($sinopsis->content);
-//    $product['sinopsis'] = $sinopsis['sinopsis'];
-//    
-//    $autores = db_select('geslib_lines', 'g')->condition('type', 'product_author')->condition('geslib_id', $line->geslib_id)
-//      ->fields('g', array('content'))->execute()->fetchAll();
-//    foreach ($autores as $autor) {
-//      $product['authors'][] = unserialize($autor->content);
-//    }
+    $sinopsis = db_select('geslib_lines', 'g')->condition('type', 'sinopsis')->condition('geslib_id', $line->geslib_id)
+      ->fields('g', array('content'))->execute()->fetchObject();
+    $sinopsis = unserialize($sinopsis->content);
+    $product['sinopsis'] = $sinopsis['sinopsis'];
+    
+    $autores = db_select('geslib_lines', 'g')->condition('type', 'product_author')->condition('geslib_id', $line->geslib_id)
+      ->fields('g', array('content'))->execute()->fetchAll();
+    foreach ($autores as $autor) {
+      $product['authors'][] = unserialize($autor->content);
+    }
     
     
-    //module_invoke_all('geslib_product', 'create', $product);
+    module_invoke_all('geslib_product', $product['action'], $product);
     db_delete('geslib_lines')->condition('geslib_id', $line->geslib_id)->condition('type', $line->type)
      ->execute();
     db_delete('geslib_lines')->condition('geslib_id', $line->geslib_id)->condition('type', 'stock')
@@ -241,11 +242,13 @@ function geslib_process_finish($success, $results, $operations) {
       'start_date' => $results['start_date'],
       'end_date' => time(),
       'imported_file' => $results['inter_file'],
-      'count' => $total_items,
+      'items' => $total_items,
+      'lines' => $results['lines'],
       'status' => $success,
       'uid' => $user->uid
     );
     drupal_write_record('geslib_log', $log);
+    //db_truncate('geslib_lines')->execute();
   }
   else {
     // An error occurred.

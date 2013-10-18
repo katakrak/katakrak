@@ -66,13 +66,12 @@ function geslib_schema() {
         'length' => 128,
         'not null' => TRUE,
       ),
-      'component' => array(
-        'description' => 'Element imported.',
-        'type' => 'varchar',
-        'length' => 32,
-        'not null' => TRUE,
+      'lines' => array(
+        'description' => 'Number of lines of the import',
+        'type' => 'int',
+        'unsigned' => TRUE,
       ),
-      'count' => array(
+      'items' => array(
         'description' => 'Number of imported elements.',
         'type' => 'int',
         'unsigned' => TRUE,
