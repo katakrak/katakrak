@@ -1,0 +1,6 @@
+name = Katakrak - dilve integration
+core = 7.x
+package = Katakrak
+php = 5.2.4
+version = 7.x-0.1
+dependencies[] = libro
