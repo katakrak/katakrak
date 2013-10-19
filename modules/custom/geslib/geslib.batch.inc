@@ -13,7 +13,7 @@ function geslib_process_read_file($geslib_file_path, &$context) {
   if (!isset($context['sandbox']['progress'])) {
     $context['sandbox']['progress'] = 0;
     $context['sandbox']['max'] = count($geslib_file_array);
-    $context['results']['lines'] = count($geslib_file_array);
+    $context['results']['processed_lines'] = $context['sandbox']['max'] ;
     $context['results']['start_date'] = REQUEST_TIME;
     $context['results']['inter_file'] = substr($geslib_file_path, strrpos($geslib_file_path, '/') +1);
   }
@@ -30,7 +30,21 @@ function geslib_process_read_file($geslib_file_path, &$context) {
   }
   
   foreach ($geslib_lines as $line) {
-    if ($line['action'] != 'delete') {
+    if (!isset($line['action'])) {
+      $product_db = db_select('geslib_lines', 'g')->condition('geslib_id', $line['geslib_id'])
+        ->condition('type', 'product')->fields('g')->execute()->fetchObject();
+      $product = unserialize($product_db->content);
+      
+      if ($line['type'] == 'product_author') {
+        $product['authors'][] = $line;
+      }
+      if ($line['type'] == 'description') {
+        $product['description'] = $line;
+      }
+      $product_db->content = serialize($product);
+      drupal_write_record('geslib_lines', $product_db, array('id'));
+    }
+    elseif ($line['action'] != 'delete') {
       $record = array();
       $record['geslib_id'] = $line['geslib_id'];
       $record['type'] = $line['type'];
@@ -38,7 +52,6 @@ function geslib_process_read_file($geslib_file_path, &$context) {
 
       try {
         drupal_write_record('geslib_lines', $record);
-        $context['results']['items']['lines']++;
       }
       catch (Exception $e){
         watchdog('geslib', "Geslib id: @id Type: @type Message: @message", array('@id' => $record['geslib_id'], '@type' => $record['type'], '@message' => $e->getMessage()));
@@ -58,154 +71,33 @@ function geslib_process_read_file($geslib_file_path, &$context) {
 }
 
 /**
- * Process all the publishers and call the hook 
+ * Generic function to process items in the db
+ * 
+ * @param type $type
  * @param type $context
  */
-function geslib_process_create_publishers(&$context) {
+function geslib_process_items($type, $limit, &$context){
   if (!isset($context['sandbox']['progress'])) {
-    $publishers_db = db_select('geslib_lines', 'g')->condition('type', 'editorial')
+    $items_db = db_select('geslib_lines', 'g')->condition('type', $type)
       ->fields('g')->execute();
     $context['sandbox']['progress'] = 0;
-    $context['sandbox']['current_line'] = 0;
-    $context['sandbox']['max'] = $publishers_db->rowCount();
-    $context['results']['items']['publishers'] = 0;
-  }
-  $limit = 200;
-  $lines = db_select('geslib_lines', 'g')->condition('type', 'editorial')
-      ->fields('g')->range(0, $limit)->execute()->fetchAll();
-  
-  
-  foreach ($lines as $line) {
-    $publisher = unserialize($line->content);
-    module_invoke_all('geslib_publisher', $publisher['action'], $publisher);
-    $context['results']['items']['publishers']++;
-    $context['sandbox']['progress']++;
-    db_delete('geslib_lines')->condition('geslib_id', $line->geslib_id)->condition('type', $line->type)
-     ->execute();
+    $context['sandbox']['max'] =  $items_db->rowCount();
+    $context['results']['items'][$type] = 0;
   }
   
-  $context['message'] = t("Processed @progress of @max publishers", array('@progress' => $context['sandbox']['progress'], '@max' => $context['sandbox']['max']));
-  
-  if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
-    $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
-  }
-}
-
-/**
- * Process all the categories and call the hook 
- * @param type $context
- */
-function geslib_process_create_categories(&$context) {
-  if (!isset($context['sandbox']['progress'])) {
-    $categories_db = db_select('geslib_lines', 'g')->condition('type', 'materia')
-      ->fields('g')->execute();
-    $context['sandbox']['progress'] = 0;
-    $context['sandbox']['max'] = $categories_db->rowCount();
-    $context['results']['items']['categories'] = 0;
-  }
-  
-  $limit = 100;
-  $lines = db_select('geslib_lines', 'g')->condition('type', 'materia')
-      ->fields('g')->range(0, $limit)->execute()->fetchAll();
-  
-  foreach ($lines as $line) {
-    $category = unserialize($line->content);
-    module_invoke_all('geslib_category', $category['action'], $category);
-    $context['results']['items']['categories']++;
-    $context['sandbox']['progress']++;
-    db_delete('geslib_lines')->condition('geslib_id', $line->geslib_id)->condition('type', $line->type)
-     ->execute();
-  }
-  
-  $context['message'] = t("Processed @progress of @max categories", array('@progress' => $context['sandbox']['progress'], '@max' => $context['sandbox']['max']));
-  
-  if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
-    $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
-  }
-}
-
-/**
- * Process all the authors and call the hook 
- * @param type $context
- */
-function geslib_process_create_autores(&$context) {
-  if (!isset($context['sandbox']['progress'])) {
-    $autores_db = db_select('geslib_lines', 'g')->condition('type', 'autor')
-      ->fields('g')->execute();
-    $context['sandbox']['progress'] = 0;
-    $context['sandbox']['max'] = $autores_db->rowCount();
-    $context['results']['items']['autores'] = 0;
-  }
-  
-  $limit = 500;
-  $lines = db_select('geslib_lines', 'g')->condition('type', 'autor')
-      ->fields('g')->range(0, $limit)->execute()->fetchAll();
-  
-  foreach ($lines as $line) {
-    $autor = unserialize($line->content);
-    module_invoke_all('geslib_autor', $autor['action'], $autor);
-    $context['results']['items']['autores']++;
-    $context['sandbox']['progress']++;
-    db_delete('geslib_lines')->condition('geslib_id', $line->geslib_id)->condition('type', $line->type)
-     ->execute();
-  }
-  
-  $context['message'] = t("Processed @progress of @max autores", array('@progress' => $context['sandbox']['progress'], '@max' => $context['sandbox']['max']));
-  
-  if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
-    $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
-  }
-}
-
-/**
- * Process all the products and call the hook 
- * @param type $context
- */
-function geslib_process_create_products(&$context) {
-  if (!isset($context['sandbox']['progress'])) {
-    $products_db = db_select('geslib_lines', 'g')->condition('type', 'product')
-      ->fields('g')->execute();
-    $context['sandbox']['progress'] = 0;
-    $context['sandbox']['max'] =  $products_db->rowCount();
-    $context['results']['items']['products'] = 0;
-  }
-  
-  $limit = 500;
-  
-  $lines = db_select('geslib_lines', 'g')->condition('type', 'product')->fields('g')
+  $lines = db_select('geslib_lines', 'g')->condition('type', $type)->fields('g')
     ->range(0, $limit)->execute()->fetchAll();
   
   foreach ($lines as $line) {
-    $product = unserialize($line->content);
-    
-    $sinopsis = db_select('geslib_lines', 'g')->condition('type', 'sinopsis')->condition('geslib_id', $line->geslib_id)
-      ->fields('g', array('content'))->execute()->fetchObject();
-    $sinopsis = unserialize($sinopsis->content);
-    $product['sinopsis'] = $sinopsis['sinopsis'];
-    
-    $autores = db_select('geslib_lines', 'g')->condition('type', 'product_author')->condition('geslib_id', $line->geslib_id)
-      ->fields('g', array('content'))->execute()->fetchAll();
-    foreach ($autores as $autor) {
-      $product['authors'][] = unserialize($autor->content);
-    }
-    
-    
-    module_invoke_all('geslib_product', $product['action'], $product);
-    db_delete('geslib_lines')->condition('geslib_id', $line->geslib_id)->condition('type', $line->type)
+    $item = unserialize($line->content);
+    module_invoke_all('geslib_'.$type, $item['action'], $item);
+    db_delete('geslib_lines')->condition('geslib_id', $line->geslib_id)->condition('type', $type)
      ->execute();
-    db_delete('geslib_lines')->condition('geslib_id', $line->geslib_id)->condition('type', 'stock')
-     ->execute();
-    db_delete('geslib_lines')->condition('geslib_id', $line->geslib_id)->condition('type', 'producto_materia')
-     ->execute();
-    db_delete('geslib_lines')->condition('geslib_id', $line->geslib_id)->condition('type', 'sinopsis')
-     ->execute();
-    db_delete('geslib_lines')->condition('geslib_id', $line->geslib_id)->condition('type', 'product_author')
-     ->execute();
-    $context['results']['items']['products']++;
+    $context['results']['items'][$type]++;
     $context['sandbox']['progress']++;
   }
   
-  $context['message'] = t("Processed @progress of @max products", array('@progress' => $context['sandbox']['progress'], '@max' => $context['sandbox']['max']));
+  $context['message'] = t("Processed @progress of @max @type items", array('@progress' => $context['sandbox']['progress'], '@max' => $context['sandbox']['max'], '@type' => $type));
   
   if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
     $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
@@ -222,10 +114,9 @@ function geslib_process_create_products(&$context) {
  */
 function geslib_process_finish($success, $results, $operations) {
   if ($success) {
-    global $user;
     $total_items = 0;
     foreach ($results['items'] as $type => $count) {
-      drupal_set_message(t("Created @count @type", array('@count' => $count, '@type' => $type)));
+      drupal_set_message(t("Created @count @type items", array('@count' => $count, '@type' => $type)));
       $total_items += $count;
     }
     $log = array(
@@ -233,12 +124,9 @@ function geslib_process_finish($success, $results, $operations) {
       'end_date' => time(),
       'imported_file' => $results['inter_file'],
       'items' => $total_items,
-      'lines' => $results['lines'],
-      'status' => $success,
-      'uid' => $user->uid
+      'processed_lines' => $results['processed_lines'],
     );
     drupal_write_record('geslib_log', $log);
-    //db_truncate('geslib_lines')->execute();
   }
   else {
     // An error occurred.
@@ -335,4 +223,3 @@ function geslib_process_delete_nodes(&$context){
     $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
   }
 }
-

@@ -49,15 +49,11 @@ function geslib_schema() {
       'start_date' => array(
         'description' => 'Importing beginning date',
         'type' => 'int',
-        //'mysql_type' => 'datetime',      // The equivalent MySQL data type in Drupal7
-        //'pgsql_type' => 'timestamp',    // The equivalent PostgreSQL data type in Drupal7
         'not null' => TRUE,
       ),
       'end_date' => array(
         'description' => 'Importing ending date',
         'type' => 'int',
-        //'mysql_type' => 'datetime',      // The equivalent MySQL data type in Drupal7
-        //'pgsql_type' => 'timestamp',    // The equivalent PostgreSQL data type in Drupal7
         'not null' => TRUE,
       ),
       'imported_file' => array(
@@ -66,7 +62,7 @@ function geslib_schema() {
         'length' => 128,
         'not null' => TRUE,
       ),
-      'lines' => array(
+      'processed_lines' => array(
         'description' => 'Number of lines of the import',
         'type' => 'int',
         'unsigned' => TRUE,
@@ -75,18 +71,6 @@ function geslib_schema() {
         'description' => 'Number of imported elements.',
         'type' => 'int',
         'unsigned' => TRUE,
-      ),
-      'status' => array(
-        'description' => 'Import status',
-        'type' => 'varchar',
-        'length' => 32,
-      ), 
-      'uid' => array(
-        'description' => 'User id.',
-        'type' => 'int',
-        'unsigned' => TRUE,
-        'not null' => TRUE,
-        'default' => 0,
       ),
     ),
     'primary key' => array('id'),

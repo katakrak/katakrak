@@ -13,7 +13,7 @@ function geslib_menu() {
     'title' => 'Import Geslib File',
     'description' => 'Carga inicial del fichero de geslig.',
     'page callback' => 'drupal_get_form',
-    'page arguments' => array('geslib_import_form'),
+    'page arguments' => array('geslib_first_import_form'),
     'access callback' => 'user_access',
     'access arguments' => array('geslib_content import'),
     'type' => MENU_NORMAL_ITEM,
@@ -22,7 +22,7 @@ function geslib_menu() {
 }
 
 
-function geslib_import_form($form, &$form_state) {
+function geslib_first_import_form($form, &$form_state) {
   $geslib_dir = DRUPAL_ROOT.'/sites/default/files/geslib';
   $files = scandir(DRUPAL_ROOT.'/sites/default/files/geslib');
   foreach ($files as $key => $value) {
@@ -30,7 +30,6 @@ function geslib_import_form($form, &$form_state) {
       $options[$geslib_dir.'/'.$value] = $value;
     }
   }
-  
   $form['geslib_file'] = array(
     '#type' => 'select',
     '#title' => 'Geslib File',
@@ -49,7 +48,7 @@ function geslib_import_form($form, &$form_state) {
   return $form;
 }
 
-function geslib_import_form_submit($form, &$form_state) {
+function geslib_first_import_form_submit($form, &$form_state) {
   if ($form_state['clicked_button']['#value'] == 'Borrar todo') {
     $batch = array(
       'title' => t('Eliminando todos los elementos'),
@@ -68,11 +67,10 @@ function geslib_import_form_submit($form, &$form_state) {
       'title' => t('Importando artículos de geslib'),
       'operations' => array(
           array('geslib_process_read_file', array($form_state['values']['geslib_file'])),
-          array('geslib_process_create_publishers', array()), 
-          array('geslib_process_create_categories', array() ),
-          array('geslib_process_create_autores', array() ),
-          array('geslib_process_create_products', array() ),
-          //array('geslib_process_dilve', array() ),
+          array('geslib_process_items', array('category', 25)), 
+          array('geslib_process_items', array('publisher', 200)),
+          array('geslib_process_items', array('author', 200)),
+          array('geslib_process_items', array('product', 200)),
       ),
       'finished' => 'geslib_process_finish',
       'file' => drupal_get_path('module', 'geslib').'/geslib.batch.inc',
@@ -81,4 +79,30 @@ function geslib_import_form_submit($form, &$form_state) {
   }
 }
 
+function geslib_cron() {
+  $geslib_dir = DRUPAL_ROOT.'/sites/default/files/geslib';
+  $files = scandir(DRUPAL_ROOT.'/sites/default/files/geslib');
+  foreach ($files as $key => $value) {
+    if ($value != '.' AND $value != '..'){
+      $options[$geslib_dir.'/'.$value] = $value;
+    }
+  }
+}
 
+function geslib_init() {
+  $geslib_dir = DRUPAL_ROOT.'/sites/default/files/geslib';
+  $files_tmp = scandir($geslib_dir);
+  
+  $processed_files = db_select('geslib_log', 'g')->fields('g', array('imported_file'))->execute()->fetchCol();
+  
+  $files = array();
+  foreach ($files_tmp as $value) {
+    if ($value != '.'&& $value != '..' && !in_array($value, $processed_files)){
+      $files[] = $value;
+    }
+  }
+  $result = db_select('queue', 'q')->fields('q')->execute()->fetchAll();
+  $file_to_process = array_shift($files);
+//  dpm(unserialize($result[0]->data));
+//  dpm($files);
+}

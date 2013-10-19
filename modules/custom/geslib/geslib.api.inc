@@ -10,24 +10,6 @@ include_once dirname(__FILE__) . '/lib/Encoding.php';
   */
 function geslib_process_line($line, &$geslib_data) {
   switch ($line[0]) {
-     #Discográficas
-    case "1A":
-      if ($line[1] == 'B') {
-        $item['action'] = 'delete';
-        $item['geslib_id'] = $line[2];
-      }
-      else {
-        if ($line[1] == 'A')
-          $item['action'] = 'create';
-        elseif ($line[1] == 'M')
-          $item['action'] = 'update';
-        
-        $item['title'] = geslib_utf8_encode($line[4]);
-        $item['type'] = 'discografica';
-        $item['geslib_id'] = $line[2];
-      }
-      //$geslib_data[] = $item;
-      break;
       # Editoriales
     case "1L":
       if ($line[1] == 'B') {
@@ -40,7 +22,7 @@ function geslib_process_line($line, &$geslib_data) {
         elseif ($line[1] == 'M')
           $item['action'] = 'update';
         $item['title'] = geslib_utf8_encode($line[3]);
-        $item['type'] = 'editorial';
+        $item['type'] = 'publisher';
         $item['geslib_id'] = $line[2];
         $geslib_data[] = $item;
       }
@@ -59,7 +41,7 @@ function geslib_process_line($line, &$geslib_data) {
         
         $item["geslib_id"] = $line[2];
         $item['name'] = geslib_utf8_encode($line[3]);
-        $item['type'] = 'materia';
+        $item['type'] = 'category';
         $geslib_data[] = $item; 
       }
       break;
@@ -76,7 +58,7 @@ function geslib_process_line($line, &$geslib_data) {
         
         $item["geslib_id"] = $line[2];
         $item['autor'] = geslib_utf8_encode($line[3]);
-        $item['type'] = 'autor';
+        $item['type'] = 'author';
         $geslib_data[] = $item; 
       }
       break;
@@ -99,10 +81,10 @@ function geslib_process_line($line, &$geslib_data) {
         $item['price'] = str_replace(",", "", $line[29]);
         $item["isbn"] = geslib_utf8_encode($line[6]);	//ISBN (por si se quiere seleccionar)
         if ($line[7]) {
-          $item["ean"] = intval($line[7]);
+          $item["ean"] = geslib_utf8_encode($line[7]);
         } 
         else {
-          $item["ean"] = str_replace('-','',$line[6]); 
+          $item["ean"] = geslib_utf8_encode(str_replace('-','',$line[6])); 
         }
 
         $item["pages"] = $line[8];
@@ -147,18 +129,18 @@ function geslib_process_line($line, &$geslib_data) {
 //      break;
     //Sinopsis
     case "6E":
-      $item['type'] = 'sinopsis';
+      $item['type'] = 'description';
       $item['geslib_id'] = $line[1];
       $item['sinopsis'] = geslib_utf8_encode($line[3]);
       $geslib_data[] = $item;
       break;
     //Stock
-    case "B":
-      $item['type'] = 'stock';
-      $item['geslib_id'] = $line[1];
-      $item['stock'] = $line[2];
-      $geslib_data[] = $item;
-      break;
+//    case "B":
+//      $item['type'] = 'stock';
+//      $item['geslib_id'] = $line[1];
+//      $item['stock'] = $line[2];
+//      $geslib_data[] = $item;
+//      break;
     case "LA":
       $item['type'] = 'product_author';
       $item['geslib_id'] = $line[1];
