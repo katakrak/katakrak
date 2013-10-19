@@ -48,6 +48,7 @@ function geslib_process_read_file($geslib_file_path, &$context) {
       $record = array();
       $record['geslib_id'] = $line['geslib_id'];
       $record['type'] = $line['type'];
+      $record['inter_file'] = $context['results']['inter_file'];
       $record['content'] = serialize($line);
 
       try {

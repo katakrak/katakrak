@@ -28,6 +28,12 @@ function geslib_schema() {
         'length' => 255,
         'not null' => TRUE,
       ),
+      'inter_file' => array(
+        'description' => 'INTER File line belongs to.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
       'content' => array(
         'description' => 'Serialized content of the line.',
         'type' => 'text',
@@ -76,4 +82,17 @@ function geslib_schema() {
     'primary key' => array('id'),
   );
   return $schema;
+}
+
+/**
+ * Adding a file to reference the inter file
+ */
+function geslib_update_7001() {
+   $spec = array(
+    'description' => 'INTER File line belongs to.',
+    'type' => 'varchar',
+    'length' => 255,
+    'not null' => TRUE,
+  );
+  db_add_field('geslib_lines', 'inter_file', $spec);
 }
