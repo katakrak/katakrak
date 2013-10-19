@@ -27,14 +27,22 @@ function geslib_menu() {
 function geslib_cron_queue_info() {
   $queues = array();
   $queues['geslibCronQueue'] = array(
-    'worker callback' => 'process_item', //function to call for each item
-    'time' => 60, //seconds to spend working on the queue
+    'worker callback' => 'geslib_process_item', //function to call for each item
+    'time' => 30, //seconds to spend working on the queue
   );
   return $queues;
 }
 
-function process_item() {
-  
+/**
+ * Process an item
+ * 
+ * @param type $item
+ */
+function geslib_process_item($item) {
+  $hook_name = 'geslib_'.$item['type'];
+  module_invoke_all($hook_name, $item['action'], $item);
+  db_delete('geslib_lines')->condition('geslib_id', $item['geslib_id'])
+    ->condition('type', $item['type'])->execute();
 }
 
 
@@ -113,8 +121,9 @@ function geslib_cron() {
     }
     foreach ($geslib_lines as $line) {
     if (!isset($line['action'])) {
-      $product_db = db_select('geslib_lines', 'g')->condition('geslib_id', $line['geslib_id'])
-        ->condition('type', 'product')->fields('g')->execute()->fetchObject();
+      $product_db = db_select('geslib_lines', 'g')
+        ->condition('geslib_id', $line['geslib_id'])->condition('type', 'product')
+        ->fields('g')->execute()->fetchObject();
       $product = unserialize($product_db->content);
       
       if ($line['type'] == 'product_author') {
@@ -153,19 +162,37 @@ function geslib_cron() {
     
   }
   else {
-    //Generate the queue
+    $lines = db_select('geslib_lines', 'g')->condition('queued', 0)->fields('g')
+      ->execute()->fetchAll();
+    $queue = DrupalQueue::get('geslibCronQueue');
+    foreach ($lines as $line) {
+      $queue->createItem(unserialize($line->content));
+      db_update('geslib_lines')->fields(array('queued' => 1))->condition('geslib_id', $line->geslib_id)
+        ->condition('type', $line->type)->execute();
+    }
   }
   
 }
 
 function geslib_init() {
+  $lines = db_select('geslib_lines', 'g')->condition('queued', 0)->fields('g')
+      ->execute()->fetchAll();
+    $queue = DrupalQueue::get('geslibCronQueue');
+    foreach ($lines as $line) {
+      //dpm($line);
+    }
 }
 
+/**
+ * 
+ * @return string
+ */
 function _geslib_get_file_to_process() {
   $geslib_dir = DRUPAL_ROOT.'/sites/default/files/geslib';
   $files_tmp = scandir($geslib_dir);
   
-  $processed_files = db_select('geslib_log', 'g')->fields('g', array('imported_file'))->execute()->fetchCol();
+  $processed_files = db_select('geslib_log', 'g')->fields('g', array('imported_file'))
+    ->execute()->fetchCol();
   
   if (empty($processed_files)) {
     //If nothing in the log, it means we haven't done the first import

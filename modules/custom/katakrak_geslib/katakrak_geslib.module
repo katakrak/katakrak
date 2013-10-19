@@ -18,8 +18,14 @@ function katakrak_geslib_geslib_publisher($op, $publisher) {
       taxonomy_term_save($term);
       break;
     case 'update':
+      $editorial_tid = get_tid_by_geslib_id($publisher['geslib_id'], 'publisher');
+      $term = taxonomy_term_load($editorial_tid);
+      $term->name = mb_convert_case($publisher['title'], MB_CASE_TITLE, "UTF-8");
+      taxonomy_term_save($term);
       break;
     case 'delete':
+      $editorial_tid = get_tid_by_geslib_id($publisher['geslib_id'], 'publisher');
+      taxonomy_term_delete($editorial_tid);
       break;
   }
 }
@@ -41,8 +47,14 @@ switch ($op) {
       taxonomy_term_save($term);
       break;
     case 'update':
+      $category_tid = get_tid_by_geslib_id($category['geslib_id'], 'category');
+      $term = taxonomy_term_load($category_tid);
+      $term->name = mb_convert_case($category['name'], MB_CASE_TITLE, "UTF-8");
+      taxonomy_term_save($term);
       break;
     case 'delete':
+      $category_tid = get_tid_by_geslib_id($category['geslib_id'], 'category');
+      taxonomy_term_delete($category_tid);
       break;
   }
 }
@@ -50,7 +62,7 @@ switch ($op) {
 /*
  * Implementation of hook_geslib_publisher
  */
-function katakrak_geslib_geslib_author($op, $autor) {
+function katakrak_geslib_geslib_author($op, $author) {
   switch ($op) {
     case 'create':
       $term = new stdClass();
@@ -59,103 +71,125 @@ function katakrak_geslib_geslib_author($op, $autor) {
           $term->vid = $vid ;
         }
       }
-      $author_array = explode(',', $autor['autor']);
+      $author_array = explode(',', $author['autor']);
       $term->field_autor_nombre['und'][0]['value'] = mb_convert_case($author_array[1], MB_CASE_TITLE, "UTF-8");
       $term->field_autor_apellido['und'][0]['value'] = mb_convert_case($author_array[0], MB_CASE_TITLE, "UTF-8");
       $term->name = sprintf("%s %s", $term->field_autor_nombre['und'][0]['value'], $term->field_autor_apellido['und'][0]['value']);
-      $term->field_autor_geslib_id['und'][0]['value'] = $autor['geslib_id'];
+      $term->field_autor_geslib_id['und'][0]['value'] = $author['geslib_id'];
       taxonomy_term_save($term);
       break;
     case 'update':
+      $author_tid = get_id_by_geslib_id($author['geslib_id'], 'author');
+      $author = taxonomy_term_load($author_tid);
+      $author_array = explode(',', $author['autor']);
+      $term->field_autor_nombre['und'][0]['value'] = mb_convert_case($author_array[1], MB_CASE_TITLE, "UTF-8");
+      $term->field_autor_apellido['und'][0]['value'] = mb_convert_case($author_array[0], MB_CASE_TITLE, "UTF-8");
+      $term->name = sprintf("%s %s", $term->field_autor_nombre['und'][0]['value'], $term->field_autor_apellido['und'][0]['value']);
+      taxonomy_term_save($term);
       break;
     case 'delete':
+      $author_tid = get_id_by_geslib_id($category['geslib_id'], 'author');
+      taxonomy_term_delete($author_tid);
       break;
   }
 }
 
 function katakrak_geslib_geslib_product($op, $product) {
-  switch ($op) {
-    case 'create':
+  if ($op == 'delete') {
+    //$author_tid = get_id_by_geslib_id($category['geslib_id'], 'author');
+  }
+  elseif ($op == 'create' || $op == 'update') {
+    if ($op == 'create') {
       $commerce_product = new stdClass();
       $commerce_product->type = 'libro';
       $commerce_product->sku = $product['geslib_id'];
       $commerce_product->title = $product['title'];
-      $commerce_product->commerce_price['und'][0] = array(
-        'amount' => $product['price'],
-        'currency_code' => 'EUR',
-        'data' => array(
-          'include_tax' =>  'iva'
-        ),
-      );
-      if ($product['weight']) {
-        $commerce_product->field_product_peso['und'][0] = array(
-          'weight' => intval($product['weight']),
-          'unit' => 'g',
-        );
-      }
-      $commerce_product->commerce_stock['und'][0]['value'] = floatval($product['stock']);
       
-      commerce_product_save($commerce_product);
-
       $node = new stdClass();
       $node->type = 'libro';
-      $node->title = $product['title'];
-      $node->field_libro_producto['und'][0]['product_id'] = $commerce_product->product_id;
-      $node->field_libro_isbn['und'][0]['value'] = $product['isbn'];
-      $node->field_libro_ean['und'][0]['value'] = $product['ean'];
-      $node->field_libro_paginas['und'][0]['value'] = $product['pages'];
-      $node->field_libro_subtitulo['und'][0]['value'] = $product['subtitulo'];
-      $node->field_libro_ano['und'][0]['value'] = $product['year'];
-      if ($product['description'])
-        $node->field_libro_sinopsis['und'][0]['value'] = $product['description']['sinopsis'];
-      $node->field_libro_estado['und'][0]['value'] = $product['status'];
-      $node->field_libro_idioma['und'][0]['value'] = $product['language'];
-      if ($product['materia']) {
-        $materia_tid = get_tid_by_geslib_id($product['materia'], 'materia');
-        if ($materia_tid)
-          $node->field_libro_categoria['und'][0]['tid'] = $materia_tid;
-      }
+    }
+    if ($op == 'update') {
+      $commerce_product = commerce_product_load_by_sku($product['geslib_id']);
+      $nid = db_select('field_data_field_libro_producto', 'p')->fields('p', array('entity_id'))
+        ->condition('field_libro_producto_product_id', $commerce_product->product_id)
+        ->execute()->fetchField();
+      $node = node_load($nid);
+      $node->uid = 1;
+    }
+    
+    
+    $commerce_product->commerce_price['und'][0] = array(
+      'amount' => $product['price'],
+      'currency_code' => 'EUR',
+      'data' => array(
+        'include_tax' =>  'iva'
+      ),
+    );
+    if ($product['weight']) {
+      $commerce_product->field_product_peso['und'][0] = array(
+        'weight' => intval($product['weight']),
+        'unit' => 'g',
+      );
+    }
+    $commerce_product->commerce_stock['und'][0]['value'] = floatval($product['stock']);
 
-      $editorial_tid = get_tid_by_geslib_id($product['publisher'], 'editorial');
-      if ($editorial_tid)
-        $node->field_libro_editorial['und'][0]['tid'] = $editorial_tid;
+    commerce_product_save($commerce_product);
+
       
-      foreach ($product['authors'] as $author) {
-        if ($author['author_type'] == 'A') {
-          $autor_tid = get_tid_by_geslib_id($author['author_id'], 'autor');
-          if ($autor_tid)
-            $node->field_libro_autores['und'][] = array('tid' => $autor_tid);
+    $node->title = $product['title'];
+    $node->field_libro_producto['und'][0]['product_id'] = $commerce_product->product_id;
+    
+    $node->field_libro_isbn['und'][0]['value'] = $product['isbn'];
+    $node->field_libro_ean['und'][0]['value'] = $product['ean'];
+    $node->field_libro_ano['und'][0]['value'] = $product['year'];
+    $node->field_libro_estado['und'][0]['value'] = $product['status'];
+    $node->field_libro_idioma['und'][0]['value'] = $product['language'];
+    
+    if (isset($product['pages']))
+      $node->field_libro_paginas['und'][0]['value'] = $product['pages'];
+    
+    if (isset($product['subtitulo']))
+      $node->field_libro_subtitulo['und'][0]['value'] = $product['subtitulo'];
+    
+    if (isset($product['description']))
+      $node->field_libro_sinopsis['und'][0]['value'] = $product['description']['sinopsis'];
+    
+    if ($product['materia']) {
+      $materia_tid = get_tid_by_geslib_id($product['materia'], 'category');
+      if ($materia_tid)
+        $node->field_libro_categoria['und'][0]['tid'] = $materia_tid;
+    }
+
+    $editorial_tid = get_tid_by_geslib_id($product['publisher'], 'publisher');
+    if ($editorial_tid)
+      $node->field_libro_editorial['und'][0]['tid'] = $editorial_tid;
+
+    foreach ($product['authors'] as $i => $author) {
+      if ($author['author_type'] == 'A') {
+        $autor_tid = get_tid_by_geslib_id($author['author_id'], 'author');
+        if ($autor_tid) {
+          $node->field_libro_autores['und'][$i] = array('tid' => $autor_tid);
         }
       }
+    }
 
-      node_save($node);
-      break;
+    node_save($node);
   }
 }
 
 function get_tid_by_geslib_id($geslib_id, $type) {
-  if ($type == 'editorial') {
+  if ($type == 'publisher') {
     return db_select('field_data_field_editorial_geslib_id', 'g')->fields('g', array('entity_id'))
     ->condition('field_editorial_geslib_id_value', $geslib_id)->execute()->fetchField();
   }
-  if ($type == 'materia') {
+  if ($type == 'category') {
     return db_select('field_data_field_materias_geslib_id', 'g')->fields('g', array('entity_id'))
     ->condition('field_materias_geslib_id_value', $geslib_id)->execute()->fetchField();
   }
-  if ($type == 'autor') {
+  if ($type == 'author') {
     return db_select('field_data_field_autor_geslib_id', 'g')->fields('g', array('entity_id'))
     ->condition('field_autor_geslib_id_value', $geslib_id)->execute()->fetchField();
   }
-}
-
-function get_editorial_by_geslib_id($geslib_id) {
-  return db_select('field_data_field_editorial_geslib_id', 'g')->fields('g', array('entity_id'))
-    ->condition('field_editorial_geslib_id_value', $geslib_id)->execute()->fetchField();
-}
-
-function get_materia_by_geslib_id($geslib_id) {
-  return db_select('field_data_field_materias_geslib_id', 'g')->fields('g', array('entity_id'))
-    ->condition('field_materias_geslib_id_value', $geslib_id)->execute()->fetchField();
 }
 
 /**
