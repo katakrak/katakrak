@@ -1,6 +1,89 @@
 <?php
 
 /**
+ * Implementation of hook_menu().
+ */
+function katakrak_dilve_menu() {
+  $items = array();
+  $items['admin/store/dilve'] = array(
+    'title' => 'Dilve integration configuration',
+    'description' => 'Dilve options',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('katakrak_dilve_admin_settings'),
+    'access arguments' => array('administer site configuration'),
+  );
+  $items['node/%node/dilve'] = array(
+    'title' => 'Dilve',
+    'page callback' => 'katakrak_dilve_info',
+    'page arguments' => array(1),
+    'access arguments' => array('access devel information'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 100,
+  );
+  return $items;
+}
+
+function katakrak_dilve_admin_settings() {
+  $form['dilve_user'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Nombre de usuario'),
+    '#description' => t('Nombre de usuario en Dilve'),
+    '#size' => 30,
+    '#default_value' => variable_get('dilve_user', ''),
+  );
+  $form['dilve_pass'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Contraseña'),
+    '#description' => t('Contraseña en Dilve'),
+    '#size' => 30,
+    '#default_value' => variable_get('dilve_pass', ''),
+  );
+  return system_settings_form($form);
+}
+
+/**
+ * 
+ * @param type $node
+ */
+function katakrak_dilve_info($node) {
+  $dilve = new DilveSearch(variable_get('dilve_user', ''), variable_get('dilve_pass', ''));
+  $book = $dilve->search($node->field_libro_isbn['und'][0]['value']);
+  return $node->title;
+}
+
+function katakrak_dilve_process_dilve(&$context){
+  if (!isset($context['sandbox']['progress'])) {
+    $nodes = db_select('node', 'n')->condition('type', 'libro')
+      ->fields('n', array('nid'))->execute();
+    $context['sandbox']['progress'] = 0;
+    $context['sandbox']['max'] = $nodes->rowCount();
+  }
+  
+  $dilve  = new DilveSearch(variable_get('dilve_user', ''), variable_get('dilve_pass', ''));
+  $limit = 100;
+  $nids = db_select('node', 'n')->condition('type', 'libro')->fields('n')
+    ->range($context['sandbox']['progress'], $limit)->execute()->fetchAll();
+  foreach ($nids as $nid) {
+    $libro = node_load($nid->nid);
+    $book = $dilve->search($libro->field_libro_ean['und'][0]['value']);
+    
+    if (is_array($book)) {
+      module_invoke_all('dilve_process', $libro, $book);
+      $context['results']['dilve_good']++;
+    }
+    else {
+      $context['results']['dilve_bad']++;
+    }
+    $context['sandbox']['progress'] += 1;
+  }
+  $context['message'] = t("Processed @progress of @max books", array('@progress' => $context['sandbox']['progress'], '@max' => $context['sandbox']['max']));
+  if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
+    $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
+  }
+}
+
+
+/**
  * 
  * @param type $url
  * @param type $isbn
