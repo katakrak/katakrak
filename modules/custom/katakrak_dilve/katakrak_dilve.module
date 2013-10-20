@@ -5,12 +5,25 @@
  */
 function katakrak_dilve_menu() {
   $items = array();
-  $items['admin/store/dilve'] = array(
-    'title' => 'Dilve integration configuration',
+  $items['admin/commerce/config/dilve'] = array(
+    'title' => 'Dilve Integration',
     'description' => 'Dilve options',
     'page callback' => 'drupal_get_form',
-    'page arguments' => array('katakrak_dilve_admin_settings'),
+    'page arguments' => array('katakrak_dilve_batch_process_form'),
     'access arguments' => array('administer site configuration'),
+  );
+  $items['admin/commerce/config/dilve/process'] = array(
+    'title' => 'Process Items',
+    'description' => 'Dilve',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+  $items['admin/commerce/config/dilve/settings'] = array(
+    'title' => 'Settings',
+    'description' => 'Dilve options',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('katakrak_dilve_settings_form'),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_LOCAL_TASK,
   );
   $items['node/%node/dilve'] = array(
     'title' => 'Dilve',
@@ -23,7 +36,7 @@ function katakrak_dilve_menu() {
   return $items;
 }
 
-function katakrak_dilve_admin_settings() {
+function katakrak_dilve_settings_form($form, &$form_state) {
   $form['dilve_user'] = array(
     '#type' => 'textfield',
     '#title' => t('Nombre de usuario'),
@@ -42,37 +55,219 @@ function katakrak_dilve_admin_settings() {
 }
 
 /**
+ * Creates the batch
+ * 
+ * @param type $form
+ * @param type $form_state
+ * @return type
+ */
+function katakrak_dilve_batch_process_form($form, &$form_state) {
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Procesar'),
+  );
+  return $form;
+}
+
+function katakrak_dilve_batch_process_form_submit($form, &$form_state) {
+  $batch = array(
+    'title' => t('Consultando a Dilve'),
+    'operations' => array(
+      array('katakrak_dilve_batch_process', array()),
+    ),
+    'finished' => 'katakrak_dilve_batch_process_finish',
+  );
+  batch_set($batch);
+}
+
+/**
  * 
  * @param type $node
  */
 function katakrak_dilve_info($node) {
   $dilve = new DilveSearch(variable_get('dilve_user', ''), variable_get('dilve_pass', ''));
   $book = $dilve->search($node->field_libro_isbn['und'][0]['value']);
-  return $node->title;
+  dpm($book);
+  if (is_string($book)) {
+    drupal_set_message($book, 'error');
+    $book = array();
+  }
+  return drupal_get_form('dilve_node_info_form', $node, $book);
 }
 
-function katakrak_dilve_process_dilve(&$context){
+function dilve_node_info_form($form, &$form_state, $node, $book) {
+  $form['title'] = array(
+    '#title' => 'Título',
+    '#type' => 'textfield',
+    '#size' => 30,
+    '#default_value' => isset($book['title']) ? $book['title'] : '',
+  );
+  $form['sinopsis'] = array(
+    '#title' => 'Sinopsis',
+    '#type' => 'textarea',
+    '#size' => 30,
+    '#default_value' => isset($book['description']) ? $book['description'] : '',
+  );
+  $form['price'] = array(
+    '#title' => 'Precio',
+    '#type' => 'textfield',
+    '#size' => 20,
+    '#default_value' => isset($book['price']) ? $book['price'] : '',
+  );
+  $form['year'] = array(
+    '#title' => t('Año'),
+    '#type' => 'textfield',
+    '#size' => 20,
+    '#default_value' => isset($book['date']) ? substr($book['date'], 0, 4) : '',
+  );
+  $form['pages'] = array(
+    '#title' => t('Páginas'),
+    '#type' => 'textfield',
+    '#size' => 20,
+    '#value' => isset($book['pages']) ? $book['pages'] : '',
+  );
+  if (isset($book['weight']) && $book['weight']['unit'] == 'gr') {
+    $form['weight'] = array(
+      '#title' => t('Peso'),
+      '#type' => 'textfield',
+      '#size' => 20,
+      '#value' => isset($book['weight']['value']) ? $book['weight']['value'] : '',
+    );
+  }
+  
+  $form['image'] = array(
+    '#type' => 'hidden',
+    '#value' => isset($book['cover_url']) ? $book['cover_url'] : '',
+  );
+
+  if (isset($book['cover_url'])) {
+    $form['image_markup'] = array(
+      '#suffix' => '</div>',
+      '#prefix' => '<div>',
+      '#markup' => theme('image', array(
+        'path' => $book['cover_url'],
+        'width' => 120,
+        'height' => 200,
+        )
+      ),
+    );
+  }
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => "Actualizar libro",
+  );
+  return $form;
+}
+
+function dilve_node_info_form_submit($form, &$form_state) {
+  $node = $form_state['build_info']['args'][0];
+  $values = $form_state['values'];
+  
+  $product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
+  if ($values['title']) {
+    $product->title = $values['title'];
+    $node->title = $values['title'];
+  }
+  
+  if ($values['weight']) {
+    $product->field_product_peso['und'][0] = array(
+      'weight' => $values['weight'],
+      'unit' => 'g',
+    );
+  }
+  
+  if ($values['sinopsis'])
+    $node->field_libro_sinopsis['und'][0]['value'] = $values['sinopsis'];
+  if ($values['year'])
+    $node->field_libro_ano['und'][0]['value'] = $values['year'];
+  if ($values['pages'])
+    $node->field_libro_paginas['und'][0]['value'] = $values['pages'];
+  
+  if ($values['image']) {
+    $file = create_cover($values['image'], $node->field_libro_ean['und'][0]['value']);
+    
+    if (!empty($file)) {
+      $node->field_libro_portada['und'][0] = $file;
+      $node->field_libro_portada['und'][0]['title'] = $node->title;
+      $node->field_libro_portada['und'][0]['alt'] = $node->title;
+    }
+  }
+  
+  commerce_product_save($product);
+  node_save($node);
+}
+
+
+/**
+ * Batch function to process all the items
+ * 
+ * @param type $context
+ */
+function katakrak_dilve_batch_process(&$context){
   if (!isset($context['sandbox']['progress'])) {
     $nodes = db_select('node', 'n')->condition('type', 'libro')
       ->fields('n', array('nid'))->execute();
     $context['sandbox']['progress'] = 0;
     $context['sandbox']['max'] = $nodes->rowCount();
+    $context['results']['in_dilve'] = 0;
+    $context['results']['no_dilve'] = 0;
   }
   
   $dilve  = new DilveSearch(variable_get('dilve_user', ''), variable_get('dilve_pass', ''));
+  
   $limit = 100;
   $nids = db_select('node', 'n')->condition('type', 'libro')->fields('n')
     ->range($context['sandbox']['progress'], $limit)->execute()->fetchAll();
+  
   foreach ($nids as $nid) {
-    $libro = node_load($nid->nid);
-    $book = $dilve->search($libro->field_libro_ean['und'][0]['value']);
-    
-    if (is_array($book)) {
-      module_invoke_all('dilve_process', $libro, $book);
-      $context['results']['dilve_good']++;
-    }
-    else {
-      $context['results']['dilve_bad']++;
+    $node = node_load($nid->nid);
+    if (empty($node->field_libro_en_dilve) || $node->field_libro_en_dilve['und'][0]['value'] == 0) {
+      $book = $dilve->search($node->field_libro_ean['und'][0]['value']);
+      
+      if (is_string($book)) {
+        $node->field_libro_en_dilve['und'][0]['value'] = 0;
+        $context['results']['no_dilve']++;
+      }
+      else {
+      
+        $product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
+
+        if ($book['title']) {
+          $product->title = $book['title'];
+          $node->title = $book['title'];
+        }
+
+        if ($book['weight']) {
+          $product->field_product_peso['und'][0] = array(
+            'weight' => $book['weight']['value'],
+            'unit' => 'g',
+          );
+        }
+
+        if (isset($book['description']))
+          $node->field_libro_sinopsis['und'][0]['value'] = $book['description'];
+        if (isset($book['date']))
+          $node->field_libro_ano['und'][0]['value'] = substr($book['date'], 0, 4) ;
+        if (isset($book['pages']))
+          $node->field_libro_paginas['und'][0]['value'] = $book['pages'];
+        if (isset($book["subtitle"]))
+          $node->field_libro_subtitulo['und'][0]['value'] = $book['subtitle'];
+        if ($book['cover_url']) {
+          $file = create_cover($book['cover_url'], $node->field_libro_ean['und'][0]['value']);
+          if (!empty($file)){
+            $node->field_libro_portada['und'][0] = $file;
+            $node->field_libro_portada['und'][0]['title'] = $node->title;
+            $node->field_libro_portada['und'][0]['alt'] = $node->title;
+          }
+        }
+        
+        $node->field_libro_en_dilve['und'][0]['value'] = 1;
+
+        commerce_product_save($product);
+        $context['results']['in_dilve']++;
+      }
+      node_save($node);
     }
     $context['sandbox']['progress'] += 1;
   }
@@ -82,36 +277,57 @@ function katakrak_dilve_process_dilve(&$context){
   }
 }
 
+function katakrak_dilve_batch_process_finish($success, $results, $operations) {
+  if ($success) {
+    drupal_set_message(t("@count books found in dilve", array('@count' => $results['in_dilve'])));
+    drupal_set_message(t("@count books not found in dilve", array('@count' => $results['no_dilve'])));
+  }
+  else {
+    // An error occurred.
+    // $operations contains the operations that remained unprocessed.
+    $error_operation = reset($operations);
+    $message = t('An error occurred while processing %error_operation with arguments: @arguments', array('%error_operation' => $error_operation[0], '@arguments' => print_r($error_operation[1], TRUE)));
+    drupal_set_message($message, 'error');
+  }
+}
+
 
 /**
+ * Checks if the cover exists and if it does returns the file object. 
+ * It it doesn't exists downloads it and creates the object
  * 
  * @param type $url
  * @param type $isbn
  * @return type
  */
-function download_cover($url, $isbn) {
-  
+function create_cover($url, $isbn) {
+  global $user;
   $ext = substr($url, strrpos($url, '.') + 1);
-  
-  $download_path = dirname(__FILE__) . '/../../../../default/files/'. $isbn . '.' . $ext;
-  
-  $fp = fopen ($download_path, 'w+');
-
-  $ch = curl_init($url);
-
-  curl_setopt_array($ch, array(
-  CURLOPT_URL            => $url,
-  CURLOPT_BINARYTRANSFER => 1,
-  CURLOPT_RETURNTRANSFER => 1,
-  CURLOPT_FILE           => $fp,
-  CURLOPT_TIMEOUT        => 50,
-  CURLOPT_USERAGENT      => 'Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)'
-  ));
-
-  $results = curl_exec($ch);
-  if(curl_exec($ch) === false)
-  {
-    echo 'Curl error: ' . curl_error($ch);
+  $filename = $isbn.".".$ext;
+ 
+  $fid = db_select('file_managed', 'f')->condition('filename', $filename)->fields('f', array('fid'))
+    ->execute()->fetchObject();
+  if ($fid) {
+    $file = file_load($fid->fid);
   }
-  return 'sites/default/files/' . $isbn . '.' . $ext;
+  else {
+  
+    $filepath = sprintf("%s/%s/portadas/%s",DRUPAL_ROOT, variable_get('file_public_path', 'sites/default/files'), $filename);
+
+    $cover_request = drupal_http_request($url);
+    $file = new stdClass();
+    if ($cover_request->code == 200) {
+      file_put_contents($filepath, $cover_request->data);
+      $file = new stdClass();
+      $file->uid = $user->uid;
+      $file->filename = $filename;
+      $file->uri = "public://portadas/".$filename;
+      $file->filemime = $cover_request->headers['content-type'];
+      $file->filesize = $cover_request->headers['content-length']; 
+      $file->status = 1;
+      $file->timestamp = REQUEST_TIME;
+      file_save($file);
+    }
+  }
+  return (array)$file;
 }
