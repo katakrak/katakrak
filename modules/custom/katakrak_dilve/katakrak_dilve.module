@@ -87,7 +87,6 @@ function katakrak_dilve_batch_process_form_submit($form, &$form_state) {
 function katakrak_dilve_info($node) {
   $dilve = new DilveSearch(variable_get('dilve_user', ''), variable_get('dilve_pass', ''));
   $book = $dilve->search($node->field_libro_isbn['und'][0]['value']);
-  dpm($book);
   if (is_string($book)) {
     drupal_set_message($book, 'error');
     $book = array();
@@ -193,6 +192,8 @@ function dilve_node_info_form_submit($form, &$form_state) {
       $node->field_libro_portada['und'][0]['alt'] = $node->title;
     }
   }
+  
+  $node->field_libro_en_dilve['und'][0]['value'] = 1;
   
   commerce_product_save($product);
   node_save($node);
@@ -302,7 +303,11 @@ function katakrak_dilve_batch_process_finish($success, $results, $operations) {
  */
 function create_cover($url, $isbn) {
   global $user;
-  $ext = substr($url, strrpos($url, '.') + 1);
+  $cover_request = drupal_http_request($url);
+  if (strpos($cover_request->headers['content-type'], 'image') !== 0) {
+    return '';
+  }
+  $ext = substr($cover_request->headers['content-type'], strrpos($cover_request->headers['content-type'], '/') + 1);
   $filename = $isbn.".".$ext;
  
   $fid = db_select('file_managed', 'f')->condition('filename', $filename)->fields('f', array('fid'))
@@ -313,8 +318,6 @@ function create_cover($url, $isbn) {
   else {
   
     $filepath = sprintf("%s/%s/portadas/%s",DRUPAL_ROOT, variable_get('file_public_path', 'sites/default/files'), $filename);
-
-    $cover_request = drupal_http_request($url);
     $file = new stdClass();
     if ($cover_request->code == 200) {
       file_put_contents($filepath, $cover_request->data);
