@@ -175,12 +175,6 @@ function geslib_cron() {
 }
 
 function geslib_init() {
-  $lines = db_select('geslib_lines', 'g')->condition('queued', 0)->fields('g')
-      ->execute()->fetchAll();
-    $queue = DrupalQueue::get('geslibCronQueue');
-    foreach ($lines as $line) {
-      //dpm($line);
-    }
 }
 
 /**
