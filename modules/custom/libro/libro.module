@@ -5,19 +5,3 @@
  */
 
 include_once 'libro.features.inc';
-
-function libro_geslib_product($action, $item) {
-  if ($action == 'A') {
-    $product = $item;
-    $product->type = 'libro';
-    $product->sku = $item->ean;
-    $product->field_geslib_id['und'][0]['value'] = $item->geslib_id;
-    $product->commerce_price['und'][0]['amount'] = $item->price;
-    $product->commerce_price['und'][0]['currency_code'] = 'EUR';
-    
-      $result = db_select('commerce_product', 'p')->fields('p')->condition('sku', $item->ean)->execute()->fetchObject();
-    
-    if (empty($result) && !empty($product->sku))
-      commerce_product_save($product);
-  }
-}
