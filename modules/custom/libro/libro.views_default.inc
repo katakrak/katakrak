@@ -188,6 +188,11 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['field_libro_portada']['id'] = 'field_libro_portada';
   $handler->display->display_options['fields']['field_libro_portada']['table'] = 'field_data_field_libro_portada';
   $handler->display->display_options['fields']['field_libro_portada']['field'] = 'field_libro_portada';
+  $handler->display->display_options['fields']['field_libro_portada']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_libro_portada']['settings'] = array(
+    'image_style' => 'thumbnail',
+    'image_link' => '',
+  );
   /* Sort criterion: Content: Updated date */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
@@ -281,11 +286,6 @@ function libro_views_default_views() {
   $handler->display->display_options['filters']['field_libro_en_dilve_value']['id'] = 'field_libro_en_dilve_value';
   $handler->display->display_options['filters']['field_libro_en_dilve_value']['table'] = 'field_data_field_libro_en_dilve';
   $handler->display->display_options['filters']['field_libro_en_dilve_value']['field'] = 'field_libro_en_dilve_value';
-  $handler->display->display_options['filters']['field_libro_en_dilve_value']['value'] = array(
-    'all' => 'all',
-    0 => '0',
-    1 => '1',
-  );
   $handler->display->display_options['filters']['field_libro_en_dilve_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_libro_en_dilve_value']['expose']['operator_id'] = 'field_libro_en_dilve_value_op';
   $handler->display->display_options['filters']['field_libro_en_dilve_value']['expose']['label'] = 'En dilve';
