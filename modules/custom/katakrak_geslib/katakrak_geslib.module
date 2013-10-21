@@ -107,6 +107,7 @@ function katakrak_geslib_geslib_product($op, $product) {
       
       $node = new stdClass();
       $node->type = 'libro';
+      $node->title = $product['title'];
     }
     if ($op == 'update') {
       $commerce_product = commerce_product_load_by_sku($product['geslib_id']);
@@ -135,10 +136,7 @@ function katakrak_geslib_geslib_product($op, $product) {
 
     commerce_product_save($commerce_product);
 
-      
-    $node->title = $product['title'];
     $node->field_libro_producto['und'][0]['product_id'] = $commerce_product->product_id;
-    
     $node->field_libro_isbn['und'][0]['value'] = $product['isbn'];
     $node->field_libro_ean['und'][0]['value'] = $product['ean'];
     $node->field_libro_ano['und'][0]['value'] = $product['year'];
@@ -151,8 +149,10 @@ function katakrak_geslib_geslib_product($op, $product) {
     if (isset($product['subtitulo']))
       $node->field_libro_subtitulo['und'][0]['value'] = $product['subtitulo'];
     
-    if (isset($product['description']))
+    if (isset($product['description']['sinopsis']) && (empty($node->field_libro_en_dilve) || $node->field_libro_en_dilve['und'][0]['value'] == 0)) {
       $node->field_libro_sinopsis['und'][0]['value'] = $product['description']['sinopsis'];
+    }
+      
     
     if ($product['materia']) {
       $materia_tid = get_tid_by_geslib_id($product['materia'], 'category');
