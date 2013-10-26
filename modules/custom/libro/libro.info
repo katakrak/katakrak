@@ -8,7 +8,6 @@ dependencies[] = commerce_cart
 dependencies[] = features
 dependencies[] = image
 dependencies[] = list
-dependencies[] = nlmfield
 dependencies[] = number
 dependencies[] = physical
 dependencies[] = taxonomy

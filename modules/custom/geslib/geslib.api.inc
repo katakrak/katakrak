@@ -80,12 +80,7 @@ function geslib_process_line($line, &$geslib_data) {
         $item['title'] = geslib_utf8_encode($line[3]);
         $item['price'] = str_replace(",", "", $line[29]);
         $item["isbn"] = geslib_utf8_encode($line[6]);	//ISBN (por si se quiere seleccionar)
-        if ($line[7]) {
-          $item["ean"] = geslib_utf8_encode($line[7]);
-        } 
-        else {
-          $item["ean"] = geslib_utf8_encode(str_replace('-','',$line[6])); 
-        }
+        $item["ean"] = geslib_utf8_encode(str_replace('-','',$line[6])); 
 
         $item["pages"] = $line[8];
         $item["edition"] = geslib_utf8_encode($line[9]);
