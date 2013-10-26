@@ -10,14 +10,14 @@
 function katakrak_dilve_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-libro-field_libro_en_dilve'.
-  $fields['node-libro-field_libro_en_dilve'] = array(
+  // Exported field: 'node-libro-field_libro_dilve'.
+  $fields['node-libro-field_libro_dilve'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_libro_en_dilve',
+      'field_name' => 'field_libro_dilve',
       'foreign keys' => array(),
       'indexes' => array(
         'value' => array(
@@ -28,21 +28,18 @@ function katakrak_dilve_field_default_fields() {
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
-          0 => '0',
-          1 => '1',
+          0 => 'No consultado',
+          1 => 'No',
+          2 => 'Sí',
         ),
         'allowed_values_function' => '',
       ),
       'translatable' => '0',
-      'type' => 'list_boolean',
+      'type' => 'list_integer',
     ),
     'field_instance' => array(
       'bundle' => 'libro',
-      'default_value' => array(
-        0 => array(
-          'value' => 0,
-        ),
-      ),
+      'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -51,7 +48,13 @@ function katakrak_dilve_field_default_fields() {
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => 15,
+          'weight' => 16,
+        ),
+        'product_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -61,8 +64,9 @@ function katakrak_dilve_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_libro_en_dilve',
-      'label' => 'Registro en dilve',
+      'fences_wrapper' => '',
+      'field_name' => 'field_libro_dilve',
+      'label' => 'Dilve',
       'required' => 0,
       'settings' => array(
         'user_register_form' => FALSE,
@@ -71,17 +75,17 @@ function katakrak_dilve_field_default_fields() {
         'active' => 1,
         'module' => 'options',
         'settings' => array(
-          'display_label' => 1,
+          'apply_chosen' => 0,
         ),
-        'type' => 'options_onoff',
-        'weight' => '15',
+        'type' => 'options_select',
+        'weight' => '31',
       ),
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Registro en dilve');
+  t('Dilve');
 
   return $fields;
 }
