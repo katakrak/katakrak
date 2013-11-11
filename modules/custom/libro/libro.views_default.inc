@@ -35,17 +35,11 @@ function libro_views_default_views() {
   $handler->display->display_options['style_options']['columns'] = array(
     'title' => 'title',
     'field_product_peso' => 'field_product_peso',
-    'field_libro_autores' => 'field_libro_autores',
-    'field_libro_ean' => 'field_libro_ean',
-    'field_libro_isbn' => 'field_libro_isbn',
-    'field_libro_paginas' => 'field_libro_paginas',
-    'sku' => 'sku',
+    'commerce_price' => 'commerce_price',
     'commerce_stock' => 'commerce_stock',
-    'field_libro_ano' => 'field_libro_ano',
-    'field_libro_categoria' => 'field_libro_categoria',
-    'field_libro_editorial' => 'field_libro_editorial',
+    'field_libro_ean' => 'field_libro_ean',
     'field_libro_estado' => 'field_libro_estado',
-    'field_libro_idioma' => 'field_libro_idioma',
+    'field_libro_portada' => 'field_libro_portada',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
@@ -58,39 +52,13 @@ function libro_views_default_views() {
     ),
     'field_product_peso' => array(
       'sortable' => 1,
-      'default_sort_order' => 'asc',
+      'default_sort_order' => 'desc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_libro_autores' => array(
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_libro_ean' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_libro_isbn' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_libro_paginas' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'sku' => array(
-      'sortable' => 1,
+    'commerce_price' => array(
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
@@ -98,41 +66,27 @@ function libro_views_default_views() {
     ),
     'commerce_stock' => array(
       'sortable' => 1,
-      'default_sort_order' => 'asc',
+      'default_sort_order' => 'desc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_libro_ano' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_libro_categoria' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_libro_editorial' => array(
-      'sortable' => 1,
+    'field_libro_ean' => array(
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_libro_estado' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_libro_idioma' => array(
-      'sortable' => 1,
+    'field_libro_portada' => array(
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
@@ -282,23 +236,15 @@ function libro_views_default_views() {
     2 => '2',
     1 => 0,
   );
-  /* Filter criterion: Content: Registro en dilve (field_libro_en_dilve) */
-  $handler->display->display_options['filters']['field_libro_en_dilve_value']['id'] = 'field_libro_en_dilve_value';
-  $handler->display->display_options['filters']['field_libro_en_dilve_value']['table'] = 'field_data_field_libro_en_dilve';
-  $handler->display->display_options['filters']['field_libro_en_dilve_value']['field'] = 'field_libro_en_dilve_value';
-  $handler->display->display_options['filters']['field_libro_en_dilve_value']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_libro_en_dilve_value']['expose']['operator_id'] = 'field_libro_en_dilve_value_op';
-  $handler->display->display_options['filters']['field_libro_en_dilve_value']['expose']['label'] = 'En dilve';
-  $handler->display->display_options['filters']['field_libro_en_dilve_value']['expose']['operator'] = 'field_libro_en_dilve_value_op';
-  $handler->display->display_options['filters']['field_libro_en_dilve_value']['expose']['identifier'] = 'field_libro_en_dilve_value';
-  $handler->display->display_options['filters']['field_libro_en_dilve_value']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'libros-admin';
+  $handler->display->display_options['path'] = 'admin/content/books';
+  $handler->display->display_options['menu']['type'] = 'tab';
+  $handler->display->display_options['menu']['title'] = 'Libros';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
   $export['libros_admin'] = $view;
 
   return $export;
