@@ -75,7 +75,7 @@ function geslib_first_import_form($form, &$form_state) {
   }
   $files = scandir($geslib_dir);
   foreach ($files as $key => $value) {
-    if ($value != '.' AND $value != '..'){
+    if (strpos($value, '.') !== 0 AND $value != '..'){
       $options[$geslib_dir.'/'.$value] = $value;
     }
   }
@@ -220,7 +220,7 @@ function _geslib_get_file_to_process() {
   
   $files = array();
   foreach ($files_tmp as $value) {
-    if ($value != '.'&& $value != '..' && !in_array($value, $processed_files)){
+    if (strpos($value, '.') !== 0 && !in_array($value, $processed_files)){
       $files[] = $value;
     }
   }

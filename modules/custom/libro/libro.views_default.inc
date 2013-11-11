@@ -147,6 +147,11 @@ function libro_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => '',
   );
+  /* Field: Content: Autores */
+  $handler->display->display_options['fields']['field_libro_autores']['id'] = 'field_libro_autores';
+  $handler->display->display_options['fields']['field_libro_autores']['table'] = 'field_data_field_libro_autores';
+  $handler->display->display_options['fields']['field_libro_autores']['field'] = 'field_libro_autores';
+  $handler->display->display_options['fields']['field_libro_autores']['delta_offset'] = '0';
   /* Sort criterion: Content: Updated date */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
