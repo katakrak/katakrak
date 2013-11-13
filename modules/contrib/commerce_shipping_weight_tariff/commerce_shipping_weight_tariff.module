@@ -23,7 +23,7 @@
 /**
  * The physical weight field on ordinary products.
  */
-define('COMMERCE_SHIPPING_WEIGHT_TARIFF_PRODUCT_WEIGHT_FIELD', 'field_p_weight');
+define('COMMERCE_SHIPPING_WEIGHT_TARIFF_PRODUCT_WEIGHT_FIELD', 'field_product_peso');
 
 /**
  * Implements hook_menu().

@@ -44,4 +44,25 @@ function commerce_shipping_weight_tariff_commerce_shipping_service_info() {
   // In the absence of this, you should create a custom module and define the
   // services for your site in its own implementation of
   // hook_commerce_shipping_service_info, eg Next day, Special delivery, etc.
+  $shipping_services = array();
+  $shipping_services['tipsa'] = array( //arbitrary name w/ 'service' in there
+      'title' => t('Paquetería'),  //titulo de la interfaz en "shipping" + "shipping services"
+      'description' => t('Precios de envio variables dependiendo del peso'),
+      'display_title' => t('Paquetería'),
+      'shipping_method' => 'weight_tariff_shipping', //comes from the tariff module...
+      'price_component' => 'shipping',  //from commerce_shipping
+      'callbacks' => array(
+      'rate' => 'commerce_shipping_weight_tariff_service_rate',), //rate callback comes from tariff module
+  );
+  $shipping_services['tipsa_14'] = array( //arbitrary name w/ 'service' in there
+      'title' => t('Paquetería 14 horas'),  //titulo de la interfaz en "shipping" + "shipping services"
+      'description' => t('Precios de envio variables dependiendo del peso'),
+      'display_title' => t('Paquetería 14 horas'),
+      'shipping_method' => 'weight_tariff_shipping', //comes from the tariff module...
+      'price_component' => 'shipping',  //from commerce_shipping
+      'callbacks' => array(
+      'rate' => 'commerce_shipping_weight_tariff_service_rate',), //rate callback comes from tariff module
+  );
+
+  return $shipping_services;
 }
