@@ -130,7 +130,7 @@ function katakrak_geslib_geslib_product($op, $product) {
       'amount' => $product['price'],
       'currency_code' => 'EUR',
       'data' => array(
-        'include_tax' =>  'iva_libro'
+        'include_tax' =>  'iva_libros'
       ),
     );
     if ($product['weight']) {
