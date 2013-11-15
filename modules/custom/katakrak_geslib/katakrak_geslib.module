@@ -159,7 +159,7 @@ function katakrak_geslib_geslib_product($op, $product) {
     if (isset($product['subtitulo']))
       $node->field_libro_subtitulo['und'][0]['value'] = $product['subtitulo'];
     
-    if (isset($product['description']['sinopsis']) && (empty($node->field_libro_en_dilve) || $node->field_libro_en_dilve['und'][0]['value'] == 0)) {
+    if (isset($product['description']['sinopsis']) && (empty($node->field_libro_dilve) || $node->field_libro_dilve['und'][0]['value'] == 0)) {
       $node->field_libro_sinopsis['und'][0]['value'] = $product['description']['sinopsis'];
     }
       
