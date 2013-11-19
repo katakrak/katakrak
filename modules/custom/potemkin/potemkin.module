@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Potemkin feature.
+ */
+
+include_once 'potemkin.features.inc';
