@@ -4,4 +4,4 @@
  * Code for the Potemkin feature.
  */
 
-include_once 'potemkin.features.inc';
+include_once 'katakrak_potemkin.features.inc';

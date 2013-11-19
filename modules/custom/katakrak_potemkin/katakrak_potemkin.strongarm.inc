@@ -7,7 +7,7 @@
 /**
  * Implements hook_strongarm().
  */
-function potemkin_strongarm() {
+function katakrak_potemkin_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();

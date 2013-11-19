@@ -7,7 +7,7 @@
 /**
  * Implements hook_taxonomy_default_vocabularies().
  */
-function potemkin_taxonomy_default_vocabularies() {
+function katakrak_potemkin_taxonomy_default_vocabularies() {
   return array(
     'actores' => array(
       'name' => 'Actores',
