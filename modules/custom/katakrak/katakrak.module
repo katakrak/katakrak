@@ -5,3 +5,12 @@
  */
 
 include_once 'katakrak.features.inc';
+
+function katakrak_admin_paths() {
+  $paths = array(
+    'node/*/edit' => TRUE,
+    'node/*/devel' => TRUE,
+    'node/add/*' => TRUE,
+  );
+  return $paths;
+}
