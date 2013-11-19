@@ -1,0 +1,7 @@
+name = Spanish Address Field
+description = Spanish addressfield format handler.
+core = 7.x
+package = Fields
+
+dependencies[] = ctools
+dependencies[] = addressfield
