@@ -98,7 +98,7 @@ function libro_field_default_fields() {
           'currency_code' => 'default',
         ),
         'type' => 'commerce_price_full',
-        'weight' => '0',
+        'weight' => 0,
       ),
     ),
   );
