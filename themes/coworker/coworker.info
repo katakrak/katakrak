@@ -1,0 +1,83 @@
+name = Coworker
+description = Coworker theme, developed by <a href="http://tabvn.com/">Tabvn</a>.
+core = 7.x
+
+
+; System stylesheets we'd like to avoid:
+stylesheets[all][] = system.messages.css
+stylesheets[all][] = system.menus.css
+stylesheets[all][] = system.theme.css
+stylesheets[all][] = css/katakrak.css
+
+
+
+scripts[] = js/plugins.js
+scripts[] = js/custom.js
+scripts[] = js/coworker.js
+
+
+regions[top_left] = Top header left
+regions[top_right] = Top header right
+
+regions[sidebar_first]  = Left sidebar
+regions[sidebar_second] = Right sidebar
+regions[slider] = Slider
+regions[contact_map] = Contact map
+regions[content] = Content
+regions[header] = Header
+regions[highlighted] = Highlighted
+regions[help] = Help
+regions[page_top] = Page Top
+regions[page_bottom] = Page Bottom
+
+regions[footer] = Footer
+regions[footer_first] = Footer first column
+regions[footer_second] = Footer second column
+regions[footer_third] = Footer third column
+regions[footer_fourth] = Footer fourth column
+
+
+;layouts[default][name] = "Default"
+;layouts[default][description] = "Default layout."
+;layouts[default][template] = "templates/page"
+;layouts[default][regions][] = "content"
+;layouts[default][regions][] = "top_left"
+;layouts[default][regions][] = "top_right"
+;layouts[default][regions][] = "slider"
+;layouts[default][regions][] = "sidebar_first"
+;layouts[default][regions][] = "sidebar_second"
+;layouts[default][regions][] = ""
+;layouts[default][regions][] = ""
+;layouts[default][regions][] = "footer"
+;layouts[default][regions][] = "footer_first"
+;layouts[default][regions][] = "footer_second"
+;layouts[default][regions][] = "footer_third"
+;layouts[default][regions][] = "footer_fourth"
+
+;layouts[search][name] = "Search"
+;layouts[search][description] = "Simple two column page."
+;layouts[search][template] = "templates/layout-search"
+;layouts[search][regions][] = "sidebar_first"
+;layouts[search][regions][] = "content"
+
+features[] = logo
+;features[] = name
+;features[] = slogan
+;features[] = node_user_picture
+features[] = comment_user_picture
+features[] = comment_user_verification
+features[] = favicon
+features[] = main_menu
+features[] = secondary_menu
+
+
+settings[footer_style] = dark
+settings[rentina_logo] = /sites/all/themes/coworker/images/logo@2x.png
+settings[theme_layout] = stretched
+settings[coworker_theme_color] = #2780AF
+settings[enable_responsive] = 1
+settings[homepage_title] = 1
+settings[theme_custom_css] = ''
+settings[theme_background_image] = pattern9.png
+
+plugins[panels][layouts] = layouts
