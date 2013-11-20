@@ -63,6 +63,40 @@ function libro_default_page_manager_handlers() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-1';
+    $pane->panel = 'buttons';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_libro_producto';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'commerce_cart_add_to_cart_form',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(
+        'show_quantity' => 0,
+        'default_quantity' => '1',
+        'combine' => 1,
+        'show_single_product_attributes' => 0,
+        'line_item_type' => 0,
+      ),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $display->content['new-1'] = $pane;
+    $display->panels['buttons'][0] = 'new-1';
+    $pane = new stdClass();
+    $pane->pid = 'new-2';
     $pane->panel = 'cover';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:field_libro_portada';
@@ -90,10 +124,10 @@ function libro_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-1'] = $pane;
-    $display->panels['cover'][0] = 'new-1';
+    $display->content['new-2'] = $pane;
+    $display->panels['cover'][0] = 'new-2';
     $pane = new stdClass();
-    $pane->pid = 'new-2';
+    $pane->pid = 'new-3';
     $pane->panel = 'title';
     $pane->type = 'node_title';
     $pane->subtype = 'node_title';
@@ -116,8 +150,8 @@ function libro_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-2'] = $pane;
-    $display->panels['title'][0] = 'new-2';
+    $display->content['new-3'] = $pane;
+    $display->panels['title'][0] = 'new-3';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
