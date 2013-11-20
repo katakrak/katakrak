@@ -9,7 +9,9 @@ include_once 'katakrak.features.inc';
 function katakrak_admin_paths() {
   $paths = array(
     'node/*/edit' => TRUE,
+    'node/*/translate' => TRUE,
     'node/*/devel' => TRUE,
+    'node/*/dilve' => TRUE,
     'node/add/*' => TRUE,
   );
   return $paths;
