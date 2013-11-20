@@ -71,7 +71,7 @@
 
   <div id="content">
 
-    <?php if (!drupal_is_front_page()): ?>
+    <?php if (FALSE && !drupal_is_front_page()): ?>
       <?php if ($title): ?>
         <div id="page-title">
           <div class="clearfix">
@@ -90,7 +90,7 @@
       <?php endif; ?>
     <?php endif; ?>
 
-    <?php if (drupal_is_front_page() && !theme_get_setting('homepage_title', 'coworker')): ?>
+    <?php if (FALSE && drupal_is_front_page() && !theme_get_setting('homepage_title', 'coworker')): ?>
       <?php if ($title): ?>
         <div id="page-title">
           <div class="clearfix">
