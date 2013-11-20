@@ -90,6 +90,6 @@
         <p class="search-info"><?php print $info; ?></p>
       <?php endif; ?>
     </div>
-    </div>
+    </div>  
   </div>
 </div>

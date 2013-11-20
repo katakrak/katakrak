@@ -41,6 +41,7 @@ features[node][] = libro
 features[taxonomy][] = autores
 features[taxonomy][] = editoriales
 features[taxonomy][] = materias
+features[variable][] = field_bundle_settings_node__libro
 features[views_view][] = libros
 features[views_view][] = libros_admin
 features_exclude[field_base][body] = body
