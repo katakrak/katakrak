@@ -1,0 +1,10 @@
+name = Katakrak_home
+core = 7.x
+package = Katakrak
+version = 7.x-1.0
+project = katakrak_home
+dependencies[] = context
+dependencies[] = ctools
+features[context][] = home
+features[ctools][] = context:context:3
+features[features_api][] = api:1

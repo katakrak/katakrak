@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Katakrak_home feature.
+ */
+
+include_once 'katakrak_home.features.inc';
