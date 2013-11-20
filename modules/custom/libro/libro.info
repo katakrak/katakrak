@@ -43,7 +43,6 @@ features[field][] = taxonomy_term-materias-field_materias_geslib_id
 features[image][] = book_cover
 features[image][] = search_result_cover
 features[node][] = libro
-features[page_manager_handlers][] = node_view_panel_context
 features[taxonomy][] = autores
 features[taxonomy][] = editoriales
 features[taxonomy][] = materias
