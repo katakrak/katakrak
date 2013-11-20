@@ -19,8 +19,8 @@ function katakrak_search_apachesolr_environments() {
   $environment->conf = array(
     'apachesolr_index_last' => array(
       'node' => array(
-        'last_changed' => '1384884001',
-        'last_entity_id' => '23046',
+        'last_changed' => '1384881275',
+        'last_entity_id' => '810',
       ),
       'taxonomy_term' => array(
         'last_changed' => 0,
@@ -71,10 +71,8 @@ function katakrak_search_apachesolr_environments() {
         'last_entity_id' => 0,
       ),
     ),
-    'apachesolr_index_updated' => 1384958881,
-    'apachesolr_last_optimize' => 1384881121,
-    'apachesolr_read_only' => '0',
-    'apachesolr_search_facet_pages' => '',
+    'apachesolr_index_updated' => 1384968241,
+    'apachesolr_last_optimize' => 1384959421,
   );
   $environment->index_bundles = array(
     'node' => array(
