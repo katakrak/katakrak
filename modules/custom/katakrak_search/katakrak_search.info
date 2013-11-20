@@ -8,7 +8,6 @@ dependencies[] = apachesolr_search
 dependencies[] = context
 dependencies[] = ctools
 dependencies[] = facetapi
-dependencies[] = page_manager
 dependencies[] = strongarm
 features[apachesolr_environment][] = solr
 features[apachesolr_search_page][] = book_search
