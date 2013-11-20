@@ -2,9 +2,9 @@
 
 $plugin = array(
   'title' => t('One row two columns'),
-  'category' => t('onerowtwocols'),
+  'category' => t('Bootstrap'),
   'icon' => 'onerowtwocols.png',
-  'theme' => 'panels-twocol',
+  'theme' => 'twocol',
 //  'css' => 'onerowtwocols.css',
   'regions' => array(
     'right' => t('Right side'),
