@@ -71,10 +71,10 @@
 
   <div id="content">
 
-    <?php if (FALSE && !drupal_is_front_page()): ?>
+    <?php if (!drupal_is_front_page()): ?>
       <?php if ($title): ?>
         <div id="page-title">
-          <div class="clearfix">
+          <div class="container clearfix">
 
             <h1><?php print $title; ?></h1>
 
@@ -90,10 +90,10 @@
       <?php endif; ?>
     <?php endif; ?>
 
-    <?php if (FALSE && drupal_is_front_page() && !theme_get_setting('homepage_title', 'coworker')): ?>
+    <?php if (drupal_is_front_page() && !theme_get_setting('homepage_title', 'coworker')): ?>
       <?php if ($title): ?>
         <div id="page-title">
-          <div class="clearfix">
+          <div class="container clearfix">
 
             <h1><?php print $title; ?></h1>
 
@@ -117,7 +117,7 @@
     <?php endif; ?>
 
     <div class="content-wrap">
-      <div class="clearfix">
+      <div class="container clearfix">
 
         <?php
         $content_class = 'content-main-column';
