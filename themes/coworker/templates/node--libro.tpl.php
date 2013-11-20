@@ -111,6 +111,11 @@
               </div>
             </div>
             <div class="row-fluid">
+              <div class="span8">
+                <?php print render($content['field_libro_sinopsis']) ?>
+              </div>
+            </div>
+            <div class="row-fluid">
               <div class="span4 offset8">
                 <?php print render($content['field_libro_producto']) ?>
               </div>
