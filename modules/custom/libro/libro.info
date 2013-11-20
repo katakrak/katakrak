@@ -10,7 +10,6 @@ dependencies[] = features
 dependencies[] = image
 dependencies[] = list
 dependencies[] = number
-dependencies[] = page_manager
 dependencies[] = physical
 dependencies[] = strongarm
 dependencies[] = taxonomy
