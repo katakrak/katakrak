@@ -56,6 +56,17 @@ function coworker_preprocess_page(&$vars) {
   }
 }
 
+function coworker_preprocess_search_result(&$vars) {
+  
+  if ($vars['result']['entity_type'] == 'node') {
+    $vars['node'] = node_load($vars['result']['node']->entity_id);
+    $vars['cover'] = theme('image_style', array(
+      'style_name' => 'search_result_cover',
+      'path' => $vars['node']->field_libro_portada['und'][0]['uri'])
+    );
+  }
+}
+
 function coworker_format_comma_field($field_category, $node, $limit = NULL) {
 
   if (module_exists('i18n_taxonomy')) {

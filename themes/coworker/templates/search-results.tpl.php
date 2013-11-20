@@ -25,12 +25,8 @@
 ?>
 <?php if ($search_results): ?>
   <h2><?php //print t('Search results');?></h2>
-  <div class="row-fluid">
-    <div class="span12">
-      <div class="search-results <?php print $module; ?>-results">
-        <?php print $search_results; ?>
-      </div>
-    </div>
+  <div class="search-results <?php print $module; ?>-results">
+    <?php print $search_results; ?>
   </div>
     <?php print $pager; ?>
 <?php else : ?>

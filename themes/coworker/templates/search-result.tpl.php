@@ -64,18 +64,32 @@
  * @ingroup themeable
  */
 ?>
-<div class="<?php print $classes; ?>"<?php print $attributes; ?>>
-  <?php print render($title_prefix); ?>
-  <h3 class="title"<?php print $title_attributes; ?>>
-    <a href="<?php print $url; ?>"><?php print $title; ?></a>
-  </h3>
-  <?php print render($title_suffix); ?>
-  <div class="search-snippet-info">
-    <?php if ($snippet): ?>
-      <p class="search-snippet"<?php print $content_attributes; ?>><?php print $snippet; ?></p>
-    <?php endif; ?>
-    <?php if ($info): ?>
-      <p class="search-info"><?php print $info; ?></p>
-    <?php endif; ?>
+
+<div class="row-fluid <?php print $classes; ?>"<?php print $attributes; ?>>
+  <div class="span12">
+    <div class="row-fluid">
+      <div class="span12">
+      <?php print render($title_prefix); ?>
+      <h3 class="title"<?php print $title_attributes; ?>>
+        <a href="<?php print $url; ?>"><?php print $title; ?></a>
+      </h3>
+      <?php print render($title_suffix); ?>
+      </div>
+    </div>
+  </div>
+  <div class="row-fluid">
+  <div class="span2">
+    <?php print $cover ?>
+  </div>
+  <div class="span10">
+    <div class="search-snippet-info">
+      <?php if ($snippet): ?>
+        <p class="search-snippet"<?php print $content_attributes; ?>><?php print $snippet; ?></p>
+      <?php endif; ?>
+      <?php if (FALSE && $info): ?>
+        <p class="search-info"><?php print $info; ?></p>
+      <?php endif; ?>
+    </div>
+    </div>
   </div>
 </div>
