@@ -29,11 +29,18 @@ function katakrak_dilve_menu() {
     'title' => 'Dilve',
     'page callback' => 'katakrak_dilve_info',
     'page arguments' => array(1),
-    'access arguments' => array('access devel information'),
+    'access callback' => 'katakrak_dilve_access_node_info',
+    'access arguments' => array('access devel information', 1),
     'type' => MENU_LOCAL_TASK,
     'weight' => 100,
   );
   return $items;
+}
+
+function katakrak_dilve_access_node_info($perm, $node) {
+  if (user_access($perm) && $node->type == 'libro')
+    return TRUE;
+  return FALSE;
 }
 
 function katakrak_dilve_settings_form($form, &$form_state) {
