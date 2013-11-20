@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Katakrak_search feature.
+ */
+
+include_once 'katakrak_search.features.inc';
