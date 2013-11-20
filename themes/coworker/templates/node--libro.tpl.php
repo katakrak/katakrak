@@ -88,8 +88,6 @@
       hide($content['comments']);
       hide($content['links']);
       //print render($content);
-      dpm($node);
-      dpm($content);
       ?>
       <div class="row-fluid">
         <div class="span12">
