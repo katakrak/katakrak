@@ -1328,10 +1328,14 @@ function libro_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
+          'label' => 'hidden',
+          'module' => 'title',
+          'settings' => array(
+            'title_class' => '',
+            'title_link' => '',
+            'title_style' => 'h3',
+          ),
+          'type' => 'title_linked',
           'weight' => '6',
         ),
         'search_index' => array(

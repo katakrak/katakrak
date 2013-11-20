@@ -65,6 +65,11 @@ layouts[search][template] = "templates/layout-search"
 layouts[search][regions][] = "sidebar_first"
 layouts[search][regions][] = "content"
 
+layouts[book][name] = "Book"
+layouts[book][description] = "Layout for libro content."
+layouts[book][template] = "templates/layout-book"
+layouts[book][regions][] = "content"
+
 features[] = logo
 ;features[] = name
 ;features[] = slogan
