@@ -5,3 +5,24 @@
  */
 
 include_once 'katakrak_potemkin.features.inc';
+
+/**
+ * Implementation of hook_menu().
+ */
+function katakrak_potemkin_menu() {
+  $items = array();
+  $items['admin/config/potemkin/geslib'] = array(
+    'title' => 'Import DVD',
+    'description' => 'Carga inicial del fichero de potemkin.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('potemkin_first_import_form'),
+    'access callback' => 'user_access',
+    'access arguments' => array('geslib_content import'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+function potemkin_first_import_form($form, &$form_state) {
+  
+}

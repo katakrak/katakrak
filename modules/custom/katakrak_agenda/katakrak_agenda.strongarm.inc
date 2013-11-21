@@ -103,7 +103,9 @@ function katakrak_agenda_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'i18n_sync_node_type_event';
-  $strongarm->value = array();
+  $strongarm->value = array(
+    0 => 'field_event_date',
+  );
   $export['i18n_sync_node_type_event'] = $strongarm;
 
   $strongarm = new stdClass();
