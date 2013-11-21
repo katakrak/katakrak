@@ -1,47 +1,37 @@
-<div id="wrapper" class="clearfix">
-   <div id="header">
-    <div class="container clearfix">
-      <div id="logo">
-        <?php if ($logo): ?>
-          <a href="<?php print $front_page; ?>" class="standard-logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" title="<?php print t('Home'); ?>" /></a>
-          <?php
-          $rentina_logo = theme_get_setting('rentina_logo', 'coworker');
-          if (!empty($rentina_logo)) {
-            ?>
-            <a href="<?php print $front_page; ?>" class="retina-logo"><img src="<?php print $rentina_logo; ?>" /></a>
-          <?php } ?>
-        <?php endif; ?>
-        <?php if ($site_name || $site_slogan): ?>
-          <div id="name-and-slogan">
-            <?php if ($site_name): ?>
-              <h1 id="site-name">
-                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-              </h1>
-            <?php endif; ?>
-            <?php if ($site_slogan): ?>
-              <div id="site-slogan"><?php print $site_slogan; ?></div>
-            <?php endif; ?>
-          </div> <!-- /#name-and-slogan -->
-        <?php endif; ?>
+<?php include 'page-header.inc' ?>
+
+<?php if (!empty($page['slider'])): ?>
+  <div id="slider">
+    <?php print render($page['slider']); ?>
+  </div>
+<?php endif; ?>
+
+<div id="content">
+  <?php if (!drupal_is_front_page()): ?>
+    <?php if ($title): ?>
+      <div id="page-title">
+        <div class="container clearfix">
+
+          <h1><?php print $title; ?></h1>
+
+          <?php if (!empty($search_block)): ?>
+            <div id="top-search">
+              <?php print $search_block; ?>
+            </div>
+          <?php endif; ?>
+
+        </div>
       </div>
 
+    <?php endif; ?>
+  <?php endif; ?>
 
+  <?php if (drupal_is_front_page() && !theme_get_setting('homepage_title', 'coworker')): ?>
+    <?php if ($title): ?>
+      <div id="page-title">
+        <div class="container clearfix">
 
-      <?php if (!empty($navigation)): ?>
-        <div id="primary-menu">
-          <?php print $navigation; ?>
-        </div>
-      <?php endif; ?>
-    </div>
-  </div>
-  <div id="content">
-
-    <?php if (!drupal_is_front_page()): ?>
-      <?php if ($title): ?>
-        <div id="page-title">
-          <div class="container clearfix">
-
-            <h1><?php print $title; ?></h1>
+          <h1><?php print $title; ?></h1>
 
             <?php if (!empty($search_block)): ?>
               <div id="top-search">
@@ -55,8 +45,15 @@
       <?php endif; ?>
     <?php endif; ?>
 
+    <?php if ($page['contact_map']): ?>
+      <div id="google-map" class="contact-map">
+        <div style="display: block !important;" class="slider-line"></div>
+        <?php print render($page['contact_map']); ?>
+      </div>
+    <?php endif; ?>
+
     <div class="content-wrap">
-      <div class="container-fluid clearfix">
+      <div class="container clearfix">
 
         <?php
         $content_class = 'content-main-column';
@@ -84,24 +81,35 @@
           <?php print render($title_prefix); ?>
           <?php print render($title_suffix); ?>
 
+          <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
           <?php print render($page['help']); ?>
           <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
 
-            <?php if ($page['sidebar_first']): ?>
-            <!-- sidebar left -->
-            <div id="sidebar-first">
-              <?php print render($page['sidebar_first']); ?>
-            </div>
-            <!-- // sidebar left -->
-            <?php endif; ?>
-              <?php print render($page['content']); ?>
+          <?php print render($page['content']); ?>
           <?php print $feed_icons; ?>
         </div>
         <!-- // content region -->
 
-      </div>
+        <?php if ($page['sidebar_first']): ?>
+          <!-- sidebar left -->
+          <div id="sidebar-first" class="sidebar nobottommargin clearfix">
+            <?php print render($page['sidebar_first']); ?>
+          </div>
+          <!-- // sidebar left -->
+        <?php endif; ?>
+
+        <?php if ($page['sidebar_second']): ?>
+          <!-- sidebar right --> 
+          <div id="sidebar-second" class="sidebar <?php print $sidebar_class; ?> nobottommargin clearfix">
+            <?php print render($page['sidebar_second']); ?>
+          </div>
+          <!-- // sidebar right -->
+      <?php endif; ?>
+
+
+
     </div>
-
   </div>
-</div>
 
+</div>
+<?php include 'page-footer.inc' ?>

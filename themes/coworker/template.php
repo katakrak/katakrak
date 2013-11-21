@@ -49,6 +49,7 @@ function coworker_preprocess_page(&$vars) {
   if (!empty($custom_main_menu['content'])) {
     $vars['navigation'] = $custom_main_menu['content'];
   }
+  $vars['rentina_logo'] = theme_get_setting('rentina_logo', 'coworker');
 
   if (module_exists('search')) {
     $seach_block_form = drupal_get_form('search_block_form');

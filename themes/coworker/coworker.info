@@ -62,13 +62,26 @@ layouts[default][regions][] = "footer_fourth"
 layouts[search][name] = "Search"
 layouts[search][description] = "Simple two column page."
 layouts[search][template] = "templates/layout-search"
-layouts[search][regions][] = "sidebar_first"
+layouts[search][regions][] = "top_left"
+layouts[search][regions][] = "top_right"
 layouts[search][regions][] = "content"
+layouts[search][regions][] = "footer"
+layouts[search][regions][] = "footer_first"
+layouts[search][regions][] = "footer_second"
+layouts[search][regions][] = "footer_third"
+layouts[search][regions][] = "footer_fourth"
 
 layouts[book][name] = "Book"
 layouts[book][description] = "Layout for libro content."
 layouts[book][template] = "templates/layout-book"
+layouts[book][regions][] = "top_left"
+layouts[book][regions][] = "top_right"
 layouts[book][regions][] = "content"
+layouts[book][regions][] = "footer"
+layouts[book][regions][] = "footer_first"
+layouts[book][regions][] = "footer_second"
+layouts[book][regions][] = "footer_third"
+layouts[book][regions][] = "footer_fourth"
 
 features[] = logo
 ;features[] = name
@@ -89,5 +102,3 @@ settings[enable_responsive] = 1
 settings[homepage_title] = 1
 settings[theme_custom_css] = ''
 settings[theme_background_image] = pattern9.png
-
-plugins[panels][layouts] = layouts
