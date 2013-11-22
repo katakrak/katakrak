@@ -63,9 +63,8 @@ function katakrak_dilve_field_default_fields() {
         ),
         'search_result' => array(
           'label' => 'above',
-          'module' => 'list',
           'settings' => array(),
-          'type' => 'list_default',
+          'type' => 'hidden',
           'weight' => '16',
         ),
         'teaser' => array(

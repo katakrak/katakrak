@@ -83,6 +83,11 @@ function katakrak_dilve_batch_process_form($form, &$form_state) {
     '#size' => 10,
     '#default_value' => 100,
   );
+  $form['recheck'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Recheck'),
+    '#description' => t('Check again items not found in dilve'),
+  );
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => t('Procesar'),
@@ -93,10 +98,11 @@ function katakrak_dilve_batch_process_form($form, &$form_state) {
 function katakrak_dilve_batch_process_form_submit($form, &$form_state) {
   $max = $form_state['values']['max'] ? $form_state['values']['max'] : 0;
   $limit = $form_state['values']['limit'];
+  $recheck = $form_state['values']['recheck'];
   $batch = array(
     'title' => t('Consultando a Dilve'),
     'operations' => array(
-      array('katakrak_dilve_batch_process', array($max, $limit)),
+      array('katakrak_dilve_batch_process', array($max, $limit, $recheck)),
     ),
     'finished' => 'katakrak_dilve_batch_process_finish',
   );
@@ -230,10 +236,13 @@ function dilve_node_info_form_submit($form, &$form_state) {
  * 
  * @param type $context
  */
-function katakrak_dilve_batch_process($max, $limit, &$context){
+function katakrak_dilve_batch_process($max, $limit, $recheck, &$context){
   $nodes = db_select('node', 'n');
   $nodes->addJoin('LEFT', 'field_data_field_libro_dilve', 'd', 'n.nid = d.entity_id');
   $or = db_or()->isNull('d.field_libro_dilve_value')->condition('d.field_libro_dilve_value', 0);
+  if ($recheck) {
+    $or->condition('d.field_libro_dilve_value', 1);
+  }
   $nodes->fields('n', array('nid'))->fields('d', array('field_libro_dilve_value'))
     ->condition('type', 'libro')->condition($or);
   if (!isset($context['sandbox']['progress'])) {
@@ -245,7 +254,7 @@ function katakrak_dilve_batch_process($max, $limit, &$context){
   
   $dilve  = new DilveSearch(variable_get('dilve_user', ''), variable_get('dilve_pass', ''));
   
-  $nids = $nodes->range($context['sandbox']['progress'], $limit)->execute()->fetchAll();
+  $nids = $nodes->range(0, $limit)->execute()->fetchAll();
   
   foreach ($nids as $nid) {
     $node = node_load($nid->nid);
