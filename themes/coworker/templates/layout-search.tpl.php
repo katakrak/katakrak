@@ -51,13 +51,13 @@
         <?php
         $content_class = 'content-main-column';
         $sidebar_class = 'sidebar-column';
-        if ($page['sidebar_first']) {
-          $content_class = 'postcontent col_last';
-        }
-        if ($page['sidebar_second']) {
-          $sidebar_class = 'col_last';
-          $content_class = 'postcontent';
-        }
+//        if ($page['sidebar_first']) {
+//          $content_class = 'postcontent col_last';
+//        }
+//        if ($page['sidebar_second']) {
+//          $sidebar_class = 'col_last';
+//          $content_class = 'postcontent';
+//        }
         ?>
         <!-- content region -->
         <div class="<?php print $content_class; ?> nobottommargin clearfix">
@@ -74,7 +74,6 @@
           <?php print render($title_prefix); ?>
           <?php print render($title_suffix); ?>
 
-          <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
           <?php print render($page['help']); ?>
           <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
 

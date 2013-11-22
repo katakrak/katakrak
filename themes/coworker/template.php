@@ -60,11 +60,20 @@ function coworker_preprocess_page(&$vars) {
 function coworker_preprocess_search_result(&$vars) {
   
   if ($vars['result']['entity_type'] == 'node') {
-    $vars['node'] = node_load($vars['result']['node']->entity_id);
-    $vars['cover'] = theme('image_style', array(
-      'style_name' => 'search_result_cover',
-      'path' => $vars['node']->field_libro_portada['und'][0]['uri'])
-    );
+    $node = node_load($vars['result']['node']->entity_id);
+    if ($node->field_libro_portada) {
+      $vars['cover'] = theme('image_style', array(
+        'style_name' => 'search_result_cover',
+        'path' => $node->field_libro_portada['und'][0]['uri']
+      ));
+    }
+    else {
+      $vars['cover'] = theme('image_style', array(
+        'style_name' => 'search_result_cover',
+        'path' => 'public://image-not-found.gif'
+      ));
+    }
+    $vars['node'] = $node;
   }
 }
 

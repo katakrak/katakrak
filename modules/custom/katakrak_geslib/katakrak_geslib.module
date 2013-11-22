@@ -175,11 +175,13 @@ function katakrak_geslib_geslib_product($op, $product) {
       $node->field_libro_editorial['und'][0]['tid'] = $editorial_tid;
 
     if (isset($product['authors'])) {
-      foreach ($product['authors'] as $i => $author) {
+      $i = 0;
+      foreach ($product['authors'] as $author) {
         if ($author['author_type'] == 'A') {
           $autor_tid = get_tid_by_geslib_id($author['author_id'], 'author');
           if ($autor_tid) {
             $node->field_libro_autores['und'][$i] = array('tid' => $autor_tid);
+            $i++;
           }
         }
       }
