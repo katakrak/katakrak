@@ -1,21 +1,27 @@
 <div id="wrapper" class="clearfix">
   <div id="top-bar">
     <div class="container clearfix">
-      <?php if ($page['top_left']): ?>
-        <div id="top-menu">
-          <?php print render($page['top_left']); ?>
-        </div>
-      <?php endif; ?>
-      <?php if ($page['top_right']): ?>
-        <div id="top-social">
-          <?php print render($page['top_right']); ?>
-        </div>
-      <?php endif; ?>
-      <?php if ($page['top_lang']): ?>
-        <div id="top-lang">
-          <?php print render($page['top_lang']); ?>
-        </div>
-      <?php endif; ?>
+      <div class="row-fluid">
+        
+        <div id="top-menu" class="span4">
+        <?php if ($page['top_left']): ?>
+            <?php print render($page['top_left']); ?>
+          
+        <?php endif; ?>
+          </div>
+        <?php if ($page['top_right']): ?>
+        <div class="span6">
+          <div id="top-social">
+            <?php print render($page['top_right']); ?>
+            </div>
+          </div>
+        <?php endif; ?>
+        <?php if ($page['top_lang']): ?>
+        <div id="top-lang" class="span2">
+            <?php print render($page['top_lang']); ?>
+          </div>
+        <?php endif; ?>
+      </div>
     </div>
   </div>
 
