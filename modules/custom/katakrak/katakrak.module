@@ -24,7 +24,6 @@ function katakrak_block_info() {
   include_once DRUPAL_ROOT . '/includes/language.inc';
   $block = array();
   $info = language_types_info();
-  dpm($info);
   foreach (language_types_configurable(FALSE) as $type) {
     $block[$type] = array(
       'info' => t('Language switcher (@type) small', array('@type' => $info[$type]['name'])),
