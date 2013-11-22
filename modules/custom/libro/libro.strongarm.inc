@@ -65,7 +65,7 @@ function libro_strongarm() {
           ),
           'search_index' => array(
             'weight' => '-5',
-            'visible' => FALSE,
+            'visible' => TRUE,
           ),
           'search_result' => array(
             'weight' => '-5',
@@ -111,7 +111,7 @@ function libro_strongarm() {
           ),
           'search_result' => array(
             'weight' => '0',
-            'visible' => TRUE,
+            'visible' => FALSE,
           ),
         ),
         'product:commerce_product_tariff_service' => array(
@@ -125,7 +125,7 @@ function libro_strongarm() {
           ),
           'search_result' => array(
             'weight' => '0',
-            'visible' => TRUE,
+            'visible' => FALSE,
           ),
         ),
         'product:commerce_stock' => array(
@@ -135,7 +135,7 @@ function libro_strongarm() {
           ),
           'search_index' => array(
             'weight' => '37',
-            'visible' => FALSE,
+            'visible' => TRUE,
           ),
           'search_result' => array(
             'weight' => '37',
@@ -153,7 +153,7 @@ function libro_strongarm() {
           ),
           'search_result' => array(
             'weight' => '36',
-            'visible' => TRUE,
+            'visible' => FALSE,
           ),
         ),
       ),

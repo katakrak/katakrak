@@ -55,7 +55,7 @@ function libro_field_default_fields() {
             'calculation' => 'calculated_sell_price',
           ),
           'type' => 'commerce_price_formatted_amount',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'full' => array(
           'label' => 'hidden',
@@ -74,6 +74,21 @@ function libro_field_default_fields() {
           ),
           'type' => 'commerce_price_formatted_amount',
           'weight' => 0,
+        ),
+        'node_search_index' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '0',
+        ),
+        'node_search_result' => array(
+          'label' => 'hidden',
+          'module' => 'commerce_price',
+          'settings' => array(
+            'calculation' => 'calculated_sell_price',
+          ),
+          'type' => 'commerce_price_formatted_amount',
+          'weight' => '0',
         ),
         'node_teaser' => array(
           'label' => 'hidden',
@@ -145,13 +160,37 @@ function libro_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => 2,
+          'weight' => '2',
         ),
         'line_item' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'node_search_index' => array(
+          'label' => 'hidden',
+          'module' => 'number',
+          'settings' => array(
+            'decimal_separator' => '.',
+            'prefix_suffix' => TRUE,
+            'scale' => 2,
+            'thousand_separator' => ' ',
+          ),
+          'type' => 'number_decimal',
+          'weight' => '2',
+        ),
+        'node_search_result' => array(
+          'label' => 'above',
+          'module' => 'number',
+          'settings' => array(
+            'decimal_separator' => '.',
+            'prefix_suffix' => TRUE,
+            'scale' => 2,
+            'thousand_separator' => ' ',
+          ),
+          'type' => 'number_decimal',
+          'weight' => '2',
         ),
         'node_teaser' => array(
           'label' => 'above',
@@ -211,13 +250,25 @@ function libro_field_default_fields() {
           'module' => 'physical',
           'settings' => array(),
           'type' => 'physical_weight_formatted',
-          'weight' => 1,
+          'weight' => '1',
         ),
         'line_item' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'node_search_index' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '1',
+        ),
+        'node_search_result' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '1',
         ),
         'node_teaser' => array(
           'label' => 'above',
@@ -465,10 +516,10 @@ function libro_field_default_fields() {
           'weight' => '12',
         ),
         'search_index' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
+          'type' => 'taxonomy_term_reference_plain',
           'weight' => '12',
         ),
         'search_result' => array(
@@ -545,7 +596,7 @@ function libro_field_default_fields() {
           'weight' => '3',
         ),
         'search_index' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
@@ -633,7 +684,7 @@ function libro_field_default_fields() {
           'weight' => '5',
         ),
         'search_index' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
@@ -885,7 +936,7 @@ function libro_field_default_fields() {
           'weight' => '1',
         ),
         'search_index' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
@@ -968,7 +1019,7 @@ function libro_field_default_fields() {
           'weight' => '4',
         ),
         'search_index' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
@@ -1054,13 +1105,9 @@ function libro_field_default_fields() {
           'weight' => '10',
         ),
         'search_index' => array(
-          'label' => 'above',
-          'module' => 'image',
-          'settings' => array(
-            'image_link' => '',
-            'image_style' => '',
-          ),
-          'type' => 'image',
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => '10',
         ),
         'search_result' => array(
@@ -1158,15 +1205,8 @@ function libro_field_default_fields() {
         ),
         'search_index' => array(
           'label' => 'above',
-          'module' => 'commerce_cart',
-          'settings' => array(
-            'combine' => TRUE,
-            'default_quantity' => 1,
-            'line_item_type' => 'product',
-            'show_quantity' => FALSE,
-            'show_single_product_attributes' => FALSE,
-          ),
-          'type' => 'commerce_cart_add_to_cart_form',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => '0',
         ),
         'search_result' => array(
@@ -1339,7 +1379,7 @@ function libro_field_default_fields() {
           'weight' => '6',
         ),
         'search_index' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
