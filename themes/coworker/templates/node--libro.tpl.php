@@ -91,30 +91,51 @@
       ?>
       <div class="row-fluid">
         <div class="span12">
+          <h1 class="visible-phone">
+            <?php print $node->title ?>
+          </h1>
           <div class="row-fluid">
           <div class="span4">
              <?php print render($content['field_libro_portada']) ?>
           </div>
            <div class="span8">
-            <div class="row-fluid">
+            <div class="row-fluid hidden-phone">
               <div class="span12">
                 <h1>
                   <?php print $node->title ?>
                 </h1>
               </div>
             </div>
-            <div class="row-fluid">
+            <?php if ($content['field_libro_subtitulo']): ?>
+              <div class="row-fluid">
+                <div class="span12">
+                  <?php print render($content['field_libro_subtitulo']) ?>
+                </div>
+              </div>
+            <?php endif; ?>
+             <div class="row-fluid">
               <div class="span12">
-                <?php print render($content['field_libro_subtitulo']) ?>
+                <h4><?php print render($content['field_libro_autores']) ?></h4>
+              </div>
+            </div>
+            <div class="row-fluid">
+              <div class="span6">
+                <?php print render($content['product:commerce_price']) ?>
+                <?php print render($content['field_libro_isbn']) ?>
+                <?php print render($content['field_libro_paginas']) ?>
+                <?php print render($content['field_libro_ano']) ?>
+              </div>
+              <div class="span6">
+                <?php print render($content['field_libro_editorial']) ?>
+                <?php print render($content['field_libro_estado']) ?>
+                <?php print render($content['field_libro_categoria']) ?>
               </div>
             </div>
             <div class="row-fluid">
               <div class="span8">
                 <?php print render($content['field_libro_sinopsis']) ?>
               </div>
-            </div>
-            <div class="row-fluid">
-              <div class="span4 offset8">
+              <div class="span4">
                 <?php print render($content['field_libro_producto']) ?>
               </div>
             </div>

@@ -1,11 +1,5 @@
 <?php include 'page-header.inc' ?>
 
-<?php if (!empty($page['slider'])): ?>
-  <div id="slider">
-    <?php print render($page['slider']); ?>
-  </div>
-<?php endif; ?>
-
 <div id="content">
   <?php if (!drupal_is_front_page()): ?>
     <?php if ($title): ?>
@@ -76,7 +70,11 @@
             <?php print $messages; ?>
           <?php endif; ?>
 
-          <?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
+          <?php if ($page['highlighted']): ?>
+            <div id="highlighted">
+              <?php print render($page['highlighted']); ?>
+            </div>
+          <?php endif; ?>
           <a id="main-content"></a>
           <?php print render($title_prefix); ?>
           <?php print render($title_suffix); ?>

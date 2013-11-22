@@ -11,6 +11,11 @@
           <?php print render($page['top_right']); ?>
         </div>
       <?php endif; ?>
+      <?php if ($page['top_lang']): ?>
+        <div id="top-lang">
+          <?php print render($page['top_lang']); ?>
+        </div>
+      <?php endif; ?>
     </div>
   </div>
 
