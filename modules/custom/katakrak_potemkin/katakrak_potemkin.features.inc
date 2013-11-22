@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * potemkin.features.inc
+ * katakrak_potemkin.features.inc
  */
 
 /**

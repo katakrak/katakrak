@@ -11,8 +11,8 @@ include_once 'katakrak_potemkin.features.inc';
  */
 function katakrak_potemkin_menu() {
   $items = array();
-  $items['admin/config/potemkin/geslib'] = array(
-    'title' => 'Import DVD',
+  $items['admin/config/potemkin/import'] = array(
+    'title' => 'Import peliculas',
     'description' => 'Carga inicial del fichero de potemkin.',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('potemkin_first_import_form'),

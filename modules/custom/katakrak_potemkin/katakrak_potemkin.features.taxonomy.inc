@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * potemkin.features.taxonomy.inc
+ * katakrak_potemkin.features.taxonomy.inc
  */
 
 /**
@@ -9,18 +9,18 @@
  */
 function katakrak_potemkin_taxonomy_default_vocabularies() {
   return array(
-    'actores' => array(
-      'name' => 'Actores',
-      'machine_name' => 'actores',
-      'description' => 'Actores de una película',
+    'genero_dvd' => array(
+      'name' => 'Género DVD',
+      'machine_name' => 'genero_dvd',
+      'description' => '',
       'hierarchy' => '0',
       'module' => 'taxonomy',
       'weight' => '0',
     ),
-    'directores' => array(
-      'name' => 'Directores',
-      'machine_name' => 'directores',
-      'description' => 'Director de una película',
+    'movie_stars' => array(
+      'name' => 'Movie stars',
+      'machine_name' => 'movie_stars',
+      'description' => 'Actores de una película',
       'hierarchy' => '0',
       'module' => 'taxonomy',
       'weight' => '0',
