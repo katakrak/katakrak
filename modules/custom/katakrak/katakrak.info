@@ -29,6 +29,7 @@ dependencies[] = views
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:1
 features[user_role][] = Cliente
+features[user_role][] = Editor
 features[variable][] = commerce_customer_profile_billing_field
 features[variable][] = commerce_customer_profile_billing_profile_copy
 features[variable][] = commerce_customer_profile_billing_profile_copy_default

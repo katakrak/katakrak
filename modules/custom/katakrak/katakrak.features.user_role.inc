@@ -16,5 +16,11 @@ function katakrak_user_default_roles() {
     'weight' => '3',
   );
 
+  // Exported role: Editor.
+  $roles['Editor'] = array(
+    'name' => 'Editor',
+    'weight' => '4',
+  );
+
   return $roles;
 }
