@@ -11,7 +11,7 @@ include_once 'katakrak_potemkin.features.inc';
  */
 function katakrak_potemkin_menu() {
   $items = array();
-  $items['admin/config/potemkin/import'] = array(
+  $items['admin/config/potemkin'] = array(
     'title' => 'Import peliculas',
     'description' => 'Carga inicial del fichero de potemkin.',
     'page callback' => 'drupal_get_form',
@@ -24,5 +24,67 @@ function katakrak_potemkin_menu() {
 }
 
 function potemkin_first_import_form($form, &$form_state) {
+  $form['file'] = array(
+    '#name' => 'files[]',
+    '#type' => 'file',
+    '#title' => t('Choose a file'),
+    '#title_display' => 'invisible',
+    '#size' => 22,
+    '#theme_wrappers' => array(),
+    '#weight' => -10,
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Submit',  
+  );
+  return $form;
+}
+
+function potemkin_first_import_form_validate($form, &$form_state) {
+  $file = file_save_upload(0, array('file_validate_extensions' => array('csv')));
+  if ($file) {
+    $form_state['values']['file']['file'] = $file;
+  }
+  else {
+    form_set_error('file', t('No file was uploaded.'));
+  }
+}
+
+
+function potemkin_first_import_form_submit($form, &$form_state) {
+  $file = '/tmp/'.file_uri_target($form_state['values']['file']['file']->uri);
+  $batch = array(
+      'title' => t('Cargando información de Potemkin'),
+      'operations' => array(
+        array('potemkin_process_items', array($file)),
+      ),
+      'finished' => 'potemkin_import_process_finish',
+      
+    );
+    batch_set($batch);
+}
+
+function potemkin_process_items($file, &$context) {
+  dpm($file);
+  $potemkin_file = file_get_contents($file);
+  $potemkin_file_array = explode("\n", $potemkin_file);
   
+  if (!isset($context['sandbox']['progress'])) {
+    $context['sandbox']['progress'] = 0;
+    $context['sandbox']['max'] = count($potemkin_file_array);
+  }
+  $limit = 100;
+  $i = 0;
+  while($i < $limit) {
+    $line = explode(";", $potemkin_file_array[$i]);
+    unset($potemkin_file_array[$i]);
+    $i++;
+  }
+  dpm($line);
+  $context['sandbox']['progress'] += $i;
+  file_put_contents($file, implode("\n", $potemkin_file_array));
+  
+  if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
+    $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
+  }
 }
