@@ -61,9 +61,6 @@
         ?>
         <!-- content region -->
         <div class="<?php print $content_class; ?> nobottommargin clearfix">
-          <?php if ($breadcrumb): ?>
-            <div id="breadcrumb"><?php print $breadcrumb; ?></div>
-          <?php endif; ?>
 
           <?php if ($messages): ?>
             <?php print $messages; ?>
