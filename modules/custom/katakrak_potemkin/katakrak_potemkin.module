@@ -52,38 +52,47 @@ function potemkin_first_import_form_validate($form, &$form_state) {
 
 
 function potemkin_first_import_form_submit($form, &$form_state) {
-  $file = '/tmp/'.file_uri_target($form_state['values']['file']['file']->uri);
-  $batch = array(
-      'title' => t('Cargando información de Potemkin'),
-      'operations' => array(
-        array('potemkin_process_items', array($file)),
-      ),
-      'finished' => 'potemkin_import_process_finish',
-      
-    );
-    batch_set($batch);
-}
-
-function potemkin_process_items($file, &$context) {
-  dpm($file);
-  $potemkin_file = file_get_contents($file);
-  $potemkin_file_array = explode("\n", $potemkin_file);
-  
-  if (!isset($context['sandbox']['progress'])) {
-    $context['sandbox']['progress'] = 0;
-    $context['sandbox']['max'] = count($potemkin_file_array);
-  }
-  $limit = 100;
+  $file_path = '/tmp/'.file_uri_target($form_state['values']['file']['file']->uri);
+  $file = fopen($file_path, 'r');
   $i = 0;
-  while($i < $limit) {
-    $line = explode(";", $potemkin_file_array[$i]);
-    unset($potemkin_file_array[$i]);
+  while (fgetcsv($file, 0, ',', '"')) {
     $i++;
   }
-  dpm($line);
-  $context['sandbox']['progress'] += $i;
-  file_put_contents($file, implode("\n", $potemkin_file_array));
+  $batch = array(
+    'title' => t('Cargando información de Potemkin'),
+    'operations' => array(
+      array('potemkin_process_items', array($file_path, $i)),
+    ),
+    'finished' => 'potemkin_import_process_finish',
+  );
   
+  batch_set($batch);
+}
+
+function potemkin_process_items($file_path, $max, &$context) {
+  if (!isset($context['sandbox']['progress'])) {
+    $context['sandbox']['file'] = fopen($file_path, 'r');
+    $header = fgetcsv($context['sandbox']['file'], 0, ',', '"');
+    foreach ($header as $k =>$v) {
+      $context['sandbox']['header'][$k] = strtolower(str_replace(' ', '_', $v));
+    }
+    $context['sandbox']['progress'] = 0;
+    $context['sandbox']['max'] = $max;
+  }
+  $header = $context['sandbox']['header'];
+  $file = $context['sandbox']['file']; 
+  $limit = 100;
+  $i = 0;
+  $items = array();
+  while($i < $limit && ($line = fgetcsv($file, 0, ',', '"')) !== FALSE) {
+    foreach ($line as $k => $v) {
+      $items[$i][$header[$k]] = $v;
+    }
+    $i++;
+  }
+  
+  
+  $context['sandbox']['progress'] += $i;  
   if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
     $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
   }
