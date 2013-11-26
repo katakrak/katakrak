@@ -22,27 +22,27 @@ function katakrak_admin_paths() {
  */
 function katakrak_block_info() {
   include_once DRUPAL_ROOT . '/includes/language.inc';
-  $block = array();
-  $info = language_types_info();
-  foreach (language_types_configurable(FALSE) as $type) {
-    $block[$type] = array(
-      'info' => t('Language switcher (@type) small', array('@type' => $info[$type]['name'])),
-      // Not worth caching.
-      'cache' => DRUPAL_NO_CACHE,
-    );
-  }
-  return $block;
+  $blocks = array();
+  $blocks['language_switcher'] = array(
+    'info' => t('Language switcher small'),
+    // Not worth caching.
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  $blocks['newsletter_suscribe'] = array(
+    'info' => t('Katakrak suscribe block'),
+    // Not worth caching.
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
 }
 
 /**
  * Implements hook_block_view().
- *
- * Displays a language switcher. Only show if we have at least two languages.
  */
-function katakrak_block_view($type) {
-  if (drupal_multilingual()) {
+function katakrak_block_view($delta) {
+  if ($delta == 'language_switcher' && drupal_multilingual()) {
     $path = drupal_is_front_page() ? '<front>' : $_GET['q'];
-    $links = language_negotiation_get_switch_links($type, $path);
+    $links = language_negotiation_get_switch_links('language', $path);
     if (isset($links->links)) {
       drupal_add_css(drupal_get_path('module', 'locale') . '/locale.css');
       
@@ -55,4 +55,20 @@ function katakrak_block_view($type) {
       return $block;
     }
   }
+  if ($delta == 'newsletter_suscribe') {
+    $block['content'] = drupal_get_form('katakrak_newsletter_suscribe_form');
+    return $block;
+  }
+}
+
+function katakrak_newsletter_suscribe_form($form, &$form_state) {
+  $form['mail'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Mail'),
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Submit'),
+  );
+  return $form;
 }

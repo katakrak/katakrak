@@ -26,9 +26,9 @@ function katakrak_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'katakrak-language' => array(
+        'katakrak-language_switcher' => array(
           'module' => 'katakrak',
-          'delta' => 'language',
+          'delta' => 'language_switcher',
           'region' => 'top_left',
           'weight' => '-10',
         ),
@@ -36,6 +36,12 @@ function katakrak_context_default_contexts() {
           'module' => 'boxes',
           'delta' => 'social_widget',
           'region' => 'top_right',
+          'weight' => '-10',
+        ),
+        'boxes-about_us' => array(
+          'module' => 'boxes',
+          'delta' => 'about_us',
+          'region' => 'footer_first',
           'weight' => '-10',
         ),
       ),
