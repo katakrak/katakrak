@@ -1,4 +1,4 @@
-  name = Coworker
+name = Coworker
 description = Coworker theme, developed by <a href="http://tabvn.com/">Tabvn</a>.
 core = 7.x
 
@@ -28,11 +28,11 @@ regions[content] = Content
 regions[header] = Header
 regions[highlighted] = Highlighted
 regions[help] = Help
-regions[page_top] = Page Top
-regions[page_bottom] = Page Bottom
+regions[top_page] = Page Top
+regions[bottom_page] = Page Bottom
 
 regions[footer] = Footer
-regions[footer_first] = Footer first column
+regions[footer_first] = Footer first
 regions[footer_second] = Footer second column
 regions[footer_third] = Footer third column
 regions[footer_fourth] = Footer fourth column
@@ -49,17 +49,40 @@ layouts[default][regions][] = "sidebar_first"
 layouts[default][regions][] = "sidebar_second"
 layouts[default][regions][] = "slider"
 layouts[default][regions][] = "contact_map"
+layouts[default][regions][] = "top_page"
 layouts[default][regions][] = "content"
 layouts[default][regions][] = "header"
 layouts[default][regions][] = "highlighted"
 layouts[default][regions][] = "help"
-layouts[default][regions][] = "page_top"
-layouts[default][regions][] = "page_top"
 layouts[default][regions][] = "footer"
 layouts[default][regions][] = "footer_first"
 layouts[default][regions][] = "footer_second"
 layouts[default][regions][] = "footer_third"
 layouts[default][regions][] = "footer_fourth"
+
+
+layouts[home][name] = "Home"
+layouts[home][description] = "Home layout."
+layouts[home][template] = "templates/layout-home"
+
+layouts[home][regions][] = "top_left"
+layouts[home][regions][] = "top_right"
+layouts[home][regions][] = "top_lang"
+layouts[home][regions][] = "sidebar_first"
+layouts[home][regions][] = "sidebar_second"
+layouts[home][regions][] = "slider"
+layouts[home][regions][] = "contact_map"
+layouts[home][regions][] = "content"
+layouts[home][regions][] = "header"
+layouts[home][regions][] = "highlighted"
+layouts[home][regions][] = "help"
+layouts[home][regions][] = "top_page"
+layouts[home][regions][] = "page_bottom"
+layouts[home][regions][] = "footer"
+layouts[home][regions][] = "footer_first"
+layouts[home][regions][] = "footer_second"
+layouts[home][regions][] = "footer_third"
+layouts[home][regions][] = "footer_fourth"
 
 layouts[search][name] = "Search"
 layouts[search][description] = "Simple two column page."
