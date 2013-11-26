@@ -16,6 +16,8 @@ function libro_taxonomy_default_vocabularies() {
       'hierarchy' => '0',
       'module' => 'taxonomy',
       'weight' => '0',
+      'language' => 'und',
+      'i18n_mode' => '0',
     ),
     'editoriales' => array(
       'name' => 'Editoriales',
@@ -24,6 +26,8 @@ function libro_taxonomy_default_vocabularies() {
       'hierarchy' => '0',
       'module' => 'taxonomy',
       'weight' => '0',
+      'language' => 'und',
+      'i18n_mode' => '0',
     ),
     'materias' => array(
       'name' => 'Materias',
@@ -32,6 +36,8 @@ function libro_taxonomy_default_vocabularies() {
       'hierarchy' => '0',
       'module' => 'taxonomy',
       'weight' => '0',
+      'language' => 'und',
+      'i18n_mode' => '0',
     ),
   );
 }

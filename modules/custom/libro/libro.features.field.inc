@@ -413,6 +413,7 @@ function libro_field_default_fields() {
             'parent' => '0',
           ),
         ),
+        'options_list_callback' => 'i18n_taxonomy_allowed_values',
       ),
       'translatable' => '0',
       'type' => 'taxonomy_term_reference',
@@ -425,12 +426,12 @@ function libro_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'hidden',
-          'module' => 'taxonomy',
+          'module' => 'i18n_taxonomy',
           'settings' => array(
             'taxonomy_term_link' => 0,
             'taxonomy_term_separator' => ', ',
           ),
-          'type' => 'taxonomy_term_reference_link',
+          'type' => 'i18n_taxonomy_term_reference_link',
           'weight' => '14',
         ),
         'search_index' => array(
@@ -501,6 +502,7 @@ function libro_field_default_fields() {
             'parent' => '0',
           ),
         ),
+        'options_list_callback' => 'i18n_taxonomy_allowed_values',
       ),
       'translatable' => '0',
       'type' => 'taxonomy_term_reference',
@@ -669,6 +671,7 @@ function libro_field_default_fields() {
             'parent' => '0',
           ),
         ),
+        'options_list_callback' => 'i18n_taxonomy_allowed_values',
       ),
       'translatable' => '0',
       'type' => 'taxonomy_term_reference',
