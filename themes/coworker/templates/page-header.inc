@@ -10,7 +10,7 @@
         <?php endif; ?>
           </div>
         <?php if ($page['top_right']): ?>
-        <div class="span6">
+        <div class="span8">
           <div id="top-social">
             <?php print render($page['top_right']); ?>
             </div>
