@@ -17,13 +17,37 @@ function katakrak_home_context_default_contexts() {
   $context->description = 'Home context';
   $context->tag = 'Home';
   $context->conditions = array(
-    'path' => array(
+    'views' => array(
       'values' => array(
-        '<front>' => '<front>',
+        'home:page' => 'home:page',
       ),
     ),
   );
-  $context->reactions = array();
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'views-libros-block_1' => array(
+          'module' => 'views',
+          'delta' => 'libros-block_1',
+          'region' => 'sidebar_second',
+          'weight' => '-10',
+        ),
+        'system-main' => array(
+          'module' => 'system',
+          'delta' => 'main',
+          'region' => 'content',
+          'weight' => '-10',
+        ),
+        'katakrak-newsletter_suscribe' => array(
+          'module' => 'katakrak',
+          'delta' => 'newsletter_suscribe',
+          'region' => 'top_page',
+          'weight' => '-10',
+        ),
+      ),
+      'layout' => 'home',
+    ),
+  );
   $context->condition_mode = 0;
 
   // Translatables

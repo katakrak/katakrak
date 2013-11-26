@@ -109,6 +109,41 @@ function libro_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'libros';
+
+  /* Display: Books block home */
+  $handler = $view->new_display('block', 'Books block home', 'block_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Portada */
+  $handler->display->display_options['fields']['field_libro_portada']['id'] = 'field_libro_portada';
+  $handler->display->display_options['fields']['field_libro_portada']['table'] = 'field_data_field_libro_portada';
+  $handler->display->display_options['fields']['field_libro_portada']['field'] = 'field_libro_portada';
+  $handler->display->display_options['fields']['field_libro_portada']['label'] = '';
+  $handler->display->display_options['fields']['field_libro_portada']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_libro_portada']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_libro_portada']['settings'] = array(
+    'image_style' => 'medium',
+    'image_link' => '',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $translatables['libros'] = array(
     t('Master'),
     t('Libros'),
@@ -127,6 +162,7 @@ function libro_views_default_views() {
     t('last »'),
     t('Products referenced by field_libro_producto'),
     t('Page'),
+    t('Books block home'),
   );
   $export['libros'] = $view;
 
