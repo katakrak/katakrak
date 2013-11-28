@@ -61,7 +61,7 @@ function potemkin_first_import_form_submit($form, &$form_state) {
   $batch = array(
     'title' => t('Cargando información de Potemkin'),
     'operations' => array(
-      array('potemkin_process_items', array($file_path, $i)),
+      array('potemkin_process_csv', array($file_path, $i)),
     ),
     'finished' => 'potemkin_import_process_finish',
   );
@@ -69,7 +69,7 @@ function potemkin_first_import_form_submit($form, &$form_state) {
   batch_set($batch);
 }
 
-function potemkin_process_items($file_path, $max, &$context) {
+function potemkin_process_csv($file_path, $max, &$context) {
   if (!isset($context['sandbox']['progress'])) {
     $context['sandbox']['file'] = fopen($file_path, 'r');
     $header = fgetcsv($context['sandbox']['file'], 0, ',', '"');
@@ -90,10 +90,103 @@ function potemkin_process_items($file_path, $max, &$context) {
     }
     $i++;
   }
-  
+  dpm($items[0]);
+  foreach ($items as $dvd) {
+    potemkin_process_dvd($dvd);
+  }
   
   $context['sandbox']['progress'] += $i;  
   if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
     $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
+  }
+}
+
+function potemkin_process_dvd($dvd) {
+  $nid = db_select('field_data_field_dvd_id', 'd')->fields('d', array('entity_id'))->condition('field_dvd_id_value', $dvd['codigo'])->execute()->fetchCol();
+  if ($nid) {
+    $node = node_load($nid);
+  }
+  else {
+    $node = new stdClass();
+    $node->type = 'dvd';
+    $node->status = 1;
+    $node->uid = 1;
+  }
+    
+  $node->field_dvd_id['und'][0]['value'] = $dvd['codigo'];
+
+  $node->title = $dvd['titulo'];
+
+  foreach (array(1,2,3,4,5,6) as $i) {
+    if ($dvd['act'.$i.'pel']) {
+      $actor = taxonomy_get_term_by_name($dvd['act'.$i.'pel'], 'movie_stars');
+      if ($actor) {
+        $term = array_pop($actor);
+      }
+      else {
+        $vocab = _potemkin_get_vocab('Movie stars');
+        $term = new stdClass;
+        $term->vid = $vocab->vid;
+        $term->vocabulary_machine_name = $vocab->machine_name;
+        $term->name = $dvd['act'.$i.'pel'];
+        taxonomy_term_save($term);
+      }
+      $node->field_dvd_starring['und'][($i-1)]['tid'] = $term->tid;
+    }  
+  }
+  
+  if ($dvd['sistema'] == 'DVD')
+    $node->field_dvd_formato['und'][0]['value'] = 0;
+  else 
+    $node->field_dvd_formato['und'][0]['value'] = 1;
+  
+  if ($dvd['pais']) {
+    $node->field_dvd_pais['und'][0]['value'] = $dvd['pais'];
+  }
+  if ($dvd['duracion']) {
+    $node->field_dvd_duracion['und'][0]['value'] = $dvd['duracion'];
+  }
+  if ($dvd['ano']) {
+    $node->field_dvd_ano['und'][0]['value'] = $dvd['ano'];
+  }
+  if ($dvd['sinopsis']) {
+    $node->field_dvd_descripcion['und'][0]['value'] = $dvd['sinopsis'];
+    $node->field_dvd_descripcion['und'][0]['format'] = 'sinopsis';
+  }
+  
+  
+  
+  if (empty($node->field_dvd_caratula)) {
+    $filename = $dvd['caratula'];
+    $uri = "public://caratulas/".$filename;
+    $fid = db_select('file_managed', 'f')->fields('f', array('fid'))->condition('uri', $uri)
+            ->execute()->fetchCol();
+    if ($fid){
+      $file = file_load($fid);
+    }
+    else {
+      $file = new stdClass();
+      $file->uid = 1;
+      $file->filename = $filename;
+      $file->uri = $uri; 
+      $file->status = 1;
+      $file->timestamp = REQUEST_TIME;
+      file_save($file);
+    }
+    
+    $node->field_dvd_caratula['und'][0] = (array)$file;
+    $node->field_dvd_caratula['und'][0]['title'] = $node->title;
+    $node->field_dvd_caratula['und'][0]['alt'] = $node->title;
+  }
+  
+  node_save($node);
+  
+}
+
+function _potemkin_get_vocab($name) {
+  foreach (taxonomy_get_vocabularies() as $vid => $vocab){
+    if ($vocab->name == $name) {
+      return $vocab ;
+    }
   }
 }
