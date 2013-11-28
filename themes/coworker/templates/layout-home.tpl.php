@@ -35,7 +35,7 @@
             <div class="span4">
               <?php if ($page['sidebar_second']): ?>
               <!-- sidebar right --> 
-                <div id="sidebar-second" class="sidebar <?php print $sidebar_class; ?> nobottommargin clearfix">
+                <div id="sidebar-second" class="sidebar-right nobottommargin clearfix">
                   <?php print render($page['sidebar_second']); ?>
                 </div>
                 <!-- // sidebar right -->
