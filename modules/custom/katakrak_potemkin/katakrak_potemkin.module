@@ -54,14 +54,22 @@ function potemkin_first_import_form_validate($form, &$form_state) {
 function potemkin_first_import_form_submit($form, &$form_state) {
   $file_path = '/tmp/'.file_uri_target($form_state['values']['file']['file']->uri);
   $file = fopen($file_path, 'r');
+  $items = array();
   $i = 0;
-  while (fgetcsv($file, 0, ',', '"')) {
+  $header_tmp = fgetcsv($file, 0, ',', '"');
+  foreach ($header_tmp as $k =>$v) {
+      $header[$k] = strtolower(str_replace(' ', '_', $v));
+  }
+  while ($line = fgetcsv($file, 0, ',', '"')) {
+    foreach ($line as $k => $v) {
+      $items[$i][$header[$k]] = $v;
+    }
     $i++;
   }
   $batch = array(
     'title' => t('Cargando información de Potemkin'),
     'operations' => array(
-      array('potemkin_process_csv', array($file_path, $i)),
+      array('potemkin_process_csv', array($items)),
     ),
     'finished' => 'potemkin_import_process_finish',
   );
@@ -69,33 +77,21 @@ function potemkin_first_import_form_submit($form, &$form_state) {
   batch_set($batch);
 }
 
-function potemkin_process_csv($file_path, $max, &$context) {
+function potemkin_process_csv($items, &$context) {
   if (!isset($context['sandbox']['progress'])) {
-    $context['sandbox']['file'] = fopen($file_path, 'r');
-    $header = fgetcsv($context['sandbox']['file'], 0, ',', '"');
-    foreach ($header as $k =>$v) {
-      $context['sandbox']['header'][$k] = strtolower(str_replace(' ', '_', $v));
-    }
+    $context['sandbox']['items'] = $items;
     $context['sandbox']['progress'] = 0;
-    $context['sandbox']['max'] = $max;
+    $context['sandbox']['max'] = count($items);
   }
-  $header = $context['sandbox']['header'];
-  $file = $context['sandbox']['file']; 
   $limit = 100;
   $i = 0;
-  $items = array();
-  while($i < $limit && ($line = fgetcsv($file, 0, ',', '"')) !== FALSE) {
-    foreach ($line as $k => $v) {
-      $items[$i][$header[$k]] = $v;
-    }
+  while($i < $limit) {
+    $dvd = array_shift($context['sandbox']['items']);
+    potemkin_process_dvd($dvd);
     $i++;
   }
-  dpm($items[0]);
-  foreach ($items as $dvd) {
-    potemkin_process_dvd($dvd);
-  }
   
-  $context['sandbox']['progress'] += $i;  
+  $context['sandbox']['progress'] += $limit;  
   if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
     $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
   }
@@ -119,18 +115,7 @@ function potemkin_process_dvd($dvd) {
 
   foreach (array(1,2,3,4,5,6) as $i) {
     if ($dvd['act'.$i.'pel']) {
-      $actor = taxonomy_get_term_by_name($dvd['act'.$i.'pel'], 'movie_stars');
-      if ($actor) {
-        $term = array_pop($actor);
-      }
-      else {
-        $vocab = _potemkin_get_vocab('Movie stars');
-        $term = new stdClass;
-        $term->vid = $vocab->vid;
-        $term->vocabulary_machine_name = $vocab->machine_name;
-        $term->name = $dvd['act'.$i.'pel'];
-        taxonomy_term_save($term);
-      }
+      $term = _potemkin_get_cast($dvd['act'.$i.'pel']);
       $node->field_dvd_starring['und'][($i-1)]['tid'] = $term->tid;
     }  
   }
@@ -154,7 +139,76 @@ function potemkin_process_dvd($dvd) {
     $node->field_dvd_descripcion['und'][0]['format'] = 'sinopsis';
   }
   
+  if ($dvd['genero']) {
+    $tid = db_select('field_data_field_genero_dvd_id', 'd')->fields('d', array('entity_id'))->condition('field_genero_dvd_id_value', $dvd['genero'])->execute()->fetchField();
+    if ($tid) {
+      $genero = taxonomy_term_load($tid);
+    }
+    else {
+      $vocab = _potemkin_get_vocab("Género DVD");
+      $genero = new stdClass();
+      $genero->vid = $vocab->vid;
+      $genero->name = $dvd['genero'];
+      $genero->field_genero_dvd_id['und'][0]['value'] = $dvd['genero'];
+      taxonomy_term_save($genero);
+    }
+    $node->field_dvd_genero['und'][0]['tid'] = $genero->tid;
+  }
   
+  if ($dvd['director']) {
+    $directores = explode('&', $dvd['director']);
+    foreach ($directores as $i => $value) {
+      $value = trim($value);
+      if ($value) {
+        $term = _potemkin_get_cast($value);
+        $node->field_dvd_director['und'][$i]['tid'] = $term->tid;
+      }
+    }
+  }
+  
+  if ($dvd['guion']) {
+    $guionistas = explode('&', $dvd['guion']);
+    foreach ($guionistas as $i => $value) {
+      $value = trim($value);
+      if ($value) {
+        $term = _potemkin_get_cast($value);
+        $node->field_dvd_guion['und'][$i]['tid'] = $term->tid;
+      }
+    }
+  }
+  
+  if ($dvd['musica']) {
+    $musica = explode('&', $dvd['musica']);
+    foreach ($musica as $i => $value) {
+      $value = trim($value);
+      if ($value) {
+        $term = _potemkin_get_cast($value);
+        $node->field_dvd_musica['und'][$i]['tid'] = $term->tid;
+      }
+    }
+  }
+  
+   if ($dvd['fotografia']) {
+    $fotografia = explode('&', $dvd['fotografia']);
+    foreach ($fotografia as $i => $value) {
+      $value = trim($value);
+      if ($value) {
+        $term = _potemkin_get_cast($value);
+        $node->field_dvd_fotografia['und'][$i]['tid'] = $term->tid;
+      }
+    }
+  }
+  
+  if ($dvd['productor']) {
+    $productor = explode('&', $dvd['productor']);
+    foreach ($productor as $i => $value) {
+      $value = trim($value);
+      if ($value) {
+        $term = _potemkin_get_cast($value);
+        $node->field_dvd_productor['und'][$i]['tid'] = $term->tid;
+      }
+    }
+  }
   
   if (empty($node->field_dvd_caratula)) {
     $filename = $dvd['caratula'];
@@ -189,4 +243,26 @@ function _potemkin_get_vocab($name) {
       return $vocab ;
     }
   }
+}
+
+/**
+ * Providing a star name, returns the taxonomy object. If it doesn't exists, creates it
+ * 
+ * @param type $name
+ * @return The taxonomy object with the cast
+ */
+function _potemkin_get_cast($name) {
+  $cast = taxonomy_get_term_by_name($name, 'movie_stars');
+  if ($cast) {
+    $term = array_pop($cast);
+  }
+  else {
+    $vocab = _potemkin_get_vocab('Movie stars');
+    $term = new stdClass;
+    $term->vid = $vocab->vid;
+    $term->vocabulary_machine_name = $vocab->machine_name;
+    $term->name = $name;
+    taxonomy_term_save($term);
+  }
+  return $term;
 }
