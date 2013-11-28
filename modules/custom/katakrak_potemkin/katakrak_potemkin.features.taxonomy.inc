@@ -16,6 +16,8 @@ function katakrak_potemkin_taxonomy_default_vocabularies() {
       'hierarchy' => '0',
       'module' => 'taxonomy',
       'weight' => '0',
+      'language' => 'und',
+      'i18n_mode' => '0',
     ),
     'movie_stars' => array(
       'name' => 'Movie stars',
@@ -24,6 +26,8 @@ function katakrak_potemkin_taxonomy_default_vocabularies() {
       'hierarchy' => '0',
       'module' => 'taxonomy',
       'weight' => '0',
+      'language' => 'und',
+      'i18n_mode' => '0',
     ),
   );
 }
