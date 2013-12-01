@@ -187,13 +187,18 @@ function geslib_cron() {
     
   }
   else {
-    $lines = db_select('geslib_lines', 'g')->condition('queued', 0)->fields('g')
-      ->execute()->fetchAll();
-    $queue = DrupalQueue::get('geslibCronQueue');
-    foreach ($lines as $line) {
-      $queue->createItem(unserialize($line->content));
-      db_update('geslib_lines')->fields(array('queued' => 1))->condition('geslib_id', $line->geslib_id)
-        ->condition('type', $line->type)->execute();
+    $last_processed_file = db_select('geslib_log', 'g')->fields('g', array('imported_file'))
+            ->orderBy('g.id', 'DESC')->execute()->fetchField();
+    //We avoid queueing lines of the first import
+    if ($last_processed_file) {
+      $lines = db_select('geslib_lines', 'g')->condition('queued', 0)->fields('g')
+        ->execute()->fetchAll();
+      $queue = DrupalQueue::get('geslibCronQueue');
+      foreach ($lines as $line) {
+        $queue->createItem(unserialize($line->content));
+        db_update('geslib_lines')->fields(array('queued' => 1))->condition('geslib_id', $line->geslib_id)
+          ->condition('type', $line->type)->execute();
+      }
     }
   }
   
