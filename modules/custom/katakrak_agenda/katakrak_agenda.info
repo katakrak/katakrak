@@ -39,3 +39,4 @@ features[variable][] = node_options_event
 features[variable][] = node_preview_event
 features[variable][] = node_submitted_event
 features[views_view][] = events
+files[] = views/katakrak_agenda_grid_plugin_style.inc
