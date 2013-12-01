@@ -9,7 +9,6 @@ function template_preprocess_katakrak_agenda_grid_plugin_style(&$vars) {
     
     $i = 0;
     $row_num = 0;
-    dpm($vars['view']->style_options);
     while ($i < $vars['view']->style_options['first_row_columns']) {
       $i++;
       $vars['columns'][$row_num]['rows'][] = array_shift($vars['rows']);
