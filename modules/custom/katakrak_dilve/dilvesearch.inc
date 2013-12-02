@@ -34,7 +34,13 @@ class DilveSearch {
     # By default responses are UTF-8 encoded, but force it
     $query .= '&encoding=UTF-8';
     
-    $xml = simplexml_load_file($query);
+    $request = drupal_http_request($query);
+    if ($request->code == 200) {
+      $xml = simplexml_load_string($request->data);
+    }
+    else 
+      return;
+    
     
     $xml_book = $xml->ONIXMessage->Product[0];
     
