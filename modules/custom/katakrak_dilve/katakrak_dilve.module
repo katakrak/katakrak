@@ -357,11 +357,20 @@ function create_cover($url, $isbn) {
     if ($cover_request->code == 200) {
       file_put_contents($filepath, $cover_request->data);
       $file = new stdClass();
+      $file->uri = "public://portadas/".$filename;
+      
+      $image = image_load($file->uri);
+      $width = variable_get('dilve_max_image_width', 500);
+      if ($image->info['width'] > $width) {
+        if (image_scale($image, $width)) {
+          image_save($image);
+        }
+      }
+      
       $file->uid = $user->uid;
       $file->filename = $filename;
-      $file->uri = "public://portadas/".$filename;
       $file->filemime = $cover_request->headers['content-type'];
-      $file->filesize = $cover_request->headers['content-length']; 
+      $file->filesize = $image->info['file_size']; 
       $file->status = 1;
       $file->timestamp = REQUEST_TIME;
       file_save($file);
