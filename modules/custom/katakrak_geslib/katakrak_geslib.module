@@ -70,7 +70,7 @@ function katakrak_geslib_geslib_author($op, $author) {
   switch ($op) {
     case 'create':
     case 'update':
-      $author_tid = get_id_by_geslib_id($author['geslib_id'], 'author');
+      $author_tid = get_tid_by_geslib_id($author['geslib_id'], 'author');
 
       if ($author_tid) {
         $author = taxonomy_term_load($author_tid);
