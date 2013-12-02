@@ -7,20 +7,22 @@
 function katakrak_geslib_geslib_publisher($op, $publisher) {
   switch ($op) {
     case 'create':
-      $term = new stdClass();
-      foreach (taxonomy_get_vocabularies() as $vid => $vocab){
-        if ($vocab->name == 'Editoriales') {
-          $term->vid = $vid ;
-        }
-      }
-      $term->name = mb_convert_case($publisher['title'], MB_CASE_TITLE, "UTF-8");
-      $term->field_editorial_geslib_id['und'][0]['value'] = $publisher['geslib_id'];
-      taxonomy_term_save($term);
-      break;
     case 'update':
       $editorial_tid = get_tid_by_geslib_id($publisher['geslib_id'], 'publisher');
-      $term = taxonomy_term_load($editorial_tid);
-      $term->name = mb_convert_case($publisher['title'], MB_CASE_TITLE, "UTF-8");
+      if ($editorial_tid) {
+        $term = taxonomy_term_load($editorial_tid);
+        $term->name = mb_convert_case($publisher['title'], MB_CASE_TITLE, "UTF-8");
+      }
+      else {
+        $term = new stdClass();
+        foreach (taxonomy_get_vocabularies() as $vid => $vocab){
+          if ($vocab->name == 'Editoriales') {
+            $term->vid = $vid ;
+          }
+        }
+        $term->name = mb_convert_case($publisher['title'], MB_CASE_TITLE, "UTF-8");
+        $term->field_editorial_geslib_id['und'][0]['value'] = $publisher['geslib_id'];
+      }
       taxonomy_term_save($term);
       break;
     case 'delete':
@@ -36,20 +38,22 @@ function katakrak_geslib_geslib_publisher($op, $publisher) {
 function katakrak_geslib_geslib_category($op, $category) {
 switch ($op) {
     case 'create':
-      $term = new stdClass();
-      foreach (taxonomy_get_vocabularies() as $vid => $vocab){
-        if ($vocab->name == 'Materias') {
-          $term->vid = $vid ;
-        }
-      }
-      $term->name = mb_convert_case($category['name'], MB_CASE_TITLE, "UTF-8");
-      $term->field_materias_geslib_id['und'][0]['value'] = $category['geslib_id'];
-      taxonomy_term_save($term);
-      break;
     case 'update':
       $category_tid = get_tid_by_geslib_id($category['geslib_id'], 'category');
-      $term = taxonomy_term_load($category_tid);
-      $term->name = mb_convert_case($category['name'], MB_CASE_TITLE, "UTF-8");
+      if ($category_tid) {
+        $term = taxonomy_term_load($category_tid);
+        $term->name = mb_convert_case($category['name'], MB_CASE_TITLE, "UTF-8");
+      }
+      else {
+        $term = new stdClass();
+        foreach (taxonomy_get_vocabularies() as $vid => $vocab){
+          if ($vocab->name == 'Materias') {
+            $term->vid = $vid ;
+          }
+        }
+        $term->name = mb_convert_case($category['name'], MB_CASE_TITLE, "UTF-8");
+        $term->field_materias_geslib_id['und'][0]['value'] = $category['geslib_id'];
+      }
       taxonomy_term_save($term);
       break;
     case 'delete':
@@ -65,26 +69,26 @@ switch ($op) {
 function katakrak_geslib_geslib_author($op, $author) {
   switch ($op) {
     case 'create':
-      $term = new stdClass();
-      foreach (taxonomy_get_vocabularies() as $vid => $vocab){
-        if ($vocab->name == 'Autores') {
-          $term->vid = $vid ;
+    case 'update':
+      $author_tid = get_id_by_geslib_id($author['geslib_id'], 'author');
+
+      if ($author_tid) {
+        $author = taxonomy_term_load($author_tid);
+      }
+      else {
+        $term = new stdClass();
+        foreach (taxonomy_get_vocabularies() as $vid => $vocab){
+          if ($vocab->name == 'Autores') {
+            $term->vid = $vid ;
+          }
         }
+        $term->field_autor_geslib_id['und'][0]['value'] = $author['geslib_id'];
       }
       $author_array = explode(',', $author['autor']);
       $term->field_autor_nombre['und'][0]['value'] = mb_convert_case($author_array[1], MB_CASE_TITLE, "UTF-8");
       $term->field_autor_apellido['und'][0]['value'] = mb_convert_case($author_array[0], MB_CASE_TITLE, "UTF-8");
       $term->name = sprintf("%s %s", $term->field_autor_nombre['und'][0]['value'], $term->field_autor_apellido['und'][0]['value']);
-      $term->field_autor_geslib_id['und'][0]['value'] = $author['geslib_id'];
-      taxonomy_term_save($term);
-      break;
-    case 'update':
-      $author_tid = get_id_by_geslib_id($author['geslib_id'], 'author');
-      $author = taxonomy_term_load($author_tid);
-      $author_array = explode(',', $author['autor']);
-      $term->field_autor_nombre['und'][0]['value'] = mb_convert_case($author_array[1], MB_CASE_TITLE, "UTF-8");
-      $term->field_autor_apellido['und'][0]['value'] = mb_convert_case($author_array[0], MB_CASE_TITLE, "UTF-8");
-      $term->name = sprintf("%s %s", $term->field_autor_nombre['und'][0]['value'], $term->field_autor_apellido['und'][0]['value']);
+      
       taxonomy_term_save($term);
       break;
     case 'delete':
