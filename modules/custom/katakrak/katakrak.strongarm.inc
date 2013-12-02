@@ -13,6 +13,13 @@ function katakrak_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'anonymous';
+  $strongarm->value = 'Anonymous';
+  $export['anonymous'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'commerce_customer_profile_billing_field';
   $strongarm->value = 'commerce_customer_billing';
   $export['commerce_customer_profile_billing_field'] = $strongarm;
@@ -212,6 +219,27 @@ function katakrak_strongarm() {
   $strongarm->name = 'geslib_directory';
   $strongarm->value = 'sites/default/files/geslib';
   $export['geslib_directory'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'site_mail';
+  $strongarm->value = 'trisketonni@gmail.com';
+  $export['site_mail'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'theme_default';
+  $strongarm->value = 'coworker';
+  $export['theme_default'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'views_ui_show_sql_query';
+  $strongarm->value = 1;
+  $export['views_ui_show_sql_query'] = $strongarm;
 
   return $export;
 }

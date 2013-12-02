@@ -50,11 +50,17 @@ function katakrak_search_context_default_contexts() {
           'region' => 'sidebar_first',
           'weight' => '-7',
         ),
+        'apachesolr_search-sort' => array(
+          'module' => 'apachesolr_search',
+          'delta' => 'sort',
+          'region' => 'content',
+          'weight' => '-18',
+        ),
         'system-main' => array(
           'module' => 'system',
           'delta' => 'main',
           'region' => 'content',
-          'weight' => '-10',
+          'weight' => '-17',
         ),
       ),
       'layout' => 'search',

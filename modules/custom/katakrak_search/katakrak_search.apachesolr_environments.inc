@@ -19,8 +19,8 @@ function katakrak_search_apachesolr_environments() {
   $environment->conf = array(
     'apachesolr_index_last' => array(
       'node' => array(
-        'last_changed' => '1384881275',
-        'last_entity_id' => '2236',
+        'last_changed' => '1385401682',
+        'last_entity_id' => '23048',
       ),
       'taxonomy_term' => array(
         'last_changed' => 0,
@@ -71,8 +71,8 @@ function katakrak_search_apachesolr_environments() {
         'last_entity_id' => 0,
       ),
     ),
-    'apachesolr_index_updated' => 1384969501,
-    'apachesolr_last_optimize' => 1384959421,
+    'apachesolr_index_updated' => 1385492041,
+    'apachesolr_last_optimize' => 1385486641,
     'apachesolr_search_changed_boost' => '0:0',
     'apachesolr_search_comment_boost' => '0:0',
     'apachesolr_search_date_boost' => '8:500.0',
@@ -148,7 +148,10 @@ function katakrak_search_apachesolr_environments() {
   );
   $environment->index_bundles = array(
     'node' => array(
-      0 => 'libro',
+      0 => 'event',
+      1 => 'libro',
+      2 => 'portfolio',
+      3 => 'simplenews',
     ),
   );
   $export['solr'] = $environment;
