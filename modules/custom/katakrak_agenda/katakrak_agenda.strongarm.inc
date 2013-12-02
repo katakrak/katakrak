@@ -112,6 +112,8 @@ function katakrak_agenda_strongarm() {
   $strongarm->name = 'i18n_sync_node_type_event';
   $strongarm->value = array(
     0 => 'field_event_date',
+    1 => 'field_event_image',
+    2 => 'field_event_type',
   );
   $export['i18n_sync_node_type_event'] = $strongarm;
 
@@ -161,6 +163,27 @@ function katakrak_agenda_strongarm() {
   $strongarm->name = 'node_submitted_event';
   $strongarm->value = 0;
   $export['node_submitted_event'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_event_es_pattern';
+  $strongarm->value = 'acto/[node:field-event-date:custom:d]/[node:field-event-date:custom:m]/[node:field-event-date:custom:y]/[node:title-field]';
+  $export['pathauto_node_event_es_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_event_eu_pattern';
+  $strongarm->value = 'ekitaldia/[node:field-event-date:custom:d]/[node:field-event-date:custom:m]/[node:field-event-date:custom:y]/[node:title-field]';
+  $export['pathauto_node_event_eu_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_event_und_pattern';
+  $strongarm->value = 'acto/[node:field-event-date:custom:d]/[node:field-event-date:custom:m]/[node:field-event-date:custom:y]/[node:title-field]';
+  $export['pathauto_node_event_und_pattern'] = $strongarm;
 
   return $export;
 }
