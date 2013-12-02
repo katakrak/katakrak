@@ -67,7 +67,7 @@ function katakrak_potemkin_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '37',
+        'weight' => '13',
       ),
     ),
   );
@@ -147,7 +147,7 @@ function katakrak_potemkin_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '39',
+        'weight' => '14',
       ),
     ),
   );
@@ -214,7 +214,7 @@ function katakrak_potemkin_field_default_fields() {
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '38',
+        'weight' => '2',
       ),
     ),
   );
@@ -223,7 +223,7 @@ function katakrak_potemkin_field_default_fields() {
   $fields['node-dvd-field_dvd_director'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_dvd_director',
@@ -289,7 +289,7 @@ function katakrak_potemkin_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '34',
+        'weight' => '5',
       ),
     ),
   );
@@ -351,7 +351,7 @@ function katakrak_potemkin_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '36',
+        'weight' => '12',
       ),
     ),
   );
@@ -414,7 +414,7 @@ function katakrak_potemkin_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '32',
+        'weight' => '10',
       ),
     ),
   );
@@ -423,7 +423,7 @@ function katakrak_potemkin_field_default_fields() {
   $fields['node-dvd-field_dvd_fotografia'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_dvd_fotografia',
@@ -489,7 +489,7 @@ function katakrak_potemkin_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '41',
+        'weight' => '7',
       ),
     ),
   );
@@ -564,7 +564,7 @@ function katakrak_potemkin_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '33',
+        'weight' => '4',
       ),
     ),
   );
@@ -573,7 +573,7 @@ function katakrak_potemkin_field_default_fields() {
   $fields['node-dvd-field_dvd_guion'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_dvd_guion',
@@ -639,7 +639,7 @@ function katakrak_potemkin_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '42',
+        'weight' => '8',
       ),
     ),
   );
@@ -701,7 +701,7 @@ function katakrak_potemkin_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '43',
+        'weight' => '15',
       ),
     ),
   );
@@ -710,7 +710,7 @@ function katakrak_potemkin_field_default_fields() {
   $fields['node-dvd-field_dvd_musica'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_dvd_musica',
@@ -776,7 +776,7 @@ function katakrak_potemkin_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '40',
+        'weight' => '6',
       ),
     ),
   );
@@ -845,7 +845,7 @@ function katakrak_potemkin_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '35',
+        'weight' => '11',
       ),
     ),
   );
@@ -913,7 +913,82 @@ function katakrak_potemkin_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'text_textfield',
-        'weight' => '44',
+        'weight' => '16',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-dvd-field_dvd_productor'.
+  $fields['node-dvd-field_dvd_productor'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_dvd_productor',
+      'foreign keys' => array(
+        'tid' => array(
+          'columns' => array(
+            'tid' => 'tid',
+          ),
+          'table' => 'taxonomy_term_data',
+        ),
+      ),
+      'indexes' => array(
+        'tid' => array(
+          0 => 'tid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'taxonomy',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => array(
+            'vocabulary' => 'movie_stars',
+            'parent' => '0',
+          ),
+        ),
+        'options_list_callback' => 'i18n_taxonomy_allowed_values',
+      ),
+      'translatable' => '0',
+      'type' => 'taxonomy_term_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'dvd',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'i18n_taxonomy',
+          'settings' => array(),
+          'type' => 'i18n_taxonomy_term_reference_link',
+          'weight' => 14,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_dvd_productor',
+      'label' => 'Productor',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'taxonomy',
+        'settings' => array(
+          'autocomplete_path' => 'taxonomy/autocomplete',
+          'size' => 60,
+        ),
+        'type' => 'taxonomy_autocomplete',
+        'weight' => '9',
       ),
     ),
   );
@@ -988,7 +1063,7 @@ function katakrak_potemkin_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '31',
+        'weight' => '3',
       ),
     ),
   );
@@ -1073,6 +1148,7 @@ function katakrak_potemkin_field_default_fields() {
   t('Música');
   t('Pais');
   t('Premios');
+  t('Productor');
 
   return $fields;
 }
