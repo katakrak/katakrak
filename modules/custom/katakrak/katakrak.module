@@ -65,12 +65,26 @@ function katakrak_newsletter_suscribe_form($form, &$form_state) {
   $form['mail'] = array(
     '#type' => 'textfield',
     '#title' => t('Mail'),
+    '#required' => TRUE,
   );
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => t('Submit'),
   );
   return $form;
+}
+
+function katakrak_newsletter_suscribe_form_validate($form, &$form_state) {
+  if (!valid_email_address($form_state['values']['mail'])) {
+    form_set_error('mail', t('Mail not valid'));
+  }
+}
+
+function katakrak_newsletter_suscribe_form_submit($form, &$form_state) {
+  drupal_set_message(t('Te has suscrito correctamente al boletín de noticias de Katakrak. Pronto recivirás un mail para confirmar tu suscripción.'));
+  
+  $simplenews_newsletter = array_pop(taxonomy_get_tree(variable_get('simplenews_vid', 8)));
+  simplenews_subscribe_user($form_state['values']['mail'], $simplenews_newsletter->tid);
 }
 
 /**
