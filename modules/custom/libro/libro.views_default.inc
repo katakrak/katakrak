@@ -230,6 +230,8 @@ function libro_views_default_views() {
     'field_libro_ean' => 'field_libro_ean',
     'field_libro_estado' => 'field_libro_estado',
     'field_libro_portada' => 'field_libro_portada',
+    'field_libro_autores' => 'field_libro_autores',
+    'field_libro_year' => 'field_libro_year',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
@@ -269,7 +271,7 @@ function libro_views_default_views() {
       'empty_column' => 0,
     ),
     'field_libro_estado' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
@@ -277,6 +279,18 @@ function libro_views_default_views() {
     ),
     'field_libro_portada' => array(
       'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_libro_autores' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_libro_year' => array(
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',

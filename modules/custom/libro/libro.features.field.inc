@@ -1466,16 +1466,18 @@ function libro_field_default_fields() {
           'weight' => 0,
         ),
         'search_index' => array(
-          'label' => 'above',
+          'label' => 'hidden',
+          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '0',
         ),
         'search_result' => array(
           'label' => 'above',
+          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',

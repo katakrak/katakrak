@@ -215,6 +215,16 @@ function libro_strongarm() {
             'visible' => FALSE,
           ),
         ),
+        'language' => array(
+          'search_index' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'search_result' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+        ),
       ),
     ),
   );
