@@ -6,6 +6,9 @@
 
 include_once 'katakrak.features.inc';
 
+/**
+ * Implements hook_admin_paths
+ */
 function katakrak_admin_paths() {
   $paths = array(
     'node/*/edit' => TRUE,
@@ -15,6 +18,22 @@ function katakrak_admin_paths() {
     'node/add/*' => TRUE,
   );
   return $paths;
+}
+
+/**
+ * 
+ */
+function katakrak_theme() {
+  $path = drupal_get_path('module', 'katakrak');
+  return array(
+    'katakrak_suscribe_block' => array(
+      'template' => 'katakrak-suscribe-block',
+      'arguments' => array(
+        'form' => NULL
+      ),
+      'path' => $path . '/templates',
+    )  
+  );
 }
 
 /**
@@ -56,11 +75,19 @@ function katakrak_block_view($delta) {
     }
   }
   if ($delta == 'newsletter_suscribe') {
-    $block['content'] = drupal_get_form('katakrak_newsletter_suscribe_form');
+    $form = drupal_get_form('katakrak_newsletter_suscribe_form');
+    $block['content'] = theme('katakrak_suscribe_block', array('form' => $form));
     return $block;
   }
 }
 
+/**
+ * Function to generate a suscribe form
+ * 
+ * @param type $form
+ * @param type $form_state
+ * @return type
+ */
 function katakrak_newsletter_suscribe_form($form, &$form_state) {
   $form['mail'] = array(
     '#type' => 'textfield',
