@@ -6,8 +6,8 @@
 
 include_once 'katakrak_search.features.inc';
 
-if (module_exists('apachesolr_autocomplete')) {
-  function katakrak_search_form_apachesolr_search_custom_page_search_form_alter(&$form, $form_state) {
+function katakrak_search_form_apachesolr_search_custom_page_search_form_alter(&$form, $form_state) {
+  if (module_exists('apachesolr_autocomplete')) {
     $element = &$form['basic']['keys'];
     apachesolr_autocomplete_do_alter($element);
   }
