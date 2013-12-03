@@ -58,7 +58,13 @@ function katakrak_agenda_field_default_fields() {
             'show_repeat_rule' => 'show',
           ),
           'type' => 'date_default',
-          'weight' => 1,
+          'weight' => '1',
+        ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -143,7 +149,14 @@ function katakrak_agenda_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 2,
+          'weight' => '2',
+        ),
+        'home_event' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '2',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -216,7 +229,17 @@ function katakrak_agenda_field_default_fields() {
             'image_style' => '',
           ),
           'type' => 'image',
-          'weight' => 4,
+          'weight' => '4',
+        ),
+        'home_event' => array(
+          'label' => 'hidden',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => 'content',
+            'image_style' => 'event_home',
+          ),
+          'type' => 'image',
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -308,7 +331,13 @@ function katakrak_agenda_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => 5,
+          'weight' => '5',
+        ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '4',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -373,7 +402,18 @@ function katakrak_agenda_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 3,
+          'weight' => '3',
+        ),
+        'home_event' => array(
+          'label' => 'hidden',
+          'module' => 'title',
+          'settings' => array(
+            'title_class' => '',
+            'title_link' => 'content',
+            'title_style' => 'h3',
+          ),
+          'type' => 'title_linked',
+          'weight' => '3',
         ),
         'teaser' => array(
           'label' => 'above',
