@@ -154,7 +154,7 @@ function katakrak_geslib_geslib_product($op, $product) {
       $node->field_libro_ean['und'][0]['value'] = $product['ean'];
     
     if ($product['year']) {
-      $year = taxonomy_get_term_by_name($product, 'urtea');
+      $year = taxonomy_get_term_by_name($product['year'], 'urtea');
       if (!$year) {
         $year = new stdClass();
         foreach (taxonomy_get_vocabularies() as $vid => $vocab){
