@@ -49,6 +49,12 @@ function katakrak_dilve_field_default_fields() {
           'type' => 'hidden',
           'weight' => '16',
         ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'product_list' => array(
           'label' => 'above',
           'settings' => array(),

@@ -8,6 +8,7 @@ dependencies[] = features
 dependencies[] = libro
 dependencies[] = list
 dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:1
 features[field][] = node-libro-field_libro_dilve
 features[variable][] = dilve_pass

@@ -331,6 +331,12 @@ function libro_field_default_fields() {
           'type' => 'number_integer',
           'weight' => '7',
         ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'search_index' => array(
           'label' => 'above',
           'module' => 'number',
@@ -434,6 +440,12 @@ function libro_field_default_fields() {
           'type' => 'i18n_taxonomy_term_reference_link',
           'weight' => '14',
         ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'search_index' => array(
           'label' => 'above',
           'module' => 'taxonomy',
@@ -520,6 +532,12 @@ function libro_field_default_fields() {
           'type' => 'taxonomy_term_reference_plain',
           'weight' => '12',
         ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'search_index' => array(
           'label' => 'hidden',
           'module' => 'taxonomy',
@@ -599,6 +617,12 @@ function libro_field_default_fields() {
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '3',
+        ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'search_index' => array(
           'label' => 'hidden',
@@ -689,6 +713,12 @@ function libro_field_default_fields() {
           'type' => 'taxonomy_term_reference_plain',
           'weight' => '5',
         ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'search_index' => array(
           'label' => 'hidden',
           'module' => 'taxonomy',
@@ -777,6 +807,12 @@ function libro_field_default_fields() {
           'type' => 'list_default',
           'weight' => '11',
         ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'search_index' => array(
           'label' => 'hidden',
           'settings' => array(),
@@ -861,6 +897,12 @@ function libro_field_default_fields() {
           'type' => 'list_default',
           'weight' => '13',
         ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'search_index' => array(
           'label' => 'above',
           'module' => 'list',
@@ -940,6 +982,12 @@ function libro_field_default_fields() {
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '1',
+        ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'search_index' => array(
           'label' => 'hidden',
@@ -1023,6 +1071,12 @@ function libro_field_default_fields() {
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '4',
+        ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'search_index' => array(
           'label' => 'hidden',
@@ -1109,6 +1163,12 @@ function libro_field_default_fields() {
           ),
           'type' => 'image',
           'weight' => '10',
+        ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'search_index' => array(
           'label' => 'hidden',
@@ -1209,6 +1269,12 @@ function libro_field_default_fields() {
           'type' => 'commerce_cart_add_to_cart_form',
           'weight' => '0',
         ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'search_index' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1297,6 +1363,12 @@ function libro_field_default_fields() {
           'type' => 'text_default',
           'weight' => '8',
         ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'search_index' => array(
           'label' => 'above',
           'module' => 'text',
@@ -1383,6 +1455,12 @@ function libro_field_default_fields() {
           ),
           'type' => 'title_linked',
           'weight' => '6',
+        ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'search_index' => array(
           'label' => 'hidden',

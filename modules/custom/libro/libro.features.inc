@@ -91,7 +91,7 @@ function libro_image_default_styles() {
         'name' => 'image_crop',
         'data' => array(
           'width' => '300',
-          'height' => '350',
+          'height' => '400',
           'anchor' => 'center-top',
         ),
         'weight' => '2',
