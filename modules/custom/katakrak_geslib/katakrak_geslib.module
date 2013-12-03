@@ -152,8 +152,22 @@ function katakrak_geslib_geslib_product($op, $product) {
       $node->field_libro_isbn['und'][0]['value'] = $product['isbn'];
     if ($product['ean'])
       $node->field_libro_ean['und'][0]['value'] = $product['ean'];
-    if ($product['year'])
-      $node->field_libro_ano['und'][0]['value'] = $product['year'];
+    
+    if ($product['year']) {
+      $year = taxonomy_get_term_by_name($product, 'urtea');
+      if (!$year) {
+        $year = new stdClass();
+        foreach (taxonomy_get_vocabularies() as $vid => $vocab){
+          if ($vocab->name == 'Año') {
+            $year->vid = $vid ;
+          }
+        }
+        $year->name = $product['year'];
+        taxonomy_term_save($year);
+      }
+      $node->field_libro_year['und'][0]['tid'] = $year->tid;
+    }
+      
     $node->field_libro_estado['und'][0]['value'] = $product['status'];
     $node->field_libro_idioma['und'][0]['value'] = $product['language'];
     
