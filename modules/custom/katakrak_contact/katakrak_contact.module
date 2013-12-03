@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Katakrak contact feature.
+ */
+
+include_once 'katakrak_contact.features.inc';
