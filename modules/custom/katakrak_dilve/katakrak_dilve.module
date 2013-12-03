@@ -289,8 +289,24 @@ function katakrak_dilve_batch_process($max, $limit, $recheck, &$context){
 
       if (isset($book['description']))
         $node->field_libro_sinopsis['und'][0]['value'] = $book['description'];
-      if (isset($book['date']))
-        $node->field_libro_ano['und'][0]['value'] = substr($book['date'], 0, 4) ;
+      if (isset($book['date'])) {
+        $year_number = substr($book['date'], 0, 4);
+        $year_terms = taxonomy_get_term_by_name($year_number, 'urtea');
+        if ($year_terms) {
+          $year = array_pop($year_terms);
+        }
+        else {
+          $year = new stdClass();
+          foreach (taxonomy_get_vocabularies() as $vid => $vocab){
+            if ($vocab->name == 'Año') {
+              $year->vid = $vid ;
+            }
+          }
+          $year->name = $year_number;
+          taxonomy_term_save($year);
+        }
+        $node->field_libro_year['und'][0]['tid'] = $year->tid;
+      }
       if (isset($book['pages']))
         $node->field_libro_paginas['und'][0]['value'] = $book['pages'];
       if (isset($book["subtitle"]))

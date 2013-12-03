@@ -21,7 +21,6 @@ features[ctools][] = strongarm:strongarm:1
 features[facetapi][] = apachesolr@solr:block:im_field_libro_autores
 features[facetapi][] = apachesolr@solr:block:im_field_libro_categoria
 features[facetapi][] = apachesolr@solr:block:im_field_libro_editorial
-features[facetapi][] = apachesolr@solr:block:itm_field_libro_ano
 features[features_api][] = api:1
 features[variable][] = apachesolr_cron_limit
 features[variable][] = apachesolr_default_environment
