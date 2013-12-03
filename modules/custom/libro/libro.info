@@ -30,7 +30,6 @@ features[features_api][] = api:1
 features[field][] = commerce_product-libro-commerce_price
 features[field][] = commerce_product-libro-commerce_stock
 features[field][] = commerce_product-libro-field_product_peso
-features[field][] = node-libro-field_libro_ano
 features[field][] = node-libro-field_libro_autores
 features[field][] = node-libro-field_libro_categoria
 features[field][] = node-libro-field_libro_ean

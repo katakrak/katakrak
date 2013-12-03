@@ -342,6 +342,11 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['field_libro_autores']['table'] = 'field_data_field_libro_autores';
   $handler->display->display_options['fields']['field_libro_autores']['field'] = 'field_libro_autores';
   $handler->display->display_options['fields']['field_libro_autores']['delta_offset'] = '0';
+  /* Campo: Contenido: Año */
+  $handler->display->display_options['fields']['field_libro_year']['id'] = 'field_libro_year';
+  $handler->display->display_options['fields']['field_libro_year']['table'] = 'field_data_field_libro_year';
+  $handler->display->display_options['fields']['field_libro_year']['field'] = 'field_libro_year';
+  $handler->display->display_options['fields']['field_libro_year']['type'] = 'taxonomy_term_reference_plain';
   /* Sort criterion: Contenido: Fecha de modificación */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
@@ -465,6 +470,7 @@ function libro_views_default_views() {
     t('Estado'),
     t('Portada'),
     t('Autores'),
+    t('Año'),
     t('GESLIB ID'),
     t('EAN'),
     t('Page'),
