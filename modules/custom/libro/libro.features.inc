@@ -59,6 +59,46 @@ function libro_image_default_styles() {
     ),
   );
 
+  // Exported image style: cover_home.
+  $styles['cover_home'] = array(
+    'name' => 'cover_home',
+    'label' => 'Cover home',
+    'effects' => array(
+      5 => array(
+        'label' => 'Escala',
+        'help' => 'El escalado mantiene la relación de proporciones de la imagen original. Si sólo se especifica una dimensión, la otra se calculará.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => '300',
+          'height' => '',
+          'upscale' => 1,
+        ),
+        'weight' => '1',
+      ),
+      6 => array(
+        'label' => 'Recortar',
+        'help' => 'El recorte eliminará partes de una imagen para que tenga las dimensiones especificadas.',
+        'effect callback' => 'image_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_crop_form',
+        'summary theme' => 'image_crop_summary',
+        'module' => 'image',
+        'name' => 'image_crop',
+        'data' => array(
+          'width' => '300',
+          'height' => '350',
+          'anchor' => 'center-top',
+        ),
+        'weight' => '2',
+      ),
+    ),
+  );
+
   // Exported image style: search_result_cover.
   $styles['search_result_cover'] = array(
     'name' => 'search_result_cover',

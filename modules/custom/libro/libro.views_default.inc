@@ -143,8 +143,8 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['field_libro_portada']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_libro_portada']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_libro_portada']['settings'] = array(
-    'image_style' => 'medium',
-    'image_link' => '',
+    'image_style' => 'cover_home',
+    'image_link' => 'content',
   );
   /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -155,6 +155,18 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Campo: Contenido: Sinopsis */
+  $handler->display->display_options['fields']['field_libro_sinopsis']['id'] = 'field_libro_sinopsis';
+  $handler->display->display_options['fields']['field_libro_sinopsis']['table'] = 'field_data_field_libro_sinopsis';
+  $handler->display->display_options['fields']['field_libro_sinopsis']['field'] = 'field_libro_sinopsis';
+  $handler->display->display_options['fields']['field_libro_sinopsis']['label'] = '';
+  $handler->display->display_options['fields']['field_libro_sinopsis']['alter']['max_length'] = '300';
+  $handler->display->display_options['fields']['field_libro_sinopsis']['alter']['more_link'] = TRUE;
+  $handler->display->display_options['fields']['field_libro_sinopsis']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['field_libro_sinopsis']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_libro_sinopsis']['settings'] = array(
+    'trim_length' => '200',
+  );
   $translatables['libros'] = array(
     t('Master'),
     t('Libros'),

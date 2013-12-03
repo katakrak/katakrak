@@ -51,6 +51,7 @@ features[field][] = taxonomy_term-estado_de_articulo-field_estado_geslib_id
 features[field][] = taxonomy_term-materias-field_materias_geslib_id
 features[filter][] = sinopsis
 features[image][] = book_cover
+features[image][] = cover_home
 features[image][] = search_result_cover
 features[node][] = libro
 features[taxonomy][] = autores
