@@ -1159,7 +1159,7 @@ function libro_field_default_fields() {
           'module' => 'image',
           'settings' => array(
             'image_link' => '',
-            'image_style' => 'book_cover',
+            'image_style' => '',
           ),
           'type' => 'image',
           'weight' => '10',
