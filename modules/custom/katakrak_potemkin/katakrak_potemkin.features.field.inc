@@ -44,6 +44,12 @@ function katakrak_potemkin_field_default_fields() {
           'type' => 'number_integer',
           'weight' => 6,
         ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -116,6 +122,12 @@ function katakrak_potemkin_field_default_fields() {
           ),
           'type' => 'image',
           'weight' => 8,
+        ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -192,6 +204,12 @@ function katakrak_potemkin_field_default_fields() {
           'type' => 'text_default',
           'weight' => 7,
         ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -267,6 +285,12 @@ function katakrak_potemkin_field_default_fields() {
           'type' => 'taxonomy_term_reference_link',
           'weight' => 3,
         ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -327,6 +351,12 @@ function katakrak_potemkin_field_default_fields() {
           ),
           'type' => 'number_integer',
           'weight' => 5,
+        ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -394,6 +424,12 @@ function katakrak_potemkin_field_default_fields() {
           'settings' => array(),
           'type' => 'list_default',
           'weight' => 1,
+        ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -466,6 +502,12 @@ function katakrak_potemkin_field_default_fields() {
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
           'weight' => 10,
+        ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -542,6 +584,12 @@ function katakrak_potemkin_field_default_fields() {
           'type' => 'taxonomy_term_reference_link',
           'weight' => 2,
         ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -617,6 +665,12 @@ function katakrak_potemkin_field_default_fields() {
           'type' => 'taxonomy_term_reference_link',
           'weight' => 11,
         ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -677,6 +731,12 @@ function katakrak_potemkin_field_default_fields() {
           ),
           'type' => 'number_integer',
           'weight' => 12,
+        ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -754,6 +814,12 @@ function katakrak_potemkin_field_default_fields() {
           'type' => 'taxonomy_term_reference_link',
           'weight' => 9,
         ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -823,6 +889,12 @@ function katakrak_potemkin_field_default_fields() {
           'type' => 'text_default',
           'weight' => 4,
         ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -891,6 +963,12 @@ function katakrak_potemkin_field_default_fields() {
           'settings' => array(),
           'type' => 'text_default',
           'weight' => 13,
+        ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -966,6 +1044,12 @@ function katakrak_potemkin_field_default_fields() {
           'type' => 'i18n_taxonomy_term_reference_link',
           'weight' => 14,
         ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1039,6 +1123,12 @@ function katakrak_potemkin_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
+          'weight' => 0,
+        ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => 0,
         ),
         'teaser' => array(
