@@ -9,6 +9,10 @@
  */
 function libro_ctools_plugin_api() {
   list($module, $api) = func_get_args();
+  if ($module == "context" && $api == "context") {
+    return array("version" => "3");
+  }
+  list($module, $api) = func_get_args();
   if ($module == "page_manager" && $api == "pages_default") {
     return array("version" => "1");
   }
@@ -37,8 +41,8 @@ function libro_image_default_styles() {
     'label' => 'Book cover',
     'effects' => array(
       1 => array(
-        'label' => 'Scale',
-        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
+        'label' => 'Escala',
+        'help' => 'El escalado mantiene la relación de proporciones de la imagen original. Si sólo se especifica una dimensión, la otra se calculará.',
         'effect callback' => 'image_scale_effect',
         'dimensions callback' => 'image_scale_dimensions',
         'form callback' => 'image_scale_form',
@@ -61,8 +65,8 @@ function libro_image_default_styles() {
     'label' => 'Search result cover',
     'effects' => array(
       4 => array(
-        'label' => 'Scale',
-        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
+        'label' => 'Escala',
+        'help' => 'El escalado mantiene la relación de proporciones de la imagen original. Si sólo se especifica una dimensión, la otra se calculará.',
         'effect callback' => 'image_scale_effect',
         'dimensions callback' => 'image_scale_dimensions',
         'form callback' => 'image_scale_form',
@@ -77,8 +81,8 @@ function libro_image_default_styles() {
         'weight' => '-10',
       ),
       3 => array(
-        'label' => 'Crop',
-        'help' => 'Cropping will remove portions of an image to make it the specified dimensions.',
+        'label' => 'Recortar',
+        'help' => 'El recorte eliminará partes de una imagen para que tenga las dimensiones especificadas.',
         'effect callback' => 'image_crop_effect',
         'dimensions callback' => 'image_resize_dimensions',
         'form callback' => 'image_crop_form',
@@ -108,7 +112,7 @@ function libro_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Título'),
       'help' => '',
     ),
   );
