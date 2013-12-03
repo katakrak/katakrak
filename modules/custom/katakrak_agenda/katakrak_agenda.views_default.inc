@@ -24,74 +24,62 @@ function katakrak_agenda_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Events';
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'más';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Aplicar';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordenar por';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '12';
   $handler->display->display_options['style_plugin'] = 'katakrak_agenda_grid_plugin_style';
   $handler->display->display_options['style_options']['columns'] = '3';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Field: Content: Title */
+  /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Date */
-  $handler->display->display_options['fields']['field_event_date']['id'] = 'field_event_date';
-  $handler->display->display_options['fields']['field_event_date']['table'] = 'field_data_field_event_date';
-  $handler->display->display_options['fields']['field_event_date']['field'] = 'field_event_date';
-  $handler->display->display_options['fields']['field_event_date']['settings'] = array(
-    'format_type' => 'long',
-    'fromto' => 'both',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-    'show_repeat_rule' => 'show',
-  );
-  /* Field: Content: Image */
-  $handler->display->display_options['fields']['field_event_image']['id'] = 'field_event_image';
-  $handler->display->display_options['fields']['field_event_image']['table'] = 'field_data_field_event_image';
-  $handler->display->display_options['fields']['field_event_image']['field'] = 'field_event_image';
-  $handler->display->display_options['fields']['field_event_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_event_image']['settings'] = array(
-    'image_style' => '',
-    'image_link' => '',
-  );
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Contenido: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Contenido: Publicado */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Contenido: Tipo */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'event' => 'event',
   );
-  /* Filter criterion: Content: Language */
+  /* Filter criterion: Contenido: Idioma */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
   $handler->display->display_options['filters']['language']['field'] = 'language';
   $handler->display->display_options['filters']['language']['value'] = array(
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
+  /* Filter criterion: Contenido: Date (field_event_date) */
+  $handler->display->display_options['filters']['field_event_date_value']['id'] = 'field_event_date_value';
+  $handler->display->display_options['filters']['field_event_date_value']['table'] = 'field_data_field_event_date';
+  $handler->display->display_options['filters']['field_event_date_value']['field'] = 'field_event_date_value';
+  $handler->display->display_options['filters']['field_event_date_value']['operator'] = '>';
+  $handler->display->display_options['filters']['field_event_date_value']['default_date'] = 'now';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'agenda';
-  $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Agenda';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
@@ -100,14 +88,12 @@ function katakrak_agenda_views_default_views() {
   $translatables['events'] = array(
     t('Master'),
     t('Events'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
+    t('más'),
+    t('Aplicar'),
+    t('Reiniciar'),
+    t('Ordenar por'),
     t('Asc'),
     t('Desc'),
-    t('Date'),
-    t('Image'),
     t('Page'),
   );
   $export['events'] = $view;
