@@ -40,7 +40,6 @@ function katakrak_theme() {
  * Implements hook_block_info().
  */
 function katakrak_block_info() {
-  include_once DRUPAL_ROOT . '/includes/language.inc';
   $blocks = array();
   $blocks['language_switcher'] = array(
     'info' => t('Language switcher small'),
@@ -51,6 +50,26 @@ function katakrak_block_info() {
     'info' => t('Katakrak suscribe block'),
     // Not worth caching.
     'cache' => DRUPAL_NO_CACHE,
+  );
+  $blocks['footer_first'] = array(
+    'info' => t('Katakrak suscribe block'),
+    // Not worth caching.
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['footer_second'] = array(
+    'info' => t('Katakrak suscribe block'),
+    // Not worth caching.
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['footer_third'] = array(
+    'info' => t('Katakrak suscribe block'),
+    // Not worth caching.
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['footer_fourth'] = array(
+    'info' => t('Katakrak suscribe block'),
+    // Not worth caching.
+    'cache' => DRUPAL_CACHE_GLOBAL,
   );
   return $blocks;
 }
@@ -232,4 +251,5 @@ function katakrak_portadas_batch_process_finish($success, $results, $operations)
 }
 
 function katakrak_init() {
+
 }

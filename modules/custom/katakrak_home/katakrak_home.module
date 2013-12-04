@@ -5,3 +5,26 @@
  */
 
 include_once 'katakrak_home.features.inc';
+
+/**
+ * Implements hook_block_info().
+ */
+function katakrak_home_block_info() {
+  $blocks = array();
+  $blocks['home_promo_first'] = array(
+    'info' => t('Katakrak suscribe block'),
+    // Not worth caching.
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['home_promo_second'] = array(
+    'info' => t('Katakrak suscribe block'),
+    // Not worth caching.
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['home_promo_third'] = array(
+    'info' => t('Katakrak suscribe block'),
+    // Not worth caching.
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  return $blocks;
+}
