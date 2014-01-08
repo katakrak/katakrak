@@ -52,22 +52,22 @@ function katakrak_block_info() {
     'cache' => DRUPAL_NO_CACHE,
   );
   $blocks['footer_first'] = array(
-    'info' => t('Katakrak suscribe block'),
+    'info' => t('Katakrak first footer'),
     // Not worth caching.
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
   $blocks['footer_second'] = array(
-    'info' => t('Katakrak suscribe block'),
+    'info' => t('Katakrak second footer'),
     // Not worth caching.
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
   $blocks['footer_third'] = array(
-    'info' => t('Katakrak suscribe block'),
+    'info' => t('Katakrak third footer'),
     // Not worth caching.
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
   $blocks['footer_fourth'] = array(
-    'info' => t('Katakrak suscribe block'),
+    'info' => t('Katakrak fourth footer'),
     // Not worth caching.
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
@@ -139,11 +139,16 @@ function katakrak_newsletter_suscribe_form_submit($form, &$form_state) {
 function katakrak_menu() {
   $items = array();
   $items['admin/config/portadas'] = array(
-    'title' => 'Portadas',
+    'title' => t('Portadas'),
     'description' => 'Dilve options',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('katakrak_portadas_batch_process_form'),
     'access arguments' => array('administer site configuration'),
+  );
+  $items['newsletter/confirm/mantain'] = array(
+    'title' => t('Suscribirse a boletin de katakrak.net'),
+    'page callback' => 'katakrak_newsletter_confirm_mantain',
+    'access arguments' => array('subscribe to newsletters'),  
   );
   return $items;
 }
@@ -252,4 +257,17 @@ function katakrak_portadas_batch_process_finish($success, $results, $operations)
 
 function katakrak_init() {
 
+}
+
+function katakrak_newsletter_confirm_mantain() {
+  $mail = isset($_GET['mail']) ? $_GET['mail'] : '';
+  if (valid_email_address($mail)) {
+    $simplenews_newsletter = array_pop(taxonomy_get_tree(variable_get('simplenews_vid', 8)));
+    simplenews_subscribe_user($mail, $simplenews_newsletter->tid);
+    drupal_set_message(t('Hemos envíado un mail a tu dirección de correo con las instrucciones para completar tu suscripción'));
+  }
+  else {
+    drupal_set_message(t('Email inválido', 'error'));
+  }
+  drupal_goto();
 }
