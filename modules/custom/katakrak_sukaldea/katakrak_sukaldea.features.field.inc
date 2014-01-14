@@ -22,9 +22,13 @@ function katakrak_sukaldea_field_default_fields() {
       'indexes' => array(),
       'locked' => '0',
       'module' => 'number',
-      'settings' => array(),
+      'settings' => array(
+        'decimal_separator' => '.',
+        'precision' => '10',
+        'scale' => '2',
+      ),
       'translatable' => '0',
-      'type' => 'number_integer',
+      'type' => 'number_decimal',
     ),
     'field_instance' => array(
       'bundle' => 'field_errezeta_osagai',
@@ -38,10 +42,10 @@ function katakrak_sukaldea_field_default_fields() {
           'settings' => array(
             'decimal_separator' => '.',
             'prefix_suffix' => TRUE,
-            'scale' => 0,
+            'scale' => 2,
             'thousand_separator' => ' ',
           ),
-          'type' => 'number_integer',
+          'type' => 'number_decimal',
           'weight' => 1,
         ),
       ),
@@ -300,9 +304,13 @@ function katakrak_sukaldea_field_default_fields() {
       'indexes' => array(),
       'locked' => '0',
       'module' => 'number',
-      'settings' => array(),
+      'settings' => array(
+        'decimal_separator' => '.',
+        'precision' => '10',
+        'scale' => '2',
+      ),
       'translatable' => '0',
-      'type' => 'number_integer',
+      'type' => 'number_decimal',
     ),
     'field_instance' => array(
       'bundle' => 'sukalde_produktua',
@@ -316,11 +324,11 @@ function katakrak_sukaldea_field_default_fields() {
           'settings' => array(
             'decimal_separator' => '.',
             'prefix_suffix' => TRUE,
-            'scale' => 0,
+            'scale' => 2,
             'thousand_separator' => ' ',
           ),
-          'type' => 'number_integer',
-          'weight' => 0,
+          'type' => 'number_decimal',
+          'weight' => 2,
         ),
         'home_event' => array(
           'label' => 'above',
@@ -351,7 +359,7 @@ function katakrak_sukaldea_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '31',
+        'weight' => '33',
       ),
     ),
   );
