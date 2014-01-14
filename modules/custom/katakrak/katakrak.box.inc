@@ -39,7 +39,7 @@ function katakrak_default_box() {
   <li class="ts-facebook"><a href="#"><span class="ts-icon"></span><span class="ts-text">Facebook</span></a></li>
   <li class="ts-twitter"><a href="#"><span class="ts-icon"></span><span class="ts-text">Twitter</span></a></li>
   <li class="ts-rss"><a href="#"><span class="ts-icon"></span><span class="ts-text">RSS</span></a></li>
-  <li class="ts-phone"><a href="tel:+913326789234"><span class="ts-icon"></span><span class="ts-text">+9948225529</span></a></li>
+  <li class="ts-phone"><a href="tel:+948225520"><span class="ts-icon"></span><span class="ts-text">+948225520</span></a></li>
   <li class="ts-mail"><a href="mailto:coworker@abc.com"><span class="ts-icon"></span><span class="ts-text">info@katakrak.cc</span></a></li>
  
 </ul>',

@@ -332,13 +332,6 @@ function katakrak_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'simplenews_vid';
-  $strongarm->value = '8';
-  $export['simplenews_vid'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'site_403';
   $strongarm->value = '';
   $export['site_403'] = $strongarm;
@@ -361,21 +354,21 @@ function katakrak_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'site_mail';
-  $strongarm->value = 'trisketonni@gmail.com';
+  $strongarm->value = 'info@katakrak.net';
   $export['site_mail'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'site_name';
-  $strongarm->value = 'new.lahormigaatomica.net';
+  $strongarm->value = 'Katakrak';
   $export['site_name'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'theme_default';
-  $strongarm->value = 'coworker';
+  $strongarm->value = 'bartik';
   $export['theme_default'] = $strongarm;
 
   $strongarm = new stdClass();
