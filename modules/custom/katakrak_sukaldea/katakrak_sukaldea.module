@@ -1,0 +1,33 @@
+<?php
+/**
+ * @file
+ * Code for the Katakrak Sukaldea feature.
+ */
+
+include_once 'katakrak_sukaldea.features.inc';
+
+function katakrak_sukaldea_node_load($nodes, $types) {
+  if (in_array('sukalde_errezeta', $types)) {
+    foreach ($nodes as &$node) {
+      $table = array();
+      $totala = 0;
+      foreach($node->field_errezeta_osagai['und'] as $i => $osagai) {
+        $osagai = field_collection_item_load($osagai['value']);
+        $produktua = node_load($osagai->field_errezeta_produktua['und'][0]['target_id']);
+        $table[$i]['produktua'] = $produktua->title;
+        $table[$i]['prezioa'] = $produktua->field_produktua_prezioa['und'][0]['value'];
+        $table[$i]['kopurua'] = $osagai->field_errezeta_kopurua['und'][0]['value'];
+        $linearen_totala = $osagai->field_errezeta_kopurua['und'][0]['value'] * $produktua->field_produktua_prezioa['und'][0]['value'];
+        $table[$i]['totala'] = $linearen_totala;
+        $totala += $linearen_totala;
+      }
+      $table[] = array(
+          'produktua' => 'Total',
+          'prezioa' => '',
+          'kopurua' => '',
+          'totala' => $totala,
+      );
+      $node->produktu_taula = $table;
+    }
+  }
+}
