@@ -151,6 +151,7 @@ function katakrak_sukaldea_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['empty'] = TRUE;
   $handler->display->display_options['header']['area']['content'] = '<a href="node/add/sukalde-produktua">Produktua gehitu</a>
 <a href="node/add/sukalde-errezeta">Errezeta gehitu</a>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
@@ -160,11 +161,6 @@ function katakrak_sukaldea_views_default_views() {
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Broken/missing handler */
-  $handler->display->display_options['fields']['field_errezeta_anoa']['id'] = 'field_errezeta_anoa';
-  $handler->display->display_options['fields']['field_errezeta_anoa']['table'] = 'field_data_field_errezeta_anoa';
-  $handler->display->display_options['fields']['field_errezeta_anoa']['field'] = 'field_errezeta_anoa';
-  $handler->display->display_options['fields']['field_errezeta_anoa']['label'] = 'Anoa';
   /* Campo: Contenido: Prezioa */
   $handler->display->display_options['fields']['field_errezeta_prezioa']['id'] = 'field_errezeta_prezioa';
   $handler->display->display_options['fields']['field_errezeta_prezioa']['table'] = 'field_data_field_errezeta_prezioa';
@@ -223,7 +219,6 @@ function katakrak_sukaldea_views_default_views() {
     t('<a href="node/add/sukalde-produktua">Produktua gehitu</a>
 <a href="node/add/sukalde-errezeta">Errezeta gehitu</a>'),
     t('Título'),
-    t('Anoa'),
     t('Prezioa'),
     t('Page'),
   );
