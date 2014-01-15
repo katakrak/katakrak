@@ -114,15 +114,15 @@ features[] = logo
 ;features[] = name
 ;features[] = slogan
 ;features[] = node_user_picture
-features[] = comment_user_picture
-features[] = comment_user_verification
+;features[] = comment_user_picture
+;features[] = comment_user_verification
 features[] = favicon
 features[] = main_menu
 features[] = secondary_menu
 
 
 settings[footer_style] = dark
-settings[rentina_logo] = /sites/all/themes/coworker/images/logo@2x.png
+settings[rentina_logo] = /sites/all/themes/coworker/images/logo_katakrak.png
 settings[theme_layout] = stretched
 settings[coworker_theme_color] = #2780AF
 settings[enable_responsive] = 1

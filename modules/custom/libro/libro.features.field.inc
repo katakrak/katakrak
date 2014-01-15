@@ -341,10 +341,7 @@ function libro_field_default_fields() {
         'default' => array(
           'label' => 'hidden',
           'module' => 'i18n_taxonomy',
-          'settings' => array(
-            'taxonomy_term_link' => 0,
-            'taxonomy_term_separator' => ', ',
-          ),
+          'settings' => array(),
           'type' => 'i18n_taxonomy_term_reference_link',
           'weight' => '14',
         ),
@@ -1067,7 +1064,7 @@ function libro_field_default_fields() {
           'module' => 'image',
           'settings' => array(
             'image_link' => '',
-            'image_style' => '',
+            'image_style' => 'book_cover',
           ),
           'type' => 'image',
           'weight' => '10',
@@ -1457,7 +1454,7 @@ function libro_field_default_fields() {
           'module' => 'i18n_taxonomy',
           'settings' => array(),
           'type' => 'i18n_taxonomy_term_reference_link',
-          'weight' => 17,
+          'weight' => '17',
         ),
         'home_event' => array(
           'label' => 'above',

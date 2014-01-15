@@ -89,6 +89,18 @@ function libro_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
+      'home_event' => array(
+        'custom_settings' => TRUE,
+      ),
+      'email_plain' => array(
+        'custom_settings' => FALSE,
+      ),
+      'email_html' => array(
+        'custom_settings' => FALSE,
+      ),
+      'email_textalt' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -221,6 +233,10 @@ function libro_strongarm() {
             'visible' => TRUE,
           ),
           'search_result' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'default' => array(
             'weight' => '0',
             'visible' => TRUE,
           ),
