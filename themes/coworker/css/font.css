@@ -51,13 +51,15 @@ h6,
 .widget_recent_comments li,
 .widget_recent_entries li,
 .widget_categories li,
-.widget_pages li { font-family: "Open Sans"; }
+.widget_pages li { 
+  /*font-family: "Open Sans";*/ 
+  font-family: "Din-next";
+}
 
 
 /* ----------------------------------------------------------------
     Secondary Font Used
 -----------------------------------------------------------------*/
-
 
 blockquote,
 .entry_content ul,
@@ -73,6 +75,7 @@ blockquote,
 .pricing-title h4 span,
 .pricing-inner .pricing-price,
 .testimonial-item .testi-content,
-.testimonial-item .testi-author span { font-family: "Droid Serif"; }
+.testimonial-item .testi-author span,
+.content p { font-family: "Calibri"; }
 
 
