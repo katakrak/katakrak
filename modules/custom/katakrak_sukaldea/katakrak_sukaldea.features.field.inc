@@ -217,6 +217,146 @@ function katakrak_sukaldea_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-sukalde_errezeta-field_errezeta_porzio_kopurua'.
+  $fields['node-sukalde_errezeta-field_errezeta_porzio_kopurua'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_errezeta_porzio_kopurua',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'locked' => '0',
+      'module' => 'number',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'number_integer',
+    ),
+    'field_instance' => array(
+      'bundle' => 'sukalde_errezeta',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'number',
+          'settings' => array(
+            'decimal_separator' => '.',
+            'prefix_suffix' => TRUE,
+            'scale' => 0,
+            'thousand_separator' => ' ',
+          ),
+          'type' => 'number_integer',
+          'weight' => 4,
+        ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_errezeta_porzio_kopurua',
+      'label' => 'Porzio kopurua',
+      'required' => 0,
+      'settings' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'number',
+        'settings' => array(),
+        'type' => 'number',
+        'weight' => '35',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-sukalde_errezeta-field_errezeta_prezioa'.
+  $fields['node-sukalde_errezeta-field_errezeta_prezioa'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_errezeta_prezioa',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'locked' => '0',
+      'module' => 'number',
+      'settings' => array(
+        'decimal_separator' => '.',
+        'precision' => '10',
+        'scale' => '2',
+      ),
+      'translatable' => '0',
+      'type' => 'number_decimal',
+    ),
+    'field_instance' => array(
+      'bundle' => 'sukalde_errezeta',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Salmenta prezioa',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'number',
+          'settings' => array(
+            'decimal_separator' => '.',
+            'prefix_suffix' => TRUE,
+            'scale' => 2,
+            'thousand_separator' => ' ',
+          ),
+          'type' => 'number_decimal',
+          'weight' => 2,
+        ),
+        'home_event' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_errezeta_prezioa',
+      'label' => 'Prezioa',
+      'required' => 0,
+      'settings' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'number',
+        'settings' => array(),
+        'type' => 'number',
+        'weight' => '33',
+      ),
+    ),
+  );
+
   // Exported field: 'node-sukalde_produktua-field_produktua_kopurua'.
   $fields['node-sukalde_produktua-field_produktua_kopurua'] = array(
     'field_config' => array(
@@ -368,8 +508,10 @@ function katakrak_sukaldea_field_default_fields() {
   // Included for use with string extractors like potx.
   t('Kopurua');
   t('Osagaia');
+  t('Porzio kopurua');
   t('Prezioa');
   t('Produktua');
+  t('Salmenta prezioa');
 
   return $fields;
 }
