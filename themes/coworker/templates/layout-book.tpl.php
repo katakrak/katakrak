@@ -1,51 +1,6 @@
 <?php include 'page-header.inc' ?>
 
 <div id="content">
-  <?php if (!drupal_is_front_page()): ?>
-    <?php if ($title): ?>
-      <div id="page-title">
-        <div class="container clearfix">
-
-          <h1><?php print $title; ?></h1>
-
-          <?php if (!empty($search_block)): ?>
-            <div id="top-search">
-              <?php print $search_block; ?>
-            </div>
-          <?php endif; ?>
-
-        </div>
-      </div>
-
-    <?php endif; ?>
-  <?php endif; ?>
-
-  <?php if (drupal_is_front_page() && !theme_get_setting('homepage_title', 'coworker')): ?>
-    <?php if ($title): ?>
-      <div id="page-title">
-        <div class="container clearfix">
-
-          <h1><?php print $title; ?></h1>
-
-            <?php if (!empty($search_block)): ?>
-              <div id="top-search">
-                <?php print $search_block; ?>
-              </div>
-            <?php endif; ?>
-
-          </div>
-        </div>
-
-      <?php endif; ?>
-    <?php endif; ?>
-
-    <?php if ($page['contact_map']): ?>
-      <div id="google-map" class="contact-map">
-        <div style="display: block !important;" class="slider-line"></div>
-        <?php print render($page['contact_map']); ?>
-      </div>
-    <?php endif; ?>
-
     <div class="content-wrap">
       <div class="container clearfix">
 

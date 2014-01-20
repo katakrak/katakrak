@@ -61,7 +61,6 @@ features[variable][] = site_404
 features[variable][] = site_default_country
 features[variable][] = site_mail
 features[variable][] = site_name
-features[variable][] = theme_default
 features[variable][] = user_admin_role
 features[variable][] = user_picture_dimensions
 features[variable][] = user_picture_file_size
