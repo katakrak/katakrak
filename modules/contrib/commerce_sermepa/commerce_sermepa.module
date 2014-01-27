@@ -243,7 +243,7 @@ function commerce_sermepa_order_form($form, &$form_state, $order, $settings) {
 
   // Get the url to connect to.
   if (!empty($settings['advanced']['override_url'])) {
-    $url = $settings['override_url'];
+    $url = $settings['advanced']['override_url'];
   }
   elseif ($settings['mode'] == 'live') {
     $url = COMMERCE_SERMEPA_URL_LIVE;
@@ -300,7 +300,7 @@ function commerce_sermepa_redirect_form_validate($order, $payment_method) {
  *   An associative array containing the Sermepa feedback taken from the $_GET and
  *   $_POST superglobals, excluding 'q'.
  *   Returns FALSE if the Ds_Order parameter is missing (indicating missing or
- *   invalid Ogone feedback).
+ *   invalid Sermepa feedback).
  */
 function commerce_sermepa_get_feedback() {
   $feedback = FALSE;
@@ -363,36 +363,51 @@ function _commerce_sermepa_response($response = NULL) {
     switch ((int) $response) {
       case 900:
         $msg = t('Transaction authorized for returns and confirmations');
+        break;
       case 101:
         $msg = t('Expired card');
+        break;
       case 102:
         $msg = t('Temporary exception card or on suspicion of fraud');
+        break;
       case 104:
       case 9104:
         $msg = t('Operation not allowed for the card or terminal');
+        break;
       case 116:
         $msg = t('Asset insufficient');
+        break;
       case 118:
         $msg = t('Card not registered');
+        break;
       case 129:
         $msg = t('Wrong security code (CVV2/CVC2)');
+        break;
       case 180:
         $msg = t('Card out of the service');
+        break;
       case 184:
         $msg = t('Error on owner authentication');
+        break;
       case 190:
         $msg = t('Denied without specific reasons');
+        break;
       case 191:
         $msg = t('Wrong expiration date');
+        break;
       case 202:
         $msg = t('Temporary or emergency card on suspicion of withdrawal card fraud');
+        break;
       case 912:
       case 9912:
         $msg = t('Issuer not available');
+        break;
       case 913:
         $msg = t('Order duplicated');
+        break;
       default:
         $msg = t('Transaction refused');
+        break;
     }
   }
 
@@ -411,7 +426,7 @@ function commerce_sermepa_get_payment_transaction($feedback) {
   $query = new EntityFieldQuery;
 
   $result = $query->entityCondition('entity_type', 'commerce_payment_transaction')
-                  ->propertyCondition('payment_method', 'sermepa')
+                  ->propertyCondition('payment_method', 'commerce_sermepa')
                   ->propertyCondition('remote_id', $feedback_remote_id)
                   ->execute();
 
@@ -429,7 +444,7 @@ function commerce_sermepa_get_payment_transaction($feedback) {
 function commerce_sermepa_process_transaction($order, $payment_method, $feedback, $redirect = TRUE) {
   $transaction_id = commerce_sermepa_get_payment_transaction($feedback);
   if (!$transaction_id) {
-    $transaction = commerce_payment_transaction_new('sermepa', $order->order_id);
+    $transaction = commerce_payment_transaction_new('commerce_sermepa', $order->order_id);
   }
   else {
     $transaction = commerce_payment_transaction_load($transaction_id);
@@ -447,7 +462,7 @@ function commerce_sermepa_process_transaction($order, $payment_method, $feedback
     $transaction->message = 'Transaction accepted with id @transaction_id';
   }
   elseif ($transaction_status['code'] == COMMERCE_PAYMENT_STATUS_FAILURE) {
-    $transaction->message = 'Error for the transaction with id @transaction_id: ' . $payment_status['message'];
+    $transaction->message = 'Error for the transaction with id @transaction_id: ' . $transaction_status['message'];
   }
   $transaction->message_variables = array(
     '@transaction_id' => $feedback['Ds_AuthorisationCode'],

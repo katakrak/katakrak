@@ -5,9 +5,53 @@
  */
 
 /**
+ * Implements hook_schema().
+ */
+function commerce_shipping_weight_tariff_schema() {
+  $schema = array();
+
+  $schema['commerce_shipping_weight_tariff_service'] = array(
+    'description' => 'Stores information about shipping services created through the commerce shipping weight tariff module.',
+    'fields' => array(
+      'name' => array(
+        'description' => 'The machine-name of the service.',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'title' => array(
+        'description' => 'The human-readable title of the service.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'display_title' => array(
+        'description' => 'The title of the service displayed to customers.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'description' => array(
+        'description' => 'A brief description of the service.',
+        'type' => 'text',
+        'not null' => TRUE,
+        'size' => 'medium',
+      ),
+    ),
+    'primary key' => array('name'),
+  );
+
+  return $schema;
+}
+
+/**
  * Implements hook_install().
  */
 function commerce_shipping_weight_tariff_install() {
+  drupal_install_schema('commerce_shipping_weight_tariff_service');
   // Add the fields on our bundle.
   commerce_shipping_weight_tariff_create_weight_instance('commerce_product_tariff_weight', 'commerce_product', 'shipping_tariff', t('Maximum weight'));
   commerce_shipping_weight_tariff_create_method_instance('commerce_product_tariff_service', 'commerce_product', 'shipping_tariff', t('Shipping service'));
@@ -133,4 +177,14 @@ function commerce_shipping_weight_tariff_uninstall() {
 
   // Delete any field instance attached to a shipping tariff product type.
   commerce_delete_instances('commerce_product', 'shipping_tariff');
+  drupal_uninstall_schema('commerce_shipping_weight_tariff_service');
+  variable_del('commerce_shipping_weight_tariff_block_weight_unit');
+}
+
+/**
+ * Creates table for use in storing services.
+ */
+function commerce_shipping_weight_tariff_update_7100(){
+    $schema = drupal_get_schema('commerce_shipping_weight_tariff_service');
+    db_create_table('commerce_shipping_weight_tariff_service', $schema);
 }

@@ -35,34 +35,47 @@ function commerce_shipping_weight_tariff_commerce_shipping_method_info() {
   return $shipping_methods;
 }
 
-/**
- * Implements hook_commerce_shipping_service_info().
- */
 function commerce_shipping_weight_tariff_commerce_shipping_service_info() {
-  // @todo: implement a UI for defining services.
-  // @see http://drupal.org/node/1803244
-  // In the absence of this, you should create a custom module and define the
-  // services for your site in its own implementation of
-  // hook_commerce_shipping_service_info, eg Next day, Special delivery, etc.
   $shipping_services = array();
-  $shipping_services['tipsa'] = array( //arbitrary name w/ 'service' in there
-      'title' => t('Paquetería'),  //titulo de la interfaz en "shipping" + "shipping services"
-      'description' => t('Precios de envio variables dependiendo del peso'),
-      'display_title' => t('Paquetería'),
-      'shipping_method' => 'weight_tariff_shipping', //comes from the tariff module...
-      'price_component' => 'shipping',  //from commerce_shipping
-      'callbacks' => array(
-      'rate' => 'commerce_shipping_weight_tariff_service_rate',), //rate callback comes from tariff module
-  );
-  $shipping_services['tipsa_14'] = array( //arbitrary name w/ 'service' in there
-      'title' => t('Paquetería 14 horas'),  //titulo de la interfaz en "shipping" + "shipping services"
-      'description' => t('Precios de envio variables dependiendo del peso'),
-      'display_title' => t('Paquetería 14 horas'),
-      'shipping_method' => 'weight_tariff_shipping', //comes from the tariff module...
-      'price_component' => 'shipping',  //from commerce_shipping
-      'callbacks' => array(
-      'rate' => 'commerce_shipping_weight_tariff_service_rate',), //rate callback comes from tariff module
-  );
 
+  $results = db_select('commerce_shipping_weight_tariff_service', 'cswts')
+      ->fields('cswts')
+      ->execute();
+
+  while($result = $results->fetchAssoc()) {
+    $shipping_services[$result['name']] = array(
+        'title' => t($result['title']),  //title for the interface
+        'description' => t($result['description']),
+        'display_title' => t(!empty($result['display_title']) ? $result['display_title'] : $result['title']),
+        'shipping_method' => 'weight_tariff_shipping', //comes from the tariff module...
+        'price_component' => 'shipping',  //from commerce_shipping
+        'callbacks' => array(
+        'rate' => 'commerce_shipping_weight_tariff_service_rate',), //rate callback comes from tariff module
+    );
+  }
   return $shipping_services;
+}
+
+/**
+ * Implements hook_commerce_shipping_method_collect_rates().
+ *
+ * Add the tariff product id to the shipping line item data.
+ */
+function commerce_shipping_weight_tariff_commerce_shipping_method_collect_rates($method, $order) {
+  // Get our services.
+  $services = commerce_shipping_services('weight_tariff_shipping');
+
+  // Work on each line item that corresponds to one of our shipping services.
+  foreach ($order->shipping_rates as $service_name => $shipping_line_item) {
+    if (isset($services[$service_name])) {
+      // Retrieve the data we (hackishly) put in the price in
+      // commerce_shipping_weight_tariff_service_rate().
+      $line_item_wrapper = entity_metadata_wrapper('commerce_line_item', $shipping_line_item);
+      $price_data = $line_item_wrapper->commerce_unit_price->data->value();
+      // Entity metadata does not appear to take us any further!?
+      $tariff_product_id = $price_data['components'][0]['price']['tariff_product_id'];
+      // Add the tariff product id to the line item data.
+      $shipping_line_item->data['tariff_product_id'] = $tariff_product_id;
+    }
+  }
 }

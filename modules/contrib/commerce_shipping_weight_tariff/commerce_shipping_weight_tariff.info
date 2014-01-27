@@ -2,14 +2,15 @@ name = Commerce Shipping Weight Tariff
 description = Allows the creation of multiple shipping tariffs for different order weights.
 package = Commerce (shipping)
 dependencies[] = commerce_shipping
+dependencies[] = commerce_physical
 dependencies[] = list
 dependencies[] = options
 dependencies[] = physical
 core = 7.x
 
-; Information added by drupal.org packaging script on 2012-10-04
-version = "7.x-1.0-beta1"
+; Information added by Drupal.org packaging script on 2013-12-09
+version = "7.x-1.0-beta2"
 core = "7.x"
 project = "commerce_shipping_weight_tariff"
-datestamp = "1349363167"
+datestamp = "1386607137"
 
