@@ -11,15 +11,7 @@
     <?php if ($title): ?>
       <div id="page-title">
         <div class="container clearfix">
-
           <h1><?php print $title; ?></h1>
-
-          <?php if (!empty($search_block)): ?>
-            <div id="top-search">
-              <?php print $search_block; ?>
-            </div>
-          <?php endif; ?>
-
         </div>
       </div>
 

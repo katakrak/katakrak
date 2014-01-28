@@ -775,7 +775,7 @@ form small {
 #logo {
   position: relative;
   float: left;
-  height: 120px;
+  /*height: 120px;*/
   max-width: 230px;
   margin-right: 20px;
   font-family: 'Open Sans', sans-serif;
