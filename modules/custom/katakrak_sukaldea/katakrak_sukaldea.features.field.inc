@@ -414,7 +414,7 @@ function katakrak_sukaldea_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_produktua_kopurua',
-      'label' => 'Kopurua',
+      'label' => 'Unitatea',
       'required' => 0,
       'settings' => array(
         'text_processing' => '0',
@@ -512,6 +512,7 @@ function katakrak_sukaldea_field_default_fields() {
   t('Prezioa');
   t('Produktua');
   t('Salmenta prezioa');
+  t('Unitatea');
 
   return $fields;
 }
