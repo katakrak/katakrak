@@ -84,7 +84,35 @@ function geslib_first_import_form($form, &$form_state) {
     '#title' => 'Geslib File',
     '#options' => $options,
   );
-  
+  $form['operations'] = array(
+    '#type' => 'fieldset',  
+  );
+
+  $form['operations']['geslib_process_read_file'] = array(
+    '#type' => 'checkbox',
+    '#title' => 'Read file',
+    '#default_value' => 0,
+  );
+  $form['operations']['geslib_process_categories'] = array(
+    '#type' => 'checkbox',
+    '#title' => 'Process categories',
+    '#default_value' => 0,
+  );
+  $form['operations']['geslib_process_publishers'] = array(
+    '#type' => 'checkbox',
+    '#title' => 'Process publishers',
+    '#default_value' => 0,
+  );
+  $form['operations']['geslib_process_authors'] = array(
+    '#type' => 'checkbox',
+    '#title' => 'Process authors',
+    '#default_value' => 0,
+  );
+  $form['operations']['geslib_process_items'] = array(
+    '#type' => 'checkbox',
+    '#title' => 'Process books',
+    '#default_value' => 0,
+  );
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => 'Submit',
@@ -112,15 +140,20 @@ function geslib_first_import_form_submit($form, &$form_state) {
     batch_set($batch);
   }
   else {
+    $operations = array();
+    if ($form_state['values']['geslib_process_read_file'])
+      $operations[] = array('geslib_process_read_file', array($form_state['values']['geslib_file']));
+    if ($form_state['values']['geslib_process_categories'])
+      $operations[] = array('geslib_process_items', array('category', 25));
+    if ($form_state['values']['geslib_process_publishers'])
+      $operations[] = array('geslib_process_items', array('publisher', 100));
+    if ($form_state['values']['geslib_process_authors'])
+      $operations[] = array('geslib_process_items', array('author', 100));
+    if ($form_state['values']['geslib_process_items'])
+      $operations[] = array('geslib_process_items', array('product', 50));
     $batch = array(
       'title' => t('Importando artículos de geslib'),
-      'operations' => array(
-          array('geslib_process_read_file', array($form_state['values']['geslib_file'])),
-          array('geslib_process_items', array('category', 25)), 
-          array('geslib_process_items', array('publisher', 100)),
-          array('geslib_process_items', array('author', 100)),
-          array('geslib_process_items', array('product', 100)),
-      ),
+      'operations' => $operations,
       'finished' => 'geslib_process_finish',
       'file' => drupal_get_path('module', 'geslib').'/geslib.batch.inc',
     );
