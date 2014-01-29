@@ -1,3 +1,14 @@
 .view-commerce-cart-summary td, .commerce-line-item-views-form td {
   padding: 10px;
 }
+
+#header {
+  height: 243px; 
+  background-image: url("../images/fondo.png");
+  background-size: 1666px 243px;
+}
+
+#logo {
+  top: 40px;
+  margin-left: 300px;
+}
