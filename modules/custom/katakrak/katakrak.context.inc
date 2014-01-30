@@ -29,13 +29,7 @@ function katakrak_context_default_contexts() {
         'katakrak-language_switcher' => array(
           'module' => 'katakrak',
           'delta' => 'language_switcher',
-          'region' => 'top_left',
-          'weight' => '-10',
-        ),
-        'boxes-social_widget' => array(
-          'module' => 'boxes',
-          'delta' => 'social_widget',
-          'region' => 'top_right',
+          'region' => 'header_right',
           'weight' => '-10',
         ),
         'boxes-about_us' => array(

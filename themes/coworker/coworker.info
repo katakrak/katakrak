@@ -14,10 +14,7 @@ scripts[] = js/plugins.js
 scripts[] = js/custom.js
 scripts[] = js/coworker.js
 
-
-regions[top_left] = Top header left
-regions[top_right] = Top header right
-regions[top_lang] = Top header lang
+regions[header_right] = Header right
 
 regions[sidebar_first]  = Left sidebar
 regions[sidebar_second] = Right sidebar
