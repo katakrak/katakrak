@@ -10,8 +10,14 @@ and open the template in the editor.
 
 @font-face {
   font-family: "Din-Next";
-  src: url('./font/Din-Next/DINNextLTPro-Regular.otf');
+  src: url('./font/din-next/dinnextltpro-regular.otf');
   font-weight: normal;
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Din-Next";
+  src: url('./font/din-next/dinnextltpro-bold.otf');
+  font-weight: bold;
+  font-style: normal;
+}

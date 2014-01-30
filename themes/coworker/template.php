@@ -14,7 +14,7 @@ function _coworker_add_css() {
       'css/font.css',
       'css/prettyPhoto.css',
       'css/coworker.css',
-      'css/katakrak.css',
+      'katakrak.css',
   );
   foreach ($css_files as $css_file) {
     drupal_add_css($theme_path . '/' . $css_file);

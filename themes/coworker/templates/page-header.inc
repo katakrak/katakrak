@@ -26,8 +26,8 @@
       </div>
     </div>
   </div>
-   <?php if (!empty($navigation)): ?>
-        <div id="primary-menu">
-          <?php print $navigation; ?>
-        </div>
-      <?php endif; ?>
+  <?php if (!empty($navigation)): ?>
+    <div id="primary-links">
+      <?php print $navigation; ?>
+    </div>
+  <?php endif; ?>

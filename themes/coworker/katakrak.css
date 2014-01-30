@@ -1,0 +1,247 @@
+.view-commerce-cart-summary td, .commerce-line-item-views-form td {
+  padding: 10px;
+}
+
+#header {
+  height: 243px; 
+  background-image: url("images/fondo.png");
+  background-size: 1666px 243px;
+}
+
+#logo {
+  top: 40px;
+  margin-left: 300px;
+}
+
+/* Language block*/
+#block-katakrak-language-switcher {
+  float: right;
+}
+
+#block-katakrak-language-switcher ul li {
+  float: left;
+  padding-left: 4px;
+}
+
+#block-katakrak-language-switcher li.last:before {
+  content: "/ ";
+}
+
+#block-katakrak-language-switcher a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #000000;
+}
+
+#block-katakrak-language-switcher a.active {
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000000;
+}
+
+/* ----------------------------------------------------------------
+    Primary Menu
+-----------------------------------------------------------------*/
+
+
+#primary-links {
+  position: relative;
+  float: left;
+  max-width: 710px;
+  margin-left: 530px;
+  z-index: 3;
+}
+
+.rs-menu,
+.select-menu { display: none; }
+
+#primary-links ul {
+  position: relative;
+  margin: 0;
+}
+
+#primary-links ul li {
+  position: relative;
+  float: left;
+  /*height: 120px;*/
+  /*background: url("images/icons/menu-divider.png") no-repeat left center;*/
+  background-color: black;
+  margin-left: 15px;
+}
+
+#primary-links ul li:first-child {
+  padding-left: 0;
+  background-image: none;
+  margin-left: 0;
+}
+
+#primary-links ul li:first-child span { display: none; }
+
+#primary-links li a {
+  display: inline-block;
+  border-top: 4px solid transparent;
+  padding: 20px 0 5px;
+  width: 94px;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: "Din-next", sans-serif;
+  color: #444;
+}
+
+#primary-links li a span {
+  display: block;
+  margin-top: 2px;
+  top: 0;
+  color: #777;
+  font-family: "Open Sans", serif;
+  font-size: 11px;
+  font-weight: 400 !important;
+  text-transform: capitalize;
+}
+
+#primary-links li i { margin-right: 2px; }
+
+#primary-links li:first-child a span {
+  display: block;
+  top: 0;
+}
+
+#primary-links ul li.current a,
+#primary-links > ul > li:hover a,
+#primary-links > ul > li.current-menu-ancestor > a,
+#primary-links > ul > li.current-menu-parent > a,
+#primary-links > ul > li.current-menu-item > a,
+#primary-links > ul > li.current_page_parent > a,
+#primary-links div ul li.current a,
+#primary-links > div > ul > li:hover a,
+#primary-links > div > ul > li.current-menu-ancestor > a,
+#primary-links > div > ul > li.current-menu-parent > a,
+#primary-links > div > ul > li.current-menu-item > a,
+#primary-links > div > ul > li.current_page_parent > a,
+#primary-links ul li.active-trail > a,
+#primary-links ul li.active-trail > a span {
+  border-top-color: rgba(0,0,0,0.1);
+  color: #F50087;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+}
+
+#primary-links > ul > li:hover a span,
+#primary-links ul li.current a span,
+#primary-links > ul > li.current-menu-ancestor a span,
+#primary-links > ul > li.current-menu-parent a span,
+#primary-links > ul > li.current-menu-item a span,
+#primary-links > ul > li.current_page_parent a span,
+#primary-links > div > ul > li:hover a span,
+#primary-links > div ul li.current a span,
+#primary-links > div > ul > li.current-menu-ancestor a span,
+#primary-links > div > ul > li.current-menu-parent a span,
+#primary-links > div > ul > li.current-menu-item a span,
+#primary-links > div > ul > li.current_page_parent a span { color: #EEE; }
+
+
+#primary-links ul li:hover > ul {
+  display: block;
+}
+
+#primary-links ul ul {
+  visibility: hidden;
+  z-index: 200;
+  width: 200px;
+  margin: 0;
+  position: absolute;
+  top: 121px;
+  left: 0;
+}
+
+#primary-links ul ul li {
+  display: block;
+  float: none;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  border: none;
+  background-image: none;
+  background-color: #57B3DF;
+  margin-top: 1px;
+}
+
+#primary-links ul ul li:first-child {
+  border-top: 0;
+  margin-top: 0;
+}
+
+#primary-links ul ul ul {
+  margin: 0;
+  left: 201px !important;
+  top: 0;
+  *top: 1px;
+}
+
+#primary-links ul ul a {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 15px;
+  border: none;
+  text-transform: capitalize;
+  color: #FFF;
+  font-weight: normal;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+}
+
+#primary-links ul ul a:hover,
+#primary-links ul ul li:hover > a {
+  font-weight: bold;
+  background-color: rgba(0,0,0,0.1);
+}
+
+#primary-links ul ul a span { display: none !important; }
+
+#primary-links ul ul ul li:first-child a { border-top: none; }
+
+#primary-links ul > li.sub-menu > a > div {
+  background-image: url("images/icons/mainsubmenu.png");
+  background-position: right top;
+  background-repeat: no-repeat;
+  padding-right: 16px;
+}
+
+#primary-links ul > li.sub-menu:hover > a > div,
+#primary-links ul li.current.sub-menu > a > div,
+#primary-links > ul > li.current-menu-ancestor.sub-menu > a > div,
+#primary-links > ul > li.current-menu-parent.sub-menu > a > div,
+#primary-links > ul > li.current-menu-item.sub-menu > a > div,
+#primary-links > ul > li.current_page_parent.sub-menu > a > div,
+#header.header7 #primary-links ul > li.sub-menu:hover > a > div,
+#header.header7 #primary-links ul li.current.sub-menu > a > div,
+#header.header7 #primary-links > ul > li.current-menu-ancestor.sub-menu > a > div,
+#header.header7 #primary-links > ul > li.current-menu-parent.sub-menu > a > div,
+#header.header7 #primary-links > ul > li.current-menu-item.sub-menu > a > div,
+#header.header7 #primary-links > ul > li.current_page_parent.sub-menu > a > div { background-image: url("images/icons/mainsubmenuh.png"); }
+
+#primary-links ul ul > li.sub-menu > a,
+#primary-links ul ul > li.sub-menu:hover > a {
+  background-image: url("images/icons/submenu.png");
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+#primary-links ul ul > li.sub-menu > a > div,
+#primary-links ul ul > li.sub-menu:hover > a > div,
+#header.header7 #primary-links ul ul > li.sub-menu > a > div,
+#header.header7 #primary-links ul ul > li.sub-menu:hover > a > div {
+  background-image: none;
+  padding-right: 0;
+}
+
+#primary-links ul:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
