@@ -12,6 +12,7 @@ dependencies[] = commerce_shipping
 dependencies[] = commerce_stock
 dependencies[] = commerce_tax_ui
 dependencies[] = context
+dependencies[] = context_layouts
 dependencies[] = contextual
 dependencies[] = ctools
 dependencies[] = dashboard
