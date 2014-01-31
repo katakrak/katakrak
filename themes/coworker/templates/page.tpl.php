@@ -5,7 +5,7 @@
     <?php print render($page['slider']); ?>
   </div>
 <?php endif; ?>
-
+<div class="clear"></div>
 <div id="content">
   <?php if (!drupal_is_front_page()): ?>
     <?php if ($title): ?>
