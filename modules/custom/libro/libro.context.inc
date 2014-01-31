@@ -15,7 +15,7 @@ function libro_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'node_book';
   $context->description = '';
-  $context->tag = '';
+  $context->tag = 'Book';
   $context->conditions = array(
     'node' => array(
       'values' => array(
@@ -36,10 +36,14 @@ function libro_context_default_contexts() {
           'weight' => '-10',
         ),
       ),
-      'layout' => 'book',
     ),
+    'menu' => 'libros',
   );
   $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Book');
   $export['node_book'] = $context;
 
   return $export;
