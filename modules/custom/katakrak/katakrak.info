@@ -35,7 +35,6 @@ features[ctools][] = context:context:3
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:1
 features[menu_custom][] = main-menu
-features[menu_links][] = main-menu:<front>
 features[menu_links][] = main-menu:agenda
 features[menu_links][] = main-menu:contact
 features[menu_links][] = main-menu:libros
