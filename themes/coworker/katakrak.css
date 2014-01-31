@@ -5,6 +5,7 @@
 #header {
   height: 243px; 
   background-image: url("images/fondo.png");
+  background-repeat: no-repeat;
   background-size: 1666px 243px;
 }
 
@@ -244,4 +245,17 @@
   visibility: hidden;
   line-height: 0;
   height: 0;
+}
+
+#footer {
+  background-image: url("images/footer2.gif");
+  background-repeat: no-repeat;
+  /*background-size: 1434px 294px;*/
+  background-position: top right;
+  background-color: #FFF;
+  border-top: none;
+}
+
+.footer-widgets-wrap {
+  margin-top: 100px;
 }

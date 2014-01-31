@@ -1,8 +1,7 @@
 <?php $footer_style = theme_get_setting('footer_style', 'coworker'); ?>
   <?php if ($page['footer_first'] || $page['footer_second'] || $page['footer_third'] || $page['footer_fourth']): ?>
 
-    <div id="footer" class="footer-<?php print $footer_style; ?>">
-
+    <div id="footer" class="footer-<?php //print $footer_style; ?>">
 
       <div class="container clearfix">
 

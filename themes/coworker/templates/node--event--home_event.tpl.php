@@ -89,6 +89,7 @@
     <div class="entry_date">
       <div class="day"><?php print format_date($node->field_event_date['und'][0]['value'], 'custom', 'd'); ?></div>
       <div class="month"><?php print format_date($node->field_event_date['und'][0]['value'], 'custom', 'M'); ?></div>
+      <div class="hour"><?php print format_date($node->field_event_date['und'][0]['value'], 'custom', 'G:i'); ?></div>
     </div>
   </div>
   <div class="span10">

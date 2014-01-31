@@ -225,6 +225,7 @@ h6 span,
 #portfolio-navigation a:hover,
 .entry_date div.month,
 .entry_date div.day,
+.entry_date div.hour,
 .sidenav > .active > a,
 .sidenav > .active > a:hover,
 .promo-action a:hover,
@@ -283,9 +284,9 @@ a.twitter-follow-me:hover,
 #header.header2,
 .flex-control-thumbs li img.flex-active,
 .rs-thumb-wrap a.active,
-.tab_widget ul.tabs li.active,
+.tab_widget ul.tabs li.active,".
 #footer,
-#copyrights { border-top-color: $color; }
+"#copyrights { border-top-color: $color; }
 
 
 span.page-divider span,

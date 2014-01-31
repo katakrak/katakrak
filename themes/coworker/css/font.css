@@ -51,7 +51,8 @@ h6,
 .widget_recent_comments li,
 .widget_recent_entries li,
 .widget_categories li,
-.widget_pages li { 
+.widget_pages li,
+.entry_date { 
   /*font-family: "Open Sans";*/ 
   font-family: "Din-next";
 }
