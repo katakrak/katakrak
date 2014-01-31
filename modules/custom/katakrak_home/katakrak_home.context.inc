@@ -26,10 +26,16 @@ function katakrak_home_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-libros-block_1' => array(
+        'views-libros-book_block_home' => array(
           'module' => 'views',
-          'delta' => 'libros-block_1',
+          'delta' => 'libros-book_block_home',
           'region' => 'sidebar_second',
+          'weight' => '-10',
+        ),
+        'layer_slider-4' => array(
+          'module' => 'layer_slider',
+          'delta' => '4',
+          'region' => 'slider',
           'weight' => '-10',
         ),
         'system-main' => array(
@@ -41,7 +47,7 @@ function katakrak_home_context_default_contexts() {
         'katakrak-newsletter_suscribe' => array(
           'module' => 'katakrak',
           'delta' => 'newsletter_suscribe',
-          'region' => 'top_page',
+          'region' => 'content_top',
           'weight' => '-10',
         ),
       ),

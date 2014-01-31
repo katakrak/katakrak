@@ -5,7 +5,7 @@
     <?php print render($page['slider']); ?>
   </div>
 <?php endif; ?>
-
+<div class="clear"></div>
 <div id="content">
     <div class="content-wrap">
       <div class="container clearfix">
@@ -16,9 +16,9 @@
             <?php print $messages; ?>
           <?php endif; ?> 
 
-          <?php if ($page['top_page']): ?>
-            <div id="page-top">
-              <?php print render($page['top_page']); ?>
+          <?php if ($page['content_top']): ?>
+            <div id="content-top">
+              <?php print render($page['content_top']); ?>
             </div>
           <?php endif; ?>
           <a id="main-content"></a>
@@ -28,11 +28,11 @@
           <?php print render($page['help']); ?>
           <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
 
-          <div class="row-fluid">
-            <div class="span8">
+          
+            <div class="col_two_third">
               <?php print render($page['content']); ?>
             </div>
-            <div class="span4">
+            <div class="col_one_third col_last">
               <?php if ($page['sidebar_second']): ?>
               <!-- sidebar right --> 
                 <div id="sidebar-second" class="sidebar-right nobottommargin clearfix">
@@ -41,7 +41,7 @@
                 <!-- // sidebar right -->
               <?php endif; ?>
             </div>
-          </div>
+          
          
           <?php print $feed_icons; ?>
         </div>

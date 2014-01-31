@@ -1,5 +1,13 @@
-<div class="katakrak-suscribe-form-help">
-  <?php print 'En breve tendremos la web lista. Mientras tanto puedes dejar tu mail para recibir todas las noticias en cuanto tengamos la web funcionando.' ?><br />
-  <?php print 'Laster izango dugu prest webgunea. Momentuz zure e-posta utz dezakezu. Buletina prest dugunean hasiko zara jasotzen.' ?>
+  <div class="row-fluid">
+    <div class="suscribe-block suscribe-block-help span4">
+      <?php print t('¿Quieres estar al tanto de todo lo que ocurre en Katakrak? Suscribete al boletín de noticias') ?>
+    </div>
+    <div class="suscribe-block span6">
+      <?php print render($form['mail']) ?>
+    </div>
+    <div class=" suscribe-block span2">
+       <?php print render($form['submit']) ?>
+    </div>
+    <?php print render($form) ?>
 </div>
-<?php print render($form) ?>
+<div class="clear"></div>

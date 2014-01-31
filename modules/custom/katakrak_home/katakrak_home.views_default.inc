@@ -104,6 +104,7 @@ function katakrak_home_views_default_views() {
     t('Asc'),
     t('Desc'),
     t('Page'),
+    t('more'),
   );
   $export['home'] = $view;
 

@@ -259,3 +259,31 @@
 .footer-widgets-wrap {
   margin-top: 100px;
 }
+
+/* Special regions */
+
+#content-top {
+  padding-bottom: 40px;
+}
+
+/* HOME STYLES*/
+
+#block-katakrak-newsletter-suscribe {
+  background: #e6e6e6;
+  border-radius: 5px;
+  -webkit-border-radius: 5px; 
+}
+
+#block-katakrak-newsletter-suscribe div.suscribe-block {
+  padding: 4px;
+}
+
+#block-katakrak-newsletter-suscribe div.suscribe-block-help {
+  padding: 22px 4px 4px 15px;
+  font-size: 1.1em;
+}
+
+#block-katakrak-newsletter-suscribe input[type="text"] {
+width: 100%;
+}
+
