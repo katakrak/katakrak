@@ -2,6 +2,10 @@
   padding: 10px;
 }
 
+.colored-text {
+  color: #2780AF;
+}
+
 #header {
   height: 243px; 
   background-image: url("images/fondo.png");
@@ -266,7 +270,7 @@
   padding-bottom: 40px;
 }
 
-/* HOME STYLES*/
+/* HOME STYLES */
 
 #block-katakrak-newsletter-suscribe {
   background: #e6e6e6;
@@ -275,15 +279,27 @@
 }
 
 #block-katakrak-newsletter-suscribe div.suscribe-block {
-  padding: 4px;
+  padding: 10px;
 }
 
 #block-katakrak-newsletter-suscribe div.suscribe-block-help {
-  padding: 22px 4px 4px 15px;
+  /*padding: 22px 4px 4px 15px;*/
   font-size: 1.1em;
 }
 
 #block-katakrak-newsletter-suscribe input[type="text"] {
 width: 100%;
+}
+
+#block-katakrak-newsletter-suscribe #edit-submit {
+  
+	border-top: 2px solid #2780AF;
+	border-left: 2px solid #2780AF;
+	border-right: 2px solid #2780AF;
+	border-bottom: 2px solid #2780AF;
+	padding: 5px 10px !important;
+	background:	#2780AF;
+  text-transform: uppercase;
+  color: #FFF;
 }
 

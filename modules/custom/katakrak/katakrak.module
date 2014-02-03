@@ -111,12 +111,21 @@ function katakrak_block_view($delta) {
 function katakrak_newsletter_suscribe_form($form, &$form_state) {
   $form['mail'] = array(
     '#type' => 'textfield',
-    '#title' => t('Correo / Emaila'),
+    '#title' => t('Correo'),
+    '#title_display' => 'invisible',
     '#required' => TRUE,
+    '#attributes' => array(
+      'onblur' => "if (this.value == '') {this.value = '".t('Correo')."';}",
+      'onfocus' => "if (this.value == '".t('Correo')."') {this.value = '';}",
+      // Prevent user from searching the default text
+      'onsubmit' => "if(this.search_block_form.value=='".t('Correo')."'{ alert('Please enter a search'); return false; }",
+      // Alternative (HTML5) placeholder attribute instead of using the javascript
+      'placeholder' => t('Correo'),
+    ),
   );
   $form['submit'] = array(
     '#type' => 'submit',
-    '#value' => t('Enviar / Bidali'),
+    '#value' => t('Enviar'),
   );
   return $form;
 }

@@ -1,6 +1,6 @@
   <div class="row-fluid">
     <div class="suscribe-block suscribe-block-help span4">
-      <?php print t('¿Quieres estar al tanto de todo lo que ocurre en Katakrak? Suscribete al boletín de noticias') ?>
+      <?php print t('¿Quieres estar al tanto de todo lo que ocurre en Katakrak? Suscribete al <span class="colored-text">boletín de noticias</span>') ?>
     </div>
     <div class="suscribe-block span6">
       <?php print render($form['mail']) ?>
