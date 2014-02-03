@@ -82,7 +82,7 @@
 
     if ($().superfish) {
 
-      $("#primary-menu ul").superfish({
+      $("#primary-links ul").superfish({
         delay: 250,
         speed: 300,
         animation: {opacity: 'show', height: 'show'},
@@ -121,7 +121,7 @@
     }
 
 
-    $("#primary-menu ul li:has(ul)").addClass('sub-menu');
+    $("#primary-links ul li:has(ul)").addClass('sub-menu');
 
 
     // Scroll to Top
@@ -337,7 +337,7 @@
     // Mobile Menu
 
     if ($().mobileMenu) {
-      $('#primary-menu ul#main-menu').mobileMenu({subMenuDash: '&nbsp;&ndash;&nbsp;'});
+      $('#primary-links ul#main-menu').mobileMenu({subMenuDash: '&nbsp;&ndash;&nbsp;'});
     }
 
 
