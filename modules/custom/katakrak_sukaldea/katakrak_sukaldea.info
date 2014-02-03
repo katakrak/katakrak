@@ -16,6 +16,7 @@ features[ctools][] = views:views_default:3.0
 features[features_api][] = api:1
 features[field][] = field_collection_item-field_errezeta_osagai-field_errezeta_kopurua
 features[field][] = field_collection_item-field_errezeta_osagai-field_errezeta_produktua
+features[field][] = field_collection_item-field_errezeta_osagai-field_osagai_izena
 features[field][] = node-sukalde_errezeta-field_errezeta_osagai
 features[field][] = node-sukalde_errezeta-field_errezeta_porzio_kopurua
 features[field][] = node-sukalde_errezeta-field_errezeta_prezioa

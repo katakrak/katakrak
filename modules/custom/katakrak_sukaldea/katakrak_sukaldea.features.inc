@@ -31,7 +31,7 @@ function katakrak_sukaldea_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Título'),
       'help' => '',
     ),
     'sukalde_produktua' => array(

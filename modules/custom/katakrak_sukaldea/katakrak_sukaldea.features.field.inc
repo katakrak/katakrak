@@ -149,6 +149,69 @@ function katakrak_sukaldea_field_default_fields() {
     ),
   );
 
+  // Exported field: 'field_collection_item-field_errezeta_osagai-field_osagai_izena'.
+  $fields['field_collection_item-field_errezeta_osagai-field_osagai_izena'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_osagai_izena',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '255',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'field_errezeta_osagai',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 2,
+        ),
+      ),
+      'entity_type' => 'field_collection_item',
+      'field_name' => 'field_osagai_izena',
+      'label' => 'Izena',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '3',
+      ),
+    ),
+  );
+
   // Exported field: 'node-sukalde_errezeta-field_errezeta_osagai'.
   $fields['node-sukalde_errezeta-field_errezeta_osagai'] = array(
     'field_config' => array(
@@ -506,6 +569,7 @@ function katakrak_sukaldea_field_default_fields() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Izena');
   t('Kopurua');
   t('Osagaia');
   t('Porzio kopurua');

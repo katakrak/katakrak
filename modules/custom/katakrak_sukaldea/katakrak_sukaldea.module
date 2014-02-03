@@ -6,38 +6,68 @@
 
 include_once 'katakrak_sukaldea.features.inc';
 
-function katakrak_sukaldea_node_load($nodes, $types) {
- 
-  foreach ($nodes as &$node) {
-    if ($node->type == 'sukalde_errezeta') {
-      $header = array(
-        'produktua',
-        'prezioa',
-        'kopurua',
-        'totala',
-      );
-      $table = array();
-      $totala = 0;
-      foreach($node->field_errezeta_osagai['und'] as $i => $osagai) {
-        $osagai = field_collection_item_load($osagai['value']);
-        $produktua = node_load($osagai->field_errezeta_produktua['und'][0]['target_id']);
-        $table[$i][] = $produktua->title;
-        $table[$i][] = $produktua->field_produktua_prezioa['und'][0]['value'];
-        $table[$i][] = $osagai->field_errezeta_kopurua['und'][0]['value'];
-        $linearen_totala = $osagai->field_errezeta_kopurua['und'][0]['value'] * $produktua->field_produktua_prezioa['und'][0]['value'];
-        $table[$i][] = $linearen_totala;
-        $totala += $linearen_totala;
-      }
-      $table[] = array(
-          0 => 'Total',
-          1 => '',
-          2 => '',
-          3 => $totala,
-      );
-      $node->produktu_taula = array('header' => $header, 'rows' => $table, 'attributes' => array('class' => array('table')));
-      
-      $node->prezio_gomendatua = ($totala * 3) / $node->field_errezeta_porzio_kopurua['und'][0]['value'];
-      $node->razio_gomendatua = ($totala * 3) / $node->field_errezeta_prezioa['und'][0]['value'];
-    }
+function katakrak_sukaldea_menu() {
+  $items = array();
+  $items['node/%node/sukaldea'] = array(
+    'title' => 'Sukaldea',
+    'page callback' => 'katakrak_sukaldea_view_calc',
+    'page arguments' => array(1),
+    'access callback' => 'katakrak_sukaldea_access_node',
+    'access arguments' => array(1),
+    'type' => MENU_LOCAL_TASK,
+  );
+  return $items;
+}
+
+function katakrak_sukaldea_theme() {
+  $path = drupal_get_path('module', 'katakrak_sukaldea');
+  return array(
+    'katakrak_sukaldea_ikusi_taula' => array(
+      'template' => 'katakrak-sukaldea-ikusi-taula',
+      'arguments' => array(
+        'node' => NULL
+      ),
+      'path' => $path . '/templates',
+    ),
+  );
+}
+
+function katakrak_sukaldea_access_node($node) {
+  if ($node->type == 'sukalde_errezeta' && user_access('create sukalde_errezeta content')) {
+    return TRUE;
   }
+  return FALSE;
+}
+
+function katakrak_sukaldea_view_calc($node) {
+  $header = array(
+    'produktua',
+    'prezioa',
+    'kopurua',
+    'totala',
+  );
+  $table = array();
+  $totala = 0;
+  foreach($node->field_errezeta_osagai['und'] as $i => $osagai) {
+    $osagai = field_collection_item_load($osagai['value']);
+    $produktua = node_load($osagai->field_errezeta_produktua['und'][0]['target_id']);
+    $table[$i][] = $produktua->title;
+    $table[$i][] = $produktua->field_produktua_prezioa['und'][0]['value'];
+    $table[$i][] = $osagai->field_errezeta_kopurua['und'][0]['value'];
+    $linearen_totala = $osagai->field_errezeta_kopurua['und'][0]['value'] * $produktua->field_produktua_prezioa['und'][0]['value'];
+    $table[$i][] = $linearen_totala;
+    $totala += $linearen_totala;
+  }
+  $table[] = array(
+      0 => 'Total',
+      1 => '',
+      2 => '',
+      3 => $totala,
+  );
+  $node->produktu_taula = array('header' => $header, 'rows' => $table, 'attributes' => array('class' => array('table')));
+
+  $node->prezio_gomendatua = ($totala * 3) / $node->field_errezeta_porzio_kopurua['und'][0]['value'];
+  $node->razio_gomendatua = ($totala * 3) / $node->field_errezeta_prezioa['und'][0]['value'];
+  
+  return theme('katakrak_sukaldea_ikusi_taula', array('node' => $node));
 }

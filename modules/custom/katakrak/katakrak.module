@@ -16,7 +16,7 @@ function katakrak_admin_paths() {
     'node/*/devel' => TRUE,
     'node/*/dilve' => TRUE,
     'node/add/*' => TRUE,
-     'sukaldea' => TRUE,
+    'sukaldea' => TRUE,
   );
   return $paths;
 }
