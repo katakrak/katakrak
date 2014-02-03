@@ -77,6 +77,10 @@ blockquote,
 .pricing-inner .pricing-price,
 .testimonial-item .testi-content,
 .testimonial-item .testi-author span,
-.content p { font-family: "Calibri"; }
+.content p 
+{ 
+  font-family: "Calibri", sans-serif;
+  font-size: 1.2em;
+}
 
 
