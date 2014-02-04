@@ -56,18 +56,13 @@
 #primary-links ul {
   position: relative;
   float: left;
+  margin: 0 0 0 530px;
   max-width: 710px;
-  
   z-index: 3;
 }
 
 .rs-menu,
 .select-menu { display: none; }
-
-#primary-links ul {
-  position: relative;
-  margin: 0 0 0 530px;
-}
 
 #primary-links ul li {
   position: relative;
