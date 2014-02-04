@@ -31,6 +31,7 @@ function katakrak_search_block_info() {
  */
 function katakrak_search_block_view($delta) {
   if ($delta == 'books_search_block') {
+    $form = drupal_get_form('books_search_form');
     $block['content'] = theme('books_search_block', array('form' => $form));
     return $block;
   }

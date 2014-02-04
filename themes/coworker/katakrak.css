@@ -318,3 +318,16 @@
   color: #FFF;
 }
 
+/* ESTILOS PARA FICHA DE LIBRO */
+
+.book-info-entry {
+  border-bottom: 1px solid #eee;
+}
+
+.book-info-label {
+  font-weight: bold;
+}
+
+.book-info-data {
+  float: right;
+}

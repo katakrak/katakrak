@@ -118,17 +118,62 @@
                 <h4><?php print render($content['field_libro_autores']) ?></h4>
               </div>
             </div>
-            <div class="row-fluid">
-              <div class="span6">
-                <?php print render($content['product:commerce_price']) ?>
-                <?php print render($content['field_libro_isbn']) ?>
-                <?php print render($content['field_libro_paginas']) ?>
-                <?php print render($content['field_libro_ano']) ?>
+            <div class="col-2">
+              <div class="book-info-entry">
+                <span class="col-2 book-info-label">
+                  <?php print t('Precio') ?>
+                </span>
+                <span class="col-2 book-info-data">
+                    <?php print $content['product:commerce_price'][0]['#markup'] ?>
+                </span>
               </div>
-              <div class="span6">
-                <?php print render($content['field_libro_editorial']) ?>
-                <?php print render($content['field_libro_estado']) ?>
-                <?php print render($content['field_libro_categoria']) ?>
+              <div class="book-info-entry">
+                <span class="col-2 book-info-label">
+                  <?php print t('ISBN') ?>
+                </span>
+                <span class="col-2 book-info-data">
+                    <?php print $content['field_libro_isbn'][0]['#markup'] ?>
+                </span>
+              </div>
+              <div class="book-info-entry">
+                <span class="col-2 book-info-label">
+                  <?php print t('Páginas') ?>
+                </span>
+                <span class="col-2 book-info-data">
+                    <?php print $content['field_libro_paginas'][0]['#markup'] ?>
+                </span>
+              </div>
+              <div class="book-info-entry">
+                <span class="col-2 book-info-label">
+                  <?php print t('Año') ?>
+                </span>
+                <span class="col-2 book-info-data">
+                    <?php print $content['field_libro_year'][0]['#title'] ?>
+                </span>
+              </div>
+              <div class="book-info-entry">
+                <span class="col-2 book-info-label">
+                  <?php print t('ISBN') ?>
+                </span>
+                <span class="col-2 book-info-data">
+                    <?php print $content['field_libro_editorial'][0]['#markup'] ?>
+                </span>
+              </div>
+              <div class="book-info-entry">
+                <span class="col-2 book-info-label">
+                  <?php print t('Estado') ?>
+                </span>
+                <span class="col-2 book-info-data">
+                    <?php print $content['field_libro_estado'][0]['#markup'] ?>
+                </span>
+              </div>
+              <div class="book-info-entry">
+                <span class="col-2 book-info-label">
+                  <?php print t('Sección') ?>
+                </span>
+                <span class="col-2 book-info-data">
+                    <?php print $content['field_libro_categoria'][0]['#markup'] ?>
+                </span>
               </div>
             </div>
             <div class="row-fluid">
