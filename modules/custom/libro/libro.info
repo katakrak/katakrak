@@ -15,6 +15,7 @@ dependencies[] = ctools
 dependencies[] = features
 dependencies[] = i18n_taxonomy
 dependencies[] = image
+dependencies[] = katakrak_search
 dependencies[] = list
 dependencies[] = number
 dependencies[] = physical

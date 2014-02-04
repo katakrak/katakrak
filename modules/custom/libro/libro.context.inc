@@ -25,6 +25,11 @@ function libro_context_default_contexts() {
         'node_form' => '0',
       ),
     ),
+    'views' => array(
+      'values' => array(
+        'libros:page' => 'libros:page',
+      ),
+    ),
   );
   $context->reactions = array(
     'block' => array(
@@ -35,7 +40,14 @@ function libro_context_default_contexts() {
           'region' => 'content',
           'weight' => '-10',
         ),
+        'katakrak_search-books_search_block' => array(
+          'module' => 'katakrak_search',
+          'delta' => 'books_search_block',
+          'region' => 'content_bottom',
+          'weight' => '-10',
+        ),
       ),
+      'layout' => 'book',
     ),
     'menu' => 'libros',
   );

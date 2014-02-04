@@ -25,3 +25,13 @@ function katakrak_search_block_info() {
   );
   return $blocks;
 }
+
+/**
+ * Implements hook_block_view().
+ */
+function katakrak_search_block_view($delta) {
+  if ($delta == 'books_search_block') {
+    $block['content'] = theme('books_search_block', array('form' => $form));
+    return $block;
+  }
+} 
