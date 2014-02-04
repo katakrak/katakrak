@@ -5324,12 +5324,12 @@ a.twitter-follow-me:hover,
 
 .stretched #top-bar.top-bar2 #top-social { margin-left: 0; }
 
-.stretched #header,
+/*.stretched #header,
 .stretched .content-wrap {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);
   -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);            
-}
+}*/
 
 .stretched #header.header2 #primary-menu ul,
 .stretched #header.header3 #primary-menu ul { margin: 0; }
