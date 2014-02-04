@@ -31,4 +31,6 @@
       <?php print $navigation; ?>
     </div>
   <?php endif; ?>
+
+<div class="clear"></div>
   
