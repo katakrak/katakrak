@@ -12,3 +12,16 @@ function katakrak_search_form_apachesolr_search_custom_page_search_form_alter(&$
     apachesolr_autocomplete_do_alter($element);
   }
 }
+
+/**
+ * Implements hook_block_info().
+ */
+function katakrak_search_block_info() {
+  $blocks = array();
+  $blocks['books_search_block'] = array(
+    'info' => t('Search Books'),
+    // Not worth caching.
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}

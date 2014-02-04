@@ -132,12 +132,12 @@
               </div>
             </div>
             <div class="row-fluid">
-              <div class="span8">
+              <div class="span12">
                 <?php print render($content['field_libro_sinopsis']) ?>
               </div>
-              <div class="span4">
-                <?php print render($content['field_libro_producto']) ?>
-              </div>
+              <!--<div class="span4">-->
+                <?php //print render($content['field_libro_producto']) ?>
+              <!--</div>-->
             </div>
           </div>
         </div>

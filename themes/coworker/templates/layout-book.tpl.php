@@ -17,10 +17,6 @@
         ?>
         <!-- content region -->
         <div class="<?php print $content_class; ?> nobottommargin clearfix">
-          <?php if ($breadcrumb): ?>
-            <div id="breadcrumb"><?php print $breadcrumb; ?></div>
-          <?php endif; ?>
-
           <?php if ($messages): ?>
             <?php print $messages; ?>
           <?php endif; ?>
@@ -39,28 +35,10 @@
           <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
 
           <?php print render($page['content']); ?>
+          <?php print render($page['content_bottom']) ?>
           <?php print $feed_icons; ?>
         </div>
         <!-- // content region -->
-
-        <?php if ($page['sidebar_first']): ?>
-          <!-- sidebar left -->
-          <div id="sidebar-first" class="sidebar nobottommargin clearfix">
-            <?php print render($page['sidebar_first']); ?>
-          </div>
-          <!-- // sidebar left -->
-        <?php endif; ?>
-
-        <?php if ($page['sidebar_second']): ?>
-          <!-- sidebar right --> 
-          <div id="sidebar-second" class="sidebar <?php print $sidebar_class; ?> nobottommargin clearfix">
-            <?php print render($page['sidebar_second']); ?>
-          </div>
-          <!-- // sidebar right -->
-      <?php endif; ?>
-
-
-
     </div>
   </div>
 
