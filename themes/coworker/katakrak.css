@@ -13,10 +13,13 @@
   background-size: 1666px 243px;
 }
 
-#logo {
+@media only screen and (min-width: 1040px) {
+   #logo {
   top: 40px;
   margin-left: 300px;
 }
+}
+
 
 /* Language block*/
 #block-katakrak-language-switcher {
@@ -50,11 +53,11 @@
 -----------------------------------------------------------------*/
 
 
-#primary-links {
+#primary-links ul {
   position: relative;
   float: left;
   max-width: 710px;
-  margin-left: 530px;
+  
   z-index: 3;
 }
 
@@ -63,7 +66,7 @@
 
 #primary-links ul {
   position: relative;
-  margin: 0;
+  margin: 0 0 0 530px;
 }
 
 #primary-links ul li {
@@ -251,17 +254,30 @@
   height: 0;
 }
 
+
+/*#content {
+    background: url("images/footer/katua.gif") no-repeat bottom right;
+}*/
+
+.katua {
+  position: absolute;
+  right: 0;
+  bottom: 135px;
+  z-index: 3;
+}
+
 #footer {
-  background-image: url("images/footer2.gif");
-  background-repeat: no-repeat;
-  /*background-size: 1434px 294px;*/
+  background:  url("images/footer/footer.png") no-repeat;
+  
+/* url("images/footer/begiak.png") no-repeat 79% 10%,  background-repeat: no-repeat;
+  background-size: 1434px 294px;
   background-position: top right;
-  background-color: #FFF;
+  background-color: #FFF;*/
   border-top: none;
 }
 
 .footer-widgets-wrap {
-  margin-top: 100px;
+  /*margin-top: 100px;*/
 }
 
 /* Special regions */
@@ -288,11 +304,10 @@
 }
 
 #block-katakrak-newsletter-suscribe input[type="text"] {
-width: 100%;
+  width: 100%;
 }
 
 #block-katakrak-newsletter-suscribe #edit-submit {
-  
 	border-top: 2px solid #2780AF;
 	border-left: 2px solid #2780AF;
 	border-right: 2px solid #2780AF;

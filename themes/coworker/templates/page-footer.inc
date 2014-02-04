@@ -1,14 +1,11 @@
 <?php $footer_style = theme_get_setting('footer_style', 'coworker'); ?>
   <?php if ($page['footer_first'] || $page['footer_second'] || $page['footer_third'] || $page['footer_fourth']): ?>
-
+    <div class="katua visible-desktop">
+      <img src="/sites/all/themes/coworker/images/footer/katua.gif">
+    </div>
     <div id="footer" class="footer-<?php //print $footer_style; ?>">
-
       <div class="container clearfix">
-
-
         <div class="footer-widgets-wrap clearfix">
-
-
           <?php if ($page['footer_first']): ?>
             <div class="col_one_fourth">
               <?php print render($page['footer_first']); ?>
