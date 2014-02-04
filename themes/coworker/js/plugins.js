@@ -2111,7 +2111,7 @@ $.fn.mobileMenu = function(options) {
 		// Create base menu
 		$('<select />',{
 			'class' : settings.className
-		}).insertAfter("#primary-menu ul#main-menu");
+		}).insertAfter("#primary-links ul#main-menu");
 
 		// Create default option
 		$('<option />', {

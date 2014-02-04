@@ -20,13 +20,13 @@ body {
 
 #wrapper { overflow: hidden; }
 
-#primary-menu {
+#primary-links {
     width: 100%;
     max-width: 100%;
 }
 
-#primary-menu ul,
-#header.header4 #primary-menu ul { display: none; }
+#primary-links ul,
+#header.header4 #primary-links ul { display: none; }
 
 div.responsive-menu, 
 div.responsive-menu span {
@@ -107,9 +107,9 @@ div.rs-menu span {
 }
 
 
-#header.header2 #primary-menu,
-#header.header3 #primary-menu,
-#header.header6 #primary-menu {
+#header.header2 #primary-links,
+#header.header3 #primary-links,
+#header.header6 #primary-links {
     background-color: transparent;
     margin-bottom: 30px;
     height: auto;
@@ -255,12 +255,12 @@ ul.landing-features li:first-child { margin-top: 0; }
 .landing-offer-media,
 .landing-offer-text {  }
 
-#primary-menu,
+#primary-links,
 #lp-contacts { max-width: 460px; }
 
-#primary-menu ul { display: none; }
+#primary-links ul { display: none; }
 
-#primary-menu .rs-menu { width: 460px; }
+#primary-links .rs-menu { width: 460px; }
 
 #slider,
 .slider-wrap,
@@ -574,12 +574,12 @@ ul.landing-features li:first-child { margin-top: 0; }
 #logo a,
 #logo a.standard-logo { display: inline-block; }
 
-#primary-menu {
+#primary-links {
     margin: 0 0 30px;
     height: auto;
 }
 
-#primary-menu {
+#primary-links {
     max-width: none;
     float: none;
 }
