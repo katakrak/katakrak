@@ -13,6 +13,19 @@ function katakrak_search_form_apachesolr_search_custom_page_search_form_alter(&$
   }
 }
 
+function katakrak_search_theme() {
+  $path = drupal_get_path('module', 'katakrak_search');
+  return array(
+    'katakrak_search_book_search_block' => array(
+      'template' => 'katakrak-search-book-search-block',
+      'arguments' => array(
+        'form' => NULL
+      ),
+      'path' => $path . '/templates',
+    ),
+  );
+}
+
 /**
  * Implements hook_block_info().
  */
@@ -32,7 +45,23 @@ function katakrak_search_block_info() {
 function katakrak_search_block_view($delta) {
   if ($delta == 'books_search_block') {
     $form = drupal_get_form('books_search_form');
-    $block['content'] = theme('books_search_block', array('form' => $form));
+    $block['content'] = theme('katakrak_search_book_search_block', array('form' => $form));
     return $block;
   }
 } 
+
+function books_search_form($form, &$form_state) {
+  $form['search_term'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Término'),
+    '#attributes' => array(
+      'onblur' => "if (this.value == '') {this.value = '".t('¿Qué buscas?')."';}",
+      'onfocus' => "if (this.value == '".t('¿Qué buscas?')."') {this.value = '';}",
+      // Prevent user from searching the default text
+      'onsubmit' => "if(this.search_block_form.value=='".t('¿Qué buscas?')."'{ alert('Please enter a search'); return false; }",
+      // Alternative (HTML5) placeholder attribute instead of using the javascript
+      'placeholder' => t('¿Qué buscas?'),
+    ),
+  );
+  return $form;
+}
