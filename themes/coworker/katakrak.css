@@ -262,7 +262,7 @@
 .katua {
   position: absolute;
   right: 0;
-  bottom: 135px;
+  bottom: 186px;
   z-index: 3;
 }
 
@@ -330,4 +330,13 @@
 
 .book-info-data {
   float: right;
+}
+
+/* BARRA REDES SOCIALES */
+#top-social {
+  background-color: #FFF;
+}
+
+#copyrights {
+  border-top: none;
 }

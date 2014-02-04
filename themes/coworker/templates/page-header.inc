@@ -31,6 +31,10 @@
       <?php print $navigation; ?>
     </div>
   <?php endif; ?>
-
+<?php if (!empty($page['slider'])): ?>
+  <div id="slider">
+    <?php print render($page['slider']); ?>
+  </div>
+<?php endif; ?>
 <div class="clear"></div>
   

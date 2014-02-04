@@ -1,10 +1,4 @@
 <?php include 'page-header.inc' ?>
-
-<?php if (!empty($page['slider'])): ?>
-  <div id="slider">
-    <?php print render($page['slider']); ?>
-  </div>
-<?php endif; ?>
 <div class="clear"></div>
 <div id="content">
   <?php if (!drupal_is_front_page()): ?>

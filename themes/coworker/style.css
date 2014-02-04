@@ -653,9 +653,9 @@ form small {
 
 #top-social {
   position: relative;
-  float: right;
+  /*float: right;*/
   height: 40px;
-  margin: 0 -30px 0 40px;
+  margin: 0 -30px 0 0;
 }
 
 #top-social .content ul, #top-menu .content ul { margin: 0; }

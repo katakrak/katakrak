@@ -1,10 +1,4 @@
 <?php include 'page-header.inc' ?>
-
-<?php if (!empty($page['slider'])): ?>
-  <div id="slider">
-    <?php print render($page['slider']); ?>
-  </div>
-<?php endif; ?>
 <div class="clear"></div>
 <div id="content">
     <div class="content-wrap">
@@ -47,12 +41,7 @@
         </div>
         <!-- // content region -->
 
-        
-
-
-
     </div>
   </div>
-
 </div>
 <?php include 'page-footer.inc' ?>
