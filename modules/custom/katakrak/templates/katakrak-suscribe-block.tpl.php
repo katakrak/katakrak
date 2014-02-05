@@ -3,11 +3,11 @@
       <?php print t('¿Quieres estar al tanto de todo lo que ocurre en Katakrak? Suscribete al <span class="colored-text">boletín de noticias</span>') ?>
     </div>
     <div class="suscribe-block span6">
-      <?php print render($form['mail']) ?>
+      <?php print drupal_render($form['mail']) ?>
     </div>
     <div class=" suscribe-block span2">
-       <?php print render($form['submit']) ?>
+       <?php print drupal_render($form['submit']) ?>
     </div>
-    <?php print render($form) ?>
+    <?php print drupal_render_children($form) ?>
 </div>
 <div class="clear"></div>

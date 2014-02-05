@@ -32,6 +32,7 @@ function katakrak_theme() {
       'arguments' => array(
         'form' => NULL
       ),
+      'render element' => 'form',
       'path' => $path . '/templates',
     )  
   );
@@ -95,8 +96,7 @@ function katakrak_block_view($delta) {
     }
   }
   if ($delta == 'newsletter_suscribe') {
-    $form = drupal_get_form('katakrak_newsletter_suscribe_form');
-    $block['content'] = theme('katakrak_suscribe_block', array('form' => $form));
+    $block['content'] = drupal_get_form('katakrak_newsletter_suscribe_form');
     return $block;
   }
 }
@@ -127,6 +127,7 @@ function katakrak_newsletter_suscribe_form($form, &$form_state) {
     '#type' => 'submit',
     '#value' => t('Enviar'),
   );
+  $form ['#theme'] = 'katakrak_suscribe_block';
   return $form;
 }
 
