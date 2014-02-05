@@ -313,7 +313,7 @@
   color: #FFF;
 }
 
-/* ESTILOS PARA FICHA DE LIBRO */
+/* ESTILOS PARA LIBRO */
 
 .book-info-entry {
   border-bottom: 1px solid #eee;
@@ -327,6 +327,25 @@
   float: right;
 }
 
+.book-page .region-content {
+  border-bottom: 2px #eee solid;
+}
+
+.book-page-search-form {
+  background-color: #e6e6e6;
+}
+
+.book-page-search-form button {
+	border-top: 2px solid #2780AF;
+	border-left: 2px solid #2780AF;
+	border-right: 2px solid #2780AF;
+	border-bottom: 2px solid #2780AF;
+	padding: 5px 10px !important;
+	background:	#2780AF;
+  text-transform: uppercase;
+  color: #FFF;
+}
+
 /* BARRA REDES SOCIALES */
 #top-social {
   background-color: #FFF;
@@ -335,3 +354,4 @@
 #copyrights {
   border-top: none;
 }
+

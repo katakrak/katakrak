@@ -1,20 +1,20 @@
 <?php include 'page-header.inc' ?>
 
-<div id="content">
-    <div class="content-wrap">
-      <div class="container clearfix">
+<div id="content" class="book-page">
+  <div class="content-wrap">
+    <div class="container clearfix">
 
-        <?php
-        $content_class = 'content-main-column';
-        $sidebar_class = 'sidebar-column';
-        if ($page['sidebar_first']) {
-          $content_class = 'postcontent col_last';
-        }
-        if ($page['sidebar_second']) {
-          $sidebar_class = 'col_last';
-          $content_class = 'postcontent';
-        }
-        ?>
+      <?php
+      $content_class = 'content-main-column';
+      $sidebar_class = 'sidebar-column';
+      if ($page['sidebar_first']) {
+        $content_class = 'postcontent col_last';
+      }
+      if ($page['sidebar_second']) {
+        $sidebar_class = 'col_last';
+        $content_class = 'postcontent';
+      }
+      ?>
         <!-- content region -->
         <div class="<?php print $content_class; ?> nobottommargin clearfix">
           <?php if ($messages): ?>

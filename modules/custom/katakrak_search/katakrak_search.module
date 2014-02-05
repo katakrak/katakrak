@@ -16,11 +16,10 @@ function katakrak_search_form_apachesolr_search_custom_page_search_form_alter(&$
 function katakrak_search_theme() {
   $path = drupal_get_path('module', 'katakrak_search');
   return array(
-    'katakrak_search_book_search_block' => array(
-      'template' => 'katakrak-search-book-search-block',
-      'arguments' => array(
-        'form' => NULL
-      ),
+    'katakrak_search_book_search_form' => array(
+      'template' => 'katakrak-search-book-search-form',
+      'arguments' => array('form' => NULL),
+      'render element' => 'form',
       'path' => $path . '/templates',
     ),
   );
@@ -44,8 +43,7 @@ function katakrak_search_block_info() {
  */
 function katakrak_search_block_view($delta) {
   if ($delta == 'books_search_block') {
-    $form = drupal_get_form('books_search_form');
-    $block['content'] = theme('katakrak_search_book_search_block', array('form' => $form));
+    $block['content'] = drupal_get_form('books_search_form');
     return $block;
   }
 } 
@@ -54,6 +52,7 @@ function books_search_form($form, &$form_state) {
   $form['search_term'] = array(
     '#type' => 'textfield',
     '#title' => t('Término'),
+    '#title_display' => 'invisible',
     '#attributes' => array(
       'onblur' => "if (this.value == '') {this.value = '".t('¿Qué buscas?')."';}",
       'onfocus' => "if (this.value == '".t('¿Qué buscas?')."') {this.value = '';}",
@@ -63,5 +62,14 @@ function books_search_form($form, &$form_state) {
       'placeholder' => t('¿Qué buscas?'),
     ),
   );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Buscar'),
+  );
+  $form['#theme'] = 'katakrak_search_book_search_form';
   return $form;
+}
+
+function template_preprocess_katakrak_search_book_search_form(&$variables) {
+  dpm ($variables);
 }
