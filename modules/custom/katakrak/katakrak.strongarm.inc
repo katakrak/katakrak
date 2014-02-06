@@ -242,7 +242,7 @@ function katakrak_strongarm() {
     'domain' => '',
     'prefix' => 'cas',
     'weight' => '0',
-    'javascript' => 'L4E6wFU--VDNoDesRxH5FDFn73y9g8-jAeh65U2VeEo',
+    'javascript' => '6OMA9YHfzAWv3caYfAbDqI7y6lCbxK5DKsqz_oMCyc8',
   );
   $export['language_default'] = $strongarm;
 

@@ -32,6 +32,18 @@ function katakrak_context_default_contexts() {
           'region' => 'header_right',
           'weight' => '-10',
         ),
+        'boxes-social_widget' => array(
+          'module' => 'boxes',
+          'delta' => 'social_widget',
+          'region' => 'post_content_bottom_right',
+          'weight' => '-10',
+        ),
+        'boxes-footer' => array(
+          'module' => 'boxes',
+          'delta' => 'footer',
+          'region' => 'footer',
+          'weight' => '-10',
+        ),
         'boxes-about_us' => array(
           'module' => 'boxes',
           'delta' => 'about_us',

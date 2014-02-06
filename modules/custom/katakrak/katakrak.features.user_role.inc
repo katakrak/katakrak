@@ -13,13 +13,13 @@ function katakrak_user_default_roles() {
   // Exported role: Cliente.
   $roles['Cliente'] = array(
     'name' => 'Cliente',
-    'weight' => '3',
+    'weight' => 3,
   );
 
   // Exported role: Editor.
   $roles['Editor'] = array(
     'name' => 'Editor',
-    'weight' => '4',
+    'weight' => 4,
   );
 
   return $roles;
