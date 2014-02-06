@@ -346,6 +346,14 @@
   color: #FFF;
 }
 
+.book-page-search-form .form-item-search-term {
+  margin-left: 10px;
+}
+
+.book-page-search-form input[type="text"] {
+  width: 95%;
+}
+
 /* BARRA REDES SOCIALES */
 #top-social {
   background-color: #FFF;
