@@ -14,13 +14,13 @@ function libro_filter_default_formats() {
   $formats['sinopsis'] = array(
     'format' => 'sinopsis',
     'name' => 'sinopsis',
-    'cache' => '1',
-    'status' => '1',
-    'weight' => '0',
+    'cache' => 1,
+    'status' => 1,
+    'weight' => 0,
     'filters' => array(
       'filter_html' => array(
-        'weight' => '-10',
-        'status' => '1',
+        'weight' => -10,
+        'status' => 1,
         'settings' => array(
           'allowed_html' => '<a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <br /> ',
           'filter_html_help' => 1,
@@ -28,20 +28,20 @@ function libro_filter_default_formats() {
         ),
       ),
       'filter_autop' => array(
-        'weight' => '0',
-        'status' => '1',
+        'weight' => 0,
+        'status' => 1,
         'settings' => array(),
       ),
       'filter_url' => array(
-        'weight' => '0',
-        'status' => '1',
+        'weight' => 0,
+        'status' => 1,
         'settings' => array(
-          'filter_url_length' => '72',
+          'filter_url_length' => 72,
         ),
       ),
       'filter_htmlcorrector' => array(
-        'weight' => '10',
-        'status' => '1',
+        'weight' => 10,
+        'status' => 1,
         'settings' => array(),
       ),
     ),

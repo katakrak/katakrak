@@ -91,7 +91,7 @@
   text-transform: uppercase;
   text-align: center;
   font-family: "Din-next", sans-serif;
-  color: #444;
+  color: #C0C0C0;
 }
 
 #primary-links li a span {
@@ -363,6 +363,12 @@
 
 .book-page-search-form input[type="text"] {
   width: 95%;
+}
+
+.book-page-view .book-author {
+  font-family: Din-next;
+  font-size: 1.2em;
+  color: #A0A0A0;
 }
 
 /* BARRA REDES SOCIALES */

@@ -7,16 +7,13 @@
 /**
  * Implements hook_ctools_plugin_api().
  */
-function libro_ctools_plugin_api() {
-  list($module, $api) = func_get_args();
+function libro_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "context" && $api == "context") {
     return array("version" => "3");
   }
-  list($module, $api) = func_get_args();
   if ($module == "page_manager" && $api == "pages_default") {
     return array("version" => "1");
   }
-  list($module, $api) = func_get_args();
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -25,8 +22,8 @@ function libro_ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function libro_views_api() {
-  return array("version" => "3.0");
+function libro_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
 }
 
 /**
@@ -50,11 +47,11 @@ function libro_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
-          'width' => '290',
+          'width' => 290,
           'height' => '',
           'upscale' => 1,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
   );
@@ -74,11 +71,11 @@ function libro_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
-          'width' => '300',
+          'width' => 300,
           'height' => '',
           'upscale' => 1,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
       2 => array(
         'label' => 'Recortar',
@@ -90,11 +87,11 @@ function libro_image_default_styles() {
         'module' => 'image',
         'name' => 'image_crop',
         'data' => array(
-          'width' => '300',
-          'height' => '400',
+          'width' => 300,
+          'height' => 400,
           'anchor' => 'center-center',
         ),
-        'weight' => '2',
+        'weight' => 2,
       ),
     ),
   );
@@ -114,11 +111,11 @@ function libro_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
-          'width' => '150',
+          'width' => 150,
           'height' => '',
           'upscale' => 1,
         ),
-        'weight' => '-10',
+        'weight' => -10,
       ),
       3 => array(
         'label' => 'Recortar',
@@ -130,11 +127,11 @@ function libro_image_default_styles() {
         'module' => 'image',
         'name' => 'image_crop',
         'data' => array(
-          'width' => '150',
-          'height' => '100',
+          'width' => 150,
+          'height' => 100,
           'anchor' => 'center-center',
         ),
-        'weight' => '-9',
+        'weight' => -9,
       ),
     ),
   );

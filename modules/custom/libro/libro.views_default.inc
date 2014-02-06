@@ -23,6 +23,7 @@ function libro_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Libros';
+  $handler->display->display_options['css_class'] = 'book-page-view';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'más';
   $handler->display->display_options['access']['type'] = 'perm';
@@ -64,22 +65,6 @@ function libro_views_default_views() {
     'libro_portada' => 0,
     'evento_portada' => 0,
   );
-  /* Campo: Contenido: Título */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Campo: Contenido: Autores */
-  $handler->display->display_options['fields']['field_libro_autores']['id'] = 'field_libro_autores';
-  $handler->display->display_options['fields']['field_libro_autores']['table'] = 'field_data_field_libro_autores';
-  $handler->display->display_options['fields']['field_libro_autores']['field'] = 'field_libro_autores';
-  $handler->display->display_options['fields']['field_libro_autores']['label'] = '';
-  $handler->display->display_options['fields']['field_libro_autores']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_libro_autores']['delta_offset'] = '0';
   /* Campo: Contenido: Portada */
   $handler->display->display_options['fields']['field_libro_portada']['id'] = 'field_libro_portada';
   $handler->display->display_options['fields']['field_libro_portada']['table'] = 'field_data_field_libro_portada';
@@ -91,6 +76,26 @@ function libro_views_default_views() {
     'image_style' => 'cover_home',
     'image_link' => 'content',
   );
+  /* Campo: Contenido: Título */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_class'] = 'book-title';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Campo: Contenido: Autores */
+  $handler->display->display_options['fields']['field_libro_autores']['id'] = 'field_libro_autores';
+  $handler->display->display_options['fields']['field_libro_autores']['table'] = 'field_data_field_libro_autores';
+  $handler->display->display_options['fields']['field_libro_autores']['field'] = 'field_libro_autores';
+  $handler->display->display_options['fields']['field_libro_autores']['label'] = '';
+  $handler->display->display_options['fields']['field_libro_autores']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_libro_autores']['element_class'] = 'book-author';
+  $handler->display->display_options['fields']['field_libro_autores']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_libro_autores']['type'] = 'i18n_taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_libro_autores']['delta_offset'] = '0';
   /* Campo: Commerce Product: Add to Cart form */
   $handler->display->display_options['fields']['add_to_cart_form']['id'] = 'add_to_cart_form';
   $handler->display->display_options['fields']['add_to_cart_form']['table'] = 'views_entity_commerce_product';
@@ -114,6 +119,10 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['field_libro_sinopsis']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_libro_sinopsis']['element_wrapper_type'] = 'p';
   $handler->display->display_options['fields']['field_libro_sinopsis']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_libro_sinopsis']['type'] = 'text_trimmed';
+  $handler->display->display_options['fields']['field_libro_sinopsis']['settings'] = array(
+    'trim_length' => '200',
+  );
   /* Filter criterion: Contenido: Publicado */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
