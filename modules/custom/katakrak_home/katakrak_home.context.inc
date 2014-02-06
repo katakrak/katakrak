@@ -19,7 +19,7 @@ function katakrak_home_context_default_contexts() {
   $context->conditions = array(
     'views' => array(
       'values' => array(
-        'home:page' => 'home:page',
+        'agenda:home_page' => 'agenda:home_page',
       ),
     ),
   );

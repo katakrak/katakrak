@@ -7,8 +7,7 @@
 /**
  * Implements hook_ctools_plugin_api().
  */
-function katakrak_agenda_ctools_plugin_api() {
-  list($module, $api) = func_get_args();
+function katakrak_agenda_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -17,8 +16,8 @@ function katakrak_agenda_ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function katakrak_agenda_views_api() {
-  return array("version" => "3.0");
+function katakrak_agenda_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
 }
 
 /**
@@ -42,11 +41,11 @@ function katakrak_agenda_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
-          'width' => '600',
+          'width' => 600,
           'height' => '',
           'upscale' => 0,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
       8 => array(
         'label' => 'Recortar',
@@ -58,11 +57,11 @@ function katakrak_agenda_image_default_styles() {
         'module' => 'image',
         'name' => 'image_crop',
         'data' => array(
-          'width' => '600',
-          'height' => '400',
+          'width' => 600,
+          'height' => 400,
           'anchor' => 'center-top',
         ),
-        'weight' => '2',
+        'weight' => 2,
       ),
     ),
   );
