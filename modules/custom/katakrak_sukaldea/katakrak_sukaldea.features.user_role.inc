@@ -13,7 +13,7 @@ function katakrak_sukaldea_user_default_roles() {
   // Exported role: Sukaldari.
   $roles['Sukaldari'] = array(
     'name' => 'Sukaldari',
-    'weight' => '5',
+    'weight' => 5,
   );
 
   return $roles;
