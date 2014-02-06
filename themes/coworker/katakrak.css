@@ -331,6 +331,17 @@
   border-bottom: 2px #eee solid;
 }
 
+#block-katakrak-search-books-search-block {
+  margin-top: 15px;
+}
+
+.books-search-block-help {
+  text-transform: uppercase;
+  font-family: Din-next;
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+
 .book-page-search-form {
   background-color: #e6e6e6;
 }
@@ -346,8 +357,8 @@
   color: #FFF;
 }
 
-.book-page-search-form .form-item-search-term {
-  margin-left: 10px;
+.book-page-search-form input,  .book-page-search-form button{
+  margin: 10px;
 }
 
 .book-page-search-form input[type="text"] {
@@ -363,3 +374,11 @@
   border-top: none;
 }
 
+/** CHANGING DEFAULT THROBBER */
+html.js input.form-autocomplete {
+  background: #FFF url('images/mythrobber.gif') no-repeat 99% -100px;
+}
+
+html.js input.throbbing {
+  background-position: 99% 50%;
+}
