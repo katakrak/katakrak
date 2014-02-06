@@ -319,6 +319,11 @@
   border-bottom: 1px solid #eee;
 }
 
+.book-info-entry .book-price {
+  color: #F50087;
+  font-weight: bold;
+}
+
 .book-info-label {
   font-weight: bold;
 }
@@ -365,10 +370,23 @@
   width: 95%;
 }
 
+
 .book-page-view .book-author {
   font-family: Din-next;
   font-size: 1.2em;
   color: #A0A0A0;
+}
+
+.block-title-author {
+  width: 100%;
+}
+.book-title-author .col_three_fourth, .book-title-author .col_one_fourth {
+  margin: 0;
+}
+
+.book-metadata {
+  border-top: solid 2px #C0C0C0;
+  padding-top: 20px;
 }
 
 /* BARRA REDES SOCIALES */
