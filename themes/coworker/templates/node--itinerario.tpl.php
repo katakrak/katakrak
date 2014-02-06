@@ -126,8 +126,11 @@ if (!$page) {
       
       hide($content['comments']);
       hide($content['links']);
-      print render($content);
+      //print render($content);
       ?>
+      
+      <?php  foreach ($node->field_itinerario_libros['und'] as $nid): ?>
+      <?php  endforeach; ?>
 
       <?php if ($page): print render($content['links']);
       endif;
