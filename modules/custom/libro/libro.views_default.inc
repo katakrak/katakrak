@@ -240,6 +240,7 @@ function libro_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'title' => 'title',
+    'field_libro_subtitulo' => 'field_libro_subtitulo',
     'field_product_peso' => 'field_product_peso',
     'commerce_price' => 'commerce_price',
     'commerce_stock' => 'commerce_stock',
@@ -248,10 +249,18 @@ function libro_views_default_views() {
     'field_libro_portada' => 'field_libro_portada',
     'field_libro_autores' => 'field_libro_autores',
     'field_libro_year' => 'field_libro_year',
+    'nodequeue_links' => 'nodequeue_links',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
     'title' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_libro_subtitulo' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -312,6 +321,11 @@ function libro_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
+    'nodequeue_links' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
   );
   /* Relationship: Contenido: Referenced products */
   $handler->display->display_options['relationships']['field_libro_producto_product_id']['id'] = 'field_libro_producto_product_id';
@@ -324,6 +338,15 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Campo: Contenido: Subtitulo */
+  $handler->display->display_options['fields']['field_libro_subtitulo']['id'] = 'field_libro_subtitulo';
+  $handler->display->display_options['fields']['field_libro_subtitulo']['table'] = 'field_data_field_libro_subtitulo';
+  $handler->display->display_options['fields']['field_libro_subtitulo']['field'] = 'field_libro_subtitulo';
+  $handler->display->display_options['fields']['field_libro_subtitulo']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_libro_subtitulo']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_libro_subtitulo']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_libro_subtitulo']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_libro_subtitulo']['field_api_classes'] = TRUE;
   /* Campo: Commerce Product: Peso */
   $handler->display->display_options['fields']['field_product_peso']['id'] = 'field_product_peso';
   $handler->display->display_options['fields']['field_product_peso']['table'] = 'field_data_field_product_peso';
@@ -515,6 +538,7 @@ function libro_views_default_views() {
     t('última »'),
     t('Products referenced by field_libro_producto'),
     t('Título'),
+    t('Subtitulo'),
     t('Peso'),
     t('Precio'),
     t('Stock'),
