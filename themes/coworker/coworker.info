@@ -111,6 +111,24 @@ layouts[book][regions][] = "footer_second"
 layouts[book][regions][] = "footer_third"
 layouts[book][regions][] = "footer_fourth"
 
+layouts[kantina][name] = "Book"
+layouts[kantina][description] = "Layout for libro content."
+layouts[kantina][template] = "templates/layout-kantina"
+layouts[kantina][regions][] = "top_left"
+layouts[kantina][regions][] = "top_right"
+layouts[kantina][regions][] = "top_lang"
+layouts[kantina][regions][] = "content_top"
+layouts[kantina][regions][] = "content"
+layouts[kantina][regions][] = "content_bottom"
+layouts[kantina][regions][] = "post_content_bottom_right"
+layouts[kantina][regions][] = "header"
+layouts[kantina][regions][] = "header_right"
+layouts[kantina][regions][] = "footer"
+layouts[kantina][regions][] = "footer_first"
+layouts[kantina][regions][] = "footer_second"
+layouts[kantina][regions][] = "footer_third"
+layouts[kantina][regions][] = "footer_fourth"
+
 features[] = logo
 ;features[] = name
 ;features[] = slogan
