@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Katakrak_Kantina feature.
+ */
+
+include_once 'katakrak_kantina.features.inc';

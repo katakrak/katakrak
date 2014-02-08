@@ -1,10 +1,14 @@
-name = Katakrak kafeta
+name = Katakrak_Kantina
+description = Kantina
 core = 7.x
 package = Katakrak
 version = 7.x-1.0
-project = katakrak_kafeta
+project = katakrak_kantina
+features[context][] = kantina
+features[ctools][] = context:context:3
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
-features[views_view][] = kafeta
+features[views_view][] = kantina
+features_exclude[dependencies][context] = context
 features_exclude[dependencies][views] = views
 features_exclude[dependencies][views_isotope] = views_isotope
