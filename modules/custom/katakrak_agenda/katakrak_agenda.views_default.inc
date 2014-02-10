@@ -35,7 +35,7 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '8';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
-  $handler->display->display_options['style_options']['columns'] = '1';
+  $handler->display->display_options['style_options']['columns'] = '2';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Relationship: Nodequeue: Queue */
   $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
@@ -164,36 +164,6 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['filters']['in_queue']['group'] = 1;
   $handler->display->display_options['path'] = 'azala';
 
-  /* Display: Agenda Page */
-  $handler = $view->new_display('page', 'Agenda Page', 'events_page');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Agenda';
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
-  $handler->display->display_options['style_options']['columns'] = '2';
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Nodequeue: Queue */
-  $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
-  $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
-  $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
-  $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
-  $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
-    'evento_portada' => 'evento_portada',
-    'libro_portada' => 0,
-    'libros_destacados' => 0,
-  );
-  $handler->display->display_options['path'] = 'agenda';
-  $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Agenda';
-  $handler->display->display_options['menu']['weight'] = '0';
-  $handler->display->display_options['menu']['name'] = 'main-menu';
-  $handler->display->display_options['menu']['context'] = 0;
-  $handler->display->display_options['menu']['context_only_inline'] = 0;
-
   /* Display: Bloque */
   $handler = $view->new_display('block', 'Bloque', 'highlight');
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -218,6 +188,29 @@ function katakrak_agenda_views_default_views() {
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
   $handler->display->display_options['block_description'] = 'Agenda highlight block';
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'agenda_page');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
+  $handler->display->display_options['style_options']['columns'] = '2';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Nodequeue: Queue */
+  $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
+  $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
+  $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
+  $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
+  $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
+    'evento_portada' => 'evento_portada',
+    'libro_portada' => 0,
+    'libros_destacados' => 0,
+    'producto_kafeta_destacado' => 0,
+  );
+  $handler->display->display_options['path'] = 'agenda';
   $translatables['agenda'] = array(
     t('Master'),
     t('más'),
@@ -232,10 +225,9 @@ function katakrak_agenda_views_default_views() {
     t('Home block'),
     t('Inicio'),
     t('more'),
-    t('Agenda Page'),
-    t('Agenda'),
     t('Bloque'),
     t('Agenda highlight block'),
+    t('Page'),
   );
   $export['agenda'] = $view;
 
