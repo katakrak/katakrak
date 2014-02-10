@@ -19,7 +19,7 @@ function katakrak_agenda_context_default_contexts() {
   $context->conditions = array(
     'views' => array(
       'values' => array(
-        'agenda:events_page' => 'agenda:events_page',
+        'agenda:agenda_page' => 'agenda:agenda_page',
       ),
     ),
   );
