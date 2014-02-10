@@ -93,40 +93,6 @@ function katakrak_kantina_views_default_views() {
     'portfolio' => 'portfolio',
   );
 
-  /* Display: Kantina home page */
-  $handler = $view->new_display('page', 'Kantina home page', 'page');
-  $handler->display->display_options['defaults']['header'] = FALSE;
-  $handler->display->display_options['path'] = 'kantina_';
-  $handler->display->display_options['menu']['title'] = 'Cantina';
-  $handler->display->display_options['menu']['weight'] = '0';
-  $handler->display->display_options['menu']['name'] = 'main-menu';
-  $handler->display->display_options['menu']['context'] = 0;
-  $handler->display->display_options['menu']['context_only_inline'] = 0;
-
-  /* Display: Portfolio 3 columns */
-  $handler = $view->new_display('page', 'Portfolio 3 columns', 'page_1');
-  $handler->display->display_options['enabled'] = FALSE;
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'isotope';
-  $handler->display->display_options['style_options']['portfolio_style'] = 'portfolio-3';
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['path'] = 'portfolio/3c';
-
-  /* Display: Portfolio 2 columns */
-  $handler = $view->new_display('page', 'Portfolio 2 columns', 'page_2');
-  $handler->display->display_options['enabled'] = FALSE;
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'isotope';
-  $handler->display->display_options['style_options']['portfolio_style'] = 'portfolio-2';
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['path'] = 'portfolio/2c';
-
   /* Display: Kantina page block */
   $handler = $view->new_display('block', 'Kantina page block', 'block_page');
   $handler->display->display_options['defaults']['header'] = FALSE;
@@ -140,9 +106,6 @@ function katakrak_kantina_views_default_views() {
     t('Asc'),
     t('Desc'),
     t('queue'),
-    t('Kantina home page'),
-    t('Portfolio 3 columns'),
-    t('Portfolio 2 columns'),
     t('Kantina page block'),
   );
   $export['kantina'] = $view;
