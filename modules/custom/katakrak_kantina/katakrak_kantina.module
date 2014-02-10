@@ -5,3 +5,13 @@
  */
 
 include_once 'katakrak_kantina.features.inc';
+
+/**
+ * Implement hook_query alter
+ * @param type $query
+ */
+function katakrak_kantina_query_alter($query) {
+   if ($query->hasTag('node_export_features')) {
+     $query->condition('n.type', 'page');
+   }
+}

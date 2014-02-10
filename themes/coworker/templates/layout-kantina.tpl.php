@@ -70,7 +70,6 @@
               <?php print render($page['content_top']); ?>
             </div>
           <?php endif; ?>
-            <div class="dotted-divider"></div>
           <a id="main-content"></a>
           <?php print render($title_prefix); ?>
           <?php print render($title_suffix); ?>
@@ -80,6 +79,7 @@
           <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
 
           <?php print render($page['content']); ?>
+          <?php print render($page['content_bottom']) ?>
           <?php print $feed_icons; ?>
         </div>
         <!-- // content region -->

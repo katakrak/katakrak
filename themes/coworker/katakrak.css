@@ -250,9 +250,9 @@
 }
 
 
-/*#content {
-    background: url("images/footer/katua.gif") no-repeat bottom right;
-}*/
+#content {
+ margin-bottom: 50px; 
+}
 
 .katua {
   position: absolute;
@@ -402,4 +402,23 @@ html.js input.form-autocomplete {
 
 html.js input.throbbing {
   background-position: 99% 50%;
+}
+
+
+/** KANTINA STYLES */
+
+.pricing-title h4 {
+  font-size: 19px;
+  line-height: 24px;
+  font-weight: bold;
+  padding-bottom: 0;
+  color: #444;
+}
+
+.pricing-features li:first-child {
+  border-top: 1px solid #EEE;
+}
+
+#block-views-kantina-block-page h2 {
+  text-align: center;
 }

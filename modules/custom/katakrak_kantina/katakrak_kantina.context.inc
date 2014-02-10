@@ -17,10 +17,10 @@ function katakrak_kantina_context_default_contexts() {
   $context->description = 'Kantina';
   $context->tag = 'kantina';
   $context->conditions = array(
-    'views' => array(
+    'path' => array(
       'values' => array(
-        'kafeta' => 'kafeta',
-        'kafeta:page' => 'kafeta:page',
+        'kantina' => 'kantina',
+        'cantina' => 'cantina',
       ),
     ),
   );
@@ -33,7 +33,14 @@ function katakrak_kantina_context_default_contexts() {
           'region' => 'content',
           'weight' => '-10',
         ),
+        'views-kantina-block_page' => array(
+          'module' => 'views',
+          'delta' => 'kantina-block_page',
+          'region' => 'content_bottom',
+          'weight' => '-10',
+        ),
       ),
+      'layout' => 'kantina',
     ),
   );
   $context->condition_mode = 0;

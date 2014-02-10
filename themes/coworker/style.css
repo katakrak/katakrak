@@ -4233,9 +4233,10 @@ button.button span {
 
 .pricing3 .pricing-wrap { width: 33.33%; }
 
+.pricing2 .pricing-wrap { width: 50%; }
+
 .pricing5 .pricing-wrap { width: 20%; }
 
-.pricing .pricing-wrap.best-price { margin-left: -1px; }
 
 .pricing-wrap .pricing-inner {
   position: relative;
@@ -4243,8 +4244,6 @@ button.button span {
   border-left: none;
   text-align: center;
 }
-
-.pricing-wrap:first-child { margin-left: 1px; }
 
 .pricing-wrap:first-child .pricing-inner { border-left: 1px solid #E5E5E5; }
 
