@@ -81,7 +81,7 @@ function portfolio_image_default_styles() {
 function portfolio_node_info() {
   $items = array(
     'portfolio' => array(
-      'name' => t('Portfolio'),
+      'name' => t('Producto cafetería'),
       'base' => 'node_content',
       'description' => t('Portfolio Entry.'),
       'has_title' => '1',

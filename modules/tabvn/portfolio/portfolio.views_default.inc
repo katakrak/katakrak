@@ -38,14 +38,6 @@ function portfolio_views_default_views() {
   $handler->display->display_options['header']['view']['table'] = 'views';
   $handler->display->display_options['header']['view']['field'] = 'view';
   $handler->display->display_options['header']['view']['view_to_insert'] = 'portfolio_filter:block';
-  /* Campo: Contenido: Category */
-  $handler->display->display_options['fields']['field_portfolio_category']['id'] = 'field_portfolio_category';
-  $handler->display->display_options['fields']['field_portfolio_category']['table'] = 'field_data_field_portfolio_category';
-  $handler->display->display_options['fields']['field_portfolio_category']['field'] = 'field_portfolio_category';
-  $handler->display->display_options['fields']['field_portfolio_category']['label'] = '';
-  $handler->display->display_options['fields']['field_portfolio_category']['element_class'] = 'isotope-filter';
-  $handler->display->display_options['fields']['field_portfolio_category']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_portfolio_category']['element_default_classes'] = FALSE;
   /* Campo: Contenido: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
@@ -92,7 +84,6 @@ function portfolio_views_default_views() {
   /* Display: Portfolio 4 columns (default) */
   $handler = $view->new_display('page', 'Portfolio 4 columns (default)', 'page');
   $handler->display->display_options['path'] = 'portfolio';
-  $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Portfolio';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
