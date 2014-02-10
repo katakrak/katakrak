@@ -22,7 +22,7 @@ function katakrak_kantina_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Cantina';
+  $handler->display->display_options['title'] = 'Productos de cafetería';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -98,7 +98,7 @@ function katakrak_kantina_views_default_views() {
   $handler->display->display_options['defaults']['header'] = FALSE;
   $translatables['kantina'] = array(
     t('Master'),
-    t('Cantina'),
+    t('Productos de cafetería'),
     t('more'),
     t('Apply'),
     t('Reiniciar'),
