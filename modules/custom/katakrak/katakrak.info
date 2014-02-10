@@ -1,4 +1,4 @@
-name = Katakrak
+dsname = Katakrak
 description = Site module
 core = 7.x
 package = Katakrak
@@ -37,6 +37,7 @@ features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2
 features[menu_custom][] = main-menu
 features[menu_links][] = main-menu_contacto:contact
+features[node][] = page
 features[user_role][] = Cliente
 features[user_role][] = Editor
 features[variable][] = admin_theme
