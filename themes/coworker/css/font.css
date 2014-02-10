@@ -52,7 +52,8 @@ h6,
 .widget_recent_entries li,
 .widget_categories li,
 .widget_pages li,
-.entry_date { 
+.entry_date,
+#block-katakrak-language-switcher a{ 
   /*font-family: "Open Sans";*/ 
   font-family: "Din-next";
 }
@@ -62,6 +63,7 @@ h6,
     Secondary Font Used
 -----------------------------------------------------------------*/
 
+body, 
 blockquote,
 .entry_content ul,
 .entry_content ol,

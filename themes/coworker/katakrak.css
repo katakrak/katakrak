@@ -42,7 +42,6 @@
 }
 
 #block-katakrak-language-switcher a.active {
-  text-transform: uppercase;
   font-weight: bold;
   text-decoration: none;
   color: #000000;
@@ -257,7 +256,7 @@
 .katua {
   position: absolute;
   right: 0;
-  bottom: 186px;
+  bottom: 185px;
   z-index: 3;
 }
 
