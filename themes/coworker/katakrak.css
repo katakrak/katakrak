@@ -277,16 +277,13 @@
 
 /* Special regions */
 
-#content-top {
-  padding-bottom: 40px;
-}
-
 /* HOME STYLES */
 
 #block-katakrak-newsletter-suscribe {
   background: #e6e6e6;
   border-radius: 5px;
   -webkit-border-radius: 5px; 
+  margin-bottom: 40px;
 }
 
 #block-katakrak-newsletter-suscribe div.suscribe-block {

@@ -111,7 +111,7 @@ layouts[book][regions][] = "footer_second"
 layouts[book][regions][] = "footer_third"
 layouts[book][regions][] = "footer_fourth"
 
-layouts[kantina][name] = "Book"
+layouts[kantina][name] = "Kantina"
 layouts[kantina][description] = "Layout for libro content."
 layouts[kantina][template] = "templates/layout-kantina"
 layouts[kantina][regions][] = "top_left"
