@@ -1,5 +1,16 @@
 <?php include 'page-header.inc' ?>
 <div id="content">
+  <?php if (!drupal_is_front_page()): ?>
+    <?php if ($title): ?>
+      <div id="page-title">
+        <div class="container clearfix">
+          <h1><?php print $title; ?></h1>
+        </div>
+      </div>
+
+    <?php endif; ?>
+  <?php endif; ?>
+
 
     <div class="content-wrap">
       <div class="container clearfix">
