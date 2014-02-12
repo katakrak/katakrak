@@ -11,9 +11,28 @@
 
 
 /* ----------------------------------------------------------------
-    Primary Font Used
+    Texto corrido
 -----------------------------------------------------------------*/
-
+body, 
+blockquote,
+.entry_content ul,
+.entry_content ol,
+.slide-caption,
+.rs-caption,
+.nivo-caption,
+.countdown_amount,
+.wp-caption,
+.sitemap ul,
+.well.callout p,
+.quote,
+.pricing-title h4 span,
+.pricing-inner .pricing-price,
+.testimonial-item .testi-content,
+.testimonial-item .testi-author span,
+.content p
+{ 
+  font-family: "Calibri", sans-serif;
+}
 
 h1,
 h2,
@@ -53,8 +72,7 @@ h6,
 .widget_categories li,
 .widget_pages li,
 .entry_date,
-#block-katakrak-language-switcher a{ 
-  /*font-family: "Open Sans";*/ 
+#block-katakrak-language-switcher a {
   font-family: "Din-next";
 }
 
@@ -63,25 +81,6 @@ h6,
     Secondary Font Used
 -----------------------------------------------------------------*/
 
-body, 
-blockquote,
-.entry_content ul,
-.entry_content ol,
-.slide-caption,
-.rs-caption,
-.nivo-caption,
-.countdown_amount,
-.wp-caption,
-.sitemap ul,
-.well.callout p,
-.quote,
-.pricing-title h4 span,
-.pricing-inner .pricing-price,
-.testimonial-item .testi-content,
-.testimonial-item .testi-author span,
-.content p
-{ 
-  font-family: "Calibri", sans-serif;
-}
+
 
 
