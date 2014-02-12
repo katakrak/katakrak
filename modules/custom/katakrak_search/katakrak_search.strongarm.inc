@@ -28,7 +28,7 @@ function katakrak_search_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'apachesolr_search_default_search_page';
-  $strongarm->value = 'book_search';
+  $strongarm->value = 'core_search';
   $export['apachesolr_search_default_search_page'] = $strongarm;
 
   $strongarm = new stdClass();

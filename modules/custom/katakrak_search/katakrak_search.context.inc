@@ -26,35 +26,29 @@ function katakrak_search_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'apachesolr_search-sort' => array(
+          'module' => 'apachesolr_search',
+          'delta' => 'sort',
+          'region' => 'sidebar_first',
+          'weight' => '-10',
+        ),
         'facetapi-gsuabqVf0AVVqe53zFv7k6te9HVy12PJ' => array(
           'module' => 'facetapi',
           'delta' => 'gsuabqVf0AVVqe53zFv7k6te9HVy12PJ',
           'region' => 'sidebar_first',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
         'facetapi-R2UTz6TzAt7lw1croPaTispTk1IwtN2e' => array(
           'module' => 'facetapi',
           'delta' => 'R2UTz6TzAt7lw1croPaTispTk1IwtN2e',
           'region' => 'sidebar_first',
-          'weight' => '-9',
+          'weight' => '-8',
         ),
         'facetapi-FM9Alkv8hyOtkShgOh3ba7QsdDWF4EHK' => array(
           'module' => 'facetapi',
           'delta' => 'FM9Alkv8hyOtkShgOh3ba7QsdDWF4EHK',
           'region' => 'sidebar_first',
-          'weight' => '-8',
-        ),
-        'facetapi-mc01YGkWD97iRq1vO20ttHT3XfyBiTtb' => array(
-          'module' => 'facetapi',
-          'delta' => 'mc01YGkWD97iRq1vO20ttHT3XfyBiTtb',
-          'region' => 'sidebar_first',
           'weight' => '-7',
-        ),
-        'apachesolr_search-sort' => array(
-          'module' => 'apachesolr_search',
-          'delta' => 'sort',
-          'region' => 'content',
-          'weight' => '-18',
         ),
         'system-main' => array(
           'module' => 'system',

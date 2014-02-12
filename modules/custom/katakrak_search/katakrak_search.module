@@ -73,7 +73,7 @@ function books_search_form($form, &$form_state) {
     '#value' => t('Buscar'),
   );
   if (module_exists('apachesolr_autocomplete')) {
-    apachesolr_autocomplete_do_alter($form['search_term']);
+    //apachesolr_autocomplete_do_alter($form['search_term']);
   }
   $form['#theme'] = 'katakrak_search_book_search_form';
   return $form;
@@ -81,5 +81,5 @@ function books_search_form($form, &$form_state) {
 
 
 function books_search_form_submit($form, &$form_state) {
-  $form_state['redirect'] = 'search/books/'.$form_state['values']['search_term'];
+  $form_state['redirect'] = 'bilatu/liburuak/'.$form_state['values']['search_term'];
 }

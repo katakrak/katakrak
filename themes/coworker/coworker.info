@@ -139,7 +139,7 @@ features[] = favicon
 features[] = main_menu
 features[] = secondary_menu
 
-
+plugins[panels][layouts] = layouts
 settings[footer_style] = dark
 settings[rentina_logo] = /sites/all/themes/coworker/images/logo_katakrak.png
 settings[theme_layout] = stretched
