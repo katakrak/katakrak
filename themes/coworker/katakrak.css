@@ -344,7 +344,9 @@
 }
 
 .book-page-search-form {
-  background-color: #e6e6e6;
+  background-color: #F5F5F5;
+  -webkit-border-radius: 10px;
+  padding: 10px;
 }
 
 .book-page-search-form button {
@@ -420,4 +422,18 @@ html.js input.throbbing {
 
 #block-views-kantina-block-page h2 {
   text-align: center;
+}
+
+/** Search Page **/ 
+
+div.search-page-col-left div.panel-pane {
+  background: #F5F5F5;
+  margin: 15px 0;
+  padding: 15px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px; 
+}
+
+#apachesolr-panels-search-form input[type="text"] {
+  width: 95%;
 }

@@ -78,10 +78,10 @@
     </div>
   </div>
   <div class="row-fluid">
-  <div class="span2">
+  <div class="span4">
     <?php print $cover ?>
   </div>
-  <div class="span10">
+  <div class="span8">
     <div class="search-snippet-info">
       <?php if ($snippet): ?>
         <p class="search-snippet"<?php print $content_attributes; ?>><?php print $snippet; ?></p>
