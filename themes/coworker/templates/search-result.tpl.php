@@ -86,10 +86,8 @@
       <?php if ($snippet): ?>
         <p class="search-snippet"<?php print $content_attributes; ?>><?php print $snippet; ?></p>
       <?php endif; ?>
-      <?php if (FALSE && $info): ?>
-        <p class="search-info"><?php print $info; ?></p>
-      <?php endif; ?>
     </div>
     </div>  
   </div>
 </div>
+<div class="dotted-divider"></div>

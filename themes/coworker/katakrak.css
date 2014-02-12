@@ -434,6 +434,18 @@ div.search-page-col-left div.panel-pane {
   -webkit-border-radius: 20px; 
 }
 
+div.search-page-col-left div.panel-pane:first-child {
+  margin-top: 0;
+}
+
 #apachesolr-panels-search-form input[type="text"] {
   width: 95%;
+}
+
+div.search-result {
+  border-image: url("images/divider.png") 5 5;
+}
+
+div.search-results div:last-child {
+  background: none;
 }
