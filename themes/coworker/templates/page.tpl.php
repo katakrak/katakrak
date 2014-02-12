@@ -1,5 +1,4 @@
 <?php include 'page-header.inc' ?>
-<div class="clear"></div>
 <div id="content">
   <?php if (!drupal_is_front_page()): ?>
     <?php if ($title): ?>

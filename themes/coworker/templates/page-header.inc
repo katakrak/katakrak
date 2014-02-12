@@ -36,5 +36,4 @@
     <?php print render($page['slider']); ?>
   </div>
 <?php endif; ?>
-<div class="clear"></div>
   
