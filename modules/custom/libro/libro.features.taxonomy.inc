@@ -88,7 +88,7 @@ function libro_taxonomy_default_vocabularies() {
       'name' => 'Año',
       'machine_name' => 'urtea',
       'description' => '',
-      'hierarchy' => 0,
+      'hierarchy' => 1,
       'module' => 'taxonomy',
       'weight' => 0,
       'language' => 'und',

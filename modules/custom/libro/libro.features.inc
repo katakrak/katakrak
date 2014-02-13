@@ -27,6 +27,38 @@ function libro_views_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_fe_nodequeue_export_fields().
+ */
+function libro_fe_nodequeue_export_fields() {
+  $nodequeues = array();
+
+  // Exported nodequeues: libros_destacados
+  $nodequeues['libros_destacados'] = array(
+    'name' => 'libros_destacados',
+    'title' => 'Libros destacados',
+    'subqueue_title' => '',
+    'size' => 3,
+    'link' => 'Llevar a página de libros',
+    'link_remove' => 'Quitar de página de libros',
+    'owner' => 'nodequeue',
+    'show_in_ui' => 1,
+    'show_in_tab' => 1,
+    'show_in_links' => 1,
+    'reference' => 0,
+    'reverse' => 0,
+    'i18n' => 0,
+    'subqueues' => 1,
+    'types' => array(
+      0 => 'libro',
+    ),
+    'roles' => array(),
+    'count' => 0,
+  );
+
+  return $nodequeues;
+}
+
+/**
  * Implements hook_image_default_styles().
  */
 function libro_image_default_styles() {
@@ -101,7 +133,7 @@ function libro_image_default_styles() {
     'name' => 'search_result_cover',
     'label' => 'Search result cover',
     'effects' => array(
-      4 => array(
+      3 => array(
         'label' => 'Escala',
         'help' => 'El escalado mantiene la relación de proporciones de la imagen original. Si sólo se especifica una dimensión, la otra se calculará.',
         'effect callback' => 'image_scale_effect',
@@ -111,13 +143,13 @@ function libro_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
-          'width' => 150,
+          'width' => 300,
           'height' => '',
           'upscale' => 1,
         ),
         'weight' => -10,
       ),
-      3 => array(
+      4 => array(
         'label' => 'Recortar',
         'help' => 'El recorte eliminará partes de una imagen para que tenga las dimensiones especificadas.',
         'effect callback' => 'image_crop_effect',
@@ -127,9 +159,9 @@ function libro_image_default_styles() {
         'module' => 'image',
         'name' => 'image_crop',
         'data' => array(
-          'width' => 150,
-          'height' => 100,
-          'anchor' => 'center-center',
+          'width' => 250,
+          'height' => 200,
+          'anchor' => 'left-top',
         ),
         'weight' => -9,
       ),
