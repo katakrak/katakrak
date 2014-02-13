@@ -112,16 +112,20 @@ function katakrak_block_view($delta) {
   if ($delta == 'katakrak_user_top') {
     if (user_is_anonymous()) {
       //Generate login link
+      $block['content'] = l(t('Acceder'), 'user');
     }
     else {
       //Generate user block
+            $block['content'] = l(t('Acceder'), 'user');
+
     }
+    return $block;
   }
   if ($delta == 'katakrak_cart') {
     global $user;
-    $order = commerce_cart_order_load($user->uid);
-    $wrapper = entity_metadata_wrapper('commerce_order', $order);
-    $items = commerce_line_items_quantity($wrapper->commerce_line_items, commerce_product_line_item_types());
+    //$order = commerce_cart_order_load($user->uid);
+    //$wrapper = entity_metadata_wrapper('commerce_order', $order);
+    //$items = commerce_line_items_quantity($wrapper->commerce_line_items, commerce_product_line_item_types());
     $block['content'] = '';
     return $block;
   }
