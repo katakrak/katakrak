@@ -125,19 +125,24 @@ function katakrak_agenda_views_default_views() {
     'event' => 'event',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Contenido: Date (field_event_date) */
+  $handler->display->display_options['filters']['field_event_date_value']['id'] = 'field_event_date_value';
+  $handler->display->display_options['filters']['field_event_date_value']['table'] = 'field_data_field_event_date';
+  $handler->display->display_options['filters']['field_event_date_value']['field'] = 'field_event_date_value';
+  $handler->display->display_options['filters']['field_event_date_value']['operator'] = '>=';
+  /* Filter criterion: Contenido: Idioma */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
   /* Filter criterion: Nodequeue: In queue */
   $handler->display->display_options['filters']['in_queue']['id'] = 'in_queue';
   $handler->display->display_options['filters']['in_queue']['table'] = 'nodequeue_nodes';
   $handler->display->display_options['filters']['in_queue']['field'] = 'in_queue';
   $handler->display->display_options['filters']['in_queue']['relationship'] = 'nodequeue_rel';
   $handler->display->display_options['filters']['in_queue']['value'] = '0';
-  /* Filter criterion: Contenido: Date (field_event_date) */
-  $handler->display->display_options['filters']['field_event_date_value']['id'] = 'field_event_date_value';
-  $handler->display->display_options['filters']['field_event_date_value']['table'] = 'field_data_field_event_date';
-  $handler->display->display_options['filters']['field_event_date_value']['field'] = 'field_event_date_value';
-  $handler->display->display_options['filters']['field_event_date_value']['operator'] = '>=';
-  $handler->display->display_options['filters']['field_event_date_value']['granularity'] = 'hour';
-  $handler->display->display_options['filters']['field_event_date_value']['default_date'] = 'now';
 
   /* Display: Home block */
   $handler = $view->new_display('page', 'Home block', 'home_page');
@@ -220,8 +225,8 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['filters']['type']['group'] = 1;
   $handler->display->display_options['block_description'] = 'Agenda highlight block';
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'agenda_page');
+  /* Display: Events page */
+  $handler = $view->new_display('page', 'Events page', 'agenda_page');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Agenda';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
@@ -240,10 +245,18 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
     'evento_portada' => 'evento_portada',
     'libro_portada' => 0,
-    'libros_destacados' => 0,
     'producto_kafeta_destacado' => 0,
+    'libros_destacados' => 0,
   );
   $handler->display->display_options['path'] = 'agenda';
+
+  /* Display: Feed */
+  $handler = $view->new_display('feed', 'Feed', 'feed_1');
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['style_plugin'] = 'rss';
+  $handler->display->display_options['row_plugin'] = 'node_rss';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  $handler->display->display_options['path'] = 'events/feed';
   $translatables['agenda'] = array(
     t('Master'),
     t('más'),
@@ -260,8 +273,9 @@ function katakrak_agenda_views_default_views() {
     t('more'),
     t('Bloque'),
     t('Agenda highlight block'),
-    t('Page'),
+    t('Events page'),
     t('Agenda'),
+    t('Feed'),
   );
   $export['agenda'] = $view;
 
