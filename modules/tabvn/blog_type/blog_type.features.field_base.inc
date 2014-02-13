@@ -10,63 +10,46 @@
 function blog_type_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'body'
-  $field_bases['body'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(
-      0 => 'node',
-    ),
-    'field_name' => 'body',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(),
-    'translatable' => 0,
-    'type' => 'text_with_summary',
-  );
-
-  // Exported field_base: 'field_image'
-  $field_bases['field_image'] = array(
+  // Exported field_base: 'field_blog_eventos'
+  $field_bases['field_blog_eventos'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_image',
+    'field_name' => 'field_blog_eventos',
     'foreign keys' => array(
-      'fid' => array(
+      'nid' => array(
         'columns' => array(
-          'fid' => 'fid',
+          'nid' => 'nid',
         ),
-        'table' => 'file_managed',
+        'table' => 'node',
       ),
     ),
     'indexes' => array(
-      'fid' => array(
-        0 => 'fid',
+      'nid' => array(
+        0 => 'nid',
       ),
     ),
     'locked' => 0,
-    'module' => 'image',
+    'module' => 'node_reference',
     'settings' => array(
-      'default_image' => 0,
-      'uri_scheme' => 'public',
+      'referenceable_types' => array(
+        'article' => 0,
+        'blog' => 0,
+        'event' => 'event',
+        'itinerario' => 0,
+        'libro' => 0,
+        'page' => 0,
+        'portfolio' => 0,
+      ),
+      'view' => array(
+        'args' => array(),
+        'display_name' => '',
+        'view_name' => '',
+      ),
     ),
     'translatable' => 0,
-    'type' => 'image',
+    'type' => 'node_reference',
   );
 
   // Exported field_base: 'field_tags'
@@ -98,6 +81,7 @@ function blog_type_field_default_field_bases() {
           'parent' => 0,
         ),
       ),
+      'options_list_callback' => 'i18n_taxonomy_allowed_values',
     ),
     'translatable' => 0,
     'type' => 'taxonomy_term_reference',

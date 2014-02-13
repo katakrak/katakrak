@@ -5,6 +5,15 @@
  */
 
 /**
+ * Implements hook_ctools_plugin_api().
+ */
+function blog_type_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "strongarm" && $api == "strongarm") {
+    return array("version" => "1");
+  }
+}
+
+/**
  * Implements hook_views_api().
  */
 function blog_type_views_api($module = NULL, $api = NULL) {
@@ -53,7 +62,7 @@ function blog_type_node_info() {
       'base' => 'node_content',
       'description' => t('Blog entry.'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Título'),
       'help' => '',
     ),
   );
