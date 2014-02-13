@@ -20,11 +20,11 @@ function katakrak_search_apachesolr_environments() {
     'apachesolr_direct_commit' => 0,
     'apachesolr_index_last' => array(
       'node' => array(
-        'last_changed' => '1392028317',
-        'last_entity_id' => '37528',
+        'last_changed' => '1392216658',
+        'last_entity_id' => '800',
       ),
     ),
-    'apachesolr_index_updated' => 0,
+    'apachesolr_index_updated' => 1392217202,
     'apachesolr_last_optimize' => 1392197451,
     'apachesolr_read_only' => '0',
     'apachesolr_search_facet_pages' => '',

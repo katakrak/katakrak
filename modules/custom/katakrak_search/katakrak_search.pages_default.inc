@@ -64,7 +64,7 @@ function katakrak_search_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = '%term:html_safe busco';
+  $display->title = 'Buscando %term:raw';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
@@ -159,8 +159,8 @@ function katakrak_search_default_page_manager_pages() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'path_type' => 'same',
-      'path' => '',
+      'path_type' => 'custom',
+      'path' => 'search/books',
       'override_prompt' => 0,
       'prompt' => '',
       'show_keys' => 1,

@@ -20,7 +20,7 @@ function katakrak_search_facetapi_default_facet_settings() {
   $facet->enabled = TRUE;
   $facet->settings = array(
     'weight' => 0,
-    'widget' => 'facetapi_checkbox_links',
+    'widget' => 'facetapi_links',
     'filters' => array(),
     'active_sorts' => array(
       'active' => 'active',
@@ -149,24 +149,32 @@ function katakrak_search_facetapi_default_facet_settings() {
     'widget' => 'facetapi_links',
     'filters' => array(),
     'active_sorts' => array(
+      'display' => 'display',
       'active' => 'active',
       'count' => 'count',
-      'display' => 'display',
+      'indexed' => 0,
     ),
     'sort_weight' => array(
-      'active' => -50,
-      'count' => -49,
-      'display' => -48,
+      'display' => '-50',
+      'active' => '-49',
+      'count' => '-48',
+      'indexed' => '-47',
     ),
     'sort_order' => array(
-      'active' => 3,
-      'count' => 3,
-      'display' => 4,
+      'display' => '3',
+      'active' => '3',
+      'count' => '3',
+      'indexed' => '4',
     ),
     'empty_behavior' => 'none',
-    'soft_limit' => 20,
+    'soft_limit' => '10',
     'nofollow' => 1,
-    'show_expanded' => 0,
+    'show_expanded' => 1,
+    'empty_text' => array(
+      'value' => '',
+      'format' => 'sinopsis',
+    ),
+    'submit_realm' => 'Save and go back to realm settings',
   );
   $export['apachesolr@solr:block:im_field_libro_year'] = $facet;
 

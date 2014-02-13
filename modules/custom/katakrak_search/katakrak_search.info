@@ -8,6 +8,7 @@ dependencies[] = apachesolr_search
 dependencies[] = ctools
 dependencies[] = facetapi
 dependencies[] = page_manager
+dependencies[] = panels
 dependencies[] = strongarm
 features[apachesolr_environment][] = solr
 features[ctools][] = apachesolr:apachesolr_environments:1
