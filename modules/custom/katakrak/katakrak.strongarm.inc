@@ -56,7 +56,7 @@ function katakrak_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_page';
-  $strongarm->value = '0';
+  $strongarm->value = 0;
   $export['comment_page'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -296,19 +296,6 @@ function katakrak_strongarm() {
       ),
       'file' => 'includes/locale.inc',
     ),
-    'locale-browser' => array(
-      'callbacks' => array(
-        'language' => 'locale_language_from_browser',
-      ),
-      'file' => 'includes/locale.inc',
-      'cache' => 0,
-    ),
-    'locale-user' => array(
-      'callbacks' => array(
-        'language' => 'locale_language_from_user',
-      ),
-      'file' => 'includes/locale.inc',
-    ),
     'language-default' => array(
       'callbacks' => array(
         'language' => 'language_from_default',
@@ -358,8 +345,8 @@ function katakrak_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'locale_language_providers_weight_language';
   $strongarm->value = array(
-    'locale-browser' => '-9',
     'locale-url' => '-10',
+    'locale-browser' => '-9',
     'locale-user' => '-8',
     'locale-session' => '-7',
     'language-default' => '-6',
@@ -402,7 +389,7 @@ function katakrak_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_page';
-  $strongarm->value = 0;
+  $strongarm->value = FALSE;
   $export['node_submitted_page'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -423,21 +410,21 @@ function katakrak_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'site_default_country';
-  $strongarm->value = 'ES';
+  $strongarm->value = '';
   $export['site_default_country'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'site_mail';
-  $strongarm->value = 'info@katakrak.net';
+  $strongarm->value = 'trisketonni@gmail.com';
   $export['site_mail'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'site_name';
-  $strongarm->value = 'Katakrak';
+  $strongarm->value = 'katakrak.taz';
   $export['site_name'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -451,7 +438,7 @@ function katakrak_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'user_pictures';
-  $strongarm->value = '1';
+  $strongarm->value = 1;
   $export['user_pictures'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -479,7 +466,7 @@ function katakrak_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'user_register';
-  $strongarm->value = 2;
+  $strongarm->value = '1';
   $export['user_register'] = $strongarm;
 
   $strongarm = new stdClass();
