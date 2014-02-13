@@ -46,9 +46,6 @@
 
   <head profile="<?php print $grddl_profile; ?>">
     <?php print $head; ?>
-    <link href="http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic|Open+Sans:400,300,600,700" rel="stylesheet" type="text/css" />
-    
-
     <title><?php print $head_title; ?></title>
     <?php print $styles; ?>
     <?php $theme_background_image = theme_get_setting('theme_background_image', 'coworker'); ?>

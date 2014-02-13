@@ -1,6 +1,13 @@
 <?php include 'page-header.inc' ?>
 
 <div id="content" class="book-page">
+  <div id="page-title">
+        <div class="container clearfix">
+          <div class="col-3">
+          <h1><?php print $section_title; ?></h1>
+          </div>
+        </div>
+      </div>
   <div class="content-wrap">
     <div class="container clearfix">
 
@@ -8,11 +15,11 @@
       $content_class = 'content-main-column';
       $sidebar_class = 'sidebar-column';
       if ($page['sidebar_first']) {
-        $content_class = 'postcontent col_last';
+        //$content_class = 'postcontent col_last';
       }
       if ($page['sidebar_second']) {
-        $sidebar_class = 'col_last';
-        $content_class = 'postcontent';
+//        $sidebar_class = 'col_last';
+//        $content_class = 'postcontent';
       }
       ?>
         <!-- content region -->
