@@ -73,6 +73,16 @@ function katakrak_block_info() {
     // Not worth caching.
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['katakrak_user_top'] = array(
+    'info' => t('Katakrak user top'),
+    // Not worth caching.
+    'cache' => DRUPAL_CACHE_PER_USER,
+  );
+  $blocks['katakrak_cart'] = array(
+    'info' => t('Katakrak cart'),
+    // Not worth caching.
+    'cache' => DRUPAL_CACHE_PER_USER,
+  );
   return $blocks;
 }
 
@@ -97,6 +107,22 @@ function katakrak_block_view($delta) {
   }
   if ($delta == 'newsletter_suscribe') {
     $block['content'] = drupal_get_form('katakrak_newsletter_suscribe_form');
+    return $block;
+  }
+  if ($delta == 'katakrak_user_top') {
+    if (user_is_anonymous()) {
+      //Generate login link
+    }
+    else {
+      //Generate user block
+    }
+  }
+  if ($delta == 'katakrak_cart') {
+    global $user;
+    $order = commerce_cart_order_load($user->uid);
+    $wrapper = entity_metadata_wrapper('commerce_order', $order);
+    $items = commerce_line_items_quantity($wrapper->commerce_line_items, commerce_product_line_item_types());
+    $block['content'] = '';
     return $block;
   }
 }
