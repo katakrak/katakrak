@@ -27,7 +27,7 @@
 
 /* Language block*/
 #block-katakrak-language-switcher {
-  float: right;
+  /*float: right;*/
 }
 
 #block-katakrak-language-switcher ul li {
@@ -49,6 +49,25 @@
   font-weight: bold;
   text-decoration: none;
   color: #000000;
+}
+
+/** User block */
+
+#block-katakrak-katakrak-user-top {
+  /*float: right;*/
+}
+
+#block-katakrak-katakrak-user-top a {
+  text-decoration: none;
+  background-color: #2780AF;
+  color: #FFF;
+  padding: 10px 20px;
+  border-top: 1px solid #2780AF;
+  border-right: 1px solid #2780AF;
+  border-bottom: 1px solid #2780AF;
+  border-left: 1px solid #2780AF;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
 }
 
 /* ----------------------------------------------------------------
