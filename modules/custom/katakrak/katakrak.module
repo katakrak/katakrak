@@ -34,7 +34,14 @@ function katakrak_theme() {
       ),
       'render element' => 'form',
       'path' => $path . '/templates',
-    )  
+    ),
+    'katakrak_cart_block' => array(
+      'template' => 'katakrak-cart-block',
+      'variables' => array(
+        'num_items' => NULL,
+      ),
+      'path' => $path . '/templates',
+    ),
   );
 }
 
@@ -116,17 +123,23 @@ function katakrak_block_view($delta) {
     }
     else {
       //Generate user block
-            $block['content'] = l(t('Acceder'), 'user');
+      $block['content'] = l(t('Mi cuenta'), 'user');
 
     }
     return $block;
   }
   if ($delta == 'katakrak_cart') {
     global $user;
-    //$order = commerce_cart_order_load($user->uid);
-    //$wrapper = entity_metadata_wrapper('commerce_order', $order);
-    //$items = commerce_line_items_quantity($wrapper->commerce_line_items, commerce_product_line_item_types());
-    $block['content'] = '';
+    if ($order = commerce_cart_order_load($user->uid)) {
+      $wrapper = entity_metadata_wrapper('commerce_order', $order);
+      // If there are one or more products in the cart...
+      $num_items = commerce_line_items_quantity($wrapper->commerce_line_items, commerce_product_line_item_types());
+    }
+    else {
+      $num_items = 0;
+    }
+    $content = theme('katakrak_cart_block', array('num_items' => $num_items));
+    $block['content'] = $content;
     return $block;
   }
 }

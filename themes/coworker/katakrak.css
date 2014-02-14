@@ -18,16 +18,19 @@
 }
 
 @media only screen and (min-width: 1040px) {
-   #logo {
-  top: 40px;
-  margin-left: 530px;
-}
+  #logo {
+    top: 40px;
+    margin-left: 530px;
+  }
+  #top-right {
+    float: right;
+  }
 }
 
 
 /* Language block*/
 #block-katakrak-language-switcher {
-  /*float: right;*/
+  float: right;
 }
 
 #block-katakrak-language-switcher ul li {
@@ -54,7 +57,8 @@
 /** User block */
 
 #block-katakrak-katakrak-user-top {
-  /*float: right;*/
+  margin-top: 20px;
+  float: right;
 }
 
 #block-katakrak-katakrak-user-top a {
@@ -70,6 +74,29 @@
   -webkit-border-radius: 5px;
 }
 
+/** Cart block **/
+
+#block-katakrak-katakrak-cart {
+  float: right;
+  margin-right: 15px;
+  margin-top: 5px;
+}
+
+.katakrak-cart-icon {
+  background: url("images/cart.png") no-repeat;
+  height: 48px;
+  width: 48px;
+  position: relative;
+  float: left;
+}
+
+#block-katakrak-katakrak-cart span{
+  float: left;
+  display: block;
+  margin-top: 15px;
+  font-size: 1.3em;
+}
+ 
 /* ----------------------------------------------------------------
     Primary Menu
 -----------------------------------------------------------------*/
