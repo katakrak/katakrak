@@ -22,12 +22,12 @@ function katakrak_home_ctools_plugin_api($module = NULL, $api = NULL) {
 function katakrak_home_fe_nodequeue_export_fields() {
   $nodequeues = array();
 
-  // Exported nodequeues: evento_portada
-  $nodequeues['evento_portada'] = array(
-    'name' => 'evento_portada',
-    'title' => 'Evento_portada',
+  // Exported nodequeues: evento_home
+  $nodequeues['evento_home'] = array(
+    'name' => 'evento_home',
+    'title' => 'Evento Home',
     'subqueue_title' => '',
-    'size' => 1,
+    'size' => 2,
     'link' => '',
     'link_remove' => '',
     'owner' => 'nodequeue',
