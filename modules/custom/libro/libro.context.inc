@@ -50,6 +50,10 @@ function libro_context_default_contexts() {
       'layout' => 'book',
     ),
     'menu' => 'libros',
+    'theme' => array(
+      'title' => 'Leer os hará libros',
+      'subtitle' => '',
+    ),
   );
   $context->condition_mode = 0;
 

@@ -42,5 +42,47 @@ function katakrak_agenda_context_default_contexts() {
   t('Agenda');
   $export['agenda'] = $context;
 
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'node_event';
+  $context->description = '';
+  $context->tag = 'Agenda';
+  $context->conditions = array(
+    'node' => array(
+      'values' => array(
+        'event' => 'event',
+      ),
+      'options' => array(
+        'node_form' => '0',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'views-agenda-next_events_node_block' => array(
+          'module' => 'views',
+          'delta' => 'agenda-next_events_node_block',
+          'region' => 'sidebar_second',
+          'weight' => '-10',
+        ),
+        'boxes-twitter_feed' => array(
+          'module' => 'boxes',
+          'delta' => 'twitter_feed',
+          'region' => 'sidebar_second',
+          'weight' => '-9',
+        ),
+      ),
+    ),
+    'menu' => 'agenda',
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Agenda');
+  $export['node_event'] = $context;
+
   return $export;
 }

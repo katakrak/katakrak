@@ -26,7 +26,6 @@ function katakrak_agenda_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
-          'show_repeat_rule' => 'show',
         ),
         'type' => 'date_default',
         'weight' => 1,
@@ -89,7 +88,7 @@ function katakrak_agenda_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -136,7 +135,7 @@ function katakrak_agenda_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
@@ -198,6 +197,47 @@ function katakrak_agenda_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-event-field_event_libro'
+  $field_instances['node-event-field_event_libro'] = array(
+    'bundle' => 'event',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'node_reference',
+        'settings' => array(),
+        'type' => 'node_reference_default',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_event_libro',
+    'label' => 'Libro',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'node_reference',
+      'settings' => array(
+        'autocomplete_match' => 'contains',
+        'autocomplete_path' => 'node_reference/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'node_reference_autocomplete',
+      'weight' => 36,
+    ),
+  );
+
   // Exported field_instance: 'node-event-field_event_type'
   $field_instances['node-event-field_event_type'] = array(
     'bundle' => 'event',
@@ -206,10 +246,10 @@ function katakrak_agenda_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'taxonomy_term_reference_plain',
         'weight' => 5,
       ),
       'home_event' => array(
@@ -300,6 +340,7 @@ function katakrak_agenda_field_default_field_instances() {
   t('Description');
   t('Event type');
   t('Image');
+  t('Libro');
   t('Title');
 
   return $field_instances;

@@ -80,28 +80,17 @@
  */
 ?>
 <div class="row-fluid">
-  <div class="span12">
+  <div class="span4">
     <?php print render($content['field_event_image']) ?>
   </div>
-</div>
-<div class="row-fluid">
-  <div class="span2">
+  <div class="span8">
+    <h1><?php print $node->title ?></h1>
     <div class="entry_date">
       <div class="day"><?php print format_date($node->field_event_date['und'][0]['value'], 'custom', 'd'); ?></div>
       <div class="month"><?php print format_date($node->field_event_date['und'][0]['value'], 'custom', 'M'); ?></div>
       <div class="hour"><?php print format_date($node->field_event_date['und'][0]['value'], 'custom', 'G:i'); ?></div>
     </div>
-  </div>
-  <div class="span10">
-    <div class="row-fluid">
-      <div class="span12">
-        <?php print render($content['title_field']) ?>
-      </div>
-    </div>
-    <div class="row-fluid">
-      <div class="span12">
-        <?php print render($content['field_event_description']) ?>
-      </div>
-    </div>
+    <div class="clear"></div>
+    <?php print render($content['field_event_description']) ?>
   </div>
 </div>
