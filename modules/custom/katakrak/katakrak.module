@@ -42,6 +42,10 @@ function katakrak_theme() {
       ),
       'path' => $path . '/templates',
     ),
+    'katakrak_social_block' => array(
+      'template' => 'katakrak-social-block',
+      'path' => $path . '/templates',
+    ),
   );
 }
 
@@ -89,6 +93,11 @@ function katakrak_block_info() {
     'info' => t('Katakrak cart'),
     // Not worth caching.
     'cache' => DRUPAL_CACHE_PER_USER,
+  );
+  $blocks['katakrak_social'] = array(
+    'info' => t('Katakrak social'),
+    // Not worth caching.
+    'cache' => DRUPAL_NO_CACHE,
   );
   return $blocks;
 }
@@ -140,6 +149,10 @@ function katakrak_block_view($delta) {
     }
     $content = theme('katakrak_cart_block', array('num_items' => $num_items));
     $block['content'] = $content;
+    return $block;
+  }
+  if ($delta == 'katakrak_social') {
+    $block['content'] = theme('katakrak_social_block');
     return $block;
   }
 }
