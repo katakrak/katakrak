@@ -499,3 +499,9 @@ div.search-result {
 div.search-results div:last-child {
   background: none;
 }
+
+/** Agenda styles **/
+
+.entry_date {
+  float: none;
+}

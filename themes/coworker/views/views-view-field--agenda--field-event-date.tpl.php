@@ -23,10 +23,15 @@
  */
  $date = $row->field_field_event_date[0]['raw']['value'];
  global $language;
- dpm($language);
 ?>
 <div class="entry_date">
-  <div class="day"><?php print format_date($date, 'custom', 'd'); ?></div>
-  <div class="month"><?php print format_date($date, 'custom', 'M'); ?></div>
+  <?php if ($language->language == 'eu'): ?>
+  
+    <div class="day"><?php print format_date($date, 'custom', 'M'); ?></div>
+    <div class="month"><?php print format_date($date, 'custom', 'd'); ?></div>
+  <?php else: ?>
+    <div class="day"><?php print format_date($date, 'custom', 'd'); ?></div>
+    <div class="month"><?php print format_date($date, 'custom', 'M'); ?></div>
+  <?php endif; ?>
   <div class="hour"><?php print format_date($date, 'custom', 'G:i'); ?></div>
 </div>

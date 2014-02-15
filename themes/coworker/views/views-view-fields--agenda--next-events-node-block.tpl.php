@@ -24,13 +24,12 @@
  * @ingroup views_templates
  */
 ?>
-<?php foreach ($fields as $id => $field): ?>
-  <?php if (!empty($field->separator)): ?>
-    <?php print $field->separator; ?>
-  <?php endif; ?>
+<div class="row-fluid">
+<div class="span6">
+  <?php print $fields['title']->content ?>
+</div>
 
-  <?php print $field->wrapper_prefix; ?>
-    <?php print $field->label_html; ?>
-    <?php print $field->content; ?>
-  <?php print $field->wrapper_suffix; ?>
-<?php endforeach; ?>
+<div class="span6">
+  <?php print $fields['field_event_date']->content ?>
+</div>
+</div>
