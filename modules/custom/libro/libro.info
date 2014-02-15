@@ -23,6 +23,7 @@ dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = title
 dependencies[] = views_bootstrap
+dependencies[] = views_data_export
 features[context][] = node_book
 features[ctools][] = context:context:3
 features[ctools][] = page_manager:pages_default:1
