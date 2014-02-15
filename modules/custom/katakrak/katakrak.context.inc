@@ -44,11 +44,11 @@ function katakrak_context_default_contexts() {
           'region' => 'header_right',
           'weight' => '-7',
         ),
-        'boxes-social_widget' => array(
-          'module' => 'boxes',
-          'delta' => 'social_widget',
+        'katakrak-katakrak_social' => array(
+          'module' => 'katakrak',
+          'delta' => 'katakrak_social',
           'region' => 'post_content_bottom_right',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
         'boxes-footer' => array(
           'module' => 'boxes',
