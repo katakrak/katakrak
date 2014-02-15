@@ -17,25 +17,22 @@ function katakrak_search_apachesolr_environments() {
   $environment->url = 'http://nyc1.hostedapachesolr.com:80/solr/88rDzKkRVe_katakrak_taz';
   $environment->service_class = '';
   $environment->conf = array(
-    'apachesolr_direct_commit' => 0,
     'apachesolr_index_last' => array(
       'node' => array(
-        'last_changed' => '1392216658',
-        'last_entity_id' => '800',
+        'last_changed' => '1392354540',
+        'last_entity_id' => '17982',
       ),
     ),
-    'apachesolr_index_updated' => 1392217202,
-    'apachesolr_last_optimize' => 1392197451,
-    'apachesolr_read_only' => '0',
-    'apachesolr_search_facet_pages' => '',
-    'apachesolr_soft_commit' => 0,
+    'apachesolr_index_updated' => 1392464162,
+    'apachesolr_last_optimize' => 1392455520,
   );
   $environment->index_bundles = array(
     'node' => array(
-      0 => 'event',
-      1 => 'libro',
-      2 => 'portfolio',
-      3 => 'simplenews',
+      0 => 'blog',
+      1 => 'event',
+      2 => 'libro',
+      3 => 'portfolio',
+      4 => 'simplenews',
     ),
   );
   $export['solr'] = $environment;
