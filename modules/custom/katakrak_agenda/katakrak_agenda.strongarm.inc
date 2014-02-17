@@ -156,6 +156,7 @@ function katakrak_agenda_strongarm() {
     0 => 'field_event_date',
     1 => 'field_event_image',
     2 => 'field_event_type',
+    3 => 'field_event_libro',
   );
   $export['i18n_sync_node_type_event'] = $strongarm;
 

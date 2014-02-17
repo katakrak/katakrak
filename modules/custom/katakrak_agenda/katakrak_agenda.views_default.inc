@@ -22,7 +22,6 @@ function katakrak_agenda_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Próximos eventos';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'más';
   $handler->display->display_options['access']['type'] = 'perm';
@@ -63,7 +62,7 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['fields']['field_event_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_event_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_event_image']['settings'] = array(
-    'image_style' => 'event_home',
+    'image_style' => 'event_teaser',
     'image_link' => 'content',
   );
   /* Campo: Contenido: Date */
@@ -138,6 +137,8 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['filters']['field_event_date_value']['table'] = 'field_data_field_event_date';
   $handler->display->display_options['filters']['field_event_date_value']['field'] = 'field_event_date_value';
   $handler->display->display_options['filters']['field_event_date_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_event_date_value']['granularity'] = 'hour';
+  $handler->display->display_options['filters']['field_event_date_value']['default_date'] = 'now';
   /* Filter criterion: Contenido: Idioma */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
@@ -195,8 +196,8 @@ function katakrak_agenda_views_default_views() {
   );
   $handler->display->display_options['path'] = 'azala';
 
-  /* Display: Bloque */
-  $handler = $view->new_display('block', 'Bloque', 'highlight');
+  /* Display: Bloque destacado página eventos */
+  $handler = $view->new_display('block', 'Bloque destacado página eventos', 'highlight');
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
@@ -283,6 +284,8 @@ function katakrak_agenda_views_default_views() {
 
   /* Display: Next events block page */
   $handler = $view->new_display('block', 'Next events block page', 'next_events_node_block');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Próximos eventos';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '4';
@@ -353,6 +356,8 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['filters']['field_event_date_value']['field'] = 'field_event_date_value';
   $handler->display->display_options['filters']['field_event_date_value']['operator'] = '>=';
   $handler->display->display_options['filters']['field_event_date_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_event_date_value']['granularity'] = 'hour';
+  $handler->display->display_options['filters']['field_event_date_value']['default_date'] = 'now';
   /* Filter criterion: Contenido: Idioma */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
@@ -362,9 +367,11 @@ function katakrak_agenda_views_default_views() {
   );
   $handler->display->display_options['filters']['language']['group'] = 1;
   $handler->display->display_options['block_description'] = 'Next events block page';
+
+  /* Display: Date browser */
+  $handler = $view->new_display('date_nav', 'Date browser', 'date_nav_1');
   $translatables['agenda'] = array(
     t('Master'),
-    t('Próximos eventos'),
     t('más'),
     t('Aplicar'),
     t('Reiniciar'),
@@ -378,12 +385,14 @@ function katakrak_agenda_views_default_views() {
     t('Home block'),
     t('Inicio'),
     t('more'),
-    t('Bloque'),
+    t('Bloque destacado página eventos'),
     t('Agenda highlight block'),
     t('Events page'),
     t('Agenda'),
     t('Feed'),
     t('Next events block page'),
+    t('Próximos eventos'),
+    t('Date browser'),
   );
   $export['agenda'] = $view;
 

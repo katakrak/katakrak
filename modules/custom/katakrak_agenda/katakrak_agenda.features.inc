@@ -37,7 +37,7 @@ function katakrak_agenda_image_default_styles() {
     'name' => 'event_home',
     'label' => 'Event home',
     'effects' => array(
-      7 => array(
+      1 => array(
         'label' => 'Escala',
         'help' => 'El escalado mantiene la relación de proporciones de la imagen original. Si sólo se especifica una dimensión, la otra se calculará.',
         'effect callback' => 'image_scale_effect',
@@ -53,7 +53,7 @@ function katakrak_agenda_image_default_styles() {
         ),
         'weight' => 1,
       ),
-      8 => array(
+      2 => array(
         'label' => 'Recortar',
         'help' => 'El recorte eliminará partes de una imagen para que tenga las dimensiones especificadas.',
         'effect callback' => 'image_crop_effect',
@@ -68,6 +68,54 @@ function katakrak_agenda_image_default_styles() {
           'anchor' => 'center-top',
         ),
         'weight' => 2,
+      ),
+    ),
+  );
+
+  // Exported image style: event_node_view.
+  $styles['event_node_view'] = array(
+    'name' => 'event_node_view',
+    'label' => 'Event node view',
+    'effects' => array(
+      4 => array(
+        'label' => 'Escala',
+        'help' => 'El escalado mantiene la relación de proporciones de la imagen original. Si sólo se especifica una dimensión, la otra se calculará.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 227,
+          'height' => '',
+          'upscale' => 0,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: event_teaser.
+  $styles['event_teaser'] = array(
+    'name' => 'event_teaser',
+    'label' => 'Event teaser',
+    'effects' => array(
+      5 => array(
+        'label' => 'Escala',
+        'help' => 'El escalado mantiene la relación de proporciones de la imagen original. Si sólo se especifica una dimensión, la otra se calculará.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 470,
+          'height' => '',
+          'upscale' => 0,
+        ),
+        'weight' => 1,
       ),
     ),
   );
