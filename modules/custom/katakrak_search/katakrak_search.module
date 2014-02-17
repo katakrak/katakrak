@@ -47,6 +47,11 @@ function katakrak_search_block_info() {
     // Not worth caching.
     'cache' => DRUPAL_NO_CACHE,
   );
+  $blocks['katakrak_search_block'] = array(
+    'info' => t('Katakrak search block'),
+    // Not worth caching.
+    'cache' => DRUPAL_NO_CACHE,
+  );
   return $blocks;
 }
 
@@ -58,6 +63,9 @@ function katakrak_search_block_view($delta) {
     $form = drupal_get_form('books_search_form');
     $block['content'] = theme('katakrak_search_books_search_block', array('form' => $form));
     return $block;
+  }
+  if ($delta == 'katakrak_search_block') {
+    
   }
 } 
 
