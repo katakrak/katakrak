@@ -61,10 +61,11 @@ function libro_views_default_views() {
   $handler->display->display_options['relationships']['nodequeue_rel']['required'] = TRUE;
   $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
   $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
-    'libros_destacados' => 'libros_destacados',
+    'libro_portada' => 'libro_portada',
     'evento_portada' => 0,
-    'libro_portada' => 0,
     'producto_kafeta_destacado' => 0,
+    'libros_destacados' => 0,
+    'evento_home' => 0,
   );
   /* Campo: Contenido: Portada */
   $handler->display->display_options['fields']['field_libro_portada']['id'] = 'field_libro_portada';
