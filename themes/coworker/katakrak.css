@@ -174,7 +174,9 @@
 #primary-links > div > ul > li.current-menu-item > a,
 #primary-links > div > ul > li.current_page_parent > a,
 #primary-links ul li.active-trail > a,
-#primary-links ul li.active-trail > a span {
+#primary-links ul li.active-trail > a span,
+#primary-links ul li.active > a,
+#primary-links ul li.active > a span {
   border-top-color: rgba(0,0,0,0.1);
   color: #F50087;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
@@ -504,4 +506,18 @@ div.search-results div:last-child {
 
 .entry_date {
   float: none;
+}
+
+#block-views-agenda-next-events-node-block .views-row {
+  background-color: #eee;
+  margin-bottom: 18px;
+  padding: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+
+#block-views-agenda-next-events-node-block h3 a {
+  color: #444;
+  word-break: break-word;
 }
