@@ -40,9 +40,9 @@ function libro_context_default_contexts() {
           'region' => 'content',
           'weight' => '-10',
         ),
-        'katakrak_search-books_search_block' => array(
+        'katakrak_search-katakrak_books_search_block' => array(
           'module' => 'katakrak_search',
-          'delta' => 'books_search_block',
+          'delta' => 'katakrak_books_search_block',
           'region' => 'content_bottom',
           'weight' => '-10',
         ),
