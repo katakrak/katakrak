@@ -42,8 +42,8 @@ function katakrak_search_theme() {
  */
 function katakrak_search_block_info() {
   $blocks = array();
-  $blocks['books_search_block'] = array(
-    'info' => t('Search Books'),
+  $blocks['katakrak_books_search_block'] = array(
+    'info' => t('Katakrak Search Books'),
     // Not worth caching.
     'cache' => DRUPAL_NO_CACHE,
   );
@@ -59,17 +59,18 @@ function katakrak_search_block_info() {
  * Implements hook_block_view().
  */
 function katakrak_search_block_view($delta) {
-  if ($delta == 'books_search_block') {
-    $form = drupal_get_form('books_search_form');
+  if ($delta == 'katakrak_books_search_block') {
+    $form = drupal_get_form('katakrak_books_search_form');
     $block['content'] = theme('katakrak_search_books_search_block', array('form' => $form));
     return $block;
   }
   if ($delta == 'katakrak_search_block') {
-    
+    $form = drupal_get_form('katakrak_search_form');
+    $block['content'] = theme('katakrak_search_search_block', array('form' => $form));
   }
 } 
 
-function books_search_form($form, &$form_state) {
+function katakrak_books_search_form($form, &$form_state) {
   $form['search_term'] = array(
     '#type' => 'textfield',
     '#title' => t('Término'),
@@ -95,7 +96,7 @@ function books_search_form($form, &$form_state) {
 }
 
 
-function books_search_form_submit($form, &$form_state) {
+function katakrak_books_search_form_submit($form, &$form_state) {
   $form_state['redirect'] = 'search/books/'.$form_state['values']['search_term'];
 }
 

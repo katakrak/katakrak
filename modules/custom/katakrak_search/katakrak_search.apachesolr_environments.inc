@@ -19,12 +19,12 @@ function katakrak_search_apachesolr_environments() {
   $environment->conf = array(
     'apachesolr_index_last' => array(
       'node' => array(
-        'last_changed' => '1392354540',
-        'last_entity_id' => '17982',
+        'last_changed' => '1392633172',
+        'last_entity_id' => '27548',
       ),
     ),
-    'apachesolr_index_updated' => 1392464162,
-    'apachesolr_last_optimize' => 1392455520,
+    'apachesolr_index_updated' => 0,
+    'apachesolr_last_optimize' => 1392623281,
   );
   $environment->index_bundles = array(
     'node' => array(

@@ -64,7 +64,7 @@ function katakrak_search_default_page_manager_pages() {
           'name' => 'string_equal',
           'settings' => array(
             'operator' => '=',
-            'value' => 'book',
+            'value' => 'books',
             'case' => 0,
           ),
           'context' => 'argument_string_2',
