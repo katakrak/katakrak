@@ -47,8 +47,8 @@ function katakrak_agenda_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
-          'width' => 600,
-          'height' => '',
+          'width' => '',
+          'height' => 400,
           'upscale' => 0,
         ),
         'weight' => 1,
