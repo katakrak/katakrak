@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Katakrak boletin feature.
+ */
+
+include_once 'katakrak_boletin.features.inc';
