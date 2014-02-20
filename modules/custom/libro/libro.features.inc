@@ -93,7 +93,7 @@ function libro_image_default_styles() {
     'name' => 'cover_home',
     'label' => 'Cover home',
     'effects' => array(
-      1 => array(
+      6 => array(
         'label' => 'Escala',
         'help' => 'El escalado mantiene la relación de proporciones de la imagen original. Si sólo se especifica una dimensión, la otra se calculará.',
         'effect callback' => 'image_scale_effect',
@@ -103,13 +103,13 @@ function libro_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
-          'width' => 300,
-          'height' => '',
-          'upscale' => 1,
+          'width' => '',
+          'height' => 400,
+          'upscale' => 0,
         ),
         'weight' => 1,
       ),
-      2 => array(
+      7 => array(
         'label' => 'Recortar',
         'help' => 'El recorte eliminará partes de una imagen para que tenga las dimensiones especificadas.',
         'effect callback' => 'image_crop_effect',
