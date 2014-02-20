@@ -95,7 +95,7 @@
           <h1>
             <?php print $node->title ?>
           </h1>
-          <h4><?php print render($content['field_libro_autores']) ?></h4>
+          <h4><?php print $content['autores'] ?></h4>
           </div>
           <div class="row-fluid">
             <div class="span4">
@@ -103,7 +103,7 @@
             </div>
            <div class="span8">
             <div class="col-1 hidden-phone book-title-author">
-              <div class="col_three_fourth <?php print $node->field_libro_subtitulo['und'][0]['value'] ? 'col_last': '' ?>">
+              <div class="col_three_fourth <?php print isset($node->field_libro_subtitulo['und'][0]['value']) ? 'col_last': '' ?>">
                 <h1>
                   <?php print $node->title ?>
                 </h1>
@@ -114,7 +114,7 @@
                 </div>
               <?php endif; ?>
               <div class="col_one_fourth col_last">
-                <h5><?php print render($content['field_libro_autores']) ?></h5>
+                <h5><?php print $content['autores'] ?></h5>
               </div>
             </div>
              <div class="clear"></div>
@@ -165,7 +165,7 @@
                   <?php print t('Estado') ?>
                 </span>
                 <span class="col-2 book-info-data">
-                    <?php print $content['field_libro_estado'][0]['#markup'] ?>
+                    <?php print isset($content['estado']) ? $content['estado'] :  $content['field_libro_estado'][0]['#markup'] ?>
                 </span>
               </div>
               <div class="book-info-entry">

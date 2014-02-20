@@ -5,3 +5,20 @@
  */
 
 include_once 'libro.features.inc';
+
+function libro_node_view($node, $view_mode, $langcode) {
+  if ($node->type == 'libro' && $view_mode == 'full') {
+    $autores = array();
+    foreach (element_children($node->content['field_libro_autores']) as $key) {
+      $autores[] =  $node->content['field_libro_autores'][$key]['#markup'];
+    }
+    $node->content['autores'] = join(', ', $autores);
+    
+    if ($node->field_libro_estado['und'][0]['value'] == 0) {
+      $product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
+      if ($product->commerce_stock['und'][0]['value'] < 1) {
+        $node->content['estado'] = t('Disponible bajo pedido');
+      }
+    }
+  }
+}
