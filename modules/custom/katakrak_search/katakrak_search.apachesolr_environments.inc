@@ -24,15 +24,16 @@ function katakrak_search_apachesolr_environments() {
       ),
     ),
     'apachesolr_index_updated' => 0,
-    'apachesolr_last_optimize' => 1392623281,
+    'apachesolr_last_optimize' => 1392842281,
   );
   $environment->index_bundles = array(
     'node' => array(
       0 => 'blog',
-      1 => 'event',
-      2 => 'libro',
-      3 => 'portfolio',
-      4 => 'simplenews',
+      1 => 'boletin',
+      2 => 'event',
+      3 => 'libro',
+      4 => 'portfolio',
+      5 => 'simplenews',
     ),
   );
   $export['solr'] = $environment;

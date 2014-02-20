@@ -34,6 +34,14 @@ function katakrak_search_theme() {
       'arguments' => array('form' => NULL),
       'path' => $path . '/templates',
     ),
+    'katakrak_search_search_block' => array(
+      'template' => 'katakrak-search-search-block',
+      'arguments' => array('form' => NULL),
+      'path' => $path . '/templates',
+    ),
+    'katakrak_search_search_form' => array(
+      
+    ),
   );
 }
 
@@ -62,12 +70,12 @@ function katakrak_search_block_view($delta) {
   if ($delta == 'katakrak_books_search_block') {
     $form = drupal_get_form('katakrak_books_search_form');
     $block['content'] = theme('katakrak_search_books_search_block', array('form' => $form));
-    return $block;
   }
   if ($delta == 'katakrak_search_block') {
     $form = drupal_get_form('katakrak_search_form');
     $block['content'] = theme('katakrak_search_search_block', array('form' => $form));
   }
+  return $block;
 } 
 
 function katakrak_books_search_form($form, &$form_state) {
@@ -87,6 +95,7 @@ function katakrak_books_search_form($form, &$form_state) {
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => t('Buscar'),
+    '#attributes' => array('class' => array('katakrak-button')),
   );
   if (module_exists('apachesolr_autocomplete')) {
     //apachesolr_autocomplete_do_alter($form['search_term']);
@@ -95,6 +104,46 @@ function katakrak_books_search_form($form, &$form_state) {
   return $form;
 }
 
+function katakrak_search_form($form, &$form_state) {
+  $form['search_term'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Término'),
+    '#title_display' => 'invisible',
+    '#attributes' => array(
+      'onblur' => "if (this.value == '') {this.value = '".t('¿Qué buscas?')."';}",
+      'onfocus' => "if (this.value == '".t('¿Qué buscas?')."') {this.value = '';}",
+      // Prevent user from searching the default text
+      'onsubmit' => "if(this.search_block_form.value=='".t('¿Qué buscas?')."'{ alert('Please enter a search'); return false; }",
+      // Alternative (HTML5) placeholder attribute instead of using the javascript
+      'placeholder' => t('¿Qué buscas?'),
+    ),
+    '#prefix' => '<div class="row-fluid"><div class="span8">',
+    '#suffix' => '</div>',
+  );
+  $form['type'] = array(
+    '#type' => 'select',
+    '#title' => t(''),
+    '#options' => array(
+      'all' => t('Todo'),
+      'books' => t('Libros'),
+      'agenda' => t('Actos'),
+    ),
+    '#prefix' => '<div class="span2">',
+    '#suffix' => '</div>',
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Buscar'),
+    '#attributes' => array('class' => array('katakrak-button')),
+    '#prefix' => '<div class="span2">',
+    '#suffix' => '</div></div>',
+  );
+  return $form;
+}
+
+function  katakrak_search_form_submit($form, &$form_state) {
+  $form_state['redirect'] = 'search/'.$form_state['values']['type'].'/'.$form_state['values']['search_term'];
+}
 
 function katakrak_books_search_form_submit($form, &$form_state) {
   $form_state['redirect'] = 'search/books/'.$form_state['values']['search_term'];

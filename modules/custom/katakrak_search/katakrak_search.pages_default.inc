@@ -11,9 +11,9 @@ function katakrak_search_default_page_manager_pages() {
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
-  $page->name = 'search_books';
+  $page->name = 'search_page';
   $page->task = 'page';
-  $page->admin_title = 'Search books';
+  $page->admin_title = 'Search Page';
   $page->admin_description = '';
   $page->path = 'search/%type/%term';
   $page->access = array();
@@ -28,12 +28,10 @@ function katakrak_search_default_page_manager_pages() {
       ),
     ),
     'term' => array(
-      'id' => 1,
-      'identifier' => 'Texto',
-      'name' => 'string',
-      'settings' => array(
-        'use_tail' => 0,
-      ),
+      'id' => '',
+      'identifier' => '',
+      'argument' => '',
+      'settings' => array(),
     ),
   );
   $page->conf = array(
@@ -43,9 +41,9 @@ function katakrak_search_default_page_manager_pages() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_search_books_panel_context';
+  $handler->name = 'page_search_page_panel_context';
   $handler->task = 'page';
-  $handler->subtask = 'search_books';
+  $handler->subtask = 'search_page';
   $handler->handler = 'panel_context';
   $handler->weight = 0;
   $handler->conf = array(
@@ -292,9 +290,9 @@ function katakrak_search_default_page_manager_pages() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_search_books_panel_context_2';
+  $handler->name = 'page_search_page_panel_context_2';
   $handler->task = 'page';
-  $handler->subtask = 'search_books';
+  $handler->subtask = 'search_page';
   $handler->handler = 'panel_context';
   $handler->weight = 1;
   $handler->conf = array(
@@ -538,7 +536,256 @@ function katakrak_search_default_page_manager_pages() {
   $display->title_pane = 'new-16';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
-  $pages['search_books'] = $page;
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_search_page_panel_context_3';
+  $handler->task = 'page';
+  $handler->subtask = 'search_page';
+  $handler->handler = 'panel_context';
+  $handler->weight = 2;
+  $handler->conf = array(
+    'title' => 'Search',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'string_equal',
+          'settings' => array(
+            'operator' => '=',
+            'value' => 'all',
+            'case' => 0,
+          ),
+          'context' => 'argument_string_2',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'search';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'left' => NULL,
+      'right' => NULL,
+      'col_left' => NULL,
+      'content' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Buscando %term:raw';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-17';
+    $pane->panel = 'col_left';
+    $pane->type = 'block';
+    $pane->subtype = 'facetapi-FM9Alkv8hyOtkShgOh3ba7QsdDWF4EHK';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $display->content['new-17'] = $pane;
+    $display->panels['col_left'][0] = 'new-17';
+    $pane = new stdClass();
+    $pane->pid = 'new-18';
+    $pane->panel = 'col_left';
+    $pane->type = 'block';
+    $pane->subtype = 'facetapi-R2UTz6TzAt7lw1croPaTispTk1IwtN2e';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $display->content['new-18'] = $pane;
+    $display->panels['col_left'][1] = 'new-18';
+    $pane = new stdClass();
+    $pane->pid = 'new-19';
+    $pane->panel = 'col_left';
+    $pane->type = 'block';
+    $pane->subtype = 'facetapi-gsuabqVf0AVVqe53zFv7k6te9HVy12PJ';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $display->content['new-19'] = $pane;
+    $display->panels['col_left'][2] = 'new-19';
+    $pane = new stdClass();
+    $pane->pid = 'new-20';
+    $pane->panel = 'col_left';
+    $pane->type = 'block';
+    $pane->subtype = 'facetapi-YMxL6TyYd1dRvjZOiUikBq0F3tS8YTPY';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $display->content['new-20'] = $pane;
+    $display->panels['col_left'][3] = 'new-20';
+    $pane = new stdClass();
+    $pane->pid = 'new-21';
+    $pane->panel = 'content';
+    $pane->type = 'apachesolr_form';
+    $pane->subtype = 'apachesolr_form';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'path_type' => 'custom',
+      'path' => 'search/books',
+      'override_prompt' => 0,
+      'prompt' => '',
+      'show_keys' => 1,
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $display->content['new-21'] = $pane;
+    $display->panels['content'][0] = 'new-21';
+    $pane = new stdClass();
+    $pane->pid = 'new-22';
+    $pane->panel = 'content';
+    $pane->type = 'block';
+    $pane->subtype = 'apachesolr_search-sort';
+    $pane->shown = FALSE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $display->content['new-22'] = $pane;
+    $display->panels['content'][1] = 'new-22';
+    $pane = new stdClass();
+    $pane->pid = 'new-23';
+    $pane->panel = 'content';
+    $pane->type = 'apachesolr_info';
+    $pane->subtype = 'apachesolr_info';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'title_override' => FALSE,
+      'title_override_text' => '',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $display->content['new-23'] = $pane;
+    $display->panels['content'][2] = 'new-23';
+    $pane = new stdClass();
+    $pane->pid = 'new-24';
+    $pane->panel = 'content';
+    $pane->type = 'apachesolr_result';
+    $pane->subtype = 'apachesolr_result';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'keys_action' => 'none',
+      'keys' => '',
+      'keys_required' => 0,
+      'filters_action' => 'none',
+      'filters' => '',
+      'rows' => '10',
+      'env_id' => 'solr',
+      'sort_action' => 'none',
+      'sort' => '',
+      'breadcrumb' => 0,
+      'title_override' => 1,
+      'title_override_text' => '',
+      'empty_override' => 0,
+      'empty_override_title' => '',
+      'empty_override_text' => array(
+        'value' => '',
+        'format' => 'plain_text',
+      ),
+      'empty_override_format' => 'plain_text',
+      'log' => 0,
+      'substitute' => 0,
+      'context' => 'argument_string_1',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $display->content['new-24'] = $pane;
+    $display->panels['content'][3] = 'new-24';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-24';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['search_page'] = $page;
 
   return $pages;
 
