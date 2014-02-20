@@ -28,10 +28,12 @@ function katakrak_search_default_page_manager_pages() {
       ),
     ),
     'term' => array(
-      'id' => '',
-      'identifier' => '',
-      'argument' => '',
-      'settings' => array(),
+      'id' => 3,
+      'identifier' => 'Term',
+      'name' => 'string',
+      'settings' => array(
+        'use_tail' => 0,
+      ),
     ),
   );
   $page->conf = array(
@@ -271,7 +273,7 @@ function katakrak_search_default_page_manager_pages() {
       'empty_override_format' => 'plain_text',
       'log' => 0,
       'substitute' => 0,
-      'context' => 'argument_string_1',
+      'context' => 'argument_string_3',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -520,7 +522,7 @@ function katakrak_search_default_page_manager_pages() {
       'empty_override_format' => 'plain_text',
       'log' => 0,
       'substitute' => 0,
-      'context' => 'argument_string_1',
+      'context' => 'argument_string_3',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -769,7 +771,7 @@ function katakrak_search_default_page_manager_pages() {
       'empty_override_format' => 'plain_text',
       'log' => 0,
       'substitute' => 0,
-      'context' => 'argument_string_1',
+      'context' => 'argument_string_3',
     );
     $pane->cache = array();
     $pane->style = array(
