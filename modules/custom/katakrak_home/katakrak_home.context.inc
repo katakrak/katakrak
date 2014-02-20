@@ -17,9 +17,9 @@ function katakrak_home_context_default_contexts() {
   $context->description = 'Home context';
   $context->tag = 'Home';
   $context->conditions = array(
-    'views' => array(
+    'path' => array(
       'values' => array(
-        'agenda:home_page' => 'agenda:home_page',
+        '<front>' => '<front>',
       ),
     ),
   );
@@ -48,6 +48,12 @@ function katakrak_home_context_default_contexts() {
           'module' => 'katakrak',
           'delta' => 'newsletter_suscribe',
           'region' => 'content_top',
+          'weight' => '-10',
+        ),
+        'katakrak_search-katakrak_search_block' => array(
+          'module' => 'katakrak_search',
+          'delta' => 'katakrak_search_block',
+          'region' => 'content_bottom',
           'weight' => '-10',
         ),
       ),
