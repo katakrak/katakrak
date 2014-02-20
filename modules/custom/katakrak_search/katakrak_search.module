@@ -72,8 +72,7 @@ function katakrak_search_block_view($delta) {
     $block['content'] = theme('katakrak_search_books_search_block', array('form' => $form));
   }
   if ($delta == 'katakrak_search_block') {
-    $form = drupal_get_form('katakrak_search_form');
-    $block['content'] = theme('katakrak_search_search_block', array('form' => $form));
+   $block['content'] = drupal_get_form('katakrak_search_form');
   }
   return $block;
 } 

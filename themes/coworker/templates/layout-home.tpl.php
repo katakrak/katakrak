@@ -37,10 +37,14 @@
             </div>
           
          
-          <?php print $feed_icons; ?>
+          <?php print $feed_icons; dpm($page) ?>
         </div>
         <!-- // content region -->
-
+        <?php if ($page['content_bottom']): ?>
+          <div id="content-bottom">
+            <?php print render($page['content_bottom']); ?>
+          </div>
+        <?php endif; ?>
     </div>
   </div>
 </div>
