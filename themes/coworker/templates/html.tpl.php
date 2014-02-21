@@ -62,7 +62,9 @@
     if (!empty($theme_custom_css)) {
       print '<style type="text/css">' . $theme_custom_css . '</style>';
     }
-    ?>
+    ?> 
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
     <!--[if lt IE 9]>
         <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
       <![endif]-->

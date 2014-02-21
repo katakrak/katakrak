@@ -37,7 +37,7 @@
             </div>
           
          
-          <?php print $feed_icons; dpm($page) ?>
+          <?php print $feed_icons; ?>
         </div>
         <!-- // content region -->
         <?php if ($page['content_bottom']): ?>

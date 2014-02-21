@@ -12,6 +12,7 @@ function _coworker_add_css() {
       'css/bootstrap.css',
       'css/font-dinnext.css',
       'css/font-calibri.css',
+      'css/font-awesome.css',
       'css/font.css',
       'css/prettyPhoto.css',
       'css/coworker.css',

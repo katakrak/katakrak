@@ -79,23 +79,17 @@
 #block-katakrak-katakrak-cart {
   float: right;
   margin-right: 15px;
-  margin-top: 5px;
+  margin-top: 15px;
 }
 
-.katakrak-cart-icon {
-  background: url("images/cart.png") no-repeat;
-  height: 48px;
-  width: 48px;
-  position: relative;
-  float: left;
+#block-katakrak-katakrak-cart .content a {
+  color: #000;
 }
 
 #block-katakrak-katakrak-cart span{
-  float: left;
-  display: block;
-  margin-top: 15px;
   font-size: 1.3em;
 }
+
  
 /* ----------------------------------------------------------------
     Primary Menu
@@ -326,8 +320,8 @@
   border-top: none;
 }
 
-.footer-widgets-wrap {
-  /*margin-top: 100px;*/
+#boxes-box-footer {
+  text-align: center;
 }
 
 /* Special regions */
