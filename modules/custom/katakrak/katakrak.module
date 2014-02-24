@@ -195,7 +195,8 @@ function katakrak_newsletter_suscribe_form_validate($form, &$form_state) {
 
 function katakrak_newsletter_suscribe_form_submit($form, &$form_state) {
   drupal_set_message(t('Te has suscrito correctamente al boletín de noticias de Katakrak. Pronto recibirás un mail para confirmar tu suscripción.'));
-  $simplenews_newsletter = array_pop(taxonomy_get_term_by_name('Katakrak', 'newsletter'));
+  $simplenews_newsletter = taxonomy_get_term_by_name('Katakrak', 'newsletter');
+  $simplenews_newsletter = array_pop($simplenews_newsletter);
   simplenews_subscribe_user($form_state['values']['mail'], $simplenews_newsletter->tid);
 }
 
