@@ -36,7 +36,7 @@ function katakrak_home_context_default_contexts() {
           'module' => 'layer_slider',
           'delta' => '5',
           'region' => 'slider',
-          'weight' => '-9',
+          'weight' => '-10',
         ),
         'system-main' => array(
           'module' => 'system',
