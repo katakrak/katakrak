@@ -47,25 +47,30 @@ function coworker_preprocess_html(&$variables) {
 }
 
 function coworker_preprocess_page(&$vars) {
-
   // navigation
-//  $custom_main_menu = _custom_main_menu_render_superfish();
-//  if (!empty($custom_main_menu['content'])) {
-//    $vars['navigation'] = $custom_main_menu['content'];
-//  }
-  if (isset($vars['main_menu'])) {
-    $vars['navigation'] = theme('links__system_main_menu', array(
-      'links' => $vars['main_menu'],
-      'attributes' => array(
-        'class' => array('links', 'inline', 'main-menu'),
-      ),
-      'heading' => array(
-        'text' => t('Main menu'),
-        'level' => 'h2',
-        'class' => array('element-invisible'),
-      )
-    ));
+  foreach ($vars['main_menu'] as $id => $menu_item) {
+    if (strpos($id, 'active')) {
+      $trail = substr($id, 5, strpos($id, ' ') - 5);
+    }
   }
+  $custom_main_menu = _custom_main_menu_render_superfish($trail);
+  
+  if (!empty($custom_main_menu['content'])) {
+    $vars['navigation'] = $custom_main_menu['content'];
+  }
+//  if (isset($vars['main_menu'])) {
+//    $vars['navigation'] = theme('links__system_main_menu', array(
+//      'links' => $vars['main_menu'],
+//      'attributes' => array(
+//        'class' => array('links', 'inline', 'main-menu'),
+//      ),
+//      'heading' => array(
+//        'text' => t('Main menu'),
+//        'level' => 'h2',
+//        'class' => array('element-invisible'),
+//      )
+//    ));
+//  }
   $vars['rentina_logo'] = theme_get_setting('rentina_logo', 'coworker');
 
   if (module_exists('search')) {

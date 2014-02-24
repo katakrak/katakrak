@@ -1,6 +1,6 @@
 <?php
 
-function _custom_main_menu_render_superfish() {
+function _custom_main_menu_render_superfish($trail) {
 
 
   $variables = array(
@@ -61,6 +61,7 @@ function _custom_main_menu_render_superfish() {
     // $cache['menu'] = menu_tree_all_data($menu_name);
 
     $tree = menu_tree_all_data($menu_name);
+    //$tree = $menu;
 // Localize the tree.
     if (module_exists('i18n_menu')) {
       $tree = i18n_menu_localize_tree($tree);
@@ -103,7 +104,7 @@ function _custom_main_menu_render_superfish() {
         'id' => $id,
         'menu' => $cache['menu'],
         'depth' => $depth,
-        'trail' => _custom_menu_build_page_trail(menu_tree_page_data($menu_name)),
+        'trail' => array_merge(array($trail, _custom_menu_build_page_trail(menu_tree_page_data($menu_name)))),
         'sfsettings' => $sfsettings
     );
     if ($menu_tree = _custom_menu_superfish_build($var)) {
@@ -157,7 +158,6 @@ function _custom_menu_superfish_build($variables) {
       $total_children++;
     }
   }
-
   foreach ($menu as $menu_item) {
 
     $show_children = $megamenu_wrapper = $megamenu_column = $megamenu_content = FALSE;
