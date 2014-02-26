@@ -376,7 +376,7 @@ function create_cover($url, $isbn) {
   }
   else {
   
-    $filepath = sprintf("%s/%s/portadas/%s",DRUPAL_ROOT, variable_get('file_public_path', 'sites/default/files'), $filename);
+    $filepath = sprintf("%s/%s/portadas/%s",DRUPAL_ROOT, variable_get('file_public_path', 'sites/test.katakrak.net/files'), $filename);
     $file = new stdClass();
     if ($cover_request->code == 200) {
       file_put_contents($filepath, $cover_request->data);

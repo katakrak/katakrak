@@ -239,7 +239,6 @@ function commerce_shipping_weight_tariff_service_rate($shipping_service, $order)
     $order_weight = 0;
   }
   $products = _commerce_shipping_weight_tariff_fetch_tariff_products($shipping_service['name']);
-
   // Create an array of max weight => product id, for all the weights that are
   // applicable. We then take the lowest one.
   // (There is potential for clobbering here, but if you define two tariffs
@@ -271,7 +270,7 @@ function commerce_shipping_weight_tariff_service_rate($shipping_service, $order)
   if (empty($product_max_weights)) {
     return;
   }
-
+  ksort($product_max_weights);
   // Sort the weights array by weight, then take the lowest item.
   $tariff_product_id = array_shift($product_max_weights);
   // Get our desired tariff product.
@@ -389,9 +388,20 @@ function commerce_shipping_weight_tariff_service_save($shipping_service, $skip_r
 }
 
 function _commerce_shipping_weight_tariff_fetch_tariff_products($name=false, $asClass=true) {
-  $products = commerce_product_load_multiple(array(), array('type' => 'shipping_tariff'));
-  if(!$asClass) {
-    $products = array_keys($products);
+  $products = array();
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'commerce_product')
+    ->entityCondition('bundle', 'shipping_tariff');
+  if($name) {
+    $query->fieldCondition('commerce_product_tariff_service', 'value', $name, '=');
+  }
+  $result = $query->execute();
+
+  if (isset($result['commerce_product'])) {
+    $products = commerce_product_load_multiple(array_keys($result['commerce_product']));
+    if(!$asClass) {
+      $products = array_keys($products);
+    }
   }
   return $products;
 }

@@ -18,7 +18,7 @@ function geslib_process_read_file($geslib_file_path, &$context) {
     $context['results']['inter_file'] = substr($geslib_file_path, strrpos($geslib_file_path, '/') +1);
   }
   
-  $limit = count($geslib_file_array) < 10000 ? count($geslib_file_array): 10000;
+  $limit = count($geslib_file_array) < 1000 ? count($geslib_file_array): 1000;
   
   $i = 0;
   $geslib_lines = array();

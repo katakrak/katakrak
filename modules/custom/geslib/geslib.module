@@ -146,9 +146,9 @@ function geslib_first_import_form_submit($form, &$form_state) {
     if ($form_state['values']['geslib_process_categories'])
       $operations[] = array('geslib_process_items', array('category', 25));
     if ($form_state['values']['geslib_process_publishers'])
-      $operations[] = array('geslib_process_items', array('publisher', 100));
+      $operations[] = array('geslib_process_items', array('publisher', 50));
     if ($form_state['values']['geslib_process_authors'])
-      $operations[] = array('geslib_process_items', array('author', 100));
+      $operations[] = array('geslib_process_items', array('author', 50));
     if ($form_state['values']['geslib_process_items'])
       $operations[] = array('geslib_process_items', array('product', 50));
     $batch = array(
@@ -258,7 +258,7 @@ function _geslib_get_file_to_process() {
   
   $files = array();
   foreach ($files_tmp as $value) {
-    if (strpos($value, '.') !== 0 && !in_array($value, $processed_files)){
+    if (strpos($value, '.') !== 0 && strpos($value, '-') !== 0 && !in_array($value, $processed_files)){
       $files[] = $value;
     }
   }

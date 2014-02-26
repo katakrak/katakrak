@@ -85,7 +85,8 @@ function katakrak_geslib_geslib_author($op, $author) {
         $term->field_autor_geslib_id['und'][0]['value'] = $author['geslib_id'];
       }
       $author_array = explode(',', $author['autor']);
-      $term->field_autor_nombre['und'][0]['value'] = mb_convert_case($author_array[1], MB_CASE_TITLE, "UTF-8");
+      if (isset($author_array[1]))
+        $term->field_autor_nombre['und'][0]['value'] = mb_convert_case($author_array[1], MB_CASE_TITLE, "UTF-8");
       $term->field_autor_apellido['und'][0]['value'] = mb_convert_case($author_array[0], MB_CASE_TITLE, "UTF-8");
       $term->name = sprintf("%s %s", $term->field_autor_nombre['und'][0]['value'], $term->field_autor_apellido['und'][0]['value']);
       
