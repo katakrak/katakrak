@@ -38,11 +38,8 @@
 
               <table class="twelve columns">
                 <tr>
-                  <td class="six sub-columns">
-                    <img src="http://placehold.it/200x50">
-                  </td>
-                  <td class="six sub-columns last" style="text-align:right; vertical-align:middle;">
-                    <span class="template-label">SIDEBAR HERO</span>
+                  <td class="last">
+                    <img src="<?php print 'http://test.katakrak.net/'.drupal_get_path('theme', 'coworker').'/images/boletin/buletin_header.png' ?>">
                   </td>
                   <td class="expander"></td>
                 </tr>
