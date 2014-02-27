@@ -48,6 +48,7 @@ function coworker_preprocess_html(&$variables) {
 
 function coworker_preprocess_page(&$vars) {
   // navigation
+  $trail = NULL;
   foreach ($vars['main_menu'] as $id => $menu_item) {
     if (strpos($id, 'active')) {
       $trail = substr($id, 5, strpos($id, ' ') - 5);

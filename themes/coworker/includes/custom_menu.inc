@@ -104,7 +104,7 @@ function _custom_main_menu_render_superfish($trail) {
         'id' => $id,
         'menu' => $cache['menu'],
         'depth' => $depth,
-        'trail' => array_merge(array($trail, _custom_menu_build_page_trail(menu_tree_page_data($menu_name)))),
+        'trail' => array_merge(array($trail), _custom_menu_build_page_trail(menu_tree_page_data($menu_name))),
         'sfsettings' => $sfsettings
     );
     if ($menu_tree = _custom_menu_superfish_build($var)) {
