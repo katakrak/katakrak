@@ -33,7 +33,7 @@ function katakrak_kantina_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'isotope';
   $handler->display->display_options['style_options']['portfolio_style'] = 'portfolio-4';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Header: Global: View area */
+  /* Encabezado: Global: View area */
   $handler->display->display_options['header']['view']['id'] = 'view';
   $handler->display->display_options['header']['view']['table'] = 'views';
   $handler->display->display_options['header']['view']['field'] = 'view';
@@ -96,6 +96,11 @@ function katakrak_kantina_views_default_views() {
   /* Display: Kantina page block */
   $handler = $view->new_display('block', 'Kantina page block', 'block_page');
   $handler->display->display_options['defaults']['header'] = FALSE;
+
+  /* Display: Página */
+  $handler = $view->new_display('page', 'Página', 'productos');
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  $handler->display->display_options['path'] = 'cantina/productos';
   $translatables['kantina'] = array(
     t('Master'),
     t('Productos de cafetería'),
@@ -107,6 +112,7 @@ function katakrak_kantina_views_default_views() {
     t('Desc'),
     t('queue'),
     t('Kantina page block'),
+    t('Página'),
   );
   $export['kantina'] = $view;
 

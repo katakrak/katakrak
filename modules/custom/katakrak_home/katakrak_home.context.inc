@@ -32,9 +32,9 @@ function katakrak_home_context_default_contexts() {
           'region' => 'sidebar_second',
           'weight' => '-10',
         ),
-        'layer_slider-5' => array(
+        'layer_slider-1' => array(
           'module' => 'layer_slider',
-          'delta' => '5',
+          'delta' => '1',
           'region' => 'slider',
           'weight' => '-10',
         ),
