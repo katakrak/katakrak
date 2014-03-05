@@ -11,6 +11,7 @@
   background-image: url("images/fondo.png");
   background-repeat: no-repeat;
   background-size: 1666px 243px;
+  border-bottom: 45px solid #000;
 }
 
 #header .container {
