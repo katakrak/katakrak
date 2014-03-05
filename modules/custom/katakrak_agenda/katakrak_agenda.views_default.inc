@@ -38,7 +38,7 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '8';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['style_plugin'] = 'calendar_style';
+  $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Relationship: Nodequeue: Queue */
   $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
@@ -214,15 +214,22 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['fields']['field_event_type']['label'] = '';
   $handler->display->display_options['fields']['field_event_type']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_event_type']['type'] = 'i18n_taxonomy_term_reference_plain';
+  /* Campo: Contenido: Ruta */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['path']['absolute'] = TRUE;
   /* Campo: Contenido: Description */
   $handler->display->display_options['fields']['field_event_description']['id'] = 'field_event_description';
   $handler->display->display_options['fields']['field_event_description']['table'] = 'field_data_field_event_description';
   $handler->display->display_options['fields']['field_event_description']['field'] = 'field_event_description';
   $handler->display->display_options['fields']['field_event_description']['label'] = '';
   $handler->display->display_options['fields']['field_event_description']['alter']['max_length'] = '500';
-  $handler->display->display_options['fields']['field_event_description']['alter']['more_link'] = TRUE;
   $handler->display->display_options['fields']['field_event_description']['alter']['more_link_text'] = 'Leer más';
-  $handler->display->display_options['fields']['field_event_description']['alter']['more_link_path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_event_description']['alter']['more_link_path'] = '[path]';
   $handler->display->display_options['fields']['field_event_description']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['field_event_description']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
