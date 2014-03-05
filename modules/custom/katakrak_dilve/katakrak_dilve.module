@@ -48,6 +48,37 @@ function katakrak_dilve_access_node_info($perm, $node) {
   return FALSE;
 }
 
+/**
+* Implements hook_cron_queue_info().
+*/
+function katakrak_dilve_cron_queue_info() {
+  $queues = array();
+  $queues['dilveCronQueue'] = array(
+    'worker callback' => 'katakrak_dilve_process_item', //function to call for each item
+    'time' => 30, //seconds to spend working on the queue
+  );
+  return $queues;
+}
+
+/**
+* Implements hook_cron().
+*/
+function katakrak_dilve_cron() {
+  $nodes_db = db_select('node', 'n');
+  $nodes_db->addJoin('LEFT', 'field_data_field_libro_dilve', 'd', 'n.nid = d.entity_id');
+  $nodes = $nodes_db->fields('n', array('nid'))->fields('d', array('field_libro_dilve_value'))
+    ->condition('type', 'libro')->isNull('d.field_libro_dilve_value')->range(0, 500)->execute();
+  if ($nodes->rowCount()) {
+    $queue = DrupalQueue::get('dilveCronQueue');
+    foreach ($nodes->fetchAll() as $nid) {
+      $node = node_load($nid->nid);
+      $queue->createItem($node->nid);
+      $node->field_libro_dilve['und'][0]['value'] = 0;
+      node_save($node);
+    }
+  }
+}
+
 function katakrak_dilve_settings_form($form, &$form_state) {
   $form['dilve_user'] = array(
     '#type' => 'textfield',
@@ -348,6 +379,77 @@ function katakrak_dilve_batch_process_finish($success, $results, $operations) {
     $error_operation = reset($operations);
     $message = t('An error occurred while processing %error_operation with arguments: @arguments', array('%error_operation' => $error_operation[0], '@arguments' => print_r($error_operation[1], TRUE)));
     drupal_set_message($message, 'error');
+  }
+}
+
+
+function katakrak_dilve_process_item($nid) {
+  $dilve  = new DilveSearch(variable_get('dilve_user', ''), variable_get('dilve_pass', ''));
+  $node = node_load($nid);
+  if ($node->field_libro_dilve['und'][0]['value'] === 1) {
+    $book = $dilve->search($node->field_libro_ean['und'][0]['value']);
+
+    if (is_string($book)) {
+      $node->field_libro_dilve['und'][0]['value'] = 1;
+      $node->title_field['und'][0]['value'] = $node->title;
+    }
+    else {
+
+      $product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
+
+      if ($book['title']) {
+        $product->title = $book['title'];
+        $node->title = $book['title'];
+        $node->title_field['und'][0]['value'] = $values['title'];
+      }
+
+      if ($book['weight']) {
+        $product->field_product_peso['und'][0] = array(
+          'weight' => $book['weight']['value'],
+          'unit' => 'g',
+        );
+      }
+
+      if (isset($book['description'])) {
+        $node->field_libro_sinopsis['und'][0]['value'] = $book['description'];
+        $node->field_libro_sinopsis['und'][0]['format'] = 'sinopsis';
+      }
+      if (isset($book['date'])) {
+        $year_number = substr($book['date'], 0, 4);
+        $year_terms = taxonomy_get_term_by_name($year_number, 'urtea');
+        if ($year_terms) {
+          $year = array_pop($year_terms);
+        }
+        else {
+          $year = new stdClass();
+          foreach (taxonomy_get_vocabularies() as $vid => $vocab){
+            if ($vocab->name == 'Año') {
+              $year->vid = $vid ;
+            }
+          }
+          $year->name = $year_number;
+          taxonomy_term_save($year);
+        }
+        $node->field_libro_year['und'][0]['tid'] = $year->tid;
+      }
+      if (isset($book['pages']))
+        $node->field_libro_paginas['und'][0]['value'] = $book['pages'];
+      if (isset($book["subtitle"]))
+        $node->field_libro_subtitulo['und'][0]['value'] = $book['subtitle'];
+      if ($book['cover_url']) {
+        $file = create_cover($book['cover_url'], $node->field_libro_ean['und'][0]['value']);
+        if (!empty($file)){
+          $node->field_libro_portada['und'][0] = $file;
+          $node->field_libro_portada['und'][0]['title'] = $node->title;
+          $node->field_libro_portada['und'][0]['alt'] = $node->title;
+        }
+      }
+
+      $node->field_libro_dilve['und'][0]['value'] = 2;
+
+      commerce_product_save($product);
+    }
+    node_save($node);
   }
 }
 
