@@ -10,7 +10,7 @@
     <div class="katua visible-desktop">
       <img src="/<?php print drupal_get_path('theme', 'coworker')?>/images/footer/katua.gif">
     </div>
-    <div id="footer" class="footer-<?php //print $footer_style; ?>">
+    <div id="footer" class="footer-<?php print $footer_style; ?>">
       <div class="container clearfix">
         <div class="footer-widgets-wrap clearfix">
           <?php if ($page['footer_first']): ?>

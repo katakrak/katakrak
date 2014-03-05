@@ -46,6 +46,10 @@ function katakrak_theme() {
       'template' => 'katakrak-social-block',
       'path' => $path . '/templates',
     ),
+    'katakrak_footer_first' => array(
+      'template' => 'katakrak-footer-first',
+      'path' => $path . '/templates',
+    ),
   );
 }
 
@@ -135,7 +139,7 @@ function katakrak_block_view($delta) {
       $block['content'] = l(t('Mi cuenta'), 'user');
 
     }
-    return $block;
+    //return $block;
   }
   if ($delta == 'katakrak_cart') {
     global $user;
@@ -149,10 +153,15 @@ function katakrak_block_view($delta) {
     }
     $content = theme('katakrak_cart_block', array('num_items' => $num_items));
     $block['content'] = $content;
-    return $block;
+    //return $block;
   }
   if ($delta == 'katakrak_social') {
     $block['content'] = theme('katakrak_social_block');
+    return $block;
+  }
+  if ($delta == 'footer_first') {
+    $block['title'] = 'Katakrak Liburuak';
+    $block['content'] = theme('katakrak_footer_first');
     return $block;
   }
 }

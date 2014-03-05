@@ -4,7 +4,7 @@
   <div id="page-title">
         <div class="container clearfix">
           <div class="col-3">
-          <h1><?php print $section_title; ?></h1>
+          <h1><?php print t($section_title) ?></h1>
           </div>
         </div>
       </div>

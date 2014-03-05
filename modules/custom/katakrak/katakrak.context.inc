@@ -50,16 +50,22 @@ function katakrak_context_default_contexts() {
           'region' => 'post_content_bottom_right',
           'weight' => '-9',
         ),
-        'boxes-footer' => array(
-          'module' => 'boxes',
-          'delta' => 'footer',
-          'region' => 'footer',
+        'katakrak-footer_first' => array(
+          'module' => 'katakrak',
+          'delta' => 'footer_first',
+          'region' => 'footer_first',
           'weight' => '-10',
         ),
-        'boxes-about_us' => array(
-          'module' => 'boxes',
-          'delta' => 'about_us',
-          'region' => 'footer_first',
+        'katakrak-footer_second' => array(
+          'module' => 'katakrak',
+          'delta' => 'footer_second',
+          'region' => 'footer_second',
+          'weight' => '-10',
+        ),
+        'katakrak-footer_third' => array(
+          'module' => 'katakrak',
+          'delta' => 'footer_third',
+          'region' => 'footer_third',
           'weight' => '-10',
         ),
       ),
