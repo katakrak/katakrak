@@ -261,7 +261,7 @@ function libro_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        0 => 'No consultado',
+        0 => 'En cola',
         1 => 'No',
         2 => 'Sí',
       ),

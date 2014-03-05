@@ -13,6 +13,30 @@ function libro_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'faq-libreria';
+  $context->description = '';
+  $context->tag = 'Book';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'faq-librería' => 'faq-librería',
+        'faq-liburudenda' => 'faq-liburudenda',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'menu' => 'libros',
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Book');
+  $export['faq-libreria'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'node_book';
   $context->description = '';
   $context->tag = 'Book';
