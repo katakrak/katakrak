@@ -15,3 +15,59 @@ function katakrak_kantina_query_alter($query) {
      $query->condition('n.type', 'page');
    }
 }
+
+/**
+ * Implements hook_block_info().
+ */
+function katakrak_kantina_block_info() {
+  $blocks = array();
+  $blocks['katakrak_reserva_block'] = array(
+    'info' => t('Reserva block'),
+    // Not worth caching.
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function katakrak_kantina_block_view($delta) {
+  if ($delta == 'katakrak_reserva_block') {
+    $block['title'] = t('Reserva sitio para comer');
+    $block['content'] = drupal_get_form('katakrak_kantina_reserva_form');
+    return $block;
+  }
+}
+
+function katakrak_kantina_reserva_form($form, &$form_state) {
+  $form['nombre'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Nombre'),
+    '#description' => t('Nombre de la reserva'),
+    '#attributes' => array(
+      'placeholder' => t('Nombre')
+    ),
+  );
+  $form['comensales'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Número de comensales'),
+    '#attributes' => array(
+      'placeholder' => 2
+    ),
+  );
+  $form['date'] = array(
+    '#type' => 'date_popup',
+    '#title' => t('Fecha y hora'),
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Submit'),
+  );
+  return $form;
+}
+
+
+function katakrak_kantina_reserva_form_submit($form, &$form_state) {
+  dpm($form_state);
+}
