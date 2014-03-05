@@ -94,6 +94,7 @@
       </div>
       <div class="span10">
         <h1><?php print $node->title ?></h1>
+        <h3><?php print render($content['field_event_type']) ?></h3>
       </div>
       
     </div>
