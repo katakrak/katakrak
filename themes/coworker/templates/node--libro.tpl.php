@@ -154,7 +154,7 @@
               </div>
               <div class="book-info-entry">
                 <span class="col-2 book-info-label">
-                  <?php print t('ISBN') ?>
+                  <?php print t('Editorial') ?>
                 </span>
                 <span class="col-2 book-info-data">
                     <?php print $content['field_libro_editorial'][0]['#markup'] ?>
@@ -165,7 +165,7 @@
                   <?php print t('Estado') ?>
                 </span>
                 <span class="col-2 book-info-data">
-                    <?php print isset($content['estado']) ? $content['estado'] :  $content['field_libro_estado'][0]['#markup'] ?>
+                    <?php print isset($content['estado']) ? $content['estado'] :  t($content['field_libro_estado'][0]['#markup']) ?>
                 </span>
               </div>
               <div class="book-info-entry">
