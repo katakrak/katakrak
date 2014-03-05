@@ -16,7 +16,6 @@ dependencies[] = context_layouts
 dependencies[] = contextual
 dependencies[] = ctools
 dependencies[] = dashboard
-dependencies[] = devel
 dependencies[] = features
 dependencies[] = image
 dependencies[] = layer_slider

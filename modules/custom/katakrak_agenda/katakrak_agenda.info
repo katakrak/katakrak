@@ -4,6 +4,7 @@ package = Katakrak
 version = 7.x-1.0
 project = katakrak_agenda
 dependencies[] = boxes
+dependencies[] = calendar
 dependencies[] = colorbox
 dependencies[] = context
 dependencies[] = ctools
