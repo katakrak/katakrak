@@ -68,9 +68,9 @@
           <table class="twelve columns">
             <tr>
               <td>
-                <h1>Welcome, Daneel Olivan</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
-                <img width="580" height="300" src="http://placehold.it/580x300">
+                <h1><?php print $build['#node']->title ?></h1>
+                
+                <?php print theme('image_style', array('style_name' => 'boletin_destacado', 'path' => $build['#node']->field_boletin_imagen['und'][0]['uri'])) ?>
               </td>
               <td class="expander"></td>
             </tr>
@@ -79,7 +79,7 @@
           <table class="twelve columns">
             <tr>
               <td class="panel">
-                <p>Phasellus dictum sapien a neque luctus cursus. Pellentesque sem dolor, fringilla et pharetra vitae. <a href="#">Click it! »</a></p>
+                <p><?php print $build['#node']->body[LANGUAGE_NONE][0]['value'] ?></p>
               </td>
               <td class="expander"></td>
             </tr>
@@ -98,10 +98,10 @@
           <table class="six columns">
             <tr>
               <td>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et. Lorem ipsum dolor sit amet.</p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et. Lorem ipsum dolor sit amet.</p>
+                <?php foreach($build['#node']->field_boletin_libros['und'] as $i => $nid): ?>
+                <?php $event = node_load($nid['nid']); ?>
+                <?php endforeach; ?>
+                <p></p>
 
                 <table class="button">
                   <tr>
@@ -123,7 +123,6 @@
             <tr>
               <td class="panel">
                 <h6>Libros de la semana / Asteko liburuak</h6>
-                <p>Sub-head or something</p>
                 <?php foreach($build['#node']->field_boletin_libros['und'] as $i => $nid): ?>
                 <?php $libro = node_load($nid['nid']); ?>
                 <table>

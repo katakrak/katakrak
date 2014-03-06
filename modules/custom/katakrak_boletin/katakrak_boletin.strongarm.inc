@@ -82,6 +82,13 @@ function katakrak_boletin_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_sync_node_type_boletin';
+  $strongarm->value = array();
+  $export['i18n_sync_node_type_boletin'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_boletin';
   $strongarm->value = '0';
   $export['language_content_type_boletin'] = $strongarm;

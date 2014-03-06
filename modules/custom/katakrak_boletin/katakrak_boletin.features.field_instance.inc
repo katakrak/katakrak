@@ -95,6 +95,47 @@ function katakrak_boletin_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-boletin-field_boletin_eventos'
+  $field_instances['node-boletin-field_boletin_eventos'] = array(
+    'bundle' => 'boletin',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'node_reference',
+        'settings' => array(),
+        'type' => 'node_reference_default',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_boletin_eventos',
+    'label' => 'Eventos',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'node_reference',
+      'settings' => array(
+        'autocomplete_match' => 'contains',
+        'autocomplete_path' => 'node_reference/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'node_reference_autocomplete',
+      'weight' => 32,
+    ),
+  );
+
   // Exported field_instance: 'node-boletin-field_boletin_imagen'
   $field_instances['node-boletin-field_boletin_imagen'] = array(
     'bundle' => 'boletin',
@@ -244,6 +285,7 @@ function katakrak_boletin_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Body');
   t('Destacado');
+  t('Eventos');
   t('Imagen');
   t('Libros');
   t('Newsletter category');
