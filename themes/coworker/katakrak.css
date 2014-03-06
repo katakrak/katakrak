@@ -524,3 +524,7 @@ div.search-results div:last-child {
 .book-page-search-form input[type="text"], #apachesolr-panels-search-form input[type="text"], #katakrak-search-form input[type="text"] {
   width: 95%;
 }
+
+.fa-6x {
+  font-size: 10em;
+}
