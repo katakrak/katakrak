@@ -147,7 +147,7 @@ function katakrak_boletin_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => '',
+          'image_style' => 'boletin_destacado',
         ),
         'type' => 'image',
         'weight' => 5,
