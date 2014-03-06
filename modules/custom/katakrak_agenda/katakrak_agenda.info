@@ -42,6 +42,7 @@ features[field_instance][] = node-event-field_event_image
 features[field_instance][] = node-event-field_event_libro
 features[field_instance][] = node-event-field_event_type
 features[field_instance][] = node-event-title_field
+features[image][] = event_highlight
 features[image][] = event_home
 features[image][] = event_node_view
 features[image][] = event_teaser

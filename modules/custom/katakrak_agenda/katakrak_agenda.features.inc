@@ -32,6 +32,46 @@ function katakrak_agenda_views_api($module = NULL, $api = NULL) {
 function katakrak_agenda_image_default_styles() {
   $styles = array();
 
+  // Exported image style: event_highlight.
+  $styles['event_highlight'] = array(
+    'name' => 'event_highlight',
+    'label' => 'Event highlight',
+    'effects' => array(
+      3 => array(
+        'label' => 'Escala',
+        'help' => 'El escalado mantiene la relación de proporciones de la imagen original. Si sólo se especifica una dimensión, la otra se calculará.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 600,
+          'height' => '',
+          'upscale' => 0,
+        ),
+        'weight' => 1,
+      ),
+      8 => array(
+        'label' => 'Recortar',
+        'help' => 'El recorte eliminará partes de una imagen para que tenga las dimensiones especificadas.',
+        'effect callback' => 'image_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_crop_form',
+        'summary theme' => 'image_crop_summary',
+        'module' => 'image',
+        'name' => 'image_crop',
+        'data' => array(
+          'width' => 600,
+          'height' => 400,
+          'anchor' => 'left-top',
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
   // Exported image style: event_home.
   $styles['event_home'] = array(
     'name' => 'event_home',
