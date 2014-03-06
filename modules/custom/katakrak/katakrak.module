@@ -50,6 +50,11 @@ function katakrak_theme() {
       'template' => 'katakrak-footer-first',
       'path' => $path . '/templates',
     ),
+    'katakrak_footer_second' => array(
+      'template' => 'katakrak-footer-second',
+      'path' => $path . '/templates',
+    ),
+    
   );
 }
 
@@ -162,6 +167,11 @@ function katakrak_block_view($delta) {
   if ($delta == 'footer_first') {
     $block['title'] = 'Katakrak Liburuak';
     $block['content'] = theme('katakrak_footer_first');
+    return $block;
+  }
+  if ($delta == 'footer_second') {
+    $block['title'] = t('Enlaces');
+    $block['content'] = theme('katakrak_footer_second');
     return $block;
   }
 }
