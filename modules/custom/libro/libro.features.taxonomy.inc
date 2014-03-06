@@ -60,7 +60,7 @@ function libro_taxonomy_default_vocabularies() {
       ),
     ),
     'materias' => array(
-      'name' => 'Materias',
+      'name' => 'Sección',
       'machine_name' => 'materias',
       'description' => '',
       'hierarchy' => 0,

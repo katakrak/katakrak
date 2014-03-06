@@ -20,7 +20,7 @@ function libro_context_default_contexts() {
     'path' => array(
       'values' => array(
         'faq-librería' => 'faq-librería',
-        'faq-liburu-denda' => 'faq-liburu-denda',
+        'faq-liburudenda' => 'faq-liburudenda',
       ),
     ),
   );
