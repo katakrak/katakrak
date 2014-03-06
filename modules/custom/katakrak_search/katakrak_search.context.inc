@@ -13,50 +13,19 @@ function katakrak_search_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
-  $context->name = 'search_page';
-  $context->description = 'Search page';
-  $context->tag = '';
+  $context->name = 'search';
+  $context->description = '';
+  $context->tag = 'Search';
   $context->conditions = array(
     'path' => array(
       'values' => array(
-        'search/books*' => 'search/books*',
+        'search/*' => 'search/*',
       ),
     ),
   );
   $context->reactions = array(
     'block' => array(
-      'blocks' => array(
-        'apachesolr_search-sort' => array(
-          'module' => 'apachesolr_search',
-          'delta' => 'sort',
-          'region' => 'sidebar_first',
-          'weight' => '-10',
-        ),
-        'facetapi-gsuabqVf0AVVqe53zFv7k6te9HVy12PJ' => array(
-          'module' => 'facetapi',
-          'delta' => 'gsuabqVf0AVVqe53zFv7k6te9HVy12PJ',
-          'region' => 'sidebar_first',
-          'weight' => '-9',
-        ),
-        'facetapi-R2UTz6TzAt7lw1croPaTispTk1IwtN2e' => array(
-          'module' => 'facetapi',
-          'delta' => 'R2UTz6TzAt7lw1croPaTispTk1IwtN2e',
-          'region' => 'sidebar_first',
-          'weight' => '-8',
-        ),
-        'facetapi-FM9Alkv8hyOtkShgOh3ba7QsdDWF4EHK' => array(
-          'module' => 'facetapi',
-          'delta' => 'FM9Alkv8hyOtkShgOh3ba7QsdDWF4EHK',
-          'region' => 'sidebar_first',
-          'weight' => '-7',
-        ),
-        'system-main' => array(
-          'module' => 'system',
-          'delta' => 'main',
-          'region' => 'content',
-          'weight' => '-17',
-        ),
-      ),
+      'blocks' => array(),
       'layout' => 'search',
     ),
   );
@@ -64,8 +33,8 @@ function katakrak_search_context_default_contexts() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Search page');
-  $export['search_page'] = $context;
+  t('Search');
+  $export['search'] = $context;
 
   return $export;
 }

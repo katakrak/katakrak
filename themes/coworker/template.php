@@ -84,23 +84,22 @@ function coworker_preprocess_search_result(&$vars) {
   
   if ($vars['result']['entity_type'] == 'node') {
     $node = node_load($vars['result']['node']->entity_id);
-    if ($node->field_libro_portada) {
-      $vars['image'] = l(theme('image_style', array(
-        'style_name' => 'search_result_cover',
-        'path' => $node->field_libro_portada['und'][0]['uri']
-      )), 'node/'.$node->nid, array('html' => TRUE));
+    if ($node->type == 'libro') {
+      if ($node->field_libro_portada) {
+        $vars['image'] = l(theme('image_style', array(
+          'style_name' => 'search_result_cover',
+          'path' => $node->field_libro_portada['und'][0]['uri']
+        )), 'node/'.$node->nid, array('html' => TRUE));
+      }
+      else {
+        $vars['image'] = '<i class="fa fa-book fa-5x"></i>';
+      }
     }
     elseif ($node->field_event_image) {
       $vars['image'] = l(theme('image_style', array(
         'style_name' => 'search_result_cover',
         'path' => $node->field_event_image['und'][0]['uri']
       )), 'node/'.$node->nid, array('html' => TRUE));
-    }
-    else {
-      $vars['image'] = theme('image_style', array(
-        'style_name' => 'search_result_cover',
-        'path' => 'public://image-not-found.gif'
-      ));
     }
     $vars['node'] = $node;
   }

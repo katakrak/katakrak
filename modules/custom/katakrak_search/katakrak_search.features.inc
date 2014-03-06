@@ -11,6 +11,9 @@ function katakrak_search_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "apachesolr" && $api == "apachesolr_environments") {
     return array("version" => "1");
   }
+  if ($module == "context" && $api == "context") {
+    return array("version" => "3");
+  }
   if ($module == "facetapi" && $api == "facetapi_defaults") {
     return array("version" => "1");
   }
