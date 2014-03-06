@@ -1,14 +1,11 @@
 <?php include 'page-header.inc' ?>
 <div id="content">
-  <?php if (!drupal_is_front_page()): ?>
-    <?php if ($title): ?>
-      <div id="page-title">
-        <div class="container clearfix">
-          <h1><?php print $title; ?></h1>
-        </div>
+  <?php if ($title): ?>
+    <div id="page-title">
+      <div class="container clearfix">
+        <h1><?php print t("Buscando <strong>@search_term</strong>", array('@search_term' => arg(2))) ?></h1>
       </div>
-
-    <?php endif; ?>
+    </div>
   <?php endif; ?>
 
 

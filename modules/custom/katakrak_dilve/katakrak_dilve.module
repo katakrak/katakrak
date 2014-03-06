@@ -63,11 +63,11 @@ function katakrak_dilve_cron_queue_info() {
 /**
 * Implements hook_cron().
 */
-function katakrak_dilve_cron() {
+function _katakrak_dilve_cron() {
   $nodes_db = db_select('node', 'n');
   $nodes_db->addJoin('LEFT', 'field_data_field_libro_dilve', 'd', 'n.nid = d.entity_id');
   $nodes = $nodes_db->fields('n', array('nid'))->fields('d', array('field_libro_dilve_value'))
-    ->condition('type', 'libro')->isNull('d.field_libro_dilve_value')->range(0, 500)->execute();
+    ->condition('type', 'libro')->isNull('d.field_libro_dilve_value')->range(0, 100)->execute();
   if ($nodes->rowCount()) {
     $queue = DrupalQueue::get('dilveCronQueue');
     foreach ($nodes->fetchAll() as $nid) {
@@ -252,6 +252,7 @@ function dilve_node_info_form_submit($form, &$form_state) {
     $node->field_libro_paginas['und'][0]['value'] = $values['pages'];
   
   if ($values['image']) {
+    
     $file = create_cover($values['image'], $node->field_libro_ean['und'][0]['value']);
     
     if (!empty($file)) {
@@ -386,7 +387,7 @@ function katakrak_dilve_batch_process_finish($success, $results, $operations) {
 function katakrak_dilve_process_item($nid) {
   $dilve  = new DilveSearch(variable_get('dilve_user', ''), variable_get('dilve_pass', ''));
   $node = node_load($nid);
-  if ($node->field_libro_dilve['und'][0]['value'] === 1) {
+  if ($node->field_libro_dilve['und'][0]['value'] == 0) {
     $book = $dilve->search($node->field_libro_ean['und'][0]['value']);
 
     if (is_string($book)) {
@@ -394,13 +395,13 @@ function katakrak_dilve_process_item($nid) {
       $node->title_field['und'][0]['value'] = $node->title;
     }
     else {
-
+      watchdog('dilve',$nid);
       $product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
 
       if ($book['title']) {
         $product->title = $book['title'];
         $node->title = $book['title'];
-        $node->title_field['und'][0]['value'] = $values['title'];
+        $node->title_field['und'][0]['value'] = $book['title'];
       }
 
       if ($book['weight']) {

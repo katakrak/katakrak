@@ -157,6 +157,22 @@ function katakrak_agenda_image_default_styles() {
         ),
         'weight' => 1,
       ),
+      9 => array(
+        'label' => 'Recortar',
+        'help' => 'El recorte eliminará partes de una imagen para que tenga las dimensiones especificadas.',
+        'effect callback' => 'image_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_crop_form',
+        'summary theme' => 'image_crop_summary',
+        'module' => 'image',
+        'name' => 'image_crop',
+        'data' => array(
+          'width' => 470,
+          'height' => 200,
+          'anchor' => 'left-top',
+        ),
+        'weight' => 2,
+      ),
     ),
   );
 

@@ -306,13 +306,13 @@
 
 .katua {
   position: absolute;
-  right: 0;
-  bottom: 185px;
+  right: 20px;
+  bottom: 200px;
   z-index: 2;
 }
 
 #footer {
-  background:  url("images/footer/footer.png") no-repeat;
+  background:  url("images/footer/footer.png");
   
 /* url("images/footer/begiak.png") no-repeat 79% 10%,  background-repeat: no-repeat;
   background-size: 1434px 294px;
@@ -470,6 +470,10 @@ div.search-results div:last-child {
 }
 
 /** Agenda styles **/
+
+.agenda-page h1 {
+  word-break: break-word;
+}
 
 .entry_date {
   float: none;

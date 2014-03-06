@@ -130,6 +130,25 @@ layouts[kantina][regions][] = "footer_second"
 layouts[kantina][regions][] = "footer_third"
 layouts[kantina][regions][] = "footer_fourth"
 
+layouts[agenda][name] = "Agenda"
+layouts[agenda][description] = "Layout for agenda content."
+layouts[agenda][template] = "templates/layout-agenda"
+layouts[agenda][regions][] = "top_left"
+layouts[agenda][regions][] = "top_right"
+layouts[agenda][regions][] = "top_lang"
+layouts[agenda][regions][] = "content"
+layouts[agenda][regions][] = "sidebar_second"
+layouts[agenda][regions][] = "sidebar_first"
+layouts[agenda][regions][] = "content_bottom"
+layouts[agenda][regions][] = "post_content_bottom_right"
+layouts[agenda][regions][] = "header"
+layouts[agenda][regions][] = "header_right"
+layouts[agenda][regions][] = "footer"
+layouts[agenda][regions][] = "footer_first"
+layouts[agenda][regions][] = "footer_second"
+layouts[agenda][regions][] = "footer_third"
+layouts[agenda][regions][] = "footer_fourth"
+
 features[] = logo
 ;features[] = name
 ;features[] = slogan

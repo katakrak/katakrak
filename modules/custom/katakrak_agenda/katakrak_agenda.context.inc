@@ -25,14 +25,12 @@ function katakrak_agenda_context_default_contexts() {
   );
   $context->reactions = array(
     'block' => array(
-      'blocks' => array(
-        'views-agenda-highlight' => array(
-          'module' => 'views',
-          'delta' => 'agenda-highlight',
-          'region' => 'highlighted',
-          'weight' => '-10',
-        ),
-      ),
+      'blocks' => array(),
+      'layout' => 'agenda',
+    ),
+    'theme' => array(
+      'title' => 'Agenda',
+      'subtitle' => '',
     ),
   );
   $context->condition_mode = 0;
@@ -74,8 +72,13 @@ function katakrak_agenda_context_default_contexts() {
           'weight' => '-9',
         ),
       ),
+      'layout' => 'agenda',
     ),
     'menu' => 'agenda',
+    'theme' => array(
+      'title' => 'Agenda',
+      'subtitle' => '',
+    ),
   );
   $context->condition_mode = 0;
 

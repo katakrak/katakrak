@@ -56,11 +56,17 @@ function katakrak_context_default_contexts() {
           'region' => 'footer_first',
           'weight' => '-10',
         ),
+        'menu-menu-enlaces' => array(
+          'module' => 'menu',
+          'delta' => 'menu-enlaces',
+          'region' => 'footer_second',
+          'weight' => '-10',
+        ),
         'katakrak-footer_second' => array(
           'module' => 'katakrak',
           'delta' => 'footer_second',
           'region' => 'footer_second',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
         'katakrak-footer_third' => array(
           'module' => 'katakrak',
