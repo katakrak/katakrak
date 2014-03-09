@@ -99,6 +99,7 @@
       
     </div>
     <div class="clear"></div>
-    <?php print render($content['field_event_description']) ?>
+    <p><?php print render($content['field_event_description']) ?></p>
+    <p><?php print render($content['field_event_libro']) ?></p>
   </div>
 </div>

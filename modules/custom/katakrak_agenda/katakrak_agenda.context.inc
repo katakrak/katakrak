@@ -25,7 +25,14 @@ function katakrak_agenda_context_default_contexts() {
   );
   $context->reactions = array(
     'block' => array(
-      'blocks' => array(),
+      'blocks' => array(
+        'views-agenda-highlight' => array(
+          'module' => 'views',
+          'delta' => 'agenda-highlight',
+          'region' => 'content_top',
+          'weight' => '-10',
+        ),
+      ),
       'layout' => 'agenda',
     ),
     'theme' => array(
