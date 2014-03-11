@@ -10,7 +10,7 @@
 function libro_taxonomy_default_vocabularies() {
   return array(
     'autores' => array(
-      'name' => 'Autores',
+      'name' => 'Autor',
       'machine_name' => 'autores',
       'description' => '',
       'hierarchy' => 0,
@@ -35,7 +35,7 @@ function libro_taxonomy_default_vocabularies() {
       ),
     ),
     'editoriales' => array(
-      'name' => 'Editoriales',
+      'name' => 'Editorial',
       'machine_name' => 'editoriales',
       'description' => '',
       'hierarchy' => 0,

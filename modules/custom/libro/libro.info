@@ -24,6 +24,7 @@ dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = title
 dependencies[] = views_bootstrap
+dependencies[] = views_content_cache
 dependencies[] = views_data_export
 features[context][] = faq-libreria
 features[context][] = node_book

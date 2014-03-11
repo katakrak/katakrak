@@ -275,7 +275,7 @@ function libro_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_libro_autores',
-    'label' => 'Autores',
+    'label' => 'Autor',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -332,7 +332,7 @@ function libro_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_libro_categoria',
-    'label' => 'Categoria',
+    'label' => 'Sección',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -779,7 +779,7 @@ function libro_field_default_field_instances() {
           'colorbox_caption_custom' => '',
           'colorbox_gallery' => 'post',
           'colorbox_gallery_custom' => '',
-          'colorbox_image_style' => '',
+          'colorbox_image_style' => 'extra_large',
           'colorbox_multivalue_index' => NULL,
           'colorbox_node_style' => 'book_cover',
         ),
@@ -1315,9 +1315,8 @@ function libro_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Apellido');
-  t('Autores');
+  t('Autor');
   t('Año');
-  t('Categoria');
   t('Dilve');
   t('Ean');
   t('Editorial');
@@ -1331,6 +1330,7 @@ function libro_field_default_field_instances() {
   t('Price');
   t('Producto');
   t('Páginas');
+  t('Sección');
   t('Sinopsis');
   t('Stock');
   t('Subtitulo');
