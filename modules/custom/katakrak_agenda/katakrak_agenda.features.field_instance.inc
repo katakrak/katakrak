@@ -142,7 +142,7 @@ function katakrak_agenda_field_default_field_instances() {
           'colorbox_caption_custom' => '',
           'colorbox_gallery' => 'post',
           'colorbox_gallery_custom' => '',
-          'colorbox_image_style' => '',
+          'colorbox_image_style' => 'extra_large',
           'colorbox_multivalue_index' => NULL,
           'colorbox_node_style' => 'event_node_view',
         ),
