@@ -18,6 +18,11 @@ function _coworker_add_css() {
       'css/coworker.css',
       'katakrak.css',
   );
+  if ($node = menu_get_object()) {
+    if ($node->type == 'boletin') {
+      $css_files[] = 'css/mail.css';
+    } 
+  }
   foreach ($css_files as $css_file) {
     drupal_add_css($theme_path . '/' . $css_file);
   }

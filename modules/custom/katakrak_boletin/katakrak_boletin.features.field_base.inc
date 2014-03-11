@@ -57,7 +57,7 @@ function katakrak_boletin_field_default_field_bases() {
   // Exported field_base: 'field_boletin_eventos'
   $field_bases['field_boletin_eventos'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_boletin_eventos',
@@ -91,8 +91,8 @@ function katakrak_boletin_field_default_field_bases() {
       ),
       'view' => array(
         'args' => array(),
-        'display_name' => '',
-        'view_name' => '',
+        'display_name' => 'references_1',
+        'view_name' => 'agenda_admin',
       ),
     ),
     'translatable' => 0,
