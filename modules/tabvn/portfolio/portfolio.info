@@ -32,6 +32,7 @@ features[variable][] = comment_form_location_portfolio
 features[variable][] = comment_portfolio
 features[variable][] = comment_preview_portfolio
 features[variable][] = comment_subject_field_portfolio
+features[variable][] = i18n_sync_node_type_portfolio
 features[variable][] = language_content_type_portfolio
 features[variable][] = menu_options_portfolio
 features[variable][] = menu_parent_portfolio
