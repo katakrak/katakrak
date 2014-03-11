@@ -169,11 +169,6 @@ function katakrak_block_view($delta) {
     $block['content'] = theme('katakrak_footer_first');
     return $block;
   }
-  if ($delta == 'footer_second') {
-    $block['title'] = t('Enlaces');
-    $block['content'] = theme('katakrak_footer_second');
-    return $block;
-  }
 }
 
 /**
