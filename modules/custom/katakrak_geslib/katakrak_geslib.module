@@ -15,11 +15,7 @@ function katakrak_geslib_geslib_publisher($op, $publisher) {
       }
       else {
         $term = new stdClass();
-        foreach (taxonomy_get_vocabularies() as $vid => $vocab){
-          if ($vocab->name == 'Editoriales') {
-            $term->vid = $vid ;
-          }
-        }
+        $term->vid = 6;
         $term->name = mb_convert_case($publisher['title'], MB_CASE_TITLE, "UTF-8");
         $term->field_editorial_geslib_id['und'][0]['value'] = $publisher['geslib_id'];
       }
@@ -46,11 +42,7 @@ switch ($op) {
       }
       else {
         $term = new stdClass();
-        foreach (taxonomy_get_vocabularies() as $vid => $vocab){
-          if ($vocab->name == 'Materias') {
-            $term->vid = $vid ;
-          }
-        }
+        $term->vid = 7 ;
         $term->name = mb_convert_case($category['name'], MB_CASE_TITLE, "UTF-8");
         $term->field_materias_geslib_id['und'][0]['value'] = $category['geslib_id'];
       }
@@ -77,11 +69,7 @@ function katakrak_geslib_geslib_author($op, $author) {
       }
       else {
         $term = new stdClass();
-        foreach (taxonomy_get_vocabularies() as $vid => $vocab){
-          if ($vocab->name == 'Autores') {
-            $term->vid = $vid ;
-          }
-        }
+        $term->vid = 5;
         $term->field_autor_geslib_id['und'][0]['value'] = $author['geslib_id'];
       }
       $author_array = explode(',', $author['autor']);
