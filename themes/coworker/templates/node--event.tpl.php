@@ -80,11 +80,6 @@
  */
 ?>
 <div class="row-fluid">
-  <div class="span4">
-    <?php print render($content['field_event_image']) ?>
-  </div>
-  <div class="span8">
-    <div class="row-fluid">
       <div class="span2">
         <div class="entry_date">
           <div class="day"><?php print format_date($node->field_event_date['und'][0]['value'], 'custom', 'd'); ?></div>
@@ -97,8 +92,15 @@
         <h3><?php print render($content['field_event_type']) ?></h3>
       </div>
       
-    </div>
-    <div class="clear"></div>
+</div>
+
+<div class="dotted-divider"></div>
+
+<div class="row-fluid">
+  <div class="span5">
+    <?php print render($content['field_event_image']) ?>
+  </div>
+  <div class="span7">
     <p><?php print render($content['field_event_description']) ?></p>
     <p><?php print render($content['field_event_libro']) ?></p>
   </div>

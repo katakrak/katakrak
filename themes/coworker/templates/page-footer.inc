@@ -1,17 +1,24 @@
+
+<div class="container">
+<div class="row-fluid">
 <?php if ($page['post_content_bottom_right']): ?>
-  <div id="top-social">
-    <div class="container clearfix>"
+  <div id="top-social" class="span6">
     <?php print render($page['post_content_bottom_right']); ?>
    </div>
 <?php endif; ?>
-
+    <div class="span6">
+      <div class="banda-footer "></div>
+    </div>
+  </div>
+</div>
 <?php $footer_style = theme_get_setting('footer_style', 'coworker'); ?>
   <?php if ($page['footer_first'] || $page['footer_second'] || $page['footer_third'] || $page['footer_fourth']): ?>
-    <div class="katua visible-desktop">
-      <img src="/<?php print drupal_get_path('theme', 'coworker')?>/images/footer/katua.gif">
-    </div>
+    
     <div id="footer" class="footer-<?php print $footer_style; ?>">
       <div class="container clearfix">
+        <div class="begiak visible-desktop">
+          <img src="/<?php print drupal_get_path('theme', 'coworker')?>/images/begiak.png">
+        </div>
         <div class="footer-widgets-wrap clearfix">
           <?php if ($page['footer_first']): ?>
             <div class="col_one_fourth">

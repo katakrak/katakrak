@@ -304,22 +304,26 @@
    z-index: 3;
 }
 
-.katua {
+.begiak {
   position: absolute;
-  right: 20px;
-  bottom: 200px;
-  z-index: 2;
+  right: 0;
+  top: 10%;
 }
 
 #footer {
-  background:  url("images/footer/footer.png");
-  
-/* url("images/footer/begiak.png") no-repeat 79% 10%,  background-repeat: no-repeat;
-  background-size: 1434px 294px;
-  background-position: top right;
-  background-color: #FFF;*/
+  background:  url("images/footer/footer.jpg") 100% no-repeat;
   border-top: none;
   padding: 18px 30px;
+}
+
+.banda-footer {
+  background:  url("images/footer/banda_footer.jpg") 100% no-repeat;
+  height: 40px;
+}
+
+/* BARRA REDES SOCIALES */
+#top-social {
+  background-color: #FFF;
 }
 
 #boxes-box-footer {
@@ -410,10 +414,7 @@
   padding-top: 20px;
 }
 
-/* BARRA REDES SOCIALES */
-#top-social {
-  background-color: #FFF;
-}
+
 
 #copyrights {
   border-top: none;
