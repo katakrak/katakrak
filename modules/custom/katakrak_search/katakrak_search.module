@@ -10,9 +10,9 @@ function katakrak_search_form_alter(&$form, &$form_state, $form_id){
   if ($form_id == 'apachesolr_panels_search_form') {
     $form['#theme'] = 'katakrak_search_book_search_form';
     if (module_exists('apachesolr_autocomplete')) {
-    $element = &$form['apachesolr_panels_search_form'];
-    apachesolr_autocomplete_do_alter($element);
-  }
+      $element = &$form['apachesolr_panels_search_form'];
+      apachesolr_autocomplete_do_alter($element);
+    }
   }
 }
 
@@ -97,7 +97,7 @@ function katakrak_books_search_form($form, &$form_state) {
     '#attributes' => array('class' => array('katakrak-button')),
   );
   if (module_exists('apachesolr_autocomplete')) {
-    //apachesolr_autocomplete_do_alter($form['search_term']);
+    apachesolr_autocomplete_do_alter($form['search_term']);
   }
   $form['#theme'] = 'katakrak_search_book_search_form';
   return $form;
