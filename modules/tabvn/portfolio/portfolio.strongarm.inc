@@ -63,7 +63,10 @@ function portfolio_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'i18n_sync_node_type_portfolio';
-  $strongarm->value = array();
+  $strongarm->value = array(
+    0 => 'field_image',
+    1 => 'field_portfolio_category',
+  );
   $export['i18n_sync_node_type_portfolio'] = $strongarm;
 
   $strongarm = new stdClass();
