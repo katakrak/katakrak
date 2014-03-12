@@ -58,6 +58,15 @@ function katakrak_theme() {
   );
 }
 
+/** 
+ * 
+ */
+function katakrak_block_info_alter(&$blocks, $theme, $code_blocks) {
+  foreach ($blocks['layer_slider'] as &$slider) {
+    $slider['cache'] = DRUPAL_NO_CACHE;
+  }
+}
+
 /**
  * Implements hook_block_info().
  */
