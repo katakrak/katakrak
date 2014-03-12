@@ -588,6 +588,24 @@ function libro_views_default_views() {
     4 => 0,
     5 => 0,
   );
+  /* Filter criterion: Contenido: Editorial (field_libro_editorial) */
+  $handler->display->display_options['filters']['field_libro_editorial_tid']['id'] = 'field_libro_editorial_tid';
+  $handler->display->display_options['filters']['field_libro_editorial_tid']['table'] = 'field_data_field_libro_editorial';
+  $handler->display->display_options['filters']['field_libro_editorial_tid']['field'] = 'field_libro_editorial_tid';
+  $handler->display->display_options['filters']['field_libro_editorial_tid']['value'] = '';
+  $handler->display->display_options['filters']['field_libro_editorial_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_libro_editorial_tid']['expose']['operator_id'] = 'field_libro_editorial_tid_op';
+  $handler->display->display_options['filters']['field_libro_editorial_tid']['expose']['label'] = 'Editorial';
+  $handler->display->display_options['filters']['field_libro_editorial_tid']['expose']['operator'] = 'field_libro_editorial_tid_op';
+  $handler->display->display_options['filters']['field_libro_editorial_tid']['expose']['identifier'] = 'field_libro_editorial_tid';
+  $handler->display->display_options['filters']['field_libro_editorial_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['field_libro_editorial_tid']['vocabulary'] = 'editoriales';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -725,6 +743,7 @@ function libro_views_default_views() {
     t('GESLIB ID'),
     t('EAN'),
     t('Dilve'),
+    t('Editorial'),
     t('Page'),
     t('more'),
     t('Data export'),
