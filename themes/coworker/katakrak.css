@@ -451,7 +451,7 @@ html.js input.throbbing {
 /** Search Page **/ 
 
 div.search-page-col-left div.panel-pane {
-  background: #F5F5F5;
+  background: #e0e0e0;
   margin: 15px 0;
   padding: 15px;
   border-radius: 20px;
@@ -496,7 +496,7 @@ div.search-results div:last-child {
 
 /** FORMS **/
 #block-katakrak-newsletter-suscribe, #katakrak-books-search-form, #block-katakrak-search-katakrak-search-block  {
-  background-color: #F5F5F5;
+  background-color: #e0e0e0;
   padding: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;

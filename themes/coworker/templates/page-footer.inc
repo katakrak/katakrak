@@ -16,7 +16,7 @@
     
     <div id="footer" class="footer-<?php print $footer_style; ?>">
       <div class="container clearfix">
-        <div class="begiak visible-desktop">
+        <div class="begiak">
           <img src="/<?php print drupal_get_path('theme', 'coworker')?>/images/begiak.png">
         </div>
         <div class="footer-widgets-wrap clearfix">

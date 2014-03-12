@@ -126,17 +126,18 @@ if (!$page) {
       
       hide($content['comments']);
       hide($content['links']);
+      hide($content['language']);
       print render($content);
       ?>
 
-      <?php if ($page): print render($content['links']);
+      <?php if ($page): //print render($content['links']);
       endif;
       ?>
     </div>
 
 
 
-  <?php print render($content['comments']); ?>
+  <?php //print render($content['comments']); ?>
 
   </div>
   <?php
