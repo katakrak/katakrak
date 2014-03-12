@@ -157,7 +157,8 @@
                       <br>
                       <?php foreach($node->field_boletin_eventos['und'] as $i => $nid): ?>
                       <?php $event = node_load($nid['nid']); 
-                            $translations = translation_node_get_translations($event->nid); ?>
+                            $translations = translation_node_get_translations($event->nid);
+                            ?>
                       <table>
                         <tr>
                         <td>
@@ -177,8 +178,8 @@
                         <table class="four sub-columns last">
                           <tr>
                             <td>
-                              [EUS] <a href="http://www.katakrak.net/eus/node/<?php print $translations['eu']->nid?>""> <?php print $translations['eu']->title ?></a><br>
-                              [CAS] <a href="http://www.katakrak.net/cas/node/<?php print $translations['es']->nid?>""> <?php print $translations['es']->title ?></a>
+                              [EUS] <a href="http://www.katakrak.net/eus/<?php print drupal_get_path_alias('node/'.$translations['eu']->nid, 'eu') ?>"> <?php print $translations['eu']->title ?></a><br>
+                              [CAS] <a href="http://www.katakrak.net/cas/<?php print drupal_get_path_alias('node/'.$translations['es']->nid, 'es') ?>"> <?php print $translations['es']->title ?></a>
                             </td>
                           </tr>
                         </table>
@@ -207,12 +208,13 @@
                   <tr>
                     <td class="panel">
                       <h6>Libros de la semana <br> Asteko liburuak</h6>
+                      <br>
                       <?php foreach($node->field_boletin_libros['und'] as $i => $nid): ?>
                       <?php $libro = node_load($nid['nid']); ?>
                         <table>
                           <tr>
                             <td>
-                              <?php print l($libro->title, 'node/'.$libro->nid) ?>
+                              <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libro->nid) ?>"><?php print $libro->title ?></a>
                             </td>
                           </tr>
                         </table>
@@ -250,6 +252,7 @@
                         <hr>
                       <br>
                       <h6 style="margin-bottom:5px;">Kontaktua <br> Contacto:</h6>
+                      <p><b>C/Mayor 54 Kale Nagusia, 31001 Pamplona-Iruñea</b></p>
                       <p>Teléfono / Telefonoa: <b>948225520</b></p>
                       <p>Correo / Emaila: <a href="mailto:info@katakrak.net">info@katakrak.net</a></p>
                     </td>

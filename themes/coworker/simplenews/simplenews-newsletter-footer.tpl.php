@@ -41,7 +41,7 @@
             <tr>
               <td align="center">
                 <center>
-                  <p style="text-align:center;"><a href="#">Terms</a> | <a href="#">Privacy</a> | <a href="[simplenews-subscriber:unsubscribe-url]">Unsubscribe</a></p>
+                  <p style="text-align:center;"><a href="[simplenews-subscriber:unsubscribe-url]">Unsubscribe</a></p>
                 </center>
               </td>
               <td class="expander"></td>
