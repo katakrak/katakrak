@@ -157,7 +157,7 @@
                       <br>
                       <?php foreach($node->field_boletin_eventos['und'] as $i => $nid): ?>
                       <?php $event = node_load($nid['nid']); 
-                            $translations = translation_node_get_translations($event->nid);
+                            $translations = translation_node_get_translations($event->tnid);
                             ?>
                       <table>
                         <tr>
