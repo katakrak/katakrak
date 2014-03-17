@@ -851,6 +851,11 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['fields']['nodequeue_links']['table'] = 'node';
   $handler->display->display_options['fields']['nodequeue_links']['field'] = 'nodequeue_links';
   $handler->display->display_options['fields']['nodequeue_links']['label'] = 'Promocionar';
+  /* Campo: Contenido: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = 'Editar';
   /* Sort criterion: Contenido: Updated date */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
@@ -1033,6 +1038,7 @@ function katakrak_agenda_views_default_views() {
     t('Imagen'),
     t('Idioma'),
     t('Promocionar'),
+    t('Editar'),
     t('Page'),
     t('more'),
     t('Data export'),
