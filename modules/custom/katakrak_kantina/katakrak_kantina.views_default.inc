@@ -82,10 +82,14 @@ function katakrak_kantina_views_default_views() {
   $handler->display->display_options['fields']['field_image']['element_class'] = 'portfolio-image';
   $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_image']['type'] = 'flexslider_format_php_image';
+  $handler->display->display_options['fields']['field_image']['type'] = 'colorbox';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
-    'source_image_style' => 'portfolio_item',
-    'destination_image_style' => '',
+    'colorbox_node_style' => 'portfolio_item',
+    'colorbox_image_style' => 'extra_large',
+    'colorbox_gallery' => 'post',
+    'colorbox_gallery_custom' => '',
+    'colorbox_caption' => 'auto',
+    'colorbox_caption_custom' => '',
   );
   $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
   /* Campo: Contenido: Título */

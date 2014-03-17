@@ -43,7 +43,7 @@ function katakrak_kantina_fe_nodequeue_export_fields() {
     'show_in_links' => 1,
     'reference' => 0,
     'reverse' => 0,
-    'i18n' => 1,
+    'i18n' => NULL,
     'subqueues' => 1,
     'types' => array(
       0 => 'portfolio',
