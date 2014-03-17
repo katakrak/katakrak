@@ -352,6 +352,40 @@ display: none;
   drupal_add_css($css, array('type' => 'inline'));
 }
 
+/**
+ * Implements hook_token_info
+ */
+function katakrak_token_info() {
+  $type = array(
+    'name' => t('Katakrak'),
+    'description' => t('Tokens related global.'),
+  );
+  $token['language'] = array(
+    'name' => t("Site's language"),
+    'description' => t("Katakrak Current language of the site."),
+    'type' => 'katakrak',
+  );
+   return array(
+     'types' => array('katakrak' => $type),
+     'tokens' => array('katakrak' => $token),
+  );
+}
+
+function katakrak_tokens($type, $tokens, array $data = array(), array $options = array()) {
+  if ($type == 'katakrak') {
+    foreach ($tokens as $name => $token) {
+      if ($name == 'language') {
+        global $language;
+        $replacements[$token] = $language->language;
+      }
+    }
+  }
+   return $replacements;
+}
+
+/**
+ * 
+ */
 function katakrak_newsletter_confirm_mantain() {
   $mail = isset($_GET['mail']) ? $_GET['mail'] : '';
   if (valid_email_address($mail)) {
