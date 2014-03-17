@@ -64,7 +64,6 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
   $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
-  $handler->display->display_options['relationships']['nodequeue_rel']['required'] = TRUE;
   $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
   $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
     'evento_home' => 'evento_home',
@@ -201,6 +200,10 @@ function katakrak_agenda_views_default_views() {
       'node_changed' => 'node_changed',
     ),
   );
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -272,6 +275,17 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['fields']['field_event_description']['alter']['more_link_path'] = '[path]';
   $handler->display->display_options['fields']['field_event_description']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['field_event_description']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Nodequeue: Position */
+  $handler->display->display_options['sorts']['position']['id'] = 'position';
+  $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
+  $handler->display->display_options['sorts']['position']['field'] = 'position';
+  $handler->display->display_options['sorts']['position']['relationship'] = 'nodequeue_rel';
+  $handler->display->display_options['sorts']['position']['order'] = 'DESC';
+  /* Sort criterion: Contenido: Date (field_event_date) */
+  $handler->display->display_options['sorts']['field_event_date_value']['id'] = 'field_event_date_value';
+  $handler->display->display_options['sorts']['field_event_date_value']['table'] = 'field_data_field_event_date';
+  $handler->display->display_options['sorts']['field_event_date_value']['field'] = 'field_event_date_value';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Contenido: Publicado */
@@ -289,13 +303,6 @@ function katakrak_agenda_views_default_views() {
     'event' => 'event',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Nodequeue: In queue */
-  $handler->display->display_options['filters']['in_queue']['id'] = 'in_queue';
-  $handler->display->display_options['filters']['in_queue']['table'] = 'nodequeue_nodes';
-  $handler->display->display_options['filters']['in_queue']['field'] = 'in_queue';
-  $handler->display->display_options['filters']['in_queue']['relationship'] = 'nodequeue_rel';
-  $handler->display->display_options['filters']['in_queue']['value'] = '1';
-  $handler->display->display_options['filters']['in_queue']['group'] = 1;
   /* Filter criterion: Contenido: Idioma */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
@@ -303,6 +310,13 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['filters']['language']['value'] = array(
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
+  $handler->display->display_options['filters']['language']['group'] = 1;
+  /* Filter criterion: Contenido: Date (field_event_date) */
+  $handler->display->display_options['filters']['field_event_date_value']['id'] = 'field_event_date_value';
+  $handler->display->display_options['filters']['field_event_date_value']['table'] = 'field_data_field_event_date';
+  $handler->display->display_options['filters']['field_event_date_value']['field'] = 'field_event_date_value';
+  $handler->display->display_options['filters']['field_event_date_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_event_date_value']['default_date'] = 'now';
   $handler->display->display_options['path'] = 'azala';
 
   /* Display: Bloque destacado página eventos */
@@ -718,7 +732,10 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'más';
-  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    5 => '5',
+  );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['disable_sql_rewrite'] = TRUE;
@@ -738,18 +755,13 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'title' => 'title',
-    'field_libro_subtitulo' => 'field_libro_subtitulo',
-    'field_product_peso' => 'field_product_peso',
-    'commerce_price' => 'commerce_price',
-    'commerce_stock' => 'commerce_stock',
-    'field_libro_ean' => 'field_libro_ean',
-    'field_libro_estado' => 'field_libro_estado',
-    'field_libro_portada' => 'field_libro_portada',
-    'field_libro_autores' => 'field_libro_autores',
-    'field_libro_year' => 'field_libro_year',
+    'field_event_date' => 'field_event_date',
+    'field_event_type' => 'field_event_type',
+    'field_event_image' => 'field_event_image',
+    'language' => 'language',
     'nodequeue_links' => 'nodequeue_links',
   );
-  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['default'] = 'field_event_date';
   $handler->display->display_options['style_options']['info'] = array(
     'title' => array(
       'sortable' => 1,
@@ -758,61 +770,28 @@ function katakrak_agenda_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_libro_subtitulo' => array(
+    'field_event_date' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_product_peso' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'desc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'commerce_price' => array(
+    'field_event_type' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
-    'commerce_stock' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'desc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_libro_ean' => array(
+    'field_event_image' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_libro_estado' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_libro_portada' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_libro_autores' => array(
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_libro_year' => array(
+    'language' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -896,6 +875,12 @@ function katakrak_agenda_views_default_views() {
     'event' => 'event',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Contenido: Date (field_event_date) */
+  $handler->display->display_options['filters']['field_event_date_value']['id'] = 'field_event_date_value';
+  $handler->display->display_options['filters']['field_event_date_value']['table'] = 'field_data_field_event_date';
+  $handler->display->display_options['filters']['field_event_date_value']['field'] = 'field_event_date_value';
+  $handler->display->display_options['filters']['field_event_date_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_event_date_value']['default_date'] = 'now';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
