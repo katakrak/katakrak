@@ -174,6 +174,54 @@ function libro_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'commerce_product-libro-field_peso_medio'
+  $field_instances['commerce_product-libro-field_peso_medio'] = array(
+    'bundle' => 'libro',
+    'commerce_cart_settings' => array(
+      'attribute_field' => 0,
+      'attribute_widget' => 'select',
+      'attribute_widget_title' => 'Peso medio',
+    ),
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 3,
+      ),
+      'line_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'node_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'commerce_product',
+    'field_name' => 'field_peso_medio',
+    'label' => 'Peso medio',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 38,
+    ),
+  );
+
   // Exported field_instance: 'commerce_product-libro-field_product_peso'
   $field_instances['commerce_product-libro-field_product_peso'] = array(
     'bundle' => 'libro',
@@ -1326,6 +1374,7 @@ function libro_field_default_field_instances() {
   t('Isbn');
   t('Nombre');
   t('Peso');
+  t('Peso medio');
   t('Portada');
   t('Price');
   t('Producto');
