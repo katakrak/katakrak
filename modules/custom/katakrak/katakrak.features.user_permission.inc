@@ -989,6 +989,8 @@ function katakrak_user_default_permissions() {
     'roles' => array(
       'Editor' => 'Editor',
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'simplenews',
   );

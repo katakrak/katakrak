@@ -314,7 +314,7 @@ function katakrak_boletin_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'simplenews_throttle';
-  $strongarm->value = '20';
+  $strongarm->value = '50';
   $export['simplenews_throttle'] = $strongarm;
 
   $strongarm = new stdClass();
