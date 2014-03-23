@@ -307,13 +307,14 @@
 .begiak {
   position: absolute;
   right: 0;
-  top: 10%;
 }
 
+@media (min-width: 767px) {
 #footer {
   background:  url("images/footer/footer.jpg") 100% no-repeat;
   border-top: none;
   padding: 18px 30px;
+}
 }
 
 .banda-footer {
