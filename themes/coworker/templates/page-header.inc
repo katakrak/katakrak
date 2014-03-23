@@ -32,7 +32,7 @@
     </div>
   <?php endif; ?>
 <?php if (!empty($page['slider'])): ?>
-  <div id="slider">
+  <div id="slider" class="visible-desktop visible-tablet">
     <?php print render($page['slider']); ?>
   </div>
 <?php endif; ?>
