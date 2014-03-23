@@ -399,3 +399,12 @@ function katakrak_newsletter_confirm_mantain() {
   }
   drupal_goto();
 }
+
+function katakrak_preprocess_image(&$variables) {
+  $attributes = &$variables['attributes'];
+
+  foreach (array('width', 'height') as $key) {
+    unset($attributes[$key]);
+    unset($variables[$key]);
+  }
+}
