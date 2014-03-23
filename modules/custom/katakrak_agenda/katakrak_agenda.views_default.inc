@@ -390,6 +390,7 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['fields']['field_event_type']['table'] = 'field_data_field_event_type';
   $handler->display->display_options['fields']['field_event_type']['field'] = 'field_event_type';
   $handler->display->display_options['fields']['field_event_type']['label'] = '';
+  $handler->display->display_options['fields']['field_event_type']['element_type'] = 'h4';
   $handler->display->display_options['fields']['field_event_type']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_event_type']['type'] = 'i18n_taxonomy_term_reference_plain';
   /* Campo: Contenido: Description */
@@ -397,6 +398,7 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['fields']['field_event_description']['table'] = 'field_data_field_event_description';
   $handler->display->display_options['fields']['field_event_description']['field'] = 'field_event_description';
   $handler->display->display_options['fields']['field_event_description']['label'] = '';
+  $handler->display->display_options['fields']['field_event_description']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_event_description']['alter']['max_length'] = '500';
   $handler->display->display_options['fields']['field_event_description']['alter']['more_link'] = TRUE;
   $handler->display->display_options['fields']['field_event_description']['alter']['more_link_text'] = 'Leer más';
