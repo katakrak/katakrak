@@ -71,6 +71,16 @@ function katakrak_user_default_permissions() {
     'module' => 'user',
   );
 
+  // Exported permission: 'administer content translations'.
+  $permissions['administer content translations'] = array(
+    'name' => 'administer content translations',
+    'roles' => array(
+      'Editor' => 'Editor',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'i18n_node',
+  );
+
   // Exported permission: 'administer content types'.
   $permissions['administer content types'] = array(
     'name' => 'administer content types',
