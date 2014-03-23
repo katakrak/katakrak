@@ -144,7 +144,6 @@ function katakrak_agenda_strongarm() {
   $strongarm->name = 'i18n_node_options_event';
   $strongarm->value = array(
     0 => 'current',
-    1 => 'required',
   );
   $export['i18n_node_options_event'] = $strongarm;
 
