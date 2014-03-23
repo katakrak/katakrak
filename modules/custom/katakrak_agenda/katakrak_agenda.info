@@ -70,6 +70,7 @@ features[variable][] = node_preview_event
 features[variable][] = node_submitted_event
 features[variable][] = pathauto_node_event_es_pattern
 features[variable][] = pathauto_node_event_eu_pattern
+features[variable][] = pathauto_node_event_pattern
 features[variable][] = pathauto_node_event_und_pattern
 features[views_view][] = agenda
 features[views_view][] = agenda_admin
