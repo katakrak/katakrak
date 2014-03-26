@@ -206,11 +206,11 @@ function libro_strongarm() {
           ),
           'search_index' => array(
             'weight' => '37',
-            'visible' => TRUE,
+            'visible' => FALSE,
           ),
           'search_result' => array(
             'weight' => '37',
-            'visible' => TRUE,
+            'visible' => FALSE,
           ),
         ),
         'product:field_product_peso' => array(
@@ -239,6 +239,16 @@ function libro_strongarm() {
           'default' => array(
             'weight' => '0',
             'visible' => TRUE,
+          ),
+        ),
+        'product:field_peso_medio' => array(
+          'search_index' => array(
+            'weight' => '38',
+            'visible' => FALSE,
+          ),
+          'search_result' => array(
+            'weight' => '38',
+            'visible' => FALSE,
           ),
         ),
       ),

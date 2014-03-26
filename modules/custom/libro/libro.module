@@ -24,18 +24,8 @@ function libro_menu() {
 }
 
 function libro_peso_moda_form($form, &$form_state) {
-  $results = db_query("SELECT COUNT(*) AS total, field_product_peso_weight FROM  {field_data_field_product_peso} p INNER JOIN {field_data_commerce_stock} s  ON s.entity_id = p.entity_id WHERE commerce_stock_value > 0 GROUP BY  field_product_peso_weight ORDER BY total DESC LIMIT 0,10")->fetchAll();
- 
-  $total = 0;
-  $freq = 0;
-  foreach ($results as $res) {
-    $total += $res->total * $res->field_product_peso_weight;
-    $freq += $res->total;
-  }
-  $avg = $total / $freq;
-  
-  $avg_round = ceil($avg / 10) * 10;
-  drupal_set_message("El promedio del peso de los libros en stock es de $avg_round gr");
+  $libro_avg_weight = variable_get('libro_avg_weight', 0);
+  drupal_set_message("El promedio del peso de los libros en stock es de $libro_avg_weight gr");
   $form['borrar_pesos_pequeños'] = array(
     '#type' => 'submit',
     '#value' => t('Borrar pesos pequeños'),
@@ -54,6 +44,27 @@ function libro_peso_moda_form_submit($form, &$form_state) {
   }
 }
 
+/**
+ * Implementation of hook_cron
+ */
+function libro_cron() {
+  $results = db_query("SELECT COUNT(*) AS total, field_product_peso_weight FROM  {field_data_field_product_peso} p INNER JOIN {field_data_commerce_stock} s  ON s.entity_id = p.entity_id WHERE commerce_stock_value > 0 GROUP BY  field_product_peso_weight ORDER BY total DESC LIMIT 0,10")->fetchAll();
+ 
+  $total = 0;
+  $freq = 0;
+  foreach ($results as $res) {
+    $total += $res->total * $res->field_product_peso_weight;
+    $freq += $res->total;
+  }
+  $avg = $total / $freq;
+  
+  $avg_round = ceil($avg / 10) * 10;
+  variable_set('libro_avg_weight', $avg_round);
+}
+
+/**
+ * Implementation of hook_node_view
+ */
 function libro_node_view($node, $view_mode, $langcode) {
   if ($node->type == 'libro' && $view_mode == 'full') {
     $autores = array();
