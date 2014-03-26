@@ -310,11 +310,17 @@
 }
 
 @media (min-width: 767px) {
-#footer {
-  background:  url("images/footer/footer.jpg") 100% no-repeat;
-  border-top: none;
-  padding: 18px 30px;
+  #footer {
+    background:  url("images/footer/footer.jpg") 100% no-repeat;
+    border-top: none;
+    padding: 18px 30px;
+  }
 }
+
+#footer h6 {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  color: #FFFFFF
 }
 
 .banda-footer {

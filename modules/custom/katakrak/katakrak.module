@@ -50,11 +50,10 @@ function katakrak_theme() {
       'template' => 'katakrak-footer-first',
       'path' => $path . '/templates',
     ),
-    'katakrak_footer_second' => array(
-      'template' => 'katakrak-footer-second',
+    'katakrak_horarios' => array(
+      'template' => 'katakrak-horarios',
       'path' => $path . '/templates',
     ),
-    
   );
 }
 
@@ -117,6 +116,11 @@ function katakrak_block_info() {
     // Not worth caching.
     'cache' => DRUPAL_NO_CACHE,
   );
+  $blocks['katakrak_horarios'] = array(
+    'info' => t('Katakrak horarios'),
+    // Not worth caching.
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   return $blocks;
 }
 
@@ -176,6 +180,11 @@ function katakrak_block_view($delta) {
   if ($delta == 'footer_first') {
     $block['title'] = 'Katakrak Liburuak';
     $block['content'] = theme('katakrak_footer_first');
+    return $block;
+  }
+  if ($delta == 'katakrak_horarios') {
+    $block['title'] = t('Horarios');
+    $block['content'] = theme('katakrak_horarios');
     return $block;
   }
 }

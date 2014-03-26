@@ -62,15 +62,9 @@ function katakrak_context_default_contexts() {
           'region' => 'footer_second',
           'weight' => '-10',
         ),
-        'katakrak-footer_second' => array(
+        'katakrak-katakrak_horarios' => array(
           'module' => 'katakrak',
-          'delta' => 'footer_second',
-          'region' => 'footer_second',
-          'weight' => '-9',
-        ),
-        'katakrak-footer_third' => array(
-          'module' => 'katakrak',
-          'delta' => 'footer_third',
+          'delta' => 'katakrak_horarios',
           'region' => 'footer_third',
           'weight' => '-10',
         ),
