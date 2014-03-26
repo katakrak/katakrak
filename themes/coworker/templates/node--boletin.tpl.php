@@ -217,6 +217,11 @@
                               <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libro->nid) ?>"><?php print $libro->title ?></a>
                             </td>
                           </tr>
+                          <tr>
+                            <td>
+                              <?php print theme('image_style', array('style_name' => 'book_thumbnail', 'path' => $libro->field_libro_portada['und'][0]['uri'])) ?>
+                            </td>
+                          </tr>
                         </table>
                         <?php if (count($node->field_boletin_libros['und']) != $i + 1): ?>
                           <hr>
