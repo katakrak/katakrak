@@ -2096,7 +2096,7 @@ b,d){return this.bind(b,function(e){var f=c(e.target);if(f.is(a))return d.apply(
 $.fn.mobileMenu = function(options) {
 	
 	var defaults = {
-			defaultText: 'Go to Page...',
+			defaultText: Drupal.t('Go to Page...'),
 			className: 'select-menu',
 			subMenuClass: 'sub-menuitem',
 			subMenuDash: '&nbsp;&nbsp;&nbsp;'
