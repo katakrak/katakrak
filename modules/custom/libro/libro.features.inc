@@ -88,6 +88,30 @@ function libro_image_default_styles() {
     ),
   );
 
+  // Exported image style: book_thumbnail.
+  $styles['book_thumbnail'] = array(
+    'name' => 'book_thumbnail',
+    'label' => 'Book thumbnail',
+    'effects' => array(
+      14 => array(
+        'label' => 'Escala',
+        'help' => 'El escalado mantiene la relación de proporciones de la imagen original. Si sólo se especifica una dimensión, la otra se calculará.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => '',
+          'height' => 100,
+          'upscale' => 0,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: cover_home.
   $styles['cover_home'] = array(
     'name' => 'cover_home',
