@@ -89,7 +89,7 @@ function katakrak_geslib_geslib_author($op, $author) {
 
 function katakrak_geslib_geslib_product($op, $product) {
   if ($op == 'delete') {
-    //$author_tid = get_id_by_geslib_id($category['geslib_id'], 'author');
+    $commerce_product = commerce_product_load_by_sku($product['geslib_id']);
   }
   elseif ($op == 'create' || $op == 'update') {
     $commerce_product = commerce_product_load_by_sku($product['geslib_id']);
@@ -126,7 +126,7 @@ function katakrak_geslib_geslib_product($op, $product) {
         'include_tax' =>  'iva_libros'
       ),
     );
-    if ($product['weight']) {
+    if ($product['weight'] && (!isset($commerce_product->field_peso_medio) || $commerce_product->field_peso_medio['und'][0]['value'] == 0)) {
       $commerce_product->field_product_peso['und'][0] = array(
         'weight' => intval($product['weight']),
         'unit' => 'g',

@@ -30,6 +30,11 @@ function libro_peso_moda_form($form, &$form_state) {
     '#type' => 'submit',
     '#value' => t('Borrar pesos pequeños'),
   );
+  
+  $form['asignar_peso'] = array(
+    '#type' => 'submit',
+    '#value' => t('Asignar peso medio'),
+  );
   return $form;
 }
 
@@ -41,6 +46,47 @@ function libro_peso_moda_form_submit($form, &$form_state) {
        unset($product->field_product_peso['und'][0]);
        commerce_product_save($product);
      }
+  }
+  if ($form_state['clicked_button']['#value'] == t('Asignar peso medio')) {
+    //Lanzar batch que actualice todos los pesos
+    $batch = array(
+      'title' => t('Actualizando pesos'),
+      'operations' => array(
+        array('libro_peso_batch_process', array()),
+      ),
+      'finished' => 'libro_peso_batch_process_finish',
+    );
+    batch_set($batch);
+  }
+}
+
+function libro_peso_batch_process(&$context) {
+  $products_db = db_select('commerce_product', 'p')->fields('p', array('product_id'));
+  if (!isset($context['sandbox']['progress'])) {
+    $context['sandbox']['progress'] = 0;
+    $context['sandbox']['max'] = $products_db->execute()->rowCount();
+  }
+  $products = $products_db->range($context['sandbox']['progress'], 100)->execute()->fetchAll();
+  
+  foreach ($products as $product_id) {
+    $libro = commerce_product_load($product_id->product_id);
+    
+    if (!isset($libro->field_product_peso) || !$libro->field_product_peso['und'][0]['weight']) {
+      $libro->field_product_peso['und'][0] = array(
+        'weight' => variable_get('libro_avg_weight', 0),
+        'unit' => 'g'
+      );
+      $libro->field_peso_medio['und'][0]['value'] = 1;
+    }
+    else {
+      $libro->field_peso_medio['und'][0]['value'] = 0;
+    }
+    commerce_product_save($libro);
+    $context['sandbox']['progress']++;
+  }
+  $context['message'] = t("Processed @progress of @max books", array('@progress' => $context['sandbox']['progress'], '@max' => $context['sandbox']['max']));
+  if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
+    $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
   }
 }
 
