@@ -35,7 +35,7 @@ function katakrak_dilve_menu() {
     'page callback' => 'katakrak_dilve_info',
     'page arguments' => array(1),
     'access callback' => 'katakrak_dilve_access_node_info',
-    'access arguments' => array('access devel information', 1),
+    'access arguments' => array('access dilve information', 1),
     'type' => MENU_LOCAL_TASK,
     'weight' => 100,
   );
@@ -78,6 +78,17 @@ function _katakrak_dilve_cron() {
     }
   }
 }
+
+function katakrak_dilve_permission() {
+  return array(
+    'access dilve information' => array(
+      'title' => t('Access dilve information'),
+      'description' => t('Perform administration tasks for my module.'),
+    ),
+  );
+}
+
+  
 
 function katakrak_dilve_settings_form($form, &$form_state) {
   $form['dilve_user'] = array(

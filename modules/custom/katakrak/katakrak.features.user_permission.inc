@@ -10,16 +10,6 @@
 function katakrak_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: 'access administration menu'.
-  $permissions['access administration menu'] = array(
-    'name' => 'access administration menu',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'admin_menu',
-  );
-
   // Exported permission: 'access all views'.
   $permissions['access all views'] = array(
     'name' => 'access all views',
@@ -27,6 +17,18 @@ function katakrak_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'views',
+  );
+
+  // Exported permission: 'access checkout'.
+  $permissions['access checkout'] = array(
+    'name' => 'access checkout',
+    'roles' => array(
+      'Cliente' => 'Cliente',
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'commerce_checkout',
   );
 
   // Exported permission: 'access content'.
@@ -635,16 +637,6 @@ function katakrak_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
-  // Exported permission: 'display drupal links'.
-  $permissions['display drupal links'] = array(
-    'name' => 'display drupal links',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'admin_menu',
-  );
-
   // Exported permission: 'edit any article content'.
   $permissions['edit any article content'] = array(
     'name' => 'edit any article content',
@@ -892,16 +884,6 @@ function katakrak_user_default_permissions() {
       'Editor' => 'Editor',
     ),
     'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'flush caches'.
-  $permissions['flush caches'] = array(
-    'name' => 'flush caches',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'admin_menu',
   );
 
   // Exported permission: 'manipulate all queues'.
