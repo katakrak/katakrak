@@ -181,9 +181,11 @@
               <div class="span12">
                 <?php print render($content['field_libro_sinopsis']) ?>
               </div>
-              <!--<div class="span4">-->
-                <?php //print render($content['field_libro_producto']) ?>
-              <!--</div>-->
+              <?php if ($user->uid == 106): ?>
+              <div class="span4">
+                <?php print render($content['field_libro_producto']) ?>
+              </div>
+              <?php endif; ?>
             </div>
             </div>
           </div>

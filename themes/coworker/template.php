@@ -86,7 +86,7 @@ function coworker_preprocess_page(&$vars) {
 }
 
 function coworker_preprocess_search_result(&$vars) {
-  
+  global $user;
   if ($vars['result']['entity_type'] == 'node') {
     $node = node_load($vars['result']['node']->entity_id);
     if ($node->type == 'libro') {
@@ -107,6 +107,15 @@ function coworker_preprocess_search_result(&$vars) {
       )), 'node/'.$node->nid, array('html' => TRUE));
     }
     $vars['node'] = $node;
+    $line_item = commerce_product_line_item_new(commerce_product_load($node->field_libro_producto['und'][0]['product_id']));
+    $wrapper = entity_metadata_wrapper('commerce_line_item', $line_item);
+    $line_item->data['context']['product_ids'] = array($node->field_libro_producto['und'][0]['product_id']);
+    dpm($node);
+    dpm($line_item);
+    if ($user->uid == 106 ||$user->uid == 1) {
+      $vars['add_to_cart'] = drupal_render(drupal_get_form('commerce_cart_add_to_cart_form', $line_item));
+    }
+    dpm($vars);
   }
 }
 

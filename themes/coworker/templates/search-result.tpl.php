@@ -86,6 +86,7 @@
       <?php if ($snippet): ?>
         <p class="search-snippet"<?php print $content_attributes; ?>><?php print $snippet; ?></p>
       <?php endif; ?>
+        <?php print $add_to_cart ?>
     </div>
     </div>  
   </div>
