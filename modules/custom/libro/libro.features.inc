@@ -37,7 +37,7 @@ function libro_fe_nodequeue_export_fields() {
     'name' => 'libros_destacados',
     'title' => 'Libros destacados',
     'subqueue_title' => '',
-    'size' => 3,
+    'size' => 6,
     'link' => 'Llevar a página de libros',
     'link_remove' => 'Quitar de página de libros',
     'owner' => 'nodequeue',

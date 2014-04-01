@@ -58,18 +58,9 @@ function libro_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Aplicar';
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
   $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordenar por';
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '16';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '6';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elementos por página';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Todos -';
-  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Desplazamiento';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« primera';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
   $handler->display->display_options['style_options']['columns'] = '3';
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -140,6 +131,11 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['add_to_cart_form']['combine'] = 1;
   $handler->display->display_options['fields']['add_to_cart_form']['display_path'] = 0;
   $handler->display->display_options['fields']['add_to_cart_form']['line_item_type'] = 0;
+  /* Sort criterion: Nodequeue: Position */
+  $handler->display->display_options['sorts']['position']['id'] = 'position';
+  $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
+  $handler->display->display_options['sorts']['position']['field'] = 'position';
+  $handler->display->display_options['sorts']['position']['relationship'] = 'nodequeue_rel';
   /* Filter criterion: Contenido: Publicado */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -193,13 +189,6 @@ function libro_views_default_views() {
     t('Ordenar por'),
     t('Asc'),
     t('Desc'),
-    t('Elementos por página'),
-    t('- Todos -'),
-    t('Desplazamiento'),
-    t('« primera'),
-    t('‹ anterior'),
-    t('siguiente ›'),
-    t('última »'),
     t('Products referenced by field_libro_producto'),
     t('queue'),
     t('Nid'),
@@ -570,102 +559,33 @@ function libro_views_default_views() {
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
 
-  /* Display: Data export */
-  $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '500';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
-  $handler->display->display_options['style_options']['provide_file'] = 0;
-  $handler->display->display_options['style_options']['parent_sort'] = 0;
-  $handler->display->display_options['style_options']['quote'] = 1;
-  $handler->display->display_options['style_options']['trim'] = 0;
-  $handler->display->display_options['style_options']['replace_newlines'] = 0;
-  $handler->display->display_options['style_options']['header'] = 1;
-  $handler->display->display_options['style_options']['keep_html'] = 0;
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Contenido: Título */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Commerce Product: Peso */
-  $handler->display->display_options['fields']['field_product_peso']['id'] = 'field_product_peso';
-  $handler->display->display_options['fields']['field_product_peso']['table'] = 'field_data_field_product_peso';
-  $handler->display->display_options['fields']['field_product_peso']['field'] = 'field_product_peso';
-  $handler->display->display_options['fields']['field_product_peso']['relationship'] = 'field_libro_producto_product_id';
-  $handler->display->display_options['fields']['field_product_peso']['click_sort_column'] = 'weight';
-  /* Campo: Commerce Product: Stock */
-  $handler->display->display_options['fields']['commerce_stock']['id'] = 'commerce_stock';
-  $handler->display->display_options['fields']['commerce_stock']['table'] = 'field_data_commerce_stock';
-  $handler->display->display_options['fields']['commerce_stock']['field'] = 'commerce_stock';
-  $handler->display->display_options['fields']['commerce_stock']['relationship'] = 'field_libro_producto_product_id';
-  $handler->display->display_options['fields']['commerce_stock']['settings'] = array(
-    'thousand_separator' => ' ',
-    'decimal_separator' => '.',
-    'scale' => '2',
-    'prefix_suffix' => 1,
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Contenido: Referenced products */
+  $handler->display->display_options['relationships']['field_libro_producto_product_id']['id'] = 'field_libro_producto_product_id';
+  $handler->display->display_options['relationships']['field_libro_producto_product_id']['table'] = 'field_data_field_libro_producto';
+  $handler->display->display_options['relationships']['field_libro_producto_product_id']['field'] = 'field_libro_producto_product_id';
+  $handler->display->display_options['relationships']['field_libro_producto_product_id']['required'] = TRUE;
+  /* Relationship: Nodequeue: Queue */
+  $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
+  $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
+  $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
+  $handler->display->display_options['relationships']['nodequeue_rel']['required'] = TRUE;
+  $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
+  $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
+    'libros_destacados' => 'libros_destacados',
+    'evento_portada' => 0,
+    'libro_portada' => 0,
+    'producto_kafeta_destacado' => 0,
+    'evento_home' => 0,
   );
-  /* Campo: Contenido: Ean */
-  $handler->display->display_options['fields']['field_libro_ean']['id'] = 'field_libro_ean';
-  $handler->display->display_options['fields']['field_libro_ean']['table'] = 'field_data_field_libro_ean';
-  $handler->display->display_options['fields']['field_libro_ean']['field'] = 'field_libro_ean';
-  /* Campo: Contenido: Páginas */
-  $handler->display->display_options['fields']['field_libro_paginas']['id'] = 'field_libro_paginas';
-  $handler->display->display_options['fields']['field_libro_paginas']['table'] = 'field_data_field_libro_paginas';
-  $handler->display->display_options['fields']['field_libro_paginas']['field'] = 'field_libro_paginas';
-  $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Contenido: Páginas (field_libro_paginas) */
-  $handler->display->display_options['sorts']['field_libro_paginas_value']['id'] = 'field_libro_paginas_value';
-  $handler->display->display_options['sorts']['field_libro_paginas_value']['table'] = 'field_data_field_libro_paginas';
-  $handler->display->display_options['sorts']['field_libro_paginas_value']['field'] = 'field_libro_paginas_value';
-  $handler->display->display_options['sorts']['field_libro_paginas_value']['order'] = 'DESC';
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['filter_groups']['groups'] = array(
-    1 => 'AND',
-    2 => 'OR',
-  );
-  $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Contenido: Publicado */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Contenido: Tipo */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'libro' => 'libro',
-  );
-  $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Commerce Product: Stock (commerce_stock) */
-  $handler->display->display_options['filters']['commerce_stock_value']['id'] = 'commerce_stock_value';
-  $handler->display->display_options['filters']['commerce_stock_value']['table'] = 'field_data_commerce_stock';
-  $handler->display->display_options['filters']['commerce_stock_value']['field'] = 'commerce_stock_value';
-  $handler->display->display_options['filters']['commerce_stock_value']['relationship'] = 'field_libro_producto_product_id';
-  $handler->display->display_options['filters']['commerce_stock_value']['operator'] = '>=';
-  $handler->display->display_options['filters']['commerce_stock_value']['value']['value'] = '1';
-  $handler->display->display_options['filters']['commerce_stock_value']['group'] = 1;
-  /* Filter criterion: Commerce Product: Peso (field_product_peso:weight) */
-  $handler->display->display_options['filters']['field_product_peso_weight']['id'] = 'field_product_peso_weight';
-  $handler->display->display_options['filters']['field_product_peso_weight']['table'] = 'field_data_field_product_peso';
-  $handler->display->display_options['filters']['field_product_peso_weight']['field'] = 'field_product_peso_weight';
-  $handler->display->display_options['filters']['field_product_peso_weight']['relationship'] = 'field_libro_producto_product_id';
-  $handler->display->display_options['filters']['field_product_peso_weight']['operator'] = '<';
-  $handler->display->display_options['filters']['field_product_peso_weight']['value']['value'] = '50';
-  $handler->display->display_options['filters']['field_product_peso_weight']['group'] = 2;
-  /* Filter criterion: Commerce Product: Peso (field_product_peso:unit) */
-  $handler->display->display_options['filters']['field_product_peso_unit']['id'] = 'field_product_peso_unit';
-  $handler->display->display_options['filters']['field_product_peso_unit']['table'] = 'field_data_field_product_peso';
-  $handler->display->display_options['filters']['field_product_peso_unit']['field'] = 'field_product_peso_unit';
-  $handler->display->display_options['filters']['field_product_peso_unit']['relationship'] = 'field_libro_producto_product_id';
-  $handler->display->display_options['filters']['field_product_peso_unit']['operator'] = 'empty';
-  $handler->display->display_options['filters']['field_product_peso_unit']['group'] = 2;
-  $handler->display->display_options['path'] = 'admin/content/libros_sin_peso.csv';
+  $handler->display->display_options['path'] = 'admin/content/books/current';
+  $handler->display->display_options['menu']['type'] = 'tab';
+  $handler->display->display_options['menu']['title'] = 'Libros de la semana';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
   $translatables['libros_admin'] = array(
     t('Master'),
     t('Libros admin'),
@@ -700,8 +620,7 @@ function libro_views_default_views() {
     t('Editorial'),
     t('Page'),
     t('more'),
-    t('Data export'),
-    t('Páginas'),
+    t('queue'),
   );
   $export['libros_admin'] = $view;
 
