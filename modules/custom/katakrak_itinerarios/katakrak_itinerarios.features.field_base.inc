@@ -86,6 +86,98 @@ function katakrak_itinerarios_field_default_field_bases() {
     'type' => 'field_collection',
   );
 
+  // Exported field_base: 'field_itinerario_parada_libro'
+  $field_bases['field_itinerario_parada_libro'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_itinerario_parada_libro',
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'field_collection',
+    'settings' => array(
+      'hide_blank_items' => 1,
+      'path' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'field_collection',
+  );
+
+  // Exported field_base: 'field_itinerario_parada_libro_re'
+  $field_bases['field_itinerario_parada_libro_re'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_itinerario_parada_libro_re',
+    'foreign keys' => array(
+      'nid' => array(
+        'columns' => array(
+          'nid' => 'nid',
+        ),
+        'table' => 'node',
+      ),
+    ),
+    'indexes' => array(
+      'nid' => array(
+        0 => 'nid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'node_reference',
+    'settings' => array(
+      'referenceable_types' => array(
+        'article' => 0,
+        'dvd' => 0,
+        'event' => 0,
+        'itinerario' => 0,
+        'libro' => 'libro',
+        'page' => 0,
+        'portfolio' => 0,
+        'sukalde_errezeta' => 0,
+        'sukalde_produktua' => 0,
+      ),
+      'view' => array(
+        'args' => array(),
+        'display_name' => '',
+        'view_name' => '',
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'node_reference',
+  );
+
+  // Exported field_base: 'field_itinerario_parada_tipo'
+  $field_bases['field_itinerario_parada_tipo'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_itinerario_parada_tipo',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'saiakera' => 'saiakera',
+        'poesia' => 'poesia',
+        'komikia' => 'komikia',
+        'narratiba' => 'narratiba',
+        'antzerkia' => 'antzerkia',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'title_field'
   $field_bases['title_field'] = array(
     'active' => 1,
