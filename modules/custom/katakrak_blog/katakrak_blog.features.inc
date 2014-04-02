@@ -14,6 +14,69 @@ function katakrak_blog_ctools_plugin_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_views_api().
+ */
+function katakrak_blog_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
+}
+
+/**
+ * Implements hook_image_default_styles().
+ */
+function katakrak_blog_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: blog_home.
+  $styles['blog_home'] = array(
+    'name' => 'blog_home',
+    'label' => 'Blog home',
+    'effects' => array(
+      15 => array(
+        'label' => 'Escalar y recortar',
+        'help' => 'Escalar y recortar mantendrán la relación de proporciones de la imagen original y se desechará lo que sobre por el lado mayor. Esto es especialmente útil para crear miniaturas perfectamente cuadradas sin deformar la imagen.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 400,
+          'height' => 300,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: blog_post_page.
+  $styles['blog_post_page'] = array(
+    'name' => 'blog_post_page',
+    'label' => 'Blog post page',
+    'effects' => array(
+      16 => array(
+        'label' => 'Escala',
+        'help' => 'El escalado mantiene la relación de proporciones de la imagen original. Si sólo se especifica una dimensión, la otra se calculará.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 290,
+          'height' => '',
+          'upscale' => 0,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_node_info().
  */
 function katakrak_blog_node_info() {

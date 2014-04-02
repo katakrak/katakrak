@@ -10,6 +10,48 @@
 function katakrak_blog_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'node-blog-field_blog_adjunto'
+  $field_instances['node-blog-field_blog_adjunto'] = array(
+    'bundle' => 'blog',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_table',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_blog_adjunto',
+    'label' => 'Adjunto',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'txt jpg pdf doc odt docx',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 8,
+    ),
+  );
+
   // Exported field_instance: 'node-blog-field_blog_body'
   $field_instances['node-blog-field_blog_body'] = array(
     'bundle' => 'blog',
@@ -46,7 +88,7 @@ function katakrak_blog_field_default_field_instances() {
         'rows' => 8,
       ),
       'type' => 'text_textarea',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -87,7 +129,7 @@ function katakrak_blog_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -99,12 +141,17 @@ function katakrak_blog_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'image',
+        'module' => 'colorbox',
         'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
+          'colorbox_caption' => 'auto',
+          'colorbox_caption_custom' => '',
+          'colorbox_gallery' => 'post',
+          'colorbox_gallery_custom' => '',
+          'colorbox_image_style' => 'extra_large',
+          'colorbox_multivalue_index' => NULL,
+          'colorbox_node_style' => 'blog_post_page',
         ),
-        'type' => 'image',
+        'type' => 'colorbox',
         'weight' => 2,
       ),
       'teaser' => array(
@@ -137,12 +184,13 @@ function katakrak_blog_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Adjunto');
   t('Body');
   t('Eventos');
   t('Imagen');
