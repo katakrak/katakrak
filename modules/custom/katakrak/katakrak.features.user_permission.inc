@@ -1069,7 +1069,9 @@ function katakrak_user_default_permissions() {
   // Exported permission: 'use text format sinopsis'.
   $permissions['use text format sinopsis'] = array(
     'name' => 'use text format sinopsis',
-    'roles' => array(),
+    'roles' => array(
+      'Editor' => 'Editor',
+    ),
     'module' => 'filter',
   );
 
