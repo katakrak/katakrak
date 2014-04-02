@@ -141,6 +141,7 @@ function katakrak_blog_strongarm() {
   $strongarm->value = array(
     0 => 'field_blog_eventos',
     1 => 'field_image',
+    2 => 'field_blog_adjunto',
   );
   $export['i18n_sync_node_type_blog'] = $strongarm;
 
