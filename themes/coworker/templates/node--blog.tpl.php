@@ -77,7 +77,7 @@
  * @see template_process()
  *
  * @ingroup themeable
- */dpm($content);
+ */
 ?>
 <div class="row-fluid">
       <div class="span12">
