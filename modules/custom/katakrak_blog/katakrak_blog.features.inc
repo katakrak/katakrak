@@ -24,6 +24,38 @@ function katakrak_blog_views_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_fe_nodequeue_export_fields().
+ */
+function katakrak_blog_fe_nodequeue_export_fields() {
+  $nodequeues = array();
+
+  // Exported nodequeues: blog_portada
+  $nodequeues['blog_portada'] = array(
+    'name' => 'blog_portada',
+    'title' => 'Blog portada',
+    'subqueue_title' => '',
+    'size' => 1,
+    'link' => 'Llevar a portada',
+    'link_remove' => 'Quitar de portada',
+    'owner' => 'nodequeue',
+    'show_in_ui' => 1,
+    'show_in_tab' => 1,
+    'show_in_links' => 1,
+    'reference' => 0,
+    'reverse' => 0,
+    'i18n' => 0,
+    'subqueues' => 1,
+    'types' => array(
+      0 => 'blog',
+    ),
+    'roles' => array(),
+    'count' => 0,
+  );
+
+  return $nodequeues;
+}
+
+/**
  * Implements hook_image_default_styles().
  */
 function katakrak_blog_image_default_styles() {

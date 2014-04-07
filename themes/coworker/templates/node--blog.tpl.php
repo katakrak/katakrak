@@ -95,6 +95,7 @@
   </div>
   <div class="span7">
     <p><?php print render($content['field_blog_body']) ?></p>
+    <p><?php print $node->event_table; ?></p>
     <p><?php print render($content['field_blog_adjunto']) ?></p>
   </div>
 </div>

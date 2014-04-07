@@ -23,6 +23,13 @@
  *
  * @ingroup views_templates
  */
+global $language;
+if ($language->language == 'es') {
+  $date_format = 'd/m/Y';
+}
+else {
+  $date_format = 'Y/m/d';
+}
 ?>
 <div class="row-fluid">
   <div class="span6">
@@ -30,7 +37,7 @@
   </div>
   <div class="span6">
     <?php print $fields['title']->content ?>
-    <?php print t("Posted on !date", array('!date' => $fields['created']->content)) ?>
+    <?php print t("Posted on !date", array('!date' => format_date($fields['created']->raw, 'custom', $date_format))) ?>
     <?php print $fields['field_blog_body']->content ?>
   </div>
 </div>
