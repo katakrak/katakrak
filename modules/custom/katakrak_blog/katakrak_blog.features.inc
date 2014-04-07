@@ -34,7 +34,7 @@ function katakrak_blog_fe_nodequeue_export_fields() {
     'name' => 'blog_portada',
     'title' => 'Blog portada',
     'subqueue_title' => '',
-    'size' => 1,
+    'size' => 2,
     'link' => 'Llevar a portada',
     'link_remove' => 'Quitar de portada',
     'owner' => 'nodequeue',
