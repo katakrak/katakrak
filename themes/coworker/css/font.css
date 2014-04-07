@@ -74,7 +74,7 @@ h6,
 .widget_pages li,
 .entry_date,
 #block-katakrak-language-switcher a {
-  font-family: "Din-next";
+  font-family: "Din-next", roboto, arial , sans-serif;
 }
 
 
