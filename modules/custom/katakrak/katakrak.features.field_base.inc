@@ -13,7 +13,7 @@ function katakrak_field_default_field_bases() {
   // Exported field_base: 'field_adjunto'
   $field_bases['field_adjunto'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_adjunto',
@@ -34,7 +34,7 @@ function katakrak_field_default_field_bases() {
     'module' => 'file',
     'settings' => array(
       'display_default' => 0,
-      'display_field' => 0,
+      'display_field' => 1,
       'uri_scheme' => 'public',
     ),
     'translatable' => 0,

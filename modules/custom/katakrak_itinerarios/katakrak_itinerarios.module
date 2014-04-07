@@ -5,3 +5,16 @@
  */
 
 include_once 'katakrak_itinerarios.features.inc';
+
+function katakrak_itinerarios_node_view($node, $view_mode, $langcode) {
+  if ($node->type == 'itinerario' && $view_mode == 'full') {
+    foreach ($node->field_itinerario_parada['und'] as $v) {
+      $parada = field_collection_item_load($v['value']);
+      dpm($parada); 
+      foreach ($parada->field_itinerario_parada_libro['und'] as $parada_libro) {
+        $parada_libro = field_collection_item_load($parada_libro['value']);
+        dpm($parada_libro);
+      }
+    }
+  }
+}

@@ -108,7 +108,7 @@ function katakrak_itinerarios_field_default_field_bases() {
   // Exported field_base: 'field_itinerario_parada_libro_re'
   $field_bases['field_itinerario_parada_libro_re'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_itinerario_parada_libro_re',
@@ -130,14 +130,17 @@ function katakrak_itinerarios_field_default_field_bases() {
     'settings' => array(
       'referenceable_types' => array(
         'article' => 0,
-        'dvd' => 0,
+        'blog' => 0,
+        'boletin' => 0,
         'event' => 0,
         'itinerario' => 0,
         'libro' => 'libro',
         'page' => 0,
         'portfolio' => 0,
+        'simplenews' => 0,
         'sukalde_errezeta' => 0,
         'sukalde_produktua' => 0,
+        'webform' => 0,
       ),
       'view' => array(
         'args' => array(),
