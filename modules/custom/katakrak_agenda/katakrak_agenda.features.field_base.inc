@@ -101,7 +101,7 @@ function katakrak_agenda_field_default_field_bases() {
   // Exported field_base: 'field_event_libro'
   $field_bases['field_event_libro'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_event_libro',
@@ -124,11 +124,16 @@ function katakrak_agenda_field_default_field_bases() {
       'referenceable_types' => array(
         'article' => 0,
         'blog' => 0,
+        'boletin' => 0,
         'event' => 0,
         'itinerario' => 0,
         'libro' => 'libro',
         'page' => 0,
         'portfolio' => 0,
+        'simplenews' => 0,
+        'sukalde_errezeta' => 0,
+        'sukalde_produktua' => 0,
+        'webform' => 0,
       ),
       'view' => array(
         'args' => array(),

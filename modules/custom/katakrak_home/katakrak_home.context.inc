@@ -32,12 +32,6 @@ function katakrak_home_context_default_contexts() {
           'region' => 'sidebar_second',
           'weight' => '-10',
         ),
-        'layer_slider-2' => array(
-          'module' => 'layer_slider',
-          'delta' => '2',
-          'region' => 'slider',
-          'weight' => '-9',
-        ),
         'system-main' => array(
           'module' => 'system',
           'delta' => 'main',
@@ -47,12 +41,6 @@ function katakrak_home_context_default_contexts() {
         'katakrak-newsletter_suscribe' => array(
           'module' => 'katakrak',
           'delta' => 'newsletter_suscribe',
-          'region' => 'content_top',
-          'weight' => '-10',
-        ),
-        'katakrak_search-katakrak_search_block' => array(
-          'module' => 'katakrak_search',
-          'delta' => 'katakrak_search_block',
           'region' => 'content_bottom',
           'weight' => '-10',
         ),
@@ -61,6 +49,12 @@ function katakrak_home_context_default_contexts() {
           'delta' => 'blog-block',
           'region' => 'content_bottom',
           'weight' => '-9',
+        ),
+        'katakrak_search-katakrak_search_block' => array(
+          'module' => 'katakrak_search',
+          'delta' => 'katakrak_search_block',
+          'region' => 'content_bottom',
+          'weight' => '-8',
         ),
       ),
       'layout' => 'home',
