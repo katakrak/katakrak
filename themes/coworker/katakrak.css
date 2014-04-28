@@ -358,6 +358,9 @@
   width: 100%;
 }
 
+.blue-envelope {
+    color: #57B3DF;
+}
 .katakrak-button {
 	border-top: 2px solid #2780AF;
 	border-left: 2px solid #2780AF;
@@ -523,6 +526,7 @@ div.search-results div:last-child {
 
 #block-katakrak-search-katakrak-search-block {
   padding: 15px 10px 1px 10px;
+  margin-top: 15px;
 }
 
 #block-katakrak-search-katakrak-search-block select {
