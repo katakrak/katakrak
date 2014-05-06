@@ -262,6 +262,19 @@ function _geslib_get_file_to_process() {
       $files[] = $value;
     }
   }
-  return $file_to_process = array_shift($files);
+  
+  $file_to_process = array_shift($files);
+ 
+  if (strrpos($file_to_process, '.zip') == TRUE) {
+    $zip = new ZipArchive;
+    $res = $zip->open($geslib_dir.'/'.$file_to_process);
+      if ($res === TRUE) {
+        $zip->extractTo($geslib_dir);
+        $zip->close();
+        unlink($geslib_dir.'/'.$file_to_process);
+        $file_to_process = _geslib_get_file_to_process();
+      }
+  }
+  return $file_to_process;
 
 }
