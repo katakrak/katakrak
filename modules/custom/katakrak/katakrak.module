@@ -104,7 +104,7 @@ function katakrak_block_info() {
   $blocks['katakrak_user_top'] = array(
     'info' => t('Katakrak user top'),
     // Not worth caching.
-    'cache' => DRUPAL_CACHE_PER_USER,
+    'cache' => DRUPAL_NO_CACHE,
   );
   $blocks['katakrak_cart'] = array(
     'info' => t('Katakrak cart'),
@@ -157,7 +157,7 @@ function katakrak_block_view($delta) {
       $block['content'] = l(t('Mi cuenta'), 'user');
 
     }
-    if ($user->uid == 106)
+    if (user_access('access checkout', $user))
       return $block;
   }
   if ($delta == 'katakrak_cart') {
@@ -172,7 +172,7 @@ function katakrak_block_view($delta) {
     }
     $content = theme('katakrak_cart_block', array('num_items' => $num_items));
     $block['content'] = $content;
-    if ($user->uid == 106)
+    if (user_access('access checkout', $user))
       return $block;
   }
   if ($delta == 'katakrak_social') {
