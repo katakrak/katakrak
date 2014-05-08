@@ -24,6 +24,7 @@ function katakrak_blog_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Blog';
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'más';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'views_content_cache';
   $handler->display->display_options['cache']['results_min_lifespan'] = '3600';
@@ -54,12 +55,17 @@ function katakrak_blog_views_default_views() {
   );
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Aplicar';
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordenar por';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '6';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elementos por página';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Todos -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Desplazamiento';
   $handler->display->display_options['pager']['options']['tags']['first'] = '« primera';
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
   $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
@@ -174,15 +180,15 @@ function katakrak_blog_views_default_views() {
   $translatables['blog'] = array(
     t('Master'),
     t('Blog'),
-    t('more'),
-    t('Apply'),
+    t('más'),
+    t('Aplicar'),
     t('Reiniciar'),
-    t('Sort by'),
+    t('Ordenar por'),
     t('Asc'),
     t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
+    t('Elementos por página'),
+    t('- Todos -'),
+    t('Desplazamiento'),
     t('« primera'),
     t('‹ anterior'),
     t('siguiente ›'),

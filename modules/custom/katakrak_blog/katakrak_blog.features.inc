@@ -89,19 +89,18 @@ function katakrak_blog_image_default_styles() {
     'name' => 'blog_post_page',
     'label' => 'Blog post page',
     'effects' => array(
-      16 => array(
-        'label' => 'Escala',
-        'help' => 'El escalado mantiene la relación de proporciones de la imagen original. Si sólo se especifica una dimensión, la otra se calculará.',
-        'effect callback' => 'image_scale_effect',
-        'dimensions callback' => 'image_scale_dimensions',
-        'form callback' => 'image_scale_form',
-        'summary theme' => 'image_scale_summary',
+      2 => array(
+        'label' => 'Escalar y recortar',
+        'help' => 'Escalar y recortar mantendrán la relación de proporciones de la imagen original y se desechará lo que sobre por el lado mayor. Esto es especialmente útil para crear miniaturas perfectamente cuadradas sin deformar la imagen.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
         'module' => 'image',
-        'name' => 'image_scale',
+        'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 290,
-          'height' => '',
-          'upscale' => 0,
+          'width' => 300,
+          'height' => 400,
         ),
         'weight' => 1,
       ),
@@ -121,7 +120,7 @@ function katakrak_blog_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Título'),
       'help' => '',
     ),
   );
