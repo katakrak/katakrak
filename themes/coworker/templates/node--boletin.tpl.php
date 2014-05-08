@@ -149,8 +149,38 @@
           <table class="row">
             <tr>
               <td class="wrapper">
-
                 <table class="six columns">
+                  <tr>
+                    <td class="panel">
+                      <h6>Libros de la semana <br> Asteko liburuak</h6>
+                      <br>
+                      <?php foreach($node->field_boletin_libros['und'] as $i => $nid): ?>
+                      <?php $libro = node_load($nid['nid']); ?>
+                        <table>
+                          <tr>
+                            <td>
+                              <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libro->nid) ?>"><?php print $libro->title ?></a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <?php print theme('image_style', array('style_name' => 'book_thumbnail', 'path' => $libro->field_libro_portada['und'][0]['uri'])) ?>
+                            </td>
+                          </tr>
+                        </table>
+                        <?php if (count($node->field_boletin_libros['und']) != $i + 1): ?>
+                          <hr>
+                        <?php endif; ?>
+                      <?php endforeach; ?>
+                    </td>
+                    <td class="expander"></td>
+                  </tr>
+                </table>
+                
+
+              </td>
+              <td class="wrapper last">
+<table class="six columns">
                   <tr>
                     <td>
                       <h6>Próximos eventos</br> Hurrengo ekitaldiak</h6>
@@ -200,37 +230,7 @@
                     <td class="expander"></td>
                   </tr>
                 </table>
-
-              </td>
-              <td class="wrapper last">
-
-                <table class="six columns">
-                  <tr>
-                    <td class="panel">
-                      <h6>Libros de la semana <br> Asteko liburuak</h6>
-                      <br>
-                      <?php foreach($node->field_boletin_libros['und'] as $i => $nid): ?>
-                      <?php $libro = node_load($nid['nid']); ?>
-                        <table>
-                          <tr>
-                            <td>
-                              <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libro->nid) ?>"><?php print $libro->title ?></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <?php print theme('image_style', array('style_name' => 'book_thumbnail', 'path' => $libro->field_libro_portada['und'][0]['uri'])) ?>
-                            </td>
-                          </tr>
-                        </table>
-                        <?php if (count($node->field_boletin_libros['und']) != $i + 1): ?>
-                          <hr>
-                        <?php endif; ?>
-                      <?php endforeach; ?>
-                    </td>
-                    <td class="expander"></td>
-                  </tr>
-                </table>
+                
                 <br>
                 <table class="six columns">
                   <tr>
