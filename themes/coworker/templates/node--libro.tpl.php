@@ -181,7 +181,7 @@
               <div class="span12">
                 <?php print render($content['field_libro_sinopsis']) ?>
               </div>
-              <?php if ($user->uid == 106): ?>
+              <?php if (user_access('access checkout', $user)): ?>
               <div class="span4">
                 <?php print render($content['field_libro_producto']) ?>
               </div>
