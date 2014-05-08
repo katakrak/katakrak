@@ -60,11 +60,11 @@ function katakrak_theme() {
 /** 
  * 
  */
-function katakrak_block_info_alter(&$blocks, $theme, $code_blocks) {
-  foreach ($blocks['layer_slider'] as &$slider) {
-    $slider['cache'] = DRUPAL_NO_CACHE;
-  }
-}
+//function katakrak_block_info_alter(&$blocks, $theme, $code_blocks) {
+//  foreach ($blocks['layer_slider'] as &$slider) {
+//    $slider['cache'] = DRUPAL_NO_CACHE;
+//  }
+//}
 
 /**
  * Implements hook_block_info().
@@ -128,6 +128,7 @@ function katakrak_block_info() {
  * Implements hook_block_view().
  */
 function katakrak_block_view($delta) {
+  global $user;
   if ($delta == 'language_switcher' && drupal_multilingual()) {
     $path = drupal_is_front_page() ? '<front>' : $_GET['q'];
     $links = language_negotiation_get_switch_links('language', $path);
@@ -161,7 +162,6 @@ function katakrak_block_view($delta) {
       return $block;
   }
   if ($delta == 'katakrak_cart') {
-    global $user;
     if ($order = commerce_cart_order_load($user->uid)) {
       $wrapper = entity_metadata_wrapper('commerce_order', $order);
       // If there are one or more products in the cart...
