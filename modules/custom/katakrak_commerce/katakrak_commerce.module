@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Katakrak commerce feature.
+ */
+
+include_once 'katakrak_commerce.features.inc';
