@@ -1,7 +1,3 @@
-.view-commerce-cart-summary td, .commerce-line-item-views-form td {
-  padding: 10px;
-}
-
 .colored-text {
   color: #2780AF;
 }
@@ -546,4 +542,22 @@ div.search-results div:last-child {
 
 .fa-6x {
   font-size: 10em;
+}
+
+/** Shopping cart and checkout **/
+
+.view-commerce-cart-summary td, .commerce-line-item-views-form td {
+  padding: 10px;
+}
+
+.view-id-commerce_cart_form th {
+  font-size: 1.4em;
+}
+
+.view-id-commerce_cart_form td {
+  font-size: 1.2em;
+}
+
+.line-item-total {
+  font-size: 1.2em;
 }

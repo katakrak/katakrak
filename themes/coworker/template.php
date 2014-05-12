@@ -97,7 +97,7 @@ function coworker_preprocess_search_result(&$vars) {
         )), 'node/'.$node->nid, array('html' => TRUE));
       }
       else {
-        $vars['image'] = '<i class="fa fa-book fa-5x"></i>';
+        $vars['image'] = '<i class="fa fa-book fa-6x"></i>';
       }
       $line_item = commerce_product_line_item_new(commerce_product_load($node->field_libro_producto['und'][0]['product_id']));
       $wrapper = entity_metadata_wrapper('commerce_line_item', $line_item);
