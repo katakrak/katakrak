@@ -119,15 +119,6 @@ function katakrak_user_default_permissions() {
     'module' => 'locale',
   );
 
-  // Exported permission: 'administer layerslider'.
-  $permissions['administer layerslider'] = array(
-    'name' => 'administer layerslider',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'layer_slider',
-  );
-
   // Exported permission: 'administer mailsystem'.
   $permissions['administer mailsystem'] = array(
     'name' => 'administer mailsystem',

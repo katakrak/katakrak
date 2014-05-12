@@ -56,6 +56,7 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
   $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordenar por';
   $handler->display->display_options['pager']['type'] = 'date_views_pager';
+  $handler->display->display_options['pager']['options']['link_format'] = 'clean';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Relationship: Nodequeue: Queue */
