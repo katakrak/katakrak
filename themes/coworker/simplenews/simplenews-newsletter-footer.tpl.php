@@ -56,3 +56,11 @@
 <?php if ($key == 'test'): ?>
 - - - <?php print $test_message ?> - - -
 <?php endif ?>
+
+</center>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+
