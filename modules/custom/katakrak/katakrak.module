@@ -167,7 +167,10 @@ function katakrak_block_view($delta) {
       $wrapper = entity_metadata_wrapper('commerce_order', $order);
       // If there are one or more products in the cart...
       $num_items = commerce_line_items_quantity($wrapper->commerce_line_items, commerce_product_line_item_types());
-      $class = 'cart';
+      if ($num_items)
+        $class = 'cart';
+      else
+        $class = 'cart-empty';
     }
     else {
       $num_items = 0;
