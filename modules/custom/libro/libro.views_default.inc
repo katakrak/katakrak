@@ -180,6 +180,38 @@ function libro_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+
+  /* Display: Libros por categoria */
+  $handler = $view->new_display('block', 'Libros por categoria', 'block_1');
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '9';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« primera';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Contenido: Referenced products */
+  $handler->display->display_options['relationships']['field_libro_producto_product_id']['id'] = 'field_libro_producto_product_id';
+  $handler->display->display_options['relationships']['field_libro_producto_product_id']['table'] = 'field_data_field_libro_producto';
+  $handler->display->display_options['relationships']['field_libro_producto_product_id']['field'] = 'field_libro_producto_product_id';
+  $handler->display->display_options['relationships']['field_libro_producto_product_id']['required'] = TRUE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Contenido: Sección (field_libro_categoria) */
+  $handler->display->display_options['arguments']['field_libro_categoria_tid']['id'] = 'field_libro_categoria_tid';
+  $handler->display->display_options['arguments']['field_libro_categoria_tid']['table'] = 'field_data_field_libro_categoria';
+  $handler->display->display_options['arguments']['field_libro_categoria_tid']['field'] = 'field_libro_categoria_tid';
+  $handler->display->display_options['arguments']['field_libro_categoria_tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_libro_categoria_tid']['exception']['title'] = 'Todo(s)';
+  $handler->display->display_options['arguments']['field_libro_categoria_tid']['default_argument_type'] = 'raw';
+  $handler->display->display_options['arguments']['field_libro_categoria_tid']['default_argument_options']['index'] = '2';
+  $handler->display->display_options['arguments']['field_libro_categoria_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_libro_categoria_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_libro_categoria_tid']['summary_options']['items_per_page'] = '25';
   $translatables['libros'] = array(
     t('Master'),
     t('Libros'),
@@ -195,6 +227,15 @@ function libro_views_default_views() {
     t('Page'),
     t('more'),
     t('Books block home'),
+    t('Libros por categoria'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« primera'),
+    t('‹ anterior'),
+    t('siguiente ›'),
+    t('última »'),
+    t('Todo(s)'),
   );
   $export['libros'] = $view;
 

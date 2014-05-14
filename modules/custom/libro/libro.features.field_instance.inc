@@ -184,7 +184,7 @@ function libro_field_default_field_instances() {
     ),
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Determina si el producto tiene el peso medio asignado',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1365,6 +1365,7 @@ function libro_field_default_field_instances() {
   t('Apellido');
   t('Autor');
   t('Año');
+  t('Determina si el producto tiene el peso medio asignado');
   t('Dilve');
   t('Ean');
   t('Editorial');
