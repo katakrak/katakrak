@@ -1,10 +1,13 @@
 name = Katakrak commerce
-description = Stores features of commerce 
+description = Stores features of commerce
 core = 7.x
 package = Katakrak
+dependencies[] = entity
+dependencies[] = rules
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
+features[rules_config][] = rules_pedido_procesado
 features[variable][] = commerce_cart_refresh_frequency
 features[variable][] = commerce_customer_profile_billing_addressbook
 features[variable][] = commerce_customer_profile_shipping_addressbook
