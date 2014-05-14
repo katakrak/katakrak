@@ -132,6 +132,12 @@ function katakrak_geslib_geslib_product($op, $product) {
         'unit' => 'g',
       );
     }
+    else {
+      $commerce_product->field_product_peso['und'][0] = array(
+         'weight' => variable_get('libro_avg_weight', 0),
+        'unit' => 'g'
+      );
+    }
     $commerce_product->commerce_stock['und'][0]['value'] = floatval($product['stock']);
 
     commerce_product_save($commerce_product);
