@@ -582,6 +582,15 @@ div.search-results div:last-child {
   font-size: 1.2em;
 }
 
+#block-katakrak-katakrak-cart .cart-empty {
+  color: #444;
+}
+
+#block-katakrak-katakrak-cart .cart {
+  color: #F50087;
+}
+
+
 
 
 .view-id-commerce_cart_form .views-table,

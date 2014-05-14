@@ -4222,7 +4222,7 @@ button.button span {
 .pricing {
   display: block;
   position: relative;
-  margin-bottom: 40px;
+  margin-bottom: 40px
 }
 
 .pricing .pricing-wrap {
@@ -4230,6 +4230,8 @@ button.button span {
   width: 25%;
   position: relative;
 }
+
+.pricing4 .pricing-wrap { width: 25%; }
 
 .pricing3 .pricing-wrap { width: 33.33%; }
 

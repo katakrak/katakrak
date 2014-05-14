@@ -39,6 +39,7 @@ function katakrak_theme() {
       'template' => 'katakrak-cart-block',
       'variables' => array(
         'num_items' => NULL,
+        'class' => NULL,
       ),
       'path' => $path . '/templates',
     ),
@@ -166,11 +167,13 @@ function katakrak_block_view($delta) {
       $wrapper = entity_metadata_wrapper('commerce_order', $order);
       // If there are one or more products in the cart...
       $num_items = commerce_line_items_quantity($wrapper->commerce_line_items, commerce_product_line_item_types());
+      $class = 'cart';
     }
     else {
       $num_items = 0;
+      $class = 'cart-empty';
     }
-    $content = theme('katakrak_cart_block', array('num_items' => $num_items));
+    $content = theme('katakrak_cart_block', array('num_items' => $num_items, 'class' => $class));
     $block['content'] = $content;
     if (user_access('access checkout', $user))
       return $block;
