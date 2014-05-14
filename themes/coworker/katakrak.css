@@ -1,3 +1,29 @@
+/** Estilos generales del sitio, tipografias, etc **/
+
+.field-type-text-long, .field-content p {
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.view-agenda h3.field-content,
+.view-display-id-book_block_home h3.field-content,
+.view-blog h3.field-content
+{
+  font-size: 35px;
+  line-height: 40px;
+  font-weight: normal;
+}
+
+h3.field-content a {
+  color: #444;
+}
+
+.book-page-view h3 a {
+  color: #2780AF;
+}
+
+
+
 .colored-text {
   color: #2780AF;
 }
@@ -463,8 +489,8 @@ html.js input.throbbing {
 
 /** Search Page **/ 
 
-div.search-page-col-left div.panel-pane {
-  background: #e0e0e0;
+div.search-page-ol-left div.panel-pane {
+  background: #d0d0d0;
   margin: 15px 0;
   padding: 15px;
   border-radius: 20px;
@@ -509,7 +535,7 @@ div.search-results div:last-child {
 
 /** FORMS **/
 #block-katakrak-newsletter-suscribe, #katakrak-books-search-form, #block-katakrak-search-katakrak-search-block  {
-  background-color: #e0e0e0;
+  background-color: #d0d0d0;
   padding: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -549,7 +575,7 @@ div.search-results div:last-child {
 .view-commerce-cart-summary td, .commerce-line-item-views-form td {
   padding: 10px;
 }
-
+.view-commerce-cart-form,
 #commerce-checkout-form-checkout,
 .checkout_review
 {

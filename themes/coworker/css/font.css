@@ -76,9 +76,3 @@ h6,
 #block-katakrak-language-switcher a {
   font-family: "Din-next", roboto, arial , sans-serif;
 }
-
-
-.field-type-text-long, .field-content p {
-  font-size: 1.2em;
-  line-height: 23px;
-}
