@@ -450,6 +450,11 @@ h3.field-content a {
   padding-top: 20px;
 }
 
+.book-cover-not-found {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
 .views-bootstrap-grid-plugin-style .views-field-field-libro-autores {
   margin-bottom: 10px;
 }
@@ -570,6 +575,9 @@ div.search-results div:last-child {
   font-size: 10em;
 }
 
+.fa-26x {
+  font-size: 26em;
+}
 /** Shopping cart and checkout **/
 
 .view-commerce-cart-summary td, .commerce-line-item-views-form td {
