@@ -24,6 +24,7 @@ function libro_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Libros';
   $handler->display->display_options['css_class'] = 'book-page-view';
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'más';
   $handler->display->display_options['access']['type'] = 'perm';
@@ -200,6 +201,11 @@ function libro_views_default_views() {
   $handler->display->display_options['relationships']['field_libro_producto_product_id']['field'] = 'field_libro_producto_product_id';
   $handler->display->display_options['relationships']['field_libro_producto_product_id']['required'] = TRUE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Contenido: Updated date */
+  $handler->display->display_options['sorts']['changed']['id'] = 'changed';
+  $handler->display->display_options['sorts']['changed']['table'] = 'node';
+  $handler->display->display_options['sorts']['changed']['field'] = 'changed';
+  $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Contenido: Sección (field_libro_categoria) */
   $handler->display->display_options['arguments']['field_libro_categoria_tid']['id'] = 'field_libro_categoria_tid';
