@@ -117,6 +117,8 @@
                 <h5><?php print $content['autores'] ?></h5>
               </div>
             </div>
+            <div class="clear"></div>
+             <?php print render($content['sharethis']) ?>
              <div class="clear"></div>
             <div class="book-metadata">
             <div class="col-2 ">

@@ -80,20 +80,15 @@
  */
 ?>
 <div class="row-fluid">
-      <div class="span12">
-        <h1><?php print $node->title ?></h1>
-        <?php //print format_date($created, 'custom', 'd'); ?>
-      </div>
-      
-</div>
-
-<div class="dotted-divider"></div>
-
-<div class="row-fluid">
   <div class="span5">
     <?php print render($content['field_image']) ?>
   </div>
   <div class="span7">
+    <h1><?php print $node->title ?></h1>
+    <p><?php print t("Published on !date", array('!date' => format_date($node->changed, 'custom', 'd/m/Y'))) ?></p>
+    <div class="clear"></div>
+    <?php print render($content['sharethis']) ?>
+    <div class="clear"></div>
     <p><?php print render($content['field_blog_body']) ?></p>
     <p><?php print $node->event_table; ?></p>
     <p><?php print render($content['field_blog_adjunto']) ?></p>
