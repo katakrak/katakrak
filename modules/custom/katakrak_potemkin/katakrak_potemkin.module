@@ -24,14 +24,20 @@ function katakrak_potemkin_menu() {
 }
 
 function potemkin_first_import_form($form, &$form_state) {
-  $form['file'] = array(
-    '#name' => 'files[]',
-    '#type' => 'file',
-    '#title' => t('Choose a file'),
-    '#title_display' => 'invisible',
-    '#size' => 22,
-    '#theme_wrappers' => array(),
-    '#weight' => -10,
+  $potemkin_dir = DRUPAL_ROOT.'/'.variable_get('potemkin_directory', 'sites/default/files/potemkin');
+  if (!file_exists($potemkin_dir)) {
+    mkdir($potemkin_dir);
+  }
+  $files = scandir($potemkin_dir);
+  foreach ($files as $key => $value) {
+    if (strpos($value, '.') !== 0 AND $value != '..'){
+      $options[$potemkin_dir.'/'.$value] = $value;
+    }
+  }
+  $form['potemkin_file'] = array(
+    '#type' => 'select',
+    '#title' => 'Potemkin File',
+    '#options' => $options,
   );
   $form['submit'] = array(
     '#type' => 'submit',
@@ -40,19 +46,9 @@ function potemkin_first_import_form($form, &$form_state) {
   return $form;
 }
 
-function potemkin_first_import_form_validate($form, &$form_state) {
-  $file = file_save_upload(0, array('file_validate_extensions' => array('csv')));
-  if ($file) {
-    $form_state['values']['file']['file'] = $file;
-  }
-  else {
-    form_set_error('file', t('No file was uploaded.'));
-  }
-}
-
 
 function potemkin_first_import_form_submit($form, &$form_state) {
-  $file_path = '/tmp/'.file_uri_target($form_state['values']['file']['file']->uri);
+  $file_path = $form_state['values']['potemkin_file'];
   $file = fopen($file_path, 'r');
   $items = array();
   $i = 0;
@@ -73,7 +69,6 @@ function potemkin_first_import_form_submit($form, &$form_state) {
     ),
     'finished' => 'potemkin_import_process_finish',
   );
-  
   batch_set($batch);
 }
 
