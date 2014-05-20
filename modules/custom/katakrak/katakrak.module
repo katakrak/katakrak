@@ -152,10 +152,12 @@ function katakrak_block_view($delta) {
   if ($delta == 'katakrak_user_top') {
     if (user_is_anonymous()) {
       //Generate login link
+      $block['title'] = t('Acceder');
       $block['content'] = l(t('Acceder'), 'user');
     }
     else {
       //Generate user block
+      $block['title'] = t('Hello @username', array('@username' => $user->name));
       $block['content'] = l(t('Mi cuenta'), 'user');
 
     }
@@ -167,10 +169,12 @@ function katakrak_block_view($delta) {
       $wrapper = entity_metadata_wrapper('commerce_order', $order);
       // If there are one or more products in the cart...
       $num_items = commerce_line_items_quantity($wrapper->commerce_line_items, commerce_product_line_item_types());
-      if ($num_items)
+      if ($num_items) {
         $class = 'cart';
-      else
+      }
+      else {
         $class = 'cart-empty';
+      }
     }
     else {
       $num_items = 0;
