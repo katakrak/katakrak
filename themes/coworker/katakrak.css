@@ -14,6 +14,12 @@
   font-weight: normal;
 }
 
+#block-views-agenda-next-events-node-block h3.field-content {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: bold;
+}
+
 h3.field-content a {
   color: #444;
 }
@@ -83,7 +89,7 @@ h3.field-content a {
   margin-top: 20px;
   float: right;
 }
-
+/*
 #block-katakrak-katakrak-user-top a {
   text-decoration: none;
   background-color: #2780AF;
@@ -95,7 +101,7 @@ h3.field-content a {
   border-left: 1px solid #2780AF;
   border-radius: 5px;
   -webkit-border-radius: 5px;
-}
+}*/
 
 /** Cart block **/
 
@@ -590,7 +596,7 @@ div.search-results div:last-child {
   font-size: 1.2em;
 }
 
-#block-katakrak-katakrak-cart .cart-empty {
+#block-katakrak-katakrak-cart .cart-empty  {
   color: #444;
 }
 
