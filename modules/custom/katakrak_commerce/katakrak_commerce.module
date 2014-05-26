@@ -5,3 +5,20 @@
  */
 
 include_once 'katakrak_commerce.features.inc';
+
+function katakrak_commerce_commerce_checkout_pane_info_alter(&$panes) {
+  foreach($panes as $key => $pane) {
+    $panes[$key]['title'] = t($panes[$key]['title']);
+  }
+  $panes['customer_profile_shipping']['title'] = t('Shipping information');
+}
+
+function katakrak_commerce_commerce_price_formatted_components_alter(&$components, $item, $entity) {
+  $components['base_price']['title'] = t('Subtotal');
+  $components['tax|iva_libros']['title'] = t('VAT');
+  if (isset($components['shipping']))
+    $components['shipping']['title'] = t('Shipping cost');
+  elseif (isset($components['flat_rate_recogida_en_la_tienda']))
+    $components['flat_rate_recogida_en_la_tienda']['title'] = t($components['flat_rate_recogida_en_la_tienda']['title']);
+  $components['commerce_price_formatted_amount']['title'] = t('Order total');
+}
