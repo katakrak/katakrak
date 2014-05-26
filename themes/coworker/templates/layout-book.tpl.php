@@ -3,7 +3,7 @@
 <div id="content" class="book-page">
   <div id="page-title">
         <div class="container clearfix">
-          <div class="col-3">
+          <div class="page-title">
           <h1><?php print t($section_title) ?></h1>
           </div>
         </div>

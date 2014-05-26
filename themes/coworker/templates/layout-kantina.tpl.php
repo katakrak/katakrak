@@ -4,7 +4,7 @@
     <?php if ($title): ?>
       <div id="page-title">
         <div class="container clearfix">
-          <div class="col-3">
+          <div class="page-title">
             <h1><?php print $title; ?></h1>
           </div>
         </div>

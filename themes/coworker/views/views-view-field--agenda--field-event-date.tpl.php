@@ -21,17 +21,6 @@
  * regardless of any changes in the aliasing that might happen if
  * the view is modified.
  */
- $date = $row->field_field_event_date[0]['raw']['value'];
  global $language;
 ?>
-<div class="entry_date">
-  <?php if ($language->language == 'eu'): ?>
-  
-    <div class="day"><?php print format_date($date, 'custom', 'M'); ?></div>
-    <div class="month"><?php print format_date($date, 'custom', 'd'); ?></div>
-  <?php else: ?>
-    <div class="day"><?php print format_date($date, 'custom', 'd'); ?></div>
-    <div class="month"><?php print format_date($date, 'custom', 'M'); ?></div>
-  <?php endif; ?>
-  <div class="hour"><?php print format_date($date, 'custom', 'G:i'); ?></div>
-</div>
+<?php print theme('agenda_date', array('time' => $row->field_field_event_date[0]['raw']['value'])); ?>

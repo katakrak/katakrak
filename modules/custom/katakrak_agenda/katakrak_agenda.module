@@ -5,3 +5,16 @@
  */
 
 include_once 'katakrak_agenda.features.inc';
+
+function katakrak_agenda_theme() {
+  $path = drupal_get_path('module', 'katakrak_agenda');
+  return array(
+    'agenda_date' => array(
+      'template' => 'agenda-date',
+      'path' => $path . '/templates',
+      'arguments' => array(
+        'time' => NULL,
+      )
+    ),
+  );
+}

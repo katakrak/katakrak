@@ -3,7 +3,7 @@
     <?php if ($title): ?>
       <div id="page-title">
         <div class="container clearfix">
-          <div class="col-3">
+          <div class="page-title">
           <h1><?php print t($section_title); ?></h1>
           </div>
         </div>
@@ -45,7 +45,10 @@
           <?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
           <?php if ($page['content_top']): ?>
             <div id="content-top">
-              <?php print render($page['content_top']); ?>
+              <div class="row-fluid">
+              <div class="span8 offset2">
+                <?php print render($page['content_top']); ?>
+              </div>
             </div>
           <?php endif; ?>
           <a id="main-content"></a>

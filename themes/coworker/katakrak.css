@@ -17,6 +17,9 @@
   line-height: 40px;
   font-weight: normal;
 }
+#page-title .page-title {
+  width: 33.333%;
+}
 #block-views-agenda-next-events-node-block h3.field-content {
   font-size: 18px;
   line-height: 22px;
@@ -616,6 +619,11 @@ div.search-results div:last-child {
 .component-type-commerce-price-formatted-amount .component-total {
   color: #F50087;
   font-weight: bold;
+}
+@media (max-width: 767px) {
+  #page-title .page-title {
+    width: 100%;
+  }
 }
 @media (min-width: 767px) {
   #footer {

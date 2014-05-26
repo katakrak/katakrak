@@ -33,6 +33,10 @@
   font-weight: normal;
 }
 
+#page-title .page-title {
+  width: 33.333%
+}
+
 #block-views-agenda-next-events-node-block h3.field-content {
   font-size: 18px;
   line-height: 22px;
@@ -480,11 +484,6 @@ view-id-libros .book-author {
   }
 }
 
-#block-libro-katakrak-libro-estilo h3 a {
-  
-}
-
-
 #copyrights {
   border-top: none;
 }
@@ -561,9 +560,10 @@ div.search-results div:last-child {
   word-break: break-word;
   :hover {
     color: @hover_gray;
-  }
-  
+  } 
 }
+
+
 
 /** FORMS **/
 #block-katakrak-newsletter-suscribe, #katakrak-books-search-form, #block-katakrak-search-katakrak-search-block  {
@@ -643,7 +643,11 @@ div.search-results div:last-child {
   font-weight: bold;
 }
 
-
+@media (max-width: 767px) {
+  #page-title .page-title {
+    width: 100%;
+  }
+}
 
 @media (min-width: 767px) {
   #footer {
