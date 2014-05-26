@@ -1,3 +1,9 @@
+.bordered {
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  padding: 10px;
+}
 /** Estilos generales del sitio, tipografias, etc **/
 .field-type-text-long,
 .field-content p {
@@ -17,7 +23,10 @@
   font-weight: bold;
 }
 h3.field-content a {
-  color: #444;
+  color: #777777;
+}
+h3.field-content a:hover {
+  color: #444444;
 }
 .book-page-view h3 a {
   color: #2780AF;
@@ -313,9 +322,7 @@ h3.field-content a {
   padding: 10px;
 }
 #block-katakrak-newsletter-suscribe div.suscribe-block-help {
-  /*padding: 22px 4px 4px 15px;*/
-
-  font-size: 1.1em;
+  font-size: 14px;
 }
 #block-katakrak-newsletter-suscribe input[type="text"] {
   width: 100%;
@@ -363,7 +370,7 @@ h3.field-content a {
   font-size: 24px;
   margin: 15px 0;
 }
-.book-page-view .book-author {
+view-id-libros .book-author {
   font-family: Din-next;
   font-size: 1.2em;
   color: #A0A0A0;
@@ -385,6 +392,9 @@ h3.field-content a {
 }
 .views-bootstrap-grid-plugin-style .views-field-field-libro-autores {
   margin-bottom: 10px;
+}
+#block-libro-katakrak-libro-estilo {
+  padding-top: 10px;
 }
 #block-libro-katakrak-libro-estilo h3 {
   font-weight: bold;
@@ -446,10 +456,10 @@ div.search-results div:last-child {
 #block-views-agenda-next-events-node-block .views-row {
   background-color: #eee;
   margin-bottom: 18px;
-  padding: 10px;
-  -webkit-border-radius: 10px;
   border-radius: 10px;
   -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  padding: 10px;
 }
 #block-views-agenda-next-events-node-block h3 a {
   color: #777777;
@@ -462,11 +472,11 @@ div.search-results div:last-child {
 #block-katakrak-newsletter-suscribe,
 #katakrak-books-search-form,
 #block-katakrak-search-katakrak-search-block {
-  background-color: #d0d0d0;
-  padding: 10px;
-  -webkit-border-radius: 10px;
   border-radius: 10px;
   -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  padding: 10px;
+  background-color: #d0d0d0;
 }
 #block-katakrak-newsletter-suscribe {
   padding: 15px 10px 0 10px;
@@ -489,8 +499,80 @@ div.search-results div:last-child {
 #katakrak-search-form input[type="text"] {
   width: 95%;
 }
+.fa-1x {
+  font-size: 1em;
+}
+.fa-2x {
+  font-size: 2em;
+}
+.fa-3x {
+  font-size: 3em;
+}
+.fa-4x {
+  font-size: 4em;
+}
+.fa-5x {
+  font-size: 5em;
+}
 .fa-6x {
+  font-size: 6em;
+}
+.fa-7x {
+  font-size: 7em;
+}
+.fa-8x {
+  font-size: 8em;
+}
+.fa-9x {
+  font-size: 9em;
+}
+.fa-10x {
   font-size: 10em;
+}
+.fa-11x {
+  font-size: 11em;
+}
+.fa-12x {
+  font-size: 12em;
+}
+.fa-13x {
+  font-size: 13em;
+}
+.fa-14x {
+  font-size: 14em;
+}
+.fa-15x {
+  font-size: 15em;
+}
+.fa-16x {
+  font-size: 16em;
+}
+.fa-17x {
+  font-size: 17em;
+}
+.fa-18x {
+  font-size: 18em;
+}
+.fa-19x {
+  font-size: 19em;
+}
+.fa-20x {
+  font-size: 20em;
+}
+.fa-21x {
+  font-size: 21em;
+}
+.fa-22x {
+  font-size: 22em;
+}
+.fa-23x {
+  font-size: 23em;
+}
+.fa-24x {
+  font-size: 24em;
+}
+.fa-25x {
+  font-size: 25em;
 }
 .fa-26x {
   font-size: 26em;
@@ -506,7 +588,7 @@ div.search-results div:last-child {
   font-size: 1.2em;
 }
 #block-katakrak-katakrak-cart .cart-empty {
-  color: #444;
+  color: #444444;
 }
 #block-katakrak-katakrak-cart .cart {
   color: #F50087;
@@ -517,6 +599,8 @@ div.search-results div:last-child {
 #customer-profile-shipping-ajax-wrapper {
   background-color: #f0f0f0;
   border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
   padding: 10px;
 }
 #customer-profile-billing-ajax-wrapper {

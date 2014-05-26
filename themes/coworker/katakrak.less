@@ -1,5 +1,21 @@
-@link_grey: #777;
-@hover_grey: #444;
+@link_gray: #777;
+@hover_gray: #444;
+@background_gray: #d0d0d0;
+
+.generate-fa-sizes(@n, @i: 1) when (@i =< @n) {
+  .fa-@{i}x {
+    font-size: (1em * @i);
+  }
+  .generate-fa-sizes(@n, (@i + 1));
+}
+
+
+.bordered {
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  padding: 10px;
+}
 
 /** Estilos generales del sitio, tipografias, etc **/
 
@@ -23,8 +39,14 @@
   font-weight: bold;
 }
 
-h3.field-content a {
-  color: #444;
+h3.field-content{
+  a {
+    color: @link_gray;
+  }
+  a:hover {
+    color: @hover_gray;
+  }
+  
 }
 
 .book-page-view h3 a {
@@ -161,7 +183,7 @@ h3.field-content a {
   display: block;
   margin-top: 2px;
   top: 0;
-  color: @link_grey;
+  color: @link_gray;
   font-family: "Open Sans", serif;
   font-size: 11px;
   font-weight: 400 !important;
@@ -317,18 +339,15 @@ h3.field-content a {
 
 #content {
  margin-bottom: 50px; 
-}
-
-#content .content-wrap {
+ .content-wrap {
    z-index: 3;
+ }
 }
 
 .begiak {
   position: absolute;
   right: 0;
 }
-
-
 
 #footer h6 {
   padding-top: 10px;
@@ -356,15 +375,12 @@ h3.field-content a {
 
 #block-katakrak-newsletter-suscribe {
   margin-bottom: 40px;
-}
-
-#block-katakrak-newsletter-suscribe div.suscribe-block {
-  padding: 10px;
-}
-
-#block-katakrak-newsletter-suscribe div.suscribe-block-help {
-  /*padding: 22px 4px 4px 15px;*/
-  font-size: 1.1em;
+  div.suscribe-block {
+    padding: 10px;
+  }
+  div.suscribe-block-help {
+    font-size: 14px;
+  }
 }
 
 #block-katakrak-newsletter-suscribe input[type="text"] {
@@ -423,7 +439,7 @@ h3.field-content a {
   margin: 15px 0;
 }
 
-.book-page-view .book-author {
+view-id-libros .book-author {
   font-family: Din-next;
   font-size: 1.2em;
   color: #A0A0A0;
@@ -450,15 +466,18 @@ h3.field-content a {
   margin-bottom: 10px;
 }
 
-#block-libro-katakrak-libro-estilo h3 {
-  a {
-    color: @link_grey;
-  }
-  a:hover {
-      color: @hover_grey;
+#block-libro-katakrak-libro-estilo{
+  padding-top: 10px;
+  h3 {
+    a {
+      color: @link_gray;
     }
-  font-weight: bold;
-  font-size: 20px;
+    a:hover {
+        color: @hover_gray;
+      }
+    font-weight: bold;
+    font-size: 20px;
+  }
 }
 
 #block-libro-katakrak-libro-estilo h3 a {
@@ -534,27 +553,23 @@ div.search-results div:last-child {
   background-color: #eee;
   margin-bottom: 18px;
   padding: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  -moz-border-radius: 10px;
+  .bordered;
 }
 
 #block-views-agenda-next-events-node-block h3 a {
-  color: @link_grey;
+  color: @link_gray;
   word-break: break-word;
   :hover {
-    color: @hover_grey;
+    color: @hover_gray;
   }
   
 }
 
 /** FORMS **/
 #block-katakrak-newsletter-suscribe, #katakrak-books-search-form, #block-katakrak-search-katakrak-search-block  {
-  background-color: #d0d0d0;
   padding: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  -moz-border-radius: 10px;
+  .bordered;
+  background-color: @background_gray;
 }
 
 #block-katakrak-newsletter-suscribe {
@@ -581,13 +596,7 @@ div.search-results div:last-child {
   width: 95%;
 }
 
-.fa-6x {
-  font-size: 10em;
-}
-
-.fa-26x {
-  font-size: 26em;
-}
+.generate-fa-sizes(26);
 /** Shopping cart and checkout **/
 
 .view-commerce-cart-summary td, .commerce-line-item-views-form td {
@@ -601,23 +610,19 @@ div.search-results div:last-child {
 }
 
 #block-katakrak-katakrak-cart .cart-empty  {
-  color: #444;
+  color: @hover_gray;
 }
 
 #block-katakrak-katakrak-cart .cart {
   color: #F50087;
 }
 
-
-
-
 .view-id-commerce_cart_form .views-table,
 .view-commerce-cart-summary .views-table,
 #customer-profile-billing-ajax-wrapper,
 #customer-profile-shipping-ajax-wrapper{
   background-color: #f0f0f0;
-  border-radius: 10px;
-  padding: 10px
+  .bordered;
 }
 
 #customer-profile-billing-ajax-wrapper {

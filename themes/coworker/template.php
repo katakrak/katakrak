@@ -97,7 +97,7 @@ function coworker_preprocess_search_result(&$vars) {
         )), 'node/'.$node->nid, array('html' => TRUE));
       }
       else {
-        $vars['image'] = '<i class="fa fa-book fa-6x"></i>';
+        $vars['image'] = '<i class="fa fa-book fa-10x"></i>';
       }
       $product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
       $default_quantity = 1;
