@@ -471,7 +471,7 @@ function commerce_price_field_formatter_view($entity_type, $entity, $field, $ins
 
           if (empty($components[$component['name']])) {
             $components[$component['name']] = array(
-              'title' => check_plain($component_type['display_title']),
+              'title' => t(check_plain($component_type['display_title'])),
               'price' => commerce_price_component_total($item, $component['name']),
               'weight' => $component_type['weight'],
             );
@@ -485,7 +485,6 @@ function commerce_price_field_formatter_view($entity_type, $entity, $field, $ins
         if (count($components) == 1 && in_array('base_price', array_keys($components))) {
           $components = array();
         }
-
         // Add the actual field value to the array.
         $components['commerce_price_formatted_amount'] = array(
           'title' => check_plain($translated_instance['label']),
