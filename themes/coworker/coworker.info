@@ -25,6 +25,8 @@ regions[highlighted] = Highlighted
 regions[help] = Help
 regions[content_top] = Content Top
 regions[content_bottom] = Content Bottom
+regions[content_bottom_left] = Content Bottom Left
+regions[content_bottom_right] = Content Bottom Right
 regions[post_content_bottom_right] = Post Content Bottom Right
 
 regions[footer] = Footer
@@ -103,6 +105,8 @@ layouts[book][regions][] = "top_right"
 layouts[book][regions][] = "top_lang"
 layouts[book][regions][] = "content"
 layouts[book][regions][] = "content_bottom"
+layouts[book][regions][] = "content_bottom_left"
+layouts[book][regions][] = "content_bottom_right"
 layouts[book][regions][] = "post_content_bottom_right"
 layouts[book][regions][] = "header"
 layouts[book][regions][] = "header_right"
