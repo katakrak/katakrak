@@ -51,17 +51,6 @@ function libro_context_default_contexts() {
     ),
   );
   $context->reactions = array(
-    'block' => array(
-      'blocks' => array(
-        'views-libros-block_1' => array(
-          'module' => 'views',
-          'delta' => 'libros-block_1',
-          'region' => 'content_bottom',
-          'weight' => '-10',
-        ),
-      ),
-      'layout' => 'book',
-    ),
     'menu' => 'libros',
     'region' => array(
       'bartik' => array(
@@ -101,6 +90,8 @@ function libro_context_default_contexts() {
           'help' => 0,
           'content_top' => 0,
           'content_bottom' => 0,
+          'content_bottom_left' => 0,
+          'content_bottom_right' => 0,
           'post_content_bottom_right' => 0,
           'footer' => 0,
           'footer_first' => 0,
@@ -170,7 +161,13 @@ function libro_context_default_contexts() {
         'katakrak_search-katakrak_books_search_block' => array(
           'module' => 'katakrak_search',
           'delta' => 'katakrak_books_search_block',
-          'region' => 'content_bottom',
+          'region' => 'content_bottom_left',
+          'weight' => '-10',
+        ),
+        'libro-katakrak_libro_estilo' => array(
+          'module' => 'libro',
+          'delta' => 'katakrak_libro_estilo',
+          'region' => 'content_bottom_right',
           'weight' => '-10',
         ),
       ),

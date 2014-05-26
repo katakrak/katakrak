@@ -42,7 +42,16 @@
           <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
 
           <?php print render($page['content']); ?>
-          <?php print render($page['content_bottom']) ?>
+          <div class="books-search-block-help">
+  <?php print t('Bucea entre todo nuestro fondo') ?>
+</div>
+          <div class="col_three_fourth">
+           <?php print render($page['content_bottom_left']) ?> 
+          </div>
+          <div class="col_one_fourth col_last">
+           <?php print render($page['content_bottom_right']) ?> 
+          </div>
+          
           <?php print $feed_icons; ?>
         </div>
         <!-- // content region -->

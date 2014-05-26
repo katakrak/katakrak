@@ -23,6 +23,36 @@ function libro_menu() {
   return $items;
 }
 
+
+function libro_block_info() {
+  $blocks = array();
+  $blocks['katakrak_libro_estilo'] = array(
+    'info' => t('Libro de estilo'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function libro_block_view($delta) {
+  if ($delta == 'katakrak_libro_estilo') {
+    $block['content'] = theme('katakrak_libro_estilo');
+    return $block;
+  }
+}
+
+function libro_theme() {
+  $path = drupal_get_path('module', 'libro');
+  return array(
+    'katakrak_libro_estilo' => array(
+      'template' => 'katakrak-libro-estilo',
+      'path' => $path . '/templates',
+    ),
+  );
+}
+
 function libro_peso_moda_form($form, &$form_state) {
   $libro_avg_weight = variable_get('libro_avg_weight', 0);
   drupal_set_message("El promedio del peso de los libros en stock es de $libro_avg_weight gr");

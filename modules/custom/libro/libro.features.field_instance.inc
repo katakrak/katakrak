@@ -1360,6 +1360,40 @@ function libro_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'taxonomy_term-materias-field_nombre_euskera'
+  $field_instances['taxonomy_term-materias-field_nombre_euskera'] = array(
+    'bundle' => 'materias',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_nombre_euskera',
+    'label' => 'Nombre euskera',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 31,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Apellido');
@@ -1374,6 +1408,7 @@ function libro_field_default_field_instances() {
   t('Idioma');
   t('Isbn');
   t('Nombre');
+  t('Nombre euskera');
   t('Peso');
   t('Peso medio');
   t('Portada');
