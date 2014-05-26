@@ -38,8 +38,8 @@ function katakrak_agenda_image_default_styles() {
     'label' => 'Event highlight',
     'effects' => array(
       3 => array(
-        'label' => 'Escala',
-        'help' => 'El escalado mantiene la relación de proporciones de la imagen original. Si sólo se especifica una dimensión, la otra se calculará.',
+        'label' => 'Scale',
+        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
         'effect callback' => 'image_scale_effect',
         'dimensions callback' => 'image_scale_dimensions',
         'form callback' => 'image_scale_form',
@@ -54,8 +54,8 @@ function katakrak_agenda_image_default_styles() {
         'weight' => 1,
       ),
       8 => array(
-        'label' => 'Recortar',
-        'help' => 'El recorte eliminará partes de una imagen para que tenga las dimensiones especificadas.',
+        'label' => 'Crop',
+        'help' => 'Cropping will remove portions of an image to make it the specified dimensions.',
         'effect callback' => 'image_crop_effect',
         'dimensions callback' => 'image_resize_dimensions',
         'form callback' => 'image_crop_form',
@@ -78,8 +78,8 @@ function katakrak_agenda_image_default_styles() {
     'label' => 'Event home',
     'effects' => array(
       13 => array(
-        'label' => 'Escalar y recortar',
-        'help' => 'Escalar y recortar mantendrán la relación de proporciones de la imagen original y se desechará lo que sobre por el lado mayor. Esto es especialmente útil para crear miniaturas perfectamente cuadradas sin deformar la imagen.',
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
         'effect callback' => 'image_scale_and_crop_effect',
         'dimensions callback' => 'image_resize_dimensions',
         'form callback' => 'image_resize_form',
@@ -101,8 +101,8 @@ function katakrak_agenda_image_default_styles() {
     'label' => 'Event node view',
     'effects' => array(
       12 => array(
-        'label' => 'Escalar y recortar',
-        'help' => 'Escalar y recortar mantendrán la relación de proporciones de la imagen original y se desechará lo que sobre por el lado mayor. Esto es especialmente útil para crear miniaturas perfectamente cuadradas sin deformar la imagen.',
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
         'effect callback' => 'image_scale_and_crop_effect',
         'dimensions callback' => 'image_resize_dimensions',
         'form callback' => 'image_resize_form',
@@ -124,8 +124,8 @@ function katakrak_agenda_image_default_styles() {
     'label' => 'Event teaser',
     'effects' => array(
       5 => array(
-        'label' => 'Escala',
-        'help' => 'El escalado mantiene la relación de proporciones de la imagen original. Si sólo se especifica una dimensión, la otra se calculará.',
+        'label' => 'Scale',
+        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
         'effect callback' => 'image_scale_effect',
         'dimensions callback' => 'image_scale_dimensions',
         'form callback' => 'image_scale_form',
@@ -140,8 +140,8 @@ function katakrak_agenda_image_default_styles() {
         'weight' => 1,
       ),
       9 => array(
-        'label' => 'Recortar',
-        'help' => 'El recorte eliminará partes de una imagen para que tenga las dimensiones especificadas.',
+        'label' => 'Crop',
+        'help' => 'Cropping will remove portions of an image to make it the specified dimensions.',
         'effect callback' => 'image_crop_effect',
         'dimensions callback' => 'image_resize_dimensions',
         'form callback' => 'image_crop_form',

@@ -171,6 +171,8 @@ function libro_views_default_views() {
   /* Display: Books block home */
   $handler = $view->new_display('block', 'Books block home', 'book_block_home');
   $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'book-block-home';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
