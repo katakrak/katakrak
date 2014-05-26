@@ -39,16 +39,6 @@ h3.field-content a {
 #header .container {
   position: static;
 }
-@media only screen and (min-width: 1040px) {
-  #logo {
-    top: 40px;
-    margin-left: 530px;
-  }
-  #top-right {
-    float: right;
-  }
-}
-/* Language block*/
 #block-katakrak-language-switcher {
   float: right;
 }
@@ -62,12 +52,10 @@ h3.field-content a {
 #block-katakrak-language-switcher a {
   text-transform: uppercase;
   text-decoration: none;
-  color: #000000;
+  color: #000;
 }
 #block-katakrak-language-switcher a.active {
   font-weight: bold;
-  text-decoration: none;
-  color: #000000;
 }
 /** User block */
 #block-katakrak-katakrak-user-top {
@@ -299,13 +287,6 @@ h3.field-content a {
 .begiak {
   position: absolute;
   right: 0;
-}
-@media (min-width: 767px) {
-  #footer {
-    background: url("images/footer/footer.jpg") 100% no-repeat;
-    border-top: none;
-    padding: 18px 30px;
-  }
 }
 #footer h6 {
   padding-top: 10px;
@@ -551,4 +532,20 @@ div.search-results div:last-child {
 .component-type-commerce-price-formatted-amount .component-total {
   color: #F50087;
   font-weight: bold;
+}
+@media (min-width: 767px) {
+  #footer {
+    background: url("images/footer/footer.jpg") 100% no-repeat;
+    border-top: none;
+    padding: 18px 30px;
+  }
+}
+@media only screen and (min-width: 1040px) {
+  #logo {
+    top: 40px;
+    margin-left: 530px;
+  }
+  #top-right {
+    float: right;
+  }
 }
