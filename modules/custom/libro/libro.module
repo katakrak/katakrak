@@ -37,8 +37,15 @@ function libro_block_info() {
  * Implements hook_block_view().
  */
 function libro_block_view($delta) {
+  global $language;
   if ($delta == 'katakrak_libro_estilo') {
-    $block['content'] = theme('katakrak_libro_estilo');
+    if ($language->language == 'es') {
+      $link = l("Consulta el<br>libro de estilo", 'libro-de-estilo', array('html' => 1));
+    }
+    else {
+      $link = l("Ikusi gure<br>estilo liburua", 'estilo-liburua', array('html' => 1));
+    }
+    $block['content'] = theme('katakrak_libro_estilo', array('link' => $link));
     return $block;
   }
 }
@@ -49,6 +56,9 @@ function libro_theme() {
     'katakrak_libro_estilo' => array(
       'template' => 'katakrak-libro-estilo',
       'path' => $path . '/templates',
+      'arguments' => array(
+        'link' => NULL,
+      )
     ),
   );
 }

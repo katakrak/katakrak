@@ -1,5 +1,3 @@
-
-
 <?php print render($form) ?>
 
-<?php print $view ?>
+<?php //print $view ?>
