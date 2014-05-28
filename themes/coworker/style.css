@@ -2536,19 +2536,7 @@ ul.landing-features li:hover { font-weight: bold; }
 }
 
 .col_full .small-posts .entry_date { margin-right: 15px; }
-
-.entry_date div.month,
-.entry_date div.day,
-.entry_date div.weekday,
-.entry_date div.hour {
-  background-color: #57B3DF;
-  color: #FFF;
-  font-size: 20px;
-  line-height: 1;
-  font-weight: 300;
-  padding: 0 0 10px;
-}
-
+l
 .entry_date div.day {
   font-weight: normal;
   padding: 10px 0 0;

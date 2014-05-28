@@ -1,6 +1,7 @@
 @link_gray: #777;
 @hover_gray: #444;
 @background_gray: #d0d0d0;
+@custom_blue: #2780AF;
 
 .generate-fa-sizes(@n, @i: 1) when (@i =< @n) {
   .fa-@{i}x {
@@ -548,6 +549,26 @@ div.search-results div:last-child {
   float: none;
 }
 
+.entry_date div.month,
+.entry_date div.day,
+.entry_date div.weekday,
+.entry_date div.hour {
+  background-color: @custom_blue;
+  color: #FFF;
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 300;
+  padding: 0 0 10px;
+}
+
+.entry_date div.day {
+  font-weight: normal;
+  padding: 10px 0 0;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+
 #block-views-agenda-next-events-node-block .views-row {
   background-color: #eee;
   margin-bottom: 18px;
@@ -563,7 +584,7 @@ div.search-results div:last-child {
   } 
 }
 
-
+  
 
 /** FORMS **/
 #block-katakrak-newsletter-suscribe, #katakrak-books-search-form, #block-katakrak-search-katakrak-search-block  {
