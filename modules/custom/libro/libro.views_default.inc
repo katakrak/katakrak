@@ -115,7 +115,7 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['field_libro_autores']['table'] = 'field_data_field_libro_autores';
   $handler->display->display_options['fields']['field_libro_autores']['field'] = 'field_libro_autores';
   $handler->display->display_options['fields']['field_libro_autores']['label'] = '';
-  $handler->display->display_options['fields']['field_libro_autores']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_libro_autores']['element_type'] = 'h4';
   $handler->display->display_options['fields']['field_libro_autores']['element_class'] = 'book-author';
   $handler->display->display_options['fields']['field_libro_autores']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_libro_autores']['type'] = 'i18n_taxonomy_term_reference_plain';
@@ -126,6 +126,7 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['add_to_cart_form']['field'] = 'add_to_cart_form';
   $handler->display->display_options['fields']['add_to_cart_form']['relationship'] = 'field_libro_producto_product_id';
   $handler->display->display_options['fields']['add_to_cart_form']['label'] = '';
+  $handler->display->display_options['fields']['add_to_cart_form']['exclude'] = TRUE;
   $handler->display->display_options['fields']['add_to_cart_form']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['add_to_cart_form']['show_quantity'] = 0;
   $handler->display->display_options['fields']['add_to_cart_form']['default_quantity'] = '1';
@@ -206,7 +207,7 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['field_libro_autores']['table'] = 'field_data_field_libro_autores';
   $handler->display->display_options['fields']['field_libro_autores']['field'] = 'field_libro_autores';
   $handler->display->display_options['fields']['field_libro_autores']['label'] = '';
-  $handler->display->display_options['fields']['field_libro_autores']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_libro_autores']['element_type'] = 'h4';
   $handler->display->display_options['fields']['field_libro_autores']['element_class'] = 'book-author';
   $handler->display->display_options['fields']['field_libro_autores']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_libro_autores']['type'] = 'i18n_taxonomy_term_reference_plain';
@@ -314,7 +315,7 @@ function libro_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Libros admin';
+  $handler->display->display_options['title'] = 'Libros';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'más';
@@ -506,7 +507,14 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['nodequeue_links']['id'] = 'nodequeue_links';
   $handler->display->display_options['fields']['nodequeue_links']['table'] = 'node';
   $handler->display->display_options['fields']['nodequeue_links']['field'] = 'nodequeue_links';
-  $handler->display->display_options['fields']['nodequeue_links']['label'] = 'Promocionar';
+  $handler->display->display_options['fields']['nodequeue_links']['label'] = '';
+  $handler->display->display_options['fields']['nodequeue_links']['element_label_colon'] = FALSE;
+  /* Field: Content: Enlace de edición */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Fecha de modificación */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
@@ -663,8 +671,10 @@ function libro_views_default_views() {
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page_1');
+  /* Display: Libros de la semana */
+  $handler = $view->new_display('page', 'Libros de la semana', 'page_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Libros de la semana';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Content: Referenced products */
   $handler->display->display_options['relationships']['field_libro_producto_product_id']['id'] = 'field_libro_producto_product_id';
@@ -692,7 +702,7 @@ function libro_views_default_views() {
   $handler->display->display_options['menu']['context_only_inline'] = 0;
   $translatables['libros_admin'] = array(
     t('Master'),
-    t('Libros admin'),
+    t('Libros'),
     t('más'),
     t('Aplicar'),
     t('Reiniciar'),
@@ -717,12 +727,12 @@ function libro_views_default_views() {
     t('Portada'),
     t('Autor'),
     t('Año'),
-    t('Promocionar'),
     t('GESLIB ID'),
     t('EAN'),
     t('Dilve'),
     t('Editorial'),
     t('Page'),
+    t('Libros de la semana'),
     t('queue'),
   );
   $export['libros_admin'] = $view;
