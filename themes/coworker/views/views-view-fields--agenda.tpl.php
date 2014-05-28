@@ -36,5 +36,4 @@
 <div class="col_five_sixth col_last">
   <?php print $fields['field_event_type']->content ?>
   <?php print $fields['title']->content ?>
-  <?php print $fields['field_event_description']->content ?>
 </div>
