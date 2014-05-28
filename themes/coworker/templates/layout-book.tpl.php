@@ -4,7 +4,11 @@
   <div id="page-title">
         <div class="container clearfix">
           <div class="page-title">
-          <h1><?php print t($section_title) ?></h1>
+          <?php if (isset($section_title)): ?>
+              <h1><?php print t($section_title); ?></h1>
+          <?php else: ?>
+            <h1><?php print $title; ?></h1>
+          <?php endif; ?>
           </div>
         </div>
       </div>

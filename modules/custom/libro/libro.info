@@ -96,6 +96,7 @@ features[image][] = book_thumbnail
 features[image][] = cover_home
 features[image][] = search_result_cover
 features[node][] = libro
+features[page_manager_handlers][] = term_view_panel_context
 features[taxonomy][] = autores
 features[taxonomy][] = editoriales
 features[taxonomy][] = materias

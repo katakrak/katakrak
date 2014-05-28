@@ -864,6 +864,7 @@ function libro_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
+    'fences_wrapper' => 'div',
     'field_name' => 'field_libro_portada',
     'label' => 'Portada',
     'required' => 0,
@@ -882,6 +883,7 @@ function libro_field_default_field_instances() {
       'active' => 1,
       'module' => 'image',
       'settings' => array(
+        'imce_filefield_on' => 1,
         'preview_image_style' => 'thumbnail',
         'progress_indicator' => 'throbber',
       ),

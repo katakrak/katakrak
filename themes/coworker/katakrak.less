@@ -18,6 +18,9 @@
   padding: 10px;
 }
 
+.texto_principal {
+  font-family: "Din-next", roboto, arial , sans-serif;
+}
 /** Estilos generales del sitio, tipografias, etc **/
 
 .field-type-text-long, .field-content p {
@@ -439,7 +442,7 @@ h3.field-content{
 
 .books-search-block-help {
   /*text-transform: uppercase;*/
-  font-family: Din-next;
+  .texto_principal;
   font-size: 24px;
   margin: 15px 0;
 }
@@ -482,6 +485,21 @@ view-id-libros .book-author {
       }
     font-weight: bold;
     font-size: 20px;
+  }
+}
+
+.view-secciones {
+  label {
+    font-weight: normal;
+    font-size: 24px;
+    .texto_principal;
+    color: #777;
+    cursor: auto;
+  }
+  select {
+    margin-top: 10px;
+    .bordered;
+    font-size: 15px;
   }
 }
 
@@ -663,6 +681,17 @@ div.search-results div:last-child {
   color: #F50087;
   font-weight: bold;
 }
+
+ul.pager{
+  li {
+    font-size: 13px;
+  }
+  li.pager-current {
+    padding: 0 10px 0 10px;
+    font-weight: bold;
+  }
+}
+
 
 @media (max-width: 767px) {
   #page-title .page-title {
