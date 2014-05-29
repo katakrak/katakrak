@@ -116,19 +116,19 @@ function katakrak_potemkin_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Campo: Contenido: Título */
+  /* Field: Content: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Contenido: Actores/Actrices */
+  /* Field: Content: Actores/Actrices */
   $handler->display->display_options['fields']['field_dvd_starring']['id'] = 'field_dvd_starring';
   $handler->display->display_options['fields']['field_dvd_starring']['table'] = 'field_data_field_dvd_starring';
   $handler->display->display_options['fields']['field_dvd_starring']['field'] = 'field_dvd_starring';
   $handler->display->display_options['fields']['field_dvd_starring']['label'] = 'Actores';
   $handler->display->display_options['fields']['field_dvd_starring']['delta_offset'] = '0';
-  /* Campo: Contenido: Año */
+  /* Field: Content: Año */
   $handler->display->display_options['fields']['field_dvd_ano']['id'] = 'field_dvd_ano';
   $handler->display->display_options['fields']['field_dvd_ano']['table'] = 'field_data_field_dvd_ano';
   $handler->display->display_options['fields']['field_dvd_ano']['field'] = 'field_dvd_ano';
@@ -136,12 +136,12 @@ function katakrak_potemkin_views_default_views() {
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
-  /* Campo: Contenido: Director */
+  /* Field: Content: Director */
   $handler->display->display_options['fields']['field_dvd_director']['id'] = 'field_dvd_director';
   $handler->display->display_options['fields']['field_dvd_director']['table'] = 'field_data_field_dvd_director';
   $handler->display->display_options['fields']['field_dvd_director']['field'] = 'field_dvd_director';
   $handler->display->display_options['fields']['field_dvd_director']['delta_offset'] = '0';
-  /* Campo: Contenido: Duración */
+  /* Field: Content: Duración */
   $handler->display->display_options['fields']['field_dvd_duracion']['id'] = 'field_dvd_duracion';
   $handler->display->display_options['fields']['field_dvd_duracion']['table'] = 'field_data_field_dvd_duracion';
   $handler->display->display_options['fields']['field_dvd_duracion']['field'] = 'field_dvd_duracion';
@@ -149,19 +149,19 @@ function katakrak_potemkin_views_default_views() {
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
-  /* Campo: Contenido: Formato */
+  /* Field: Content: Formato */
   $handler->display->display_options['fields']['field_dvd_formato']['id'] = 'field_dvd_formato';
   $handler->display->display_options['fields']['field_dvd_formato']['table'] = 'field_data_field_dvd_formato';
   $handler->display->display_options['fields']['field_dvd_formato']['field'] = 'field_dvd_formato';
-  /* Campo: Contenido: Género */
+  /* Field: Content: Género */
   $handler->display->display_options['fields']['field_dvd_genero']['id'] = 'field_dvd_genero';
   $handler->display->display_options['fields']['field_dvd_genero']['table'] = 'field_data_field_dvd_genero';
   $handler->display->display_options['fields']['field_dvd_genero']['field'] = 'field_dvd_genero';
-  /* Campo: Contenido: Pais */
+  /* Field: Content: Pais */
   $handler->display->display_options['fields']['field_dvd_pais']['id'] = 'field_dvd_pais';
   $handler->display->display_options['fields']['field_dvd_pais']['table'] = 'field_data_field_dvd_pais';
   $handler->display->display_options['fields']['field_dvd_pais']['field'] = 'field_dvd_pais';
-  /* Campo: Contenido: Caratula */
+  /* Field: Content: Caratula */
   $handler->display->display_options['fields']['field_dvd_caratula']['id'] = 'field_dvd_caratula';
   $handler->display->display_options['fields']['field_dvd_caratula']['table'] = 'field_data_field_dvd_caratula';
   $handler->display->display_options['fields']['field_dvd_caratula']['field'] = 'field_dvd_caratula';
@@ -170,19 +170,19 @@ function katakrak_potemkin_views_default_views() {
     'image_style' => 'medium',
     'image_link' => '',
   );
-  /* Sort criterion: Contenido: Fecha de modificación */
+  /* Sort criterion: Content: Fecha de modificación */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
   $handler->display->display_options['sorts']['changed']['field'] = 'changed';
   $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
-  /* Filter criterion: Contenido: Publicado */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Contenido: Tipo */
+  /* Filter criterion: Content: Tipo */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -190,7 +190,7 @@ function katakrak_potemkin_views_default_views() {
     'dvd' => 'dvd',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Contenido: Año (field_dvd_ano) */
+  /* Filter criterion: Content: Año (field_dvd_ano) */
   $handler->display->display_options['filters']['field_dvd_ano_value']['id'] = 'field_dvd_ano_value';
   $handler->display->display_options['filters']['field_dvd_ano_value']['table'] = 'field_data_field_dvd_ano';
   $handler->display->display_options['filters']['field_dvd_ano_value']['field'] = 'field_dvd_ano_value';
@@ -205,7 +205,7 @@ function katakrak_potemkin_views_default_views() {
     3 => 0,
     4 => 0,
   );
-  /* Filter criterion: Contenido: Director (field_dvd_director) */
+  /* Filter criterion: Content: Director (field_dvd_director) */
   $handler->display->display_options['filters']['field_dvd_director_tid']['id'] = 'field_dvd_director_tid';
   $handler->display->display_options['filters']['field_dvd_director_tid']['table'] = 'field_data_field_dvd_director';
   $handler->display->display_options['filters']['field_dvd_director_tid']['field'] = 'field_dvd_director_tid';
@@ -222,7 +222,7 @@ function katakrak_potemkin_views_default_views() {
     4 => 0,
   );
   $handler->display->display_options['filters']['field_dvd_director_tid']['vocabulary'] = 'movie_stars';
-  /* Filter criterion: Contenido: Pais (field_dvd_pais) */
+  /* Filter criterion: Content: Pais (field_dvd_pais) */
   $handler->display->display_options['filters']['field_dvd_pais_value']['id'] = 'field_dvd_pais_value';
   $handler->display->display_options['filters']['field_dvd_pais_value']['table'] = 'field_data_field_dvd_pais';
   $handler->display->display_options['filters']['field_dvd_pais_value']['field'] = 'field_dvd_pais_value';
@@ -237,7 +237,7 @@ function katakrak_potemkin_views_default_views() {
     3 => 0,
     4 => 0,
   );
-  /* Filter criterion: Contenido: Título */
+  /* Filter criterion: Content: Título */
   $handler->display->display_options['filters']['title']['id'] = 'title';
   $handler->display->display_options['filters']['title']['table'] = 'node';
   $handler->display->display_options['filters']['title']['field'] = 'title';

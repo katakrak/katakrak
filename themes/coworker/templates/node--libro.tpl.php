@@ -121,7 +121,65 @@
              <?php print render($content['sharethis']) ?>
              <div class="clear"></div>
             <div class="book-metadata">
-            <div class="col-2 ">
+            <div class="col-2 hidden-phone hidden-tablet">
+              <div class="book-info-entry">
+                <span class="col-2 book-info-label">
+                  <?php print t('Precio') ?>
+                </span>
+                <span class="col-2 book-info-data book-price">
+                    <?php print $content['product:commerce_price'][0]['#markup'] ?>
+                </span>
+              </div>
+              <div class="book-info-entry">
+                <span class="col-2 book-info-label">
+                  <?php print t('ISBN') ?>
+                </span>
+                <span class="col-2 book-info-data">
+                    <?php print $content['field_libro_isbn'][0]['#markup'] ?>
+                </span>
+              </div>
+              <div class="book-info-entry">
+                <span class="col-2 book-info-label">
+                  <?php print t('Páginas') ?>
+                </span>
+                <span class="col-2 book-info-data">
+                    <?php print $content['field_libro_paginas'][0]['#markup'] ?>
+                </span>
+              </div>
+              <div class="book-info-entry">
+                <span class="col-2 book-info-label">
+                  <?php print t('Año') ?>
+                </span>
+                <span class="col-2 book-info-data">
+                    <?php print $content['field_libro_year'][0]['#markup'] ?>
+                </span>
+              </div>
+              <div class="book-info-entry">
+                <span class="col-2 book-info-label">
+                  <?php print t('Editorial') ?>
+                </span>
+                <span class="col-2 book-info-data">
+                    <?php print $content['field_libro_editorial'][0]['#markup'] ?>
+                </span>
+              </div>
+              <div class="book-info-entry">
+                <span class="col-2 book-info-label">
+                  <?php print t('Estado') ?>
+                </span>
+                <span class="col-2 book-info-data">
+                    <?php print isset($content['estado']) ? $content['estado'] :  t($content['field_libro_estado'][0]['#markup']) ?>
+                </span>
+              </div>
+              <div class="book-info-entry">
+                <span class="col-2 book-info-label">
+                  <?php print t('Sección') ?>
+                </span>
+                <span class="col-2 book-info-data">
+                    <?php print $content['field_libro_categoria'][0]['#markup'] ?>
+                </span>
+              </div>
+            </div>
+            <div class="hidden-desktop">
               <div class="book-info-entry">
                 <span class="col-2 book-info-label">
                   <?php print t('Precio') ?>

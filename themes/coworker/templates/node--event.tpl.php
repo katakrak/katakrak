@@ -86,11 +86,7 @@
       <h1>
         <?php print $node->title ?>
       </h1>
-       <div class="entry_date">
-          <div class="day"><?php print format_date($node->field_event_date['und'][0]['value'], 'custom', 'd'); ?></div>
-          <div class="month"><?php print format_date($node->field_event_date['und'][0]['value'], 'custom', 'M'); ?></div>
-          <div class="hour"><?php print format_date($node->field_event_date['und'][0]['value'], 'custom', 'G:i'); ?></div>
-        </div>
+       <?php print theme('agenda_date', array('time' => $node->field_event_date['und'][0]['value'])); ?>
     </div>
     <div class="row-fluid">
       <div class="span4">

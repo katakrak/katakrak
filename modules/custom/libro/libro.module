@@ -20,9 +20,24 @@ function libro_menu() {
     'access arguments' => array('administer site settings'),
     'type' => MENU_NORMAL_ITEM,
   );
+   $items['node/%node/portada'] = array(
+    'title' => 'Portada',
+    'page callback' => 'libro_borrar_portada',
+    'page arguments' => array(1),
+    'access arguments' => array('access dilve information'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 100,
+  );
   return $items;
 }
 
+function libro_borrar_portada($node) {
+  return drupal_get_form('libro_borrar_portada_form', $node);
+}
+
+function libro_borrar_portada_form($node) {
+  
+}
 
 function libro_block_info() {
   $blocks = array();
