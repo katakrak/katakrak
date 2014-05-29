@@ -336,16 +336,6 @@ h3.field-content a:hover {
 .blue-envelope {
   color: #57B3DF;
 }
-.katakrak-button {
-  border-top: 2px solid #2780AF;
-  border-left: 2px solid #2780AF;
-  border-right: 2px solid #2780AF;
-  border-bottom: 2px solid #2780AF;
-  padding: 5px 10px !important;
-  background: #2780AF;
-  text-transform: uppercase;
-  color: #FFF;
-}
 #block-views-blog-block {
   margin-top: 10px;
 }
@@ -640,6 +630,67 @@ div.search-results div:last-child {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   padding: 10px;
+}
+.commerce-add-to-cart button {
+  border-top: 2px solid #2780af;
+  border-left: 2px solid #2780af;
+  border-right: 2px solid #2780af;
+  border-bottom: 2px solid #2780af;
+  padding: 5px 10px !important;
+  background: #2780af;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.btn {
+  border-top: 2px solid #2780af;
+  border-left: 2px solid #2780af;
+  border-right: 2px solid #2780af;
+  border-bottom: 2px solid #2780af;
+  padding: 5px 10px !important;
+  background: #2780af;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.btn:hover {
+  border-top: 2px solid #777777;
+  border-left: 2px solid #777777;
+  border-right: 2px solid #777777;
+  border-bottom: 2px solid #777777;
+  padding: 5px 10px !important;
+  background: #d0d0d0;
+  text-transform: uppercase;
+  color: #000000;
+}
+button.checkout-cancel {
+  border: none !important;
+}
+label.radio {
+  border-top: 2px solid #d0d0d0;
+  border-left: 2px solid #d0d0d0;
+  border-right: 2px solid #d0d0d0;
+  border-bottom: 2px solid #d0d0d0;
+  padding: 5px 10px !important;
+  background: #d0d0d0;
+  text-transform: uppercase;
+  color: #000000;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  padding: 10px;
+}
+label.btn-active {
+  border-top: 2px solid #2780af;
+  border-left: 2px solid #2780af;
+  border-right: 2px solid #2780af;
+  border-bottom: 2px solid #2780af;
+  padding: 5px 10px !important;
+  background: #2780af;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+span.fieldset-legend {
+  font-size: 15px;
+  font-weight: bold;
 }
 #customer-profile-billing-ajax-wrapper {
   border-radius: 10px 10px 0 0;

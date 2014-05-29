@@ -10,6 +10,17 @@
   .generate-fa-sizes(@n, (@i + 1));
 }
 
+.katakrak-button(@border_color: @custom_blue, @background_color: @custom_blue, @text_color: #FFF) {
+	border-top: 2px solid @border_color;
+	border-left: 2px solid @border_color;
+	border-right: 2px solid @border_color;
+	border-bottom: 2px solid @border_color;
+	padding: 5px 10px !important;
+	background:	@background_color;
+  text-transform: uppercase;
+  color: @text_color;
+}
+
 
 .bordered {
   border-radius: 10px;
@@ -398,16 +409,7 @@ h3.field-content{
 .blue-envelope {
     color: #57B3DF;
 }
-.katakrak-button {
-	border-top: 2px solid #2780AF;
-	border-left: 2px solid #2780AF;
-	border-right: 2px solid #2780AF;
-	border-bottom: 2px solid #2780AF;
-	padding: 5px 10px !important;
-	background:	#2780AF;
-  text-transform: uppercase;
-  color: #FFF;
-}
+
 
 #block-views-blog-block {
   margin-top: 10px;
@@ -662,6 +664,38 @@ div.search-results div:last-child {
 #customer-profile-shipping-ajax-wrapper{
   background-color: #f0f0f0;
   .bordered;
+}
+
+.commerce-add-to-cart {
+  button {
+    .katakrak-button;
+  }
+}
+
+.btn {
+  .katakrak-button;
+}
+
+.btn:hover {
+  .katakrak-button(#777, @background_gray, #000);
+}
+
+button.checkout-cancel {
+  border: none !important;
+}
+
+label.radio {
+  .katakrak-button(@background_gray, @background_gray, #000);
+  .bordered;
+}
+
+label.btn-active {
+  .katakrak-button;
+}
+
+span.fieldset-legend {
+  font-size: 15px;
+  font-weight: bold;
 }
 
 #customer-profile-billing-ajax-wrapper {

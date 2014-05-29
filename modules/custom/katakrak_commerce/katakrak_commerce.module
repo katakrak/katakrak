@@ -6,6 +6,10 @@
 
 include_once 'katakrak_commerce.features.inc';
 
+function katakrak_commerce_init() {
+  drupal_add_js(drupal_get_path('module', 'katakrak_commerce').'/katakrak_commerce.js');
+}
+
 function katakrak_commerce_commerce_checkout_pane_info_alter(&$panes) {
   foreach($panes as $key => $pane) {
     $panes[$key]['title'] = t($panes[$key]['title']);
