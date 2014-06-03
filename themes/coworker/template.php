@@ -117,7 +117,7 @@ function coworker_preprocess_search_result(&$vars) {
       // Build the Add to Cart form using the prepared values.
       $form = drupal_get_form($form_id, $line_item, 0, array());
 
-      if (user_access('access checkout', $user)) {
+      if (!_katakrak_is_live()) {
         $vars['add_to_cart'] = drupal_render($form);
       }
     }

@@ -175,7 +175,8 @@ function katakrak_block_view($delta) {
       $block['content'] = theme('links', array('links' => $links));
 
     }
-    if (user_access('access checkout', $user))
+    ;
+    if (!_katakrak_is_live())
       return $block;
   }
   if ($delta == 'katakrak_cart') {
@@ -196,7 +197,7 @@ function katakrak_block_view($delta) {
     }
     $content = theme('katakrak_cart_block', array('num_items' => $num_items, 'class' => $class));
     $block['content'] = $content;
-    if (user_access('access checkout', $user))
+    if (!_katakrak_is_live())
       return $block;
   }
   if ($delta == 'katakrak_social') {
@@ -468,4 +469,9 @@ function katakrak_form_alter(&$form, &$form_state, $form_id) {
       'placeholder' => t('Password'),
     );
   }
+}
+
+function _katakrak_is_live() {
+  if ($_SERVER['SERVER_NAME'] == 'www.katakrak.net')
+    return TRUE;
 }

@@ -182,3 +182,11 @@ function libro_node_view($node, $view_mode, $langcode) {
     }
   }
 }
+
+function libro_node_presave($node) {
+  if ($node->type == 'libro') {
+    if ($node->field_libro_estado['und'][0]['value'] !== 0) {
+      $node->status = 0;
+    }
+  }
+}
