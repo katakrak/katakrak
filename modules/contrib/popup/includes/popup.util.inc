@@ -3,15 +3,8 @@
 
 
 /* ---- Element helpers ---- */
-
-
-
-function _popup_title($title, $path){
-
+function _popup_title($title, $path) {
   if ($path){
-
-    global $base_url;
-    global $base_path;
     global $theme;
 
     $theme_path = drupal_get_path('theme', $theme) . '/' . $path;
@@ -28,11 +21,9 @@ function _popup_title($title, $path){
     );
 
     $url = array_shift($candidates);
-
-    return '<img src="' . $url . '" alt="' . $title . '" />';
-
-  } else return $title;
-
+    $title = '<img src="' . $url . '" alt="' . $title . '" />';
+  }
+  return $title;
 }
 
 
@@ -40,14 +31,13 @@ function _popup_title($title, $path){
 /* ---- Hook helpers ---- */
 
 
-
 /**
  *  Returns all popup styles provided by all modules
  */
-function _popup_styles(){
+function _popup_styles() {
 
   static $all_styles = FALSE;
-  if ($all_styles){
+  if ($all_styles) {
     return $all_styles;
   }
 
@@ -62,16 +52,15 @@ function _popup_styles(){
 /**
  *  Returns all popup effects provided by all modules
  */
-function _popup_effects(){
-
+function _popup_effects() {
   static $all_effects = FALSE;
-  if ($all_effects){
+
+  if ($all_effects) {
     return $all_effects;
   }
 
   $all_effects = module_invoke_all('popup_effects');
   ksort($all_effects);
-
   return $all_effects;
 }
 
@@ -80,11 +69,10 @@ function _popup_effects(){
 /* ---- ID helpers ---- */
 
 
-
 /**
  *  Converts a machine readable key into a title
  */
-function _popup_key_to_title($key){
+function _popup_key_to_title($key) {
 	return ucwords(preg_replace('/[^a-zA-Z]/', ' ', $key));
 }
 
@@ -93,7 +81,7 @@ function _popup_key_to_title($key){
 /**
  *  Converts a title to a machine readable key
  */
-function _popup_title_to_key($title){
+function _popup_title_to_key($title) {
 	return strtolower(preg_replace('/[^a-zA-Z0-9]/', '_', $title));
 }
 
@@ -102,24 +90,22 @@ function _popup_title_to_key($title){
 /**
  * Generates a unique id for a popup element.
  */
-function _popup_id($id = FALSE){
+function _popup_id($id = FALSE) {
 
   static $ids = array();
   static $popup_index = 0;
 
-  if ($id){
-
+  if ($id) {
     $offset = 0;
     $offset_id = $id . '-' . $offset;
 
-    while (isset($ids[$offset_id])){
+    while (isset($ids[$offset_id])) {
       $offset_id = $id . '-' . $offset++;
     }
     $ids[$offset_id] = TRUE;
 
     return $offset_id;
   }
-
   return 'popup-element-'.$popup_index++;
 }
 
@@ -135,7 +121,7 @@ function _popup_id($id = FALSE){
  * @param $attributes
  * @return keyed array
  */
-function _popup_classes($attributes = array()){
+function _popup_classes($attributes = array()) {
 
   // Defaults
   _popup_default($attributes['activate'], 'hover');
@@ -151,20 +137,20 @@ function _popup_classes($attributes = array()){
   );
 
   // Add style specific class
-  if ($attributes['style-class']){
+  if ($attributes['style-class']) {
     $classes['element'][] = 'popup-style-' . $attributes['style-class'];
   }
 
   // Add element specific classes
-  foreach($classes as $element => $class_array){
-    if ($attributes[$element . '-class']){
+  foreach($classes as $element => $class_array) {
+    if ($attributes[$element . '-class']) {
       $classes[$element][] = $attributes[$element . '-class'];
     }
   }
 
   // Add additional classes if needed
-  if (is_array($attributes['classes'])){
-    foreach($attributes['classes'] as $element=>$add_classes){
+  if (is_array($attributes['classes'])) {
+    foreach($attributes['classes'] as $element=>$add_classes) {
       $classes[$element] = array_merge(
         $attributes['classes'][$element],
         $classes[$element]
@@ -183,7 +169,8 @@ function _popup_classes($attributes = array()){
     'origin' => array('element', 'body'),
     'width' => array('body'),
   );
-  foreach($meta as $attribute => $apply_to){
+
+  foreach($meta as $attribute => $apply_to) {
     if ($attributes[$attribute]) {
       foreach($apply_to as $element){
         $classes[$element][] = $attributes[$attribute] == 1
@@ -193,7 +180,7 @@ function _popup_classes($attributes = array()){
     }
   }
 
-  foreach($classes as $element=>$element_classes){
+  foreach($classes as $element=>$element_classes) {
     $classes[$element] = implode(' ', $element_classes);
   }
 
@@ -209,7 +196,7 @@ function _popup_classes($attributes = array()){
 /**
  * Sets all default attributes
  */
-function _popup_defaults(){
+function _popup_defaults() {
 
   return array(
 
@@ -259,7 +246,7 @@ function _popup_defaults(){
 /**
  * Sets a default value on a variable if it is not set
  */
-function _popup_default(&$attribute, $default){
+function _popup_default(&$attribute, $default) {
   if (!$attribute) {
     $attribute = $default;
   }
@@ -274,7 +261,7 @@ function _popup_default(&$attribute, $default){
 /**
  *  Recursively generates popup menus
  */
-function _popup_menuelement($menu, $attributes, $level = 0){
+function _popup_menuelement($menu, $attributes, $level = 0) {
 
   global $user;
   $body = '';
@@ -287,12 +274,12 @@ function _popup_menuelement($menu, $attributes, $level = 0){
       )
     : FALSE;
 
-  if ($menu['link']['has_children'] && is_array($menu['below']) && count($menu['below'])){
+  if ($menu['link']['has_children'] && is_array($menu['below']) && count($menu['below'])) {
 
     $children = _popup_menuelement_visible_items($menu['below']);
     $child_attributes = _popup_menuelement_child_attribs($attributes);
 
-    if (isset($attributes['flat']) && $attributes['flat']){
+    if (isset($attributes['flat']) && $attributes['flat']) {
       $child_attributes['expand'] = $attributes['expand'];
       $child_attributes['origin'] = $attributes['origin'];
     }
@@ -328,9 +315,8 @@ function _popup_menuelement($menu, $attributes, $level = 0){
         ' popup-style-' . _popup_title_to_key($attributes['style']).
         '">' . $body . '</div>'
       : popup_element($title, $body, $attributes);
-
-  } else {
-
+  }
+  else {
     return l('<span>' . $title . '</span>', $link,
       array(
         'html' => TRUE,
@@ -349,7 +335,7 @@ function _popup_menuelement($menu, $attributes, $level = 0){
 
 
 
-function _popup_menuelement_position_classes($index, $count){
+function _popup_menuelement_position_classes($index, $count) {
 
   $pos_class = array();
   if ($index == 0) {
@@ -358,19 +344,16 @@ function _popup_menuelement_position_classes($index, $count){
   if ($index == $count - 1) {
     $pos_class[] = 'last';
   }
-
   return implode(' ', $pos_class);
 }
 
 
 
-function _popup_menuelement_visible_items($tree){
-
+function _popup_menuelement_visible_items($tree) {
   return array_filter(
     $tree,
     '_popup_menu_visible'
   );
-
 }
 
 
@@ -378,7 +361,7 @@ function _popup_menuelement_visible_items($tree){
 /**
  *  Determines whether a menu item is visible
  */
-function _popup_menu_visible($item){
+function _popup_menu_visible($item) {
   return !$item['link']['hidden'];
 }
 
@@ -387,7 +370,7 @@ function _popup_menu_visible($item){
 /**
  *  Filters attributes to be passed on to child elements
  */
-function _popup_menuelement_child_attribs($attributes){
+function _popup_menuelement_child_attribs($attributes) {
 
   $child_attributes = array();
   $copy = array(
@@ -402,58 +385,41 @@ function _popup_menuelement_child_attribs($attributes){
     'width' => 'width',
   );
 
-  foreach($copy as $destination=>$source){
+  foreach($copy as $destination=>$source) {
     if (isset($attributes[$source])){
       $child_attributes[$destination] = $attributes[$source];
     }
   }
 
-  if (isset($attributes['flat']) && $attributes['flat']){
+  if (isset($attributes['flat']) && $attributes['flat']) {
     $child_attributes['expand'] = $attributes['expand'];
     $child_attributes['origin'] = $attributes['origin'];
   }
-
   return $child_attributes;
 }
 
 
 
 /* ---- AJAX callback ---- */
-
-
-
-function popup_get_ahah($type, $attr_hash = ''){
-
+function popup_get_ahah($type, $attr_hash = '') {
   module_load_include('inc', 'popup', 'includes/popup.api');
-
   $attributes = popup_cache_attributes($attr_hash);
-
   $function = '_popup_' . $type;
-
   print $function($attributes, 'body');
   exit;
-
 }
 
 
 
 /* ---- AJAX caching helper ---- */
-
-
-
-function popup_cache_attributes($cache){
-
+function popup_cache_attributes($cache) {
   if (is_array($cache)){
-
     $hash = md5(serialize($cache));
     cache_set($hash, $cache, 'cache', time() + 360000);
-
     return $hash;
-
-  } else {
-
+  }
+  else {
     $cached = cache_get($cache);
-
     return $cached ? $cached->data : FALSE;
   }
 }

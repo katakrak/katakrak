@@ -9,7 +9,7 @@ function popup_nodereference_field_formatter_info() {
 
 	module_load_include('inc', 'popup_ui', 'includes/popup_ui.admin');
 
-	$formatters = _popup_ui_formatter_settings();
+	$formatters = array_keys(_popup_ui_formatter_settings());
 
   $formatter_info = array(
   	'popup' => array(
@@ -18,7 +18,7 @@ function popup_nodereference_field_formatter_info() {
   			'node_reference',
   		),
 	    'settings' => array(
-	    	'popup_format' => array_shift(array_keys($formatters)),
+	    	'popup_format' => array_shift($formatters),
 	    	'popup_grouping' => TRUE,
 	    ),
   	),
@@ -104,7 +104,7 @@ function popup_nodereference_field_formatter_view($entity_type, $entity, $field,
 		}
 
 		$attributes['title'] = $instance['label'];
-		$attributes['php'] = 
+		$attributes['php'] =
 			"module_load_include('inc', 'popup_nodereference', 'includes/popup_nodereference.util');".
 			"return _popup_nodereference_render_group(" . var_export($nids, TRUE) . ', ' . var_export($attributes, TRUE) . ');';
 
@@ -121,7 +121,7 @@ function popup_nodereference_field_formatter_view($entity_type, $entity, $field,
 
 				$node_attribs = $attributes;
 				$node_attribs['node'] = $item['nid'];
-			
+
 	      $element[$delta] = array(
 	      	'#markup' => popup($node_attribs),
 	      );

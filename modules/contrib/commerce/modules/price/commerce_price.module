@@ -149,7 +149,7 @@ function _commerce_price_field_serialize_data($entity_type, $entity) {
       // Serialize data arrays before saving.
       foreach ($items as $delta => $item) {
         // Serialize an existing data array.
-        if (!empty($item['data']) && is_array($item['data'])) {
+        if (isset($item['data']) && is_array($item['data'])) {
           $entity->{$field_name}[$langcode][$delta]['data'] = serialize($item['data']);
         }
       }
@@ -471,7 +471,7 @@ function commerce_price_field_formatter_view($entity_type, $entity, $field, $ins
 
           if (empty($components[$component['name']])) {
             $components[$component['name']] = array(
-              'title' => t(check_plain($component_type['display_title'])),
+              'title' => check_plain($component_type['display_title']),
               'price' => commerce_price_component_total($item, $component['name']),
               'weight' => $component_type['weight'],
             );
@@ -485,6 +485,7 @@ function commerce_price_field_formatter_view($entity_type, $entity, $field, $ins
         if (count($components) == 1 && in_array('base_price', array_keys($components))) {
           $components = array();
         }
+
         // Add the actual field value to the array.
         $components['commerce_price_formatted_amount'] = array(
           'title' => check_plain($translated_instance['label']),

@@ -126,7 +126,6 @@ function popup_block_preprocess_block(&$variables){
     $title_candidates = array_filter(
       array(
         $variables['elements']['#block']->subject,
-        $variables['elements']['#block']->title,
         substr(strip_tags($body), 0, $title_length) . '...',
         isset($variables['elements'][1]['title'])
           ? $variables['elements'][1]['title']

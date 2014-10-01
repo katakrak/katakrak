@@ -472,7 +472,7 @@ function katakrak_form_alter(&$form, &$form_state, $form_id) {
 }
 
 function _katakrak_is_live() {
-  if ($_SERVER['SERVER_NAME'] == 'www.katakrak.net')
+  if (strpos($_SERVER['SERVER_NAME'], 'katakrak.net') !== FALSE)
     return TRUE;
 }
 

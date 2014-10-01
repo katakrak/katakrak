@@ -27,6 +27,7 @@ a) This is a JavaScript intensive feature. It is the responsibility of the
 
   function popup($attributes)
   ---------------------------
+
     Renders a popup element using specified attributes. This method should be
     used to create popups programmatically.
 

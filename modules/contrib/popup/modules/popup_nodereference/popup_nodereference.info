@@ -10,9 +10,9 @@ dependencies[] = node_reference
 files[] = popup_nodereference.module
 files[] = includes/popup_nodereference.theme.inc
 
-; Information added by Drupal.org packaging script on 2013-12-20
-version = "7.x-1.3"
+; Information added by Drupal.org packaging script on 2014-07-06
+version = "7.x-1.4"
 core = "7.x"
 project = "popup"
-datestamp = "1387574606"
+datestamp = "1404659328"
 

@@ -277,30 +277,34 @@ function popup_preprocess_popup_element(&$variables){
   $style = isset($variables['style']) && $variables['style']
     ? $variables['style']
     : variable_get('popup-style', 'White');
-  $path = isset($styles[$style]) ? $styles[$style] : '';
+  $path = isset($styles[$style]) ? $styles[$style] : NULL;
 
   $variables['classes_array'] = array();
   $variables['attributes_array'] = array();
   $variables['title_attributes_array'] = array();
   $variables['content_attributes_array'] = array();
 
-  drupal_add_css(
-    $path . '/popup-element.css',
-    array(
-      'media' => 'screen, projection',
-      'preprocess' => variable_get('popup-preprocess', FALSE),
-      'basename' => _popup_title_to_key($style) . '.popup-element.css',
-    )
-  );
+  if (isset($path)) {
+    if (file_exists($path . '/popup-element.css')) {
+      drupal_add_css(
+        $path . '/popup-element.css',
+        array(
+          'media' => 'screen, projection',
+          'preprocess' => variable_get('popup-preprocess', FALSE),
+          'basename' => _popup_title_to_key($style) . '.popup-element.css',
+        )
+      );
+    }
 
-  if (file_exists($path . '/popup-element.js')){
-    drupal_add_js(
-      $path . '/popup-element.js',
-      array(
-        'scope' => 'header',
-        'preprocess' => variable_get('popup-preprocess', FALSE),
-      )
-    );
+    if (file_exists($path . '/popup-element.js')){
+      drupal_add_js(
+        $path . '/popup-element.js',
+        array(
+          'scope' => 'header',
+          'preprocess' => variable_get('popup-preprocess', FALSE),
+        )
+      );
+    }
   }
 }
 

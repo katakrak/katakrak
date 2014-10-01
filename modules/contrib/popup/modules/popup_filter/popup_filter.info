@@ -10,9 +10,9 @@ files[] = popup_filter.module
 files[] = includes/popup_filter.admin.inc
 files[] = includes/popup_filter.processing.inc
 
-; Information added by Drupal.org packaging script on 2013-12-20
-version = "7.x-1.3"
+; Information added by Drupal.org packaging script on 2014-07-06
+version = "7.x-1.4"
 core = "7.x"
 project = "popup"
-datestamp = "1387574606"
+datestamp = "1404659328"
 

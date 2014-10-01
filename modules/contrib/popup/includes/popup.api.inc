@@ -26,6 +26,9 @@
  *
  * form   - form id of the form to be displayed within the popup block.
  *
+ *            args    - a comma separated list of arguments to be passed to the
+ *                      form.
+ *
  * block  - Id of the block to be popped up OR a value of TRUE, indicating that
  *          a block provided by a module should be displayed. In the latter
  *          case, the following attributes should also be provided:
@@ -374,7 +377,14 @@ function _popup_form($attributes, $return = FALSE){
     return $title;
   }
 
-	$form = drupal_get_form($attributes['form']);
+  // Initialize args attribute.
+  $attributes += array('args' => array());
+
+  // Add form_id at the beginning of the args array.
+  array_unshift($attributes['args'], $attributes['form']);
+
+  // Render form.
+  $form = call_user_func_array('drupal_get_form', $attributes['args']);
   $body = drupal_render($form);
 
   if ($attributes['ajax']){
