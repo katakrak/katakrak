@@ -88,11 +88,20 @@ function katakrak_geslib_geslib_author($op, $author) {
 }
 
 function katakrak_geslib_geslib_product($op, $product) {
+  $commerce_product = commerce_product_load_by_sku($product['geslib_id']);
+  
+  if ($commerce_product) {
+    $nid = db_select('field_data_field_libro_producto', 'p')->fields('p', array('entity_id'))
+        ->condition('field_libro_producto_product_id', $commerce_product->product_id)
+        ->execute()->fetchField();
+  }
+  if ($nid) {
+    $node = node_load($nid);
+  }
   if ($op == 'delete') {
-    $commerce_product = commerce_product_load_by_sku($product['geslib_id']);
+    node_delete($node->nid);
   }
   elseif ($op == 'create' || $op == 'update') {
-    $commerce_product = commerce_product_load_by_sku($product['geslib_id']);
     if (!$commerce_product) {
       $commerce_product = new stdClass();
       $commerce_product->type = 'libro';
@@ -104,9 +113,6 @@ function katakrak_geslib_geslib_product($op, $product) {
       $node->title = $product['title'];
     }
     else {
-      $nid = db_select('field_data_field_libro_producto', 'p')->fields('p', array('entity_id'))
-        ->condition('field_libro_producto_product_id', $commerce_product->product_id)
-        ->execute()->fetchField();
       if (!$nid) {
         $node = new stdClass();
         $node->type = 'libro';

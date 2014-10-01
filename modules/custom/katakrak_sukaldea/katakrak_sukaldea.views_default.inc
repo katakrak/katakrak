@@ -109,7 +109,6 @@ function katakrak_sukaldea_views_default_views() {
     t('última »'),
     t('([field_produktua_kopurua-value])'),
     t('Entity Reference'),
-    t('more'),
   );
   $export['sukalde_produktuak_reference'] = $view;
 
@@ -172,7 +171,7 @@ function katakrak_sukaldea_views_default_views() {
     'scale' => '2',
     'prefix_suffix' => 1,
   );
-  /* Campo: Contenido: Edit link */
+  /* Campo: Contenido: Enlace de edición */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
@@ -222,7 +221,6 @@ function katakrak_sukaldea_views_default_views() {
     t('Título'),
     t('Prezioa'),
     t('Page'),
-    t('more'),
   );
   $export['sukaldea'] = $view;
 

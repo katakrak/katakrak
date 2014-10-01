@@ -522,7 +522,7 @@ function katakrak_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'sharethis_button_option';
-  $strongarm->value = 'stbc_large';
+  $strongarm->value = 'stbc_';
   $export['sharethis_button_option'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -629,13 +629,11 @@ function katakrak_strongarm() {
     'event' => 'event',
     'libro' => 'libro',
     'boletin' => 0,
-    'dvd' => 0,
     'itinerario' => 0,
     'portfolio' => 0,
     'simplenews' => 0,
     'sukalde_errezeta' => 0,
     'sukalde_produktua' => 0,
-    'webform' => 0,
   );
   $export['sharethis_node_types'] = $strongarm;
 
@@ -710,7 +708,7 @@ function katakrak_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'sharethis_publisherID';
-  $strongarm->value = 'dr-a7de9f59-d383-4822-c1ba-2855992c33d0';
+  $strongarm->value = 'dr-4594bbf6-ca07-8536-fcce-c6546f22141d';
   $export['sharethis_publisherID'] = $strongarm;
 
   $strongarm = new stdClass();

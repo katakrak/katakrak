@@ -71,6 +71,17 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Campo: Contenido: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  /* Campo: Contenido: Ruta */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = 'Bide-izena';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -105,8 +116,13 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['fields']['field_blog_body']['table'] = 'field_data_field_blog_body';
   $handler->display->display_options['fields']['field_blog_body']['field'] = 'field_blog_body';
   $handler->display->display_options['fields']['field_blog_body']['label'] = '';
+  $handler->display->display_options['fields']['field_blog_body']['alter']['max_length'] = '500';
+  $handler->display->display_options['fields']['field_blog_body']['alter']['more_link'] = TRUE;
+  $handler->display->display_options['fields']['field_blog_body']['alter']['more_link_text'] = '[+]';
+  $handler->display->display_options['fields']['field_blog_body']['alter']['more_link_path'] = '[path]';
+  $handler->display->display_options['fields']['field_blog_body']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['field_blog_body']['element_type'] = 'p';
   $handler->display->display_options['fields']['field_blog_body']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_blog_body']['type'] = 'text_trimmed';
   $handler->display->display_options['fields']['field_blog_body']['settings'] = array(
     'trim_length' => '500',
   );
@@ -157,6 +173,7 @@ function katakrak_blog_views_default_views() {
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
+  $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
@@ -192,8 +209,10 @@ function katakrak_blog_views_default_views() {
     t('‹‹'),
     t('››'),
     t('última »'),
+    t('Nid'),
+    t('Bide-izena'),
+    t('[+]'),
     t('Page'),
-    t('more'),
     t('Block'),
     t('queue'),
     t('Blog home'),

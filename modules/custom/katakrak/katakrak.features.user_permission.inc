@@ -25,7 +25,6 @@ function katakrak_user_default_permissions() {
     'roles' => array(
       'Cliente' => 'Cliente',
       'administrator' => 'administrator',
-      'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
     ),
     'module' => 'commerce_checkout',
@@ -301,6 +300,7 @@ function katakrak_user_default_permissions() {
     'name' => 'create blog content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -310,6 +310,7 @@ function katakrak_user_default_permissions() {
     'name' => 'create boletin content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -319,6 +320,7 @@ function katakrak_user_default_permissions() {
     'name' => 'create event content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -328,6 +330,7 @@ function katakrak_user_default_permissions() {
     'name' => 'create itinerario content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -337,6 +340,7 @@ function katakrak_user_default_permissions() {
     'name' => 'create libro content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -356,6 +360,7 @@ function katakrak_user_default_permissions() {
     'name' => 'create portfolio content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -394,6 +399,7 @@ function katakrak_user_default_permissions() {
     'name' => 'delete any blog content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -403,6 +409,7 @@ function katakrak_user_default_permissions() {
     'name' => 'delete any boletin content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -412,6 +419,7 @@ function katakrak_user_default_permissions() {
     'name' => 'delete any event content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -421,6 +429,7 @@ function katakrak_user_default_permissions() {
     'name' => 'delete any itinerario content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -430,6 +439,7 @@ function katakrak_user_default_permissions() {
     'name' => 'delete any libro content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -449,6 +459,7 @@ function katakrak_user_default_permissions() {
     'name' => 'delete any portfolio content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -477,6 +488,7 @@ function katakrak_user_default_permissions() {
     'name' => 'delete own blog content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -486,6 +498,7 @@ function katakrak_user_default_permissions() {
     'name' => 'delete own boletin content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -495,6 +508,7 @@ function katakrak_user_default_permissions() {
     'name' => 'delete own event content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -504,6 +518,7 @@ function katakrak_user_default_permissions() {
     'name' => 'delete own itinerario content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -513,6 +528,7 @@ function katakrak_user_default_permissions() {
     'name' => 'delete own libro content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -532,6 +548,7 @@ function katakrak_user_default_permissions() {
     'name' => 'delete own portfolio content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -643,6 +660,7 @@ function katakrak_user_default_permissions() {
     'name' => 'edit any blog content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -652,6 +670,7 @@ function katakrak_user_default_permissions() {
     'name' => 'edit any boletin content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -661,6 +680,7 @@ function katakrak_user_default_permissions() {
     'name' => 'edit any event content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -670,6 +690,7 @@ function katakrak_user_default_permissions() {
     'name' => 'edit any itinerario content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -679,6 +700,7 @@ function katakrak_user_default_permissions() {
     'name' => 'edit any libro content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -698,6 +720,7 @@ function katakrak_user_default_permissions() {
     'name' => 'edit any portfolio content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -736,6 +759,7 @@ function katakrak_user_default_permissions() {
     'name' => 'edit own blog content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -745,6 +769,7 @@ function katakrak_user_default_permissions() {
     'name' => 'edit own boletin content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -754,6 +779,7 @@ function katakrak_user_default_permissions() {
     'name' => 'edit own event content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -763,6 +789,7 @@ function katakrak_user_default_permissions() {
     'name' => 'edit own itinerario content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -772,6 +799,7 @@ function katakrak_user_default_permissions() {
     'name' => 'edit own libro content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -791,6 +819,7 @@ function katakrak_user_default_permissions() {
     'name' => 'edit own portfolio content',
     'roles' => array(
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -1052,6 +1081,7 @@ function katakrak_user_default_permissions() {
   $permissions['use text format full_html'] = array(
     'name' => 'use text format full_html',
     'roles' => array(
+      'Editor' => 'Editor',
       'administrator' => 'administrator',
     ),
     'module' => 'filter',

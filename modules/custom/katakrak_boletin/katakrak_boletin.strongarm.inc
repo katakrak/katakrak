@@ -251,7 +251,7 @@ function katakrak_boletin_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'simplenews_from_address';
-  $strongarm->value = 'info@katakrak.net';
+  $strongarm->value = 'buletina@katakrak.net';
   $export['simplenews_from_address'] = $strongarm;
 
   $strongarm = new stdClass();

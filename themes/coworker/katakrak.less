@@ -34,7 +34,7 @@
 }
 /** Estilos generales del sitio, tipografias, etc **/
 
-.field-type-text-long, .field-content p {
+.field-type-text-long, .field-content p, p.field-content {
   font-size: 18px;
   line-height: 22px;
 }
@@ -122,6 +122,10 @@ h3.field-content{
 #block-katakrak-katakrak-user-top {
   margin-top: 20px;
   float: right;
+}
+
+.popup-element-body table.popup-layout input {
+  border: solid 1px @background_gray;
 }
 /*
 #block-katakrak-katakrak-user-top a {
@@ -529,8 +533,13 @@ html.js input.throbbing {
   color: #444;
 }
 
-.pricing-features li:first-child {
-  border-top: 1px solid #EEE;
+.pricing-features{
+  li {
+    font-size: 14px;
+  }
+  li:first-child {
+    border-top: 1px solid #EEE;
+  }
 }
 
 #block-views-kantina-block-page h2 {
@@ -684,18 +693,29 @@ button.checkout-cancel {
   border: none !important;
 }
 
-label.radio {
-  .katakrak-button(@background_gray, @background_gray, #000);
-  .bordered;
-}
-
-label.btn-active {
+#commerce-checkout-form-checkout, #commerce-checkout-form-review {
+  label.radio {
+    .katakrak-button(@background_gray, @background_gray, #000);
+    .bordered;
+    float:left;
+    max-width: 100px;
+    height: 60px;
+    margin: 5px 10px;
+    input {
+      display: none;
+    }
+  }
+  label.btn-active {
   .katakrak-button;
 }
+}
+
 
 span.fieldset-legend {
   font-size: 15px;
   font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #customer-profile-billing-ajax-wrapper {
@@ -726,6 +746,11 @@ ul.pager{
   }
 }
 
+a.popup-element-title {
+  font-size: 15px;
+  color: @link_gray;
+  color: @hover_gray;
+}
 
 @media (max-width: 767px) {
   #page-title .page-title {

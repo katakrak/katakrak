@@ -89,6 +89,7 @@ function katakrak_field_default_field_instances() {
       'active' => 1,
       'module' => 'file',
       'settings' => array(
+        'imce_filefield_on' => 0,
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',

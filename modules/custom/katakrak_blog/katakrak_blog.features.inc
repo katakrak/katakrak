@@ -116,11 +116,11 @@ function katakrak_blog_image_default_styles() {
 function katakrak_blog_node_info() {
   $items = array(
     'blog' => array(
-      'name' => t('Blog'),
+      'name' => t('Bloga'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Izenburua'),
       'help' => '',
     ),
   );

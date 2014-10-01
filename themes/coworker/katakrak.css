@@ -9,7 +9,8 @@
 }
 /** Estilos generales del sitio, tipografias, etc **/
 .field-type-text-long,
-.field-content p {
+.field-content p,
+p.field-content {
   font-size: 18px;
   line-height: 22px;
 }
@@ -76,6 +77,9 @@ h3.field-content a:hover {
 #block-katakrak-katakrak-user-top {
   margin-top: 20px;
   float: right;
+}
+.popup-element-body table.popup-layout input {
+  border: solid 1px #d0d0d0;
 }
 /*
 #block-katakrak-katakrak-user-top a {
@@ -435,6 +439,9 @@ html.js input.throbbing {
   padding-bottom: 0;
   color: #444;
 }
+.pricing-features li {
+  font-size: 14px;
+}
 .pricing-features li:first-child {
   border-top: 1px solid #EEE;
 }
@@ -664,7 +671,8 @@ div.search-results div:last-child {
 button.checkout-cancel {
   border: none !important;
 }
-label.radio {
+#commerce-checkout-form-checkout label.radio,
+#commerce-checkout-form-review label.radio {
   border-top: 2px solid #d0d0d0;
   border-left: 2px solid #d0d0d0;
   border-right: 2px solid #d0d0d0;
@@ -677,8 +685,17 @@ label.radio {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   padding: 10px;
+  float: left;
+  max-width: 100px;
+  height: 60px;
+  margin: 5px 10px;
 }
-label.btn-active {
+#commerce-checkout-form-checkout label.radio input,
+#commerce-checkout-form-review label.radio input {
+  display: none;
+}
+#commerce-checkout-form-checkout label.btn-active,
+#commerce-checkout-form-review label.btn-active {
   border-top: 2px solid #2780af;
   border-left: 2px solid #2780af;
   border-right: 2px solid #2780af;
@@ -691,6 +708,8 @@ label.btn-active {
 span.fieldset-legend {
   font-size: 15px;
   font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 #customer-profile-billing-ajax-wrapper {
   border-radius: 10px 10px 0 0;
@@ -712,6 +731,11 @@ ul.pager li {
 ul.pager li.pager-current {
   padding: 0 10px 0 10px;
   font-weight: bold;
+}
+a.popup-element-title {
+  font-size: 15px;
+  color: #777777;
+  color: #444444;
 }
 @media (max-width: 767px) {
   #page-title .page-title {

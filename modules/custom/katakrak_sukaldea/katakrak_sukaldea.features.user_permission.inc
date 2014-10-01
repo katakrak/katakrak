@@ -15,6 +15,7 @@ function katakrak_sukaldea_user_default_permissions() {
     'name' => 'create sukalde_errezeta content',
     'roles' => array(
       'Sukaldari' => 'Sukaldari',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -24,6 +25,7 @@ function katakrak_sukaldea_user_default_permissions() {
     'name' => 'create sukalde_produktua content',
     'roles' => array(
       'Sukaldari' => 'Sukaldari',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -33,6 +35,7 @@ function katakrak_sukaldea_user_default_permissions() {
     'name' => 'delete any sukalde_errezeta content',
     'roles' => array(
       'Sukaldari' => 'Sukaldari',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -42,6 +45,7 @@ function katakrak_sukaldea_user_default_permissions() {
     'name' => 'delete any sukalde_produktua content',
     'roles' => array(
       'Sukaldari' => 'Sukaldari',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -51,6 +55,7 @@ function katakrak_sukaldea_user_default_permissions() {
     'name' => 'delete own sukalde_errezeta content',
     'roles' => array(
       'Sukaldari' => 'Sukaldari',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -60,6 +65,7 @@ function katakrak_sukaldea_user_default_permissions() {
     'name' => 'delete own sukalde_produktua content',
     'roles' => array(
       'Sukaldari' => 'Sukaldari',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -69,6 +75,7 @@ function katakrak_sukaldea_user_default_permissions() {
     'name' => 'edit any sukalde_errezeta content',
     'roles' => array(
       'Sukaldari' => 'Sukaldari',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -78,6 +85,7 @@ function katakrak_sukaldea_user_default_permissions() {
     'name' => 'edit any sukalde_produktua content',
     'roles' => array(
       'Sukaldari' => 'Sukaldari',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -87,6 +95,7 @@ function katakrak_sukaldea_user_default_permissions() {
     'name' => 'edit own sukalde_errezeta content',
     'roles' => array(
       'Sukaldari' => 'Sukaldari',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -96,6 +105,7 @@ function katakrak_sukaldea_user_default_permissions() {
     'name' => 'edit own sukalde_produktua content',
     'roles' => array(
       'Sukaldari' => 'Sukaldari',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
