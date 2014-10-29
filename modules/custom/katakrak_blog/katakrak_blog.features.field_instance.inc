@@ -151,6 +151,7 @@ function katakrak_blog_field_default_field_instances() {
           'colorbox_image_style' => 'extra_large',
           'colorbox_multivalue_index' => NULL,
           'colorbox_node_style' => 'blog_post_page',
+          'colorbox_node_style_first' => '',
         ),
         'type' => 'colorbox',
         'weight' => 2,
