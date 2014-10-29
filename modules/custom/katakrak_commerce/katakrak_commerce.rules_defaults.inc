@@ -13,17 +13,18 @@ function katakrak_commerce_default_rules_configuration() {
       "LABEL" : "El pedido ha sido procesado",
       "PLUGIN" : "reaction rule",
       "OWNER" : "rules",
-      "REQUIRES" : [ "rules", "entity" ],
+      "REQUIRES" : [ "rules", "mimemail", "entity" ],
       "ON" : { "commerce_order_update" : [] },
       "IF" : [
         { "data_is" : { "data" : [ "commerce-order-unchanged:status" ], "value" : "pending" } },
         { "data_is" : { "data" : [ "commerce-order:status" ], "value" : "processing" } }
       ],
       "DO" : [
-        { "mail" : {
-            "to" : [ "commerce-order:mail" ],
-            "subject" : "Su pedido ha sido procesado",
-            "message" : "Su pedido ha sido procesado",
+        { "mimemail" : {
+            "key" : "order_pending_to_processing",
+            "to" : "[commerce-order:mail]",
+            "from_mail" : "info@katakrak.net",
+            "subject" : "Su pedido se est\\u00e1 procesando",
             "language" : [ "" ]
           }
         }

@@ -3,6 +3,7 @@ description = Stores features of commerce
 core = 7.x
 package = Katakrak
 dependencies[] = entity
+dependencies[] = mimemail
 dependencies[] = rules
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
