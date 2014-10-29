@@ -26,14 +26,13 @@ class DilveSearch {
   *   hash data of book
   */ 
   public function search($isbn) {
-    $query  = 'http://'.$this->url_host.'/'.$this->url_path.'/getRecordsX.do?user='.$this->url_user.'&password='.$this->url_pass.'&identifier='.$isbn;
+    $query  = 'http://'.$this->url_host.$this->url_path.'/getRecordsX.do?user='.$this->url_user.'&password='.$this->url_pass.'&identifier='.$isbn;
     # Get xml in ONIX version 2.1
     $query .= '&metadataformat=ONIX&version=2.1';
     # Get xml in CEGAL version 3
     #$query .= '&metadataformat=CEGAL&version=3&formatdetail=C';
     # By default responses are UTF-8 encoded, but force it
     $query .= '&encoding=UTF-8';
-    
     $request = drupal_http_request($query);
     if ($request->code == 200) {
       $xml = simplexml_load_string($request->data);
