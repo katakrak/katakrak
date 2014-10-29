@@ -10,6 +10,8 @@ include_once 'katakrak_boletin.features.inc';
 function katakrak_boletin_mail_alter(&$message) {
   if ($message['module'] == 'simplenews') {
     $message['headers']['Content-Type'] = 'text/html';
-    $message['headers']['Errors-To'] = 'buletina@katakrak.net';
+    $message['headers']['Errors-To'] = 'rebotes@katakrak.net';
+    $message['headers']['Return-Path'] = 'rebotes@katakrak.net';
+
   }
 }
