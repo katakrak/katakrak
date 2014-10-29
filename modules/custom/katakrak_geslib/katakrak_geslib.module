@@ -65,7 +65,7 @@ function katakrak_geslib_geslib_author($op, $author) {
       $author_tid = get_tid_by_geslib_id($author['geslib_id'], 'author');
 
       if ($author_tid) {
-        $author = taxonomy_term_load($author_tid);
+        $term = taxonomy_term_load($author_tid);
       }
       else {
         $term = new stdClass();
