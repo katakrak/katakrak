@@ -702,6 +702,30 @@ function libro_views_default_views() {
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Bloque */
+  $handler = $view->new_display('block', 'Bloque', 'libro_por_isbn');
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Campo: Contenido: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Contenido: Isbn (field_libro_isbn) */
+  $handler->display->display_options['arguments']['field_libro_isbn_value']['id'] = 'field_libro_isbn_value';
+  $handler->display->display_options['arguments']['field_libro_isbn_value']['table'] = 'field_data_field_libro_isbn';
+  $handler->display->display_options['arguments']['field_libro_isbn_value']['field'] = 'field_libro_isbn_value';
+  $handler->display->display_options['arguments']['field_libro_isbn_value']['default_action'] = 'empty';
+  $handler->display->display_options['arguments']['field_libro_isbn_value']['exception']['title'] = 'Todo(s)';
+  $handler->display->display_options['arguments']['field_libro_isbn_value']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_libro_isbn_value']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_libro_isbn_value']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_libro_isbn_value']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_libro_isbn_value']['limit'] = '0';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
   $translatables['libros_admin'] = array(
     t('Master'),
     t('Libros'),
@@ -736,6 +760,9 @@ function libro_views_default_views() {
     t('Page'),
     t('Libros de la semana'),
     t('queue'),
+    t('Bloque'),
+    t('Nid'),
+    t('Todo(s)'),
   );
   $export['libros_admin'] = $view;
 

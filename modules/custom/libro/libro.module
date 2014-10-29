@@ -28,6 +28,12 @@ function libro_menu() {
     'type' => MENU_LOCAL_TASK,
     'weight' => 100,
   );
+  $items['libro'] = array(
+    'title' => 'Portada',
+    'page callback' => 'libro_por_isbn',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
   return $items;
 }
 
@@ -192,4 +198,18 @@ function libro_node_presave($node) {
       $node->status = 0;
     }
   }
+}
+
+function libro_por_isbn() {
+  if ($_GET['isbn']) {
+    $result = views_get_view_result('libros_admin', 'libro_por_isbn', $_GET['isbn']);
+    if ($result)
+      drupal_goto('node/'.$result[0]->nid);
+    else 
+      drupal_not_found ();
+  }
+  else {
+    drupal_not_found();
+  }
+  
 }

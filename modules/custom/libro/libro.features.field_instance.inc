@@ -830,6 +830,7 @@ function libro_field_default_field_instances() {
           'colorbox_image_style' => 'extra_large',
           'colorbox_multivalue_index' => NULL,
           'colorbox_node_style' => 'book_cover',
+          'colorbox_node_style_first' => '',
         ),
         'type' => 'colorbox',
         'weight' => 10,
