@@ -309,7 +309,6 @@ function katakrak_dilve_batch_process($max, $limit, $recheck, &$context){
   foreach ($nids as $nid) {
     $node = node_load($nid->nid);
     $book = $dilve->search($node->field_libro_ean['und'][0]['value']);
-
     if (is_string($book)) {
       $node->field_libro_dilve['und'][0]['value'] = 1;
       $node->title_field['und'][0]['value'] = $node->title;
@@ -322,10 +321,10 @@ function katakrak_dilve_batch_process($max, $limit, $recheck, &$context){
       if ($book['title']) {
         $product->title = $book['title'];
         $node->title = $book['title'];
-        $node->title_field['und'][0]['value'] = $values['title'];
+        $node->title_field['und'][0]['value'] = $book['title'];
       }
 
-      if ($book['weight']) {
+      if (isset($book['weight'])) {
         $product->field_product_peso['und'][0] = array(
           'weight' => $book['weight']['value'],
           'unit' => 'g',
