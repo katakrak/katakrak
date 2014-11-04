@@ -8,7 +8,7 @@
           <?php if (isset($section_title)): ?>
               <h1><?php print t($section_title); ?></h1>
           <?php else: ?>
-            <h1><?php print $title; ?></h1>
+            <h1><?php print t($title); ?></h1>
           <?php endif; ?>
           </div>
         </div>
