@@ -116,10 +116,7 @@ function coworker_preprocess_search_result(&$vars) {
 
       // Build the Add to Cart form using the prepared values.
       $form = drupal_get_form($form_id, $line_item, 0, array());
-
-      if (!_katakrak_is_live()) {
-        $vars['add_to_cart'] = drupal_render($form);
-      }
+      $vars['add_to_cart'] = drupal_render($form);
     }
     elseif ($node->field_event_image) {
       $vars['image'] = l(theme('image_style', array(
@@ -250,4 +247,9 @@ function coworker_breadcrumb($variables) {
     $output .= '<div class="breadcrumb">' . implode(' » ', $breadcrumb) . '</div>';
     return $output;
   }
+}
+
+
+function coworker_facetapi_title($variables) {
+  return t('Filter by @title:', array('@title' => drupal_strtolower(t($variables['title']))));
 }

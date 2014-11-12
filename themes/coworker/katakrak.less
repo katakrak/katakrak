@@ -22,7 +22,7 @@
 }
 
 
-.bordered {
+.rounded {
   border-radius: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -504,7 +504,7 @@ view-id-libros .book-author {
   }
   select {
     margin-top: 10px;
-    .bordered;
+    .rounded;
     font-size: 15px;
   }
 }
@@ -602,7 +602,7 @@ div.search-results div:last-child {
   background-color: #eee;
   margin-bottom: 18px;
   padding: 10px;
-  .bordered;
+  .rounded;
 }
 
 #block-views-agenda-next-events-node-block h3 a {
@@ -618,7 +618,7 @@ div.search-results div:last-child {
 /** FORMS **/
 #block-katakrak-newsletter-suscribe, #katakrak-books-search-form, #block-katakrak-search-katakrak-search-block  {
   padding: 10px;
-  .bordered;
+  .rounded;
   background-color: @background_gray;
 }
 
@@ -672,11 +672,14 @@ div.search-results div:last-child {
 #customer-profile-billing-ajax-wrapper,
 #customer-profile-shipping-ajax-wrapper{
   background-color: #f0f0f0;
-  .bordered;
+  .rounded;
 }
 
 .commerce-add-to-cart {
   button {
+    .katakrak-button;
+  }
+  button:hover{
     .katakrak-button;
   }
 }
@@ -693,10 +696,10 @@ button.checkout-cancel {
   border: none !important;
 }
 
-#commerce-checkout-form-checkout, #commerce-checkout-form-review {
+#commerce-checkout-form-checkout, #commerce-checkout-form-review, #commerce-checkout-form-shipping {
   label.radio {
     .katakrak-button(@background_gray, @background_gray, #000);
-    .bordered;
+    .rounded;
     float:left;
     max-width: 100px;
     height: 60px;

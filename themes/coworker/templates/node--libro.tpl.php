@@ -120,8 +120,8 @@
             <div class="clear"></div>
              <?php print render($content['sharethis']) ?>
              <div class="clear"></div>
-            <div class="book-metadata">
-            <div class="col-2 hidden-phone hidden-tablet">
+            <div class="book-metadata row-fluid">
+            <div class="span6 hidden-phone hidden-tablet">
               <div class="book-info-entry">
                 <span class="col-2 book-info-label">
                   <?php print t('Precio') ?>
@@ -179,6 +179,9 @@
                 </span>
               </div>
             </div>
+          <div class="span6">
+            <?php print render($content['field_libro_producto']) ?>
+          </div>
             <div class="hidden-desktop">
               <div class="book-info-entry">
                 <span class="col-2 book-info-label">
@@ -241,12 +244,8 @@
               <div class="span12">
                 <?php print render($content['field_libro_sinopsis']) ?>
               </div>
-              <?php if (!_katakrak_is_live()): ?>
-              <div class="span4">
-                <?php print render($content['field_libro_producto']) ?>
-              </div>
-              <?php endif; ?>
             </div>
+              
             </div>
           </div>
         </div>
