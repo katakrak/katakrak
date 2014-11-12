@@ -157,18 +157,18 @@ function katakrak_block_view($delta) {
     }
     else {
       //Generate user block
-      $block['title'] = t('Hello !username', array('!username' => $user->name));
+      $block['title'] = $user->name;
       $links = array(
         'account' => array(
-          'title' => t('Mi cuenta'),
+          'title' => t('My account'),
           'href' => 'user',
         ),
         'orders' => array(
-          'title' => 'Mis pedidos',
+          'title' => t('Mis pedidos'),
           'href' => 'user/'.$user->uid.'/orders',
         ),
         'logout' => array(
-          'title' => 'Salir',
+          'title' => t('Logout'),
           'href' => 'user/logout',
         ),
       );
@@ -176,8 +176,7 @@ function katakrak_block_view($delta) {
 
     }
     ;
-    if (!_katakrak_is_live())
-      return $block;
+    return $block;
   }
   if ($delta == 'katakrak_cart') {
     if ($order = commerce_cart_order_load($user->uid)) {
@@ -197,8 +196,7 @@ function katakrak_block_view($delta) {
     }
     $content = theme('katakrak_cart_block', array('num_items' => $num_items, 'class' => $class));
     $block['content'] = $content;
-    if (!_katakrak_is_live())
-      return $block;
+    return $block;
   }
   if ($delta == 'katakrak_social') {
     $block['content'] = theme('katakrak_social_block');
@@ -385,6 +383,7 @@ function katakrak_init() {
   $css = ".front #first-time {
 display: none;
 }";
+  drupal_add_js(drupal_get_path('module', 'katakrak').'/katakrak.js');
   drupal_add_css($css, array('type' => 'inline'));
 }
 
@@ -471,14 +470,6 @@ function katakrak_form_alter(&$form, &$form_state, $form_id) {
   }
 }
 
-function _katakrak_is_live() {
-  global $user;
-  if ($user->uid == 106) {
-    return false;
-  }
-  if (strpos($_SERVER['SERVER_NAME'], 'katakrak.net') !== FALSE)
-    return TRUE;
-}
 
 
 function katakrak_form_user_register_form_alter(&$form, &$form_state) {
