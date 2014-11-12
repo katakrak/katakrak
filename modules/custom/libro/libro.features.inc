@@ -88,6 +88,30 @@ function libro_image_default_styles() {
     ),
   );
 
+  // Exported image style: book_medium.
+  $styles['book_medium'] = array(
+    'name' => 'book_medium',
+    'label' => 'Book medium (120x)',
+    'effects' => array(
+      3 => array(
+        'label' => 'Escala',
+        'help' => 'El escalado mantiene la relación de proporciones de la imagen original. Si sólo se especifica una dimensión, la otra se calculará.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 120,
+          'height' => '',
+          'upscale' => 0,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: book_thumbnail.
   $styles['book_thumbnail'] = array(
     'name' => 'book_thumbnail',

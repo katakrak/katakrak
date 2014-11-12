@@ -250,6 +250,16 @@ function libro_strongarm() {
             'weight' => '38',
             'visible' => FALSE,
           ),
+          'default' => array(
+            'weight' => '38',
+            'visible' => TRUE,
+          ),
+        ),
+        'sharethis' => array(
+          'default' => array(
+            'weight' => '10',
+            'visible' => TRUE,
+          ),
         ),
       ),
     ),

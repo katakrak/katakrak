@@ -92,6 +92,7 @@ features[field_instance][] = taxonomy_term-materias-field_materias_geslib_id
 features[field_instance][] = taxonomy_term-materias-field_nombre_euskera
 features[filter][] = sinopsis
 features[image][] = book_cover
+features[image][] = book_medium
 features[image][] = book_thumbnail
 features[image][] = cover_home
 features[image][] = search_result_cover
