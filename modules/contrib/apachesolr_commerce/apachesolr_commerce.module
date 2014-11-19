@@ -1,0 +1,175 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ *   Indexer for the user entities for the Apachesolr module.
+ */
+
+function apachesolr_commerce_apachesolr_entity_info_alter(&$entity_info) {
+  // Should we also index commerce_line_item?
+  $entity_info['commerce_product']['indexable'] = TRUE;
+  $entity_info['commerce_product']['status callback'][] = 'apachesolr_commerce_status_callback';
+  $entity_info['commerce_product']['document callback'][] = 'apachesolr_commerce_solr_document';
+  $entity_info['commerce_product']['reindex callback'] = 'apachesolr_commerce_solr_reindex';
+  $entity_info['commerce_product']['index_table'] = 'apachesolr_index_entities_commerce';
+}
+
+function apachesolr_commerce_status_callback($entity_id, $entity_type) {
+  // Check on the status of the product if we have to index it or not
+  $product = commerce_product_load($entity_id);
+  $status = ($product->status == 1 ? 1 : 0);
+  return $status;
+}
+
+/**
+ * Implementation of hook_apachesolr_field_mappings().
+ */
+function apachesolr_commerce_apachesolr_field_mappings() {
+
+  $mappings = array(
+    'commerce_product_reference' => array(
+      'indexing_callback' => 'apachesolr_commerce_product_indexing_callback',
+      'index_type' => 'integer',
+      'facets' => TRUE,
+      'query types' => array('term', 'numeric_range'),
+      'query type' => 'term',
+      'facet mincount allowed' => TRUE,
+     ),
+  );
+
+  return $mappings;
+}
+
+/**
+ * Product reference indexing callback.
+ * Code is nearly identical to the apachesolr_nodereference_indexing_callback() function.
+ */
+function apachesolr_commerce_product_indexing_callback ($entity, $field_name, $index_key, $field_info)  {
+  $fields = array();
+
+  if (!empty($entity->{$field_name})) {
+    $index_key = apachesolr_index_key($field_info);
+    foreach ($entity->$field_name as $field_references) {
+      foreach ($field_references as $reference) {
+        if ($index_value = (!empty($reference['product_id'])) ? $reference['product_id'] : FALSE) {
+          $fields[] = array(
+            'key' => $index_key,
+            'value' => $index_value,
+          );
+        }
+      }
+    }
+  }
+
+  return $fields;
+}
+
+/**
+ * Builds the user-specific information for a Solr document.
+ *
+ * @param ApacheSolrDocument $document
+ *   The Solr document we are building up.
+ * @param stdClass $entity
+ *   The entity we are indexing.
+ * @param string $entity_type
+ *   The type of entity we're dealing with.
+ */
+function apachesolr_commerce_solr_document(ApacheSolrDocument $document, $product, $entity_type) {
+  $product_wrapper = entity_metadata_wrapper($entity_type, $product);
+
+  $document->uid = $product->uid;
+
+  // Title is a required field.
+  $document->label = $product->title;
+
+  // Build the product body.
+  $entities = array($product);
+  $build = entity_view($entity_type, $entities, 'search_index');
+
+  // We only want pure text, not too many divs or hidden content.
+  unset($build['#theme']);
+  $text = drupal_render($build);
+  $document->content = apachesolr_clean_text($text);
+
+  $document->created = apachesolr_date_iso($product->created);
+  $document->access = apachesolr_date_iso($product->changed);
+
+  //$document->ts_commerce_sku = $product->sku;
+  $price = $product_wrapper->commerce_price->value();
+
+  $document->iss_commerce_price = $price['amount'];
+  $document->ts_commerce_currency = $price['currency_code'];
+
+  //  Generic usecase for future reference. Callbacks can
+  //  allow you to send back multiple documents
+  $documents = array();
+  $documents[] = $document;
+  return $documents;
+}
+
+function apachesolr_commerce_facetapi_facet_info($searcher_info) {
+  $facets = array();
+
+  $facets['ts_commerce_sku'] = array(
+    'field' => 'ts_commerce_sku',
+    'label' => t('Product SKU'),
+    'description' => t('Filter by product SKU'),
+  );
+
+  $facets['iss_commerce_price'] = array(
+    'field' => 'iss_commerce_price',
+    'label' => t('Product Price'),
+    'description' => t('Filter by product price'),
+    'query types' => array('term', 'numeric_range'),
+    'field api name' => 'iss_commerce_price',
+    'map options' => array(
+      'field' => array(
+        'type' => 'number_integer'
+      ),
+      'index_type' => 'sint',
+      'name' => 'commerce_price',
+    )
+  );
+
+  return $facets;
+}
+
+/**
+ * Reindexing callback for ApacheSolr, for users.
+ */
+function apachesolr_commerce_solr_reindex() {
+  $indexer_table = apachesolr_get_indexer_table('commerce_product');
+  $transaction = db_transaction();
+  try {
+    db_delete($indexer_table)
+      ->condition('entity_type', 'commerce_product')
+      ->execute();
+
+    // We know there's only one bundle type, so if that doesn't get indexed just
+    // skip this entirely.
+    $env_id = apachesolr_default_environment();
+    if (apachesolr_get_index_bundles($env_id, 'commerce_product')) {
+      $select = db_select('commerce_product', 'cp');
+      $select->condition('status', 1);
+      $select->addField('cp', 'product_id', 'entity_id');
+      $select->addField('cp', 'status', 'status');
+      $select->addField('cp', 'type', 'bundle');
+      $select->addField('cp', 'changed', 'changed');
+      $select->addExpression("'commerce_product'", 'entity_type');
+
+      $insert = db_insert($indexer_table)
+        ->fields(array('entity_id', 'status', 'bundle', 'changed', 'entity_type'))
+        ->from($select)
+        ->execute();
+    }
+  }
+  catch (Exception $e) {
+    $transaction->rollback();
+    drupal_set_message($e->getMessage(), 'error');
+    watchdog_exception('Apache Solr', $e);
+    return FALSE;
+  }
+
+  return TRUE;
+}
