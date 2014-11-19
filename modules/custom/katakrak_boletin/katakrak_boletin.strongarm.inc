@@ -102,10 +102,23 @@ function katakrak_boletin_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '30',
+          'weight' => '4',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'language' => array(
+          'default' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+        ),
+        'sharethis' => array(
+          'default' => array(
+            'weight' => '10',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__boletin'] = $strongarm;
@@ -113,15 +126,33 @@ function katakrak_boletin_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'i18n_sync_node_type_boletin';
+  $strongarm->name = 'i18n_node_extended_boletin';
+  $strongarm->value = '1';
+  $export['i18n_node_extended_boletin'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_options_boletin';
   $strongarm->value = array();
+  $export['i18n_node_options_boletin'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_sync_node_type_boletin';
+  $strongarm->value = array(
+    0 => 'field_boletin_imagen',
+    1 => 'field_boletin_libros',
+    2 => 'field_boletin_eventos',
+  );
   $export['i18n_sync_node_type_boletin'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_boletin';
-  $strongarm->value = '0';
+  $strongarm->value = '2';
   $export['language_content_type_boletin'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -230,7 +261,7 @@ function katakrak_boletin_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'simplenews_content_type_boletin';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['simplenews_content_type_boletin'] = $strongarm;
 
   $strongarm = new stdClass();

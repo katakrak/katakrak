@@ -10,48 +10,109 @@
 function katakrak_boletin_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_boletin_destacado'
-  $field_bases['field_boletin_destacado'] = array(
+  // Exported field_base: 'field_boletin_body'
+  $field_bases['field_boletin_body'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_boletin_body',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'revision_id' => array(
+        0 => 'revision_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'field_collection',
+    'settings' => array(
+      'hide_blank_items' => 1,
+      'path' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'field_collection',
+  );
+
+  // Exported field_base: 'field_boletin_body_seccion'
+  $field_bases['field_boletin_body_seccion'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_boletin_destacado',
-    'foreign keys' => array(
-      'nid' => array(
-        'columns' => array(
-          'nid' => 'nid',
-        ),
-        'table' => 'node',
-      ),
-    ),
+    'field_name' => 'field_boletin_body_seccion',
+    'foreign keys' => array(),
     'indexes' => array(
-      'nid' => array(
-        0 => 'nid',
+      'value' => array(
+        0 => 'value',
       ),
     ),
     'locked' => 0,
-    'module' => 'node_reference',
+    'module' => 'list',
     'settings' => array(
-      'referenceable_types' => array(
-        'article' => 0,
-        'blog' => 'blog',
-        'boletin' => 0,
-        'event' => 'event',
-        'itinerario' => 0,
-        'libro' => 'libro',
-        'page' => 0,
-        'portfolio' => 0,
-        'simplenews' => 0,
+      'allowed_values' => array(
+        'vinoteca' => 'Vinoteca',
+        'calendar' => 'Actos',
       ),
-      'view' => array(
-        'args' => array(),
-        'display_name' => '',
-        'view_name' => '',
-      ),
+      'allowed_values_function' => '',
     ),
     'translatable' => 0,
-    'type' => 'node_reference',
+    'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_boletin_body_subtitulo'
+  $field_bases['field_boletin_body_subtitulo'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_boletin_body_subtitulo',
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_boletin_body_texto'
+  $field_bases['field_boletin_body_texto'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_boletin_body_texto',
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'text_long',
   );
 
   // Exported field_base: 'field_boletin_eventos'
