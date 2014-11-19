@@ -35,6 +35,9 @@ function katakrak_agenda_context_default_contexts() {
       ),
       'layout' => 'agenda',
     ),
+    'menu' => array(
+      0 => 'main-menu:agenda',
+    ),
     'theme' => array(
       'title' => 'Agenda',
       'subtitle' => '',
@@ -81,7 +84,9 @@ function katakrak_agenda_context_default_contexts() {
       ),
       'layout' => 'agenda',
     ),
-    'menu' => 'agenda',
+    'menu' => array(
+      0 => 'main-menu:agenda',
+    ),
     'theme' => array(
       'title' => 'Agenda',
       'subtitle' => '',
