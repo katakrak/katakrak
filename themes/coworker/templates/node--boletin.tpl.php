@@ -77,206 +77,26 @@
  * @see template_process()
  *
  * @ingroup themeable
- */?>
-
-<table class="body">
-  <tr>
-    <td class="center" align="center" valign="top">
-      <center>
-        <table class="row header">
-          <tr>
-            <td class="center" align="center">
-              <center>
-                <table class="container">
-                  <tr>
-                    <td class="wrapper last">
-
-                      <table class="twelve columns">
-                        <tr>
-                          <td class="last">
-                            <img src="<?php print 'http://www.katakrak.net/'.drupal_get_path('theme', 'coworker').'/images/boletin/buletin_header.png' ?>">
-                          </td>
-                          <td class="expander"></td>
-                        </tr>
-                      </table>
-
-                    </td>
-                  </tr>
-                </table>
-              </center>
-            </td>
-          </tr>
-        </table>
-
-        <br>
-
-        <table class="container">
-          <tr>
-            <td>
-
-              <!-- content start -->
-              <table class="row">
-                <tr>
-                  <td class="wrapper last">
-                    <table class="twelve columns">
-                      <tr>
-                        <td>
-                          <h1><?php print $node->title ?></h1>
-                          <?php if ($node->field_boletin_imagen['und'][0]['uri']): ?>
-                              <?php print theme('image_style', array('style_name' => 'boletin_destacado', 'path' => $node->field_boletin_imagen['und'][0]['uri'])) ?>
-                          <?php endif; ?>
-                        </td>
-                        <td class="expander"></td>
-                      </tr>
-                    </table>
-
-                    <table class="twelve columns">
-                      <tr>
-                        <?php if ($node->body[LANGUAGE_NONE][0]['value']): ?>
-                          <td class="panel">
-                            <p><?php print $node->body[LANGUAGE_NONE][0]['value'] ?></p>
-                          </td>
-                        <?php endif; ?>
-                        <td class="expander"></td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-              </table>
-
-          <br>  <!-- Break Tag for row -->
-
-          <table class="row">
-            <tr>
-              <td class="wrapper">
-                <table class="six columns">
-                  <tr>
-                    <td class="panel">
-                      <h6>Libros de la semana <br> Asteko liburuak</h6>
-                      <br>
-                      <?php foreach($node->field_boletin_libros['und'] as $i => $nid): ?>
-                      <?php $libro = node_load($nid['nid']); ?>
-                        <table>
-                          <tr>
-                            <td>
-                              <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libro->nid) ?>"><?php print $libro->title ?></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <?php print theme('image_style', array('style_name' => 'book_thumbnail', 'path' => $libro->field_libro_portada['und'][0]['uri'])) ?>
-                            </td>
-                          </tr>
-                        </table>
-                        <?php if (count($node->field_boletin_libros['und']) != $i + 1): ?>
-                          <hr>
-                        <?php endif; ?>
-                      <?php endforeach; ?>
-                    </td>
-                    <td class="expander"></td>
-                  </tr>
-                </table>
-                
-
-              </td>
-              <td class="wrapper last">
-<table class="six columns">
-                  <tr>
-                    <td>
-                      <h6>Próximos eventos</br> Hurrengo ekitaldiak</h6>
-                      <br>
-                      <?php foreach($node->field_boletin_eventos['und'] as $i => $nid): ?>
-                      <?php $event = node_load($nid['nid']); 
-                            $translations = translation_node_get_translations($event->tnid);
-                            ?>
-                      <table>
-                        <tr>
-                        <td>
-                        <table class="two sub-columns">
-                            <tr>
-                              <td><strong>
-                                <?php print format_date($event->field_event_date['und'][0]['value'], 'custom', 'M', NULL, 'eu') ?> 
-                                 <?php print format_date($event->field_event_date['und'][0]['value'], 'custom', 'd', NULL, 'es') ?>
-                                <?php print format_date($event->field_event_date['und'][0]['value'], 'custom', 'M', NULL, 'es') ?><br>
-                                <?php print format_date($event->field_event_date['und'][0]['value'], 'custom', 'G:i', NULL, 'es') ?>
-                                </strong>
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                        <td>
-                        <table class="four sub-columns last">
-                          <tr>
-                            <td>
-                              [EUS] <a href="http://www.katakrak.net/eus/<?php print drupal_get_path_alias('node/'.$translations['eu']->nid, 'eu') ?>"> <?php print $translations['eu']->title ?></a><br>
-                              [CAS] <a href="http://www.katakrak.net/cas/<?php print drupal_get_path_alias('node/'.$translations['es']->nid, 'es') ?>"> <?php print $translations['es']->title ?></a>
-                            </td>
-                          </tr>
-                        </table>
-                        </td>
-                        </tr>
-                      </table>
-                      <?php endforeach; ?>
-
-                      <table class="button">
-                        <tr>
-                          <td>
-                            <a href="http://www.katakrak.net/agenda">Ver todos los eventos <br> Ikusi egitarau osoa</a>
-                          </td>
-                        </tr>
-                      </table>
-
-                    </td>
-                    <td class="expander"></td>
-                  </tr>
-                </table>
-                
-                <br>
-                <table class="six columns">
-                  <tr>
-                    <td class="panel">
-                      <h6 style="margin-bottom:5px;">Sare sozialetan / En las RRSS:</h6>
-                      <table class="tiny-button facebook">
-                          <tr>
-                            <td>
-                              <a href="http://facebook.com/katakrak54">Facebook</a>
-                            </td>
-                          </tr>
-                        </table>
-
-                        <hr>
-
-                        <table class="tiny-button twitter">
-                          <tr>
-                            <td>
-                              <a href="http://twitter.com/katakrak54">Twitter</a>
-                            </td>
-                          </tr>
-                        </table>
-
-                        <hr>
-                      <br>
-                      <h6 style="margin-bottom:5px;">Kontaktua <br> Contacto:</h6>
-                      <p><b>C/Mayor 54 Kale Nagusia, 31001 Pamplona-Iruñea</b></p>
-                      <p>Teléfono / Telefonoa: <b>948225520</b></p>
-                      <p>Correo / Emaila: <a href="mailto:info@katakrak.net">info@katakrak.net</a></p>
-                    </td>
-                    <td class="expander"></td>
-                  </tr>
-                </table>
-
-              </td>
-            </tr>
-          </table>
-          <br>
-          <br>
-
-          <!-- container end below -->
-          </td>
-        </tr>
-      </table>
-
-      </center>
-    </td>
-  </tr>
-</table>
+ */
+?>
+<div class="row-fluid">
+  <div class="span5">
+    <?php print render($content['field_boletin_imagen']) ?>
+  </div>
+  <div class="span7">
+    <h1><?php print $node->title ?></h1>
+    <p><?php print t("Published on !date", array('!date' => format_date($node->changed, 'custom', 'd/m/Y'))) ?></p>
+    <div class="clear"></div>
+    <?php print render($content['sharethis']) ?>
+    <div class="clear"></div>
+    <?php foreach($node->field_boletin_body['und'] as $body): ?>
+      <?php $body = field_collection_item_load($body['value']) ?>
+       <?php if ($body->field_boletin_body_subtitulo['und'][0]['value']): ?>
+    <p><i class="fa fa-2x fa-<?php print $body->field_boletin_body_seccion['und'][0]['value'] ?>"></i> <strong><?php print $body->field_boletin_body_subtitulo['und'][0]['value'] ?></strong></p>
+       <?php endif; ?>
+      <p><?php print $body->field_boletin_body_texto['und'][0]['value'] ?></p>
+    <?php endforeach; ?>
+    <p><?php print $node->event_table; ?></p>
+    <p><?php print render($content['field_blog_adjunto']) ?></p>
+  </div>
+</div>

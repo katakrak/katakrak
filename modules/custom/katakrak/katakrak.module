@@ -468,6 +468,18 @@ function katakrak_form_alter(&$form, &$form_state, $form_id) {
       'placeholder' => t('Password'),
     );
   }
+  if ($form_id == 'user_profile_form') {
+    unset($form['contact']);
+    $form['#after_build'][] = 'katakrak_user_form_edit_after';
+  }
+}
+
+function katakrak_user_form_edit_after(&$form, $form_state) {
+  unset($form['mimemail']);
+  unset($form['locale']);
+  unset($form['timezone']);
+  return $form;
+  
 }
 
 

@@ -17,11 +17,6 @@ function _coworker_add_css() {
     'css/prettyPhoto.css',
     'css/coworker.css',
   );
-  if ($node = menu_get_object()) {
-    if ($node->type == 'boletin') {
-      $css_files[] = 'css/mail.css';
-    } 
-  }
   $css_files[] = 'katakrak.css';
   foreach ($css_files as $css_file) {
     drupal_add_css($theme_path . '/' . $css_file);
