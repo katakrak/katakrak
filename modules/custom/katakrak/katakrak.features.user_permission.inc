@@ -25,6 +25,7 @@ function katakrak_user_default_permissions() {
     'roles' => array(
       'Cliente' => 'Cliente',
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
     ),
     'module' => 'commerce_checkout',
@@ -181,15 +182,6 @@ function katakrak_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'user',
-  );
-
-  // Exported permission: 'administer recaptcha'.
-  $permissions['administer recaptcha'] = array(
-    'name' => 'administer recaptcha',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'recaptcha',
   );
 
   // Exported permission: 'administer search'.

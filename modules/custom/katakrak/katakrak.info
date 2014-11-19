@@ -67,7 +67,6 @@ features[user_permission][] = administer nodequeue
 features[user_permission][] = administer nodes
 features[user_permission][] = administer pathauto
 features[user_permission][] = administer permissions
-features[user_permission][] = administer recaptcha
 features[user_permission][] = administer search
 features[user_permission][] = administer simplenews settings
 features[user_permission][] = administer simplenews subscriptions
