@@ -4,7 +4,7 @@
  */
 Drupal.behaviors.apachesolr_autocomplete = {
   attach: function(context) {
-    jQuery(".apachesolr-autocomplete.unprocessed", context).add(".apachesolr-autocomplete.unprocessed input", context).autocomplete(Drupal.settings.apachesolr_autocomplete.path,
+    jQuery(".apachesolr-autocomplete.unprocessed", context).add(".apachesolr-autocomplete.unprocessed input", context).apachesolr_autocomplete(Drupal.settings.apachesolr_autocomplete.path,
     {
       // Classnames for the widget.
       inputClass: "",
