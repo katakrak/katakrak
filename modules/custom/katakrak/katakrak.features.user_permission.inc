@@ -25,7 +25,6 @@ function katakrak_user_default_permissions() {
     'roles' => array(
       'Cliente' => 'Cliente',
       'administrator' => 'administrator',
-      'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
     ),
     'module' => 'commerce_checkout',
@@ -71,6 +70,16 @@ function katakrak_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'user',
+  );
+
+  // Exported permission: 'administer commerce_order entities'.
+  $permissions['administer commerce_order entities'] = array(
+    'name' => 'administer commerce_order entities',
+    'roles' => array(
+      'Editor' => 'Editor',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_order',
   );
 
   // Exported permission: 'administer content translations'.
@@ -277,6 +286,15 @@ function katakrak_user_default_permissions() {
     'module' => 'user',
   );
 
+  // Exported permission: 'configure order settings'.
+  $permissions['configure order settings'] = array(
+    'name' => 'configure order settings',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_order',
+  );
+
   // Exported permission: 'create article content'.
   $permissions['create article content'] = array(
     'name' => 'create article content',
@@ -305,6 +323,27 @@ function katakrak_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'create commerce_order entities'.
+  $permissions['create commerce_order entities'] = array(
+    'name' => 'create commerce_order entities',
+    'roles' => array(
+      'Cliente' => 'Cliente',
+      'Editor' => 'Editor',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_order',
+  );
+
+  // Exported permission: 'create commerce_order entities of bundle commerce_order'.
+  $permissions['create commerce_order entities of bundle commerce_order'] = array(
+    'name' => 'create commerce_order entities of bundle commerce_order',
+    'roles' => array(
+      'Editor' => 'Editor',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_order',
   );
 
   // Exported permission: 'create event content'.
@@ -667,6 +706,26 @@ function katakrak_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit any commerce_order entity'.
+  $permissions['edit any commerce_order entity'] = array(
+    'name' => 'edit any commerce_order entity',
+    'roles' => array(
+      'Editor' => 'Editor',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_order',
+  );
+
+  // Exported permission: 'edit any commerce_order entity of bundle commerce_order'.
+  $permissions['edit any commerce_order entity of bundle commerce_order'] = array(
+    'name' => 'edit any commerce_order entity of bundle commerce_order',
+    'roles' => array(
+      'Editor' => 'Editor',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_order',
+  );
+
   // Exported permission: 'edit any event content'.
   $permissions['edit any event content'] = array(
     'name' => 'edit any event content',
@@ -764,6 +823,27 @@ function katakrak_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'edit own commerce_order entities'.
+  $permissions['edit own commerce_order entities'] = array(
+    'name' => 'edit own commerce_order entities',
+    'roles' => array(
+      'Editor' => 'Editor',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_order',
+  );
+
+  // Exported permission: 'edit own commerce_order entities of bundle commerce_order'.
+  $permissions['edit own commerce_order entities of bundle commerce_order'] = array(
+    'name' => 'edit own commerce_order entities of bundle commerce_order',
+    'roles' => array(
+      'Cliente' => 'Cliente',
+      'Editor' => 'Editor',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_order',
   );
 
   // Exported permission: 'edit own event content'.
@@ -1086,6 +1166,48 @@ function katakrak_user_default_permissions() {
       'Editor' => 'Editor',
     ),
     'module' => 'filter',
+  );
+
+  // Exported permission: 'view any commerce_order entity'.
+  $permissions['view any commerce_order entity'] = array(
+    'name' => 'view any commerce_order entity',
+    'roles' => array(
+      'Editor' => 'Editor',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_order',
+  );
+
+  // Exported permission: 'view any commerce_order entity of bundle commerce_order'.
+  $permissions['view any commerce_order entity of bundle commerce_order'] = array(
+    'name' => 'view any commerce_order entity of bundle commerce_order',
+    'roles' => array(
+      'Editor' => 'Editor',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_order',
+  );
+
+  // Exported permission: 'view own commerce_order entities'.
+  $permissions['view own commerce_order entities'] = array(
+    'name' => 'view own commerce_order entities',
+    'roles' => array(
+      'Cliente' => 'Cliente',
+      'Editor' => 'Editor',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_order',
+  );
+
+  // Exported permission: 'view own commerce_order entities of bundle commerce_order'.
+  $permissions['view own commerce_order entities of bundle commerce_order'] = array(
+    'name' => 'view own commerce_order entities of bundle commerce_order',
+    'roles' => array(
+      'Cliente' => 'Cliente',
+      'Editor' => 'Editor',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_order',
   );
 
   // Exported permission: 'view own unpublished content'.
