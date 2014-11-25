@@ -22,27 +22,42 @@ See http://drupal.org/project/apachesolr
 
 -- INSTALLATION --
 
-* Install as usual, see http://drupal.org/node/70151 for further information.
+* Install as usual.
+  Read http://drupal.org/documentation/install/modules-themes/modules-7
+  to learn how to install contributed Drupal modules.
 
 
 -- CONFIGURATION  --
 
-For configuration, go to:
+In your Drupal website, browse to the settings page of the Apache Solr module
+at /admin/config/search/apachesolr/settings:
 
-  Administration >> Settings >> Apache Solr
+  Configuration >> Search and metadata >> Apache Solr search
+  Tab: Settings 
 
-and look for the "Advanced Options" fieldset. The setting is:
+In the section "Advanced configuration" choose which autocomplete widget to use.
 
-  "Autocomplete widget to use:"
-
-where you can choose between a custom Javascript widget (included with the
+You can choose between a custom JavaScript widget (included with the
 module) or fall back to the core Drupal autocomplete widget. The default is to
 use the custom widget.
 
+Normally, the module will make autocomplete responses cacheable by external
+caches (e.g., Varnish) using the page_cache_maximum_age Drupal variable (set in
+Admin > Config > Performance > Expiration of Cached Pages). Optionally, you can
+set a different cache lifetime just for autocomplete responses by overriding
+this variable in settings.php:
+
+  // Make autocomplete responses cacheable for 3600 seconds (1 hour)
+  $conf['apachesolr_autocomplete_cache_maximum_age'] = 3600;
+
+If you set this to 0, responses will *not* have the necessary Cache-Control
+headers and thus will not be cached externally.
+
 -- TROUBLESHOOTING --
 
-If you are having trouble with the autocomplete suggestions not working correctly,
-try changing the configuration to use the core Drupal autocomplete widget.
+If you are having trouble with the autocomplete suggestions not working 
+correctly, try changing the configuration to use the core Drupal autocomplete
+widget.
 
 If you encounter other problems, please post to the project issue queue:
   http://drupal.org/project/issues/apachesolr_autocomplete
