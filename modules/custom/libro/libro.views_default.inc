@@ -22,7 +22,7 @@ function libro_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Libros relacionados';
+  $handler->display->display_options['title'] = 'Tienda';
   $handler->display->display_options['css_class'] = 'book-page-view';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
@@ -148,6 +148,8 @@ function libro_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Tienda';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Contenido: Referenced products */
   $handler->display->display_options['relationships']['field_libro_producto_product_id']['id'] = 'field_libro_producto_product_id';
@@ -279,6 +281,8 @@ function libro_views_default_views() {
 
   /* Display: Libros de evento */
   $handler = $view->new_display('block', 'Libros de evento', 'books_related_event');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Libros relacionados';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Contenido: Libro (field_event_libro) */
   $handler->display->display_options['relationships']['field_event_libro_nid']['id'] = 'field_event_libro_nid';
@@ -324,7 +328,7 @@ function libro_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
   $translatables['libros'] = array(
     t('Master'),
-    t('Libros relacionados'),
+    t('Tienda'),
     t('más'),
     t('Aplicar'),
     t('Reiniciar'),
@@ -347,6 +351,7 @@ function libro_views_default_views() {
     t('última »'),
     t('Todo(s)'),
     t('Libros de evento'),
+    t('Libros relacionados'),
     t('field_event_libro'),
   );
   $export['libros'] = $view;
