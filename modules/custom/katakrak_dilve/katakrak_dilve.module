@@ -139,6 +139,10 @@ function katakrak_dilve_batch_process_form($form, &$form_state) {
     '#type' => 'submit',
     '#value' => t('Procesar'),
   );
+  $form['enviar'] = array(
+    '#type' => 'submit',
+    '#value' => t('Rescatar FTP'),
+  );
   return $form;
 }
 
@@ -146,15 +150,29 @@ function katakrak_dilve_batch_process_form_submit($form, &$form_state) {
   $max = $form_state['values']['max'] ? $form_state['values']['max'] : 0;
   $limit = $form_state['values']['limit'];
   $recheck = $form_state['values']['recheck'];
-  $batch = array(
-    'title' => t('Consultando a Dilve'),
-    'operations' => array(
-      array('katakrak_dilve_batch_process', array($max, $limit, $recheck)),
-    ),
-    'finished' => 'katakrak_dilve_batch_process_finish',
-  );
-  batch_set($batch);
+  if ($form_state['clicked_button']['#value'] == 'Procesar'){
+    $batch = array(
+      'title' => t('Consultando a Dilve'),
+      'operations' => array(
+        array('katakrak_dilve_batch_process', array($max, $limit, $recheck)),
+      ),
+      'finished' => 'katakrak_dilve_batch_process_finish',
+    );
+    batch_set($batch);
+  }
+  elseif ($form_state['clicked_button']['#value'] == 'Rescatar FTP') {
+    $batch = array(
+      'title' => t('Rescatando archivos de ftp viejo'),
+      'operations' => array(
+        array('katakrak_dilve_batch_ftp_process', array($max, $limit, $recheck)),
+      ),
+      'finished' => 'katakrak_dilve_batch_ftp_process_finish',
+    );
+    batch_set($batch);
+  }
 }
+
+
 
 /**
  * 
@@ -280,6 +298,44 @@ function dilve_node_info_form_submit($form, &$form_state) {
   $form_state['redirect'] = 'node/'.$node->nid;
 }
 
+function katakrak_dilve_batch_ftp_process($max, $limit, $recheck, &$context) {
+  $files_db = db_select('file_managed' ,'f')->fields('f');
+  if (!isset($context['sandbox']['progress'])) {
+    $context['sandbox']['progress'] = 0;
+    $context['sandbox']['max'] = $max ? $max : $files_db->execute()->rowCount();
+    $context['results']['in_dilve'] = 0;
+    $context['results']['no_dilve'] = 0;
+  }
+  $fids = $files_db->range($context['sandbox']['progress'], $limit)->execute()->fetchAll();
+  
+  $ftp = ftp_connect('ftp.cluster013.ovh.net');
+  ftp_login($ftp, "katakrak", "kraskao22");
+  ftp_chdir($ftp, '/www/sites/test.katakrak.net/files');
+  ftp_pasv($ftp, TRUE);
+  dpm(ftp_pwd($ftp));
+  foreach ($fids as $fid) {
+    $file = file_load($fid->fid);
+    $file_path = drupal_realpath($file->uri);
+    if (!file_exists($file_path)) {
+      $remote_path = file_uri_target($file->uri);
+      dpm($remote_path);
+      dpm($file_path);
+      $success = ftp_get($ftp, $file_path, $remote_path, FTP_BINARY);
+      if ($success) {
+        dpm("archivo transferido");
+      }
+      else {
+        dpm("archivo no transferido");
+      }
+    }
+  }
+  ftp_close($ftp);
+
+  $context['sandbox']['progress'] += $limit; 
+  if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
+    $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
+  }
+}
 
 /**
  * Batch function to process all the items

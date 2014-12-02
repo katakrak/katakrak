@@ -15,3 +15,4 @@ function katakrak_boletin_mail_alter(&$message) {
 
   }
 }
+

@@ -385,6 +385,10 @@ display: none;
 }";
   drupal_add_js(drupal_get_path('module', 'katakrak').'/katakrak.js');
   drupal_add_css($css, array('type' => 'inline'));
+//  $ftp = ftp_connect('ftp.cluster013.ovh.net');
+//  if (ftp_login($ftp, "katakrak", "")) {
+//    dpm("True");
+//  }
 }
 
 /**
