@@ -169,7 +169,7 @@ function libro_views_default_views() {
     'producto_kafeta_destacado' => 0,
     'evento_home' => 0,
   );
-  $handler->display->display_options['path'] = 'libros';
+  $handler->display->display_options['path'] = 'tienda';
 
   /* Display: Books block home */
   $handler = $view->new_display('block', 'Books block home', 'book_block_home');
