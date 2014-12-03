@@ -117,7 +117,7 @@ function libro_image_default_styles() {
     'name' => 'book_thumbnail',
     'label' => 'Book thumbnail',
     'effects' => array(
-      5 => array(
+      6 => array(
         'label' => 'Escala',
         'help' => 'El escalado mantiene la relación de proporciones de la imagen original. Si sólo se especifica una dimensión, la otra se calculará.',
         'effect callback' => 'image_scale_effect',
@@ -127,8 +127,8 @@ function libro_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
-          'width' => 180,
-          'height' => '',
+          'width' => '',
+          'height' => 250,
           'upscale' => 0,
         ),
         'weight' => 2,

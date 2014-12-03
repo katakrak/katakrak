@@ -703,6 +703,18 @@ body.outlook p {
       font-size: 20px;
     }
     
+    p.titulo-subseccion {
+      color: #FFFFFF;
+      padding: 5px;
+      font-size: 15px;
+    }
+    p.es {
+      background-color: #484848;
+    }
+    p.eu {
+      background-color: #808080;
+    }
+    
     table.facebook td {
       background: #3b5998;
       border-color: #2d4473;
@@ -820,9 +832,9 @@ body.outlook p {
                     <table class="twelve columns">
                       <tr>
                         <td>
-                          <h2 class="email-title"><?php print $node->title ?></h2>
+                          <h2 class="email-title"><?php print $boletin_title ?></h2>
                           <?php if ($node->field_boletin_imagen['und'][0]['uri']): ?>
-                              <?php print theme('image_style', array('style_name' => 'boletin_destacado', 'path' => $node->field_boletin_imagen['und'][0]['uri'])) ?>
+                              <?php if ($node->field_link_imagen['und'][0]['value']): ?><a href="<?php print $node->field_link_imagen['und'][0]['value'] ?>"><?php endif; ?><?php print theme('image_style', array('style_name' => 'boletin_destacado', 'path' => $node->field_boletin_imagen['und'][0]['uri'])) ?><?php if ($node->field_link_imagen['und'][0]['value']): ?></a><?php endif; ?>
                           <?php endif; ?>
                         </td>
                         
@@ -831,18 +843,20 @@ body.outlook p {
 
                     <table class="twelve columns">
                       <tr>
-                        <td class="panel">
+                        <td class="">
+                          <h3>[CAS]</h3>
                         <?php foreach($node_es->field_boletin_body['und'] as $body): ?>
                           <?php $body = field_collection_item_load($body['value']) ?>
                             <?php if ($body->field_boletin_body_subtitulo['und'][0]['value']): ?>
-                              <h4><?php print $body->field_boletin_body_subtitulo['und'][0]['value'] ?></h4>
-                          <?php endif; ?>
-                          <p><?php print $body->field_boletin_body_texto['und'][0]['value'] ?></p>
+                            <p class="titulo-subseccion es"><?php print $body->field_boletin_body_subtitulo['und'][0]['value'] ?></p>
+                            <?php endif; ?>
+                            <p><?php print $body->field_boletin_body_texto['und'][0]['value'] ?></p>
                         <?php endforeach; ?>
+                            <h3>[EUS]</h3>
                         <?php foreach($node_eu->field_boletin_body['und'] as $body): ?>
                           <?php $body = field_collection_item_load($body['value']) ?>
                             <?php if ($body->field_boletin_body_subtitulo['und'][0]['value']): ?>
-                              <h4><?php print $body->field_boletin_body_subtitulo['und'][0]['value'] ?></h4>
+                            <p class="titulo-subseccion eu"><?php print $body->field_boletin_body_subtitulo['und'][0]['value'] ?></p>
                           <?php endif; ?>
                           <p><?php print $body->field_boletin_body_texto['und'][0]['value'] ?></p>
                         <?php endforeach; ?>
@@ -884,10 +898,10 @@ body.outlook p {
                       <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[3]->nid) ?>"><?php print theme('image_style', array('style_name' => 'book_thumbnail', 'path' => $libros[3]->field_libro_portada['und'][0]['uri'])) ?></a>
                       <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[3]->nid) ?>"><?php print $libros[3]->title ?></a>
                     </td><td>
-                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[4]->nid) ?>"><?php print theme('image_style', array('style_name' => 'book_thumbnail', 'path' => $libros[2]->field_libro_portada['und'][0]['uri'])) ?></a>
+                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[4]->nid) ?>"><?php print theme('image_style', array('style_name' => 'book_thumbnail', 'path' => $libros[4]->field_libro_portada['und'][0]['uri'])) ?></a>
                       <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[4]->nid) ?>"><?php print $libros[4]->title ?></a>
                     </td><td>
-                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[5]->nid) ?>"><?php print theme('image_style', array('style_name' => 'book_thumbnail', 'path' => $libros[2]->field_libro_portada['und'][0]['uri'])) ?></a>
+                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[5]->nid) ?>"><?php print theme('image_style', array('style_name' => 'book_thumbnail', 'path' => $libros[5]->field_libro_portada['und'][0]['uri'])) ?></a>
                       <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[5]->nid) ?>"><?php print $libros[5]->title ?></a>
                     </td>
                   </tr>
@@ -917,7 +931,7 @@ body.outlook p {
                         
                         <?php foreach($node->field_boletin_eventos['und'] as $i => $nid): ?>
                         <?php $event = node_load($nid['nid']); 
-                              $translations = translation_node_get_translations($event->nid);
+                              $translations = translation_node_get_translations($event->tnid);
                         ?>
                         <tr>
                           <td class="two sub-columns">

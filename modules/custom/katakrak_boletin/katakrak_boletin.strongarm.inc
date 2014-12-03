@@ -102,7 +102,10 @@ function katakrak_boletin_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '4',
+          'weight' => '5',
+        ),
+        'language' => array(
+          'weight' => '1',
         ),
       ),
       'display' => array(
@@ -127,14 +130,16 @@ function katakrak_boletin_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'i18n_node_extended_boletin';
-  $strongarm->value = '1';
+  $strongarm->value = '4';
   $export['i18n_node_extended_boletin'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'i18n_node_options_boletin';
-  $strongarm->value = array();
+  $strongarm->value = array(
+    0 => 'required',
+  );
   $export['i18n_node_options_boletin'] = $strongarm;
 
   $strongarm = new stdClass();
