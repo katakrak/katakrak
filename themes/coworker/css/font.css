@@ -31,7 +31,7 @@ blockquote,
 .testimonial-item .testi-author span,
 .content p
 { 
-  font-family: "Calibri", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 h1,
@@ -42,8 +42,8 @@ h5,
 h6,
 #logo,
 #header,
-#primary-menu li a,
-#primary-menu li a span,
+#main-menu li a,
+#main-menu li a span,
 .slide-caption2,
 #lp-contacts li,
 #portfolio-filter li a,
@@ -73,6 +73,9 @@ h6,
 .widget_categories li,
 .widget_pages li,
 .entry_date,
-#block-katakrak-language-switcher a {
-  font-family: "Din-next", roboto, arial , sans-serif;
+#block-katakrak-language-switcher a,
+.texto_principal,
+.books-search-block-help,
+.view-secciones label{
+  font-family: "Abel", sans-serif;
 }

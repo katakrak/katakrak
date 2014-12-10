@@ -10,8 +10,8 @@ function _coworker_add_css() {
     'style.css',
     'css/tipsy.css',
     'css/bootstrap.css',
-    'css/font-dinnext.css',
-    'css/font-calibri.css',
+    //'css/font-dinnext.css',
+    //'css/font-calibri.css',
     'css/font-awesome.css',
     'css/font.css',
     'css/prettyPhoto.css',
@@ -86,10 +86,16 @@ function coworker_preprocess_search_result(&$vars) {
     $node = node_load($vars['result']['node']->entity_id);
     if ($node->type == 'libro') {
       if ($node->field_libro_portada) {
+        $query = array(
+          'utm_source'=> 'search',
+          'utm_medium' => 'web',
+          'utm_content' => 'imagen',
+          'utm_campaign' => 'libros',
+        );
         $vars['image'] = l(theme('image_style', array(
           'style_name' => 'search_result_cover',
           'path' => $node->field_libro_portada['und'][0]['uri']
-        )), 'node/'.$node->nid, array('html' => TRUE));
+        )), 'node/'.$node->nid, array('html' => TRUE, 'query' => $query));
       }
       else {
         $vars['image'] = '<i class="fa fa-book fa-10x"></i>';

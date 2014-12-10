@@ -881,28 +881,28 @@ body.outlook p {
                 <table class="block-grid three-up">
                   <tr>
                     <td>
-                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[0]->nid) ?>"><?php print theme('image_style', array('style_name' => 'book_thumbnail', 'path' => $libros[0]->field_libro_portada['und'][0]['uri'])) ?></a>
-                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[0]->nid) ?>"><?php print $libros[0]->title ?></a>
+                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[0]->nid) ?>?utm_source=newsletter&utm_medium=email&utm_content=imagen&utm_campaign=libros"><?php print theme('image_style', array('style_name' => 'book_thumbnail', 'path' => $libros[0]->field_libro_portada['und'][0]['uri'])) ?></a>
+                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[0]->nid) ?>?utm_source=newsletter&utm_medium=email&utm_content=titulo&utm_campaign=libros"><?php print $libros[0]->title ?></a>
                     </td><td>
-                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[1]->nid) ?>"><?php print theme('image_style', array('style_name' => 'book_thumbnail', 'path' => $libros[1]->field_libro_portada['und'][0]['uri'])) ?></a>
-                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[1]->nid) ?>"><?php print $libros[1]->title ?></a>
+                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[1]->nid) ?>?utm_source=newsletter&utm_medium=email&utm_content=imagen&utm_campaign=libros"><?php print theme('image_style', array('style_name' => 'book_thumbnail', 'path' => $libros[1]->field_libro_portada['und'][0]['uri'])) ?></a>
+                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[1]->nid) ?>?utm_source=newsletter&utm_medium=email&utm_content=titulo&utm_campaign=libros"><?php print $libros[1]->title ?></a>
                     </td><td>
-                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[2]->nid) ?>"><?php print theme('image_style', array('style_name' => 'book_thumbnail', 'path' => $libros[2]->field_libro_portada['und'][0]['uri'])) ?></a>
-                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[2]->nid) ?>"><?php print $libros[2]->title ?></a>
+                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[2]->nid) ?>?utm_source=newsletter&utm_medium=email&utm_content=imagen&utm_campaign=libros"><?php print theme('image_style', array('style_name' => 'book_thumbnail', 'path' => $libros[2]->field_libro_portada['und'][0]['uri'])) ?></a>
+                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[2]->nid) ?>?utm_source=newsletter&utm_medium=email&utm_content=titulo&utm_campaign=libros"><?php print $libros[2]->title ?></a>
                     </td>
                   </tr>
                 </table>
                 <table class="block-grid three-up">
                   <tr>
                     <td>
-                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[3]->nid) ?>"><?php print theme('image_style', array('style_name' => 'book_thumbnail', 'path' => $libros[3]->field_libro_portada['und'][0]['uri'])) ?></a>
-                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[3]->nid) ?>"><?php print $libros[3]->title ?></a>
+                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[3]->nid) ?>?utm_source=newsletter&utm_medium=email&utm_content=imagen&utm_campaign=libros"><?php print theme('image_style', array('style_name' => 'book_thumbnail', 'path' => $libros[3]->field_libro_portada['und'][0]['uri'])) ?></a>
+                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[3]->nid) ?>?utm_source=newsletter&utm_medium=email&utm_content=titulo&utm_campaign=libros"><?php print $libros[3]->title ?></a>
                     </td><td>
-                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[4]->nid) ?>"><?php print theme('image_style', array('style_name' => 'book_thumbnail', 'path' => $libros[4]->field_libro_portada['und'][0]['uri'])) ?></a>
-                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[4]->nid) ?>"><?php print $libros[4]->title ?></a>
+                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[4]->nid) ?>?utm_source=newsletter&utm_medium=email&utm_content=imagen&utm_campaign=libros"><?php print theme('image_style', array('style_name' => 'book_thumbnail', 'path' => $libros[4]->field_libro_portada['und'][0]['uri'])) ?></a>
+                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[4]->nid) ?>?utm_source=newsletter&utm_medium=email&utm_content=titulo&utm_campaign=libros"><?php print $libros[4]->title ?></a>
                     </td><td>
-                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[5]->nid) ?>"><?php print theme('image_style', array('style_name' => 'book_thumbnail', 'path' => $libros[5]->field_libro_portada['und'][0]['uri'])) ?></a>
-                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[5]->nid) ?>"><?php print $libros[5]->title ?></a>
+                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[5]->nid) ?>?utm_source=newsletter&utm_medium=email&utm_content=imagen&utm_campaign=libros"><?php print theme('image_style', array('style_name' => 'book_thumbnail', 'path' => $libros[5]->field_libro_portada['und'][0]['uri'])) ?></a>
+                      <a href="http://www.katakrak.net/<?php print drupal_get_path_alias('node/'.$libros[5]->nid) ?>?utm_source=newsletter&utm_medium=email&utm_content=titulo&utm_campaign=libros"><?php print $libros[5]->title ?></a>
                     </td>
                   </tr>
                 </table>
@@ -943,8 +943,8 @@ body.outlook p {
                             </strong>
                           </td>
                           <td class="four sub-columns last">
-                            [EUS] <a href="http://www.katakrak.net/eus/<?php print drupal_get_path_alias('node/'.$translations['eu']->nid, 'eu') ?>"> <?php print $translations['eu']->title ?></a><br>
-                            [CAS] <a href="http://www.katakrak.net/cas/<?php print drupal_get_path_alias('node/'.$translations['es']->nid, 'es') ?>"> <?php print $translations['es']->title ?></a>
+                            [EUS] <a href="http://www.katakrak.net/eus/<?php print drupal_get_path_alias('node/'.$translations['eu']->nid, 'eu') ?>?utm_source=newsletter&utm_medium=calendario&utm_campaign=agenda"> <?php print $translations['eu']->title ?></a><br>
+                            [CAS] <a href="http://www.katakrak.net/cas/<?php print drupal_get_path_alias('node/'.$translations['es']->nid, 'es') ?>?utm_source=newsletter&utm_medium=calendario&utm_campaign=agenda"> <?php print $translations['es']->title ?></a>
                           </td>
                           <td class="expander"></td>
                         </tr>

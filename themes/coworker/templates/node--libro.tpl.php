@@ -108,7 +108,7 @@
                   <?php print $node->title ?>
                 </h1>
               </div>
-              <?php if ($node->field_libro_subtitulo['und'][0]['value']): ?>
+              <?php if (isset($node->field_libro_subtitulo['und'][0]['value'])): ?>
                 <div class="col_three_fourth">
                   <?php print render($content['field_libro_subtitulo']) ?>
                 </div>
