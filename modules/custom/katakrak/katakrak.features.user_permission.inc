@@ -31,6 +31,17 @@ function katakrak_user_default_permissions() {
     'module' => 'commerce_checkout',
   );
 
+  // Exported permission: 'access comments'.
+  $permissions['access comments'] = array(
+    'name' => 'access comments',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'comment',
+  );
+
   // Exported permission: 'access content'.
   $permissions['access content'] = array(
     'name' => 'access content',
@@ -73,14 +84,53 @@ function katakrak_user_default_permissions() {
     'module' => 'user',
   );
 
+  // Exported permission: 'administer checkout'.
+  $permissions['administer checkout'] = array(
+    'name' => 'administer checkout',
+    'roles' => array(
+      'Librero' => 'Librero',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_checkout',
+  );
+
+  // Exported permission: 'administer comments'.
+  $permissions['administer comments'] = array(
+    'name' => 'administer comments',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'comment',
+  );
+
+  // Exported permission: 'administer commerce_customer_profile entities'.
+  $permissions['administer commerce_customer_profile entities'] = array(
+    'name' => 'administer commerce_customer_profile entities',
+    'roles' => array(
+      'Librero' => 'Librero',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_customer',
+  );
+
   // Exported permission: 'administer commerce_order entities'.
   $permissions['administer commerce_order entities'] = array(
     'name' => 'administer commerce_order entities',
     'roles' => array(
       'Editor' => 'Editor',
+      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_order',
+  );
+
+  // Exported permission: 'administer commerce_product entities'.
+  $permissions['administer commerce_product entities'] = array(
+    'name' => 'administer commerce_product entities',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_product',
   );
 
   // Exported permission: 'administer content translations'.
@@ -102,6 +152,15 @@ function katakrak_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'administer customer profile types'.
+  $permissions['administer customer profile types'] = array(
+    'name' => 'administer customer profile types',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_customer',
+  );
+
   // Exported permission: 'administer filters'.
   $permissions['administer filters'] = array(
     'name' => 'administer filters',
@@ -109,6 +168,15 @@ function katakrak_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'filter',
+  );
+
+  // Exported permission: 'administer flat rate services'.
+  $permissions['administer flat rate services'] = array(
+    'name' => 'administer flat rate services',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_flat_rate',
   );
 
   // Exported permission: 'administer google analytics'.
@@ -127,6 +195,25 @@ function katakrak_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'locale',
+  );
+
+  // Exported permission: 'administer line item types'.
+  $permissions['administer line item types'] = array(
+    'name' => 'administer line item types',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_line_item',
+  );
+
+  // Exported permission: 'administer line items'.
+  $permissions['administer line items'] = array(
+    'name' => 'administer line items',
+    'roles' => array(
+      'Librero' => 'Librero',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_line_item',
   );
 
   // Exported permission: 'administer mailsystem'.
@@ -185,6 +272,24 @@ function katakrak_user_default_permissions() {
     'module' => 'pathauto',
   );
 
+  // Exported permission: 'administer payment methods'.
+  $permissions['administer payment methods'] = array(
+    'name' => 'administer payment methods',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_payment',
+  );
+
+  // Exported permission: 'administer payments'.
+  $permissions['administer payments'] = array(
+    'name' => 'administer payments',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_payment',
+  );
+
   // Exported permission: 'administer permissions'.
   $permissions['administer permissions'] = array(
     'name' => 'administer permissions',
@@ -194,6 +299,24 @@ function katakrak_user_default_permissions() {
     'module' => 'user',
   );
 
+  // Exported permission: 'administer product pricing'.
+  $permissions['administer product pricing'] = array(
+    'name' => 'administer product pricing',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_product_pricing_ui',
+  );
+
+  // Exported permission: 'administer product types'.
+  $permissions['administer product types'] = array(
+    'name' => 'administer product types',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_product',
+  );
+
   // Exported permission: 'administer search'.
   $permissions['administer search'] = array(
     'name' => 'administer search',
@@ -201,6 +324,15 @@ function katakrak_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'search',
+  );
+
+  // Exported permission: 'administer shipping'.
+  $permissions['administer shipping'] = array(
+    'name' => 'administer shipping',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_shipping',
   );
 
   // Exported permission: 'administer simplenews settings'.
@@ -258,6 +390,15 @@ function katakrak_user_default_permissions() {
     'module' => 'views',
   );
 
+  // Exported permission: 'administer weight tariff services'.
+  $permissions['administer weight tariff services'] = array(
+    'name' => 'administer weight tariff services',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_shipping_weight_tariff',
+  );
+
   // Exported permission: 'bypass node access'.
   $permissions['bypass node access'] = array(
     'name' => 'bypass node access',
@@ -297,6 +438,15 @@ function katakrak_user_default_permissions() {
     'module' => 'commerce_order',
   );
 
+  // Exported permission: 'configure store'.
+  $permissions['configure store'] = array(
+    'name' => 'configure store',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce',
+  );
+
   // Exported permission: 'create article content'.
   $permissions['create article content'] = array(
     'name' => 'create article content',
@@ -327,6 +477,35 @@ function katakrak_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'create commerce_customer_profile entities'.
+  $permissions['create commerce_customer_profile entities'] = array(
+    'name' => 'create commerce_customer_profile entities',
+    'roles' => array(
+      'Librero' => 'Librero',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_customer',
+  );
+
+  // Exported permission: 'create commerce_customer_profile entities of bundle billing'.
+  $permissions['create commerce_customer_profile entities of bundle billing'] = array(
+    'name' => 'create commerce_customer_profile entities of bundle billing',
+    'roles' => array(
+      'Librero' => 'Librero',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_customer',
+  );
+
+  // Exported permission: 'create commerce_customer_profile entities of bundle shipping'.
+  $permissions['create commerce_customer_profile entities of bundle shipping'] = array(
+    'name' => 'create commerce_customer_profile entities of bundle shipping',
+    'roles' => array(
+      'Librero' => 'Librero',
+    ),
+    'module' => 'commerce_customer',
+  );
+
   // Exported permission: 'create commerce_order entities'.
   $permissions['create commerce_order entities'] = array(
     'name' => 'create commerce_order entities',
@@ -348,6 +527,43 @@ function katakrak_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_order',
+  );
+
+  // Exported permission: 'create commerce_product entities'.
+  $permissions['create commerce_product entities'] = array(
+    'name' => 'create commerce_product entities',
+    'roles' => array(
+      'Librero' => 'Librero',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_product',
+  );
+
+  // Exported permission: 'create commerce_product entities of bundle libro'.
+  $permissions['create commerce_product entities of bundle libro'] = array(
+    'name' => 'create commerce_product entities of bundle libro',
+    'roles' => array(
+      'Librero' => 'Librero',
+    ),
+    'module' => 'commerce_product',
+  );
+
+  // Exported permission: 'create commerce_product entities of bundle product'.
+  $permissions['create commerce_product entities of bundle product'] = array(
+    'name' => 'create commerce_product entities of bundle product',
+    'roles' => array(
+      'Librero' => 'Librero',
+    ),
+    'module' => 'commerce_product',
+  );
+
+  // Exported permission: 'create commerce_product entities of bundle shipping_tariff'.
+  $permissions['create commerce_product entities of bundle shipping_tariff'] = array(
+    'name' => 'create commerce_product entities of bundle shipping_tariff',
+    'roles' => array(
+      'Librero' => 'Librero',
+    ),
+    'module' => 'commerce_product',
   );
 
   // Exported permission: 'create event content'.
@@ -388,6 +604,15 @@ function katakrak_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'create payments'.
+  $permissions['create payments'] = array(
+    'name' => 'create payments',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_payment',
   );
 
   // Exported permission: 'create portfolio content'.
@@ -597,6 +822,15 @@ function katakrak_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete payments'.
+  $permissions['delete payments'] = array(
+    'name' => 'delete payments',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_payment',
+  );
+
   // Exported permission: 'delete revisions'.
   $permissions['delete revisions'] = array(
     'name' => 'delete revisions',
@@ -710,6 +944,35 @@ function katakrak_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit any commerce_customer_profile entity'.
+  $permissions['edit any commerce_customer_profile entity'] = array(
+    'name' => 'edit any commerce_customer_profile entity',
+    'roles' => array(
+      'Librero' => 'Librero',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_customer',
+  );
+
+  // Exported permission: 'edit any commerce_customer_profile entity of bundle billing'.
+  $permissions['edit any commerce_customer_profile entity of bundle billing'] = array(
+    'name' => 'edit any commerce_customer_profile entity of bundle billing',
+    'roles' => array(
+      'Librero' => 'Librero',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_customer',
+  );
+
+  // Exported permission: 'edit any commerce_customer_profile entity of bundle shipping'.
+  $permissions['edit any commerce_customer_profile entity of bundle shipping'] = array(
+    'name' => 'edit any commerce_customer_profile entity of bundle shipping',
+    'roles' => array(
+      'Librero' => 'Librero',
+    ),
+    'module' => 'commerce_customer',
+  );
+
   // Exported permission: 'edit any commerce_order entity'.
   $permissions['edit any commerce_order entity'] = array(
     'name' => 'edit any commerce_order entity',
@@ -730,6 +993,43 @@ function katakrak_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_order',
+  );
+
+  // Exported permission: 'edit any commerce_product entity'.
+  $permissions['edit any commerce_product entity'] = array(
+    'name' => 'edit any commerce_product entity',
+    'roles' => array(
+      'Librero' => 'Librero',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_product',
+  );
+
+  // Exported permission: 'edit any commerce_product entity of bundle libro'.
+  $permissions['edit any commerce_product entity of bundle libro'] = array(
+    'name' => 'edit any commerce_product entity of bundle libro',
+    'roles' => array(
+      'Librero' => 'Librero',
+    ),
+    'module' => 'commerce_product',
+  );
+
+  // Exported permission: 'edit any commerce_product entity of bundle product'.
+  $permissions['edit any commerce_product entity of bundle product'] = array(
+    'name' => 'edit any commerce_product entity of bundle product',
+    'roles' => array(
+      'Librero' => 'Librero',
+    ),
+    'module' => 'commerce_product',
+  );
+
+  // Exported permission: 'edit any commerce_product entity of bundle shipping_tariff'.
+  $permissions['edit any commerce_product entity of bundle shipping_tariff'] = array(
+    'name' => 'edit any commerce_product entity of bundle shipping_tariff',
+    'roles' => array(
+      'Librero' => 'Librero',
+    ),
+    'module' => 'commerce_product',
   );
 
   // Exported permission: 'edit any event content'.
@@ -831,6 +1131,44 @@ function katakrak_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit own comments'.
+  $permissions['edit own comments'] = array(
+    'name' => 'edit own comments',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'comment',
+  );
+
+  // Exported permission: 'edit own commerce_customer_profile entities'.
+  $permissions['edit own commerce_customer_profile entities'] = array(
+    'name' => 'edit own commerce_customer_profile entities',
+    'roles' => array(
+      'Librero' => 'Librero',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_customer',
+  );
+
+  // Exported permission: 'edit own commerce_customer_profile entities of bundle billing'.
+  $permissions['edit own commerce_customer_profile entities of bundle billing'] = array(
+    'name' => 'edit own commerce_customer_profile entities of bundle billing',
+    'roles' => array(
+      'Librero' => 'Librero',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_customer',
+  );
+
+  // Exported permission: 'edit own commerce_customer_profile entities of bundle shipping'.
+  $permissions['edit own commerce_customer_profile entities of bundle shipping'] = array(
+    'name' => 'edit own commerce_customer_profile entities of bundle shipping',
+    'roles' => array(
+      'Librero' => 'Librero',
+    ),
+    'module' => 'commerce_customer',
+  );
+
   // Exported permission: 'edit own commerce_order entities'.
   $permissions['edit own commerce_order entities'] = array(
     'name' => 'edit own commerce_order entities',
@@ -852,6 +1190,43 @@ function katakrak_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_order',
+  );
+
+  // Exported permission: 'edit own commerce_product entities'.
+  $permissions['edit own commerce_product entities'] = array(
+    'name' => 'edit own commerce_product entities',
+    'roles' => array(
+      'Librero' => 'Librero',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_product',
+  );
+
+  // Exported permission: 'edit own commerce_product entities of bundle libro'.
+  $permissions['edit own commerce_product entities of bundle libro'] = array(
+    'name' => 'edit own commerce_product entities of bundle libro',
+    'roles' => array(
+      'Librero' => 'Librero',
+    ),
+    'module' => 'commerce_product',
+  );
+
+  // Exported permission: 'edit own commerce_product entities of bundle product'.
+  $permissions['edit own commerce_product entities of bundle product'] = array(
+    'name' => 'edit own commerce_product entities of bundle product',
+    'roles' => array(
+      'Librero' => 'Librero',
+    ),
+    'module' => 'commerce_product',
+  );
+
+  // Exported permission: 'edit own commerce_product entities of bundle shipping_tariff'.
+  $permissions['edit own commerce_product entities of bundle shipping_tariff'] = array(
+    'name' => 'edit own commerce_product entities of bundle shipping_tariff',
+    'roles' => array(
+      'Librero' => 'Librero',
+    ),
+    'module' => 'commerce_product',
   );
 
   // Exported permission: 'edit own event content'.
@@ -1024,6 +1399,16 @@ function katakrak_user_default_permissions() {
     'module' => 'googleanalytics',
   );
 
+  // Exported permission: 'post comments'.
+  $permissions['post comments'] = array(
+    'name' => 'post comments',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'comment',
+  );
+
   // Exported permission: 'revert revisions'.
   $permissions['revert revisions'] = array(
     'name' => 'revert revisions',
@@ -1073,6 +1458,16 @@ function katakrak_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'simplenews',
+  );
+
+  // Exported permission: 'skip comment approval'.
+  $permissions['skip comment approval'] = array(
+    'name' => 'skip comment approval',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'comment',
   );
 
   // Exported permission: 'subscribe to newsletters'.
@@ -1127,6 +1522,15 @@ function katakrak_user_default_permissions() {
     'module' => 'i18n_string',
   );
 
+  // Exported permission: 'update payments'.
+  $permissions['update payments'] = array(
+    'name' => 'update payments',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_payment',
+  );
+
   // Exported permission: 'use PHP for tracking visibility'.
   $permissions['use PHP for tracking visibility'] = array(
     'name' => 'use PHP for tracking visibility',
@@ -1176,6 +1580,35 @@ function katakrak_user_default_permissions() {
     'module' => 'filter',
   );
 
+  // Exported permission: 'view any commerce_customer_profile entity'.
+  $permissions['view any commerce_customer_profile entity'] = array(
+    'name' => 'view any commerce_customer_profile entity',
+    'roles' => array(
+      'Librero' => 'Librero',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_customer',
+  );
+
+  // Exported permission: 'view any commerce_customer_profile entity of bundle billing'.
+  $permissions['view any commerce_customer_profile entity of bundle billing'] = array(
+    'name' => 'view any commerce_customer_profile entity of bundle billing',
+    'roles' => array(
+      'Librero' => 'Librero',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_customer',
+  );
+
+  // Exported permission: 'view any commerce_customer_profile entity of bundle shipping'.
+  $permissions['view any commerce_customer_profile entity of bundle shipping'] = array(
+    'name' => 'view any commerce_customer_profile entity of bundle shipping',
+    'roles' => array(
+      'Librero' => 'Librero',
+    ),
+    'module' => 'commerce_customer',
+  );
+
   // Exported permission: 'view any commerce_order entity'.
   $permissions['view any commerce_order entity'] = array(
     'name' => 'view any commerce_order entity',
@@ -1196,6 +1629,72 @@ function katakrak_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_order',
+  );
+
+  // Exported permission: 'view any commerce_product entity'.
+  $permissions['view any commerce_product entity'] = array(
+    'name' => 'view any commerce_product entity',
+    'roles' => array(
+      'Librero' => 'Librero',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_product',
+  );
+
+  // Exported permission: 'view any commerce_product entity of bundle libro'.
+  $permissions['view any commerce_product entity of bundle libro'] = array(
+    'name' => 'view any commerce_product entity of bundle libro',
+    'roles' => array(
+      'Librero' => 'Librero',
+    ),
+    'module' => 'commerce_product',
+  );
+
+  // Exported permission: 'view any commerce_product entity of bundle product'.
+  $permissions['view any commerce_product entity of bundle product'] = array(
+    'name' => 'view any commerce_product entity of bundle product',
+    'roles' => array(
+      'Librero' => 'Librero',
+    ),
+    'module' => 'commerce_product',
+  );
+
+  // Exported permission: 'view any commerce_product entity of bundle shipping_tariff'.
+  $permissions['view any commerce_product entity of bundle shipping_tariff'] = array(
+    'name' => 'view any commerce_product entity of bundle shipping_tariff',
+    'roles' => array(
+      'Librero' => 'Librero',
+    ),
+    'module' => 'commerce_product',
+  );
+
+  // Exported permission: 'view own commerce_customer_profile entities'.
+  $permissions['view own commerce_customer_profile entities'] = array(
+    'name' => 'view own commerce_customer_profile entities',
+    'roles' => array(
+      'Librero' => 'Librero',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_customer',
+  );
+
+  // Exported permission: 'view own commerce_customer_profile entities of bundle billing'.
+  $permissions['view own commerce_customer_profile entities of bundle billing'] = array(
+    'name' => 'view own commerce_customer_profile entities of bundle billing',
+    'roles' => array(
+      'Librero' => 'Librero',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_customer',
+  );
+
+  // Exported permission: 'view own commerce_customer_profile entities of bundle shipping'.
+  $permissions['view own commerce_customer_profile entities of bundle shipping'] = array(
+    'name' => 'view own commerce_customer_profile entities of bundle shipping',
+    'roles' => array(
+      'Librero' => 'Librero',
+    ),
+    'module' => 'commerce_customer',
   );
 
   // Exported permission: 'view own commerce_order entities'.
@@ -1222,6 +1721,43 @@ function katakrak_user_default_permissions() {
     'module' => 'commerce_order',
   );
 
+  // Exported permission: 'view own commerce_product entities'.
+  $permissions['view own commerce_product entities'] = array(
+    'name' => 'view own commerce_product entities',
+    'roles' => array(
+      'Librero' => 'Librero',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_product',
+  );
+
+  // Exported permission: 'view own commerce_product entities of bundle libro'.
+  $permissions['view own commerce_product entities of bundle libro'] = array(
+    'name' => 'view own commerce_product entities of bundle libro',
+    'roles' => array(
+      'Librero' => 'Librero',
+    ),
+    'module' => 'commerce_product',
+  );
+
+  // Exported permission: 'view own commerce_product entities of bundle product'.
+  $permissions['view own commerce_product entities of bundle product'] = array(
+    'name' => 'view own commerce_product entities of bundle product',
+    'roles' => array(
+      'Librero' => 'Librero',
+    ),
+    'module' => 'commerce_product',
+  );
+
+  // Exported permission: 'view own commerce_product entities of bundle shipping_tariff'.
+  $permissions['view own commerce_product entities of bundle shipping_tariff'] = array(
+    'name' => 'view own commerce_product entities of bundle shipping_tariff',
+    'roles' => array(
+      'Librero' => 'Librero',
+    ),
+    'module' => 'commerce_product',
+  );
+
   // Exported permission: 'view own unpublished content'.
   $permissions['view own unpublished content'] = array(
     'name' => 'view own unpublished content',
@@ -1230,6 +1766,15 @@ function katakrak_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'view payments'.
+  $permissions['view payments'] = array(
+    'name' => 'view payments',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'commerce_payment',
   );
 
   // Exported permission: 'view revisions'.
