@@ -404,6 +404,11 @@ function katakrak_token_info() {
     'description' => t("Katakrak Current language of the site."),
     'type' => 'katakrak',
   );
+  $token['seccion'] = array(
+    'name' => t("Site's seccion"),
+    'description' => t("Katakrak seccion."),
+    'type' => 'katakrak',
+  );
    return array(
      'types' => array('katakrak' => $type),
      'tokens' => array('katakrak' => $token),
@@ -416,6 +421,41 @@ function katakrak_tokens($type, $tokens, array $data = array(), array $options =
       if ($name == 'language') {
         global $language;
         $replacements[$token] = $language->language;
+      }
+      if ($name == 'seccion') {
+        $node = menu_get_object('node');
+        if (isset($node)) {
+          switch ($node->type) {
+            case 'event':
+              $seccion = 'agenda';
+              break;
+            case 'libro':
+              $seccion = 'tienda';
+              break;
+            case 'blog':
+              $seccion = 'boletin';
+              break;
+          }
+        }
+        elseif ($_GET['q'] == 'azala') {
+          $seccion = 'home';
+        }
+        elseif ($_GET['q'] == 'agenda') {
+          $seccion = 'agenda';
+        }
+        elseif ($_GET['q'] == 'tienda') {
+          $seccion = 'tienda';
+        }
+        elseif ($_GET['q'] == 'blog') {
+          $seccion = 'boletin';
+        }
+        elseif ($_GET['q'] == 'contact') {
+          $seccion = 'contacto';
+        }
+        if (isset($seccion))
+          $seccion = 'none';
+        
+        $replacements[$token] = $seccion;
       }
     }
   }

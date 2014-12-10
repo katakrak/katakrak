@@ -82,4 +82,4 @@ features[variable][] = simplenews_test_address
 features[variable][] = simplenews_test_address_override
 features[variable][] = simplenews_throttle
 features[variable][] = simplenews_use_cron
-mtime = 1417537251
+mtime = 1417624469

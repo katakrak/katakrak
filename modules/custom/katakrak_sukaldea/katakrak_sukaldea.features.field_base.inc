@@ -38,7 +38,11 @@ function katakrak_sukaldea_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_errezeta_osagai',
     'foreign keys' => array(),
-    'indexes' => array(),
+    'indexes' => array(
+      'revision_id' => array(
+        0 => 'revision_id',
+      ),
+    ),
     'locked' => 0,
     'module' => 'field_collection',
     'settings' => array(

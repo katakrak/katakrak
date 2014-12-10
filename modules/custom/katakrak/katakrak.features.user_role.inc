@@ -22,5 +22,11 @@ function katakrak_user_default_roles() {
     'weight' => 4,
   );
 
+  // Exported role: Librero.
+  $roles['Librero'] = array(
+    'name' => 'Librero',
+    'weight' => 6,
+  );
+
   return $roles;
 }

@@ -150,6 +150,7 @@ function katakrak_boletin_strongarm() {
     0 => 'field_boletin_imagen',
     1 => 'field_boletin_libros',
     2 => 'field_boletin_eventos',
+    3 => 'field_link_imagen',
   );
   $export['i18n_sync_node_type_boletin'] = $strongarm;
 

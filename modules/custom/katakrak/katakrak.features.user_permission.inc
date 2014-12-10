@@ -24,6 +24,7 @@ function katakrak_user_default_permissions() {
     'name' => 'access checkout',
     'roles' => array(
       'Cliente' => 'Cliente',
+      'Librero' => 'Librero',
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
     ),
@@ -290,6 +291,7 @@ function katakrak_user_default_permissions() {
   $permissions['configure order settings'] = array(
     'name' => 'configure order settings',
     'roles' => array(
+      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_order',
@@ -331,6 +333,7 @@ function katakrak_user_default_permissions() {
     'roles' => array(
       'Cliente' => 'Cliente',
       'Editor' => 'Editor',
+      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_order',
@@ -341,6 +344,7 @@ function katakrak_user_default_permissions() {
     'name' => 'create commerce_order entities of bundle commerce_order',
     'roles' => array(
       'Editor' => 'Editor',
+      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_order',
@@ -711,6 +715,7 @@ function katakrak_user_default_permissions() {
     'name' => 'edit any commerce_order entity',
     'roles' => array(
       'Editor' => 'Editor',
+      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_order',
@@ -721,6 +726,7 @@ function katakrak_user_default_permissions() {
     'name' => 'edit any commerce_order entity of bundle commerce_order',
     'roles' => array(
       'Editor' => 'Editor',
+      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_order',
@@ -830,6 +836,7 @@ function katakrak_user_default_permissions() {
     'name' => 'edit own commerce_order entities',
     'roles' => array(
       'Editor' => 'Editor',
+      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_order',
@@ -841,6 +848,7 @@ function katakrak_user_default_permissions() {
     'roles' => array(
       'Cliente' => 'Cliente',
       'Editor' => 'Editor',
+      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_order',
@@ -1173,6 +1181,7 @@ function katakrak_user_default_permissions() {
     'name' => 'view any commerce_order entity',
     'roles' => array(
       'Editor' => 'Editor',
+      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_order',
@@ -1183,6 +1192,7 @@ function katakrak_user_default_permissions() {
     'name' => 'view any commerce_order entity of bundle commerce_order',
     'roles' => array(
       'Editor' => 'Editor',
+      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_order',
@@ -1194,6 +1204,7 @@ function katakrak_user_default_permissions() {
     'roles' => array(
       'Cliente' => 'Cliente',
       'Editor' => 'Editor',
+      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_order',
@@ -1205,6 +1216,7 @@ function katakrak_user_default_permissions() {
     'roles' => array(
       'Cliente' => 'Cliente',
       'Editor' => 'Editor',
+      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_order',

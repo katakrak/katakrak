@@ -74,3 +74,4 @@ features[variable][] = pathauto_node_event_und_pattern
 features[views_view][] = agenda
 features[views_view][] = agenda_admin
 files[] = views/katakrak_agenda_grid_plugin_style.inc
+mtime = 1417769482
