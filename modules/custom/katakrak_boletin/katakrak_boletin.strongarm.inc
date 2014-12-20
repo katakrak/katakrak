@@ -266,6 +266,34 @@ function katakrak_boletin_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_boletin_es_pattern';
+  $strongarm->value = 'boletin/[node:title]';
+  $export['pathauto_node_boletin_es_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_boletin_eu_pattern';
+  $strongarm->value = 'buletina/[node:title]';
+  $export['pathauto_node_boletin_eu_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_boletin_pattern';
+  $strongarm->value = 'boletin/[node:title]';
+  $export['pathauto_node_boletin_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_boletin_und_pattern';
+  $strongarm->value = 'boletin/[node:title]';
+  $export['pathauto_node_boletin_und_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'simplenews_content_type_boletin';
   $strongarm->value = 0;
   $export['simplenews_content_type_boletin'] = $strongarm;

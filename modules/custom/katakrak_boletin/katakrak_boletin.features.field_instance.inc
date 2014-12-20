@@ -154,6 +154,48 @@ function katakrak_boletin_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-boletin-field_blog_adjunto'
+  $field_instances['node-boletin-field_blog_adjunto'] = array(
+    'bundle' => 'boletin',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 9,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_blog_adjunto',
+    'label' => 'Adjunto',
+    'required' => FALSE,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'txt',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'file',
+      'settings' => array(
+        'imce_filefield_on' => 0,
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 10,
+    ),
+  );
+
   // Exported field_instance: 'node-boletin-field_boletin_body'
   $field_instances['node-boletin-field_boletin_body'] = array(
     'bundle' => 'boletin',
@@ -421,6 +463,7 @@ function katakrak_boletin_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Adjunto');
   t('Body');
   t('Boletin');
   t('Cuerpo');
