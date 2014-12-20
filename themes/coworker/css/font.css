@@ -31,7 +31,7 @@ blockquote,
 .testimonial-item .testi-author span,
 .content p
 { 
-  font-family: "Open Sans", sans-serif;
+  font-family: "Slabo 13px";
 }
 
 h1,
@@ -76,6 +76,15 @@ h6,
 #block-katakrak-language-switcher a,
 .texto_principal,
 .books-search-block-help,
-.view-secciones label{
-  font-family: "Abel", sans-serif;
+.view-secciones label, button{
+  font-family: "Ropa Sans", sans-serif;
+  /*text-transform: uppercase;*/
+}
+
+h1, h3, .month {
+  text-transform: uppercase;
+}
+
+.weekday {
+  text-transform: lowercase;
 }

@@ -30,14 +30,23 @@ if ($language->language == 'es') {
 else {
   $date_format = 'Y/m/d';
 }
+$body = field_collection_item_load($row->field_field_boletin_body[0]['raw']['value']);
+if (strlen($body->field_boletin_body_texto['und'][0]['value']) >= 500) {
+  $pos=strpos($body->field_boletin_body_texto['und'][0]['value'], ' ', 500);
+  $body_text = substr($body->field_boletin_body_texto['und'][0]['value'],0,$pos ).'...'; 
+}
+else {
+  $body_text = $body->field_boletin_body_texto['und'][0]['value'] ; 
+}
 ?>
 <div class="row-fluid">
   <div class="span6">
-    <?php print $fields['field_image']->content ?>
+    <?php print $fields['field_boletin_imagen']->content ?>
   </div>
   <div class="span6">
     <?php print $fields['title']->content ?>
     <?php print t("Posted on !date", array('!date' => format_date($fields['created']->raw, 'custom', $date_format))) ?>
-    <?php print $fields['field_blog_body']->content ?>
+    <?php print check_markup($body_text, $body->field_boletin_body_texto['und'][0]['format']) ?>
+    <?php print $fields['view_node']->content ?>
   </div>
 </div>

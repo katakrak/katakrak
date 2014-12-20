@@ -47,7 +47,7 @@
   <head profile="<?php print $grddl_profile; ?>">
     <?php print $head; ?>
     <title><?php print $head_title; ?></title>
-    <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ropa+Sans:400,400italic|Slabo+13px' rel='stylesheet' type='text/css'>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <?php print $styles; ?>
     <?php $theme_background_image = theme_get_setting('theme_background_image', 'coworker'); ?>

@@ -13,7 +13,8 @@ p.field-content {
 }
 .view-agenda h3.field-content,
 .view-display-id-book_block_home h3.field-content,
-.view-blog h3.field-content {
+.view-blog h3.field-content,
+.view-boletin h3.field-content {
   font-size: 35px;
   line-height: 40px;
   font-weight: normal;

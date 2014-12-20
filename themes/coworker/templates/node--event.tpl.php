@@ -105,7 +105,7 @@
           </div>
         </div>
         <div class="clear"></div>
-        <?php print render($content['sharethis']) ?>
+        
         <div class="clear"></div>
         <p><?php print render($content['field_event_description']) ?></p>
         <p><?php print views_embed_view('libros', 'books_related_event', $node->nid); ?></p>

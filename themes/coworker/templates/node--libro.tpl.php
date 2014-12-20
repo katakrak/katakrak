@@ -111,15 +111,14 @@
               <?php if (isset($node->field_libro_subtitulo['und'][0]['value'])): ?>
                 <div class="col_three_fourth">
                   <?php print render($content['field_libro_subtitulo']) ?>
+                  <h3><?php print $content['autores'] ?></h3>
                 </div>
               <?php endif; ?>
               <div class="col_one_fourth col_last">
-                <h5><?php print $content['autores'] ?></h5>
+                
               </div>
             </div>
             <div class="clear"></div>
-             <?php print render($content['sharethis']) ?>
-             <div class="clear"></div>
             <div class="book-metadata row-fluid">
             <div class="span6 hidden-phone hidden-tablet">
               <div class="book-info-entry">
@@ -180,6 +179,7 @@
               </div>
             </div>
           <div class="span6">
+            <?php print render($content['sharethis']) ?>
             <?php print render($content['field_libro_producto']) ?>
           </div>
             <div class="hidden-desktop">
