@@ -296,7 +296,7 @@ function katakrak_boletin_field_default_field_instances() {
           'colorbox_gallery_custom' => '',
           'colorbox_image_style' => '',
           'colorbox_multivalue_index' => NULL,
-          'colorbox_node_style' => 'blog_post_page',
+          'colorbox_node_style' => 'boletin_destacado',
           'colorbox_node_style_first' => 'extra_large',
         ),
         'type' => 'colorbox',
@@ -418,6 +418,60 @@ function katakrak_boletin_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-boletin-field_simplenews_term'
+  $field_instances['node-boletin-field_simplenews_term'] = array(
+    'bundle' => 'boletin',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 3,
+      ),
+      'email_html' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'email_plain' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'email_textalt' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_simplenews_term',
+    'label' => 'Newsletter category',
+    'required' => TRUE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 4,
+    ),
+  );
+
   // Exported field_instance: 'node-simplenews-field_simplenews_boletin'
   $field_instances['node-simplenews-field_simplenews_boletin'] = array(
     'bundle' => 'simplenews',
@@ -471,6 +525,7 @@ function katakrak_boletin_field_default_field_instances() {
   t('Imagen');
   t('Libros');
   t('Link imagen');
+  t('Newsletter category');
   t('Seccion');
   t('Subtitulo');
   t('Texto');

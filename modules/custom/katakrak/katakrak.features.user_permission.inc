@@ -88,7 +88,6 @@ function katakrak_user_default_permissions() {
   $permissions['administer checkout'] = array(
     'name' => 'administer checkout',
     'roles' => array(
-      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_checkout',
@@ -107,7 +106,6 @@ function katakrak_user_default_permissions() {
   $permissions['administer commerce_customer_profile entities'] = array(
     'name' => 'administer commerce_customer_profile entities',
     'roles' => array(
-      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_customer',
@@ -201,6 +199,7 @@ function katakrak_user_default_permissions() {
   $permissions['administer line item types'] = array(
     'name' => 'administer line item types',
     'roles' => array(
+      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_line_item',
@@ -285,6 +284,7 @@ function katakrak_user_default_permissions() {
   $permissions['administer payments'] = array(
     'name' => 'administer payments',
     'roles' => array(
+      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_payment',
@@ -481,7 +481,6 @@ function katakrak_user_default_permissions() {
   $permissions['create commerce_customer_profile entities'] = array(
     'name' => 'create commerce_customer_profile entities',
     'roles' => array(
-      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_customer',
@@ -491,7 +490,6 @@ function katakrak_user_default_permissions() {
   $permissions['create commerce_customer_profile entities of bundle billing'] = array(
     'name' => 'create commerce_customer_profile entities of bundle billing',
     'roles' => array(
-      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_customer',
@@ -500,9 +498,7 @@ function katakrak_user_default_permissions() {
   // Exported permission: 'create commerce_customer_profile entities of bundle shipping'.
   $permissions['create commerce_customer_profile entities of bundle shipping'] = array(
     'name' => 'create commerce_customer_profile entities of bundle shipping',
-    'roles' => array(
-      'Librero' => 'Librero',
-    ),
+    'roles' => array(),
     'module' => 'commerce_customer',
   );
 
@@ -610,6 +606,7 @@ function katakrak_user_default_permissions() {
   $permissions['create payments'] = array(
     'name' => 'create payments',
     'roles' => array(
+      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_payment',
@@ -948,7 +945,6 @@ function katakrak_user_default_permissions() {
   $permissions['edit any commerce_customer_profile entity'] = array(
     'name' => 'edit any commerce_customer_profile entity',
     'roles' => array(
-      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_customer',
@@ -958,7 +954,6 @@ function katakrak_user_default_permissions() {
   $permissions['edit any commerce_customer_profile entity of bundle billing'] = array(
     'name' => 'edit any commerce_customer_profile entity of bundle billing',
     'roles' => array(
-      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_customer',
@@ -967,9 +962,7 @@ function katakrak_user_default_permissions() {
   // Exported permission: 'edit any commerce_customer_profile entity of bundle shipping'.
   $permissions['edit any commerce_customer_profile entity of bundle shipping'] = array(
     'name' => 'edit any commerce_customer_profile entity of bundle shipping',
-    'roles' => array(
-      'Librero' => 'Librero',
-    ),
+    'roles' => array(),
     'module' => 'commerce_customer',
   );
 
@@ -1144,7 +1137,6 @@ function katakrak_user_default_permissions() {
   $permissions['edit own commerce_customer_profile entities'] = array(
     'name' => 'edit own commerce_customer_profile entities',
     'roles' => array(
-      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_customer',
@@ -1154,7 +1146,6 @@ function katakrak_user_default_permissions() {
   $permissions['edit own commerce_customer_profile entities of bundle billing'] = array(
     'name' => 'edit own commerce_customer_profile entities of bundle billing',
     'roles' => array(
-      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_customer',
@@ -1163,9 +1154,7 @@ function katakrak_user_default_permissions() {
   // Exported permission: 'edit own commerce_customer_profile entities of bundle shipping'.
   $permissions['edit own commerce_customer_profile entities of bundle shipping'] = array(
     'name' => 'edit own commerce_customer_profile entities of bundle shipping',
-    'roles' => array(
-      'Librero' => 'Librero',
-    ),
+    'roles' => array(),
     'module' => 'commerce_customer',
   );
 
@@ -1425,6 +1414,7 @@ function katakrak_user_default_permissions() {
     'roles' => array(
       'Cliente' => 'Cliente',
       'Editor' => 'Editor',
+      'Librero' => 'Librero',
       'administrator' => 'administrator',
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
@@ -1526,6 +1516,7 @@ function katakrak_user_default_permissions() {
   $permissions['update payments'] = array(
     'name' => 'update payments',
     'roles' => array(
+      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_payment',
@@ -1772,6 +1763,7 @@ function katakrak_user_default_permissions() {
   $permissions['view payments'] = array(
     'name' => 'view payments',
     'roles' => array(
+      'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_payment',
