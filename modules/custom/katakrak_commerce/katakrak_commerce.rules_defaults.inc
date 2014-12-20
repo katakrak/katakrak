@@ -13,11 +13,31 @@ function katakrak_commerce_default_rules_configuration() {
       "LABEL" : "El pedido ha sido procesado",
       "PLUGIN" : "reaction rule",
       "OWNER" : "rules",
-      "REQUIRES" : [ "rules", "mimemail", "entity" ],
+      "REQUIRES" : [ "rules", "commerce_shipping", "mimemail", "entity" ],
       "ON" : { "commerce_order_update" : [] },
       "IF" : [
         { "NOT data_is" : { "data" : [ "commerce-order-unchanged:status" ], "value" : "completed" } },
-        { "data_is" : { "data" : [ "commerce-order:status" ], "value" : "completed" } }
+        { "data_is" : { "data" : [ "commerce-order:status" ], "value" : "completed" } },
+        { "AND" : [
+            { "commerce_shipping_compare_shipping_service" : {
+                "commerce_order" : [ "commerce_order" ],
+                "service" : "correo_ordinario"
+              }
+            },
+            { "OR" : [] },
+            { "commerce_shipping_compare_shipping_service" : {
+                "commerce_order" : [ "commerce_order" ],
+                "service" : "correos_24_horas"
+              }
+            },
+            { "OR" : [] },
+            { "commerce_shipping_compare_shipping_service" : {
+                "commerce_order" : [ "commerce_order" ],
+                "service" : "correos_24_horas_oficina"
+              }
+            }
+          ]
+        }
       ],
       "DO" : [
         { "mimemail" : {
