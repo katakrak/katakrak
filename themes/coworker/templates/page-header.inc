@@ -1,36 +1,47 @@
 <div id="wrapper" class="clearfix">
   <div id="header">
-    <div id="logo">
-      <?php if ($logo): ?>
-        <a href="<?php print $front_page; ?>" class="standard-logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" title="<?php print t('Home'); ?>" /></a>
-          <?php if ($rentina_logo): ?>
-            <a href="<?php print $front_page; ?>" class="retina-logo"><img src="<?php print $rentina_logo; ?>" /></a>
-          <?php endif; ?>
-        <?php endif; ?>
-        <?php if ($site_name || $site_slogan): ?>
-          <div id="name-and-slogan">
-            <?php if ($site_name): ?>
-              <h1 id="site-name">
-                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-              </h1>
-            <?php endif; ?>
-            <?php if ($site_slogan): ?>
-              <div id="site-slogan"><?php print $site_slogan; ?></div>
-            <?php endif; ?>
-          </div> <!-- /#name-and-slogan -->
-        <?php endif; ?>
-      </div>
     <div class="container clearfix">
-      <div id="top-right">
-        <?php print render($page['header_right']); ?>
+      <div class="row-fluid">
+        <div class="span3">
+          <div id="logo">
+            <?php if ($logo): ?>
+              <a href="<?php print $front_page; ?>" class="standard-logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" title="<?php print t('Home'); ?>" /></a>
+                <?php if ($rentina_logo): ?>
+                  <a href="<?php print $front_page; ?>" class="retina-logo"><img src="<?php print $rentina_logo; ?>" /></a>
+                <?php endif; ?>
+              <?php endif; ?>
+              <?php if ($site_name || $site_slogan): ?>
+                <div id="name-and-slogan">
+                  <?php if ($site_name): ?>
+                    <h1 id="site-name">
+                      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
+                    </h1>
+                  <?php endif; ?>
+                  <?php if ($site_slogan): ?>
+                    <div id="site-slogan"><?php print $site_slogan; ?></div>
+                  <?php endif; ?>
+                </div> <!-- /#name-and-slogan -->
+              <?php endif; ?>
+            </div>
+        </div>
+        <div class="span6">
+          <?php if (!empty($navigation)): ?>
+            <div id="primary-links">
+              <?php print $navigation; ?>
+            </div>
+          <?php endif; ?>
+        </div>
+        <div class="span3">
+          <div id="top-right">
+            <?php print render($page['header_right']); ?>
+          </div>
+        </div>
       </div>
+  
     </div>
   </div>
-  <?php if (!empty($navigation)): ?>
-    <div id="primary-links">
-      <?php print $navigation; ?>
-    </div>
-  <?php endif; ?>
+</div>
+      <div class="banda-header"></div>  
 <?php if (!empty($page['slider'])): ?>
   <div id="slider" class="visible-desktop visible-tablet">
     <?php print render($page['slider']); ?>

@@ -44,17 +44,19 @@ h3.field-content a:hover {
   width: 110px;
 }
 #header {
-  height: 243px;
+  /*  height: 243px; 
   background-image: url("images/fondo.png");
   background-repeat: no-repeat;
   background-size: 1666px 243px;
   border-bottom: 45px solid #000;
-}
-#header .container {
-  position: static;
+  .container {
+    position: static;
+  }*/
+
+  background-color: #d0d0d0;
 }
 #block-katakrak-language-switcher {
-  float: right;
+  float: left;
 }
 #block-katakrak-language-switcher ul li {
   float: left;
@@ -74,7 +76,7 @@ h3.field-content a:hover {
 /** User block */
 #block-katakrak-katakrak-user-top {
   margin-top: 20px;
-  float: right;
+  float: left;
 }
 .popup-element-body table.popup-layout input {
   border: solid 1px #d0d0d0;
@@ -94,9 +96,10 @@ h3.field-content a:hover {
 }*/
 /** Cart block **/
 #block-katakrak-katakrak-cart {
-  float: right;
-  margin-right: 15px;
-  margin-top: 15px;
+  float: left;
+  /*  margin-right: 15px;
+  margin-top: 15px;*/
+
 }
 #block-katakrak-katakrak-cart .content a {
   color: #000;
@@ -108,11 +111,12 @@ h3.field-content a:hover {
     Primary Menu
 -----------------------------------------------------------------*/
 #primary-links ul {
-  position: relative;
+  /*  position: relative;
   float: left;
   margin: 0 0 0 530px;
   max-width: 710px;
-  z-index: 3;
+  z-index: 3;*/
+
 }
 .rs-menu,
 .select-menu {
@@ -125,8 +129,9 @@ h3.field-content a:hover {
 
   /*background: url("images/icons/menu-divider.png") no-repeat left center;*/
 
-  background-color: black;
-  margin-left: 15px;
+  /*background-color: black;*/
+
+  margin-left: 5px;
 }
 #primary-links ul li:first-child {
   padding-left: 0;
@@ -145,7 +150,7 @@ h3.field-content a:hover {
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
-  color: #C0C0C0;
+  color: #000;
 }
 #primary-links li a span {
   display: block;
@@ -311,6 +316,11 @@ h3.field-content a:hover {
 .banda-footer {
   background: url("images/footer/banda_footer.jpg") 100% no-repeat;
   height: 40px;
+}
+.banda-header {
+  background: url("images/banda_header.jpg") 100% no-repeat;
+  height: 40px;
+  float: left;
 }
 /* BARRA REDES SOCIALES */
 #top-social {
@@ -758,10 +768,8 @@ a.popup-element-title {
 }
 @media only screen and (min-width: 1040px) {
   #logo {
-    top: 40px;
-    margin-left: 530px;
-  }
-  #top-right {
-    float: right;
+    /*    top: 40px;
+      margin-left: 530px;*/
+  
   }
 }
