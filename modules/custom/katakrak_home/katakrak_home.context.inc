@@ -44,9 +44,9 @@ function katakrak_home_context_default_contexts() {
           'region' => 'content_bottom',
           'weight' => '-10',
         ),
-        'views-blog-block' => array(
+        'views-boletin-block' => array(
           'module' => 'views',
-          'delta' => 'blog-block',
+          'delta' => 'boletin-block',
           'region' => 'content_bottom',
           'weight' => '-9',
         ),

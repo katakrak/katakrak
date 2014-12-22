@@ -310,16 +310,19 @@ function katakrak_dilve_batch_ftp_process($max, $limit, $recheck, &$context) {
   
   $ftp = ftp_connect('ftp.cluster013.ovh.net');
   ftp_login($ftp, "katakrak", "kraskao22");
-  ftp_chdir($ftp, '/www/sites/test.katakrak.net/files');
+  $chdir = ftp_chdir($ftp, '/www/sites/test.katakrak.net/files');
+  if ($chdir)
+    dpm("change dir");
   ftp_pasv($ftp, TRUE);
   dpm(ftp_pwd($ftp));
   foreach ($fids as $fid) {
     $file = file_load($fid->fid);
     $file_path = drupal_realpath($file->uri);
     if (!file_exists($file_path)) {
+      $handle = fopen($local_file, 'w');
       $remote_path = file_uri_target($file->uri);
-      dpm($remote_path);
-      dpm($file_path);
+      dpm("remote path".$remote_path);
+      dpm("file path" . $file_path);
       $success = ftp_get($ftp, $file_path, $remote_path, FTP_BINARY);
       if ($success) {
         dpm("archivo transferido");
@@ -347,7 +350,7 @@ function katakrak_dilve_batch_process($max, $limit, $recheck, &$context){
   $nodes->addJoin('LEFT', 'field_data_field_libro_dilve', 'd', 'n.nid = d.entity_id');
   $or = db_or()->isNull('d.field_libro_dilve_value')->condition('d.field_libro_dilve_value', 0);
   if ($recheck) {
-    $or->condition('d.field_libro_dilve_value', 1);
+    $or->condition('d.field_libro_dilve_value', 2);
   }
   $nodes->fields('n', array('nid'))->fields('d', array('field_libro_dilve_value'))
     ->condition('type', 'libro')->condition($or);
@@ -540,8 +543,13 @@ function create_cover($url, $isbn) {
  
   $fid = db_select('file_managed', 'f')->condition('filename', $filename)->fields('f', array('fid'))
     ->execute()->fetchObject();
+  $filepath = sprintf("%s/%s/portadas/%s",DRUPAL_ROOT, variable_get('file_public_path', 'sites/test.katakrak.net/files'), $filename);
+
   if ($fid) {
     $file = file_load($fid->fid);
+    if (!file_exists($filepath) && $cover_request->code == 200) {
+      file_put_contents($filepath, $cover_request->data);
+    }
   }
   else {
   
