@@ -176,21 +176,7 @@ function katakrak_boletin_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Nodequeue: Queue */
-  $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
-  $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
-  $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
-  $handler->display->display_options['relationships']['nodequeue_rel']['required'] = TRUE;
-  $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
-  $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
-    'blog_portada' => 'blog_portada',
-    'evento_portada' => 0,
-    'libro_portada' => 0,
-    'producto_kafeta_destacado' => 0,
-    'libros_destacados' => 0,
-    'evento_home' => 0,
-  );
-  $handler->display->display_options['block_description'] = 'Blog home';
+  $handler->display->display_options['block_description'] = 'Boletin home';
   $translatables['boletin'] = array(
     t('Master'),
     t('Boletin'),
@@ -214,8 +200,7 @@ function katakrak_boletin_views_default_views() {
     t('[+] leer más'),
     t('Page'),
     t('Block'),
-    t('queue'),
-    t('Blog home'),
+    t('Boletin home'),
   );
   $export['boletin'] = $view;
 

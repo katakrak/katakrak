@@ -693,6 +693,13 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['label'] = '';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  /* Campo: Producto de Comercio: Enlace */
+  $handler->display->display_options['fields']['view_product']['id'] = 'view_product';
+  $handler->display->display_options['fields']['view_product']['table'] = 'commerce_product';
+  $handler->display->display_options['fields']['view_product']['field'] = 'view_product';
+  $handler->display->display_options['fields']['view_product']['relationship'] = 'field_libro_producto_product_id';
+  $handler->display->display_options['fields']['view_product']['label'] = 'Editar producto';
+  $handler->display->display_options['fields']['view_product']['text'] = 'editar producto';
   /* Sort criterion: Contenido: Fecha de modificación */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
@@ -931,6 +938,8 @@ function libro_views_default_views() {
     t('Portada'),
     t('Autor'),
     t('Año'),
+    t('Editar producto'),
+    t('editar producto'),
     t('GESLIB ID'),
     t('EAN'),
     t('Dilve'),
