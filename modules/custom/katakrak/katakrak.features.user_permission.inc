@@ -26,20 +26,10 @@ function katakrak_user_default_permissions() {
       'Cliente' => 'Cliente',
       'Librero' => 'Librero',
       'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
-    ),
-    'module' => 'commerce_checkout',
-  );
-
-  // Exported permission: 'access comments'.
-  $permissions['access comments'] = array(
-    'name' => 'access comments',
-    'roles' => array(
-      'administrator' => 'administrator',
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
     ),
-    'module' => 'comment',
+    'module' => 'commerce_checkout',
   );
 
   // Exported permission: 'access content'.
@@ -91,15 +81,6 @@ function katakrak_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_checkout',
-  );
-
-  // Exported permission: 'administer comments'.
-  $permissions['administer comments'] = array(
-    'name' => 'administer comments',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'comment',
   );
 
   // Exported permission: 'administer commerce_customer_profile entities'.
@@ -1124,15 +1105,6 @@ function katakrak_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit own comments'.
-  $permissions['edit own comments'] = array(
-    'name' => 'edit own comments',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'comment',
-  );
-
   // Exported permission: 'edit own commerce_customer_profile entities'.
   $permissions['edit own commerce_customer_profile entities'] = array(
     'name' => 'edit own commerce_customer_profile entities',
@@ -1173,7 +1145,6 @@ function katakrak_user_default_permissions() {
   $permissions['edit own commerce_order entities of bundle commerce_order'] = array(
     'name' => 'edit own commerce_order entities of bundle commerce_order',
     'roles' => array(
-      'Cliente' => 'Cliente',
       'Editor' => 'Editor',
       'Librero' => 'Librero',
       'administrator' => 'administrator',
@@ -1388,16 +1359,6 @@ function katakrak_user_default_permissions() {
     'module' => 'googleanalytics',
   );
 
-  // Exported permission: 'post comments'.
-  $permissions['post comments'] = array(
-    'name' => 'post comments',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
-    ),
-    'module' => 'comment',
-  );
-
   // Exported permission: 'revert revisions'.
   $permissions['revert revisions'] = array(
     'name' => 'revert revisions',
@@ -1448,16 +1409,6 @@ function katakrak_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'simplenews',
-  );
-
-  // Exported permission: 'skip comment approval'.
-  $permissions['skip comment approval'] = array(
-    'name' => 'skip comment approval',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
-    ),
-    'module' => 'comment',
   );
 
   // Exported permission: 'subscribe to newsletters'.
@@ -1626,6 +1577,7 @@ function katakrak_user_default_permissions() {
   $permissions['view any commerce_product entity'] = array(
     'name' => 'view any commerce_product entity',
     'roles' => array(
+      'Cliente' => 'Cliente',
       'Librero' => 'Librero',
       'administrator' => 'administrator',
     ),

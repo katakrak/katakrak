@@ -233,7 +233,7 @@ function katakrak_search_default_page_manager_pages() {
     $pane->panel = 'content';
     $pane->type = 'block';
     $pane->subtype = 'apachesolr_search-sort';
-    $pane->shown = FALSE;
+    $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => 1,
