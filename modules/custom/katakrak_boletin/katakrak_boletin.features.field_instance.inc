@@ -177,15 +177,16 @@ function katakrak_boletin_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_blog_adjunto',
     'label' => 'Adjunto',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
       'description_field' => 0,
       'file_directory' => '',
-      'file_extensions' => 'txt',
+      'file_extensions' => 'pdf odt',
       'max_filesize' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'file',
       'settings' => array(
         'imce_filefield_on' => 0,

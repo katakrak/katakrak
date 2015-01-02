@@ -657,10 +657,9 @@ function libro_field_default_field_instances() {
         'weight' => 0,
       ),
       'search_index' => array(
-        'label' => 'above',
-        'module' => 'list',
+        'label' => 'hidden',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'hidden',
         'weight' => 13,
       ),
       'search_result' => array(
