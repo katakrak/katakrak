@@ -822,8 +822,8 @@ function libro_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
+          'image_link' => 'file',
+          'image_style' => 'book_cover',
         ),
         'type' => 'image',
         'weight' => 10,

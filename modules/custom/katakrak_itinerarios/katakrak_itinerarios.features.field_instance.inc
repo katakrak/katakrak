@@ -19,54 +19,17 @@ function katakrak_itinerarios_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'field_collection',
-        'settings' => array(
-          'add' => 'Agregar',
-          'delete' => 'Eliminar',
-          'description' => TRUE,
-          'edit' => 'Editar',
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_view',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_itinerario_parada_libro',
-    'label' => 'Libro',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'field_collection',
-      'settings' => array(),
-      'type' => 'field_collection_embed',
-      'weight' => 1,
-    ),
-  );
-
-  // Exported field_instance: 'field_collection_item-field_itinerario_parada_libro-field_itinerario_parada_libro_re'
-  $field_instances['field_collection_item-field_itinerario_parada_libro-field_itinerario_parada_libro_re'] = array(
-    'bundle' => 'field_itinerario_parada_libro',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
         'module' => 'node_reference',
         'settings' => array(),
         'type' => 'node_reference_default',
-        'weight' => 0,
+        'weight' => 2,
       ),
     ),
     'entity_type' => 'field_collection_item',
     'entityconnect_unload_add' => 0,
     'entityconnect_unload_edit' => 0,
-    'field_name' => 'field_itinerario_parada_libro_re',
-    'label' => 'Libro',
+    'field_name' => 'field_itinerario_parada_libro',
+    'label' => 'Libro(s)',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -80,13 +43,13 @@ function katakrak_itinerarios_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
-      'weight' => 1,
+      'weight' => 0,
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_itinerario_parada_libro-field_itinerario_parada_tipo'
-  $field_instances['field_collection_item-field_itinerario_parada_libro-field_itinerario_parada_tipo'] = array(
-    'bundle' => 'field_itinerario_parada_libro',
+  // Exported field_instance: 'field_collection_item-field_itinerario_parada-field_itinerario_parada_tipo'
+  $field_instances['field_collection_item-field_itinerario_parada-field_itinerario_parada_tipo'] = array(
+    'bundle' => 'field_itinerario_parada',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -111,7 +74,7 @@ function katakrak_itinerarios_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 2,
+      'weight' => 1,
     ),
   );
 
@@ -313,7 +276,7 @@ function katakrak_itinerarios_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Descripción');
   t('Imagen');
-  t('Libro');
+  t('Libro(s)');
   t('Tipo');
   t('Title');
   t('parada');
