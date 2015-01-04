@@ -97,6 +97,8 @@
     <p><?php print check_markup($body->field_boletin_body_texto['und'][0]['value'], $body->field_boletin_body_texto['und'][0]['format']) ?></p>
     <?php endforeach; ?>
     <p><?php print $node->event_table; ?></p>
+    <h4><?php print t("Selección") ?></h4>
+    <p><?php print views_embed_view('libros', 'books_related_boletin', $node->nid); ?></p>
     <p><?php print render($content['field_blog_adjunto']) ?></p>
   </div>
 </div>
