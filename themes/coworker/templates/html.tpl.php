@@ -50,7 +50,7 @@
     <link href='http://fonts.googleapis.com/css?family=Ropa+Sans:400,400italic|Slabo+13px' rel='stylesheet' type='text/css'>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <?php print $styles; ?>
-    <?php $theme_background_image = theme_get_setting('theme_background_image', 'coworker'); ?>
+    <?php //$theme_background_image = theme_get_setting('theme_background_image', 'coworker'); ?>
     <?php if (empty($theme_background_image)): ?>
       <style type="text/css">
         body{background: url('<?php print base_path() . path_to_theme(); ?>/images/patterns/<?php print $theme_background_image; ?>') scroll 0 0 repeat;}
