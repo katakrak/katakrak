@@ -767,35 +767,6 @@ form small {
 #header { position: relative; }
 
 
-/* ----------------------------------------------------------------
-    Logo
------------------------------------------------------------------*/
-
-
-#logo {
-  position: relative;
-  float: left;
-  /*height: 120px;*/
-  max-width: 230px;
-  margin-right: 20px;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 36px;
-  line-height: 120px;
-}
-
-#logo a {
-  display: block;
-  color: #000;
-}
-
-#logo img {
-  display: block;
-  max-width: 100%;
-}
-
-#logo a.standard-logo { display: block; }
-
-#logo a.retina-logo { display: none; }
 
 
 /* ----------------------------------------------------------------

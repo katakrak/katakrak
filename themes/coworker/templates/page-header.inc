@@ -2,7 +2,7 @@
   <div id="header">
     <div class="container clearfix">
       <div class="row-fluid">
-        <div class="span3">
+        <div class="span4">
           <div id="logo">
             <?php if ($logo): ?>
               <a href="<?php print $front_page; ?>" class="standard-logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" title="<?php print t('Home'); ?>" /></a>
@@ -24,7 +24,7 @@
               <?php endif; ?>
             </div>
         </div>
-        <div class="span6">
+        <div class="span5">
           <?php if (!empty($navigation)): ?>
             <div id="primary-links">
               <?php print $navigation; ?>
@@ -41,7 +41,9 @@
     </div>
   </div>
 </div>
-      <div class="banda-header"></div>  
+<div class="container-banda">
+  <div class="banda-header"></div>
+</div>  
 <?php if (!empty($page['slider'])): ?>
   <div id="slider" class="visible-desktop visible-tablet">
     <?php print render($page['slider']); ?>

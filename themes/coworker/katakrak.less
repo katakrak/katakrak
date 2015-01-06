@@ -29,57 +29,12 @@
   padding: 10px;
 }
 
-
-/** Estilos generales del sitio, tipografias, etc **/
-
-.field-type-text-long, .field-content p, p.field-content {
-  font-size: 18px;
-  line-height: 22px;
-}
-
-.view-agenda h3.field-content,
-.view-display-id-book_block_home h3.field-content,
-.view-boletin h3.field-content
-{
-  font-size: 35px;
-  line-height: 40px;
-  font-weight: normal;
-}
-
-#page-title .page-title {
-  width: 33.333%
-}
-
-#block-views-agenda-next-events-node-block h3.field-content {
-  font-size: 18px;
-  line-height: 22px;
-  font-weight: bold;
-}
-
-h3.field-content{
-  a {
-    color: @link_gray;
-  }
-  a:hover {
-    color: @hover_gray;
-  }
-  
-}
-
-.book-page-view h3 a {
-  color: #2780AF;
-}
-
-.colored-text {
-  color: #2780AF;
-}
-
-.popup-layout div.controls input[type="text"], .popup-layout div.controls input[type="password"] {
- width: 110px; 
-}
+/* ----------------------------------------------------------------
+    Logo
+-----------------------------------------------------------------*/
 
 #header {
-/*  height: 243px; 
+  /*height: 243px; 
   background-image: url("images/fondo.png");
   background-repeat: no-repeat;
   background-size: 1666px 243px;
@@ -90,75 +45,45 @@ h3.field-content{
   background-color: #d0d0d0;
 }
 
+/* ----------------------------------------------------------------
+    Logo
+-----------------------------------------------------------------*/
 
-#block-katakrak-language-switcher  {
+
+#logo {
+  margin: 20px 0;
+/*  position: relative;
   float: left;
-  ul li {
-    float: left;
-    padding-left: 4px;
-  }
-  
+  height: 120px;
+  max-width: 230px;
+  margin-right: 20px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 36px;
+  line-height: 120px;*/
 }
 
-#block-katakrak-language-switcher li.last:before {
-  content: "/ ";
+#logo a {
+  display: block;
+  color: #000;
 }
 
-#block-katakrak-language-switcher{
-  a {
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #000;
-  }
-  a.active {
-    font-weight: bold;
-  }
-  
+#logo img {
+  display: block;
+  max-width: 100%;
 }
 
-/** User block */
+#logo a.standard-logo { display: block; }
 
-#block-katakrak-katakrak-user-top {
-  margin-top: 20px;
-  float: left;
-}
+#logo a.retina-logo { display: none; }
 
-.popup-element-body table.popup-layout input {
-  border: solid 1px @background_gray;
-}
-/*
-#block-katakrak-katakrak-user-top a {
-  text-decoration: none;
-  background-color: #2780AF;
-  color: #FFF;
-  padding: 10px 20px;
-  border-top: 1px solid #2780AF;
-  border-right: 1px solid #2780AF;
-  border-bottom: 1px solid #2780AF;
-  border-left: 1px solid #2780AF;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-}*/
-
-/** Cart block **/
-
-#block-katakrak-katakrak-cart {
-  float: left;
-/*  margin-right: 15px;
-  margin-top: 15px;*/
-  .content a {
-    color: #000;
-  }
-  span {
-    font-size: 1.3em;
-  }
-}
-
- 
 /* ----------------------------------------------------------------
     Primary Menu
 -----------------------------------------------------------------*/
 
+
+#primary-links {
+  margin-top: 30px;
+}
 
 #primary-links ul {
 /*  position: relative;
@@ -357,6 +282,135 @@ h3.field-content{
 }
 
 
+.container-banda {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative; 
+}
+.banda-header {
+  background:  url("images/banda_header.jpg") 100% no-repeat;
+  height: 40px;
+  margin-right: 700px;
+  margin-top: -1px;
+}
+
+
+
+/** Estilos generales del sitio, tipografias, etc **/
+
+.field-type-text-long, .field-content p, p.field-content {
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.view-agenda h3.field-content,
+.view-display-id-book_block_home h3.field-content,
+.view-boletin h3.field-content
+{
+  font-size: 35px;
+  line-height: 40px;
+  font-weight: normal;
+}
+
+#page-title .page-title {
+  width: 33.333%
+}
+
+#block-views-agenda-next-events-node-block h3.field-content {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: bold;
+}
+
+h3.field-content{
+  a {
+    color: @link_gray;
+  }
+  a:hover {
+    color: @hover_gray;
+  }
+  
+}
+
+.book-page-view h3 a {
+  color: #2780AF;
+}
+
+.colored-text {
+  color: #2780AF;
+}
+
+.popup-layout div.controls input[type="text"], .popup-layout div.controls input[type="password"] {
+ width: 110px; 
+}
+
+
+
+
+#block-katakrak-language-switcher  {
+  float: left;
+  ul li {
+    float: left;
+    padding-left: 4px;
+  }
+  
+}
+
+#block-katakrak-language-switcher li.last:before {
+  content: "/ ";
+}
+
+#block-katakrak-language-switcher{
+  a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #000;
+  }
+  a.active {
+    font-weight: bold;
+  }
+  
+}
+
+/** User block */
+
+#block-katakrak-katakrak-user-top {
+  margin-top: 20px;
+  float: left;
+}
+
+.popup-element-body table.popup-layout input {
+  border: solid 1px @background_gray;
+}
+/*
+#block-katakrak-katakrak-user-top a {
+  text-decoration: none;
+  background-color: #2780AF;
+  color: #FFF;
+  padding: 10px 20px;
+  border-top: 1px solid #2780AF;
+  border-right: 1px solid #2780AF;
+  border-bottom: 1px solid #2780AF;
+  border-left: 1px solid #2780AF;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+}*/
+
+/** Cart block **/
+
+#block-katakrak-katakrak-cart {
+  float: left;
+/*  margin-right: 15px;
+  margin-top: 15px;*/
+  .content a {
+    color: #000;
+  }
+  span {
+    font-size: 1.3em;
+  }
+}
+
+
 #content {
  margin-bottom: 50px; 
  .content-wrap {
@@ -378,13 +432,6 @@ h3.field-content{
 .banda-footer {
   background:  url("images/footer/banda_footer.jpg") 100% no-repeat;
   height: 40px;
-}
-
-.banda-header {
-  background:  url("images/banda_header.jpg") 100% no-repeat;
-  height: 40px;
-  
-  float: left;
 }
 
 /* BARRA REDES SOCIALES */
