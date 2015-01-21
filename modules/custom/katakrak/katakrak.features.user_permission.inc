@@ -1558,6 +1558,7 @@ function katakrak_user_default_permissions() {
       'Editor' => 'Editor',
       'Librero' => 'Librero',
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
     ),
     'module' => 'commerce_order',
   );
@@ -1577,9 +1578,10 @@ function katakrak_user_default_permissions() {
   $permissions['view any commerce_product entity'] = array(
     'name' => 'view any commerce_product entity',
     'roles' => array(
-      'Cliente' => 'Cliente',
       'Librero' => 'Librero',
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'commerce_product',
   );

@@ -178,7 +178,7 @@ function libro_strongarm() {
           ),
           'search_index' => array(
             'weight' => '0',
-            'visible' => TRUE,
+            'visible' => FALSE,
           ),
           'search_result' => array(
             'weight' => '0',
