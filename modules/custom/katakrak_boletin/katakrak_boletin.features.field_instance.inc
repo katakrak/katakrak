@@ -295,7 +295,7 @@ function katakrak_boletin_field_default_field_instances() {
           'colorbox_caption_custom' => '',
           'colorbox_gallery' => 'post',
           'colorbox_gallery_custom' => '',
-          'colorbox_image_style' => '',
+          'colorbox_image_style' => 'boletin_destacado',
           'colorbox_multivalue_index' => NULL,
           'colorbox_node_style' => 'boletin_destacado',
           'colorbox_node_style_first' => 'extra_large',
