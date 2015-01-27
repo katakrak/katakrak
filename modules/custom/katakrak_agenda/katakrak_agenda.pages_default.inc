@@ -19,7 +19,7 @@ function katakrak_agenda_default_page_manager_handlers() {
   $handler->handler = 'panel_context';
   $handler->weight = 2;
   $handler->conf = array(
-    'title' => 'Desobediencia',
+    'title' => 'Ciclos',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
@@ -36,25 +36,6 @@ function katakrak_agenda_default_page_manager_handlers() {
             'machine_name' => array(
               'ciclo' => 'ciclo',
             ),
-          ),
-          'context' => 'argument_term_1',
-          'not' => FALSE,
-        ),
-        1 => array(
-          'name' => 'term',
-          'settings' => array(
-            'vid' => '9',
-            8 => array(),
-            5 => array(),
-            9 => array(
-              36528 => '36528',
-            ),
-            6 => array(),
-            4 => array(),
-            2 => array(),
-            3 => array(),
-            7 => array(),
-            1 => array(),
           ),
           'context' => 'argument_term_1',
           'not' => FALSE,
