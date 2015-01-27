@@ -9,6 +9,16 @@
  */
 function katakrak_agenda_taxonomy_default_vocabularies() {
   return array(
+    'ciclo' => array(
+      'name' => 'Ciclo',
+      'machine_name' => 'ciclo',
+      'description' => '',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+      'language' => 'und',
+      'i18n_mode' => 1,
+    ),
     'event_type' => array(
       'name' => 'Event Type',
       'machine_name' => 'event_type',

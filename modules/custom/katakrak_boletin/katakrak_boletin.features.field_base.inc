@@ -52,7 +52,8 @@ function katakrak_boletin_field_default_field_bases() {
       'allowed_values' => array(
         'calendar' => 'Actos',
         'glass' => 'vinoteca',
-        'vinoteca' => 'vinoteca',
+        'bolt' => 'Asteko ekitaldiak',
+        'book' => 'Irakurle taldea',
       ),
       'allowed_values_function' => '',
     ),
