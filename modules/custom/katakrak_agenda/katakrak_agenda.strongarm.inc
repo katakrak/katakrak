@@ -154,8 +154,9 @@ function katakrak_agenda_strongarm() {
   $strongarm->value = array(
     0 => 'field_event_date',
     1 => 'field_event_image',
-    2 => 'field_event_type',
-    3 => 'field_event_libro',
+    2 => 'field_event_libro',
+    3 => 'field_event_type',
+    4 => 'field_event_ciclo',
   );
   $export['i18n_sync_node_type_event'] = $strongarm;
 

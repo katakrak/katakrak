@@ -14,6 +14,9 @@ function katakrak_agenda_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "context" && $api == "context") {
     return array("version" => "3");
   }
+  if ($module == "page_manager" && $api == "pages_default") {
+    return array("version" => "1");
+  }
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -31,6 +34,29 @@ function katakrak_agenda_views_api($module = NULL, $api = NULL) {
  */
 function katakrak_agenda_image_default_styles() {
   $styles = array();
+
+  // Exported image style: event_ciclos.
+  $styles['event_ciclos'] = array(
+    'name' => 'event_ciclos',
+    'label' => 'Event ciclos',
+    'effects' => array(
+      7 => array(
+        'label' => 'Escalar y recortar',
+        'help' => 'Escalar y recortar mantendrán la relación de proporciones de la imagen original y se desechará lo que sobre por el lado mayor. Esto es especialmente útil para crear miniaturas perfectamente cuadradas sin deformar la imagen.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 600,
+          'height' => 300,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
 
   // Exported image style: event_highlight.
   $styles['event_highlight'] = array(
