@@ -25,15 +25,15 @@
  */
 ?>
 
-<?php print $fields['field_event_image']->wrapper_prefix ?>
-  <?php print $fields['field_event_image']->content ?>
-<?php print $fields['field_event_image']->wrapper_suffix; ?>
-
 <div class="col_one_sixth col">
   <?php print $fields['field_event_date']->content ?>
 </div>
 
+
 <div class="col_five_sixth col_last">
+  <?php print $fields['field_event_image']->wrapper_prefix ?>
+  <?php print $fields['field_event_image']->content ?>
+<?php print $fields['field_event_image']->wrapper_suffix; ?>
   <?php print $fields['field_event_type']->content ?>
   <?php print $fields['title']->content ?>
 </div>
