@@ -59,6 +59,28 @@ function katakrak_agenda_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-264f8297-1e4c-48aa-83c9-f3e6c11e8fa9';
+    $pane->panel = 'middle';
+    $pane->type = 'block';
+    $pane->subtype = 'views-libros-libros_grupo_lectura';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '264f8297-1e4c-48aa-83c9-f3e6c11e8fa9';
+    $display->content['new-264f8297-1e4c-48aa-83c9-f3e6c11e8fa9'] = $pane;
+    $display->panels['middle'][0] = 'new-264f8297-1e4c-48aa-83c9-f3e6c11e8fa9';
+    $pane = new stdClass();
     $pane->pid = 'new-38ddf5d6-7eb1-4e65-bfe6-029d0f241036';
     $pane->panel = 'middle';
     $pane->type = 'block';
@@ -75,11 +97,11 @@ function katakrak_agenda_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = '38ddf5d6-7eb1-4e65-bfe6-029d0f241036';
     $display->content['new-38ddf5d6-7eb1-4e65-bfe6-029d0f241036'] = $pane;
-    $display->panels['middle'][0] = 'new-38ddf5d6-7eb1-4e65-bfe6-029d0f241036';
+    $display->panels['middle'][1] = 'new-38ddf5d6-7eb1-4e65-bfe6-029d0f241036';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

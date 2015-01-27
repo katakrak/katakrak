@@ -10,6 +10,85 @@
 function katakrak_agenda_field_default_field_bases() {
   $field_bases = array();
 
+  // Exported field_base: 'field_ciclo_imagen'
+  $field_bases['field_ciclo_imagen'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_ciclo_imagen',
+    'foreign keys' => array(
+      'fid' => array(
+        'columns' => array(
+          'fid' => 'fid',
+        ),
+        'table' => 'file_managed',
+      ),
+    ),
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'image',
+    'settings' => array(
+      'default_image' => 0,
+      'uri_scheme' => 'public',
+    ),
+    'translatable' => 0,
+    'type' => 'image',
+  );
+
+  // Exported field_base: 'field_ciclo_libros'
+  $field_bases['field_ciclo_libros'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_ciclo_libros',
+    'foreign keys' => array(
+      'nid' => array(
+        'columns' => array(
+          'nid' => 'nid',
+        ),
+        'table' => 'node',
+      ),
+    ),
+    'indexes' => array(
+      'nid' => array(
+        0 => 'nid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'node_reference',
+    'settings' => array(
+      'referenceable_types' => array(
+        'article' => 0,
+        'blog' => 0,
+        'boletin' => 0,
+        'event' => 0,
+        'factura' => 0,
+        'itinerario' => 0,
+        'libro' => 'libro',
+        'menu' => 0,
+        'page' => 0,
+        'portfolio' => 0,
+        'proveedor' => 0,
+        'simplenews' => 0,
+        'sukalde_errezeta' => 0,
+        'sukalde_produktua' => 0,
+      ),
+      'view' => array(
+        'args' => array(),
+        'display_name' => '',
+        'view_name' => '',
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'node_reference',
+  );
+
   // Exported field_base: 'field_event_ciclo'
   $field_bases['field_event_ciclo'] = array(
     'active' => 1,

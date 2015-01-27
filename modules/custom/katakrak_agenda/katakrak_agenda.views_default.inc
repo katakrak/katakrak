@@ -986,27 +986,6 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['sorts']['field_libro_paginas_value']['id'] = 'field_libro_paginas_value';
   $handler->display->display_options['sorts']['field_libro_paginas_value']['table'] = 'field_data_field_libro_paginas';
   $handler->display->display_options['sorts']['field_libro_paginas_value']['field'] = 'field_libro_paginas_value';
-  /* Contextual filter: Fecha: Date (node) */
-  $handler->display->display_options['arguments']['date_argument']['id'] = 'date_argument';
-  $handler->display->display_options['arguments']['date_argument']['table'] = 'node';
-  $handler->display->display_options['arguments']['date_argument']['field'] = 'date_argument';
-  $handler->display->display_options['arguments']['date_argument']['default_action'] = 'empty';
-  $handler->display->display_options['arguments']['date_argument']['exception']['title'] = 'Todo(s)';
-  $handler->display->display_options['arguments']['date_argument']['default_argument_type'] = 'date';
-  $handler->display->display_options['arguments']['date_argument']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['date_argument']['granularity'] = 'year';
-  $handler->display->display_options['arguments']['date_argument']['date_fields'] = array(
-    'field_data_field_event_date.field_event_date_value' => 'field_data_field_event_date.field_event_date_value',
-  );
-  /* Contextual filter: Contenido: Idioma */
-  $handler->display->display_options['arguments']['language']['id'] = 'language';
-  $handler->display->display_options['arguments']['language']['table'] = 'node';
-  $handler->display->display_options['arguments']['language']['field'] = 'language';
-  $handler->display->display_options['arguments']['language']['exception']['title'] = 'Todo(s)';
-  $handler->display->display_options['arguments']['language']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['language']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['language']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['language']['summary_options']['items_per_page'] = '25';
   /* Filter criterion: Contenido: Tipo */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
@@ -1133,6 +1112,28 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['fields']['field_event_type']['id'] = 'field_event_type';
   $handler->display->display_options['fields']['field_event_type']['table'] = 'field_data_field_event_type';
   $handler->display->display_options['fields']['field_event_type']['field'] = 'field_event_type';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Fecha: Date (node) */
+  $handler->display->display_options['arguments']['date_argument']['id'] = 'date_argument';
+  $handler->display->display_options['arguments']['date_argument']['table'] = 'node';
+  $handler->display->display_options['arguments']['date_argument']['field'] = 'date_argument';
+  $handler->display->display_options['arguments']['date_argument']['default_action'] = 'empty';
+  $handler->display->display_options['arguments']['date_argument']['exception']['title'] = 'Todo(s)';
+  $handler->display->display_options['arguments']['date_argument']['default_argument_type'] = 'date';
+  $handler->display->display_options['arguments']['date_argument']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['date_argument']['granularity'] = 'year';
+  $handler->display->display_options['arguments']['date_argument']['date_fields'] = array(
+    'field_data_field_event_date.field_event_date_value' => 'field_data_field_event_date.field_event_date_value',
+  );
+  /* Contextual filter: Contenido: Idioma */
+  $handler->display->display_options['arguments']['language']['id'] = 'language';
+  $handler->display->display_options['arguments']['language']['table'] = 'node';
+  $handler->display->display_options['arguments']['language']['field'] = 'language';
+  $handler->display->display_options['arguments']['language']['exception']['title'] = 'Todo(s)';
+  $handler->display->display_options['arguments']['language']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['language']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['language']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['language']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Contenido: Tipo */
@@ -1168,12 +1169,12 @@ function katakrak_agenda_views_default_views() {
     t('Idioma'),
     t('Promocionar'),
     t('Editar'),
-    t('Todo(s)'),
     t('Page'),
     t('References'),
     t('Agenda reference'),
     t('Agenda actos pasados'),
     t('Data export'),
+    t('Todo(s)'),
   );
   $export['agenda_admin'] = $view;
 
@@ -1200,7 +1201,8 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordenar por';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
-  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
+  $handler->display->display_options['style_options']['columns'] = '2';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
