@@ -513,9 +513,10 @@ function libro_views_default_views() {
   /* Display: Libros grupo de lectura */
   $handler = $view->new_display('block', 'Libros grupo de lectura', 'libros_grupo_lectura');
   $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Libros';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
-  $handler->display->display_options['style_options']['columns'] = '4';
+  $handler->display->display_options['style_options']['columns'] = '6';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -536,7 +537,7 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['field_libro_portada']['empty'] = '<i class="fa fa-book fa-26x book-cover-not-found"></i>';
   $handler->display->display_options['fields']['field_libro_portada']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_libro_portada']['settings'] = array(
-    'image_style' => 'cover_home',
+    'image_style' => 'book_irakurle_taldea',
     'image_link' => 'content',
   );
   $handler->display->display_options['defaults']['sorts'] = FALSE;
@@ -582,6 +583,7 @@ function libro_views_default_views() {
     t('Libros de boletin'),
     t('libros'),
     t('Libros grupo de lectura'),
+    t('Libros'),
     t('field_ciclo_libros'),
   );
   $export['libros'] = $view;
@@ -598,7 +600,7 @@ function libro_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Libros';
+  $handler->display->display_options['title'] = 'Liburuak';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'más';
@@ -743,7 +745,7 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['commerce_price']['table'] = 'field_data_commerce_price';
   $handler->display->display_options['fields']['commerce_price']['field'] = 'commerce_price';
   $handler->display->display_options['fields']['commerce_price']['relationship'] = 'field_libro_producto_product_id';
-  $handler->display->display_options['fields']['commerce_price']['label'] = 'Precio';
+  $handler->display->display_options['fields']['commerce_price']['label'] = 'Prezioa';
   $handler->display->display_options['fields']['commerce_price']['click_sort_column'] = 'amount';
   $handler->display->display_options['fields']['commerce_price']['settings'] = array(
     'calculation' => '0',
@@ -767,6 +769,7 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['field_libro_estado']['id'] = 'field_libro_estado';
   $handler->display->display_options['fields']['field_libro_estado']['table'] = 'field_data_field_libro_estado';
   $handler->display->display_options['fields']['field_libro_estado']['field'] = 'field_libro_estado';
+  $handler->display->display_options['fields']['field_libro_estado']['label'] = 'Egoera';
   /* Campo: Contenido: Portada */
   $handler->display->display_options['fields']['field_libro_portada']['id'] = 'field_libro_portada';
   $handler->display->display_options['fields']['field_libro_portada']['table'] = 'field_data_field_libro_portada';
@@ -785,6 +788,7 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['field_libro_year']['id'] = 'field_libro_year';
   $handler->display->display_options['fields']['field_libro_year']['table'] = 'field_data_field_libro_year';
   $handler->display->display_options['fields']['field_libro_year']['field'] = 'field_libro_year';
+  $handler->display->display_options['fields']['field_libro_year']['label'] = 'Urtea';
   $handler->display->display_options['fields']['field_libro_year']['type'] = 'taxonomy_term_reference_plain';
   /* Campo: Nodequeue: Add/remove links */
   $handler->display->display_options['fields']['nodequeue_links']['id'] = 'nodequeue_links';
@@ -890,7 +894,7 @@ function libro_views_default_views() {
   $handler->display->display_options['filters']['field_libro_estado_value']['group'] = 1;
   $handler->display->display_options['filters']['field_libro_estado_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_libro_estado_value']['expose']['operator_id'] = 'field_libro_estado_value_op';
-  $handler->display->display_options['filters']['field_libro_estado_value']['expose']['label'] = 'Estado';
+  $handler->display->display_options['filters']['field_libro_estado_value']['expose']['label'] = 'Egoera';
   $handler->display->display_options['filters']['field_libro_estado_value']['expose']['operator'] = 'field_libro_estado_value_op';
   $handler->display->display_options['filters']['field_libro_estado_value']['expose']['identifier'] = 'field_libro_estado_value';
   $handler->display->display_options['filters']['field_libro_estado_value']['expose']['remember_roles'] = array(
@@ -942,7 +946,7 @@ function libro_views_default_views() {
   $handler->display->display_options['filters']['field_libro_editorial_tid']['group'] = 1;
   $handler->display->display_options['filters']['field_libro_editorial_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_libro_editorial_tid']['expose']['operator_id'] = 'field_libro_editorial_tid_op';
-  $handler->display->display_options['filters']['field_libro_editorial_tid']['expose']['label'] = 'Editorial';
+  $handler->display->display_options['filters']['field_libro_editorial_tid']['expose']['label'] = 'Argitaletxea';
   $handler->display->display_options['filters']['field_libro_editorial_tid']['expose']['operator'] = 'field_libro_editorial_tid_op';
   $handler->display->display_options['filters']['field_libro_editorial_tid']['expose']['identifier'] = 'field_libro_editorial_tid';
   $handler->display->display_options['filters']['field_libro_editorial_tid']['expose']['remember_roles'] = array(
@@ -1018,7 +1022,7 @@ function libro_views_default_views() {
   $handler->display->display_options['defaults']['filters'] = FALSE;
   $translatables['libros_admin'] = array(
     t('Master'),
-    t('Libros'),
+    t('Liburuak'),
     t('más'),
     t('Aplicar'),
     t('Reiniciar'),
@@ -1036,19 +1040,19 @@ function libro_views_default_views() {
     t('Título'),
     t('Subtitulo'),
     t('Peso'),
-    t('Precio'),
+    t('Prezioa'),
     t('Stock'),
     t('Ean'),
-    t('Estado'),
+    t('Egoera'),
     t('Portada'),
     t('Autor'),
-    t('Año'),
+    t('Urtea'),
     t('Editar producto'),
     t('editar producto'),
     t('GESLIB ID'),
     t('EAN'),
     t('Dilve'),
-    t('Editorial'),
+    t('Argitaletxea'),
     t('Page'),
     t('Libros de la semana'),
     t('queue'),
@@ -1084,7 +1088,7 @@ function libro_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'jump_menu';
   $handler->display->display_options['style_options']['hide'] = TRUE;
   $handler->display->display_options['style_options']['path'] = 'tid';
-  $handler->display->display_options['style_options']['label'] = 'Navega las secciones';
+  $handler->display->display_options['style_options']['label'] = 'Sailetan barna';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Campo: Término de taxonomía: Rendered Término de taxonomía */
   $handler->display->display_options['fields']['rendered_entity']['id'] = 'rendered_entity';

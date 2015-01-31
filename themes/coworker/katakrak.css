@@ -833,6 +833,24 @@ a.popup-element-title {
   color: #777777;
   color: #444444;
 }
+/*******************************************************************************
+Irakurle taldeak
+*******************************************************************************/
+.pane-views-ciclos-block,
+.pane-views-libros-libros-grupo-lectura {
+  margin-top: 10px;
+}
+.pane-views-ciclos-block .pane-title,
+.pane-views-libros-libros-grupo-lectura .pane-title {
+  background: black;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 11px;
+}
+.pane-views-ciclos-block .pane-content,
+.pane-views-libros-libros-grupo-lectura .pane-content {
+  margin-top: 10px;
+}
 @media (max-width: 767px) {
   #page-title .page-title {
     width: 100%;
