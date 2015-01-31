@@ -172,7 +172,7 @@ function katakrak_agenda_views_default_views() {
   /* Display: Home block */
   $handler = $view->new_display('page', 'Home block', 'home_page');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Inicio';
+  $handler->display->display_options['title'] = 'Hasiera';
   $handler->display->display_options['defaults']['cache'] = FALSE;
   $handler->display->display_options['cache']['type'] = 'views_content_cache';
   $handler->display->display_options['cache']['results_min_lifespan'] = '-1';
@@ -454,7 +454,7 @@ function katakrak_agenda_views_default_views() {
   /* Display: Events page */
   $handler = $view->new_display('page', 'Events page', 'agenda_page');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Agenda';
+  $handler->display->display_options['title'] = 'Egitaraua';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
   $handler->display->display_options['style_options']['columns'] = '2';
@@ -605,7 +605,7 @@ function katakrak_agenda_views_default_views() {
   /* Display: Next events block page */
   $handler = $view->new_display('block', 'Next events block page', 'next_events_node_block');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Próximos eventos';
+  $handler->display->display_options['title'] = 'Hurrengo ekitaldiak';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '2';
@@ -824,14 +824,14 @@ function katakrak_agenda_views_default_views() {
     t('Leer más'),
     t('Todo(s)'),
     t('Home block'),
-    t('Inicio'),
+    t('Hasiera'),
     t('Bloque destacado página eventos'),
     t('Agenda highlight block'),
     t('Events page'),
-    t('Agenda'),
+    t('Egitaraua'),
     t('Feed'),
     t('Next events block page'),
-    t('Próximos eventos'),
+    t('Hurrengo ekitaldiak'),
     t('Date browser'),
     t('Página'),
   );
@@ -1190,6 +1190,7 @@ function katakrak_agenda_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Citas';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'más';
   $handler->display->display_options['access']['type'] = 'perm';
@@ -1199,8 +1200,8 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Aplicar';
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
   $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordenar por';
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
   $handler->display->display_options['style_options']['columns'] = '2';
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -1290,6 +1291,7 @@ function katakrak_agenda_views_default_views() {
   $handler = $view->new_display('block', 'Block', 'block');
   $translatables['ciclos'] = array(
     t('Master'),
+    t('Citas'),
     t('más'),
     t('Aplicar'),
     t('Reiniciar'),

@@ -339,8 +339,8 @@ function katakrak_user_default_permissions() {
   $permissions['administer taxonomy'] = array(
     'name' => 'administer taxonomy',
     'roles' => array(
-      'administrator' => 'administrator',
       'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
   );
