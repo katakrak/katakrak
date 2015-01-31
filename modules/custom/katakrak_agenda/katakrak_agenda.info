@@ -79,4 +79,4 @@ features[views_view][] = agenda_admin
 features[views_view][] = ciclos
 features_exclude[dependencies][references] = references
 files[] = views/katakrak_agenda_grid_plugin_style.inc
-mtime = 1422636979
+mtime = 1422710314
