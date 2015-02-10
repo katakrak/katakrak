@@ -386,6 +386,43 @@ function katakrak_agenda_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'taxonomy_term-ciclo-field_adjunto'
+  $field_instances['taxonomy_term-ciclo-field_adjunto'] = array(
+    'bundle' => 'ciclo',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_adjunto',
+    'label' => 'Adjunto',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'pdf odt txt',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'imce_filefield_on' => 0,
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 6,
+    ),
+  );
+
   // Exported field_instance: 'taxonomy_term-ciclo-field_ciclo_imagen'
   $field_instances['taxonomy_term-ciclo-field_ciclo_imagen'] = array(
     'bundle' => 'ciclo',
@@ -427,7 +464,7 @@ function katakrak_agenda_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 31,
+      'weight' => 4,
     ),
   );
 
@@ -464,12 +501,13 @@ function katakrak_agenda_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
-      'weight' => 32,
+      'weight' => 5,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Adjunto');
   t('Ciclo');
   t('Date');
   t('Description');

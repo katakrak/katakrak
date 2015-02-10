@@ -45,8 +45,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $language->language; ?>" version="XHTML+RDFa 1.0" dir="<?php print $language->dir; ?>"<?php print $rdf_namespaces; ?>>
 
   <head profile="<?php print $grddl_profile; ?>">
-    <?php print $head; ?>
-    <?php dpm($head_title) ?>
+    <?php //dpm($head_title) ?>
     <title><?php print $head_title; ?></title>
     <link href='http://fonts.googleapis.com/css?family=Ropa+Sans:400,400italic|Slabo+13px' rel='stylesheet' type='text/css'>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">

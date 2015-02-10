@@ -75,16 +75,18 @@ h6,
 .entry_date,
 #block-katakrak-language-switcher a,
 .texto_principal,
-.books-search-block-help,
+.books-search-block-help
+.view-secciones label,
+.itinerario-libro-tipo,
 .view-secciones label, button{
   font-family: "Ropa Sans", sans-serif;
   /*text-transform: uppercase;*/
 }
 
 h1, h3, .month {
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
 }
 
 .weekday {
   text-transform: lowercase;
-}
+}  
