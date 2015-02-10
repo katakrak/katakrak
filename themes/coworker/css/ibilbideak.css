@@ -1,0 +1,395 @@
+
+.fichalinea .viewheader h1{
+    color: #FFFFFF;
+    font-weight: normal;
+    line-height: 56px;
+    font-size: 18px;
+    margin: 0;
+    padding: 10px;
+    text-transform: uppercase;
+}
+.fichalinea .viewheader h1 span.numlinea{
+    display: block;
+    width: 56px;
+    height: 56px;
+    background: url(../images/circulo_ficha.png);
+    float: left;
+    margin-right: 20px;
+    font-size: 30px;
+    line-height: 56px;
+    font-weight: bold;
+    text-align:center;
+}
+
+.fichalinea .viewheader h1 span.numlinea.tipo1{
+    display: block;
+    width: 56px;
+    height: 56px;
+    background: #FFFFFF;
+    float: left;
+    margin-right: 20px;
+    font-size: 30px;
+    line-height: 56px;
+    font-weight: bold;
+    text-align:center;
+}
+
+.fichalinea ul.listtray{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.fichalinea ul.listtray li{
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 10px 40px 10px 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    margin-top: 10px;
+    text-transform: uppercase; 
+    background: url(../images/flecha_dcha.png) 100% 50%  no-repeat;
+}
+.fichalinea ul.listtray li a{
+    line-height: 16px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #989898;
+}
+
+.fichalinea ul.listtray li.activa{
+    background-image: url(../images/flecha_dcha_on.png);
+}
+.fichalinea ul.listtray li.activa a{
+    color: #FFFFFF;
+}
+
+.fichalinea .trayecto{
+    display: none;
+    overflow: hidden;
+    margin-top: 10px;
+}
+.fichalinea .trayecto.activo{
+    display: block;
+}
+
+.fichalinea .fichacentro .mapatrayecto{
+    border: 1px solid #ccc;
+  height: 400px;
+  width: 466px;
+}
+
+
+
+.fichalinea .fichacentro .fecha span.seleccionarotrodia, .sintrayectos .fecha span.seleccionarotrodia{
+    font-size: 11px;
+    /*padding-right: 25px;*/
+    height: 21px;
+    line-height: 21px;
+    /*background: url(../images/otrasfechas.png) no-repeat top right;*/
+     text-transform: none;
+    float: right;
+    text-transform: none;
+    cursor: pointer;
+    color: #989898;
+}
+
+.fichalinea .fichacentro .horarios{
+background: #fbfbfd;
+    border: 1px solid #ccc;
+    border-top: none;
+    padding:0;
+    display:block;
+}
+.fichalinea .fichacentro .horarios strong{
+    color: #3F3F41;
+    font-size: 14px;
+}
+
+.fichalinea .fichacentro .horarios .iniciofin{
+ 
+    width: 286px;
+    border-right: 1px solid #ccc;
+    padding: 10px;
+    clear:none;
+display: inline-block;
+}
+.fichalinea .fichacentro .horarios .iniciofin p{
+    margin-top: 0px;
+}
+.fichalinea .fichacentro .horarios .pdfsdescarga{
+ margin: 10px;
+padding-left: 25px;
+background: url(../images/descargarPDF.png) no-repeat top left;
+width: 105px;
+display: inline-block;
+font-size: 0.85em;
+line-height: 1.1em;
+vertical-align: top;
+}
+.fichalinea .fichacentro .horarios .pdfsdescarga a{
+color: #3F3F41;
+font-weight: bold;
+}
+
+.fichalinea .fichacentro .horaspasoestimadas{
+background: #fbfbfd;
+    border: 1px solid #ccc;
+    border-top: none;
+    padding:10px;
+    display:block;
+}
+.fichalinea .fichacentro .horaspasoestimadas p:first-child{
+    margin-top: 0;
+    margin-bottom: 10px
+}
+.fichalinea .fichacentro .horaspasoestimadas p{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.fichalinea .fichacentro .horaspasoestimadas strong{
+    color: #3F3F41;
+    font-size: 14px;
+}
+
+.fichalinea .ficharight .listaparadastrayecto{
+    margin: 0;
+    list-style: none;
+}
+
+.fichalinea .ficharight .listaparadastrayecto li {
+   border-left: 6px solid red;
+   padding: 2px 0 20px 5px;
+   line-height: 14px;
+}
+.fichalinea .ficharight .listaparadastrayecto li div.iconlistaparadatrayectos{
+   
+    background: url(../images/mParada.png);
+    background-color: red;
+    width: 16px;
+    height: 20px;
+    position: relative;
+    top: -0px;
+    left: -5px;
+    overflow: visible;
+    //z-index: 255555;
+    clear: none;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.fichalinea .ficharight .listaparadastrayecto li:first-child div.iconlistaparadatrayectos{
+   
+    background: url(../images/1aparada.png);
+    width: 16px;
+    height: 20px;
+    position: relative;
+    top: -5px;
+    left: -16px;
+    overflow: visible;
+    clear: none;
+    display: inline-block;
+    vertical-align: top;
+}
+.fichalinea .ficharight .listaparadastrayecto li:last-child{
+    border: none;
+    margin-left: 6px;
+}
+.fichalinea .ficharight .listaparadastrayecto li:last-child div.iconlistaparadatrayectos{
+   
+    background: url(../images/uParada.png);
+    width: 16px;
+    height: 20px;
+    position: relative;
+    top: -5px;
+    left: -16px;
+    overflow: visible;
+    //z-index: 255555;
+    clear: none;
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+.fichalinea .ficharight .listaparadastrayecto li div.namelistaparadatrayectos{
+  clear: none;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.fichalinea .ficharight .listaparadastrayecto li div.namelistaparadatrayectos a{
+    text-decoration: none;
+}
+
+.fichalinea .ficharight .listaparadastrayecto li .iconlistparadatray{
+    margin-left: 5px;
+    padding-left: 15px;
+    /*background: url(../images/mParada.png);*/
+}
+.fichalinea .ficharight .listaparadastrayecto li:first-child .iconlistparadatray{
+    /*background: url(../images/1aparada.png) no-repeat top left;*/
+    padding-left: 16px;
+    line-height: 21px;
+}
+
+.fichalinea .ficharight .listaparadastrayecto li span.correspondencia{
+   padding: 0 0 0 13px;
+   margin-left: 5px;
+    line-height: 21px;
+    background: url(../images/correspondencia.png) no-repeat;
+}
+
+.fichalinea .fecha input.hasDatepicker{
+    display: none
+}
+
+.horaspasoestimadas_lista p{
+    margin: 10px 0 !important;
+    color: #3F3F41;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    
+}
+
+/*POUPMAPA*/
+
+.infowindow-header{
+/*	color: #fff;
+	font-weight: 500 !important;
+	text-align: center;
+	font-size: 1.3em !important;
+	padding: 5px 0;
+	margin-bottom: 5px;*/
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    text-align: center;
+    line-height: 45px;
+    color: #fff;
+}
+.infobox .parada{
+	
+    font-weight: 500 !important;
+    text-align:center;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+.infobox .tiempo{
+    margin: 5px 0;
+    font-size: 0.9em;
+    border: 1px solid;
+    padding: 5px;
+}
+
+.infobox .contentinfobox img,.infobox .contentinfobox div{
+    display:inline-block;
+}
+.infobox div.tiempos{
+    width: 250px;
+    border: #757575 1px solid;
+}
+.infobox table{
+    width: 100%;
+}
+.infobox table thead{
+    background: #757575;
+    color: #fff;
+}
+
+.infobox  table td { overflow: hidden; border: 1px solid #ccc; padding: 5px; font-size: 12px}
+.infobox .correspondencias{
+	margin: 5px 0 0 110px !important;
+}
+
+.infobox p.idparada{
+    text-align: right;
+    padding: 5px 0 0 0;
+}
+
+.default.botonesinfotuc span{
+/*    display:none;*/
+}
+.default.botonesinfotuc span.activa{
+    display:inline-block;
+}
+
+.default.botonesinfotuc span {
+    background: url("../images/circulo_trans2.png") repeat scroll 0 0;
+    color: #FFFFFF;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    width: 30px;
+}
+
+.infobox span.tipo0 {
+    width: 30px;
+    height: 30px;
+    background-image: url(../images/circulo_trans2.png);
+    display: block;
+    text-align: center;
+    line-height: 30px !important;
+    color: #ffffff;
+    float: left;
+    font-size: 13px;
+	
+}
+
+.infobox span.tipo1 {
+	width: 26px;
+    height: 26px;
+    display: block;
+    text-align: center;
+    line-height: 26px !important;
+    color: #ffffff;
+    float: left;
+    font-size: 13px;
+    margin: 2px;
+}
+/*FIN POPUPMAPA*/
+
+.pdfsdescarga2 {
+    margin: 10px;
+    padding-left: 25px;
+    background: url(../images/descargarPDF.png) no-repeat top left;
+/*    width: 105px;
+    display: inline-block;*/
+    font-size: 0.85em;
+    line-height:28px;
+    vertical-align: top;
+}
+
+.node-itinerario h3 {
+  line-height: 25px;
+  display: inline;
+}
+
+
+.itinerario-header, .itinerario-header h2 {
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+.node-itinerario h3 .autor {
+  color: grey;
+  font-style: italic;
+}
+
+.itinerario-libro-tipo {
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background-color: #000000;
+  padding: 2px 5px;
+  margin-left: 5px;
+}
+
+.itinerario-libro-tipo.komikia {
+  background-color: green;
+}
+
+.itinerario-libro-tipo.saiakera {
+  background-color: blue;
+}

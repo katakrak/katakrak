@@ -102,35 +102,63 @@ if (!$page) {
 
     <?php print render($title_suffix); ?>
 
-    <?php if ($display_submitted): ?>
-      <div class="submitted">
-        <ul class="entry_meta clearfix">
-          <li><i class="icon-calendar"></i><?php print $date; ?></li>
-          <li><span>/</span><i class="icon-user"></i><?php print $name; ?></li>
-          <?php if (!empty($content['field_tags'])): ?>
-            <?php hide($content['field_tags']); ?>
-            <li><span>/</span><i class="icon-copy"></i><?php print coworker_format_comma_field('field_tags', $node); ?></li>
-          <?php endif; ?>
 
-          <?php if (!empty($node->comment_count)): ?>
-            <li><span>/</span><a href="<?php print $node_url; ?>#comments"><i class="icon-comments"></i><?php print $node->comment_count; ?> <?php print t('Comments'); ?></a></li>
-          <?php endif; ?>
-        </ul>
 
-      </div>
-    <?php endif; ?>
-
-    <div class="entry_content content"<?php print $content_attributes; ?>>
+    <div class="entry_content content fichalinea"<?php print $content_attributes; ?>>
       <?php
       // We hide the comments and links now so that we can render them later.
       
       hide($content['comments']);
       hide($content['links']);
-      //print render($content);
-      ?>
       
-      <?php  foreach ($node->field_itinerario_libros['und'] as $nid): ?>
-      <?php  endforeach; ?>
+      
+      ?>
+      <div class="row-fluid">
+        <div class="span6">
+          <div class="itinerario-header row-fluid">
+            <div class="span3">
+              <span><?php print $node->field_itinerario_linea['und'][0]['value'] ?></span>
+            </div>
+            <div class="span9">
+              <h2><?php print $node->title ?></h2>
+            </div>
+          </div>
+          <div class="ficharight">
+            <ul class="listaparadastrayecto" id="listaparadastrayecto">
+              <?php foreach($node->paradas as $parada): ?>
+                <li>
+                  <div class="iconlistaparadatrayectos">&nbsp;</div>
+                  <div class="namelistaparadatrayectos" id="namelistaparadatrayectos">
+                    <?php foreach($parada->libros as $libros): ?>
+                    <?php //print_r($libros) ?>
+                      <h3><?php foreach($libros['parada_libros'] as $k => $libro): ?>
+                        <?php print l($libro->title, 'node/'.$libro->nid) ?>
+                          <?php if (count($libros['parada_libros']) > $k+1):?>
+                          / 
+                          <?php endif;?>
+                          
+                      <?php endforeach; ?><span class="autor"><?php print $libros['parada_libros'][0]->autores[0] ?></span></h3> <span class="itinerario-libro-tipo <?php print $libros['tipos'][0]['value'] ?>"><?php print substr($libros['tipos'][0]['value'], 0, 1) ?></span>
+                          
+                          <br>
+                    <?php endforeach;?>
+                    <?php endforeach; ?><span class="correspondencia"></span>
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+        <div class="span6">
+          <?php foreach($node->portadas as $row): ?>
+            <div class="row-fluid">
+              <?php foreach($row as $portada): ?>
+                <div class="span3">
+                  <?php print l($portada['image'], 'node/'.$portada['nid'], array('html' => true)); ?>
+                </div>
+              <?php endforeach; ?>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
 
       <?php if ($page): print render($content['links']);
       endif;

@@ -200,6 +200,17 @@ function libro_node_presave($node) {
   }
 }
 
+function libro_node_load($nodes, $types) {
+  if (count(array_intersect(array('libro'), $types))) {
+    foreach($nodes as $node) {
+      foreach ($node->field_libro_autores['und'] as $autores) {
+        $term = taxonomy_term_load($autores['tid']);
+        $node->autores[] = $term->name;
+      }
+    }
+  }
+}
+
 function libro_por_isbn() {
   if ($_GET['isbn']) {
     $result = views_get_view_result('libros_admin', 'libro_por_isbn', $_GET['isbn']);

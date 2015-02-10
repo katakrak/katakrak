@@ -13,6 +13,55 @@ function katakrak_itinerarios_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_anonymous_itinerario';
+  $strongarm->value = 0;
+  $export['comment_anonymous_itinerario'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_mode_itinerario';
+  $strongarm->value = 1;
+  $export['comment_default_mode_itinerario'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_per_page_itinerario';
+  $strongarm->value = '50';
+  $export['comment_default_per_page_itinerario'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_form_location_itinerario';
+  $strongarm->value = 1;
+  $export['comment_form_location_itinerario'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_itinerario';
+  $strongarm->value = '1';
+  $export['comment_itinerario'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_preview_itinerario';
+  $strongarm->value = '1';
+  $export['comment_preview_itinerario'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_subject_field_itinerario';
+  $strongarm->value = 1;
+  $export['comment_subject_field_itinerario'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__itinerario';
   $strongarm->value = array(
     'view_modes' => array(),
@@ -22,7 +71,13 @@ function katakrak_itinerarios_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
+          'weight' => '2',
+        ),
+        'language' => array(
           'weight' => '1',
+        ),
+        'metatags' => array(
+          'weight' => '7',
         ),
       ),
       'display' => array(),
@@ -34,7 +89,7 @@ function katakrak_itinerarios_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'i18n_node_extended_itinerario';
-  $strongarm->value = '1';
+  $strongarm->value = '4';
   $export['i18n_node_extended_itinerario'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -49,8 +104,9 @@ function katakrak_itinerarios_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'i18n_sync_node_type_itinerario';
   $strongarm->value = array(
-    0 => 'field_itinerario_imagen',
-    1 => 'field_itinerario_libros',
+    0 => 'field_itinerario_paradas',
+    1 => 'field_itinerario_color',
+    2 => 'field_itinerario_linea',
   );
   $export['i18n_sync_node_type_itinerario'] = $strongarm;
 

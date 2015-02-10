@@ -76,6 +76,7 @@ h6,
 #block-katakrak-language-switcher a,
 .texto_principal,
 .books-search-block-help,
-.view-secciones label{
+.view-secciones label,
+.itinerario-libro-tipo{
   font-family: "Abel", sans-serif;
 }
