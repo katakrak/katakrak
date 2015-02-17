@@ -24,6 +24,7 @@ function katakrak_kantina_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Productos de cafetería';
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'más';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'views_content_cache';
   $handler->display->display_options['cache']['results_min_lifespan'] = '-1';
@@ -52,7 +53,9 @@ function katakrak_kantina_views_default_views() {
   );
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Aplicar';
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordenar por';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'isotope';
   $handler->display->display_options['style_options']['portfolio_style'] = 'portfolio-4';
@@ -139,10 +142,10 @@ function katakrak_kantina_views_default_views() {
   $translatables['kantina'] = array(
     t('Master'),
     t('Productos de cafetería'),
-    t('more'),
-    t('Apply'),
+    t('más'),
+    t('Aplicar'),
     t('Reiniciar'),
-    t('Sort by'),
+    t('Ordenar por'),
     t('Asc'),
     t('Desc'),
     t('queue'),

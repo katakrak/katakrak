@@ -851,6 +851,22 @@ Irakurle taldeak
 .pane-views-libros-libros-grupo-lectura .pane-content {
   margin-top: 10px;
 }
+/*******************************************************************************
+Eguneko menuak
+*******************************************************************************/
+.eguneko-menua {
+  text-align: center;
+}
+.eguneko-menua h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.eguneko-menua p {
+  margin-bottom: 10px;
+}
+/*******************************************************************************
+Responsiveness
+*******************************************************************************/
 @media (max-width: 767px) {
   #page-title .page-title {
     width: 100%;

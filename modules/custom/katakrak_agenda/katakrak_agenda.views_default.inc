@@ -454,7 +454,7 @@ function katakrak_agenda_views_default_views() {
   /* Display: Events page */
   $handler = $view->new_display('page', 'Events page', 'agenda_page');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Egitaraua';
+  $handler->display->display_options['title'] = 'Agenda';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
   $handler->display->display_options['style_options']['columns'] = '2';
@@ -828,7 +828,7 @@ function katakrak_agenda_views_default_views() {
     t('Bloque destacado página eventos'),
     t('Agenda highlight block'),
     t('Events page'),
-    t('Egitaraua'),
+    t('Agenda'),
     t('Feed'),
     t('Next events block page'),
     t('Hurrengo ekitaldiak'),

@@ -43,7 +43,7 @@ function katakrak_kantina_fe_nodequeue_export_fields() {
     'show_in_links' => 1,
     'reference' => 0,
     'reverse' => 0,
-    'i18n' => NULL,
+    'i18n' => 0,
     'subqueues' => 1,
     'types' => array(
       0 => 'portfolio',
@@ -53,4 +53,22 @@ function katakrak_kantina_fe_nodequeue_export_fields() {
   );
 
   return $nodequeues;
+}
+
+/**
+ * Implements hook_node_info().
+ */
+function katakrak_kantina_node_info() {
+  $items = array(
+    'eguneko_menua' => array(
+      'name' => t('Eguneko menua'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+  );
+  drupal_alter('node_info', $items);
+  return $items;
 }
