@@ -136,11 +136,9 @@ if (!$page) {
                           <?php if (count($libros['parada_libros']) > $k+1):?>
                           / 
                           <?php endif;?>
-                          
                       <?php endforeach; ?><span class="autor"><?php print $libros['parada_libros'][0]->autores[0] ?></span></h3> <span class="itinerario-libro-tipo <?php print $libros['tipos'][0]['value'] ?>"><?php print substr($libros['tipos'][0]['value'], 0, 1) ?></span>
-                          
                           <br>
-                    <?php endforeach;?>
+                      <?php endforeach;?>
                     <?php endforeach; ?><span class="correspondencia"></span>
                   </div>
                 </li>
@@ -148,6 +146,7 @@ if (!$page) {
           </div>
         </div>
         <div class="span6">
+          <div class="bubble"><?php print check_markup($node->field_itinerario_descripcion['und'][0]['value'], $node->field_itinerario_descripcion['und'][0]['format']) ?></div>
           <?php foreach($node->portadas as $row): ?>
             <div class="row-fluid">
               <?php foreach($row as $portada): ?>
