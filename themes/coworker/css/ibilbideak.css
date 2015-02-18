@@ -470,3 +470,10 @@ top: 20%;
   text-transform: uppercase;
   padding: 10px;
 }
+
+.itinerario-leyenda  {
+  background: #E7E7E8;
+  color: #000000;
+  text-transform: uppercase;
+  padding: 15px 5px;
+}

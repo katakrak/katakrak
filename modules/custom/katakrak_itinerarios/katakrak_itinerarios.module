@@ -73,6 +73,7 @@ function katakrak_itinerarios_node_view($node, $view_mode, $langcode) {
     font-weight: bold;
     font-size: 40px;
 }";
+    $css .= ".bubble:before { border-color: transparent $color } .bubble {border-color: $color}";
     drupal_add_css($css, array('type' => 'inline', 'group' => CSS_THEME, 'weight' => 200));
   }
 }

@@ -126,7 +126,7 @@ if (!$page) {
             </div>
           </div>
         </div>
-        <div class="span8">
+        <div class="span5">
           <div class="bubble"><?php print check_markup($node->field_itinerario_descripcion['und'][0]['value'], $node->field_itinerario_descripcion['und'][0]['format']) ?>
           </div>
         </div>
@@ -149,10 +149,17 @@ if (!$page) {
                       <?php endforeach; ?><span class="autor"><?php print $libros['parada_libros'][0]->autores[0] ?></span></h3> <span class="itinerario-libro-tipo <?php print $libros['tipos'][0]['value'] ?>"><?php print substr($libros['tipos'][0]['value'], 0, 1) ?></span>
                           <br>
                       <?php endforeach;?>
-                    <?php endforeach; ?><span class="correspondencia"></span>
+                    <?php endforeach; ?>
                   </div>
                 </li>
             </ul>
+            <div class="itinerario-leyenda">
+              <span class="itinerario-libro-tipo komikia">K</span> <?php print t("Cómic") ?>
+              <span class="itinerario-libro-tipo poesia">P</span> <?php print t("Poesia") ?>
+              <span class="itinerario-libro-tipo narratiba">N</span> <?php print t("Narrativa") ?>
+              <span class="itinerario-libro-tipo saiakera">S</span> <?php print t("Ensayo") ?>
+              <span class="itinerario-libro-tipo antzerkia">T</span> <?php print t("Teatro") ?>
+            </div>
           </div>
         </div>
         <div class="span6">
@@ -167,16 +174,7 @@ if (!$page) {
           <?php endforeach; ?>
         </div>
       </div>
-
-      <?php if ($page): print render($content['links']);
-      endif;
-      ?>
     </div>
-
-
-
-  <?php print render($content['comments']); ?>
-
   </div>
   <?php
 }
