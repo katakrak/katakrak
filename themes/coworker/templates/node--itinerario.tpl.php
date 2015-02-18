@@ -113,16 +113,26 @@ if (!$page) {
       
       
       ?>
-      <div class="row-fluid">
-        <div class="span6">
-          <div class="itinerario-header row-fluid">
-            <div class="span3">
-              <span><?php print $node->field_itinerario_linea['und'][0]['value'] ?></span>
-            </div>
-            <div class="span9">
-              <h2><?php print $node->title ?></h2>
+      <div class="itinerario-header row-fluid">
+        <div class="span10 offset1">
+          <h1><?php print $node->title ?></h1>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div class="row itinerario-desc">
+        <div class="span1 offset1">
+          <div class="circle">
+            <div class="circle-<?php print $node->field_itinerario_linea['und'][0]['value'] ?>">
             </div>
           </div>
+        </div>
+        <div class="span8">
+          <div class="bubble"><?php print check_markup($node->field_itinerario_descripcion['und'][0]['value'], $node->field_itinerario_descripcion['und'][0]['format']) ?>
+          </div>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span6">
           <div class="ficharight">
             <ul class="listaparadastrayecto" id="listaparadastrayecto">
               <?php foreach($node->paradas as $parada): ?>
@@ -146,7 +156,6 @@ if (!$page) {
           </div>
         </div>
         <div class="span6">
-          <div class="bubble"><?php print check_markup($node->field_itinerario_descripcion['und'][0]['value'], $node->field_itinerario_descripcion['und'][0]['format']) ?></div>
           <?php foreach($node->portadas as $row): ?>
             <div class="row-fluid">
               <?php foreach($row as $portada): ?>
