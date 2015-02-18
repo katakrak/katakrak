@@ -24,14 +24,14 @@
               <?php endif; ?>
             </div>
         </div>
-        <div class="span5">
+        <div class="span6">
           <?php if (!empty($navigation)): ?>
             <div id="primary-links">
               <?php print $navigation; ?>
             </div>
           <?php endif; ?>
         </div>
-        <div class="span3">
+        <div class="span2">
           <div id="top-right">
             <?php print render($page['header_right']); ?>
           </div>
