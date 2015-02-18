@@ -71,13 +71,13 @@ function katakrak_itinerarios_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '2',
+          'weight' => '3',
         ),
         'language' => array(
-          'weight' => '1',
+          'weight' => '2',
         ),
         'metatags' => array(
-          'weight' => '7',
+          'weight' => '3',
         ),
       ),
       'display' => array(),
@@ -107,6 +107,9 @@ function katakrak_itinerarios_strongarm() {
     0 => 'field_itinerario_paradas',
     1 => 'field_itinerario_color',
     2 => 'field_itinerario_linea',
+    3 => 'uid',
+    4 => 'status',
+    5 => 'created',
   );
   $export['i18n_sync_node_type_itinerario'] = $strongarm;
 
@@ -156,6 +159,34 @@ function katakrak_itinerarios_strongarm() {
   $strongarm->name = 'node_submitted_itinerario';
   $strongarm->value = 0;
   $export['node_submitted_itinerario'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_itinerario_es_pattern';
+  $strongarm->value = 'itinerario/[node:title]';
+  $export['pathauto_node_itinerario_es_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_itinerario_eu_pattern';
+  $strongarm->value = 'ibilbide/[node:title]';
+  $export['pathauto_node_itinerario_eu_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_itinerario_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_itinerario_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_itinerario_und_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_itinerario_und_pattern'] = $strongarm;
 
   return $export;
 }

@@ -152,7 +152,7 @@ function katakrak_itinerarios_field_default_field_instances() {
       'module' => 'color_field',
       'settings' => array(),
       'type' => 'color_field_plain_text',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -195,10 +195,10 @@ function katakrak_itinerarios_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'rows' => 8,
+        'rows' => 4,
       ),
       'type' => 'text_textarea',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -244,7 +244,7 @@ function katakrak_itinerarios_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -287,7 +287,7 @@ function katakrak_itinerarios_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 8,
+      'weight' => 4,
     ),
   );
 

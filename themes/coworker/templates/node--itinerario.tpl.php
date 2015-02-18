@@ -113,16 +113,26 @@ if (!$page) {
       
       
       ?>
-      <div class="row-fluid">
-        <div class="span6">
-          <div class="itinerario-header row-fluid">
-            <div class="span3">
-              <span><?php print $node->field_itinerario_linea['und'][0]['value'] ?></span>
-            </div>
-            <div class="span9">
-              <h2><?php print $node->title ?></h2>
+      <div class="itinerario-header row-fluid">
+        <div class="span10 offset1">
+          <h1><?php print $node->title ?></h1>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div class="row itinerario-desc">
+        <div class="span1 offset1">
+          <div class="circle">
+            <div class="circle-<?php print $node->field_itinerario_linea['und'][0]['value'] ?>">
             </div>
           </div>
+        </div>
+        <div class="span5">
+          <div class="bubble"><?php print check_markup($node->field_itinerario_descripcion['und'][0]['value'], $node->field_itinerario_descripcion['und'][0]['format']) ?>
+          </div>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span6">
           <div class="ficharight">
             <ul class="listaparadastrayecto" id="listaparadastrayecto">
               <?php foreach($node->paradas as $parada): ?>
@@ -139,14 +149,20 @@ if (!$page) {
                       <?php endforeach; ?><span class="autor"><?php print $libros['parada_libros'][0]->autores[0] ?></span></h3> <span class="itinerario-libro-tipo <?php print $libros['tipos'][0]['value'] ?>"><?php print substr($libros['tipos'][0]['value'], 0, 1) ?></span>
                           <br>
                       <?php endforeach;?>
-                    <?php endforeach; ?><span class="correspondencia"></span>
+                    <?php endforeach; ?>
                   </div>
                 </li>
             </ul>
+            <div class="itinerario-leyenda">
+              <span class="itinerario-libro-tipo komikia">K</span> <?php print t("Cómic") ?>
+              <span class="itinerario-libro-tipo poesia">P</span> <?php print t("Poesia") ?>
+              <span class="itinerario-libro-tipo narratiba">N</span> <?php print t("Narrativa") ?>
+              <span class="itinerario-libro-tipo saiakera">S</span> <?php print t("Ensayo") ?>
+              <span class="itinerario-libro-tipo antzerkia">T</span> <?php print t("Teatro") ?>
+            </div>
           </div>
         </div>
         <div class="span6">
-          <div class="bubble"><?php print check_markup($node->field_itinerario_descripcion['und'][0]['value'], $node->field_itinerario_descripcion['und'][0]['format']) ?></div>
           <?php foreach($node->portadas as $row): ?>
             <div class="row-fluid">
               <?php foreach($row as $portada): ?>
@@ -158,16 +174,7 @@ if (!$page) {
           <?php endforeach; ?>
         </div>
       </div>
-
-      <?php if ($page): print render($content['links']);
-      endif;
-      ?>
     </div>
-
-
-
-  <?php print render($content['comments']); ?>
-
   </div>
   <?php
 }

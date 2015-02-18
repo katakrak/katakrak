@@ -78,6 +78,7 @@ h6,
 .books-search-block-help
 .view-secciones label,
 .itinerario-libro-tipo,
+.circle,
 .view-secciones label, button{
   font-family: "Ropa Sans", sans-serif;
   /*text-transform: uppercase;*/
@@ -89,4 +90,4 @@ h1, h3, .month {
 
 .weekday {
   text-transform: lowercase;
-}  
+}

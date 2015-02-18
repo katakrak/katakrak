@@ -57,7 +57,23 @@ function katakrak_itinerarios_node_load($nodes, $types) {
 function katakrak_itinerarios_node_view($node, $view_mode, $langcode) {
   if ($node->type === 'itinerario') {
     $color = $node->field_itinerario_color['und'][0]['rgb'];
-    $css = ".itinerario-header { background-color: $color} ul.listtray li.activa { background-color: $color} .fichalinea .ficharight .listaparadastrayecto li { border-color: $color}  ul.listtray li.activa{ background-color: $color} .fichalinea .ficharight .listaparadastrayecto li{ border-color: $color} .fichalinea .ficharight .listaparadastrayecto li div.iconlistaparadatrayectos{ background-color: $color}} .fichalinea .ficharight .listaparadastrayecto li div.iconlistaparadatrayectos{ background-color: $color}";
+    $numero = $node->field_itinerario_linea['und'][0]['value'];
+    if ($numero >= 10)
+      $left = "18px";
+    else {
+      $left = "25px";
+    }
+    $css = ".circle {background-color: $color } .itinerario-header { background-color: $color} ul.listtray li.activa { background-color: $color} .fichalinea .ficharight .listaparadastrayecto li { border-color: $color}  ul.listtray li.activa{ background-color: $color} .fichalinea .ficharight .listaparadastrayecto li{ border-color: $color} .fichalinea .ficharight .listaparadastrayecto li div.iconlistaparadatrayectos{ background-color: $color}} .fichalinea .ficharight .listaparadastrayecto li div.iconlistaparadatrayectos{ background-color: $color}";
+    $css .= ".circle .circle-$numero:before {
+    content: \"$numero\";
+    display: block;
+    text-align: center;
+    padding-top: 30px;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 40px;
+}";
+    $css .= ".bubble:before { border-color: transparent $color } .bubble {border-color: $color}";
     drupal_add_css($css, array('type' => 'inline', 'group' => CSS_THEME, 'weight' => 200));
   }
 }
