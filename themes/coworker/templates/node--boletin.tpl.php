@@ -85,7 +85,7 @@
   </div>
   <div class="span7">
     <h1><?php print $node->title ?></h1>
-    <p><?php print t("Published on !date", array('!date' => format_date($node->changed, 'custom', 'd/m/Y'))) ?></p>
+    <p><?php print t("Published on !date", array('!date' => format_date($node->created, 'custom', 'd/m/Y'))) ?></p>
     <div class="clear"></div>
     <?php print render($content['sharethis']) ?>
     <div class="clear"></div>
@@ -94,7 +94,7 @@
        <?php if ($body->field_boletin_body_subtitulo['und'][0]['value']): ?>
     <p><i class="fa fa-2x fa-<?php print $body->field_boletin_body_seccion['und'][0]['value'] ?>"></i> <strong><?php print $body->field_boletin_body_subtitulo['und'][0]['value'] ?></strong></p>
        <?php endif; ?>
-      <p><?php print $body->field_boletin_body_texto['und'][0]['value'] ?></p>
+    <p><?php print check_markup($body->field_boletin_body_texto['und'][0]['value'], $body->field_boletin_body_texto['und'][0]['format']) ?></p>
     <?php endforeach; ?>
     <p><?php print $node->event_table; ?></p>
     <h4><?php print t("Selección") ?></h4>

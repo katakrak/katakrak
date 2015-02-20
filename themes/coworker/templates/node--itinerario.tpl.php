@@ -130,8 +130,22 @@ if (!$page) {
           <div class="bubble"><?php print check_markup($node->field_itinerario_descripcion['und'][0]['value'], $node->field_itinerario_descripcion['und'][0]['format']) ?>
           </div>
         </div>
+        <div class="span6">
+          <?php print render($content['field_itinerario_imagen']) ?>
+        </div>
       </div>
       <div class="row-fluid">
+        <div class="span6">
+          <?php foreach($node->portadas as $row): ?>
+            <div class="row-fluid">
+              <?php foreach($row as $portada): ?>
+                <div class="span3">
+                  <?php print l($portada['image'], 'node/'.$portada['nid'], array('html' => true)); ?>
+                </div>
+              <?php endforeach; ?>
+            </div>
+          <?php endforeach; ?>
+        </div>
         <div class="span6">
           <div class="ficharight">
             <ul class="listaparadastrayecto" id="listaparadastrayecto">
@@ -161,17 +175,6 @@ if (!$page) {
               <span class="itinerario-libro-tipo antzerkia">T</span> <?php print t("Teatro") ?>
             </div>
           </div>
-        </div>
-        <div class="span6">
-          <?php foreach($node->portadas as $row): ?>
-            <div class="row-fluid">
-              <?php foreach($row as $portada): ?>
-                <div class="span3">
-                  <?php print l($portada['image'], 'node/'.$portada['nid'], array('html' => true)); ?>
-                </div>
-              <?php endforeach; ?>
-            </div>
-          <?php endforeach; ?>
         </div>
       </div>
     </div>
