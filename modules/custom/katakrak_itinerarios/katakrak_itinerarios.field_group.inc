@@ -28,6 +28,7 @@ function katakrak_itinerarios_field_group_info() {
       2 => 'field_itinerario_linea',
       3 => 'language',
       4 => 'path',
+      5 => 'field_itinerario_imagen',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

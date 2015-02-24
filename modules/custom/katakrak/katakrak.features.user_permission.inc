@@ -1439,6 +1439,7 @@ function katakrak_user_default_permissions() {
     'name' => 'translate content',
     'roles' => array(
       'Editor' => 'Editor',
+      'Sukaldari' => 'Sukaldari',
       'administrator' => 'administrator',
     ),
     'module' => 'translation',
@@ -1739,6 +1740,7 @@ function katakrak_user_default_permissions() {
     'name' => 'view the administration theme',
     'roles' => array(
       'Editor' => 'Editor',
+      'Sukaldari' => 'Sukaldari',
       'administrator' => 'administrator',
     ),
     'module' => 'system',
