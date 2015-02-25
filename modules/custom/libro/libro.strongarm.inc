@@ -105,13 +105,16 @@ function libro_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'language' => array(
-          'weight' => '0',
+          'weight' => '1',
         ),
         'title' => array(
-          'weight' => '-5',
+          'weight' => '0',
         ),
         'path' => array(
-          'weight' => '30',
+          'weight' => '12',
+        ),
+        'metatags' => array(
+          'weight' => '12',
         ),
       ),
       'display' => array(
