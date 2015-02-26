@@ -460,6 +460,16 @@ top: 20%;
   margin: 0;
 }
 
+.circle-small {
+  display: inline-block;
+  background: black;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  margin: 0;
+  color: #ffffff;
+}
+
 .itinerario-header, .itinerario-desc {
   margin-bottom: 20px;
 }
