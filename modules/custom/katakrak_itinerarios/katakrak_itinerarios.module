@@ -7,6 +7,7 @@
 include_once 'katakrak_itinerarios.features.inc';
 
 function katakrak_itinerarios_node_load($nodes, $types) {
+  
   if (count(array_intersect(array('itinerario'), $types))) {
     foreach($nodes as $node) {
       $paradas = array();
@@ -25,8 +26,8 @@ function katakrak_itinerarios_node_load($nodes, $types) {
             $libro_parada->title = $libro->title;
             $libro_parada->nid = $libro->nid;
             $libro_parada->autores = $libro->autores;
-            foreach ($libro->itinerarios as $itinerario) {
-              if ($itinerario != $node->nid)
+            foreach ($libro->itinerarios as $id => $itinerario) {
+              if ($id != $node->nid)
                 $libro_parada->itinerarios[] = $itinerario;
             }
             

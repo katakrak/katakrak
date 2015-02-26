@@ -214,7 +214,9 @@ INNER JOIN field_data_field_itinerario_paradas p ON pl.entity_id = p.field_itine
 WHERE  `field_parada_libro_nid` = :nid", array(':nid' => $node->nid));
       $itinerarios = $query->fetchAll();
       foreach ($itinerarios as $itinerario) {
-        $node->itinerarios[$itinerario->id] = $itinerario->id;
+        $color = array_pop(db_query("Select i.field_itinerario_color_rgb as color FROM field_data_field_itinerario_color i WHERE entity_id = :nid", array(':nid' => $itinerario->id))->fetchAll());
+        $linea = array_pop(db_query("Select i.field_itinerario_linea_value as linea FROM field_data_field_itinerario_linea i WHERE entity_id = :nid", array(':nid' => $itinerario->id))->fetchAll());
+        $node->itinerarios[$itinerario->id] = array('nid' => $itinerario->id,  'color' => $color->color, 'linea' => $linea->linea);
       }
     }
   }
