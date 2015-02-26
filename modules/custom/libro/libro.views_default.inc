@@ -374,6 +374,11 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['add_to_cart_form']['display_path'] = 0;
   $handler->display->display_options['fields']['add_to_cart_form']['line_item_type'] = 0;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Contenido: Portada (field_libro_portada:fid) */
+  $handler->display->display_options['sorts']['field_libro_portada_fid']['id'] = 'field_libro_portada_fid';
+  $handler->display->display_options['sorts']['field_libro_portada_fid']['table'] = 'field_data_field_libro_portada';
+  $handler->display->display_options['sorts']['field_libro_portada_fid']['field'] = 'field_libro_portada_fid';
+  $handler->display->display_options['sorts']['field_libro_portada_fid']['order'] = 'DESC';
   /* Sort criterion: Contenido: Fecha de modificación */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';

@@ -160,7 +160,11 @@ if (!$page) {
                           <?php if (count($libros['parada_libros']) > $k+1):?>
                           / 
                           <?php endif;?>
-                      <?php endforeach; ?><span class="autor"><?php print $libros['parada_libros'][0]->autores[0] ?></span></h3> <span class="itinerario-libro-tipo <?php print $libros['tipos'][0]['value'] ?>"><?php print substr($libros['tipos'][0]['value'], 0, 1) ?></span>
+                      <?php endforeach; ?><span class="autor"><?php print $libros['parada_libros'][0]->autores[0] ?></span></h3> <span class="itinerario-libro-tipo <?php print $libros['tipos'][0]['value'] ?>"><?php print substr($libros['tipos'][0]['value'], 0, 1) ?></span> 
+                      <?php foreach ($libro->itinerarios as $itinerario): ?>
+                      
+                      <a href="/node/<?php print $itinerario['nid'] ?>"><span class="circle-small" style="background-color: <?php print $itinerario['color'] ?>"><?php print $itinerario['linea'] ?></span></a>
+                      <?php endforeach;?>
                           <br>
                       <?php endforeach;?>
                     <?php endforeach; ?>
