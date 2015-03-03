@@ -119,6 +119,26 @@ function katakrak_itinerarios_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['label'] = 'Editar';
+  /* Campo: Contenido: Número */
+  $handler->display->display_options['fields']['field_itinerario_linea']['id'] = 'field_itinerario_linea';
+  $handler->display->display_options['fields']['field_itinerario_linea']['table'] = 'field_data_field_itinerario_linea';
+  $handler->display->display_options['fields']['field_itinerario_linea']['field'] = 'field_itinerario_linea';
+  $handler->display->display_options['fields']['field_itinerario_linea']['label'] = 'Línea';
+  $handler->display->display_options['fields']['field_itinerario_linea']['element_type'] = 'strong';
+  $handler->display->display_options['fields']['field_itinerario_linea']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Campo: Contenido: Color */
+  $handler->display->display_options['fields']['field_itinerario_color']['id'] = 'field_itinerario_color';
+  $handler->display->display_options['fields']['field_itinerario_color']['table'] = 'field_data_field_itinerario_color';
+  $handler->display->display_options['fields']['field_itinerario_color']['field'] = 'field_itinerario_color';
+  $handler->display->display_options['fields']['field_itinerario_color']['alter']['text'] = '<span class="color-swatch" style="background-color: [field_itinerario_color-rgb]; width: 50px; height: 50px; border-radius: 50%;">[field_itinerario_linea]</span>';
+  $handler->display->display_options['fields']['field_itinerario_color']['type'] = 'color_field_swatch';
+  $handler->display->display_options['fields']['field_itinerario_color']['settings'] = array(
+    'width' => '30',
+    'height' => '30',
+  );
   /* Sort criterion: Contenido: Fecha de modificación */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
@@ -165,6 +185,9 @@ function katakrak_itinerarios_views_default_views() {
     t('Título'),
     t('Idioma'),
     t('Editar'),
+    t('Línea'),
+    t('Color'),
+    t('<span class="color-swatch" style="background-color: [field_itinerario_color-rgb]; width: 50px; height: 50px; border-radius: 50%;">[field_itinerario_linea]</span>'),
     t('Page'),
   );
   $export['itinerarios_admin'] = $view;
