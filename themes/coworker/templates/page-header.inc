@@ -1,4 +1,27 @@
 <div id="wrapper" class="clearfix">
+  <div id="top-bar">
+
+    <div class="clearfix">
+
+      <?php if ($page['top_left']): ?>
+        <div id="top-menu">
+
+          <?php print render($page['top_left']); ?>
+
+        </div>
+      <?php endif; ?>
+
+
+      <?php if ($page['top_right']): ?>
+        <div id="top-social">
+
+          <?php print render($page['top_right']); ?>
+        </div>
+      <?php endif; ?>
+
+    </div>
+
+  </div>
   <div id="header">
     <div class="container clearfix">
       <div class="row-fluid">

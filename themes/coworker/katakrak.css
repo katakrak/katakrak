@@ -337,8 +337,9 @@ h3.field-content a:hover {
   float: left;
   padding-left: 4px;
 }
-#block-katakrak-language-switcher li.last:before {
-  content: "/ ";
+#block-katakrak-language-switcher li.first:after {
+  /*content: " /";*/
+
 }
 #block-katakrak-language-switcher a {
   text-transform: uppercase;
@@ -371,7 +372,8 @@ h3.field-content a:hover {
 }*/
 /** Cart block **/
 #block-katakrak-katakrak-cart {
-  float: left;
+  /*float: left;*/
+
   /*  margin-right: 15px;
   margin-top: 15px;*/
 
@@ -402,9 +404,6 @@ h3.field-content a:hover {
   height: 40px;
 }
 /* BARRA REDES SOCIALES */
-#top-social {
-  background-color: #FFF;
-}
 #boxes-box-footer {
   text-align: center;
 }
