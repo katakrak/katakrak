@@ -190,14 +190,14 @@ function libro_node_view($node, $view_mode, $langcode) {
 }
 
 function libro_node_presave($node) {
-  if ($node->type == 'libro') {
-    if ($node->field_libro_estado['und'][0]['value'] === '0') {
-      $node->status = 1;
-    }
-    else {
-      $node->status = 0;
-    }
-  }
+//  if ($node->type == 'libro') {
+//    if ($node->field_libro_estado['und'][0]['value'] === '0') {
+//      $node->status = 1;
+//    }
+//    else {
+//      $node->status = 0;
+//    }
+//  }
 }
 
 function libro_node_load($nodes, $types) {
