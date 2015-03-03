@@ -86,4 +86,4 @@ features[views_view][] = boletin
 features[views_view][] = boletin_admin
 features_exclude[dependencies][views_content_cache] = views_content_cache
 features_exclude[dependencies][views] = views
-mtime = 1420211276
+mtime = 1422357180
