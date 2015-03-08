@@ -7,7 +7,6 @@
 include_once 'katakrak_itinerarios.features.inc';
 
 function katakrak_itinerarios_node_load($nodes, $types) {
-  
   if (count(array_intersect(array('itinerario'), $types))) {
     foreach($nodes as $node) {
       $paradas = array();
@@ -26,7 +25,7 @@ function katakrak_itinerarios_node_load($nodes, $types) {
             $libro_parada->title = $libro->title;
             $libro_parada->nid = $libro->nid;
             $libro_parada->autores = $libro->autores;
-            foreach ($libro->itinerarios as $id => $itinerario) {
+            foreach ($libro->itinerarios[$node->language] as $id => $itinerario) {
               if ($id != $node->nid)
                 $libro_parada->itinerarios[] = $itinerario;
             }
@@ -84,5 +83,23 @@ function katakrak_itinerarios_node_view($node, $view_mode, $langcode) {
     ";
     $css .= ".bubble:before { border-color: transparent $color } .bubble {border-color: $color}";
     drupal_add_css($css, array('type' => 'inline', 'group' => CSS_THEME, 'weight' => 200));
+  }
+}
+
+function katakrak_itinerarios_preprocess_node(&$vars) {
+  
+  if ($vars['type'] == 'itinerario') {
+    $vars['ga_libro_linea'] = array(
+      'utm_source' => 'itinerario_linea',
+      'utm_medium' => 'web',
+      'utm_campaign' => 'libros'
+    );
+    $vars['ga_libro_mosaico'] = array(
+      'utm_source' => 'itinerario_mosaico',
+      'utm_medium' => 'web',
+      'utm_campaign' => 'libros'
+    );
+     
+    
   }
 }
