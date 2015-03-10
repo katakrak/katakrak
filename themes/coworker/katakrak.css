@@ -426,6 +426,17 @@ html.js input.throbbing {
   background-position: 99% 50%;
 }
 /** KANTINA STYLES */
+.view-display-id-kantina_home .views-field-title {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  float: left;
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+}
+.view-display-id-kantina_home h3 {
+  color: #ababab;
+}
 .pricing-title h4 {
   font-size: 19px;
   line-height: 24px;

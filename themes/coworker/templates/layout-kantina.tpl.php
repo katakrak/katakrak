@@ -53,7 +53,19 @@
           <?php print render($page['help']); ?>
           <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
 
-          <?php print render($page['content']); ?>
+          
+            <div class="col_two_third">
+              <?php print render($page['content']); ?>
+            </div>
+            <div class="col_one_third col_last">
+              <?php if ($page['sidebar_second']): ?>
+              <!-- sidebar right --> 
+                <div id="sidebar-second" class="sidebar-right nobottommargin clearfix">
+                  <?php print render($page['sidebar_second']); ?>
+                </div>
+                <!-- // sidebar right -->
+              <?php endif; ?>
+            </div>
           <?php print render($page['content_bottom']) ?>
           <?php print $feed_icons; ?>
         </div>
