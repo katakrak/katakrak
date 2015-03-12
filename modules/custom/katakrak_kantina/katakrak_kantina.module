@@ -26,6 +26,12 @@ function katakrak_kantina_block_info() {
     // Not worth caching.
     'cache' => DRUPAL_NO_CACHE,
   );
+  $blocks['katakrak_kantina_page_buttons'] = array(
+    'info' => t('Menu dia block'),
+    // Not worth caching.
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  
   return $blocks;
 }
 
@@ -33,11 +39,33 @@ function katakrak_kantina_block_info() {
  * Implements hook_block_view().
  */
 function katakrak_kantina_block_view($delta) {
+  global $language;
+  
   if ($delta == 'katakrak_reserva_block') {
     $block['title'] = t('Reserva sitio para comer');
     $block['content'] = drupal_get_form('katakrak_kantina_reserva_form');
     return $block;
   }
+  if ($delta == 'katakrak_kantina_page_buttons') {
+        $block['content'] = theme('katakrak_kantina_page_buttons', array('lang' => $language->language));
+    return $block;
+  }
+}
+
+/**
+ * Implementation of hook_theme
+ */
+function katakrak_kantina_theme() {
+  $path = drupal_get_path('module', 'katakrak_kantina');
+  return array(
+    'katakrak_kantina_page_buttons' => array(
+      'template' => 'katakrak-kantina-page-buttons',
+      'arguments' => array(
+        'lang' => NULL,
+      ),
+      'path' => $path . '/templates',
+    ),
+  );
 }
 
 function katakrak_kantina_reserva_form($form, &$form_state) {

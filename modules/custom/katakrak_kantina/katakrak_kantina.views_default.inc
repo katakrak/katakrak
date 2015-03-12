@@ -58,7 +58,6 @@ function katakrak_kantina_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordenar por';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'flexslider';
-  $handler->display->display_options['style_options']['optionset'] = 'kantina';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Relationship: Nodequeue: Queue */
   $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
@@ -72,17 +71,6 @@ function katakrak_kantina_views_default_views() {
     'evento_portada' => 0,
     'libros_destacados' => 0,
   );
-  /* Campo: Contenido: Imagen */
-  $handler->display->display_options['fields']['field_imagen']['id'] = 'field_imagen';
-  $handler->display->display_options['fields']['field_imagen']['table'] = 'field_data_field_imagen';
-  $handler->display->display_options['fields']['field_imagen']['field'] = 'field_imagen';
-  $handler->display->display_options['fields']['field_imagen']['label'] = '';
-  $handler->display->display_options['fields']['field_imagen']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_imagen']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_imagen']['settings'] = array(
-    'image_style' => 'kantina_full',
-    'image_link' => '',
-  );
   /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -94,6 +82,17 @@ function katakrak_kantina_views_default_views() {
   $handler->display->display_options['fields']['title']['element_class'] = '.flex-caption';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Campo: Contenido: Imagen */
+  $handler->display->display_options['fields']['field_imagen']['id'] = 'field_imagen';
+  $handler->display->display_options['fields']['field_imagen']['table'] = 'field_data_field_imagen';
+  $handler->display->display_options['fields']['field_imagen']['field'] = 'field_imagen';
+  $handler->display->display_options['fields']['field_imagen']['label'] = '';
+  $handler->display->display_options['fields']['field_imagen']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_imagen']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_imagen']['settings'] = array(
+    'image_style' => 'portfolio',
+    'image_link' => '',
+  );
   /* Sort criterion: Contenido: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
