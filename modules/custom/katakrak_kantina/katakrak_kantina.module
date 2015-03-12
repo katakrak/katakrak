@@ -99,3 +99,12 @@ function katakrak_kantina_reserva_form($form, &$form_state) {
 function katakrak_kantina_reserva_form_submit($form, &$form_state) {
   dpm($form_state);
 }
+
+function katakrak_kantina_preprocess_katakrak_kantina_page_buttons(&$vars) { 
+  if ($vars['lang'] == 'es') {
+    $vars['menu_dia_path'] = 'node/44194';
+  }
+ elseif ($vars['lang'] == 'eu') {
+    $vars['menu_dia_path'] = 'node/44195';
+  }
+}

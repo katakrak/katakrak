@@ -222,6 +222,46 @@ function katakrak_kantina_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-sukalde_kontuak-field_sukalde_kontuak_tags'
+  $field_instances['node-sukalde_kontuak-field_sukalde_kontuak_tags'] = array(
+    'bundle' => 'sukalde_kontuak',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 2,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_sukalde_kontuak_tags',
+    'label' => 'Tags',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 43,
+    ),
+  );
+
   // Exported field_instance: 'node-sukalde_kontuak-field_sukalde_kontuak_testua'
   $field_instances['node-sukalde_kontuak-field_sukalde_kontuak_testua'] = array(
     'bundle' => 'sukalde_kontuak',
@@ -271,6 +311,7 @@ function katakrak_kantina_field_default_field_instances() {
   t('Hotzak');
   t('Irudia');
   t('Oharrak');
+  t('Tags');
   t('Testua');
 
   return $field_instances;
