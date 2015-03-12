@@ -78,6 +78,7 @@
  *
  * @ingroup themeable
  */
+
 if (!$page) {
   include 'node_teaser.tpl.php';
 } else {
@@ -140,7 +141,7 @@ if (!$page) {
             <div class="row-fluid">
               <?php foreach($row as $portada): ?>
                 <div class="span3">
-                  <?php print l($portada['image'], 'node/'.$portada['nid'], array('html' => true)); ?>
+                  <?php print l($portada['image'], 'node/'.$portada['nid'], array('html' => true, 'query' => $ga_libro_mosaico)); ?>
                 </div>
               <?php endforeach; ?>
             </div>
@@ -156,7 +157,7 @@ if (!$page) {
                     <?php foreach($parada->libros as $libros): ?>
                     <?php //print_r($libros) ?>
                       <h3><?php foreach($libros['parada_libros'] as $k => $libro): ?>
-                        <?php print l($libro->title, 'node/'.$libro->nid) ?>
+                        <?php print l($libro->title, 'node/'.$libro->nid, array('query' => $ga_libro_linea)) ?>
                           <?php if (count($libros['parada_libros']) > $k+1):?>
                           / 
                           <?php endif;?>
