@@ -45,11 +45,11 @@
           <?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
           <?php if ($page['content_top']): ?>
             <div id="content-top">
-              <div class="row-fluid">
-              <div class="span8 offset2">
+              <div class="row">
+              <div class="col-lg-offset-2 col-sm-8 col-md-8">
                 <?php print render($page['content_top']); ?>
               </div>
-            </div>
+            </div></div>
           <?php endif; ?>
           <a id="main-content"></a>
           <?php print render($title_prefix); ?>
