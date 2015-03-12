@@ -80,25 +80,25 @@
  */
 ?>
 
-<div class="row-fluid">
-  <div class="span12">
-    <div class="visible-phone">
+<div class="row">
+  <div class="col-md-12">
+    <div class="visible-sm">
       <h1>
         <?php print $node->title ?>
       </h1>
        <?php print theme('agenda_date', array('time' => $node->field_event_date['und'][0]['value'])); ?>
     </div>
-    <div class="row-fluid">
-      <div class="span4">
+    <div class="row">
+      <div class="col-md-4">
          <?php print render($content['field_event_image']) ?>
       </div>
-      <div class="span8">
-        <div class="col-1 hidden-phone">
-          <div class="row-fluid">
-            <div class="span2">
+      <div class="col-md-8">
+        <div class="col-1 hidden-sm">
+          <div class="row">
+            <div class="col-lg-2">
               <?php print theme('agenda_date', array('time' => $node->field_event_date['und'][0]['value'])); ?>
             </div>
-            <div class="span10">
+            <div class="col-lg-10">
               <h1><?php print $node->title ?></h1>
               <h3><?php print render($content['field_event_type']) ?></h3>
               <h3><?php print render($content['field_event_ciclo']) ?></h3>

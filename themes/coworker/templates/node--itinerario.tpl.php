@@ -114,40 +114,40 @@ if (!$page) {
       
       
       ?>
-      <div class="itinerario-header row-fluid">
-        <div class="span10 offset1">
+      <div class="itinerario-header row">
+        <div class="col-lg-10 col-lg-offset-1">
           <h1><?php print $node->title ?></h1>
         </div>
       </div>
       <div class="clear"></div>
       <div class="row itinerario-desc">
-        <div class="span1 offset1">
+        <div class="col-lg-1">
           <div class="circle">
             <div class="circle-<?php print $node->field_itinerario_linea['und'][0]['value'] ?>">
             </div>
           </div>
         </div>
-        <div class="span5">
+        <div class="col-lg-5">
           <div class="bubble"><?php print check_markup($node->field_itinerario_descripcion['und'][0]['value'], $node->field_itinerario_descripcion['und'][0]['format']) ?>
           </div>
         </div>
-        <div class="span6">
+        <div class="col-lg-6">
           <?php print render($content['field_itinerario_imagen']) ?>
         </div>
       </div>
-      <div class="row-fluid">
-        <div class="span6">
+      <div class="row">
+        <div class="col-lg-6">
           <?php foreach($node->portadas as $row): ?>
-            <div class="row-fluid">
+            <div class="row">
               <?php foreach($row as $portada): ?>
-                <div class="span3">
+                <div class="col-lg-3">
                   <?php print l($portada['image'], 'node/'.$portada['nid'], array('html' => true, 'query' => $ga_libro_mosaico)); ?>
                 </div>
               <?php endforeach; ?>
             </div>
           <?php endforeach; ?>
         </div>
-        <div class="span6">
+        <div class="col-lg-6">
           <div class="ficharight">
             <ul class="listaparadastrayecto" id="listaparadastrayecto">
               <?php foreach($node->paradas as $parada): ?>

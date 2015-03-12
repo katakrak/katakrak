@@ -1,12 +1,12 @@
 
 <div class="container">
-<div class="row-fluid">
+<div class="row">
 <?php if ($page['post_content_bottom_right']): ?>
-  <div id="top-social" class="span6">
+  <div id="top-social" class="col-md-6">
     <?php print render($page['post_content_bottom_right']); ?>
    </div>
 <?php endif; ?>
-    <div class="span6">
+    <div class="col-md-6">
       <div class="banda-footer "></div>
     </div>
   </div>

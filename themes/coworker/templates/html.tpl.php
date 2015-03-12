@@ -50,6 +50,14 @@
 
     <link href='http://fonts.googleapis.com/css?family=Ropa+Sans:400,400italic|Slabo+13px' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+      <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <?php print $styles; ?>
     <?php //$theme_background_image = theme_get_setting('theme_background_image', 'coworker'); ?>
     <?php if (empty($theme_background_image)): ?>

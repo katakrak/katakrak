@@ -21,8 +21,8 @@ files[] = plugins/media/views_bootstrap_media_plugin_style.inc
 files[] = plugins/table/views_bootstrap_table_plugin_style.inc
 
 ; Information added by Drupal.org packaging script on 2014-04-27
-version = "7.x-2.1"
+version = "7.x-3.1"
 core = "7.x"
 project = "views_bootstrap"
-datestamp = "1398607428"
+datestamp = "1398607429"
 

@@ -10,7 +10,6 @@ dependencies[] = file
 dependencies[] = image
 dependencies[] = node
 dependencies[] = node_reference
-dependencies[] = portfolio
 dependencies[] = strongarm
 dependencies[] = text
 dependencies[] = views

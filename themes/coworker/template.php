@@ -9,7 +9,7 @@ function _coworker_add_css() {
   $css_files = array(
     'style.css',
     'css/tipsy.css',
-    'css/bootstrap.css',
+    //'css/bootstrap.css',
     //'css/font-dinnext.css',
     'css/ibilbideak.css',
     'css/font-awesome.css',

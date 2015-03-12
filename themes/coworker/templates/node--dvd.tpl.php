@@ -80,21 +80,21 @@
  */
 ?>
 
-<div class="row-fluid">
-  <div class="span12">
-    <div class="visible-phone">
+<div class="row">
+  <div class="col-sm-12">
+    <div class="visible-sm">
       <h1>
         <?php print $node->title ?>
       </h1>
     </div>
-    <div class="row-fluid">
-      <div class="span4">
+    <div class="row">
+      <div class="col-lg-4">
          <?php print render($content['field_dvd_caratula']) ?> 
       </div>
-      <div class="span8">
-        <div class="col-1 hidden-phone">
-          <div class="row-fluid">
-            <div class="span10">
+      <div class="col-lg-8">
+        <div class="col-1 hidden-sm">
+          <div class="row">
+            <div class="col-lg-10">
               <h1><?php print $node->title ?></h1>
             </div>
           </div>

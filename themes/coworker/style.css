@@ -1298,9 +1298,9 @@ html[xmlns] .slider-wrap {display: block;}
 
 .no-js .slider-wrap > .slide:first-child {display: block;}
 
-.flex-control-nav { display: none; }
+/*.flex-control-nav { display: none; }*/
 
-.flex-control-thumbs { display: none; }
+/*.flex-control-thumbs { display: none; }*/
 
 .flex-viewport {
   max-height: 2000px;

@@ -24,12 +24,12 @@
  * @ingroup views_templates
  */
 ?>
-<div class="row-fluid">
-<div class="span6">
+<div class="row">
+<div class="col-lg-6">
   <?php print $fields['title']->content ?>
 </div>
 
-<div class="span6">
+<div class="col-lg-6">
   <?php print $fields['field_event_date']->content ?>
 </div>
 </div>

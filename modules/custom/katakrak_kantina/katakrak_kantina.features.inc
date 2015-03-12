@@ -43,7 +43,7 @@ function katakrak_kantina_fe_nodequeue_export_fields() {
     'show_in_links' => 1,
     'reference' => 0,
     'reverse' => 0,
-    'i18n' => 0,
+    'i18n' => NULL,
     'subqueues' => 1,
     'types' => array(
       0 => 'portfolio',
@@ -56,6 +56,38 @@ function katakrak_kantina_fe_nodequeue_export_fields() {
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function katakrak_kantina_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: kantina_full.
+  $styles['kantina_full'] = array(
+    'name' => 'kantina_full',
+    'label' => 'Kantina full',
+    'effects' => array(
+      3 => array(
+        'label' => 'Escalar y recortar',
+        'help' => 'Escalar y recortar mantendrán la relación de proporciones de la imagen original y se desechará lo que sobre por el lado mayor. Esto es especialmente útil para crear miniaturas perfectamente cuadradas sin deformar la imagen.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 640,
+          'height' => 400,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_node_info().
  */
 function katakrak_kantina_node_info() {
@@ -65,7 +97,15 @@ function katakrak_kantina_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Título'),
+      'help' => '',
+    ),
+    'sukalde_kontuak' => array(
+      'name' => t('Sukalde kontuak'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Título'),
       'help' => '',
     ),
   );
