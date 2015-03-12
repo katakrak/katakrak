@@ -525,6 +525,16 @@ html.js input.throbbing {
 .view-display-id-kantina_home h3 {
   color: #ababab;
 }
+.kantina-page .region-sidebar-second .kantina-menu-dia-block a,
+.kantina-page .region-sidebar-second .kantina-fin-semana-block a {
+  color: #000;
+  text-decoration: none;
+}
+.kantina-page .region-sidebar-second .kantina-menu-dia-block a:hover,
+.kantina-page .region-sidebar-second .kantina-fin-semana-block a:hover {
+  color: #F50087;
+  text-decoration: none;
+}
 .pricing-title h4 {
   font-size: 19px;
   line-height: 24px;

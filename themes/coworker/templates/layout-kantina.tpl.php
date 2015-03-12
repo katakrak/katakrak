@@ -14,7 +14,7 @@
   <?php endif; ?>
 
     <div class="content-wrap">
-      <div class="container clearfix">
+      <div class="container clearfix kantina-page">
         <!-- content region -->
         <div class="<?php print $content_class; ?> nobottommargin clearfix">
           <?php if ($breadcrumb): ?>
@@ -39,10 +39,10 @@
 
           <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
           <div class="row">
-            <div class="col-lg-10">
+            <div class="col-md-9">
               <?php print render($page['content']); ?>
             </div>
-            <div class="col-lg-2">
+            <div class="col-md-2 col-md-offset-1">
               <?php if ($page['sidebar_second']): ?>
                   <?php print render($page['sidebar_second']); ?>
                 <!-- // sidebar right -->
