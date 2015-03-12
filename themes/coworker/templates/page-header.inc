@@ -24,8 +24,8 @@
   </div>
   <div id="header">
     <div class="container clearfix">
-      <div class="row-fluid">
-        <div class="span4">
+      <div class="row">
+        <div class="col-md-4">
           <div id="logo">
             <?php if ($logo): ?>
               <a href="<?php print $front_page; ?>" class="standard-logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" title="<?php print t('Home'); ?>" /></a>
@@ -47,14 +47,14 @@
               <?php endif; ?>
             </div>
         </div>
-        <div class="span6">
+        <div class="col-md-6">
           <?php if (!empty($navigation)): ?>
             <div id="primary-links">
               <?php print $navigation; ?>
             </div>
           <?php endif; ?>
         </div>
-        <div class="span2">
+        <div class="col-md-2">
           <div id="top-right">
             <?php print render($page['header_right']); ?>
           </div>
