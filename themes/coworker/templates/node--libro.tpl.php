@@ -92,7 +92,7 @@
       ?>
       <div class="row">
         <div class="col-sm-12 col-md-12">
-          <div class="visible-sm">
+          <div class="visible-xm">
           <h1>
             <?php print $node->title ?>
           </h1>
@@ -122,7 +122,7 @@
              <?php print render($content['sharethis']) ?>
              <div class="clear"></div>
             <div class="book-metadata row">
-            <div class="col-sm-6 col-md-6 hidden-sm hidden-md">
+            <div class="col-sm-6 col-md-6 hidden-xs">
               <div class="book-info-entry">
                 <span class="col-2 book-info-label">
                   <?php print t('Precio') ?>
