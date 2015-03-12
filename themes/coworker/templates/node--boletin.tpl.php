@@ -79,11 +79,11 @@
  * @ingroup themeable
  */
 ?>
-<div class="row-fluid">
-  <div class="span5">
+<div class="row">
+  <div class="col-lg-5">
     <?php print render($content['field_boletin_imagen']) ?>
   </div>
-  <div class="span7">
+  <div class="col-lg-7">
     <h1><?php print $node->title ?></h1>
     <p><?php print t("Published on !date", array('!date' => format_date($node->created, 'custom', 'd/m/Y'))) ?></p>
     <div class="clear"></div>

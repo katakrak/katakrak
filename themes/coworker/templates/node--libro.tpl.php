@@ -79,9 +79,10 @@
  * @ingroup themeable
  */
 ?>
+
   <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
-    <div class="entry_content content"<?php print $content_attributes; ?>>
+    <div class="entry_content content <?php print $content_attributes; ?>">
       <?php
       // We hide the comments and links now so that we can render them later.
       
@@ -89,20 +90,20 @@
       hide($content['links']);
       //print render($content);
       ?>
-      <div class="row-fluid">
-        <div class="span12">
-          <div class="visible-phone">
+      <div class="row">
+        <div class="col-sm-12 col-md-12">
+          <div class="visible-sm">
           <h1>
             <?php print $node->title ?>
           </h1>
           <h4><?php print $content['autores'] ?></h4>
           </div>
-          <div class="row-fluid">
-            <div class="span4">
+          <div class="row">
+            <div class="col-sm-4 col-md-4">
                <?php print render($content['field_libro_portada']) ?>
             </div>
-           <div class="span8">
-            <div class="col-1 hidden-phone book-title-author">
+           <div class="col-sm-8 col-md-8">
+            <div class="col-1 book-title-author hidden-sm">
               <div class="col_three_fourth <?php print isset($node->field_libro_subtitulo['und'][0]['value']) ? 'col_last': '' ?>">
                 <h1>
                   <?php print $node->title ?>
@@ -120,14 +121,14 @@
             <div class="clear"></div>
              <?php print render($content['sharethis']) ?>
              <div class="clear"></div>
-            <div class="book-metadata row-fluid">
-            <div class="span6 hidden-phone hidden-tablet">
+            <div class="book-metadata row">
+            <div class="col-sm-6 col-md-6 hidden-sm hidden-md">
               <div class="book-info-entry">
                 <span class="col-2 book-info-label">
                   <?php print t('Precio') ?>
                 </span>
                 <span class="col-2 book-info-data book-price">
-                    <?php print $content['product:commerce_price'][0]['#markup'] ?>
+                  <?php print $content['product:commerce_price'][0]['#markup'] ?>
                 </span>
               </div>
               <div class="book-info-entry">
@@ -151,7 +152,7 @@
                   <?php print t('Año') ?>
                 </span>
                 <span class="col-2 book-info-data">
-                    <?php print $content['field_libro_year'][0]['#markup'] ?>
+                  <?php print $content['field_libro_year'][0]['#markup'] ?>
                 </span>
               </div>
               <div class="book-info-entry">
@@ -159,7 +160,7 @@
                   <?php print t('Editorial') ?>
                 </span>
                 <span class="col-2 book-info-data">
-                    <?php print $content['field_libro_editorial'][0]['#markup'] ?>
+                  <?php print $content['field_libro_editorial'][0]['#markup'] ?>
                 </span>
               </div>
               <div class="book-info-entry">
@@ -167,7 +168,7 @@
                   <?php print t('Estado') ?>
                 </span>
                 <span class="col-2 book-info-data">
-                    <?php print isset($content['estado']) ? $content['estado'] :  t($content['field_libro_estado'][0]['#markup']) ?>
+                  <?php print isset($content['estado']) ? $content['estado'] :  t($content['field_libro_estado'][0]['#markup']) ?>
                 </span>
               </div>
               <div class="book-info-entry">
@@ -175,14 +176,14 @@
                   <?php print t('Sección') ?>
                 </span>
                 <span class="col-2 book-info-data">
-                    <?php print $content['field_libro_categoria'][0]['#markup'] ?>
+                  <?php print $content['field_libro_categoria'][0]['#markup'] ?>
                 </span>
               </div>
             </div>
-          <div class="span6">
+          <div class="col-sm-6 col-md-6">
             <?php print render($content['field_libro_producto']) ?>
           </div>
-            <div class="hidden-desktop">
+            <div class="hidden-lg">
               <div class="book-info-entry">
                 <span class="col-2 book-info-label">
                   <?php print t('Precio') ?>
@@ -196,7 +197,7 @@
                   <?php print t('ISBN') ?>
                 </span>
                 <span class="col-2 book-info-data">
-                    <?php print $content['field_libro_isbn'][0]['#markup'] ?>
+                  <?php print $content['field_libro_isbn'][0]['#markup'] ?>
                 </span>
               </div>
               <div class="book-info-entry">
@@ -204,7 +205,7 @@
                   <?php print t('Páginas') ?>
                 </span>
                 <span class="col-2 book-info-data">
-                    <?php print $content['field_libro_paginas'][0]['#markup'] ?>
+                  <?php print $content['field_libro_paginas'][0]['#markup'] ?>
                 </span>
               </div>
               <div class="book-info-entry">
@@ -240,8 +241,8 @@
                 </span>
               </div>
             </div>
-            <div class="row-fluid">
-              <div class="span12">
+            <div class="row">
+              <div class="col-sm-12 col-md-12">
                 <?php print render($content['field_libro_sinopsis']) ?>
               </div>
             </div>

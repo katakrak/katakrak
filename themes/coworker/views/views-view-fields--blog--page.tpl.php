@@ -31,11 +31,11 @@ else {
   $date_format = 'Y/m/d';
 }
 ?>
-<div class="row-fluid">
-  <div class="span6">
+<div class="row">
+  <div class="col-lg-6">
     <?php print $fields['field_image']->content ?>
   </div>
-  <div class="span6">
+  <div class="col-lg-6">
     <?php print $fields['title']->content ?>
     <?php print t("Posted on !date", array('!date' => format_date($fields['created']->raw, 'custom', $date_format))) ?>
     <?php print $fields['field_blog_body']->content ?>

@@ -65,10 +65,10 @@
  */
 ?>
 
-<div class="row-fluid <?php print $classes; ?>"<?php print $attributes; ?>>
-  <div class="span12">
-    <div class="row-fluid">
-      <div class="span12">
+<div class="row <?php print $classes; ?>"<?php print $attributes; ?>>
+  <div class="col-lg-12">
+    <div class="row">
+      <div class="col-lg-12">
       <?php print render($title_prefix); ?>
       <h3 class="title"<?php print $title_attributes; ?>>
         <a href="<?php print $url; ?>?utm_source=search&utm_medium=web&utm_content=titulo&utm_campaign=libros"><?php print $title; ?></a>
@@ -77,11 +77,11 @@
       </div>
     </div>
   </div>
-  <div class="row-fluid">
-  <div class="span4">
+  <div class="row">
+  <div class="col-lg-4">
     <?php print $image ?>
   </div>
-  <div class="span8">
+  <div class="col-lg-8">
     <div class="search-snippet-info">
       <?php if ($snippet): ?>
         <p class="search-snippet"<?php print $content_attributes; ?>><?php print $snippet; ?></p>

@@ -23,17 +23,20 @@
 
         <?php
         $content_class = 'content-main-column';
+        $content_rows = "col-md-12";
         $sidebar_class = 'sidebar-column';
         if ($page['sidebar_first']) {
           $content_class = 'postcontent col_last';
         }
         if ($page['sidebar_second']) {
           $sidebar_class = 'col_last';
-          $content_class = 'postcontent';
+          $sidebar_rows = "col-md-3";
+          $content_rows = "col-md-9";
         }
         ?>
         <!-- content region -->
-        <div class="<?php print $content_class; ?> nobottommargin clearfix">
+        <div class="row <?php print $content_class; ?> nobottommargin clearfix">
+          
           <?php if ($breadcrumb): ?>
             <div id="breadcrumb"><?php //print $breadcrumb; ?></div>
           <?php endif; ?>
@@ -55,30 +58,30 @@
           <?php print render($title_prefix); ?>
           <?php print render($title_suffix); ?>
 
-          <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
+          <?php if ($tabs): ?>
+            <div class="tabs"><?php print render($tabs); ?></div>
+          <?php endif; ?>
           <?php print render($page['help']); ?>
           <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
 
-          <?php print render($page['content']); ?>
-          <?php print $feed_icons; ?>
-        </div>
-        <!-- // content region -->
-
-        <?php if ($page['sidebar_first']): ?>
-          <!-- sidebar left -->
-          <div id="sidebar-first" class="sidebar nobottommargin clearfix">
-            <?php print render($page['sidebar_first']); ?>
+          <div class="<?php print $content_rows?>">
+            <?php print render($page['content']); ?>
+            <?php print $feed_icons; ?>
           </div>
-          <!-- // sidebar left -->
-        <?php endif; ?>
-
-        <?php if ($page['sidebar_second']): ?>
+          <?php if ($page['sidebar_second']): ?>
+        <div class="<?php print $sidebar_rows?>">
           <!-- sidebar right --> 
           <div id="sidebar-second" class="sidebar <?php print $sidebar_class; ?> nobottommargin clearfix">
             <?php print render($page['sidebar_second']); ?>
           </div>
+          </div>
           <!-- // sidebar right -->
+          
       <?php endif; ?>
+        </div>
+        <!-- // content region -->
+
+        
 
 
 
