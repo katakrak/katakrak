@@ -844,7 +844,31 @@ function katakrak_agenda_views_default_views() {
     'producto_kafeta_destacado' => 0,
     'libros_destacados' => 0,
   );
+  /* Relationship: Contenido: Taxonomy terms on node */
+  $handler->display->display_options['relationships']['term_node_tid']['id'] = 'term_node_tid';
+  $handler->display->display_options['relationships']['term_node_tid']['table'] = 'node';
+  $handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
+  $handler->display->display_options['relationships']['term_node_tid']['vocabularies'] = array(
+    'event_type' => 'event_type',
+    'urtea' => 0,
+    'autores' => 0,
+    'ciclo' => 0,
+    'editoriales' => 0,
+    'isotope_sort_options' => 0,
+    'newsletter' => 0,
+    'portfolio_categories' => 0,
+    'materias' => 0,
+    'tags' => 0,
+  );
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Campo: Término de taxonomía: Color */
+  $handler->display->display_options['fields']['field_event_type_color']['id'] = 'field_event_type_color';
+  $handler->display->display_options['fields']['field_event_type_color']['table'] = 'field_data_field_event_type_color';
+  $handler->display->display_options['fields']['field_event_type_color']['field'] = 'field_event_type_color';
+  $handler->display->display_options['fields']['field_event_type_color']['relationship'] = 'term_node_tid';
+  $handler->display->display_options['fields']['field_event_type_color']['label'] = '';
+  $handler->display->display_options['fields']['field_event_type_color']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_event_type_color']['element_label_colon'] = FALSE;
   /* Campo: Contenido: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
@@ -975,6 +999,35 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Nodequeue: Queue */
+  $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
+  $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
+  $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
+  $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
+  $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
+    'evento_home' => 'evento_home',
+    'evento_portada' => 0,
+    'libro_portada' => 0,
+    'producto_kafeta_destacado' => 0,
+    'libros_destacados' => 0,
+  );
+  /* Relationship: Contenido: Taxonomy terms on node */
+  $handler->display->display_options['relationships']['term_node_tid']['id'] = 'term_node_tid';
+  $handler->display->display_options['relationships']['term_node_tid']['table'] = 'node';
+  $handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
+  $handler->display->display_options['relationships']['term_node_tid']['vocabularies'] = array(
+    'event_type' => 'event_type',
+    'urtea' => 0,
+    'autores' => 0,
+    'ciclo' => 0,
+    'editoriales' => 0,
+    'isotope_sort_options' => 0,
+    'newsletter' => 0,
+    'portfolio_categories' => 0,
+    'materias' => 0,
+    'tags' => 0,
+  );
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Campo: Contenido: Event type */
   $handler->display->display_options['fields']['field_event_type']['id'] = 'field_event_type';
@@ -984,6 +1037,13 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['fields']['field_event_type']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_event_type']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_event_type']['type'] = 'i18n_taxonomy_term_reference_plain';
+  /* Campo: Término de taxonomía: Color */
+  $handler->display->display_options['fields']['field_event_type_color']['id'] = 'field_event_type_color';
+  $handler->display->display_options['fields']['field_event_type_color']['table'] = 'field_data_field_event_type_color';
+  $handler->display->display_options['fields']['field_event_type_color']['field'] = 'field_event_type_color';
+  $handler->display->display_options['fields']['field_event_type_color']['relationship'] = 'term_node_tid';
+  $handler->display->display_options['fields']['field_event_type_color']['label'] = '';
+  $handler->display->display_options['fields']['field_event_type_color']['element_label_colon'] = FALSE;
   $translatables['agenda'] = array(
     t('Master'),
     t('más'),
@@ -1007,6 +1067,7 @@ function katakrak_agenda_views_default_views() {
     t('Hurrengo ekitaldiak'),
     t('Date browser'),
     t('Página'),
+    t('term'),
     t('Filter Bloque'),
   );
   $export['agenda'] = $view;

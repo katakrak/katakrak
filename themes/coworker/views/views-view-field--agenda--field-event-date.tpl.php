@@ -23,4 +23,4 @@
  */
  global $language;
 ?>
-<?php print theme('agenda_date', array('time' => $row->field_field_event_date[0]['raw']['value'])); ?>
+<?php print theme('agenda_date', array('time' => $row->field_field_event_date[0]['raw']['value'], 'color' => $row->field_field_event_type_color[0]['raw']['rgb'])); ?>

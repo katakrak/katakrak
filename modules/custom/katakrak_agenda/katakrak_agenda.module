@@ -14,6 +14,7 @@ function katakrak_agenda_theme() {
       'path' => $path . '/templates',
       'arguments' => array(
         'time' => NULL,
+        'color' => '#2780af'
       )
     ),
   );

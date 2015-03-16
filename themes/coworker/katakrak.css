@@ -606,6 +606,15 @@ div.search-results div:last-child {
 #block-views-agenda-next-events-node-block h3 a :hover {
   color: #444444;
 }
+#portfolio-filter li {
+  margin: 0 10px;
+  border-radius: 5px;
+}
+#portfolio-filter li a {
+  color: #000;
+  padding-top: 5px;
+  font-size: 1.2em;
+}
 /** FORMS **/
 #block-katakrak-newsletter-suscribe,
 #katakrak-books-search-form,

@@ -5,6 +5,7 @@
  *
  * @ingroup views_templates
  */
+dpm($rows);
 ?>
 
 
@@ -24,14 +25,21 @@
           <?php
           // remove characters that cause problems with classes
           // this is also do to the isotope elements
+          if (($v = strpos($row, '#'))) {
+            $color = substr($row, $v, 7);
+            $row = substr($row, 0, $v);
+          }
+          else {
+            $color = FALSE;
+          }
           $dataoption = trim(strip_tags(strtolower($row)));
           $dataoption = str_replace(' ', '-', $dataoption);
           $dataoption = str_replace('/', '-', $dataoption);
           $dataoption = str_replace('&amp;', '', $dataoption);
           ?>
-          <li>
+          <li style="background-color: <?php print $color ? $color : '' ?>">
 
-            <a class="filterbutton" data-option-value=".<?php print $dataoption; ?>" href="#filter"><?php print trim($row); ?></a>
+            <a class="filterbutton" data-option-value=".<?php print $dataoption; ?>" href="#filter"><?php print t(trim($row)); ?></a>
           </li>
         <?php endforeach; ?>
 
