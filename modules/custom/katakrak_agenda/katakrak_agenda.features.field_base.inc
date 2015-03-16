@@ -294,5 +294,25 @@ function katakrak_agenda_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
+  // Exported field_base: 'field_event_type_color'
+  $field_bases['field_event_type_color'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_event_type_color',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'rgb' => array(
+        0 => 'rgb',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'color_field',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'color_field_rgb',
+  );
+
   return $field_bases;
 }

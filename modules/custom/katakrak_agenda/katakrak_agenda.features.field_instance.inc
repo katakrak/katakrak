@@ -505,10 +505,42 @@ function katakrak_agenda_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'taxonomy_term-event_type-field_event_type_color'
+  $field_instances['taxonomy_term-event_type-field_event_type_color'] = array(
+    'bundle' => 'event_type',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'color_field',
+        'settings' => array(),
+        'type' => 'color_field_default_formatter',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_event_type_color',
+    'label' => 'Color',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'color_field',
+      'settings' => array(),
+      'type' => 'color_field_plain_text',
+      'weight' => 41,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Adjunto');
   t('Ciclo');
+  t('Color');
   t('Date');
   t('Description');
   t('Event type');
