@@ -5,7 +5,6 @@
  *
  * @ingroup views_templates
  */
-dpm($rows);
 ?>
 
 
