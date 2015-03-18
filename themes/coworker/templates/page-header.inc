@@ -1,4 +1,5 @@
 <div id="wrapper" class="clearfix">
+  <?php if ($page['top_left'] || $page['top_right']): ?>
   <div id="top-bar">
 
     <div class="clearfix">
@@ -20,8 +21,8 @@
       <?php endif; ?>
 
     </div>
-
   </div>
+<?php endif; ?>
   <div id="header">
     <div class="container clearfix">
       <div class="row">
