@@ -2,7 +2,7 @@
   <?php if ($page['top_left'] || $page['top_right']): ?>
   <div id="top-bar">
 
-    <div class="clearfix hidden-sm hidden-xs">
+    <div class="clearfix">
 
       <?php if ($page['top_left']): ?>
         <div id="top-menu">
@@ -57,17 +57,20 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="kata-main-menu">
-      <div id="primary-links" class="hidden-sm hidden-xs">
-        <?php print $navigation ?>
+      <div id="primary-links">
+        <div id="main-menu" class="hidden-xs">
+          <?php print $navigation ?>
+        </div>
+        <div class="hidden-lg hidden-md hidden-sm" >
+          <?php print $navigation ?>
+        </div>  
       </div>
-      <div id="primary-links-mobile" class="hidden-lg hidden-md">
-        <?php print $navigation ?>
-      </div>
+      
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 </div>
-<div class="container-banda">
+<div class="container-fluid">
   <div class="banda-header"></div>
 </div>  
 <?php if (!empty($page['slider'])): ?>

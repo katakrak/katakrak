@@ -82,7 +82,7 @@
 
     if ($().superfish) {
 
-      $("#primary-links ul").superfish({
+      $("#main-menu ul").superfish({
         delay: 250,
         speed: 300,
         animation: {opacity: 'show', height: 'show'},

@@ -81,6 +81,9 @@ h6,
 .circle,
 .view-secciones label, button{
   font-family: "Ropa Sans", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: normal;
   /*text-transform: uppercase;*/
 }
 

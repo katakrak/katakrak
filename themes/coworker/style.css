@@ -339,7 +339,6 @@ img { max-width: 100%; }
 .fright { float: right !important; }
 .fleft { float: left !important; }
 #wrapper { width: 1020px; margin: 50px auto; position: relative; background-color: #FFF; box-shadow: 0 0 10px rgba(0,0,0,0.1); -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1); -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-.container { width: 960px; margin: 0 auto; position: relative; }
 .line,
 .double-line { clear: both; position: relative; width: 100%; margin: 30px 0; border-top: 1px solid #EEE;}
 .double-line { border-top: 3px double #E5E5E5; }
@@ -589,11 +588,6 @@ form small {
 -----------------------------------------------------------------*/
 
 
-#top-bar {
-  position: relative;
-  background-color: #EEE;
-  height: 40px;
-}
 
 #top-menu {
   position: relative;
@@ -4695,7 +4689,7 @@ body > iframe { display: none; }
 
 .footer-widgets-wrap {
   overflow: hidden;
-  margin: 0 -40px -40px 0;
+  /*margin: 0 -40px -40px 0;*/
 }
 
 #footer .col_one_fourth {            

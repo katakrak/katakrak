@@ -25,7 +25,7 @@ function _coworker_add_css() {
   $theme_color = variable_get('coworker_theme_color', 'coworker');
 
   drupal_add_css($theme_color);
-  drupal_add_css($theme_path . '/css/responsive.css');
+  //drupal_add_css($theme_path . '/css/responsive.css');
   }
 
 function coworker_preprocess_html(&$variables) {
