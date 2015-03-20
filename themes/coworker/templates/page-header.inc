@@ -1,8 +1,8 @@
-<div id="wrapper" class="clearfix">
+<div id="header" class="clearfix ">
   <?php if ($page['top_left'] || $page['top_right']): ?>
   <div id="top-bar">
 
-    <div class="clearfix">
+    <div class="clearfix hidden-sm hidden-xs">
 
       <?php if ($page['top_left']): ?>
         <div id="top-menu">
@@ -23,12 +23,18 @@
     </div>
   </div>
 <?php endif; ?>
-  <div id="header">
-    <div class="container clearfix">
-      <div class="row">
-        <div class="col-md-4">
-          <div id="logo">
-            <?php if ($logo): ?>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#kata-main-menu">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <div id="logo">
+           <?php if ($logo): ?>
               <a href="<?php print $front_page; ?>" class="standard-logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" title="<?php print t('Home'); ?>" /></a>
                 <?php if ($rentina_logo): ?>
                   <a href="<?php print $front_page; ?>" class="retina-logo"><img src="<?php print $rentina_logo; ?>" /></a>
@@ -47,23 +53,19 @@
                 </div> <!-- /#name-and-slogan -->
               <?php endif; ?>
             </div>
-        </div>
-        <div class="col-md-6">
-          <?php if (!empty($navigation)): ?>
-            <div id="primary-links">
-              <?php print $navigation; ?>
-            </div>
-          <?php endif; ?>
-        </div>
-        <div class="col-md-2">
-          <div id="top-right">
-            <?php print render($page['header_right']); ?>
-          </div>
-        </div>
-      </div>
-  
     </div>
-  </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="kata-main-menu">
+      <div id="primary-links" class="hidden-sm hidden-xs">
+        <?php print $navigation ?>
+      </div>
+      <div id="primary-links-mobile" class="hidden-lg hidden-md">
+        <?php print $navigation ?>
+      </div>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 </div>
 <div class="container-banda">
   <div class="banda-header"></div>

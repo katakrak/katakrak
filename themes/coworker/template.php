@@ -9,8 +9,8 @@ function _coworker_add_css() {
   $css_files = array(
     'style.css',
     'css/tipsy.css',
-    'css/bootstrap/css/bootstrap.min.css',  
-    'css/bootstrap/css/bootstrap.theme.min.css',
+    'bootstrap/css/bootstrap.css',  
+    'bootstrap/css/bootstrap.theme.min.css',
     //'css/font-dinnext.css',
     'css/ibilbideak.css',
     'css/font-awesome.css',
@@ -72,7 +72,6 @@ function coworker_preprocess_page(&$vars) {
 //    ));
 //  }
   $vars['rentina_logo'] = theme_get_setting('rentina_logo', 'coworker');
-
   if (module_exists('search')) {
     $seach_block_form = drupal_get_form('search_block_form');
     $vars['search_block'] = drupal_render($seach_block_form);

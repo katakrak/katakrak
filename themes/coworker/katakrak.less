@@ -95,6 +95,11 @@ h3.field-content{
   background-color: #d0d0d0;
 }
 
+.navbar-default {
+  background-color: #d0d0d0;
+  border-color: #d0d0d0; 
+}
+
 /* ----------------------------------------------------------------
     Logo
 -----------------------------------------------------------------*/
@@ -133,59 +138,98 @@ h3.field-content{
 
 #primary-links {
   margin-top: 30px;
-}
-
-#primary-links ul {
-/*  position: relative;
-  float: left;
-  margin: 0 0 0 530px;
-  max-width: 710px;
-  z-index: 3;*/
+  ul {
+    li {
+      position: relative;
+      float: left;
+      /*height: 120px;*/
+      /*background: url("images/icons/menu-divider.png") no-repeat left center;*/
+      /*background-color: black;*/
+      margin-left: 5px;
+      i { margin-right: 2px; }
+      a {
+        display: inline-block;
+        border-top: 4px solid transparent;
+        padding: 20px 0 5px;
+        width: 94px;
+        font-size: 13px;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+        color: #000;
+        span {
+          display: block;
+          margin-top: 2px;
+          top: 0;
+          color: @link_gray;
+          font-size: 11px;
+          font-weight: 400 !important;
+          text-transform: capitalize;
+        }
+      }
+    }
+    ul {/* Nested menu */
+      visibility: hidden;
+      z-index: 200;
+      width: 200px;
+      margin: 0;
+      position: absolute;
+      left: 0;
+      a {
+        display: block;
+        height: 40px;
+        width: 100%;
+        line-height: 40px;
+        padding: 0 15px;
+        border: none;
+        text-transform: capitalize;
+        color: #FFF;
+        font-weight: normal;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+        span { display: none !important; }
+      }
+      li {
+        display: block;
+        float: none;
+        margin: 0;
+        padding: 0;
+        height: auto;
+        border: none;
+        background-image: none;
+        background-color: #57B3DF;
+        margin-top: 1px;
+      }
+      ul {
+        margin: 0;
+        left: 201px !important;
+        top: 0;
+        *top: 1px;
+      }
+    }
+    li:first-child {
+      padding-left: 0;
+      background-image: none;
+      margin-left: 0;
+      span {
+        display: none;
+      }
+    }
+  }
+  ul:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+  }
 }
 
 .rs-menu,
 .select-menu { display: none; }
 
-#primary-links ul li {
-  position: relative;
-  float: left;
-  /*height: 120px;*/
-  /*background: url("images/icons/menu-divider.png") no-repeat left center;*/
-  /*background-color: black;*/
-  margin-left: 5px;
-}
 
-#primary-links ul li:first-child {
-  padding-left: 0;
-  background-image: none;
-  margin-left: 0;
-}
 
-#primary-links ul li:first-child span { display: none; }
-
-#primary-links li a {
-  display: inline-block;
-  border-top: 4px solid transparent;
-  padding: 20px 0 5px;
-  width: 94px;
-  font-size: 13px;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: center;
-  color: #000;
-}
-
-#primary-links li a span {
-  display: block;
-  margin-top: 2px;
-  top: 0;
-  color: @link_gray;
-  font-size: 11px;
-  font-weight: 400 !important;
-  text-transform: capitalize;
-}
-
-#primary-links li i { margin-right: 2px; }
 
 #primary-links li:first-child a span {
   display: block;
@@ -231,59 +275,18 @@ h3.field-content{
   display: block;
 }
 
-#primary-links ul ul {
-  visibility: hidden;
-  z-index: 200;
-  width: 200px;
-  margin: 0;
-  position: absolute;
-  top: 121px;
-  left: 0;
-}
-
-#primary-links ul ul li {
-  display: block;
-  float: none;
-  margin: 0;
-  padding: 0;
-  height: auto;
-  border: none;
-  background-image: none;
-  background-color: #57B3DF;
-  margin-top: 1px;
-}
 
 #primary-links ul ul li:first-child {
   border-top: 0;
   margin-top: 0;
 }
 
-#primary-links ul ul ul {
-  margin: 0;
-  left: 201px !important;
-  top: 0;
-  *top: 1px;
-}
-
-#primary-links ul ul a {
-  display: block;
-  height: 40px;
-  line-height: 40px;
-  padding: 0 15px;
-  border: none;
-  text-transform: capitalize;
-  color: #FFF;
-  font-weight: normal;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
-}
 
 #primary-links ul ul a:hover,
 #primary-links ul ul li:hover > a {
   font-weight: bold;
   background-color: rgba(0,0,0,0.1);
-}
-
-#primary-links ul ul a span { display: none !important; }
+} 
 
 #primary-links ul ul ul li:first-child a { border-top: none; }
 
@@ -320,15 +323,6 @@ h3.field-content{
 #header.header7 #primary-links ul ul > li.sub-menu:hover > a > div {
   background-image: none;
   padding-right: 0;
-}
-
-#primary-links ul:after {
-  content: ".";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  line-height: 0;
-  height: 0;
 }
 
 
@@ -946,4 +940,8 @@ Responsiveness
     margin-left: 530px;*/
 
   }
+}
+
+.dropdown:hover .dropdown-menu {
+display: block;
 }
