@@ -22,11 +22,11 @@
           <?php print render($page['help']); ?>
           <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
 
-          
-            <div class="col_two_third">
+          <div class="row">
+            <div class="col-md-8 col-lg-8 col-sm-8">
               <?php print render($page['content']); ?>
             </div>
-            <div class="col_one_third col_last">
+            <div class="col-md-4 col-lg4 col-sm-4">
               <?php if ($page['sidebar_second']): ?>
               <!-- sidebar right --> 
                 <div id="sidebar-second" class="sidebar-right nobottommargin clearfix">
@@ -34,6 +34,7 @@
                 </div>
                 <!-- // sidebar right -->
               <?php endif; ?>
+            </div>
             </div>
           
          

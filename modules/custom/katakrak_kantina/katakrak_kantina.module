@@ -26,8 +26,8 @@ function katakrak_kantina_block_info() {
     // Not worth caching.
     'cache' => DRUPAL_NO_CACHE,
   );
-  $blocks['katakrak_kantina_page_buttons'] = array(
-    'info' => t('Menu dia block'),
+  $blocks['katakrak_kantina_page_header'] = array(
+    'info' => t('Header cantina'),
     // Not worth caching.
     'cache' => DRUPAL_CACHE_PER_PAGE,
   );
@@ -46,8 +46,8 @@ function katakrak_kantina_block_view($delta) {
     $block['content'] = drupal_get_form('katakrak_kantina_reserva_form');
     return $block;
   }
-  if ($delta == 'katakrak_kantina_page_buttons') {
-        $block['content'] = theme('katakrak_kantina_page_buttons', array('lang' => $language->language));
+  if ($delta == 'katakrak_kantina_page_header') {
+        $block['content'] = theme('katakrak_kantina_page_header', array('lang' => $language->language));
     return $block;
   }
 }
@@ -58,8 +58,8 @@ function katakrak_kantina_block_view($delta) {
 function katakrak_kantina_theme() {
   $path = drupal_get_path('module', 'katakrak_kantina');
   return array(
-    'katakrak_kantina_page_buttons' => array(
-      'template' => 'katakrak-kantina-page-buttons',
+    'katakrak_kantina_page_header' => array(
+      'template' => 'katakrak-kantina-page-header',
       'arguments' => array(
         'lang' => NULL,
       ),

@@ -102,7 +102,7 @@ function katakrak_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<a href="/node/add/event">Crear evento</a>';
+  $handler->display->display_options['header']['area']['content'] = '<a href="/node/add/imagen">Crear imagen</a>';
   $handler->display->display_options['header']['area']['format'] = 'sinopsis';
   /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -133,6 +133,11 @@ function katakrak_views_default_views() {
     'image_style' => 'medium',
     'image_link' => '',
   );
+  /* Campo: Nodequeue: Add/remove links */
+  $handler->display->display_options['fields']['nodequeue_links_1']['id'] = 'nodequeue_links_1';
+  $handler->display->display_options['fields']['nodequeue_links_1']['table'] = 'node';
+  $handler->display->display_options['fields']['nodequeue_links_1']['field'] = 'nodequeue_links';
+  $handler->display->display_options['fields']['nodequeue_links_1']['label'] = 'Queue';
   /* Sort criterion: Contenido: Fecha de modificación */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
@@ -195,12 +200,13 @@ function katakrak_views_default_views() {
     t('‹ anterior'),
     t('siguiente ›'),
     t('última »'),
-    t('<a href="/node/add/event">Crear evento</a>'),
+    t('<a href="/node/add/imagen">Crear imagen</a>'),
     t('Título'),
     t('Idioma'),
     t('Promocionar'),
     t('Editar'),
     t('Imagen'),
+    t('Queue'),
     t('Etiqueta'),
     t('Page'),
   );

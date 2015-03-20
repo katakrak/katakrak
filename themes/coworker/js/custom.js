@@ -582,7 +582,7 @@
     });
 
 
-    siblingsFader();
+//    siblingsFader();
 
 
     // Flex Slider

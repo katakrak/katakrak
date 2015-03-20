@@ -72,6 +72,17 @@ function katakrak_kantina_views_default_views() {
     'evento_portada' => 0,
     'libros_destacados' => 0,
   );
+  /* Campo: Contenido: Imagen */
+  $handler->display->display_options['fields']['field_imagen']['id'] = 'field_imagen';
+  $handler->display->display_options['fields']['field_imagen']['table'] = 'field_data_field_imagen';
+  $handler->display->display_options['fields']['field_imagen']['field'] = 'field_imagen';
+  $handler->display->display_options['fields']['field_imagen']['label'] = '';
+  $handler->display->display_options['fields']['field_imagen']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_imagen']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_imagen']['settings'] = array(
+    'image_style' => 'kantina_full',
+    'image_link' => '',
+  );
   /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -83,22 +94,15 @@ function katakrak_kantina_views_default_views() {
   $handler->display->display_options['fields']['title']['element_class'] = '.flex-caption';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Campo: Contenido: Imagen */
-  $handler->display->display_options['fields']['field_imagen']['id'] = 'field_imagen';
-  $handler->display->display_options['fields']['field_imagen']['table'] = 'field_data_field_imagen';
-  $handler->display->display_options['fields']['field_imagen']['field'] = 'field_imagen';
-  $handler->display->display_options['fields']['field_imagen']['label'] = '';
-  $handler->display->display_options['fields']['field_imagen']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_imagen']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_imagen']['settings'] = array(
-    'image_style' => 'portfolio',
-    'image_link' => '',
-  );
   /* Sort criterion: Contenido: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Sort criterion: Nodequeue: Position */
+  $handler->display->display_options['sorts']['position']['id'] = 'position';
+  $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
+  $handler->display->display_options['sorts']['position']['field'] = 'position';
+  $handler->display->display_options['sorts']['position']['relationship'] = 'nodequeue_rel';
   /* Filter criterion: Contenido: Publicado */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -124,6 +128,20 @@ function katakrak_kantina_views_default_views() {
   /* Display: Página */
   $handler = $view->new_display('page', 'Página', 'kantina_home');
   $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Nodequeue: Queue */
+  $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
+  $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
+  $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
+  $handler->display->display_options['relationships']['nodequeue_rel']['required'] = TRUE;
+  $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
+  $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
+    'imagenes_kantina' => 'imagenes_kantina',
+    'evento_home' => 0,
+    'libro_portada' => 0,
+    'libros_destacados' => 0,
+    'producto_kafeta_destacado' => 0,
+    'blog_portada' => 0,
+  );
   $handler->display->display_options['path'] = 'cantina';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Cantina';

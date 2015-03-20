@@ -18,6 +18,7 @@ function _coworker_add_css() {
     'css/prettyPhoto.css',
     'css/coworker.css',
   );
+  drupal_add_css($theme_path . '/' . 'katakrak.css', array('group' => CSS_THEME, 'weight' => 200));
   $css_files[] = 'katakrak.css';
   foreach ($css_files as $css_file) {
     drupal_add_css($theme_path . '/' . $css_file);

@@ -27,24 +27,14 @@ function katakrak_kantina_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'katakrak_kantina-katakrak_kantina_page_buttons' => array(
+        'katakrak_kantina-katakrak_kantina_page_header' => array(
           'module' => 'katakrak_kantina',
-          'delta' => 'katakrak_kantina_page_buttons',
-          'region' => 'sidebar_second',
-          'weight' => '-10',
-        ),
-        'system-main' => array(
-          'module' => 'system',
-          'delta' => 'main',
-          'region' => 'content',
+          'delta' => 'katakrak_kantina_page_header',
+          'region' => 'content_top',
           'weight' => '-10',
         ),
       ),
       'layout' => 'kantina',
-    ),
-    'theme' => array(
-      'title' => 'Cantina',
-      'subtitle' => '',
     ),
   );
   $context->condition_mode = 0;

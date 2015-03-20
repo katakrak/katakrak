@@ -46,7 +46,7 @@ function katakrak_kantina_fe_nodequeue_export_fields() {
     'show_in_links' => 1,
     'reference' => 0,
     'reverse' => 0,
-    'i18n' => NULL,
+    'i18n' => 0,
     'subqueues' => 1,
     'types' => array(
       0 => 'portfolio',
@@ -79,7 +79,7 @@ function katakrak_kantina_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 640,
+          'width' => 950,
           'height' => 400,
         ),
         'weight' => 1,

@@ -1,23 +1,23 @@
 <?php
 /**
  * @file
- * katakrak_kantina.flexslider_default_preset.inc
+ * katakrak_agenda.flexslider_default_preset.inc
  */
 
 /**
  * Implements hook_flexslider_default_presets().
  */
-function katakrak_kantina_flexslider_default_presets() {
+function katakrak_agenda_flexslider_default_presets() {
   $export = array();
 
   $preset = new stdClass();
   $preset->disabled = FALSE; /* Edit this to true to make a default preset disabled initially */
   $preset->api_version = 1;
-  $preset->name = 'kantina';
-  $preset->title = 'Kantina';
+  $preset->name = 'home';
+  $preset->title = 'Home';
   $preset->theme = 'classic';
-  $preset->imagestyle_normal = 'kantina_full';
-  $preset->imagestyle_thumbnail = 'kantina_thumbnail';
+  $preset->imagestyle_normal = 'flexslider_full';
+  $preset->imagestyle_thumbnail = 'flexslider_thumbnail';
   $preset->options = array(
     'namespace' => 'flex-',
     'selector' => '.slides > li',
@@ -45,10 +45,10 @@ function katakrak_kantina_flexslider_default_presets() {
     'animation' => 'fade',
     'slideshow' => 0,
     'slideshowSpeed' => '7000',
-    'directionNav' => 0,
-    'controlNav' => 'thumbnails',
-    'prevText' => '',
-    'nextText' => '',
+    'directionNav' => 1,
+    'controlNav' => '1',
+    'prevText' => 'Previous',
+    'nextText' => 'Siguiente',
     'pausePlay' => 0,
     'pauseText' => 'Pause',
     'playText' => 'Play',
@@ -60,7 +60,7 @@ function katakrak_kantina_flexslider_default_presets() {
     'pauseOnHover' => 0,
     'manualControls' => '',
   );
-  $export['kantina'] = $preset;
+  $export['home'] = $preset;
 
   return $export;
 }
