@@ -92,7 +92,7 @@
       ?>
       <div class="row">
         <div class="col-sm-12 col-md-12">
-          <div class="visible-xm">
+          <div class="visible-xs">
           <h1>
             <?php print $node->title ?>
           </h1>

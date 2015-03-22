@@ -1,16 +1,5 @@
 <?php include 'page-header.inc' ?>
 <div id="content" class="agenda-page">
-    <?php if ($title): ?>
-      <div id="page-title">
-        <div class="container clearfix">
-          <div class="page-title">
-          <h1><?php print t($section_title); ?></h1>
-          </div>
-        </div>
-      </div>
-
-    <?php endif; ?>
-
     <?php if ($page['contact_map']): ?>
       <div id="google-map" class="contact-map">
         <div style="display: block !important;" class="slider-line"></div>

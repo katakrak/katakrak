@@ -24,11 +24,7 @@ blockquote,
 .wp-caption,
 .sitemap ul,
 .well.callout p,
-.quote,
-.pricing-title h4 span,
-.pricing-inner .pricing-price,
-.testimonial-item .testi-content,
-.testimonial-item .testi-author span,
+.quote, 
 .content p
 { 
   font-family: "Slabo 13px";
@@ -81,8 +77,6 @@ h6,
 .circle,
 .view-secciones label, button{
   font-family: "Ropa Sans", sans-serif;
-  font-size: 16px;
-  line-height: 20px;
   font-weight: normal;
   /*text-transform: uppercase;*/
 }
