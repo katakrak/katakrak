@@ -10,9 +10,9 @@ stylesheets[all][] = system.theme.css
 
 
 
-;scripts[] = js/plugins.js
-;scripts[] = js/custom.js
-;scripts[] = js/coworker.js
+scripts[] = js/plugins.js
+scripts[] = js/custom.js
+scripts[] = js/coworker.js
 scripts[] = bootstrap/js/bootstrap.js
 
 regions[top_left] = Top header left

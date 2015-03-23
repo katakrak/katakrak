@@ -2,11 +2,11 @@
 <div class="container">
 <div class="row">
 <?php if ($page['post_content_bottom_right']): ?>
-  <div id="top-social" class="col-md-6">
+  <div id="bottom-social" class="col-md-6 col-sm-6">
     <?php print render($page['post_content_bottom_right']); ?>
    </div>
 <?php endif; ?>
-    <div class="col-md-6">
+    <div class="col-md-6 col-sm-6s">
       <div class="banda-footer "></div>
     </div>
   </div>
@@ -20,29 +20,17 @@
           <img src="/<?php print drupal_get_path('theme', 'coworker')?>/images/begiak.png">
         </div>
         <div class="footer-widgets-wrap clearfix">
-          <?php if ($page['footer_first']): ?>
-            <div class="col_one_fourth">
+          <div class="row">
+            <div class="col-md-3">
               <?php print render($page['footer_first']); ?>
-            </div>
-          <?php endif; ?>
-
-
-          <?php if ($page['footer_second']): ?>
-            <div class="col_one_fourth">
+            </div>          
+            <div class="col-md-3">
               <?php print render($page['footer_second']); ?>
             </div>
-          <?php endif; ?>
-
-
-
-          <?php if ($page['footer_third']): ?>
-            <div class="col_one_fourth">
+            <div class="col-md-3">
               <?php print render($page['footer_third']); ?>
             </div>
-          <?php endif; ?>
-
-
-
+        </div>
           <?php if ($page['footer_fourth']): ?>
             <div class="col_one_fourth">
               <?php print render($page['footer_fourth']); ?>

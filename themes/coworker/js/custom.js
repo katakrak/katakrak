@@ -149,17 +149,17 @@
 
       if (windowWidth > 767) {
 
-        $("#top-social li").show();
+        $("#bottom-social li").show();
 
-        $("#top-social li a").css({width: 40});
+        $("#bottom-social li a").css({width: 40});
 
-        $("#top-social li a").each(function() {
+        $("#bottom-social li a").each(function() {
           $(this).removeClass('stip');
           $(this).removeAttr('title');
           $(this).removeAttr('original-title');
         })
 
-        $("#top-social li a").hover(function() {
+        $("#bottom-social li a").hover(function() {
           var tsTextWidth = $(this).children('.ts-text').outerWidth() + 52;
           $(this).stop().animate({width: tsTextWidth}, 250, 'jswing');
         }, function() {
@@ -168,11 +168,11 @@
 
       } else {
 
-        $("#top-social li").show();
+        $("#bottom-social li").show();
 
-        $("#top-social li a").css({width: 40});
+        $("#bottom-social li a").css({width: 40});
 
-        $("#top-social li a").each(function() {
+        $("#bottom-social li a").each(function() {
           $(this).addClass('stip');
           var topIconTitle = $(this).children('.ts-text').text();
           $(this).attr('title', topIconTitle);
@@ -180,7 +180,7 @@
 
         sTip();
 
-        $("#top-social li a").hover(function() {
+        $("#bottom-social li a").hover(function() {
           $(this).stop().animate({width: 40}, 1, 'jswing');
         }, function() {
           $(this).stop().animate({width: 40}, 1, 'jswing');
@@ -188,8 +188,8 @@
 
         if (windowWidth < 479) {
 
-          $("#top-social li").hide();
-          $("#top-social li").slice(0, 8).show();
+          $("#bottom-social li").hide();
+          $("#bottom-social li").slice(0, 8).show();
 
         }
 
