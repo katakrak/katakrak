@@ -601,9 +601,9 @@ html.js input.throbbing {
   z-index: 10;
   bottom: 0;
 }
-.view-display-id-kantina_home h3,
-.view-display-id-home h3 {
-  color: #ababab;
+.view-display-id-kantina_home h3.field-content a,
+.view-display-id-home h3.field-content a {
+  color: #FFF;
 }
 .view-kantina .flexlider {
   box-shadow: none;
