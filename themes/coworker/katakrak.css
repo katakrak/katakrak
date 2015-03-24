@@ -433,6 +433,12 @@ h3.field-content a:hover {
   margin-top: 20px;
   float: left;
 }
+#block-katakrak-katakrak-user-top a {
+  font-size: 15px;
+  color: #777777;
+  color: #444444;
+  background: none;
+}
 .popup-element-body table.popup-layout input {
   border: solid 1px #d0d0d0;
 }
@@ -956,12 +962,6 @@ ul.pager li.pager-current {
   padding: 0 10px 0 10px;
   font-weight: bold;
 }
-a.popup-element-title {
-  font-size: 15px;
-  color: #777777;
-  color: #444444;
-  background: none;
-}
 /*******************************************************************************
 Irakurle taldeak
 *******************************************************************************/
@@ -1005,6 +1005,12 @@ Responsiveness
   #top-menu li a,
   #top-menu li span {
     font-size: 15px;
+  }
+  #block-katakrak-katakrak-cart .content {
+    margin-top: 5px;
+  }
+  #block-katakrak-katakrak-cart .content a {
+    font-size: 30px;
   }
   #logo img {
     display: block;
