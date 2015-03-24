@@ -625,8 +625,12 @@ html.js input.throbbing {
 .view-display-id-home h3.field-content a {
   color: #FFF;
 }
-.view-kantina .flexlider {
+.view-id-kantina .flexslider {
   box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.view-id-kantina .flexslider ol.flex-control-thumbs {
+  margin: 20px 0 0 0;
 }
 .kantina-page .dedia {
   height: 100px;
