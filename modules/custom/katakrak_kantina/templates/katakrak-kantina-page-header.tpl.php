@@ -1,5 +1,5 @@
-<div>
-  <?php print l('', 'cantina', array('html' => TRUE)); ?>
+<div class="kantina_logo">
+  <?php print $logo ?>
 </div>
 
 <div class="row kantina_navigation">
