@@ -8,15 +8,16 @@ function _coworker_add_css() {
   $theme_path = path_to_theme();
   $css_files = array(
     'style.css',
-    'css/tipsy.css',
+    //'css/tipsy.css',
     'bootstrap/css/bootstrap.css',  
-    'bootstrap/css/bootstrap.theme.min.css',
+    //'bootstrap/css/bootstrap.theme.min.css',
     //'css/font-dinnext.css',
     'css/ibilbideak.css',
     'css/font-awesome.css',
     'css/font.css',
-    'css/prettyPhoto.css',
+    //'css/prettyPhoto.css',
     'css/coworker.css',
+    'sprite.css',
   );
   drupal_add_css($theme_path . '/' . 'katakrak.css', array('group' => CSS_THEME, 'weight' => 200));
   $css_files[] = 'katakrak.css';

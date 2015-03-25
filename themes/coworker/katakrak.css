@@ -378,11 +378,8 @@ h3.field-content a:hover {
   line-height: 0;
   height: 0;
 }
-.banda-header {
-  background: url("images/banda_header.jpg") no-repeat;
-  background-size: 500px 40px;
+.banda_header {
   margin-left: 6%;
-  height: 40px;
 }
 /** Estilos generales del sitio, tipografias, etc **/
 #page-title .page-title {
@@ -499,7 +496,6 @@ h3.field-content a:hover {
 }
 .footer-widgets-wrap {
   overflow: hidden;
-  margin: 0 -40px -40px 0;
 }
 /* BARRA REDES SOCIALES */
 #boxes-box-footer {
@@ -632,17 +628,17 @@ html.js input.throbbing {
 .view-id-kantina .flexslider ol.flex-control-thumbs {
   margin: 20px 0 0 0;
 }
-.kantina-page .dedia {
-  height: 100px;
-  background: url(images/kantina/dedia.jpg) no-repeat;
+/* ----------------------------------------------------------------
+    Kantina page
+-----------------------------------------------------------------*/
+.kantina-page .kantina_navigation a {
+  position: absolute;
+  bottom: 0;
+  padding-top: 90px;
+  text-align: center;
 }
-.kantina-page .denoche {
-  height: 100px;
-  background: url(images/kantina/denoche.jpg) no-repeat;
-}
-.kantina-page .kantina-blog {
-  height: 100px;
-  background: url(images/kantina/blog.jpg) no-repeat;
+.kantina-page .view-kantina {
+  margin-top: 40px;
 }
 .pricing-title h4 {
   font-size: 19px;
@@ -1001,8 +997,14 @@ Eguneko menuak
 Responsiveness
 *******************************************************************************/
 @media (max-width: 767px) {
-  #page-title .page-title {
-    width: 100%;
+  .banda_header {
+    max-width: 90%;
+  }
+  .banda_footer {
+    max-width: 90%;
+  }
+  #bottom-social {
+    max-width: 90%;
   }
 }
 @media (min-width: 768px) {

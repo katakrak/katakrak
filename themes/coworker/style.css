@@ -4520,10 +4520,7 @@ body > iframe { display: none; }
   border-bottom-style: solid;
 }
 
-.footer-widgets-wrap {
-  overflow: hidden;
-  /*margin: 0 -40px -40px 0;*/
-}
+
 
 #footer .col_one_fourth {            
   width: 210px;

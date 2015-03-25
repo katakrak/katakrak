@@ -71,7 +71,7 @@
 </nav>
 </div>
 <div class="container-fluid">
-  <div class="banda-header"></div>
+  <div class="banda_header"></div>
 </div>  
 <?php if (!empty($page['slider'])): ?>
   <div id="slider" class="visible-desktop visible-tablet">
