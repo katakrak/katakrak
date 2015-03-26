@@ -627,11 +627,13 @@ html.js input.throbbing {
 /* ----------------------------------------------------------------
     Kantina page
 -----------------------------------------------------------------*/
-.kantina-page .kantina_navigation a {
-  position: absolute;
-  bottom: 0;
-  padding-top: 90px;
+.kantina-page .kantina_logo {
   text-align: center;
+}
+.kantina-page .kantina_navigation .navigation-element {
+  text-align: center;
+}
+.kantina-page .kantina_navigation a {
   color: #777777;
 }
 .kantina-page .kantina_navigation a.active {
@@ -640,28 +642,28 @@ html.js input.throbbing {
 .kantina-page .view-kantina {
   margin-top: 40px;
 }
-.node-eguneko-menua {
+.kantina-page .dedia_divider {
+  background-color: #FEB71A;
+  height: 5px;
+}
+.eguneko-menua {
   background-color: #FFE9BA;
+  text-align: center;
 }
-.pricing-title h4 {
-  font-size: 19px;
-  line-height: 24px;
+.eguneko-menua h2 {
+  text-transform: uppercase;
   font-weight: bold;
-  padding-bottom: 0;
-  color: #444;
+  margin: 20px 0 9px 0;
+  padding: 0;
 }
-.pricing-features li {
-  font-size: 14px;
+.eguneko-menua p {
+  margin-bottom: 10px;
 }
-.pricing-features li:first-child {
-  border-top: 1px solid #EEE;
+.eguneko-menua .subseccion {
+  padding-top: 5px;
 }
 #block-views-kantina-block-page h2 {
   text-align: center;
-}
-.kantina_logo {
-  text-align: center;
-  margin-bottom: 100px;
 }
 /** Search Page **/div.search-page-ol-left div.panel-pane {
   background: #d0d0d0;
@@ -986,19 +988,6 @@ Irakurle taldeak
 .pane-views-ciclos-block .pane-content,
 .pane-views-libros-libros-grupo-lectura .pane-content {
   margin-top: 10px;
-}
-/*******************************************************************************
-Eguneko menuak
-*******************************************************************************/
-.eguneko-menua {
-  text-align: center;
-}
-.eguneko-menua h2 {
-  text-transform: uppercase;
-  font-weight: bold;
-}
-.eguneko-menua p {
-  margin-bottom: 10px;
 }
 /*******************************************************************************
 Responsiveness

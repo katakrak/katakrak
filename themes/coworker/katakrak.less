@@ -725,12 +725,14 @@ html.js input.throbbing {
 
 
 .kantina-page {
-  .kantina_navigation { 
-    a {
-      position: absolute;
-      bottom: 0;
-      padding-top: 90px;
+  .kantina_logo {
+    text-align: center;
+  }
+  .kantina_navigation {
+    .navigation-element {
       text-align: center;
+    }
+    a {
       color: @link_gray;
     }
     a.active {
@@ -740,30 +742,26 @@ html.js input.throbbing {
   .view-kantina {
     margin-top: 40px;
   }
-}
-
-.node-eguneko-menua {
-  background-color: #FFE9BA;
-} 
-
-
-
-
-
-.pricing-title h4 {
-  font-size: 19px;
-  line-height: 24px;
-  font-weight: bold;
-  padding-bottom: 0;
-  color: #444;
-}
-
-.pricing-features{
-  li {
-    font-size: 14px;
+  .dedia_divider {
+    background-color: #FEB71A;
+    height: 5px;
   }
-  li:first-child {
-    border-top: 1px solid #EEE;
+}
+
+.eguneko-menua {
+  background-color: #FFE9BA;
+  text-align: center;
+  h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 20px 0 9px 0;
+    padding: 0;
+  }
+  p {
+    margin-bottom: 10px;
+  }
+  .subseccion {
+    padding-top: 5px;
   }
 }
 
@@ -771,10 +769,7 @@ html.js input.throbbing {
   text-align: center;
 }
 
-.kantina_logo {
-  text-align: center;
-  margin-bottom: 100px;
-}
+
 /** Search Page **/ 
 
 div.search-page-ol-left div.panel-pane {
@@ -1005,20 +1000,6 @@ Irakurle taldeak
   }
   .pane-content {
     margin-top: 10px;
-  }
-}
-
-/*******************************************************************************
-Eguneko menuak
-*******************************************************************************/
-.eguneko-menua {
-  text-align: center;
-  h2 {
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-  p {
-    margin-bottom: 10px;
   }
 }
 

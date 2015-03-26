@@ -101,14 +101,17 @@ function katakrak_kantina_reserva_form_submit($form, &$form_state) {
 
 function katakrak_kantina_preprocess_katakrak_kantina_page_header(&$vars) {
   $vars['logo'] = l(theme('image', array('path' => drupal_get_path('theme', 'coworker'). '/images/kantina/kantina.jpg')), 'cantina', array('html' => TRUE));
+  $dedia_imagen = theme('image', array('path' => drupal_get_path('theme', 'coworker'). '/images/kantina/dedia.jpg'));
+  $denoche_imagen = theme('image', array('path' => drupal_get_path('theme', 'coworker'). '/images/kantina/denoche.jpg'));
+  $blog_imagen = theme('image', array('path' => drupal_get_path('theme', 'coworker'). '/images/kantina/kantina_blog.jpg'));
   if ($vars['lang'] == 'es') {
-    $vars['link_dedia'] = l('De día', 'node/44194', array('attributes' => array('class' => array('dedia'))));
-    $vars['link_denoche'] = l('De noche', 'node/2222', array('attributes' => array('class' => array('denoche'))));
-    $vars['link_blog'] = l('Blog', 'cantina/blog', array('attributes' => array('class' => array('kantina_blog'))));
+    $vars['link_dedia'] = l($dedia_imagen.'<h3>De día</h3>', 'node/44194', array('html' => TRUE));
+    $vars['link_denoche'] = l($denoche_imagen.'<h3>De noche</h3>', 'node/2222', array('html' => TRUE));
+    $vars['link_blog'] = l($blog_imagen.'<h3>Blog</h3>', 'cantina/blog', array('html' => TRUE));
   }
   elseif ($vars['lang'] == 'eu') {
-    $vars['link_dedia'] = l('Egunez', 'node/44195', array('attributes' => array('class' => array('dedia'))));
-    $vars['link_denoche'] = l('Gauez', 'node/2222', array('attributes' => array('class' => array('denoche'))));
-    $vars['link_blog'] = l('Blog', 'cantina/blog', array('attributes' => array('class' => array('kantina_blog'))));
+    $vars['link_dedia'] = l($dedia_imagen.'<h3>Egunez</h3>', 'node/44194', array('html' => TRUE));
+    $vars['link_denoche'] = l($denoche_imagen.'<h3>Gauez</h3>', 'node/2222', array('html' => TRUE));
+    $vars['link_blog'] = l($blog_imagen.'<h3>Blog</h3>', 'cantina/blog', array('html' => TRUE));
   }
 }

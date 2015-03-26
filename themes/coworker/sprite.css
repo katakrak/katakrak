@@ -1,24 +1,23 @@
-.dedia, .denoche, .kantina_blog, .circulo_ficha, .flecha_dcha, .mParada, .uparada, .correspondencia, .circulo_trans2, .submenu, .mainsubmenu, .mainsubmenuh, .banda_header, .banda_footer, .begiak{
-       background: url("images/sprite.png") no-repeat;
+.dedia, .denoche, .kantina_blog, .circulo_ficha, .flecha_dcha, .mParada, .uparada, .correspondencia, .circulo_trans2, .submenu, .mainsubmenu, .mainsubmenuh, .banda_header, .banda_footer, .begiak, .menu_mediodia{
+       background: url("images/sprites.png") no-repeat;
 }
-
 .dedia{
-  background-position: -92px -5px;
-  width: 70px;
+  background-position: -98px 0;
+  width: 80px;
   height: 110px;
   margin-left: 33.33333333%;
 }
 
 .denoche{
-  background-position: -191px 0;
+  background-position: 0 0;
   width: 90px;
   height: 110px;
   margin-left: 33.33333333%;
 }
 
 .kantina_blog {
-  background-position: -5px -3px ;
-  width: 70px;
+  background-position: -192px 0;
+  width: 80px;
   height: 110px;
   margin-left: 33.33333333%;
 }
@@ -93,4 +92,10 @@
 	background-position: -529px -163px ;
 	width: 98px;
 	height: 26px;
+}
+
+.menu_mediodia{
+  background-position: 0 -251px;
+  width: 75px;
+  height: 75px;
 }
