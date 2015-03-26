@@ -630,6 +630,9 @@ html.js input.throbbing {
 .kantina-page .kantina_logo {
   text-align: center;
 }
+.kantina-page .kantina_navigation {
+  margin-top: 15px;
+}
 .kantina-page .kantina_navigation .navigation-element {
   text-align: center;
 }
@@ -642,25 +645,34 @@ html.js input.throbbing {
 .kantina-page .view-kantina {
   margin-top: 40px;
 }
-.kantina-page .dedia_divider {
-  background-color: #FEB71A;
-  height: 5px;
-}
-.eguneko-menua {
-  background-color: #FFE9BA;
+.kantina-menu {
   text-align: center;
 }
-.eguneko-menua h2 {
+.kantina-menu .eguneko-menua {
+  background-color: #FFE9BA;
+}
+.kantina-menu .gaueko-menua {
+  background-color: #CDC4C9;
+}
+.kantina-menu h2 {
   text-transform: uppercase;
   font-weight: bold;
   margin: 20px 0 9px 0;
   padding: 0;
 }
-.eguneko-menua p {
+.kantina-menu p {
   margin-bottom: 10px;
 }
-.eguneko-menua .subseccion {
+.kantina-menu .subseccion {
   padding-top: 5px;
+}
+.kantina-menu .dedia_divider {
+  background-color: #FEB71A;
+  height: 5px;
+}
+.kantina-menu .denoche_divider {
+  background-color: #5A3C4A;
+  height: 5px;
 }
 #block-views-kantina-block-page h2 {
   text-align: center;

@@ -82,7 +82,7 @@ if (!$page) {
   include 'node_teaser.tpl.php';
 } else {
   ?>
-  <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+  <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix kantina-menu"<?php print $attributes; ?>>
     <?php print render($title_prefix); ?>
     <?php if (!$page): ?>
       <div class="entry_title">

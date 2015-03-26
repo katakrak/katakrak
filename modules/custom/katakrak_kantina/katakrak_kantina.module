@@ -35,6 +35,22 @@ function katakrak_kantina_block_info() {
   return $blocks;
 }
 
+
+function katakrak_kantina_menu() {
+  $items = array();
+  $items['cantina/denoche'] = array(
+    'title' => 'De noche',
+    'description' => 'Dilve options',
+    'page callback' => 'katakrak_kantina_denoche_page',
+    'access callback' => TRUE,
+  );
+  return $items;
+}
+
+function katakrak_kantina_denoche_page() {
+  return theme('katakrak_kantina_denoche_page');
+}
+
 /**
  * Implements hook_block_view().
  */
@@ -63,6 +79,10 @@ function katakrak_kantina_theme() {
       'arguments' => array(
         'lang' => NULL,
       ),
+      'path' => $path . '/templates',
+    ),
+    'katakrak_kantina_denoche_page' => array(
+      'template' => 'katakrak-kantina-denoche-page',
       'path' => $path . '/templates',
     ),
   );
@@ -106,7 +126,7 @@ function katakrak_kantina_preprocess_katakrak_kantina_page_header(&$vars) {
   $blog_imagen = theme('image', array('path' => drupal_get_path('theme', 'coworker'). '/images/kantina/kantina_blog.jpg'));
   if ($vars['lang'] == 'es') {
     $vars['link_dedia'] = l($dedia_imagen.'<h3>De día</h3>', 'node/44194', array('html' => TRUE));
-    $vars['link_denoche'] = l($denoche_imagen.'<h3>De noche</h3>', 'node/2222', array('html' => TRUE));
+    $vars['link_denoche'] = l($denoche_imagen.'<h3>De noche</h3>', 'cantina/denoche', array('html' => TRUE));
     $vars['link_blog'] = l($blog_imagen.'<h3>Blog</h3>', 'cantina/blog', array('html' => TRUE));
   }
   elseif ($vars['lang'] == 'eu') {
