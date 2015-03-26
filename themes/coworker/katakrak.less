@@ -725,16 +725,26 @@ html.js input.throbbing {
 
 
 .kantina-page {
-  .kantina_navigation a {
-    position: absolute;
-    bottom: 0;
-    padding-top: 90px;
-    text-align: center;
+  .kantina_navigation { 
+    a {
+      position: absolute;
+      bottom: 0;
+      padding-top: 90px;
+      text-align: center;
+      color: @link_gray;
+    }
+    a.active {
+      color: #000;
+    }
   }
   .view-kantina {
     margin-top: 40px;
   }
 }
+
+.node-eguneko-menua {
+  background-color: #FFE9BA;
+} 
 
 
 

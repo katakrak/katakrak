@@ -102,11 +102,13 @@ function katakrak_kantina_reserva_form_submit($form, &$form_state) {
 function katakrak_kantina_preprocess_katakrak_kantina_page_header(&$vars) {
   $vars['logo'] = l(theme('image', array('path' => drupal_get_path('theme', 'coworker'). '/images/kantina/kantina.jpg')), 'cantina', array('html' => TRUE));
   if ($vars['lang'] == 'es') {
-    $vars['link_dedia'] = l('De día', 'node/2222', array('attributes' => array('class' => 'dedia')));
-    $vars['link_denoche'] = l('De noche', 'node/2222', array('attributes' => array('class' => 'denoche')));
-    $vars['link_blog'] = l('Blog', 'cantina/blog', array('attributes' => array('class' => 'kantina_blog')));
+    $vars['link_dedia'] = l('De día', 'node/44194', array('attributes' => array('class' => array('dedia'))));
+    $vars['link_denoche'] = l('De noche', 'node/2222', array('attributes' => array('class' => array('denoche'))));
+    $vars['link_blog'] = l('Blog', 'cantina/blog', array('attributes' => array('class' => array('kantina_blog'))));
   }
- elseif ($vars['lang'] == 'eu') {
-    $vars['menu_dia_path'] = 'node/44195';
+  elseif ($vars['lang'] == 'eu') {
+    $vars['link_dedia'] = l('Egunez', 'node/44195', array('attributes' => array('class' => array('dedia'))));
+    $vars['link_denoche'] = l('Gauez', 'node/2222', array('attributes' => array('class' => array('denoche'))));
+    $vars['link_blog'] = l('Blog', 'cantina/blog', array('attributes' => array('class' => array('kantina_blog'))));
   }
 }

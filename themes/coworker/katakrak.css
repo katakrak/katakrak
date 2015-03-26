@@ -632,9 +632,16 @@ html.js input.throbbing {
   bottom: 0;
   padding-top: 90px;
   text-align: center;
+  color: #777777;
+}
+.kantina-page .kantina_navigation a.active {
+  color: #000;
 }
 .kantina-page .view-kantina {
   margin-top: 40px;
+}
+.node-eguneko-menua {
+  background-color: #FFE9BA;
 }
 .pricing-title h4 {
   font-size: 19px;
