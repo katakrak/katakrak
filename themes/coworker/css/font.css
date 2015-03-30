@@ -75,7 +75,8 @@ h6,
 .view-secciones label,
 .itinerario-libro-tipo,
 .circle,
-.view-secciones label, button{
+.view-secciones label, button,
+.entry_meta{
   font-family: "Ropa Sans", sans-serif;
   font-weight: normal;
   /*text-transform: uppercase;*/

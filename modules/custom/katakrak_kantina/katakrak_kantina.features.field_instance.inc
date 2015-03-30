@@ -90,6 +90,46 @@ function katakrak_kantina_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-eguneko_menua-field_menu_gosariak'
+  $field_instances['node-eguneko_menua-field_menu_gosariak'] = array(
+    'bundle' => 'eguneko_menua',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_menu_gosariak',
+    'label' => 'Gosariak',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 45,
+    ),
+  );
+
   // Exported field_instance: 'node-eguneko_menua-field_menu_hotzak'
   $field_instances['node-eguneko_menua-field_menu_hotzak'] = array(
     'bundle' => 'eguneko_menua',
@@ -177,15 +217,14 @@ function katakrak_kantina_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'flexslider_fields',
+        'label' => 'hidden',
+        'module' => 'image',
         'settings' => array(
-          'caption' => 0,
+          'image_link' => '',
           'image_style' => '',
-          'optionset' => 'kantina',
         ),
-        'type' => 'flexslider',
-        'weight' => 1,
+        'type' => 'image',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -218,7 +257,7 @@ function katakrak_kantina_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 42,
+      'weight' => 3,
     ),
   );
 
@@ -230,7 +269,7 @@ function katakrak_kantina_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
         'type' => 'i18n_taxonomy_term_reference_link',
@@ -258,7 +297,7 @@ function katakrak_kantina_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 43,
+      'weight' => 5,
     ),
   );
 
@@ -270,11 +309,11 @@ function katakrak_kantina_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -300,7 +339,7 @@ function katakrak_kantina_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 41,
+      'weight' => 4,
     ),
   );
 
@@ -308,6 +347,7 @@ function katakrak_kantina_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Azkenburukoak');
   t('Beroak');
+  t('Gosariak');
   t('Hotzak');
   t('Irudia');
   t('Oharrak');
