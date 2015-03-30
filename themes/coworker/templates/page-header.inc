@@ -1,3 +1,4 @@
+
 <div id="header" class="clearfix ">
   <?php if ($page['top_left'] || $page['top_right']): ?>
   <div id="top-bar">
@@ -65,7 +66,7 @@
           <?php print $navigation ?>
         </div>  
       </div>
-      
+      <?php print render($search_form) ?>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

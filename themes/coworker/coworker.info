@@ -26,6 +26,10 @@ regions[header] = Header
 regions[header_right] = Header right
 regions[highlighted] = Highlighted
 regions[help] = Help
+regions[bottom_one] = Bottom first column
+regions[bottom_two] = Bottom second column
+regions[bottom_three] Bottom third column
+regions[bottom_four] = Bottom fourth colum
 regions[content_top] = Content Top
 regions[content_bottom] = Content Bottom
 regions[content_bottom_left] = Content Bottom Left
@@ -75,17 +79,20 @@ layouts[home][regions][] = "slider"
 layouts[home][regions][] = "contact_map"
 layouts[home][regions][] = "content"
 layouts[home][regions][] = "header"
-layouts[home][regions][] = "header_right"
 layouts[home][regions][] = "highlighted"
 layouts[home][regions][] = "help"
 layouts[home][regions][] = "content_top"
 layouts[home][regions][] = "content_bottom"
-layouts[home][regions][] = "post_content_bottom_right"
 layouts[home][regions][] = "footer"
 layouts[home][regions][] = "footer_first"
 layouts[home][regions][] = "footer_second"
 layouts[home][regions][] = "footer_third"
 layouts[home][regions][] = "footer_fourth"
+layouts[home][regions][] = "bottom_one"
+layouts[home][regions][] = "bottom_two"
+layouts[home][regions][] = "bottom_three"
+layouts[home][regions][] = "bottom_four"
+
 
 layouts[search][name] = "Search"
 layouts[search][description] = "Simple two column page."

@@ -20,6 +20,7 @@ function katakrak_agenda_context_default_contexts() {
     'views' => array(
       'values' => array(
         'agenda:agenda_page' => 'agenda:agenda_page',
+        'agenda:page_2' => 'agenda:page_2',
       ),
     ),
   );

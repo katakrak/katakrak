@@ -174,6 +174,7 @@ function katakrak_agenda_views_default_views() {
   $handler = $view->new_display('page', 'Home block', 'home_page');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Hasiera';
+  $handler->display->display_options['enabled'] = FALSE;
   $handler->display->display_options['defaults']['cache'] = FALSE;
   $handler->display->display_options['cache']['type'] = 'views_content_cache';
   $handler->display->display_options['cache']['results_min_lifespan'] = '-1';
@@ -322,6 +323,7 @@ function katakrak_agenda_views_default_views() {
 
   /* Display: Bloque destacado página eventos */
   $handler = $view->new_display('block', 'Bloque destacado página eventos', 'highlight');
+  $handler->display->display_options['enabled'] = FALSE;
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'agenda-highlight-block';
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -456,6 +458,7 @@ function katakrak_agenda_views_default_views() {
   $handler = $view->new_display('page', 'Events page', 'agenda_page');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Agenda';
+  $handler->display->display_options['enabled'] = FALSE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
   $handler->display->display_options['style_options']['columns'] = '2';
@@ -814,7 +817,7 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['path'] = 'agenda/archive';
 
   /* Display: Events page */
-  $handler = $view->new_display('page', 'Events page', 'page_2');
+  $handler = $view->new_display('page', 'Events page', 'events_page');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Agenda';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
@@ -987,7 +990,7 @@ function katakrak_agenda_views_default_views() {
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
   $handler->display->display_options['filters']['language']['group'] = 2;
-  $handler->display->display_options['path'] = 'agenda_test';
+  $handler->display->display_options['path'] = 'agenda';
 
   /* Display: Filter Bloque */
   $handler = $view->new_display('block', 'Filter Bloque', 'isotope_filter');
@@ -1077,7 +1080,7 @@ function katakrak_agenda_views_default_views() {
   );
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '4';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'flexslider';
@@ -1085,6 +1088,9 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'title' => 'title',
+  );
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
@@ -1114,25 +1120,12 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['fields']['field_event_date']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_event_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_event_date']['settings'] = array(
-    'format_type' => 'long',
+    'format_type' => 'home',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Campo: Contenido: Título */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['path'] = 'node/[nid]?utm_source=portada&utm_medium=web&utm_content=titulo&utm_campaign=agenda';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
-  $handler->display->display_options['fields']['title']['element_class'] = '.flex-caption';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Campo: Contenido: Event type */
   $handler->display->display_options['fields']['field_event_type']['id'] = 'field_event_type';
   $handler->display->display_options['fields']['field_event_type']['table'] = 'field_data_field_event_type';
@@ -1142,6 +1135,22 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['fields']['field_event_type']['element_type'] = 'h4';
   $handler->display->display_options['fields']['field_event_type']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_event_type']['type'] = 'i18n_taxonomy_term_reference_plain';
+  /* Campo: Contenido: Título */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['text'] = '[title] [field_event_date]
+
+';
+  $handler->display->display_options['fields']['title']['alter']['path'] = 'node/[nid]?utm_source=portada&utm_medium=web&utm_content=titulo&utm_campaign=agenda';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_class'] = '.flex-caption';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Contenido: Date (field_event_date) */
   $handler->display->display_options['sorts']['field_event_date_value']['id'] = 'field_event_date_value';
@@ -1191,7 +1200,7 @@ function katakrak_agenda_views_default_views() {
     'und' => 'und',
   );
   $handler->display->display_options['filters']['language_1']['group'] = 2;
-  $handler->display->display_options['path'] = 'azala2';
+  $handler->display->display_options['path'] = 'azala';
   $translatables['agenda'] = array(
     t('Master'),
     t('más'),
@@ -1217,6 +1226,9 @@ function katakrak_agenda_views_default_views() {
     t('Página'),
     t('term'),
     t('Filter Bloque'),
+    t('[title] [field_event_date]
+
+'),
   );
   $export['agenda'] = $view;
 

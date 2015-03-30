@@ -48,6 +48,7 @@ function coworker_preprocess_html(&$variables) {
 }
 
 function coworker_preprocess_page(&$vars) {
+  $vars['search_form'] = drupal_get_form('katakrak_search_form');
   // navigation
   $trail = NULL;
   foreach ($vars['main_menu'] as $id => $menu_item) {

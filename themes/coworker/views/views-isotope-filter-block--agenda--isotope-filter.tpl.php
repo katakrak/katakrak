@@ -15,10 +15,10 @@
       <ul id="portfolio-filter" class="option-set clearfix" data-option-key="filter">
         <?php
         if (!empty($rows)):?>
-          <li class="selected">
+        <li class="selected" style="background-color: #2780af">
             <a class="selected filterbutton" data-option-value="*" href="#filter"><?php print t('All'); ?></a>
           </li>
-        <?php endif; dpm(array_unique($rows)) ?>
+        <?php endif; ?>
         <?php foreach (array_unique($rows) as $id => $row): ?>
 
           <?php

@@ -116,27 +116,13 @@ function katakrak_search_form($form, &$form_state) {
       // Alternative (HTML5) placeholder attribute instead of using the javascript
       'placeholder' => t('¿Qué buscas?'),
     ),
-    '#prefix' => '<div class="row"><div class="col-md-8">',
-    '#suffix' => '</div>',
-  );
-  $form['type'] = array(
-    '#type' => 'select',
-    '#title' => t(''),
-    '#options' => array(
-      'all' => t('Todo'),
-      'books' => t('Libros'),
-      'agenda' => t('Actos'),
-    ),
-    '#prefix' => '<div class="col-md-2">',
-    '#suffix' => '</div>',
   );
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => t('Buscar'),
     '#attributes' => array('class' => array('katakrak-button')),
-    '#prefix' => '<div class="col-md-2">',
-    '#suffix' => '</div></div>',
   );
+  $form['#attributes']['class'] = 'navbar-form navbar-right';
   return $form;
 }
 

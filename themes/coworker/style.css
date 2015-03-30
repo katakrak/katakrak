@@ -1655,13 +1655,9 @@ ul.landing-features li:hover { font-weight: bold; }
   line-height: 15px;
   font-family: "Open Sans";
   color: #888;
-  border-left: 1px solid #EEE;
 }
 
 #portfolio-filter li:first-child a { border-left: none; }
-
-#portfolio-filter li a:hover,
-#portfolio-filter li.activeFilter a, #portfolio-filter li.selected a { color: #57B3DF; }
 
 #portfolio-filter li.activeFilter a,#portfolio-filter li.selected a { font-weight: bold; }
 

@@ -45,7 +45,7 @@ function katakrak_agenda_flexslider_default_presets() {
     'animation' => 'fade',
     'slideshow' => 0,
     'slideshowSpeed' => '7000',
-    'directionNav' => 1,
+    'directionNav' => 0,
     'controlNav' => '1',
     'prevText' => 'Previous',
     'nextText' => 'Siguiente',

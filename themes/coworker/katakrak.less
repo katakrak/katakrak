@@ -386,7 +386,6 @@ h3.field-content{
       }
     }
     ul {/* Nested menu */
-      
       z-index: 200;
       width: 200px;
       margin: 0;
@@ -738,14 +737,18 @@ html.js input.throbbing {
 .view-display-id-kantina_home, .view-display-id-home{
   .views-field-title {
     width: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(39, 128, 175, 0.9);
     float: left;
     position: absolute;
     z-index: 10;
     bottom: 0;
   }
-  h3.field-content a {
+  h3 {
     color: #FFF;
+    margin-left: 10px;
+    span {
+      color: #000;
+    }
   }
 }
 
@@ -897,11 +900,18 @@ div.search-results div:last-child {
 #portfolio-filter {
   li {
     margin: 0 10px;
-    border-radius: 5px;
+    padding: 10px;
+    border-radius: 15px;
     a{
-      color: #000;
+      color: #FFFFFF;
       padding-top: 5px;
       font-size: 1.2em;
+    }
+    a:hover {
+      color: #000000;
+    }
+    a.selected {
+      color: #000000;
     }
   } 
 }
@@ -934,7 +944,7 @@ div.search-results div:last-child {
   margin: 10px;
 }
 
-.book-page-search-form input[type="text"], #apachesolr-panels-search-form input[type="text"], #katakrak-search-form input[type="text"] {
+.book-page-search-form input[type="text"], #apachesolr-panels-search-form input[type="text"] {
   width: 95%;
 }
 
@@ -1097,8 +1107,47 @@ Responsiveness
         float: left;
         position: relative;
       }
-      ul{
+      ul{ /** Nested menu */ 
         visibility: hidden;
+        z-index: 200;
+        width: 150px;
+        margin: 0;
+        position: absolute;
+        left: 0;
+        a {
+          display: block;
+          height: 40px;
+          width: 100%;
+          line-height: 40px;
+          padding: 0 15px;
+          margin-left: 0;
+          border: none;
+          text-transform: capitalize;
+
+          font-weight: normal;
+          text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+          span { display: none !important; }
+        }
+        li {
+          display: block;
+          float: none;
+          margin: 0;
+          padding: 0;
+          height: auto;
+          border: none;
+          background-image: none;
+          margin-top: 1px;
+        }
+        ul {
+          margin: 0;
+          left: 201px !important;
+          top: 0;
+          *top: 1px;
+        }
+        a {
+          
+        }
+        
         li {
           background-color: #57B3DF;
         }
@@ -1109,7 +1158,7 @@ Responsiveness
     background-image: url("images/icons/mainsubmenu.png");
     background-position: right top;
     background-repeat: no-repeat;
-    padding-right: 16px;
+    /*padding-right: 16px;*/
   }
   #primary-links li:first-child a span {
   display: block;

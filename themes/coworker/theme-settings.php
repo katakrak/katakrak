@@ -178,17 +178,8 @@ function _get_color_css_temp($color) {
 
   $css = "
 a,
-h1 span,
-h2 span,
-h3 span,
-h4 span,
-h5 span,
-h6 span,
 #top-menu li a:hover,
 #lp-contacts li span,
-#portfolio-filter li a:hover,
-#portfolio-filter li.activeFilter a,
-.portfolio-item:hover h3 a,
 .entry_date div.post-icon,
 .entry_meta li a:hover,
 .ipost .ipost-title a:hover,
@@ -222,7 +213,6 @@ h6 span,
 #primary-menu ul ul li,
 .lp-subscribe input[type=\"submit\"],
 .portfolio-overlay,
-#portfolio-navigation a:hover,
 .entry_date div.month,
 .entry_date div.day,
 .entry_date div.hour,
@@ -291,7 +281,6 @@ a.twitter-follow-me:hover,
 
 
 span.page-divider span,
-#portfolio-filter li.activeFilter,
 .portfolio-item:hover .portfolio-title,
 #footer.footer-dark .portfolio-item:hover .portfolio-title { border-bottom-color: $color; }
 
