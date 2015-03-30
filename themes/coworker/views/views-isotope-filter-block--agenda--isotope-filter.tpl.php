@@ -18,7 +18,7 @@
           <li class="selected">
             <a class="selected filterbutton" data-option-value="*" href="#filter"><?php print t('All'); ?></a>
           </li>
-        <?php endif; ?>
+        <?php endif; dpm(array_unique($rows)) ?>
         <?php foreach (array_unique($rows) as $id => $row): ?>
 
           <?php
@@ -36,10 +36,11 @@
           $dataoption = str_replace('/', '-', $dataoption);
           $dataoption = str_replace('&amp;', '', $dataoption);
           ?>
+          <?php if (trim($row)): ?>
           <li style="background-color: <?php print $color ? $color : '' ?>">
-
             <a class="filterbutton" data-option-value=".<?php print $dataoption; ?>" href="#filter"><?php print t(trim($row)); ?></a>
           </li>
+          <?php endif; ?>
         <?php endforeach; ?>
 
       </ul>  

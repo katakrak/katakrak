@@ -88,49 +88,5 @@ function katakrak_kantina_context_default_contexts() {
   t('Kantina');
   $export['menu-dia'] = $context;
 
-  $context = new stdClass();
-  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
-  $context->api_version = 3;
-  $context->name = 'sukalde-kontuak';
-  $context->description = '';
-  $context->tag = 'Kantina';
-  $context->conditions = array(
-    'node' => array(
-      'values' => array(
-        'sukalde_kontuak' => 'sukalde_kontuak',
-      ),
-      'options' => array(
-        'node_form' => '1',
-      ),
-    ),
-    'views' => array(
-      'values' => array(
-        'kantina_blog:page' => 'kantina_blog:page',
-      ),
-    ),
-  );
-  $context->reactions = array(
-    'block' => array(
-      'blocks' => array(
-        'katakrak_kantina-katakrak_kantina_page_header' => array(
-          'module' => 'katakrak_kantina',
-          'delta' => 'katakrak_kantina_page_header',
-          'region' => 'content_top',
-          'weight' => '-10',
-        ),
-      ),
-      'layout' => 'kantina',
-    ),
-    'menu' => array(
-      0 => 'main-menu:cantina',
-    ),
-  );
-  $context->condition_mode = 0;
-
-  // Translatables
-  // Included for use with string extractors like potx.
-  t('Kantina');
-  $export['sukalde-kontuak'] = $context;
-
   return $export;
 }

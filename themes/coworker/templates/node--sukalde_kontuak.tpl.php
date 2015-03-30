@@ -85,11 +85,16 @@
     <?php print $user_picture; ?>
     <?php if ($display_submitted): ?>
       <div class="submitted entry_meta clearfix">
-        <i class="icon-calendar"></i><?php print $date; ?><span>/</span><i class="icon-user"></i><?php print $name; ?>
-          <?php if (!empty($content['field_sukalde_kontuak_tags'])): ?>
-            <?php hide($content['field_sukalde_kontuak_tags']); ?>
-            <span>/</span><i class="icon-copy"></i><?php print coworker_format_comma_field('field_sukalde_kontuak_tags', $node); ?>
-          <?php endif; ?>
+        <i class="icon-calendar"></i>
+        <span><?php print $date; ?></span>
+        <span> / </span>
+        <i class="icon-user"></i>
+        <span><?php print $name; ?></span>
+        <?php if (!empty($content['field_sukalde_kontuak_tags'])): ?>
+          <?php hide($content['field_sukalde_kontuak_tags']); ?>
+          <span>/</span><i class="icon-copy"></i>
+          <span><?php print coworker_format_comma_field('field_sukalde_kontuak_tags', $node); ?></span>
+        <?php endif; ?>
 
           <?php if (!empty($node->comment_count)): ?>
             <span>/</span><a href="<?php print $node_url; ?>#comments"><i class="icon-comments"></i><?php print $node->comment_count; ?> <?php print t('Comments'); ?></a>
@@ -101,13 +106,13 @@
     <div class="entry_content content"<?php print $content_attributes; ?>>
       <?php
       // We hide the comments and links now so that we can render them later.
-      
       hide($content['comments']);
       hide($content['links']);
+      hide($content['language']);
       print render($content);
       ?>
 
-      <?php if ($page): print render($content['links']);
+      <?php if ($page): //print render($content['links']);
       endif;
       ?>
     </div>

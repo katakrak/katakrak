@@ -1,3 +1,11 @@
+<?php 
+  if ($page['sidebar_left']) {
+   $content_classes = 'col-md-9 col-lg-9 col-sm-12 col-xs-12'; 
+  }
+  else {
+    $content_classes = 'col-md-12 col-lg-12 col-sm-12 col-xs-12';
+  }
+?>
 <?php include 'page-header.inc' ?>
 <div id="content">
     <div class="content-wrap">
@@ -26,9 +34,14 @@
 
           <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
           <div class="row">
-            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+            <div class="<?php print $content_classes ?>">
               <?php print render($page['content']); ?>
             </div>
+            <?php if ($page['sidebar_left']): ?>
+            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+              <?php print render($page['sidebar_left']) ?>
+            </div>
+            <?php endif; ?>
           </div>  
           
           <?php print render($page['content_bottom']) ?>

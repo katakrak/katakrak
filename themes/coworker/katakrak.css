@@ -51,6 +51,7 @@ h3.field-content a:hover {
   width: 110px;
 }
 .entry_meta {
+  color: #999;
   position: relative;
   margin: 0 -7px 10px 0;
 }
@@ -711,9 +712,6 @@ html.js input.throbbing {
   height: 5px;
 }
 #block-views-kantina-block-page h2 {
-  text-align: center;
-}
-.node-sukalde-kontuak {
   text-align: center;
 }
 .node-sukalde-kontuak .field-name-field-sukalde-kontuak-testua {

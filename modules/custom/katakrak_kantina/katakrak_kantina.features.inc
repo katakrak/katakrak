@@ -103,14 +103,6 @@ function katakrak_kantina_node_info() {
       'title_label' => t('Título'),
       'help' => '',
     ),
-    'sukalde_kontuak' => array(
-      'name' => t('Sukalde kontuak'),
-      'base' => 'node_content',
-      'description' => '',
-      'has_title' => '1',
-      'title_label' => t('Título'),
-      'help' => '',
-    ),
   );
   drupal_alter('node_info', $items);
   return $items;
