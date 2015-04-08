@@ -46,19 +46,19 @@
       </div>
       <div class="container">
         <!-- // content region -->
-        <?php if ($page['bottom_one'] || $page['bottom_two'] || $page['bottom_three'] || $page['bottom_four']): ?>
+        <?php if ($page['content_bottom_first'] || $page['content_bottom_second'] || $page['content_bottom_third'] || $page['content_bottom_fourth']): ?>
         <div id="content-bottom" class="row">
           <div class="col-lg-3 col-md-3 col-sm-3">
-            <?php print render($page['bottom_one']); ?>
+            <?php print render($page['content_bottom_first']); ?>
           </div>
           <div class="col-lg-3 col-md-3 col-sm-3">
-            <?php print render($page['bottom_two']); ?>
+            <?php print render($page['content_bottom_second']); ?>
           </div>
           <div class="col-lg-3 col-md-3 col-sm-3">
-            <?php print render($page['bottom_three']); ?>
+            <?php print render($page['content_bottom_third']); ?>
           </div>
           <div class="col-lg-3 col-md-3 col-sm-3">
-            <?php print render($page['bottom_four']); ?>
+            <?php print render($page['content_bottom_fourth']); ?>
           </div>
         </div>
         <?php endif; ?>

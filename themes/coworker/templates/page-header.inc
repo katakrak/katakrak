@@ -74,9 +74,4 @@
 <div class="container-fluid">
   <div class="banda_header"></div>
 </div>  
-<?php if (!empty($page['slider'])): ?>
-  <div id="slider" class="visible-desktop visible-tablet">
-    <?php print render($page['slider']); ?>
-  </div>
-<?php endif; ?>
   

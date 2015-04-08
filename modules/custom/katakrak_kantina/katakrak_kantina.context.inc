@@ -30,13 +30,13 @@ function katakrak_kantina_context_default_contexts() {
         'views-kantina_blog-block_1' => array(
           'module' => 'views',
           'delta' => 'kantina_blog-block_1',
-          'region' => 'bottom_one',
+          'region' => 'content_bottom_first',
           'weight' => '-10',
         ),
         'views-kantina_recetas-block_1' => array(
           'module' => 'views',
           'delta' => 'kantina_recetas-block_1',
-          'region' => 'bottom_two',
+          'region' => 'content_bottom_second',
           'weight' => '-10',
         ),
         'katakrak_kantina-katakrak_kantina_page_header' => array(
@@ -80,6 +80,7 @@ function katakrak_kantina_context_default_contexts() {
     'views' => array(
       'values' => array(
         'kantina_blog:page' => 'kantina_blog:page',
+        'kantina_recetas:page' => 'kantina_recetas:page',
       ),
     ),
   );
