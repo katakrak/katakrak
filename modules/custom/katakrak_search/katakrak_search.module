@@ -108,6 +108,7 @@ function katakrak_search_form($form, &$form_state) {
     '#type' => 'textfield',
     '#title' => t('Término'),
     '#title_display' => 'invisible',
+    '#size' => 40,
     '#attributes' => array(
       'onblur' => "if (this.value == '') {this.value = '".t('¿Qué buscas?')."';}",
       'onfocus' => "if (this.value == '".t('¿Qué buscas?')."') {this.value = '';}",
@@ -117,11 +118,11 @@ function katakrak_search_form($form, &$form_state) {
       'placeholder' => t('¿Qué buscas?'),
     ),
   );
-  $form['submit'] = array(
-    '#type' => 'submit',
-    '#value' => t('Buscar'),
-    '#attributes' => array('class' => array('katakrak-button')),
-  );
+//  $form['submit'] = array(
+//    '#type' => 'submit',
+//    '#value' => t('Buscar'),
+//    '#attributes' => array('class' => array('katakrak-button')),
+//  );
   $form['#attributes']['class'] = 'navbar-form navbar-right';
   return $form;
 }
