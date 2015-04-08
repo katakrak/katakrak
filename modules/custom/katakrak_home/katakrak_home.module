@@ -11,8 +11,8 @@ include_once 'katakrak_home.features.inc';
  */
 function katakrak_home_block_info() {
   $blocks = array();
-  $blocks['home_promo_first'] = array(
-    'info' => t('Promo first'),
+  $blocks['home_promo_left'] = array(
+    'info' => t('Home Promo left'),
     // Not worth caching.
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
@@ -27,4 +27,14 @@ function katakrak_home_block_info() {
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
   return $blocks;
+}
+
+
+/**
+ * Implements hook_block_view().
+ */
+function katakrak_home_block_view($delta) {
+  if ($delta == 'home_promo_left') {
+    return $block;
+  }
 }

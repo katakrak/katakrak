@@ -83,12 +83,12 @@ function katakrak_books_search_form($form, &$form_state) {
     '#title' => t('Término'),
     '#title_display' => 'invisible',
     '#attributes' => array(
-      'onblur' => "if (this.value == '') {this.value = '".t('¿Qué buscas?')."';}",
-      'onfocus' => "if (this.value == '".t('¿Qué buscas?')."') {this.value = '';}",
+      'onblur' => "if (this.value == '') {this.value = '".t('Buscar')."';}",
+      'onfocus' => "if (this.value == '".t('Buscar')."') {this.value = '';}",
       // Prevent user from searching the default text
-      'onsubmit' => "if(this.search_block_form.value=='".t('¿Qué buscas?')."'{ alert('Please enter a search'); return false; }",
+      'onsubmit' => "if(this.search_block_form.value=='".t('Buscar')."'{ alert('Please enter a search'); return false; }",
       // Alternative (HTML5) placeholder attribute instead of using the javascript
-      'placeholder' => t('¿Qué buscas?'),
+      'placeholder' => t('Buscar'),
     ),
   );
   $form['submit'] = array(
@@ -109,26 +109,27 @@ function katakrak_search_form($form, &$form_state) {
     '#title' => t('Término'),
     '#title_display' => 'invisible',
     '#size' => 40,
-    '#attributes' => array(
-      'onblur' => "if (this.value == '') {this.value = '".t('¿Qué buscas?')."';}",
-      'onfocus' => "if (this.value == '".t('¿Qué buscas?')."') {this.value = '';}",
-      // Prevent user from searching the default text
-      'onsubmit' => "if(this.search_block_form.value=='".t('¿Qué buscas?')."'{ alert('Please enter a search'); return false; }",
-      // Alternative (HTML5) placeholder attribute instead of using the javascript
-      'placeholder' => t('¿Qué buscas?'),
-    ),
+//    '#attributes' => array(
+//      'onblur' => "if (this.value == '') {this.value = '".t('Buscar')."';}",
+//      'onfocus' => "if (this.value == '".t('Buscar')."') {this.value = '';}",
+//      // Prevent user from searching the default text
+//      'onsubmit' => "if(this.search_block_form.value=='".t('Buscar')."'{ alert('Please enter a search'); return false; }",
+//      // Alternative (HTML5) placeholder attribute instead of using the javascript
+//      'placeholder' => t('Buscar'),
+//    ),
   );
-//  $form['submit'] = array(
-//    '#type' => 'submit',
-//    '#value' => t('Buscar'),
-//    '#attributes' => array('class' => array('katakrak-button')),
-//  );
+    $form['submit'] = array(
+      '#type' => 'submit',
+      '#value' => t('Buscar'),
+      '#attributes' => array('class' => array('katakrak-button')),
+    );
   $form['#attributes']['class'] = 'navbar-form navbar-right';
   return $form;
 }
 
 function  katakrak_search_form_submit($form, &$form_state) {
-  $form_state['redirect'] = 'search/'.$form_state['values']['type'].'/'.$form_state['values']['search_term'];
+  dpm($form_state);
+  $form_state['redirect'] = 'search/books/'.$form_state['values']['search_term'];
 }
 
 function katakrak_books_search_form_submit($form, &$form_state) {
