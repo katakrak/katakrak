@@ -26,6 +26,12 @@ function katakrak_home_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'katakrak_home-katakrak_home_promo_right' => array(
+          'module' => 'katakrak_home',
+          'delta' => 'katakrak_home_promo_right',
+          'region' => 'sidebar_second',
+          'weight' => '-10',
+        ),
         'system-main' => array(
           'module' => 'system',
           'delta' => 'main',
@@ -37,6 +43,12 @@ function katakrak_home_context_default_contexts() {
           'delta' => 'twitter_feed',
           'region' => 'bottom_two',
           'weight' => '-9',
+        ),
+        'katakrak_home-katakrak_home_promo_bottom' => array(
+          'module' => 'katakrak_home',
+          'delta' => 'katakrak_home_promo_bottom',
+          'region' => 'content_bottom',
+          'weight' => '-10',
         ),
       ),
       'layout' => 'home',

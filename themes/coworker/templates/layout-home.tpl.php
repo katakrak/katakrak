@@ -40,6 +40,11 @@
          
           <?php print $feed_icons; ?>
         </div>
+      </div>
+      <div class="container-fluid" id="home-page-content-bottom">
+        <?php print render($page['content_bottom']); ?>
+      </div>
+      <div class="container">
         <!-- // content region -->
         <?php if ($page['bottom_one'] || $page['bottom_two'] || $page['bottom_three'] || $page['bottom_four']): ?>
         <div id="content-bottom" class="row">
@@ -57,7 +62,7 @@
           </div>
         </div>
         <?php endif; ?>
-    </div>
+      </div>
   </div>
 </div>
 <?php include 'page-footer.inc' ?>

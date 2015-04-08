@@ -11,18 +11,13 @@ include_once 'katakrak_home.features.inc';
  */
 function katakrak_home_block_info() {
   $blocks = array();
-  $blocks['home_promo_left'] = array(
-    'info' => t('Home Promo left'),
+  $blocks['katakrak_home_promo_right'] = array(
+    'info' => t('Home Promo right'),
     // Not worth caching.
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
-  $blocks['home_promo_second'] = array(
-    'info' => t('Promo second'),
-    // Not worth caching.
-    'cache' => DRUPAL_CACHE_GLOBAL,
-  );
-  $blocks['home_promo_third'] = array(
-    'info' => t('Promo third'),
+  $blocks['katakrak_home_promo_bottom'] = array(
+    'info' => t('Home Promo second'),
     // Not worth caching.
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
@@ -34,7 +29,29 @@ function katakrak_home_block_info() {
  * Implements hook_block_view().
  */
 function katakrak_home_block_view($delta) {
-  if ($delta == 'home_promo_left') {
+  if ($delta == 'katakrak_home_promo_right') {
+    $block['content'] = theme('katakrak_home_promo_right');
     return $block;
   }
+  if ($delta == 'katakrak_home_promo_bottom') {
+    $block['content'] = theme('katakrak_home_promo_bottom');
+    return $block;
+  }
+}
+
+/**
+ * Implementation of hook_theme
+ */
+function katakrak_home_theme() {
+  $path = drupal_get_path('module', 'katakrak_home');
+  return array(
+    'katakrak_home_promo_right' => array(
+      'template' => 'katakrak-home-promo-right',
+      'path' => $path . '/templates',
+    ),
+    'katakrak_home_promo_bottom' => array(
+      'template' => 'katakrak-home-promo-bottom',
+      'path' => $path . '/templates',
+    ),
+  );
 }
