@@ -89,7 +89,7 @@
     <div class="clear"></div>
     <?php print render($content['sharethis']) ?>
     <div class="clear"></div>
-    <p><?php print render($content['field_blog_body']) ?></p>
+    <p><?php print render($content['field_blog_cuerpo']) ?></p>
     <p><?php print $node->event_table; ?></p>
     <p><?php print render($content['field_blog_adjunto']) ?></p>
   </div>

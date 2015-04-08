@@ -85,4 +85,4 @@ features_exclude[dependencies][date_views] = date_views
 features_exclude[dependencies][views] = views
 features_exclude[dependencies][views_bootstrap] = views_bootstrap
 files[] = views/katakrak_agenda_grid_plugin_style.inc
-mtime = 1427715821
+mtime = 1428494137

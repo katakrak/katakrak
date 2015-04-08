@@ -20,7 +20,7 @@ function katakrak_agenda_context_default_contexts() {
     'views' => array(
       'values' => array(
         'agenda:agenda_page' => 'agenda:agenda_page',
-        'agenda:page_2' => 'agenda:page_2',
+        'agenda:events_page' => 'agenda:events_page',
       ),
     ),
   );
@@ -38,10 +38,6 @@ function katakrak_agenda_context_default_contexts() {
     ),
     'menu' => array(
       0 => 'main-menu:agenda',
-    ),
-    'theme' => array(
-      'title' => 'Agenda',
-      'subtitle' => '',
     ),
   );
   $context->condition_mode = 0;
