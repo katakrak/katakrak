@@ -45,6 +45,23 @@
           </div>  
           
           <?php print render($page['content_bottom']) ?>
+        
+          <?php if ($page['bottom_one'] || $page['bottom_two'] || $page['bottom_three'] || $page['bottom_four']): ?>
+            <div id="content-bottom" class="row">
+              <div class="col-lg-3 col-md-3 col-sm-3">
+                <?php print render($page['bottom_one']); ?>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-3">
+                <?php print render($page['bottom_two']); ?>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-3">
+                <?php print render($page['bottom_three']); ?>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-3">
+                <?php print render($page['bottom_four']); ?>
+              </div>
+            </div>
+          <?php endif; ?>
           <?php print $feed_icons; ?>
         </div>
         <!-- // content region -->
