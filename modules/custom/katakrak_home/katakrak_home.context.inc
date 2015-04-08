@@ -41,8 +41,8 @@ function katakrak_home_context_default_contexts() {
         'boxes-twitter_feed' => array(
           'module' => 'boxes',
           'delta' => 'twitter_feed',
-          'region' => 'bottom_two',
-          'weight' => '-9',
+          'region' => 'content_bottom_second',
+          'weight' => '-10',
         ),
         'katakrak_home-katakrak_home_promo_bottom' => array(
           'module' => 'katakrak_home',
