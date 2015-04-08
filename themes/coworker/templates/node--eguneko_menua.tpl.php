@@ -102,11 +102,11 @@ if (!$page) {
     <div class="entry_content content eguneko-menua"<?php print $content_attributes; ?>>
       <h1><i class="fa fa-spoon"></i> <?php print $node->title ?> <i class="fa fa-cutlery"></i></h1>
       <p><?php print format_date($node->changed, 'media') ?></p>
-      <h2><?php print t("Fríos") ?></h2>
+      <h2><?php print t("Ensaladas") ?></h2>
       <?php foreach ($node->field_menu_hotzak['und'] as $key => $value): ?>
       <p><?php print $value['value'] ?></p>
       <?php endforeach; ?>
-      <h2><?php print t("Calientes") ?></h2>
+      <h2><?php print t("Cuencos") ?></h2>
       <?php foreach ($node->field_menu_beroak['und'] as $key => $value): ?>
       <p><?php print $value['value'] ?></p>
       <?php endforeach; ?>
