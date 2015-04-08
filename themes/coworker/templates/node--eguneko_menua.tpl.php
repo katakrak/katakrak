@@ -106,6 +106,7 @@ if (!$page) {
         <h4>menú mediodia</h4>
       </div>
       <p><?php print format_date($node->changed, 'media') ?></p>
+
       <div>
         <h2><?php print t("Ensaladas") ?></h2>
         <?php foreach ($node->field_menu_hotzak['und'] as $key => $value): ?>
@@ -124,8 +125,6 @@ if (!$page) {
           <p><?php print $value['value'] ?></p>
         <?php endforeach; ?>
       </div>
-      
-      
       
       -----------------------------------------------------------------------------------
       <p><?php print $node->field_menu_oharrak['und'][0]['value']?></p>
