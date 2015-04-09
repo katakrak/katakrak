@@ -133,6 +133,29 @@ function katakrak_kantina_image_default_styles() {
     ),
   );
 
+  // Exported image style: receta_page.
+  $styles['receta_page'] = array(
+    'name' => 'receta_page',
+    'label' => 'Receta page',
+    'effects' => array(
+      8 => array(
+        'label' => 'Escalar y recortar',
+        'help' => 'Escalar y recortar mantendrán la relación de proporciones de la imagen original y se desechará lo que sobre por el lado mayor. Esto es especialmente útil para crear miniaturas perfectamente cuadradas sin deformar la imagen.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 500,
+          'height' => 300,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   return $styles;
 }
 

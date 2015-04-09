@@ -551,7 +551,7 @@ h3.field-content a:hover {
   float: left;
 }
 #home-page-content-bottom {
-  margin: 20px 0;
+  margin: 30px 0 20px 0;
   padding: 20px 0;
 }
 #home-page-content-bottom {
@@ -730,8 +730,13 @@ html.js input.throbbing {
 #block-views-kantina-block-page h2 {
   text-align: center;
 }
-.node-sukalde-kontuak .field-name-field-sukalde-kontuak-testua {
-  text-align: left;
+ul.osagai-zerrenda {
+  list-style: initial;
+}
+div.field-name-field-receta-cuerpo {
+  max-width: 70%;
+  font-size: 14px;
+  line-height: 1.5em;
 }
 /** Search Page **/div.search-page-ol-left div.panel-pane {
   background: #d0d0d0;

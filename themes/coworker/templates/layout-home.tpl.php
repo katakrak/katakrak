@@ -45,7 +45,6 @@
         <?php print render($page['content_bottom']); ?>
       </div>
       <div class="container">
-        <!-- // content region -->
         <?php if ($page['content_bottom_first'] || $page['content_bottom_second'] || $page['content_bottom_third'] || $page['content_bottom_fourth']): ?>
         <div id="content-bottom" class="row">
           <div class="col-lg-3 col-md-3 col-sm-3">
