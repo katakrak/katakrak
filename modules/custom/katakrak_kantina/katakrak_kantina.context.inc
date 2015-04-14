@@ -39,6 +39,18 @@ function katakrak_kantina_context_default_contexts() {
           'region' => 'content_bottom_second',
           'weight' => '-10',
         ),
+        'katakrak_kantina-katakrak_reserva_block' => array(
+          'module' => 'katakrak_kantina',
+          'delta' => 'katakrak_reserva_block',
+          'region' => 'content_bottom_third',
+          'weight' => '-10',
+        ),
+        'boxes-twitter_kantina' => array(
+          'module' => 'boxes',
+          'delta' => 'twitter_kantina',
+          'region' => 'content_bottom_fourth',
+          'weight' => '-10',
+        ),
         'katakrak_kantina-katakrak_kantina_page_header' => array(
           'module' => 'katakrak_kantina',
           'delta' => 'katakrak_kantina_page_header',

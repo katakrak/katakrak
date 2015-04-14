@@ -16,6 +16,24 @@ function katakrak_kantina_query_alter($query) {
    }
 }
 
+
+
+function katakrak_kantina_menu() {
+  $items = array();
+  $items['cantina/denoche'] = array(
+    'title' => 'De noche',
+    'description' => 'Dilve options',
+    'page callback' => 'katakrak_kantina_denoche_page',
+    'access callback' => TRUE,
+  );
+  return $items;
+}
+
+function katakrak_kantina_denoche_page() {
+  return theme('katakrak_kantina_denoche_page');
+}
+
+
 /**
  * Implements hook_block_info().
  */
@@ -33,22 +51,6 @@ function katakrak_kantina_block_info() {
   );
   
   return $blocks;
-}
-
-
-function katakrak_kantina_menu() {
-  $items = array();
-  $items['cantina/denoche'] = array(
-    'title' => 'De noche',
-    'description' => 'Dilve options',
-    'page callback' => 'katakrak_kantina_denoche_page',
-    'access callback' => TRUE,
-  );
-  return $items;
-}
-
-function katakrak_kantina_denoche_page() {
-  return theme('katakrak_kantina_denoche_page');
 }
 
 /**
@@ -92,7 +94,7 @@ function katakrak_kantina_reserva_form($form, &$form_state) {
   $form['nombre'] = array(
     '#type' => 'textfield',
     '#title' => t('Nombre'),
-    '#description' => t('Nombre de la reserva'),
+    '#title_display' => 'invisible',
     '#attributes' => array(
       'placeholder' => t('Nombre')
     ),
@@ -100,13 +102,17 @@ function katakrak_kantina_reserva_form($form, &$form_state) {
   $form['comensales'] = array(
     '#type' => 'textfield',
     '#title' => t('Número de comensales'),
+    '#title_display' => 'invisible',
+    '#size' => 60,
     '#attributes' => array(
-      'placeholder' => 2
+      'placeholder' => t('Número de comensales')
     ),
   );
   $form['date'] = array(
-    '#type' => 'date_popup',
-    '#title' => t('Fecha y hora'),
+  '#type' => 'date_popup',
+  '#title' => t('Fecha y hora'),
+  '#title_display' => 'invisible',
+  '#date_format' => 'Y-m-d H:i',
   );
   $form['submit'] = array(
     '#type' => 'submit',

@@ -178,7 +178,7 @@ function katakrak_kantina_views_default_views() {
   $handler->display->display_options['title'] = 'Kantina blog';
   $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'más';
+  $handler->display->display_options['use_more_text'] = 'ver el blog de kantina';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -212,6 +212,13 @@ function katakrak_kantina_views_default_views() {
     'image_link' => '',
   );
   $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
+  /* Campo: Contenido: Enlace */
+  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['view_node']['text'] = 'leer más [+]';
   /* Sort criterion: Contenido: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -251,13 +258,15 @@ function katakrak_kantina_views_default_views() {
   $translatables['kantina_blog'] = array(
     t('Master'),
     t('Kantina blog'),
-    t('más'),
+    t('ver el blog de kantina'),
     t('Aplicar'),
     t('Reiniciar'),
     t('Ordenar por'),
     t('Asc'),
     t('Desc'),
+    t('leer más [+]'),
     t('Page'),
+    t('más'),
     t('Bloque'),
   );
   $export['kantina_blog'] = $view;
@@ -319,6 +328,13 @@ function katakrak_kantina_views_default_views() {
     'image_style' => 'kantina_medium',
     'image_link' => 'content',
   );
+  /* Campo: Contenido: Enlace */
+  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['view_node']['text'] = 'leer más [+]';
   /* Sort criterion: Contenido: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -389,6 +405,7 @@ function katakrak_kantina_views_default_views() {
     t('‹ anterior'),
     t('siguiente ›'),
     t('última »'),
+    t('leer más [+]'),
     t('Page'),
     t('Bloque'),
     t('Ver todas las recetas'),
