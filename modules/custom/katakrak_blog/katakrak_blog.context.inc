@@ -27,10 +27,8 @@ function katakrak_blog_context_default_contexts() {
     ),
   );
   $context->reactions = array(
-    'menu' => 'blog',
-    'theme' => array(
-      'title' => 'Blog',
-      'subtitle' => '',
+    'menu' => array(
+      0 => 'main-menu:blog',
     ),
   );
   $context->condition_mode = 0;

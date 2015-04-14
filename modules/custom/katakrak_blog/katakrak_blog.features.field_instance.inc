@@ -49,12 +49,12 @@ function katakrak_blog_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 8,
+      'weight' => 7,
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_blog_body'
-  $field_instances['node-blog-field_blog_body'] = array(
+  // Exported field_instance: 'node-blog-field_blog_cuerpo'
+  $field_instances['node-blog-field_blog_cuerpo'] = array(
     'bundle' => 'blog',
     'default_value' => NULL,
     'deleted' => 0,
@@ -65,7 +65,7 @@ function katakrak_blog_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -75,10 +75,11 @@ function katakrak_blog_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_blog_body',
-    'label' => 'Body',
+    'field_name' => 'field_blog_cuerpo',
+    'label' => 'Cuerpo',
     'required' => 0,
     'settings' => array(
+      'display_summary' => 0,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
@@ -86,26 +87,27 @@ function katakrak_blog_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'rows' => 8,
+        'rows' => 20,
+        'summary_rows' => 5,
       ),
-      'type' => 'text_textarea',
-      'weight' => 3,
+      'type' => 'text_textarea_with_summary',
+      'weight' => 5,
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_blog_eventos'
-  $field_instances['node-blog-field_blog_eventos'] = array(
+  // Exported field_instance: 'node-blog-field_blog_libro'
+  $field_instances['node-blog-field_blog_libro'] = array(
     'bundle' => 'blog',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'module' => 'node_reference',
         'settings' => array(),
         'type' => 'node_reference_default',
-        'weight' => 1,
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -115,8 +117,10 @@ function katakrak_blog_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_blog_eventos',
-    'label' => 'Eventos',
+    'entityconnect_unload_add' => 0,
+    'entityconnect_unload_edit' => 0,
+    'field_name' => 'field_blog_libro',
+    'label' => 'Libro(s)',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -130,7 +134,43 @@ function katakrak_blog_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
-      'weight' => 4,
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance: 'node-blog-field_blog_tipo'
+  $field_instances['node-blog-field_blog_tipo'] = array(
+    'bundle' => 'blog',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_blog_tipo',
+    'label' => 'Tipo',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 3,
     ),
   );
 
@@ -187,16 +227,17 @@ function katakrak_blog_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 5,
+      'weight' => 4,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
   t('Adjunto');
-  t('Body');
-  t('Eventos');
+  t('Cuerpo');
   t('Imagen');
+  t('Libro(s)');
+  t('Tipo');
 
   return $field_instances;
 }

@@ -99,8 +99,8 @@ function katakrak_blog_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 300,
-          'height' => 400,
+          'width' => 400,
+          'height' => 300,
         ),
         'weight' => 1,
       ),

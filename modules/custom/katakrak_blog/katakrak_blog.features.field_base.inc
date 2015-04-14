@@ -41,13 +41,13 @@ function katakrak_blog_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_blog_body'
-  $field_bases['field_blog_body'] = array(
+  // Exported field_base: 'field_blog_cuerpo'
+  $field_bases['field_blog_cuerpo'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_blog_body',
+    'field_name' => 'field_blog_cuerpo',
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -65,16 +65,16 @@ function katakrak_blog_field_default_field_bases() {
     'module' => 'text',
     'settings' => array(),
     'translatable' => 0,
-    'type' => 'text_long',
+    'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'field_blog_eventos'
-  $field_bases['field_blog_eventos'] = array(
+  // Exported field_base: 'field_blog_libro'
+  $field_bases['field_blog_libro'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_blog_eventos',
+    'field_name' => 'field_blog_libro',
     'foreign keys' => array(
       'nid' => array(
         'columns' => array(
@@ -95,15 +95,18 @@ function katakrak_blog_field_default_field_bases() {
         'article' => 0,
         'blog' => 0,
         'boletin' => 0,
-        'event' => 'event',
+        'eguneko_menua' => 0,
+        'event' => 0,
+        'imagen' => 0,
         'itinerario' => 0,
-        'libro' => 0,
+        'libro' => 'libro',
         'page' => 0,
         'portfolio' => 0,
+        'receta' => 0,
         'simplenews' => 0,
         'sukalde_errezeta' => 0,
+        'sukalde_kontuak' => 0,
         'sukalde_produktua' => 0,
-        'webform' => 0,
       ),
       'view' => array(
         'args' => array(),
@@ -113,6 +116,32 @@ function katakrak_blog_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'node_reference',
+  );
+
+  // Exported field_base: 'field_blog_tipo'
+  $field_bases['field_blog_tipo'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_blog_tipo',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'kantina' => 'Sukalde Kontuak',
+        'resenas' => 'Reseña de libro',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
   );
 
   return $field_bases;

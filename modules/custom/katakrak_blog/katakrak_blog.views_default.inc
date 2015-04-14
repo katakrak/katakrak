@@ -111,21 +111,6 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'd/m/Y';
-  /* Campo: Contenido: Body */
-  $handler->display->display_options['fields']['field_blog_body']['id'] = 'field_blog_body';
-  $handler->display->display_options['fields']['field_blog_body']['table'] = 'field_data_field_blog_body';
-  $handler->display->display_options['fields']['field_blog_body']['field'] = 'field_blog_body';
-  $handler->display->display_options['fields']['field_blog_body']['label'] = '';
-  $handler->display->display_options['fields']['field_blog_body']['alter']['max_length'] = '500';
-  $handler->display->display_options['fields']['field_blog_body']['alter']['more_link'] = TRUE;
-  $handler->display->display_options['fields']['field_blog_body']['alter']['more_link_text'] = '[+]';
-  $handler->display->display_options['fields']['field_blog_body']['alter']['more_link_path'] = '[path]';
-  $handler->display->display_options['fields']['field_blog_body']['alter']['trim'] = TRUE;
-  $handler->display->display_options['fields']['field_blog_body']['element_type'] = 'p';
-  $handler->display->display_options['fields']['field_blog_body']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_blog_body']['settings'] = array(
-    'trim_length' => '500',
-  );
   /* Sort criterion: Contenido: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -170,28 +155,22 @@ function katakrak_blog_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'blog';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Blog';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
   $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Últimos blogs';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '4';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Nodequeue: Queue */
-  $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
-  $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
-  $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
-  $handler->display->display_options['relationships']['nodequeue_rel']['required'] = TRUE;
-  $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
-  $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
-    'blog_portada' => 'blog_portada',
-    'evento_portada' => 0,
-    'libro_portada' => 0,
-    'producto_kafeta_destacado' => 0,
-    'libros_destacados' => 0,
-    'evento_home' => 0,
-  );
   $handler->display->display_options['block_description'] = 'Blog home';
   $translatables['blog'] = array(
     t('Master'),
@@ -211,10 +190,9 @@ function katakrak_blog_views_default_views() {
     t('última »'),
     t('Nid'),
     t('Bide-izena'),
-    t('[+]'),
     t('Page'),
     t('Block'),
-    t('queue'),
+    t('Últimos blogs'),
     t('Blog home'),
   );
   $export['blog'] = $view;
