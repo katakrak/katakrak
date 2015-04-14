@@ -38,10 +38,22 @@ function katakrak_home_context_default_contexts() {
           'region' => 'content',
           'weight' => '-10',
         ),
+        'views-blog-block' => array(
+          'module' => 'views',
+          'delta' => 'blog-block',
+          'region' => 'content_bottom_first',
+          'weight' => '-10',
+        ),
         'boxes-twitter_feed' => array(
           'module' => 'boxes',
           'delta' => 'twitter_feed',
           'region' => 'content_bottom_second',
+          'weight' => '-10',
+        ),
+        'views-libros-book_block_home' => array(
+          'module' => 'views',
+          'delta' => 'libros-book_block_home',
+          'region' => 'content_bottom_third',
           'weight' => '-10',
         ),
         'katakrak_home-katakrak_home_promo_bottom' => array(

@@ -57,7 +57,7 @@ function katakrak_home_theme() {
 }
 
 function katakrak_home_preprocess_katakrak_home_promo_right(&$vars) {
-  $vars['link_agenda'] = l(
+  $vars['link_agenda_icon'] = l(
     '<span class="glyphicon glyphicon-calendar fa-5x" aria-hidden="true"></span>',
     'agenda',
     array(
@@ -65,16 +65,16 @@ function katakrak_home_preprocess_katakrak_home_promo_right(&$vars) {
     )
   );
   
-  $vars['link_boletin'] = l(
+  $vars['link_boletin_icon'] = l(
     '<span class="glyphicon glyphicon-envelope fa-5x" aria-hidden="true"></span>',
-    'agenda',
+    'boletin',
     array(
       'html' => TRUE,
     )
   );
   
-  $vars['link_nagusia'] = l(
-    '<span class="glyphicon glyphicon-tent fa-5x" aria-hidden="true"></span>',
+  $vars['link_blog_icon'] = l(
+    '<span class="glyphicon glyphicon-comment fa-5x" aria-hidden="true"></span>',
     'agenda',
     array(
       'html' => TRUE,

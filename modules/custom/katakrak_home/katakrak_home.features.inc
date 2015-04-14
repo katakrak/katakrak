@@ -51,9 +51,9 @@ function katakrak_home_fe_nodequeue_export_fields() {
   // Exported nodequeues: libro_portada
   $nodequeues['libro_portada'] = array(
     'name' => 'libro_portada',
-    'title' => 'Libro portada',
+    'title' => 'Libros portada',
     'subqueue_title' => '',
-    'size' => 1,
+    'size' => 5,
     'link' => 'Llevar a portada',
     'link_remove' => 'Eliminar de la portada',
     'owner' => 'nodequeue',
