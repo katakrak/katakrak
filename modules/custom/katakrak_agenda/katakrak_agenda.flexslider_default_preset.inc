@@ -43,7 +43,7 @@ function katakrak_agenda_flexslider_default_presets() {
     'maxItems' => '0',
     'move' => '0',
     'animation' => 'fade',
-    'slideshow' => 0,
+    'slideshow' => 1,
     'slideshowSpeed' => '7000',
     'directionNav' => 0,
     'controlNav' => '1',
