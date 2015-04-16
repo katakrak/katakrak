@@ -187,6 +187,29 @@ function katakrak_agenda_image_default_styles() {
     ),
   );
 
+  // Exported image style: event_thumbnail.
+  $styles['event_thumbnail'] = array(
+    'name' => 'event_thumbnail',
+    'label' => 'Event thumbnail',
+    'effects' => array(
+      11 => array(
+        'label' => 'Escalar y recortar',
+        'help' => 'Escalar y recortar mantendrán la relación de proporciones de la imagen original y se desechará lo que sobre por el lado mayor. Esto es especialmente útil para crear miniaturas perfectamente cuadradas sin deformar la imagen.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 150,
+          'height' => 80,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
   return $styles;
 }
 

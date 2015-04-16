@@ -72,21 +72,11 @@ function katakrak_agenda_context_default_contexts() {
           'region' => 'sidebar_second',
           'weight' => '-10',
         ),
-        'boxes-twitter_feed' => array(
-          'module' => 'boxes',
-          'delta' => 'twitter_feed',
-          'region' => 'sidebar_second',
-          'weight' => '-9',
-        ),
       ),
       'layout' => 'agenda',
     ),
     'menu' => array(
       0 => 'main-menu:agenda',
-    ),
-    'theme' => array(
-      'title' => 'Agenda',
-      'subtitle' => '',
     ),
   );
   $context->condition_mode = 0;
