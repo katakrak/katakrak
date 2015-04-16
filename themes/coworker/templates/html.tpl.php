@@ -47,7 +47,7 @@
   <head profile="<?php print $grddl_profile; ?>">
      <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php print $head_title; ?></title>
-    <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Abel|Open Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <?php print $styles; ?>
     <?php $theme_background_image = theme_get_setting('theme_background_image', 'coworker'); ?>
