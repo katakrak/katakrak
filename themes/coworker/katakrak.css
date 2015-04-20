@@ -565,6 +565,9 @@ h3.field-content a:hover {
 .view-display-id-book_block_home div.row:nth-child(1) {
   margin-top: 0;
 }
+.view-display-id-home .event-type {
+  font-size: 18px;
+}
 #block-views-blog-block {
   margin-top: 10px;
 }

@@ -1098,9 +1098,6 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['row_options']['inline'] = array(
-    'title' => 'title',
-  );
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
@@ -1151,7 +1148,8 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['text'] = '[title] [field_event_date]
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<div class="event-type">[field_event_type]</div>
+[title] [field_event_date]
 
 ';
   $handler->display->display_options['fields']['title']['alter']['path'] = 'node/[nid]?utm_source=portada&utm_medium=web&utm_content=titulo&utm_campaign=agenda';
@@ -1332,7 +1330,8 @@ function katakrak_agenda_views_default_views() {
     t('Página'),
     t('term'),
     t('Filter Bloque'),
-    t('[title] [field_event_date]
+    t('<div class="event-type">[field_event_type]</div>
+[title] [field_event_date]
 
 '),
     t('Proximas presentaciones de libros'),

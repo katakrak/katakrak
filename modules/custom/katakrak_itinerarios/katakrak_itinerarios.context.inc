@@ -15,7 +15,7 @@ function katakrak_itinerarios_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'itinerario';
   $context->description = '';
-  $context->tag = 'Book';
+  $context->tag = 'Libro';
   $context->conditions = array(
     'node' => array(
       'values' => array(
@@ -36,7 +36,7 @@ function katakrak_itinerarios_context_default_contexts() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Book');
+  t('Libro');
   $export['itinerario'] = $context;
 
   return $export;

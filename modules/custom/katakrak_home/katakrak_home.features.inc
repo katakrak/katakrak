@@ -53,7 +53,7 @@ function katakrak_home_fe_nodequeue_export_fields() {
     'name' => 'libro_portada',
     'title' => 'Libros portada',
     'subqueue_title' => '',
-    'size' => 5,
+    'size' => 0,
     'link' => 'Llevar a portada',
     'link_remove' => 'Eliminar de la portada',
     'owner' => 'nodequeue',
