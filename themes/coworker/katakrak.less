@@ -618,15 +618,6 @@ h3.field-content{
 
 /* HOME STYLES */
 
-#block-katakrak-newsletter-suscribe {
-  margin-bottom: 40px;
-  div.suscribe-block {
-    padding: 10px;
-  }
-  div.suscribe-block-help {
-    font-size: 14px;
-  }
-}
 
 #block-katakrak-home-katakrak-home-promo-right {
   span.glyphicon {
@@ -646,10 +637,15 @@ h3.field-content{
 #block-katakrak-newsletter-suscribe input[type="text"] {
   width: 100%;
 }
-
-.blue-envelope {
-    color: #57B3DF;
+.view-display-id-book_block_home {
+  div.row {
+    margin-top: 15px;
+  }
+  div.row:nth-child(1) {
+    margin-top:0;
+  }
 }
+
 
 
 #block-views-blog-block {
@@ -1143,6 +1139,9 @@ Responsiveness
       li {
         float: left;
         position: relative;
+        a {
+          font-size: 18px;
+        }
       }
       ul{ /** Nested menu */ 
         visibility: hidden;
@@ -1160,7 +1159,7 @@ Responsiveness
           margin-left: 0;
           border: none;
           text-transform: capitalize;
-
+          font-size: 15px;
           font-weight: normal;
           text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
           span { display: none !important; }
@@ -1300,12 +1299,18 @@ Responsiveness
     padding-left: 90px;
     h3 {
       margin: 0 !important; 
+      a {
+        color: #000;
+      }
     }
   }
-  
+  div.promo-right-first {
+    margin-top: 60px;
+  }
   div.promo-right {
     margin-top: 40px;
   }
+  
 }
 
 }

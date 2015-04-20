@@ -1,4 +1,4 @@
-.dedia, .denoche, .kantina_blog, .circulo_ficha, .flecha_dcha, .mParada, .uparada, .correspondencia, .circulo_trans2, .submenu, .mainsubmenu, .mainsubmenuh, .banda_header, .banda_footer, .begiak, .menu_mediodia{
+.dedia, .denoche, .kantina_blog, .circulo_ficha, .flecha_dcha, .mParada, .uparada, .correspondencia, .circulo_trans2, .submenu, .mainsubmenu, .mainsubmenuh, .banda_header, .banda_footer, .begiak, .menu_mediodia, .begi-urdinak {
        background: url("images/sprites.png") no-repeat;
 }
 .dedia{
@@ -98,4 +98,9 @@
   background-position: 0 -251px;
   width: 75px;
   height: 75px;
+}
+.begi-urdinak {
+  background-position: -515px -201px;
+  width: 119px;
+  height: 48px;
 }

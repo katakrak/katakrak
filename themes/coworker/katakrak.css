@@ -546,15 +546,6 @@ h3.field-content a:hover {
 }
 /* Special regions */
 /* HOME STYLES */
-#block-katakrak-newsletter-suscribe {
-  margin-bottom: 40px;
-}
-#block-katakrak-newsletter-suscribe div.suscribe-block {
-  padding: 10px;
-}
-#block-katakrak-newsletter-suscribe div.suscribe-block-help {
-  font-size: 14px;
-}
 #block-katakrak-home-katakrak-home-promo-right span.glyphicon {
   color: rgba(39, 128, 175, 0.9);
 }
@@ -568,8 +559,11 @@ h3.field-content a:hover {
 #block-katakrak-newsletter-suscribe input[type="text"] {
   width: 100%;
 }
-.blue-envelope {
-  color: #57B3DF;
+.view-display-id-book_block_home div.row {
+  margin-top: 15px;
+}
+.view-display-id-book_block_home div.row:nth-child(1) {
+  margin-top: 0;
 }
 #block-views-blog-block {
   margin-top: 10px;
@@ -1120,6 +1114,9 @@ Responsiveness
     float: left;
     position: relative;
   }
+  #primary-links ul li a {
+    font-size: 18px;
+  }
   #primary-links ul ul {
     /** Nested menu */
     visibility: hidden;
@@ -1138,6 +1135,7 @@ Responsiveness
     margin-left: 0;
     border: none;
     text-transform: capitalize;
+    font-size: 15px;
     font-weight: normal;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   }
@@ -1263,6 +1261,12 @@ Responsiveness
   }
   #block-katakrak-home-katakrak-home-promo-right .promo-right-text h3 {
     margin: 0 !important;
+  }
+  #block-katakrak-home-katakrak-home-promo-right .promo-right-text h3 a {
+    color: #000;
+  }
+  #block-katakrak-home-katakrak-home-promo-right div.promo-right-first {
+    margin-top: 60px;
   }
   #block-katakrak-home-katakrak-home-promo-right div.promo-right {
     margin-top: 40px;
