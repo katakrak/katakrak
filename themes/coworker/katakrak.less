@@ -1,6 +1,6 @@
 @link_gray: #777;
 @hover_gray: #444;
-@background_gray: #d0d0d0;
+@background_gray: #f0f0f0;
 @custom_blue: #2780AF;
 
 .generate-fa-sizes(@n, @i: 1) when (@i =< @n) {
@@ -19,6 +19,7 @@
 	background:	@background_color;
   text-transform: uppercase;
   color: @text_color;
+  margin-top: 15px;
 }
 
 
@@ -28,6 +29,16 @@
   -webkit-border-radius: 10px;
   padding: 10px;
 }
+
+.btn {
+    margin-top: 10px;
+    a {
+      color: white;
+    }
+    a:hover {
+      color: @hover_gray;
+    }
+  }
 
 /* ----------------------------------------------------------------
     Overrides
@@ -307,17 +318,17 @@ h3.field-content{
 
 #top-bar {
   position: relative;
-  background-color: #EEE;
+  background-color: #f7f7f7;
   height: 40px;
 }
 
 #header {
-  background-color: #d0d0d0;
+  background-color: @background_gray;
 }
 
 .navbar-default {
-  background-color: #d0d0d0;
-  border-color: #d0d0d0; 
+  background-color: @background_gray;
+  border-color: @background_gray; 
 }
 
 /* ----------------------------------------------------------------
@@ -629,7 +640,7 @@ h3.field-content{
 }
 
 #home-page-content-bottom {
-  background: rgba(39, 128, 175, 0.8);
+  background: @background_gray;
 }
 
 #block-katakrak-newsletter-suscribe input[type="text"] {
@@ -800,13 +811,6 @@ html.js input.throbbing {
   }
   .view-kantina {
     margin-top: 40px;
-  }
-  
-  .btn {
-    margin-top: 10px;
-    a {
-      color: white;
-    }
   }
 }
 
@@ -1300,7 +1304,7 @@ Responsiveness
   }
   
   div.promo-right {
-    margin-top: 80px;
+    margin-top: 40px;
   }
 }
 

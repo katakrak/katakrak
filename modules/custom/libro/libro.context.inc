@@ -15,7 +15,7 @@ function libro_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'faq-libreria';
   $context->description = '';
-  $context->tag = 'Book';
+  $context->tag = 'Libro';
   $context->conditions = array(
     'path' => array(
       'values' => array(
@@ -24,14 +24,12 @@ function libro_context_default_contexts() {
       ),
     ),
   );
-  $context->reactions = array(
-    'menu' => 'libros',
-  );
+  $context->reactions = array();
   $context->condition_mode = 0;
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Book');
+  t('Libro');
   $export['faq-libreria'] = $context;
 
   $context = new stdClass();
@@ -39,7 +37,7 @@ function libro_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'libros_por_categoria';
   $context->description = '';
-  $context->tag = 'Book';
+  $context->tag = 'Libro';
   $context->conditions = array(
     'taxonomy_term' => array(
       'values' => array(
@@ -52,29 +50,15 @@ function libro_context_default_contexts() {
   );
   $context->reactions = array(
     'block' => array(
-      'blocks' => array(
-        'katakrak_search-katakrak_books_search_block' => array(
-          'module' => 'katakrak_search',
-          'delta' => 'katakrak_books_search_block',
-          'region' => 'content_bottom_left',
-          'weight' => '-10',
-        ),
-        'libro-katakrak_libro_estilo' => array(
-          'module' => 'libro',
-          'delta' => 'katakrak_libro_estilo',
-          'region' => 'content_bottom_right',
-          'weight' => '-10',
-        ),
-      ),
+      'blocks' => array(),
       'layout' => 'book',
     ),
-    'menu' => 'libros',
   );
   $context->condition_mode = 0;
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Book');
+  t('Libro');
   $export['libros_por_categoria'] = $context;
 
   $context = new stdClass();
@@ -82,7 +66,7 @@ function libro_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'node_book';
   $context->description = '';
-  $context->tag = 'Book';
+  $context->tag = 'Libro';
   $context->conditions = array(
     'node' => array(
       'values' => array(
@@ -107,22 +91,9 @@ function libro_context_default_contexts() {
           'region' => 'content',
           'weight' => '-10',
         ),
-        'katakrak_search-katakrak_books_search_block' => array(
-          'module' => 'katakrak_search',
-          'delta' => 'katakrak_books_search_block',
-          'region' => 'content_bottom_left',
-          'weight' => '-10',
-        ),
-        'libro-katakrak_libro_estilo' => array(
-          'module' => 'libro',
-          'delta' => 'katakrak_libro_estilo',
-          'region' => 'content_bottom_right',
-          'weight' => '-10',
-        ),
       ),
       'layout' => 'book',
     ),
-    'menu' => 'libros',
     'theme' => array(
       'title' => 'Leer os hará libros',
       'subtitle' => '',
@@ -132,7 +103,7 @@ function libro_context_default_contexts() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Book');
+  t('Libro');
   $export['node_book'] = $context;
 
   return $export;

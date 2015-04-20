@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-xs-4 col-lg-12 col-md-12 col-sm-12">
+  <div class="col-xs-4 col-lg-12 col-md-12 col-sm-12 promo-right">
     <?php print $link_agenda_icon ?>
     <div class="promo-right-text">
       <h3><?php print l(t('Katakrak Agenda'), 'agenda') ?></h3>
@@ -7,9 +7,9 @@
     </div>
   </div>
   <div class="col-xs-4 col-lg-12 col-md-12 col-sm-12 promo-right">
-    <?php print $link_boletin_icon ?>
+    <?php print $link_tienda_icon ?>
     <div class="promo-right-text">
-      <h3><?php print l(t('Boletin semanal'), 'boletin') ?></h3>
+      <h3><?php print l(t('Tienda'), 'tienda') ?></h3>
     </div>
   </div>
   <div class="col-xs-4 col-lg-12 col-md-12 col-sm-12 promo-right">

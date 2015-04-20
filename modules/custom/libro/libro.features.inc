@@ -177,8 +177,8 @@ function libro_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 150,
-          'height' => 200,
+          'width' => 300,
+          'height' => 400,
         ),
         'weight' => 1,
       ),

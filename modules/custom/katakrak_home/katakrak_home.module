@@ -65,8 +65,8 @@ function katakrak_home_preprocess_katakrak_home_promo_right(&$vars) {
     )
   );
   
-  $vars['link_boletin_icon'] = l(
-    '<span class="glyphicon glyphicon-envelope fa-5x" aria-hidden="true"></span>',
+  $vars['link_tienda_icon'] = l(
+    '<span class="glyphicon glyphicon-shopping-cart fa-5x" aria-hidden="true"></span>',
     'boletin',
     array(
       'html' => TRUE,

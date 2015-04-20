@@ -23,13 +23,8 @@
  *
  * @ingroup views_templates
  */
+dpm ($fields);
 ?>
-<div class="row">
-<div class="col-lg-6">
-  <?php print $fields['title']->content ?>
-</div>
-
-<div class="col-lg-6">
-  <?php print $fields['field_event_date']->content ?>
-</div>
-</div>
+<?php print $fields['title']->content ?>
+<?php print $fields['field_event_image']->content ?>
+<?php print $fields['field_event_date']->content ?>
