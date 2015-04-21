@@ -1,0 +1,1 @@
+views-isotope-filter-block--agenda--isotope-filter.tpl.php

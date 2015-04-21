@@ -75,7 +75,7 @@ function katakrak_home_preprocess_katakrak_home_promo_right(&$vars) {
   
   $vars['link_blog_icon'] = l(
     '<span class="glyphicon glyphicon-comment fa-5x" aria-hidden="true"></span>',
-    'agenda',
+    'blog',
     array(
       'html' => TRUE,
     )

@@ -39,14 +39,8 @@ else {
   $body_text = $body->field_boletin_body_texto['und'][0]['value'] ; 
 }
 ?>
-<div class="row">
-  <div class="col-lg-6">
     <?php print $fields['field_boletin_imagen']->content ?>
-  </div>
-  <div class="col-lg-6">
     <?php print $fields['title']->content ?>
     <?php print t("Posted on !date", array('!date' => format_date($fields['created']->raw, 'custom', $date_format))) ?>
     <?php print check_markup($body_text, $body->field_boletin_body_texto['und'][0]['format']) ?>
     <?php print $fields['view_node']->content ?>
-  </div>
-</div>
