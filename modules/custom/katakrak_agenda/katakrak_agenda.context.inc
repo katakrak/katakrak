@@ -27,9 +27,9 @@ function katakrak_agenda_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-agenda-highlight' => array(
+        'views-agenda-isotope_filter' => array(
           'module' => 'views',
-          'delta' => 'agenda-highlight',
+          'delta' => 'agenda-isotope_filter',
           'region' => 'content_top',
           'weight' => '-10',
         ),
@@ -39,6 +39,10 @@ function katakrak_agenda_context_default_contexts() {
     'menu' => array(
       0 => 'main-menu:agenda',
     ),
+    'theme' => array(
+      'title' => 'Agenda',
+      'subtitle' => '',
+    ),
   );
   $context->condition_mode = 0;
 
@@ -46,6 +50,40 @@ function katakrak_agenda_context_default_contexts() {
   // Included for use with string extractors like potx.
   t('Agenda');
   $export['agenda'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'calendario';
+  $context->description = 'Calendario view';
+  $context->tag = 'Agenda';
+  $context->conditions = array(
+    'views' => array(
+      'values' => array(
+        'agenda:calendario' => 'agenda:calendario',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(),
+      'layout' => 'agenda',
+    ),
+    'menu' => array(
+      0 => 'main-menu:agenda',
+    ),
+    'theme' => array(
+      'title' => 'Agenda',
+      'subtitle' => '',
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Agenda');
+  t('Calendario view');
+  $export['calendario'] = $context;
 
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
@@ -77,6 +115,10 @@ function katakrak_agenda_context_default_contexts() {
     ),
     'menu' => array(
       0 => 'main-menu:agenda',
+    ),
+    'theme' => array(
+      'title' => 'Agenda',
+      'subtitle' => '',
     ),
   );
   $context->condition_mode = 0;

@@ -772,9 +772,13 @@ div.search-results div:last-child {
 .agenda-page h1 {
   word-break: break-word;
 }
+.agenda-page #block-views-agenda-isotope-filter {
+  padding-top: 15px;
+}
 .agenda-page span.glyphicon {
   float: left;
   padding-left: 15px;
+  padding-right: 20px;
 }
 .agenda-page #portfolio-filter li a {
   color: #FFFFFF;
@@ -1073,6 +1077,14 @@ ul.pager li {
 ul.pager li.pager-current {
   padding: 0 10px 0 10px;
   font-weight: bold;
+}
+/*******************************************************************************
+Blog
+*******************************************************************************/
+.blog-page span.glyphicon {
+  float: left;
+  padding-left: 15px;
+  padding-right: 20px;
 }
 /*******************************************************************************
 Irakurle taldeak
