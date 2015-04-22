@@ -172,14 +172,16 @@
                   <?php print isset($content['estado']) ? $content['estado'] :  t($content['field_libro_estado'][0]['#markup']) ?>
                 </span>
               </div>
-              <div class="book-info-entry">
-                <span class="col-2 book-info-label">
-                  <?php print t('Sección') ?>
-                </span>
-                <span class="col-2 book-info-data">
-                  <?php print $content['field_libro_categoria'][0]['#markup'] ?>
-                </span>
-              </div>
+              <?php if ($content['field_libro_categoria']): ?>
+                <div class="book-info-entry">
+                  <span class="col-2 book-info-label">
+                    <?php print t('Sección') ?>
+                  </span>
+                  <span class="col-2 book-info-data">
+                    <?php $node->ubicacion ? print $node->ubicacion . ' / ': ''?><?php print $content['field_libro_categoria'][0]['#markup'] ?>
+                  </span>
+                </div>
+              <?php endif; ?>
             </div>
 
           <div class="col-sm-6 col-md-6">

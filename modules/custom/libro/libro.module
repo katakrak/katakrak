@@ -203,6 +203,11 @@ function libro_node_presave($node) {
 function libro_node_load($nodes, $types) {
   if (count(array_intersect(array('libro'), $types))) {
     foreach($nodes as $node) {
+      $ubicacion = taxonomy_get_parents($node->field_libro_categoria['und'][0]['tid']);
+      if ($ubicacion) {
+        $ubicacion = array_pop($ubicacion);
+        $node->ubicacion = $ubicacion->name;
+      }
       foreach ($node->field_libro_autores['und'] as $autores) {
         $term = taxonomy_term_load($autores['tid']);
         $node->autores[] = $term->name;
