@@ -40,6 +40,17 @@
     }
   }
 
+#portfolio-filter {
+  li {
+    margin: 0 10px;
+    padding: 10px;
+    border-radius: 15px;
+    a {
+      padding-top: 5px;
+      font-size: 1.2em;
+    }
+  }
+}
 /* ----------------------------------------------------------------
     Overrides
 -----------------------------------------------------------------*/
@@ -878,10 +889,33 @@ div.search-results div:last-child {
 
 /** Agenda styles **/
 
-.agenda-page h1 {
-  word-break: break-word;
+.agenda-page {
+  h1 {
+    word-break: break-word;
+  }
+  h2 {
+    
+  }
+  span.glyphicon {
+    float: left;
+    padding-left: 15px;
+  }
+  #portfolio-filter {
+    li {
+      a {
+        color: #FFFFFF;
+        padding-top: 5px;
+        font-size: 1.2em;
+      }
+      a:hover {
+        color: #000000;
+      }
+      a.selected {
+        color: #000000;
+      }
+    } 
+  }
 }
-
 .entry_date {
   float: none;
 }
@@ -918,25 +952,6 @@ div.search-results div:last-child {
   word-break: break-word;
   :hover {
     color: @hover_gray;
-  } 
-}
-
-#portfolio-filter {
-  li {
-    margin: 0 10px;
-    padding: 10px;
-    border-radius: 15px;
-    a{
-      color: #FFFFFF;
-      padding-top: 5px;
-      font-size: 1.2em;
-    }
-    a:hover {
-      color: #000000;
-    }
-    a.selected {
-      color: #000000;
-    }
   } 
 }
   

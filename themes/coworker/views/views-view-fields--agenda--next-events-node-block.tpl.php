@@ -23,7 +23,6 @@
  *
  * @ingroup views_templates
  */
-dpm ($fields);
 ?>
 <?php print $fields['title']->content ?>
 <?php print $fields['field_event_image']->content ?>

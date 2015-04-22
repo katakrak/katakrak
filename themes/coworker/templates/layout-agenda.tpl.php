@@ -12,7 +12,7 @@
 
         <?php
         $content_class = 'content-main-column';
-        $content_rows = "col-md-12";
+        $content_rows = "col-md-12 col-lg-12 col-sd-12";
         $sidebar_class = 'sidebar-column';
         if ($page['sidebar_first']) {
           $content_class = 'postcontent col_last';
@@ -35,14 +35,6 @@
           <?php endif; ?>
 
           <?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
-          <?php if ($page['content_top']): ?>
-            <div id="content-top">
-              <div class="row">
-              <div class="col-lg-offset-2 col-sm-8 col-md-8">
-                <?php print render($page['content_top']); ?>
-              </div>
-            </div></div>
-          <?php endif; ?>
           <a id="main-content"></a>
           <?php print render($title_prefix); ?>
           <?php print render($title_suffix); ?>
@@ -53,6 +45,16 @@
           <?php print render($page['help']); ?>
           <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
 
+          
+          <div class="row">
+            <div class="col-lg-3">
+              <span class="glyphicon glyphicon-calendar fa-5x" aria-hidden="true"></span><h2><?php print $section_title ?></h2>
+            </div>
+            <div class="col-lg-offset-1 col-lg-8">
+              <?php print render($page['content_top']); ?>
+            </div>
+          </div>
+          
           <div class="<?php print $content_rows?>">
             <?php print render($page['content']); ?>
             <?php print $feed_icons; ?>

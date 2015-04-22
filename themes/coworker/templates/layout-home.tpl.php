@@ -1,6 +1,6 @@
 <?php include 'page-header.inc' ?>
 <div class="clear"></div>
-<div id="content">
+<div id="content"class="page-home">
     <div class="content-wrap">
       <div class="container clearfix">
         <!-- content region -->

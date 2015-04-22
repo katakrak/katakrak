@@ -13,6 +13,15 @@
 .btn a:hover {
   color: #444444;
 }
+#portfolio-filter li {
+  margin: 0 10px;
+  padding: 10px;
+  border-radius: 15px;
+}
+#portfolio-filter li a {
+  padding-top: 5px;
+  font-size: 1.2em;
+}
 /* ----------------------------------------------------------------
     Overrides
 -----------------------------------------------------------------*/
@@ -763,6 +772,21 @@ div.search-results div:last-child {
 .agenda-page h1 {
   word-break: break-word;
 }
+.agenda-page span.glyphicon {
+  float: left;
+  padding-left: 15px;
+}
+.agenda-page #portfolio-filter li a {
+  color: #FFFFFF;
+  padding-top: 5px;
+  font-size: 1.2em;
+}
+.agenda-page #portfolio-filter li a:hover {
+  color: #000000;
+}
+.agenda-page #portfolio-filter li a.selected {
+  color: #000000;
+}
 .entry_date {
   float: none;
 }
@@ -797,22 +821,6 @@ div.search-results div:last-child {
 }
 #block-views-agenda-next-events-node-block h3 a :hover {
   color: #444444;
-}
-#portfolio-filter li {
-  margin: 0 10px;
-  padding: 10px;
-  border-radius: 15px;
-}
-#portfolio-filter li a {
-  color: #FFFFFF;
-  padding-top: 5px;
-  font-size: 1.2em;
-}
-#portfolio-filter li a:hover {
-  color: #000000;
-}
-#portfolio-filter li a.selected {
-  color: #000000;
 }
 /** FORMS **/
 #block-katakrak-newsletter-suscribe,
