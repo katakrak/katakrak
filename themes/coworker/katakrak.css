@@ -581,6 +581,11 @@ h3.field-content a:hover {
   margin-top: 10px;
 }
 /* ESTILOS PARA LIBRO */
+.book-page span.glyphicon {
+  float: left;
+  padding-left: 15px;
+  padding-right: 20px;
+}
 .book-info-entry {
   border-bottom: 1px solid #eee;
 }

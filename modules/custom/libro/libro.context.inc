@@ -53,6 +53,10 @@ function libro_context_default_contexts() {
       'blocks' => array(),
       'layout' => 'book',
     ),
+    'theme' => array(
+      'title' => 'Librería',
+      'subtitle' => '',
+    ),
   );
   $context->condition_mode = 0;
 
@@ -95,7 +99,7 @@ function libro_context_default_contexts() {
       'layout' => 'book',
     ),
     'theme' => array(
-      'title' => 'Leer os hará libros',
+      'title' => 'Librería',
       'subtitle' => '',
     ),
   );

@@ -148,7 +148,7 @@ function libro_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Tienda';
+  $handler->display->display_options['title'] = 'Libros';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Contenido: Referenced products */
   $handler->display->display_options['relationships']['field_libro_producto_product_id']['id'] = 'field_libro_producto_product_id';
@@ -560,6 +560,7 @@ function libro_views_default_views() {
     t('Nid'),
     t('<i class="fa fa-book fa-26x book-cover-not-found"></i>'),
     t('Page'),
+    t('Libros'),
     t('Books block home'),
     t('Librería'),
     t('Entra en la tienda online'),
@@ -578,7 +579,6 @@ function libro_views_default_views() {
     t('Libros de boletin'),
     t('libros'),
     t('Libros grupo de lectura'),
-    t('Libros'),
     t('field_ciclo_libros'),
   );
   $export['libros'] = $view;

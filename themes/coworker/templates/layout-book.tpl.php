@@ -7,9 +7,9 @@
   }
 ?>
 <?php include 'page-header.inc' ?>
-<div id="content">
+<div id="content" class="book-page">
     <div class="content-wrap">
-      <div class="container clearfix kantina-page">
+      <div class="container clearfix">
         <!-- content region -->
         <div class="<?php print $content_class; ?> nobottommargin clearfix">
           <?php if ($breadcrumb): ?>
@@ -32,6 +32,12 @@
           <?php print render($title_prefix); ?>
           <?php print render($title_suffix); ?>
 
+          <div class="row">
+            <div class="col-lg-3">
+              <span class="glyphicon glyphicon-book fa-5x" aria-hidden="true"></span><h2><?php print $section_title ?></h2>
+            </div>
+          </div>
+          
           <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
           <div class="row">
             <div class="<?php print $content_classes ?>">
