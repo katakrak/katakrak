@@ -207,6 +207,12 @@ function libro_node_load($nodes, $types) {
         $term = taxonomy_term_load($autores['tid']);
         $node->autores[] = $term->name;
       }
+      $ubicacion = taxonomy_get_parents($node->field_libro_categoria['und'][0]['tid']);
+      if ($ubicacion) {
+        $ubicacion = array_pop($ubicacion);
+        $node->ubicacion = $ubicacion->name;
+      }
+
       $query = db_query("SELECT p.entity_id AS id, n.language as lang
 FROM  `field_data_field_parada_libro` l
 INNER JOIN field_data_field_itinerario_parada_libros pl ON l.entity_id = pl.field_itinerario_parada_libros_value

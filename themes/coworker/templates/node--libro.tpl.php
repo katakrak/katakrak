@@ -175,7 +175,7 @@
                   <?php print t('Sección') ?>
                 </span>
                 <span class="col-2 book-info-data">
-                    <?php print $content['field_libro_categoria'][0]['#markup'] ?>
+                    <?php $node->ubicacion ? print $node->ubicacion . ' / ': ''?><?php print $content['field_libro_categoria'][0]['#markup'] ?>
                 </span>
               </div>
             </div>
