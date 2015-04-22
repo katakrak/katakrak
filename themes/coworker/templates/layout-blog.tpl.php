@@ -1,5 +1,5 @@
 <?php include 'page-header.inc' ?>
-<div id="content" class="agenda-page">
+<div id="content" class="blog-page">
     <?php if ($page['contact_map']): ?>
       <div id="google-map" class="contact-map">
         <div style="display: block !important;" class="slider-line"></div>
@@ -48,7 +48,7 @@
           
           <div class="row">
             <div class="col-lg-3">
-              <span class="glyphicon glyphicon-calendar fa-5x" aria-hidden="true"></span><h2><?php print $section_title ?></h2>
+              <span class="glyphicon glyphicon-comment fa-5x" aria-hidden="true"></span><h2><?php print $section_title ?></h2>
             </div>
             <div class="col-lg-offset-1 col-lg-8">
               <?php print render($page['content_top']); ?>
