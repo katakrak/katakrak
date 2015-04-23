@@ -2,6 +2,7 @@
 @hover_gray: #444;
 @background_gray: #f0f0f0;
 @custom_blue: #2780AF;
+@custom_pink: #F50087;
 
 .generate-fa-sizes(@n, @i: 1) when (@i =< @n) {
   .fa-@{i}x {
@@ -51,6 +52,7 @@
     }
   }
 }
+
 /* ----------------------------------------------------------------
     Overrides
 -----------------------------------------------------------------*/
@@ -662,6 +664,9 @@ h3.field-content{
   margin-top: 10px;
 }
 
+.page-home h2 {
+}
+
 /* ESTILOS PARA LIBRO */
 
 .book-page {
@@ -676,7 +681,7 @@ h3.field-content{
 }
 
 .book-info-entry .book-price {
-  color: #F50087;
+  color: @custom_pink;
   font-weight: bold;
 }
 
@@ -1021,7 +1026,7 @@ div.search-results div:last-child {
 }
 
 #block-katakrak-katakrak-cart .cart {
-  color: #F50087;
+  color: @custom_pink;
 }
 
 .view-id-commerce_cart_form .views-table,
@@ -1092,7 +1097,7 @@ span.fieldset-legend {
 
 .line-item-total-raw, 
 .component-type-commerce-price-formatted-amount .component-total {
-  color: #F50087;
+  color: @custom_pink;
   font-weight: bold;
 }
 
@@ -1251,7 +1256,7 @@ Responsiveness
 #primary-links ul li.active > a,
 #primary-links ul li.active > a span {
   border-top-color: rgba(0,0,0,0.1);
-  color: #F50087;
+  color: @custom_pink;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
 }
 

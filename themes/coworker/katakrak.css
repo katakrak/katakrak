@@ -590,7 +590,7 @@ h3.field-content a:hover {
   border-bottom: 1px solid #eee;
 }
 .book-info-entry .book-price {
-  color: #F50087;
+  color: #f50087;
   font-weight: bold;
 }
 .book-info-label {
@@ -958,7 +958,7 @@ div.search-results div:last-child {
   color: #444444;
 }
 #block-katakrak-katakrak-cart .cart {
-  color: #F50087;
+  color: #f50087;
 }
 .view-id-commerce_cart_form .views-table,
 .view-commerce-cart-summary .views-table,
@@ -1073,7 +1073,7 @@ span.fieldset-legend {
 }
 .line-item-total-raw,
 .component-type-commerce-price-formatted-amount .component-total {
-  color: #F50087;
+  color: #f50087;
   font-weight: bold;
 }
 ul.pager li {
@@ -1217,7 +1217,7 @@ Responsiveness
   #primary-links ul li.active > a,
   #primary-links ul li.active > a span {
     border-top-color: rgba(0, 0, 0, 0.1);
-    color: #F50087;
+    color: #f50087;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   }
   #primary-links > ul > li:hover a span,

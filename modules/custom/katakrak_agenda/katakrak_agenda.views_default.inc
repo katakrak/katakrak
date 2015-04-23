@@ -179,6 +179,7 @@ function katakrak_agenda_views_default_views() {
 
   /* Display: Filter Bloque */
   $handler = $view->new_display('block', 'Filter Bloque', 'isotope_filter');
+  $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'isotope_filter_block';
   $handler->display->display_options['style_options']['portfolio_style'] = 'portfolio-4';

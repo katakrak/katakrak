@@ -60,7 +60,7 @@ function katakrak_kantina_block_view($delta) {
   global $language;
   
   if ($delta == 'katakrak_reserva_block') {
-    $block['title'] = t('Reserva sitio para comer');
+    $block['title'] = t('Reservas');
     $block['content'] = drupal_get_form('katakrak_kantina_reserva_form');
     return $block;
   }
@@ -94,6 +94,7 @@ function katakrak_kantina_reserva_form($form, &$form_state) {
   $form['nombre'] = array(
     '#type' => 'textfield',
     '#title' => t('Nombre'),
+    '#description' => 'Un nombre para que apuntemos la reserva',
     '#title_display' => 'invisible',
     '#attributes' => array(
       'placeholder' => t('Nombre')
@@ -101,11 +102,21 @@ function katakrak_kantina_reserva_form($form, &$form_state) {
   );
   $form['comensales'] = array(
     '#type' => 'textfield',
-    '#title' => t('Número de comensales'),
+    '#title' => t('Comensales'),
+    '#description' => t('¿Cúantas sois para comer?'),
     '#title_display' => 'invisible',
     '#size' => 60,
     '#attributes' => array(
-      'placeholder' => t('Número de comensales')
+      'placeholder' => t('Comensales')
+    ),
+  );
+  $form['email'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Email'),
+    '#title_display' => 'invisible',
+    '#size' => 60,
+    '#attributes' => array(
+      'placeholder' => t('E-mail')
     ),
   );
   $form['date'] = array(
