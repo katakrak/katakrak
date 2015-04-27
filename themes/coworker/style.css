@@ -4860,40 +4860,6 @@ a.twitter-follow-me:hover,
 #footer.footer-dark .widget_pages li a:hover { color: #BBB; }
 
 
-/* ----------------------------------------------------------------
-    Tag Cloud
------------------------------------------------------------------*/
-
-
-.tagcloud, .field-type-taxonomy-term-reference, .tagclouds { margin-bottom: -2px; }
-
-.tagcloud , .field-type-taxonomy-term-reference a, .tagclouds {
-  display: block;
-  float: left;
-  margin-right: 2px;
-  margin-bottom: 2px;
-  padding: 3px 6px;
-  background-color: #EEE;
-  font-size: 13px !important;
-  color: #666;
-  text-shadow: 1px 1px 1px #FFF;
-  border-radius: 2px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-}
-
-#footer.footer-dark .tagcloud a {
-  border: none !important;
-  background-color: #282A2B;
-}
-
-.tagcloud a:hover,
-#footer.footer-dark .tagcloud a:hover {
-  background-color: #57B3DF;
-  color: #FFF;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
-}
-
 
 /* ----------------------------------------------------------------
     Portfolio Widget

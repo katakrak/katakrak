@@ -1,20 +1,18 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-3 col-xs-6">
-        <span class="glyphicon glyphicon-cutlery fa-3x">
-        </span>
-        <h3>Kantina</h3>
+        <?php print $link_kantina_icon ?>
+        <h3>Cantina</h3>
       </div>
       <div class="col-lg-3 col-xs-6">
-        <span class="glyphicon glyphicon-book fa-3x">
-        </span>
+        <?php print $link_libreria_icon ?>
         <h3>Librería</h3>
       </div>
       <div class="col-lg-3 col-xs-6">
-        <h3>Gela nagusia</h3>
+        <h3>Sala mayor</h3>
       </div>
       <div class="col-lg-3 col-xs-6">
-        <span class="glyphicon glyphicon-glass fa-3x"></span>
+        <?php print $link_vinoteca_icon ?>
         <h3>Vinoteca</h3>
       </div>
     </div>

@@ -67,7 +67,7 @@ function katakrak_home_preprocess_katakrak_home_promo_right(&$vars) {
   
   $vars['link_tienda_icon'] = l(
     '<span class="glyphicon glyphicon-shopping-cart fa-5x" aria-hidden="true"></span>',
-    'boletin',
+    'tienda',
     array(
       'html' => TRUE,
     )
@@ -76,6 +76,32 @@ function katakrak_home_preprocess_katakrak_home_promo_right(&$vars) {
   $vars['link_blog_icon'] = l(
     '<span class="glyphicon glyphicon-comment fa-5x" aria-hidden="true"></span>',
     'blog',
+    array(
+      'html' => TRUE,
+    )
+  );
+}
+
+function katakrak_home_preprocess_katakrak_home_promo_bottom(&$vars) {
+  $vars['link_kantina_icon'] = l(
+    '<span class="glyphicon glyphicon-cutlery fa-5x" aria-hidden="true"></span>',
+    'cantina',
+    array(
+      'html' => TRUE,
+    )
+  );
+  
+  $vars['link_libreria_icon'] = l(
+    '<span class="glyphicon glyphicon-book fa-5x" aria-hidden="true"></span>',
+    'libreria',
+    array(
+      'html' => TRUE,
+    )
+  );
+  
+  $vars['link_vinoteca_icon'] = l(
+    '<span class="glyphicon glyphicon-glass fa-5x" aria-hidden="true"></span>',
+    'vinoteca',
     array(
       'html' => TRUE,
     )
