@@ -107,23 +107,28 @@ if (!$page) {
       </div>
       <p><?php print format_date($node->changed, 'media') ?></p>
 
-      <div>
-        <h2><?php print t("Ensaladas") ?></h2>
-        <?php foreach ($node->field_menu_hotzak['und'] as $key => $value): ?>
-          <p><?php print $value['value'] ?></p>
-        <?php endforeach; ?>
+      <div class="row">
+        <div class="col-lg-3 col-lg-offset-3">
+          <h2><?php print t("Ensaladas") ?></h2>
+          <?php foreach ($node->field_menu_hotzak['und'] as $key => $value): ?>
+            <p><?php print $value['value'] ?></p>
+          <?php endforeach; ?>
+        </div>
+        <div class="col-lg-3">
+          <h2><?php print t("Cuencos") ?></h2>
+          <?php foreach ($node->field_menu_beroak['und'] as $key => $value): ?>
+            <p><?php print $value['value'] ?></p>
+          <?php endforeach; ?>
+        </div>
       </div>
-      <div>
-        <h2><?php print t("Cuencos") ?></h2>
-        <?php foreach ($node->field_menu_beroak['und'] as $key => $value): ?>
-          <p><?php print $value['value'] ?></p>
-        <?php endforeach; ?>
-      </div>
-      <div>
-        <h2><?php print t("Postres") ?></h2>
-        <?php foreach ($node->field_menu_azkenburukoak['und'] as $key => $value): ?>
-          <p><?php print $value['value'] ?></p>
-        <?php endforeach; ?>
+          
+      <div class="row">
+        <div class="col-lg-2 col-lg-offset-5">
+          <h2><?php print t("Postres") ?></h2>
+          <?php foreach ($node->field_menu_azkenburukoak['und'] as $key => $value): ?>
+            <p><?php print $value['value'] ?></p>
+          <?php endforeach; ?>
+        </div>
       </div>
       
       -----------------------------------------------------------------------------------

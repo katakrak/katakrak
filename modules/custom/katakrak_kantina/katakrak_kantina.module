@@ -22,7 +22,6 @@ function katakrak_kantina_menu() {
   $items = array();
   $items['cantina/denoche'] = array(
     'title' => 'De noche',
-    'description' => 'Dilve options',
     'page callback' => 'katakrak_kantina_denoche_page',
     'access callback' => TRUE,
   );

@@ -23,10 +23,10 @@
           <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
 
           <div class="row">
-            <div class="col-md-8 col-lg-8 col-sm-8">
+            <div class="col-md-9 col-lg-9 col-sm-9">
               <?php print render($page['content']); ?>
             </div>
-            <div class="col-md-4 col-lg4 col-sm-4">
+            <div class="col-md-3 col-lg3 col-sm-3">
               <?php if ($page['sidebar_second']): ?>
               <!-- sidebar right --> 
                 <div id="sidebar-second" class="sidebar-right nobottommargin clearfix">

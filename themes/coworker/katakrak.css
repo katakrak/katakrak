@@ -558,6 +558,9 @@ h3.field-content a:hover {
 #block-katakrak-home-katakrak-home-promo-right span.glyphicon {
   color: rgba(39, 128, 175, 0.9);
 }
+#block-katakrak-home-katakrak-home-promo-bottom div {
+  text-align: center;
+}
 #home-page-content-bottom {
   margin: 30px 0 20px 0;
   padding: 20px 0;
@@ -1103,18 +1106,18 @@ Blog
 /*******************************************************************************
 Irakurle taldeak
 *******************************************************************************/
-.pane-views-ciclos-block,
+.pane-views-agenda-citas-ciclo,
 .pane-views-libros-libros-grupo-lectura {
   margin-top: 10px;
 }
-.pane-views-ciclos-block .pane-title,
+.pane-views-agenda-citas-ciclo .pane-title,
 .pane-views-libros-libros-grupo-lectura .pane-title {
   background: black;
   color: #fff;
   text-transform: uppercase;
   padding: 11px;
 }
-.pane-views-ciclos-block .pane-content,
+.pane-views-agenda-citas-ciclo .pane-content,
 .pane-views-libros-libros-grupo-lectura .pane-content {
   margin-top: 10px;
 }
