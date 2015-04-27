@@ -201,6 +201,14 @@ function katakrak_agenda_image_default_styles() {
  */
 function katakrak_agenda_node_info() {
   $items = array(
+    'ciclo' => array(
+      'name' => t('Ciclo'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Titulo'),
+      'help' => '',
+    ),
     'event' => array(
       'name' => t('Event'),
       'base' => 'node_content',

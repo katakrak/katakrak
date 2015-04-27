@@ -872,6 +872,96 @@ function katakrak_agenda_views_default_views() {
   );
   $handler->display->display_options['filters']['language']['group'] = 1;
   $handler->display->display_options['block_description'] = 'Next events block page';
+
+  /* Display: Citas de ciclo */
+  $handler = $view->new_display('block', 'Citas de ciclo', 'citas_ciclo');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Citas';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
+  $handler->display->display_options['style_options']['columns'] = '2';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Campo: Contenido: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  /* Campo: Contenido: Image */
+  $handler->display->display_options['fields']['field_event_image']['id'] = 'field_event_image';
+  $handler->display->display_options['fields']['field_event_image']['table'] = 'field_data_field_event_image';
+  $handler->display->display_options['fields']['field_event_image']['field'] = 'field_event_image';
+  $handler->display->display_options['fields']['field_event_image']['label'] = '';
+  $handler->display->display_options['fields']['field_event_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_event_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_event_image']['settings'] = array(
+    'image_style' => 'event_teaser',
+    'image_link' => 'content',
+  );
+  /* Campo: Contenido: Date */
+  $handler->display->display_options['fields']['field_event_date']['id'] = 'field_event_date';
+  $handler->display->display_options['fields']['field_event_date']['table'] = 'field_data_field_event_date';
+  $handler->display->display_options['fields']['field_event_date']['field'] = 'field_event_date';
+  $handler->display->display_options['fields']['field_event_date']['label'] = '';
+  $handler->display->display_options['fields']['field_event_date']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_event_date']['settings'] = array(
+    'format_type' => 'long',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_repeat_rule' => 'show',
+  );
+  /* Campo: Contenido: Título */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Contenido: Ciclo (field_event_ciclo) */
+  $handler->display->display_options['arguments']['field_event_ciclo_tid']['id'] = 'field_event_ciclo_tid';
+  $handler->display->display_options['arguments']['field_event_ciclo_tid']['table'] = 'field_data_field_event_ciclo';
+  $handler->display->display_options['arguments']['field_event_ciclo_tid']['field'] = 'field_event_ciclo_tid';
+  $handler->display->display_options['arguments']['field_event_ciclo_tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_event_ciclo_tid']['exception']['title'] = 'Todo(s)';
+  $handler->display->display_options['arguments']['field_event_ciclo_tid']['default_argument_type'] = 'raw';
+  $handler->display->display_options['arguments']['field_event_ciclo_tid']['default_argument_options']['index'] = '2';
+  $handler->display->display_options['arguments']['field_event_ciclo_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_event_ciclo_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_event_ciclo_tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Contenido: Publicado */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Contenido: Tipo */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'event' => 'event',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Contenido: Idioma */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
+  $handler->display->display_options['filters']['language']['group'] = 1;
   $translatables['agenda'] = array(
     t('Master'),
     t('Calendario'),
@@ -903,6 +993,8 @@ function katakrak_agenda_views_default_views() {
     t('Feed'),
     t('Next events block page'),
     t('Hurrengo ekitaldiak'),
+    t('Citas de ciclo'),
+    t('Citas'),
   );
   $export['agenda'] = $view;
 
@@ -1246,132 +1338,6 @@ function katakrak_agenda_views_default_views() {
     t('Todo(s)'),
   );
   $export['agenda_admin'] = $view;
-
-  $view = new view();
-  $view->name = 'ciclos';
-  $view->description = '';
-  $view->tag = 'default';
-  $view->base_table = 'node';
-  $view->human_name = 'Ciclos';
-  $view->core = 7;
-  $view->api_version = '3.0';
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-
-  /* Display: Master */
-  $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Citas';
-  $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'más';
-  $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'none';
-  $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Aplicar';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordenar por';
-  $handler->display->display_options['pager']['type'] = 'none';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
-  $handler->display->display_options['style_options']['columns'] = '2';
-  $handler->display->display_options['row_plugin'] = 'fields';
-  /* Campo: Contenido: Título */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Campo: Contenido: Image */
-  $handler->display->display_options['fields']['field_event_image']['id'] = 'field_event_image';
-  $handler->display->display_options['fields']['field_event_image']['table'] = 'field_data_field_event_image';
-  $handler->display->display_options['fields']['field_event_image']['field'] = 'field_event_image';
-  $handler->display->display_options['fields']['field_event_image']['label'] = '';
-  $handler->display->display_options['fields']['field_event_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_event_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_event_image']['settings'] = array(
-    'image_style' => 'event_ciclos',
-    'image_link' => 'content',
-  );
-  /* Campo: Contenido: Nid */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'node';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  /* Campo: Contenido: Date */
-  $handler->display->display_options['fields']['field_event_date']['id'] = 'field_event_date';
-  $handler->display->display_options['fields']['field_event_date']['table'] = 'field_data_field_event_date';
-  $handler->display->display_options['fields']['field_event_date']['field'] = 'field_event_date';
-  $handler->display->display_options['fields']['field_event_date']['label'] = '';
-  $handler->display->display_options['fields']['field_event_date']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_event_date']['settings'] = array(
-    'format_type' => 'long',
-    'fromto' => 'both',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-  );
-  /* Campo: Contenido: Event type */
-  $handler->display->display_options['fields']['field_event_type']['id'] = 'field_event_type';
-  $handler->display->display_options['fields']['field_event_type']['table'] = 'field_data_field_event_type';
-  $handler->display->display_options['fields']['field_event_type']['field'] = 'field_event_type';
-  $handler->display->display_options['fields']['field_event_type']['label'] = '';
-  $handler->display->display_options['fields']['field_event_type']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_event_type']['type'] = 'i18n_taxonomy_term_reference_plain';
-  /* Sort criterion: Contenido: Date (field_event_date) */
-  $handler->display->display_options['sorts']['field_event_date_value']['id'] = 'field_event_date_value';
-  $handler->display->display_options['sorts']['field_event_date_value']['table'] = 'field_data_field_event_date';
-  $handler->display->display_options['sorts']['field_event_date_value']['field'] = 'field_event_date_value';
-  /* Contextual filter: Contenido: Ciclo (field_event_ciclo) */
-  $handler->display->display_options['arguments']['field_event_ciclo_tid']['id'] = 'field_event_ciclo_tid';
-  $handler->display->display_options['arguments']['field_event_ciclo_tid']['table'] = 'field_data_field_event_ciclo';
-  $handler->display->display_options['arguments']['field_event_ciclo_tid']['field'] = 'field_event_ciclo_tid';
-  $handler->display->display_options['arguments']['field_event_ciclo_tid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_event_ciclo_tid']['exception']['title'] = 'Todo(s)';
-  $handler->display->display_options['arguments']['field_event_ciclo_tid']['default_argument_type'] = 'raw';
-  $handler->display->display_options['arguments']['field_event_ciclo_tid']['default_argument_options']['index'] = '2';
-  $handler->display->display_options['arguments']['field_event_ciclo_tid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_event_ciclo_tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_event_ciclo_tid']['summary_options']['items_per_page'] = '25';
-  /* Filter criterion: Contenido: Publicado */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Contenido: Tipo */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'event' => 'event',
-  );
-  /* Filter criterion: Contenido: Idioma */
-  $handler->display->display_options['filters']['language']['id'] = 'language';
-  $handler->display->display_options['filters']['language']['table'] = 'node';
-  $handler->display->display_options['filters']['language']['field'] = 'language';
-  $handler->display->display_options['filters']['language']['value'] = array(
-    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
-  );
-
-  /* Display: Block */
-  $handler = $view->new_display('block', 'Block', 'block');
-  $translatables['ciclos'] = array(
-    t('Master'),
-    t('Citas'),
-    t('más'),
-    t('Aplicar'),
-    t('Reiniciar'),
-    t('Ordenar por'),
-    t('Asc'),
-    t('Desc'),
-    t('Nid'),
-    t('Todo(s)'),
-    t('Block'),
-  );
-  $export['ciclos'] = $view;
 
   return $export;
 }
