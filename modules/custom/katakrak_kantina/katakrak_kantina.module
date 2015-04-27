@@ -87,33 +87,49 @@ function katakrak_kantina_theme() {
       'template' => 'katakrak-kantina-denoche-page',
       'path' => $path . '/templates',
     ),
+    'katakrak_reserva_block' => array(
+      'template' => 'katakrak-reserva-block',
+      'arguments' => array(
+        'form' => NULL
+      ),
+      'render element' => 'form',
+      'path' => $path . '/templates',
+    ),
   );
 }
 
 function katakrak_kantina_reserva_form($form, &$form_state) {
-  $form['nombre'] = array(
+  $form['datos'] = array(
+    '#type' => 'fieldset', 
+    '#title' => t('Datos personales'), 
+    '#weight' => 5, 
+    '#collapsible' => FALSE, 
+  );
+  $form['datos']['nombre'] = array(
     '#type' => 'textfield',
     '#title' => t('Nombre'),
-    '#description' => 'Un nombre para que apuntemos la reserva',
     '#title_display' => 'invisible',
+    '#required' => TRUE,
     '#attributes' => array(
       'placeholder' => t('Nombre')
     ),
   );
-  $form['comensales'] = array(
+  $form['datos']['comensales'] = array(
     '#type' => 'textfield',
     '#title' => t('Comensales'),
-    '#description' => t('¿Cúantas sois para comer?'),
     '#title_display' => 'invisible',
+    '#required' => TRUE,
     '#size' => 60,
     '#attributes' => array(
-      'placeholder' => t('Comensales')
+      'placeholder' => t('Nº de comensales')
     ),
+    '#element_validate' => array('element_validate_integer_positive'),
   );
-  $form['email'] = array(
+  $form['datos']['email'] = array(
     '#type' => 'textfield',
     '#title' => t('Email'),
     '#title_display' => 'invisible',
+    '#required' => TRUE,
     '#size' => 60,
     '#attributes' => array(
       'placeholder' => t('E-mail')
@@ -122,18 +138,42 @@ function katakrak_kantina_reserva_form($form, &$form_state) {
   $form['date'] = array(
   '#type' => 'date_popup',
   '#title' => t('Fecha y hora'),
+  '#required' => TRUE,
   '#title_display' => 'invisible',
   '#date_format' => 'Y-m-d H:i',
   );
-  $form['submit'] = array(
+  $form['datos']['submit'] = array(
     '#type' => 'submit',
     '#value' => t('Submit'),
   );
+  $form['#theme'] = 'katakrak_reserva_block';
   return $form;
 }
 
 
 function katakrak_kantina_reserva_form_submit($form, &$form_state) {
+}
+
+/**
+* Implements hook_mollom_form_list().
+*/
+function katakrak_kantina_mollom_form_list() {
+  $forms['katakrak_kantina_reserva_form'] = array(
+    'title' => t('Reserva form'),
+  );
+  return $forms;
+}
+/**
+* Implements hook_mollom_form_info().
+*/
+function katakrak_kantina_mollom_form_info($form_id) {
+  switch ($form_id) {
+    case 'katakrak_kantina_reserva_form':
+      $form_info = array(
+        'mode' => MOLLOM_MODE_CAPTCHA,   
+      );
+      return $form_info;
+  }
 }
 
 function katakrak_kantina_preprocess_katakrak_kantina_page_header(&$vars) {

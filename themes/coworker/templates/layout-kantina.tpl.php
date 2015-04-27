@@ -54,11 +54,11 @@
           <div class="col-lg-3 col-md-3 col-sm-3">
             <?php print render($page['content_bottom_second']); ?>
           </div>
-          <div class="col-lg-3 col-md-3 col-sm-3">
+          <div class="col-lg-6 col-md-6 col-sm-6">
             <?php print render($page['content_bottom_third']); ?>
           </div>
           <div class="col-lg-3 col-md-3 col-sm-3">
-            <?php print render($page['content_bottom_fourth']); ?>
+            <?php //print render($page['content_bottom_fourth']); ?>
           </div>
         </div>
         <?php endif; ?>

@@ -718,6 +718,15 @@ html.js input.throbbing {
 .kantina-page .view-kantina {
   margin-top: 40px;
 }
+.kantina-page input[type="text"] {
+  width: 75%;
+}
+.kantina-page .container-inline-date .date-padding {
+  padding: 0;
+}
+.kantina-page legend {
+  border-bottom: none;
+}
 .kantina-menu {
   text-align: center;
 }
