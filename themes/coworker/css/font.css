@@ -88,3 +88,13 @@ h1, h3, .month {
 .weekday {
   text-transform: lowercase;
 }
+
+h3 {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  h3 {
+    font-size: 25px;
+  }
+}

@@ -149,6 +149,13 @@ function libro_views_default_views() {
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Libros';
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Encabezado: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<h2>Recomendamos</h2>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Contenido: Referenced products */
   $handler->display->display_options['relationships']['field_libro_producto_product_id']['id'] = 'field_libro_producto_product_id';
@@ -515,7 +522,7 @@ function libro_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Contenido: Libros (field_ciclo_libros) - reverse */
+  /* Relationship: Contenido: Libros (field_ciclo_libros) - reverse (to Término de taxonomía) */
   $handler->display->display_options['relationships']['reverse_field_ciclo_libros_taxonomy_term']['id'] = 'reverse_field_ciclo_libros_taxonomy_term';
   $handler->display->display_options['relationships']['reverse_field_ciclo_libros_taxonomy_term']['table'] = 'node';
   $handler->display->display_options['relationships']['reverse_field_ciclo_libros_taxonomy_term']['field'] = 'reverse_field_ciclo_libros_taxonomy_term';
@@ -561,6 +568,7 @@ function libro_views_default_views() {
     t('<i class="fa fa-book fa-26x book-cover-not-found"></i>'),
     t('Page'),
     t('Libros'),
+    t('<h2>Recomendamos</h2>'),
     t('Books block home'),
     t('Librería'),
     t('Entra en la tienda online'),
@@ -1083,7 +1091,6 @@ function libro_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'jump_menu';
   $handler->display->display_options['style_options']['hide'] = TRUE;
   $handler->display->display_options['style_options']['path'] = 'tid';
-  $handler->display->display_options['style_options']['label'] = 'Sailetan barna';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Campo: Término de taxonomía: Rendered Término de taxonomía */
   $handler->display->display_options['fields']['rendered_entity']['id'] = 'rendered_entity';
@@ -1098,9 +1105,12 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['tid']['id'] = 'tid';
   $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['tid']['field'] = 'tid';
+  $handler->display->display_options['fields']['tid']['label'] = '';
   $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['tid']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['tid']['alter']['text'] = 'taxonomy/term/[tid]';
+  $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['tid']['separator'] = '';
   /* Sort criterion: Término de taxonomía: Nombre euskera (field_nombre_euskera) */
   $handler->display->display_options['sorts']['field_nombre_euskera_value']['id'] = 'field_nombre_euskera_value';
   $handler->display->display_options['sorts']['field_nombre_euskera_value']['table'] = 'field_data_field_nombre_euskera';
@@ -1162,10 +1172,8 @@ function libro_views_default_views() {
     t('Ordenar por'),
     t('Asc'),
     t('Desc'),
-    t('ID del término'),
     t('taxonomy/term/[tid]'),
     t('.'),
-    t(','),
     t('Secciones ES'),
     t('Secciones EU'),
   );

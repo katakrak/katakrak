@@ -1,8 +1,9 @@
 @link_gray: #777;
 @hover_gray: #444;
-@background_gray: #f0f0f0;
+@background_gray: #E6E6E6;
 @custom_blue: #2780AF;
 @custom_pink: #F50087;
+@block_gray: #808080;
 
 .generate-fa-sizes(@n, @i: 1) when (@i =< @n) {
   .fa-@{i}x {
@@ -53,11 +54,29 @@
   }
 }
 
+#content .block {
+  h2 {
+    color: #000;
+    background-color: @block_gray;
+    padding: 5px;
+  }
+}
+
+.block-tagclouds, #block-views-agenda-proximas-presentaciones {
+  .content {
+    padding: 10px;
+    border: 1px dashed @link_gray;
+  }
+}
+
 /* ----------------------------------------------------------------
     Overrides
 -----------------------------------------------------------------*/
 .navbar-collapse.in {
   overflow-y: hidden;
+}
+.navbar {
+  margin-bottom: 0px;
 }
 
 /** Estilos generales del sitio, tipografias, etc **/
@@ -642,7 +661,7 @@ h3.field-content{
 }
 
 #home-page-content-bottom  {
-  margin: 30px 0 20px 0;
+  margin: 40px 0 20px 0;
   padding: 20px 0;
 }
 
@@ -665,7 +684,7 @@ h3.field-content{
 
 .view-display-id-home {
   .event-type {
-    font-size: 18px;
+    font-size: 11px;
   }
 }
 
@@ -768,6 +787,7 @@ view-id-libros .book-author {
     margin-top: 10px;
     .rounded;
     font-size: 15px;
+    max-width: 100%;
   }
 }
 

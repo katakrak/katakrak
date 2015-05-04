@@ -22,11 +22,24 @@
   padding-top: 5px;
   font-size: 1.2em;
 }
+#content .block h2 {
+  color: #000;
+  background-color: #808080;
+  padding: 5px;
+}
+.block-tagclouds .content,
+#block-views-agenda-proximas-presentaciones .content {
+  padding: 10px;
+  border: 1px dashed #777777;
+}
 /* ----------------------------------------------------------------
     Overrides
 -----------------------------------------------------------------*/
 .navbar-collapse.in {
   overflow-y: hidden;
+}
+.navbar {
+  margin-bottom: 0px;
 }
 /** Estilos generales del sitio, tipografias, etc **/
 .field-type-text-long,
@@ -306,11 +319,11 @@ h3.field-content a:hover {
   height: 40px;
 }
 #header {
-  background-color: #f0f0f0;
+  background-color: #e6e6e6;
 }
 .navbar-default {
-  background-color: #f0f0f0;
-  border-color: #f0f0f0;
+  background-color: #e6e6e6;
+  border-color: #e6e6e6;
 }
 /* ----------------------------------------------------------------
     Logo
@@ -492,7 +505,7 @@ h3.field-content a:hover {
   background: none;
 }
 .popup-element-body table.popup-layout input {
-  border: solid 1px #f0f0f0;
+  border: solid 1px #e6e6e6;
 }
 /*
 #block-katakrak-katakrak-user-top a {
@@ -565,11 +578,11 @@ h3.field-content a:hover {
   color: black;
 }
 #home-page-content-bottom {
-  margin: 30px 0 20px 0;
+  margin: 40px 0 20px 0;
   padding: 20px 0;
 }
 #home-page-content-bottom {
-  background: #f0f0f0;
+  background: #e6e6e6;
 }
 #block-katakrak-newsletter-suscribe input[type="text"] {
   width: 100%;
@@ -581,7 +594,7 @@ h3.field-content a:hover {
   margin-top: 0;
 }
 .view-display-id-home .event-type {
-  font-size: 18px;
+  font-size: 11px;
 }
 #block-views-blog-block {
   margin-top: 10px;
@@ -666,6 +679,7 @@ view-id-libros .book-author {
   -webkit-border-radius: 10px;
   padding: 10px;
   font-size: 15px;
+  max-width: 100%;
 }
 #copyrights {
   border-top: none;
@@ -854,7 +868,7 @@ div.search-results div:last-child {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   padding: 10px;
-  background-color: #f0f0f0;
+  background-color: #e6e6e6;
 }
 #katakrak-search-form .katakrak-button {
   float: right;
@@ -1024,7 +1038,7 @@ div.search-results div:last-child {
   border-right: 2px solid #777777;
   border-bottom: 2px solid #777777;
   padding: 5px 10px !important;
-  background: #f0f0f0;
+  background: #e6e6e6;
   text-transform: uppercase;
   color: #000000;
   margin-top: 15px;
@@ -1035,12 +1049,12 @@ button.checkout-cancel {
 #commerce-checkout-form-checkout label.radio,
 #commerce-checkout-form-review label.radio,
 #commerce-checkout-form-shipping label.radio {
-  border-top: 2px solid #f0f0f0;
-  border-left: 2px solid #f0f0f0;
-  border-right: 2px solid #f0f0f0;
-  border-bottom: 2px solid #f0f0f0;
+  border-top: 2px solid #e6e6e6;
+  border-left: 2px solid #e6e6e6;
+  border-right: 2px solid #e6e6e6;
+  border-bottom: 2px solid #e6e6e6;
   padding: 5px 10px !important;
-  background: #f0f0f0;
+  background: #e6e6e6;
   text-transform: uppercase;
   color: #000000;
   margin-top: 15px;

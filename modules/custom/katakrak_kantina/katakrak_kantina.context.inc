@@ -48,8 +48,8 @@ function katakrak_kantina_context_default_contexts() {
         'boxes-twitter_kantina' => array(
           'module' => 'boxes',
           'delta' => 'twitter_kantina',
-          'region' => 'content_bottom_fourth',
-          'weight' => '-10',
+          'region' => 'content_bottom_third',
+          'weight' => '-9',
         ),
         'katakrak_kantina-katakrak_kantina_page_header' => array(
           'module' => 'katakrak_kantina',

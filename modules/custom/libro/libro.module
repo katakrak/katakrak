@@ -51,6 +51,10 @@ function libro_block_info() {
     'info' => t('Libro de estilo'),
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['katakrak_secciones'] = array(
+    'info' => t('Navegador por secciones'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   return $blocks;
 }
 
@@ -67,6 +71,24 @@ function libro_block_view($delta) {
       $link = l("Ikusi gure<br>estilo liburua", 'estilo-liburua', array('html' => 1));
     }
     $block['content'] = theme('katakrak_libro_estilo', array('link' => $link));
+    return $block;
+  }
+  if ($delta == 'katakrak_secciones') {
+    if ($voc = taxonomy_vocabulary_machine_name_load('materias')) {
+      $block['subject'] = t('Por secciones');
+      $tags = tagclouds_get_tags(array($voc->vid), variable_get('tagclouds_levels', 6), variable_get('tagclouds_block_tags_' . $voc->vid, 12));
+
+      //$tags = tagclouds_sort_tags($tags, "hook_block_view");;
+      $tags = tagclouds_sort_tags($tags);
+
+      $block['content'] = theme('tagclouds_weighted', array('terms' => $tags)); //return a chunk of 12 tags
+      if ($language->language == 'es') {
+        $block['content'] .= views_embed_view('secciones', 'secciones_es');
+      }
+      else {
+        $block['content'] .= views_embed_view('secciones', 'secciones_eu');
+      }
+    }
     return $block;
   }
 }

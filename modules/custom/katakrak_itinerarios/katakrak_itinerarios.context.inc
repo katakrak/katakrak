@@ -27,8 +27,12 @@ function katakrak_itinerarios_context_default_contexts() {
     ),
   );
   $context->reactions = array(
+    'block' => array(
+      'blocks' => array(),
+      'layout' => 'book',
+    ),
     'theme' => array(
-      'title' => 'Leer os hará libros',
+      'title' => 'Librería',
       'subtitle' => '',
     ),
   );
