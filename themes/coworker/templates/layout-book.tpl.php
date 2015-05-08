@@ -7,6 +7,13 @@
   }
 ?>
 <?php include 'page-header.inc' ?>
+<div class="container-fluid banda-superior">
+  <div class="banda_header"></div>
+  <div class="container">
+  <h2><?php print $section_title?></h2>
+  </div>
+</div>
+
 <div id="content" class="book-page">
     <div class="content-wrap">
       <div class="container clearfix">

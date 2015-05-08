@@ -79,38 +79,26 @@
  * @ingroup themeable
  */
 ?>
-
 <div class="row">
-  <div class="col-md-12">
-    <div class="visible-sm">
-      <h1>
-        <?php print $node->title ?>
-      </h1>
-       <?php print theme('agenda_date', array('time' => $node->field_event_date['und'][0]['value'])); ?>
-    </div>
+  <div class="col-lg-7">
+    
     <div class="row">
-      <div class="col-md-4">
-         <?php print render($content['field_event_image']) ?>
+      <h1><?php print $node->title ?></h1>
+      <div class="col-lg-2">
+        <?php print theme('agenda_date', array('time' => $node->field_event_date['und'][0]['value'])); ?>
       </div>
-      <div class="col-md-8">
-        <div class="col-1 hidden-sm">
-          <div class="row">
-            <div class="col-lg-2">
-              <?php print theme('agenda_date', array('time' => $node->field_event_date['und'][0]['value'])); ?>
-            </div>
-            <div class="col-lg-10">
-              <h1><?php print $node->title ?></h1>
-              <h3><?php print render($content['field_event_type']) ?></h3>
-              <h3><?php print render($content['field_event_ciclo']) ?></h3>
-            </div>
-          </div>
-        </div>
-        <div class="clear"></div>
+      <div class="col-lg-10">
         
-        <div class="clear"></div>
+        <h3><?php print render($content['field_event_type']) ?></h3>
         <p><?php print render($content['field_event_description']) ?></p>
-        <p><?php print views_embed_view('libros', 'books_related_event', $node->nid); ?></p>
       </div>
     </div>
   </div>
+  <div class="col-lg-5">
+    <?php print render($content['field_event_image']) ?>
+  </div>
 </div>
+<h3>Libros</h3>
+<div class="dotted-divider"></div>
+<p><?php print views_embed_view('libros', 'books_related_event', $node->nid); ?></p>
+      

@@ -1,4 +1,10 @@
 <?php include 'page-header.inc' ?>
+<div class="container-fluid banda-superior">
+  <div class="banda_header"></div>
+  <div class="container">
+  <h2><?php print $section_title?></h2>
+  </div>
+</div>
 <div id="content" class="agenda-page">
     <?php if ($page['contact_map']): ?>
       <div id="google-map" class="contact-map">
@@ -47,11 +53,11 @@
 
           
           <div class="row">
-            <div class="col-lg-3">
-              <span class="glyphicon glyphicon-calendar fa-5x" aria-hidden="true"></span><h2><?php print $section_title ?></h2>
+            <div class="col-lg-8">
+              <?php print render($page['content_top']); ?>
             </div>
             <div class="col-lg-offset-1 col-lg-8">
-              <?php print render($page['content_top']); ?>
+              
             </div>
           </div>
           

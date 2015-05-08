@@ -80,11 +80,10 @@
  */
 ?>
 <div class="row">
-  <div class="col-lg-5">
-    <?php print render($content['field_image']) ?>
-  </div>
-  <div class="col-lg-7">
+  <div class="col-lg-12">
     <h1><?php print $node->title ?></h1>
+    <?php print render($content['field_image']) ?>
+    
     <p><?php print t("Published on !date", array('!date' => format_date($node->changed, 'custom', 'd/m/Y'))) ?></p>
     <div class="clear"></div>
     <?php print render($content['sharethis']) ?>

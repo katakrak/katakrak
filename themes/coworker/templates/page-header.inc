@@ -1,21 +1,14 @@
 
 <div id="header" class="clearfix ">
   <?php if ($page['top_left'] || $page['top_right']): ?>
-  <div id="top-bar">
+  <div id="top-bar" class="container">
 
     <div class="clearfix">
 
-      <?php if ($page['top_left']): ?>
-        <div id="top-menu">
-
-          <?php print render($page['top_left']); ?>
-
-        </div>
-      <?php endif; ?>
-
+      
 
       <?php if ($page['top_right']): ?>
-        <div id="top-social">
+        <div id="top-menu">
 
           <?php print render($page['top_right']); ?>
         </div>
@@ -70,8 +63,4 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-</div>
-<div class="container-fluid">
-  <div class="banda_header"></div>
 </div>  
-  

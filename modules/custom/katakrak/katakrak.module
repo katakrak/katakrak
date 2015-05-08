@@ -151,29 +151,11 @@ function katakrak_block_view($delta) {
   if ($delta == 'katakrak_user_top') {
     if (user_is_anonymous()) {
       //Generate login link
-      //$block['title'] = t('Acceder');
-      //$block['content'] = drupal_get_form('user_login_block');
-       $block['content'] = l(t('Acceder'), 'user');
+      
+       $block['content'] = l('<i class="fa fa-user"></i> '.t('Acceder'), 'user', array('html' => TRUE));
     }
     else {
-      //Generate user block
-//      $block['title'] = $user->name;
-//      $links = array(
-//        'account' => array(
-//          'title' => t('My account'),
-//          'href' => 'user',
-//        ),
-//        'orders' => array(
-//          'title' => t('Mis pedidos'),
-//          'href' => 'user/'.$user->uid.'/orders',
-//        ),
-//        'logout' => array(
-//          'title' => t('Logout'),
-//          'href' => 'user/logout',
-//        ),
-//      );
-//      $block['content'] = theme('links', array('links' => $links));
-        $block['content'] = l(t('Hola !username', array('!username' => $user->name)), 'user');
+        $block['content'] = l('<i class="fa fa-user"></i> '.t('Hola !username', array('!username' => $user->name)), 'user', array('html' => TRUE));
 
     }
     ;

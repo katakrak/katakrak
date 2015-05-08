@@ -77,10 +77,11 @@
 }
 
 .banda_header{
-	background-position: -1px -149px ;
-	width: 500px;
-	height: 39px;
+  background-position: 0 -102px;
+  width: 500px;
+  height: 39px;
 }
+
 
 .banda_footer{
 	background-position: -1px -197px ;

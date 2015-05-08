@@ -56,9 +56,10 @@
 
 #content .block {
   h2 {
-    color: #000;
-    background-color: @block_gray;
-    padding: 5px;
+    
+    color: @custom_blue;
+    border-bottom: 1px dashed @custom_blue;
+    padding: 0 0 5px;
   }
 }
 
@@ -72,6 +73,10 @@
 /* ----------------------------------------------------------------
     Overrides
 -----------------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 5px;
+  margin-top: 5px;
+}
 .navbar-collapse.in {
   overflow-y: hidden;
 }
@@ -175,8 +180,8 @@ h3.field-content{
 
 #top-menu {
   position: relative;
-  float: left;
-  height: 40px;
+  float: right;
+  
 }
 
 #top-menu li {
@@ -350,7 +355,7 @@ h3.field-content{
 
 #top-bar {
   position: relative;
-  background-color: #f7f7f7;
+    box-shadow: 0px 2px 0px 0px rgba(222,213,222,0.75);
   height: 40px;
 }
 
@@ -361,6 +366,7 @@ h3.field-content{
 .navbar-default {
   background-color: @background_gray;
   border-color: @background_gray; 
+  margin-top: 5px;
 }
 
 /* ----------------------------------------------------------------
@@ -484,6 +490,9 @@ h3.field-content{
   }
 }
 
+.banda-superior{
+  background: rgba(60, 140, 183, 0.8);
+}
 .banda_header {
   margin-left: 6%;
 }
@@ -556,40 +565,27 @@ h3.field-content{
 
 /** User block */
 
-#block-katakrak-katakrak-user-top {
-  margin-top: 20px;
+#block-katakrak-katakrak-user-top, #block-katakrak-katakrak-cart {
+  margin-top: 10px;
   float: left;
   a {
     font-size: 15px;
     color: @link_gray;
     color: @hover_gray;
     background: none;
+    i {
+      font-size: 30px;
+    }
   }
 }
 
-.popup-element-body table.popup-layout input {
-  border: solid 1px @background_gray;
-}
-/*
-#block-katakrak-katakrak-user-top a {
-  text-decoration: none;
-  background-color: #2780AF;
-  color: #FFF;
-  padding: 10px 20px;
-  border-top: 1px solid #2780AF;
-  border-right: 1px solid #2780AF;
-  border-bottom: 1px solid #2780AF;
-  border-left: 1px solid #2780AF;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-}*/
 
 /** Cart block **/
 
-#block-katakrak-katakrak-cart {
+/* {
   float: left;
-/*  margin-right: 15px;
-  margin-top: 15px;*/
+  margin-right: 15px;
+  margin-top: 15px;
   .content{
     margin-top: 13px;
     margin-left: 5px;
@@ -602,7 +598,7 @@ h3.field-content{
       }
     }
   }
-}
+}*/
 
 
 #content {
@@ -1201,9 +1197,11 @@ Responsiveness
     font-size: 15px;
   }
   #block-katakrak-katakrak-cart .content{
-    margin-top: 5px;
     a {
-    font-size: 30px;
+      i {
+        font-size: 30px;
+      }
+    
     }
   } 
   #logo img {
