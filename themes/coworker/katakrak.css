@@ -1243,7 +1243,6 @@ Responsiveness
   #primary-links ul li.active-trail > a span,
   #primary-links ul li.active > a,
   #primary-links ul li.active > a span {
-    border-top-color: rgba(0, 0, 0, 0.1);
     color: #f50087;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   }

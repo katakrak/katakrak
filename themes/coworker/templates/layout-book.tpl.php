@@ -7,7 +7,7 @@
   }
 ?>
 <?php include 'page-header.inc' ?>
-<div class="container-fluid banda-superior">
+<div class="container-fluid banda-libreria">
   <div class="banda_header"></div>
   <div class="container">
   <h2><?php print $section_title?></h2>
