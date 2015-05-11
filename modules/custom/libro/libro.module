@@ -6,7 +6,6 @@
 
 include_once 'libro.features.inc';
 
-
 /**
  * Implementation of hook_menu().
  */
@@ -55,6 +54,10 @@ function libro_block_info() {
     'info' => t('Navegador por secciones'),
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['libreria_home_search'] = array(
+    'info' => t('Bloque busqueda home libros'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   return $blocks;
 }
 
@@ -90,6 +93,14 @@ function libro_block_view($delta) {
       }
     }
     return $block;
+  }
+  if ($delta == 'libreria_home_search') {
+    $seccion = menu_get_object('taxonomy_term', 2);
+    $book_count_db = db_query("SELECT COUNT(*) as total FROM  {node} WHERE type = 'libro'");
+    foreach ($book_count_db as $count) {
+      $book_count = $count->total;
+    }
+
   }
 }
 
@@ -212,14 +223,24 @@ function libro_node_view($node, $view_mode, $langcode) {
 }
 
 function libro_node_presave($node) {
-//  if ($node->type == 'libro') {
-//    if ($node->field_libro_estado['und'][0]['value'] === '0') {
-//      $node->status = 1;
-//    }
-//    else {
-//      $node->status = 0;
-//    }
-//  }
+  if ($node->type == 'libro') {
+    foreach ($node->field_libro_categoria['und'] as $cat){
+      $parents = taxonomy_get_parents($cat['tid']);
+      if ($parents) {
+        $parent = array_pop($parents);
+        $anadir = TRUE;
+        foreach ($node->field_libro_categoria['und'] as $cat){
+          if ($cat['tid'] == $parent->tid){
+            $anadir = FALSE;
+          }
+        }
+        if ($anadir){
+          $node->field_libro_categoria['und'][] = array ('tid' => $parent->tid);
+        }
+      }
+    }
+    
+  }
 }
 
 function libro_node_load($nodes, $types) {
