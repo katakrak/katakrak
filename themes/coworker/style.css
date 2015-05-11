@@ -499,7 +499,6 @@ textarea {
   border: 1px solid #DDD;
   border-top-width: 2px;
   outline: 0;
-  font: normal 11px/100%;
   color: #666;
 }
 
@@ -513,8 +512,8 @@ textarea {
   text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
 }
 
-input[type="text"],
-input[type="password"] { width: 45%; }
+/*input[type="text"],
+input[type="password"] { width: 45%; }*/
 
 input[type="checkbox"],
 input[type="radio"] {

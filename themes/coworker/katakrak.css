@@ -507,7 +507,7 @@ h3.field-content a:hover {
 /** User block */
 #block-katakrak-katakrak-user-top,
 #block-katakrak-katakrak-cart {
-  margin-top: 10px;
+  margin-top: 20px;
   float: left;
 }
 #block-katakrak-katakrak-user-top a,
@@ -516,10 +516,6 @@ h3.field-content a:hover {
   color: #777777;
   color: #444444;
   background: none;
-}
-#block-katakrak-katakrak-user-top a i,
-#block-katakrak-katakrak-cart a i {
-  font-size: 30px;
 }
 /** Cart block **/
 /* {
@@ -600,7 +596,39 @@ h3.field-content a:hover {
 #block-views-blog-block {
   margin-top: 10px;
 }
-/* ESTILOS PARA LIBRO */
+/* ESTILOS PARA LIBRERIA */
+.block-book-search .banda-libreria {
+  background: #1abc9c;
+  background: rgba(26, 188, 156, 0.7);
+}
+#block-libro-libreria-home-search h1 {
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+}
+#block-libro-libreria-home-search #libro-search-home-form {
+  height: 60px;
+}
+#block-libro-libreria-home-search #libro-search-home-form .controls {
+  float: left;
+}
+#block-libro-libreria-home-search #libro-search-home-form input {
+  height: 50px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+}
+#block-libro-libreria-home-search #libro-search-home-form .btn {
+  margin-top: 0px;
+  background: white;
+  color: #000;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  border-left: 1px solid #e6e6e6;
+  height: 50px;
+  width: 50px;
+  border-radius: 0 4px 4px 0;
+}
 .book-page span.glyphicon {
   float: left;
   padding-left: 15px;
@@ -1156,10 +1184,10 @@ Responsiveness
 @media (min-width: 768px) {
   #top-menu li a,
   #top-menu li span {
-    font-size: 15px;
+    font-size: 20px;
   }
   #block-katakrak-katakrak-cart .content a i {
-    font-size: 30px;
+    font-size: 20px;
   }
   #logo img {
     display: block;
@@ -1301,6 +1329,11 @@ Responsiveness
   #header.header7 #primary-links ul ul > li.sub-menu:hover > a > div {
     background-image: none;
     padding-right: 0;
+  }
+  #libro-search-home-form {
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
   }
   .container-banda {
     width: 1200px;

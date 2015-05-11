@@ -10,7 +10,14 @@
 <div class="container-fluid banda-libreria">
   <div class="banda_header"></div>
   <div class="container">
-  <h2><?php print $section_title?></h2>
+    <?php if ($section_title): ?>
+      <h2><?php print $section_title ?></h2>
+    <?php endif; ?>
+    <?php if ($page['content_top']): ?>
+      <div id="content-top">
+        <?php print render($page['content_top']); ?>
+      </div>
+    <?php endif; ?>
   </div>
 </div>
 
@@ -30,20 +37,10 @@
           <?php if ($page['highlighted']): ?>
             <div id="highlighted"><?php print render($page['highlighted']); ?></div>
           <?php endif; ?>
-          <?php if ($page['content_top']): ?>
-            <div id="content-top">
-              <?php print render($page['content_top']); ?>
-            </div>
-          <?php endif; ?>
+          
           <a id="main-content"></a>
           <?php print render($title_prefix); ?>
           <?php print render($title_suffix); ?>
-
-          <div class="row">
-            <div class="col-lg-3">
-              <span class="glyphicon glyphicon-book fa-5x" aria-hidden="true"></span><h2><?php print $section_title ?></h2>
-            </div>
-          </div>
           
           <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
           <div class="row">

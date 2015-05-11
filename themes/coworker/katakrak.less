@@ -566,16 +566,13 @@ h3.field-content{
 /** User block */
 
 #block-katakrak-katakrak-user-top, #block-katakrak-katakrak-cart {
-  margin-top: 10px;
+  margin-top: 20px;
   float: left;
   a {
     font-size: 15px;
     color: @link_gray;
     color: @hover_gray;
     background: none;
-    i {
-      font-size: 30px;
-    }
   }
 }
 
@@ -691,7 +688,43 @@ h3.field-content{
 .page-home h2 {
 }
 
-/* ESTILOS PARA LIBRO */
+/* ESTILOS PARA LIBRERIA */
+
+.block-book-search .banda-libreria {
+  background: #1abc9c;
+  background: rgba(26, 188, 156, 0.7);
+}
+
+#block-libro-libreria-home-search {
+  h1 {
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  #libro-search-home-form {
+    height: 60px;
+    .controls {
+      float: left;
+    }
+    input {
+      height: 50px;
+      border: none;
+      border-radius: 4px 0 0 4px;
+    }
+    .btn {
+      margin-top: 0px;
+      background: white;
+      color: #000;
+      border-top: none;
+      border-bottom: none;
+      border-right: none;
+      border-left: 1px solid @background_gray;
+      height: 50px;
+      width: 50px;
+      border-radius: 0 4px 4px 0;
+    }
+  }
+}
 
 .book-page {
    span.glyphicon {
@@ -1194,12 +1227,12 @@ Responsiveness
 @media (min-width: 768px) {
   #top-menu li a,
   #top-menu li span {
-    font-size: 15px;
+    font-size: 20px;
   }
   #block-katakrak-katakrak-cart .content{
     a {
       i {
-        font-size: 30px;
+        font-size: 20px;
       }
     
     }
@@ -1357,7 +1390,11 @@ Responsiveness
   background-image: none;
   padding-right: 0;
 } 
-  
+#libro-search-home-form {
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+}
 .container-banda {
   width: 1200px;
   margin: 0 auto;
