@@ -97,7 +97,12 @@ function katakrak_search_search_results_content_type_render($subtype, $conf, $ar
 
     try {
       $results = katakrak_search_search_execute($search);
-
+$query = apachesolr_current_query(variable_get('apachesolr_default_environment', 'default'));
+  if ($query) {
+    $searcher = $query->getSearcher();
+    $response = apachesolr_static_response_cache($searcher);
+  }
+  dpm($response);
       // Don't render suggestions. Use spellchecker pane instead.
       if (isset($results['suggestions'])) {
         unset($results['suggestions']);

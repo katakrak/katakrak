@@ -618,6 +618,7 @@ h3.field-content a:hover {
 #block-libro-libreria-home-search #libro-search-home-form input,
 #block-libro-libreria-home-search #apachesolr-panels-search-form input {
   height: 50px;
+  width: 300px;
   border: none;
   border-radius: 4px 0 0 4px;
 }
@@ -1340,8 +1341,9 @@ Responsiveness
     margin-right: auto;
     width: 600px;
   }
-  #apachesolr-panels-search-form input {
-    width: 500px;
+  #libro-search-home-form .controls input,
+  #apachesolr-panels-search-form .controls input {
+    width: 500px !important;
   }
   .container-banda {
     width: 1200px;

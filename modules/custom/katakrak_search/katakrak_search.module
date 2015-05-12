@@ -167,6 +167,7 @@ function template_preprocess_katakrak_search_book_search_form(&$vars) {
 }
 
 function template_preprocess_katakrak_search_results(&$vars) {
+  dpm($vars);
   $rows = array();
   foreach($vars['results'] as $result) {
     if ($result['bundle'] == 'libro') {
@@ -220,6 +221,19 @@ function template_preprocess_katakrak_search_results(&$vars) {
     }
   }
   $vars['rows'] = $rows;
+  $query = apachesolr_current_query(variable_get('apachesolr_default_environment', 'default'));
+  if ($query) {
+    $searcher = $query->getSearcher();
+    $response = apachesolr_static_response_cache($searcher);
+  }
+  
+  $per_page = 12;
+  // Initialize the pager
+  $current_page = pager_default_initialize($response->response->numFound, $per_page);
+  // Split your list into page sized chunks
+  // Show the appropriate items from the list
+  
+  $vars['pager'] = theme('pager', array('quantity',count($rows)));
 }
 /**
  * Implements hook_ctools_plugin_directory().

@@ -129,9 +129,9 @@ function katakrak_agenda_image_default_styles() {
     'name' => 'event_node_view',
     'label' => 'Event node view',
     'effects' => array(
-      12 => array(
-        'label' => 'Scale and crop',
-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+      15 => array(
+        'label' => 'Escalar y recortar',
+        'help' => 'Escalar y recortar mantendrán la relación de proporciones de la imagen original y se desechará lo que sobre por el lado mayor. Esto es especialmente útil para crear miniaturas perfectamente cuadradas sin deformar la imagen.',
         'effect callback' => 'image_scale_and_crop_effect',
         'dimensions callback' => 'image_resize_dimensions',
         'form callback' => 'image_resize_form',
@@ -139,7 +139,7 @@ function katakrak_agenda_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 240,
+          'width' => 330,
           'height' => 400,
         ),
         'weight' => 1,

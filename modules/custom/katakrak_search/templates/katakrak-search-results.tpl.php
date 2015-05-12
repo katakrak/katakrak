@@ -15,5 +15,6 @@
     <?php endforeach; ?>
   </div>
 <?php endforeach; ?>
+<?php print $pager; ?>
 
 
