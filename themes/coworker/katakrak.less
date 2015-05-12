@@ -181,14 +181,12 @@ h3.field-content{
 #top-menu {
   position: relative;
   float: right;
-  
-}
-
-#top-menu li {
-  float: left;
-  margin-left: 10px;
-  height: 40px;
-  text-shadow: 1px 1px 1px #FFF;
+  li {
+    float: left;
+    margin-left: 10px;
+    height: 40px;
+    text-shadow: 1px 1px 1px #FFF;
+  }
 }
 
 #top-menu li:first-child { margin-left: 0; }
@@ -696,12 +694,12 @@ h3.field-content{
 }
 
 #block-libro-libreria-home-search {
-  h1 {
+  h1, h2 {
     color: white;
     text-transform: uppercase;
     text-align: center;
   }
-  #libro-search-home-form {
+  #libro-search-home-form, #apachesolr-panels-search-form {
     height: 60px;
     .controls {
       float: left;
@@ -1044,10 +1042,13 @@ div.search-results div:last-child {
 }
 
 #katakrak-search-form {
+  input {
+    width: 45%;
+  }
   .katakrak-button {
     float: right;
-    margin-right: 96px;
-    margin-top: -45px;
+    margin-right: 85px;
+    margin-top: -44px;
   }
 }
 
@@ -1071,9 +1072,6 @@ div.search-results div:last-child {
   margin: 10px;
 }
 
-.book-page-search-form input[type="text"], #apachesolr-panels-search-form input[type="text"] {
-  width: 95%;
-}
 
 .generate-fa-sizes(26);
 /** Shopping cart and checkout **/
@@ -1227,7 +1225,7 @@ Responsiveness
 @media (min-width: 768px) {
   #top-menu li a,
   #top-menu li span {
-    font-size: 20px;
+    font-size: 12px;
   }
   #block-katakrak-katakrak-cart .content{
     a {
@@ -1390,11 +1388,16 @@ Responsiveness
   background-image: none;
   padding-right: 0;
 } 
-#libro-search-home-form {
+
+#libro-search-home-form, #apachesolr-panels-search-form {
   margin-left: auto;
   margin-right: auto;
   width: 600px;
 }
+#apachesolr-panels-search-form input {
+  width: 500px;
+}
+
 .container-banda {
   width: 1200px;
   margin: 0 auto;

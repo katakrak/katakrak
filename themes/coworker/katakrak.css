@@ -601,23 +601,28 @@ h3.field-content a:hover {
   background: #1abc9c;
   background: rgba(26, 188, 156, 0.7);
 }
-#block-libro-libreria-home-search h1 {
+#block-libro-libreria-home-search h1,
+#block-libro-libreria-home-search h2 {
   color: white;
   text-transform: uppercase;
   text-align: center;
 }
-#block-libro-libreria-home-search #libro-search-home-form {
+#block-libro-libreria-home-search #libro-search-home-form,
+#block-libro-libreria-home-search #apachesolr-panels-search-form {
   height: 60px;
 }
-#block-libro-libreria-home-search #libro-search-home-form .controls {
+#block-libro-libreria-home-search #libro-search-home-form .controls,
+#block-libro-libreria-home-search #apachesolr-panels-search-form .controls {
   float: left;
 }
-#block-libro-libreria-home-search #libro-search-home-form input {
+#block-libro-libreria-home-search #libro-search-home-form input,
+#block-libro-libreria-home-search #apachesolr-panels-search-form input {
   height: 50px;
   border: none;
   border-radius: 4px 0 0 4px;
 }
-#block-libro-libreria-home-search #libro-search-home-form .btn {
+#block-libro-libreria-home-search #libro-search-home-form .btn,
+#block-libro-libreria-home-search #apachesolr-panels-search-form .btn {
   margin-top: 0px;
   background: white;
   color: #000;
@@ -899,10 +904,13 @@ div.search-results div:last-child {
   padding: 10px;
   background-color: #e6e6e6;
 }
+#katakrak-search-form input {
+  width: 45%;
+}
 #katakrak-search-form .katakrak-button {
   float: right;
-  margin-right: 96px;
-  margin-top: -45px;
+  margin-right: 85px;
+  margin-top: -44px;
 }
 #block-katakrak-newsletter-suscribe {
   padding: 15px 10px 0 10px;
@@ -919,10 +927,6 @@ div.search-results div:last-child {
 .book-page-search-form input,
 .book-page-search-form button {
   margin: 10px;
-}
-.book-page-search-form input[type="text"],
-#apachesolr-panels-search-form input[type="text"] {
-  width: 95%;
 }
 .fa-1x {
   font-size: 1em;
@@ -1184,7 +1188,7 @@ Responsiveness
 @media (min-width: 768px) {
   #top-menu li a,
   #top-menu li span {
-    font-size: 20px;
+    font-size: 12px;
   }
   #block-katakrak-katakrak-cart .content a i {
     font-size: 20px;
@@ -1330,10 +1334,14 @@ Responsiveness
     background-image: none;
     padding-right: 0;
   }
-  #libro-search-home-form {
+  #libro-search-home-form,
+  #apachesolr-panels-search-form {
     margin-left: auto;
     margin-right: auto;
     width: 600px;
+  }
+  #apachesolr-panels-search-form input {
+    width: 500px;
   }
   .container-banda {
     width: 1200px;

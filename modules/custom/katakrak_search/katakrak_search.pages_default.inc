@@ -15,7 +15,7 @@ function katakrak_search_default_page_manager_pages() {
   $page->task = 'page';
   $page->admin_title = 'Search Page';
   $page->admin_description = '';
-  $page->path = 'search/%type/%term';
+  $page->path = 'buscar/%type/!term';
   $page->access = array(
     'type' => 'none',
     'settings' => NULL,
@@ -67,14 +67,24 @@ function katakrak_search_default_page_manager_pages() {
           'name' => 'string_equal',
           'settings' => array(
             'operator' => '=',
-            'value' => 'books',
+            'value' => 'libros',
+            'case' => 0,
+          ),
+          'context' => 'argument_string_2',
+          'not' => FALSE,
+        ),
+        1 => array(
+          'name' => 'string_equal',
+          'settings' => array(
+            'operator' => '=',
+            'value' => 'liburuak',
             'case' => 0,
           ),
           'context' => 'argument_string_2',
           'not' => FALSE,
         ),
       ),
-      'logic' => 'and',
+      'logic' => 'or',
     ),
   );
   $display = new panels_display();
@@ -87,6 +97,7 @@ function katakrak_search_default_page_manager_pages() {
       'right' => NULL,
       'col_left' => NULL,
       'content' => NULL,
+      'content_top' => NULL,
     ),
   );
   $display->cache = array();
@@ -95,26 +106,7 @@ function katakrak_search_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-dc06d341-4811-4e3d-8f8c-013f179ff004';
-    $pane->panel = 'col_left';
-    $pane->type = 'search_title';
-    $pane->subtype = 'search_title';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = 'dc06d341-4811-4e3d-8f8c-013f179ff004';
-    $display->content['new-dc06d341-4811-4e3d-8f8c-013f179ff004'] = $pane;
-    $display->panels['col_left'][0] = 'new-dc06d341-4811-4e3d-8f8c-013f179ff004';
-    $pane = new stdClass();
-    $pane->pid = 'new-a4af099b-c9f7-4beb-8450-141c3e7dc83b';
+    $pane->pid = 'new-250e07a7-e959-4ffe-b267-5cfdc385f29a';
     $pane->panel = 'col_left';
     $pane->type = 'block';
     $pane->subtype = 'facetapi-PAPjfNGXLf8kwELGjKWKtreSo3uLpN7o';
@@ -130,13 +122,35 @@ function katakrak_search_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '250e07a7-e959-4ffe-b267-5cfdc385f29a';
+    $display->content['new-250e07a7-e959-4ffe-b267-5cfdc385f29a'] = $pane;
+    $display->panels['col_left'][0] = 'new-250e07a7-e959-4ffe-b267-5cfdc385f29a';
+    $pane = new stdClass();
+    $pane->pid = 'new-0d315684-f8d8-47d7-aa82-a3b04904c2b9';
+    $pane->panel = 'col_left';
+    $pane->type = 'block';
+    $pane->subtype = 'facetapi-epXisguuKvVoi6fMMxKqzboj7TLY0Uv4';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = 'a4af099b-c9f7-4beb-8450-141c3e7dc83b';
-    $display->content['new-a4af099b-c9f7-4beb-8450-141c3e7dc83b'] = $pane;
-    $display->panels['col_left'][1] = 'new-a4af099b-c9f7-4beb-8450-141c3e7dc83b';
+    $pane->uuid = '0d315684-f8d8-47d7-aa82-a3b04904c2b9';
+    $display->content['new-0d315684-f8d8-47d7-aa82-a3b04904c2b9'] = $pane;
+    $display->panels['col_left'][1] = 'new-0d315684-f8d8-47d7-aa82-a3b04904c2b9';
     $pane = new stdClass();
-    $pane->pid = 'new-a9af529c-e061-45e2-a710-54960a0e9307';
+    $pane->pid = 'new-4cb9ad4d-0a29-4bfb-8e5c-73d5aa870beb';
     $pane->panel = 'col_left';
     $pane->type = 'block';
     $pane->subtype = 'facetapi-10g0ejljiIMmKZgIOLoj9YiSr0A0LxYe';
@@ -154,167 +168,28 @@ function katakrak_search_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 2;
     $pane->locks = array();
-    $pane->uuid = 'a9af529c-e061-45e2-a710-54960a0e9307';
-    $display->content['new-a9af529c-e061-45e2-a710-54960a0e9307'] = $pane;
-    $display->panels['col_left'][2] = 'new-a9af529c-e061-45e2-a710-54960a0e9307';
+    $pane->uuid = '4cb9ad4d-0a29-4bfb-8e5c-73d5aa870beb';
+    $display->content['new-4cb9ad4d-0a29-4bfb-8e5c-73d5aa870beb'] = $pane;
+    $display->panels['col_left'][2] = 'new-4cb9ad4d-0a29-4bfb-8e5c-73d5aa870beb';
     $pane = new stdClass();
-    $pane->pid = 'new-9ed155a9-2d59-4684-aa4e-42df88eff7a3';
-    $pane->panel = 'col_left';
-    $pane->type = 'block';
-    $pane->subtype = 'facetapi-epXisguuKvVoi6fMMxKqzboj7TLY0Uv4';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 3;
-    $pane->locks = array();
-    $pane->uuid = '9ed155a9-2d59-4684-aa4e-42df88eff7a3';
-    $display->content['new-9ed155a9-2d59-4684-aa4e-42df88eff7a3'] = $pane;
-    $display->panels['col_left'][3] = 'new-9ed155a9-2d59-4684-aa4e-42df88eff7a3';
-    $pane = new stdClass();
-    $pane->pid = 'new-9c0b5806-59df-4b5e-8349-94da99daa999';
-    $pane->panel = 'content';
-    $pane->type = 'apachesolr_form';
-    $pane->subtype = 'apachesolr_form';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'path_type' => 'custom',
-      'path' => 'search/books',
-      'override_prompt' => 0,
-      'prompt' => '',
-      'show_keys' => 1,
-      'override_title' => 1,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '9c0b5806-59df-4b5e-8349-94da99daa999';
-    $display->content['new-9c0b5806-59df-4b5e-8349-94da99daa999'] = $pane;
-    $display->panels['content'][0] = 'new-9c0b5806-59df-4b5e-8349-94da99daa999';
-    $pane = new stdClass();
-    $pane->pid = 'new-d87bd85d-228f-41ca-a0de-2eba39f7b764';
-    $pane->panel = 'content';
-    $pane->type = 'apachesolr_spellchecker';
-    $pane->subtype = 'apachesolr_spellchecker';
-    $pane->shown = FALSE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'title_override' => FALSE,
-      'title_override_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = 'd87bd85d-228f-41ca-a0de-2eba39f7b764';
-    $display->content['new-d87bd85d-228f-41ca-a0de-2eba39f7b764'] = $pane;
-    $display->panels['content'][1] = 'new-d87bd85d-228f-41ca-a0de-2eba39f7b764';
-    $pane = new stdClass();
-    $pane->pid = 'new-3252c655-f47b-45e3-8832-39bf28e3f748';
-    $pane->panel = 'content';
-    $pane->type = 'block';
-    $pane->subtype = 'apachesolr_search-sort';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 1,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $pane->locks = array();
-    $pane->uuid = '3252c655-f47b-45e3-8832-39bf28e3f748';
-    $display->content['new-3252c655-f47b-45e3-8832-39bf28e3f748'] = $pane;
-    $display->panels['content'][2] = 'new-3252c655-f47b-45e3-8832-39bf28e3f748';
-    $pane = new stdClass();
-    $pane->pid = 'new-683f8c62-da20-4765-b3d6-9f2a472bfc02';
-    $pane->panel = 'content';
-    $pane->type = 'block';
-    $pane->subtype = 'apachesolr_search-mlt-001';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 3;
-    $pane->locks = array();
-    $pane->uuid = '683f8c62-da20-4765-b3d6-9f2a472bfc02';
-    $display->content['new-683f8c62-da20-4765-b3d6-9f2a472bfc02'] = $pane;
-    $display->panels['content'][3] = 'new-683f8c62-da20-4765-b3d6-9f2a472bfc02';
-    $pane = new stdClass();
-    $pane->pid = 'new-228dcb3d-915a-48ae-97ca-6d53090813ec';
-    $pane->panel = 'content';
-    $pane->type = 'apachesolr_info';
-    $pane->subtype = 'apachesolr_info';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'title_override' => FALSE,
-      'title_override_text' => '',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 4;
-    $pane->locks = array();
-    $pane->uuid = '228dcb3d-915a-48ae-97ca-6d53090813ec';
-    $display->content['new-228dcb3d-915a-48ae-97ca-6d53090813ec'] = $pane;
-    $display->panels['content'][4] = 'new-228dcb3d-915a-48ae-97ca-6d53090813ec';
-    $pane = new stdClass();
-    $pane->pid = 'new-4c7d7032-ac9b-4a93-858c-6966d47218af';
+    $pane->pid = 'new-17ceb96f-8dc5-4cf7-b598-a300f730cb7b';
     $pane->panel = 'content';
     $pane->type = 'apachesolr_result';
     $pane->subtype = 'apachesolr_result';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'keys_action' => 'none',
       'keys' => '',
-      'keys_required' => 0,
-      'filters_action' => 'override',
+      'keys_required' => 1,
+      'filters_action' => 'append',
       'filters' => 'bundle:libro',
-      'rows' => '10',
+      'rows' => '12',
       'env_id' => 'host_solr',
       'sort_action' => 'none',
       'sort' => '',
-      'breadcrumb' => 0,
-      'title_override' => 1,
+      'breadcrumb' => 1,
+      'title_override' => 0,
       'title_override_text' => '',
       'empty_override' => 0,
       'empty_override_title' => '',
@@ -333,13 +208,123 @@ function katakrak_search_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 5;
+    $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '4c7d7032-ac9b-4a93-858c-6966d47218af';
-    $display->content['new-4c7d7032-ac9b-4a93-858c-6966d47218af'] = $pane;
-    $display->panels['content'][5] = 'new-4c7d7032-ac9b-4a93-858c-6966d47218af';
+    $pane->uuid = '17ceb96f-8dc5-4cf7-b598-a300f730cb7b';
+    $display->content['new-17ceb96f-8dc5-4cf7-b598-a300f730cb7b'] = $pane;
+    $display->panels['content'][0] = 'new-17ceb96f-8dc5-4cf7-b598-a300f730cb7b';
+    $pane = new stdClass();
+    $pane->pid = 'new-5c9fe66a-4865-4cac-ba9f-6bcc9948d81d';
+    $pane->panel = 'content';
+    $pane->type = 'search_result';
+    $pane->subtype = 'search_result';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'keys_action' => 'none',
+      'keys' => '',
+      'keys_required' => 1,
+      'filters_action' => 'append',
+      'filters' => 'bundle:libro',
+      'rows' => '12',
+      'env_id' => 'host_solr',
+      'sort_action' => 'none',
+      'sort' => '',
+      'breadcrumb' => 1,
+      'title_override' => 0,
+      'title_override_text' => '',
+      'empty_override' => 0,
+      'empty_override_title' => '',
+      'empty_override_text' => array(
+        'value' => '',
+        'format' => 'plain_text',
+      ),
+      'empty_override_format' => 'plain_text',
+      'log' => 0,
+      'substitute' => 0,
+      'context' => 'argument_string_3',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '5c9fe66a-4865-4cac-ba9f-6bcc9948d81d';
+    $display->content['new-5c9fe66a-4865-4cac-ba9f-6bcc9948d81d'] = $pane;
+    $display->panels['content'][1] = 'new-5c9fe66a-4865-4cac-ba9f-6bcc9948d81d';
+    $pane = new stdClass();
+    $pane->pid = 'new-305fb4d7-25e7-48b9-bb13-60c1fbda3d88';
+    $pane->panel = 'content_top';
+    $pane->type = 'apachesolr_form';
+    $pane->subtype = 'apachesolr_form';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'path_type' => 'same',
+      'path' => '',
+      'override_prompt' => 0,
+      'prompt' => '',
+      'show_keys' => 1,
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '305fb4d7-25e7-48b9-bb13-60c1fbda3d88';
+    $display->content['new-305fb4d7-25e7-48b9-bb13-60c1fbda3d88'] = $pane;
+    $display->panels['content_top'][0] = 'new-305fb4d7-25e7-48b9-bb13-60c1fbda3d88';
+    $pane = new stdClass();
+    $pane->pid = 'new-c162f5df-f763-443c-8561-de90980d3dc2';
+    $pane->panel = 'content_top';
+    $pane->type = 'book_search_info';
+    $pane->subtype = 'book_search_info';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'title_override' => FALSE,
+      'title_override_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'c162f5df-f763-443c-8561-de90980d3dc2';
+    $display->content['new-c162f5df-f763-443c-8561-de90980d3dc2'] = $pane;
+    $display->panels['content_top'][1] = 'new-c162f5df-f763-443c-8561-de90980d3dc2';
+    $pane = new stdClass();
+    $pane->pid = 'new-730ebbae-acdf-4c8b-a3ba-bdd8e6a17744';
+    $pane->panel = 'content_top';
+    $pane->type = 'search_title';
+    $pane->subtype = 'search_title';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '730ebbae-acdf-4c8b-a3ba-bdd8e6a17744';
+    $display->content['new-730ebbae-acdf-4c8b-a3ba-bdd8e6a17744'] = $pane;
+    $display->panels['content_top'][2] = 'new-730ebbae-acdf-4c8b-a3ba-bdd8e6a17744';
   $display->hide_title = PANELS_TITLE_PANE;
-  $display->title_pane = 'new-dc06d341-4811-4e3d-8f8c-013f179ff004';
+  $display->title_pane = 'new-730ebbae-acdf-4c8b-a3ba-bdd8e6a17744';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $handler = new stdClass();

@@ -19,7 +19,7 @@ function katakrak_search_context_default_contexts() {
   $context->conditions = array(
     'path' => array(
       'values' => array(
-        'search/*' => 'search/*',
+        'buscar/*' => 'buscar/*',
       ),
     ),
   );

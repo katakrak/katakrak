@@ -1,4 +1,17 @@
 <?php include 'page-header.inc' ?>
+<div class="container-fluid banda-libreria">
+  <div class="banda_header"></div>
+  <div class="container">
+    <?php if ($section_title): ?>
+      <h2><?php print $section_title ?></h2>
+    <?php endif; ?>
+    <?php if ($page['content_top']): ?>
+      <div id="content-top">
+        <?php print render($page['content_top']); ?>
+      </div>
+    <?php endif; ?>
+  </div>
+</div>
 <div id="content" class="blog-page">
     <?php if ($page['contact_map']): ?>
       <div id="google-map" class="contact-map">
@@ -44,16 +57,6 @@
           <?php endif; ?>
           <?php print render($page['help']); ?>
           <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
-
-          
-          <div class="row">
-            <div class="col-lg-3">
-              <span class="glyphicon glyphicon-comment fa-5x" aria-hidden="true"></span><h2><?php print $section_title ?></h2>
-            </div>
-            <div class="col-lg-offset-1 col-lg-8">
-              <?php print render($page['content_top']); ?>
-            </div>
-          </div>
           
           <div class="<?php print $content_rows?>">
             <?php print render($page['content']); ?>

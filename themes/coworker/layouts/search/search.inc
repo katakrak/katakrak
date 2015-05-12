@@ -8,5 +8,6 @@ $plugin = array(
   'regions' => array(
     'col_left' => t('Left colum'),
     'content' => t('Content'),
+    'content_top' => t('content top'),
   ),
 );
