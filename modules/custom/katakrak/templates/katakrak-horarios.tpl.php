@@ -5,4 +5,3 @@
 <?php print t("LMM de 08:30-22:00 - JVS 08:30-01:00") ?>
 <br>
 <br>
-<?php print t("* Los martes de 14:00 a 16:30 cerrado por asamblea") ?>
