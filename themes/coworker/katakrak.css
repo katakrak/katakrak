@@ -607,6 +607,14 @@ h3.field-content a:hover {
 #block-libro-libreria-home-search {
   text-align: center;
 }
+#block-libro-libreria-home-search .content p {
+  font-size: 20px;
+  color: #e6e6e6;
+}
+#block-libro-libreria-home-search .content p a {
+  color: white;
+  font-weight: bold;
+}
 #block-libro-libreria-home-search h1,
 #block-libro-libreria-home-search h2 {
   color: white;
