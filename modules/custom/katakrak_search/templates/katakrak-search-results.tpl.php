@@ -11,6 +11,7 @@
     <div class="col-lg-4 col-md-4">
       <div><?php print $libro['image'] ?></div>
       <h3><?php print $libro['title'] ?></h3>
+      <div><?php print $libro['add_to_cart'] ?></div>
     </div>
     <?php endforeach; ?>
   </div>

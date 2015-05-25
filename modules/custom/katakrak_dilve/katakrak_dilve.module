@@ -533,6 +533,7 @@ function katakrak_dilve_process_item($nid) {
  * @return type
  */
 function create_cover($url, $isbn) {
+  watchdog('dilve', $isbn);
   global $user;
   $cover_request = drupal_http_request($url);
   if (strpos($cover_request->headers['content-type'], 'image') !== 0) {

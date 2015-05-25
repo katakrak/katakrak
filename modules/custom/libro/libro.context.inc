@@ -50,12 +50,18 @@ function libro_context_default_contexts() {
   );
   $context->reactions = array(
     'block' => array(
-      'blocks' => array(),
+      'blocks' => array(
+        'libro-libreria_home_search' => array(
+          'module' => 'libro',
+          'delta' => 'libreria_home_search',
+          'region' => 'content_top',
+          'weight' => '-10',
+        ),
+      ),
       'layout' => 'book',
     ),
-    'theme' => array(
-      'title' => 'Librería',
-      'subtitle' => '',
+    'theme_html' => array(
+      'class' => 'block-book-search',
     ),
   );
   $context->condition_mode = 0;

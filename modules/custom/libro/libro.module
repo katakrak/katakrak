@@ -100,7 +100,7 @@ function libro_block_view($delta) {
     foreach ($book_count_db as $count) {
       $book_count = number_format($count->total, 0, ',', '.');
     }
-    $block['content'] = theme('libreria_home_search', array('total_count' => $book_count));
+    $block['content'] = theme('libreria_home_search', array('total_count' => $book_count, 'seccion' => $seccion));
     return $block;
   }
 }
@@ -302,6 +302,13 @@ function libro_por_isbn() {
 
 function template_preprocess_libreria_home_search(&$vars) {
   $vars['form'] = drupal_get_form('libro_search_home_form');
+  if (is_null($vars['seccion'])) {
+    $terms_db = db_query('SELECT * FROM {taxonomy_term_data} WHERE weight > 0 AND vid = 7 ORDER BY weight ASC LIMIT 5');
+    foreach ($terms_db as $term) {
+      $terms[] = $term;
+    }
+    $vars['terms'] = i18n_taxonomy_localize_terms($terms);
+  }
 }
 
 function libro_search_home_form($form, &$form_state) {
