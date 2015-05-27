@@ -11,6 +11,128 @@ function katakrak_itinerarios_views_default_views() {
   $export = array();
 
   $view = new view();
+  $view->name = 'itinerarios';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Itinerarios';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Itinerarios';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'más';
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Aplicar';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordenar por';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '4';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
+  $handler->display->display_options['style_options']['columns'] = '4';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Campo: Contenido: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  /* Campo: Contenido: Color */
+  $handler->display->display_options['fields']['field_itinerario_color']['id'] = 'field_itinerario_color';
+  $handler->display->display_options['fields']['field_itinerario_color']['table'] = 'field_data_field_itinerario_color';
+  $handler->display->display_options['fields']['field_itinerario_color']['field'] = 'field_itinerario_color';
+  $handler->display->display_options['fields']['field_itinerario_color']['label'] = '';
+  $handler->display->display_options['fields']['field_itinerario_color']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_itinerario_color']['element_label_colon'] = FALSE;
+  /* Campo: Contenido: Número */
+  $handler->display->display_options['fields']['field_itinerario_linea']['id'] = 'field_itinerario_linea';
+  $handler->display->display_options['fields']['field_itinerario_linea']['table'] = 'field_data_field_itinerario_linea';
+  $handler->display->display_options['fields']['field_itinerario_linea']['field'] = 'field_itinerario_linea';
+  $handler->display->display_options['fields']['field_itinerario_linea']['label'] = '';
+  $handler->display->display_options['fields']['field_itinerario_linea']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_itinerario_linea']['alter']['text'] = '<div class="linea-[field_itinerario_linea-value]">
+<div class="circle">
+  <div class="circle-[field_itinerario_linea-value]">
+  </div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['field_itinerario_linea']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_itinerario_linea']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_itinerario_linea']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_itinerario_linea']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Campo: Contenido: Título */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Sort criterion: Contenido: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filter criterion: Contenido: Publicado */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Contenido: Idioma */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
+  /* Filter criterion: Contenido: Tipo */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'itinerario' => 'itinerario',
+  );
+
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block');
+
+  /* Display: Página */
+  $handler = $view->new_display('page', 'Página', 'itinerarios');
+  $handler->display->display_options['path'] = 'itinerarios';
+  $translatables['itinerarios'] = array(
+    t('Master'),
+    t('Itinerarios'),
+    t('más'),
+    t('Aplicar'),
+    t('Reiniciar'),
+    t('Ordenar por'),
+    t('Asc'),
+    t('Desc'),
+    t('Nid'),
+    t('<div class="linea-[field_itinerario_linea-value]">
+<div class="circle">
+  <div class="circle-[field_itinerario_linea-value]">
+  </div>
+</div>
+</div>'),
+    t('Block'),
+    t('Página'),
+  );
+  $export['itinerarios'] = $view;
+
+  $view = new view();
   $view->name = 'itinerarios_admin';
   $view->description = '';
   $view->tag = 'default';

@@ -1,4 +1,17 @@
 <?php include 'page-header.inc' ?>
+<div class="container-fluid">
+  <div class="banda_header"></div>
+  <div class="container">
+    <?php if ($section_title): ?>
+      <h2><?php print $section_title ?></h2>
+    <?php endif; ?>
+    <?php if ($page['content_top']): ?>
+      <div id="content-top">
+        <?php print render($page['content_top']); ?>
+      </div>
+    <?php endif; ?>
+  </div>
+</div>
 <div id="content">
 
   <?php if (drupal_is_front_page() && !theme_get_setting('homepage_title', 'coworker')): ?>

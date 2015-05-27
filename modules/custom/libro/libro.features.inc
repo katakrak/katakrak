@@ -167,7 +167,7 @@ function libro_image_default_styles() {
     'name' => 'cover_home',
     'label' => 'Cover home',
     'effects' => array(
-      9 => array(
+      16 => array(
         'label' => 'Escalar y recortar',
         'help' => 'Escalar y recortar mantendrán la relación de proporciones de la imagen original y se desechará lo que sobre por el lado mayor. Esto es especialmente útil para crear miniaturas perfectamente cuadradas sin deformar la imagen.',
         'effect callback' => 'image_scale_and_crop_effect',
@@ -178,7 +178,7 @@ function libro_image_default_styles() {
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 300,
-          'height' => 400,
+          'height' => 425,
         ),
         'weight' => 1,
       ),
