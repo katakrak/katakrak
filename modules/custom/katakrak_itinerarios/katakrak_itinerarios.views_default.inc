@@ -22,7 +22,7 @@ function katakrak_itinerarios_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Itinerarios';
+  $handler->display->display_options['title'] = 'Itinerarios de lectura';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'más';
   $handler->display->display_options['access']['type'] = 'perm';
@@ -113,7 +113,7 @@ function katakrak_itinerarios_views_default_views() {
   $handler->display->display_options['path'] = 'itinerarios';
   $translatables['itinerarios'] = array(
     t('Master'),
-    t('Itinerarios'),
+    t('Itinerarios de lectura'),
     t('más'),
     t('Aplicar'),
     t('Reiniciar'),

@@ -50,17 +50,11 @@
       <div class="container">
         <?php if ($page['content_bottom_first'] || $page['content_bottom_second'] || $page['content_bottom_third'] || $page['content_bottom_fourth']): ?>
         <div id="content-bottom" class="row">
-          <div class="col-lg-6 col-md-6 col-sm-6">
+          <div class="col-lg-9 col-md-9 col-sm-9">
             <?php print render($page['content_bottom_first']); ?>
           </div>
           <div class="col-lg-3 col-md-3 col-sm-3">
             <?php print render($page['content_bottom_second']); ?>
-          </div>
-          <div class="col-lg-3 col-md-3 col-sm-3">
-            <?php print render($page['content_bottom_third']); ?>
-          </div>
-          <div class="col-lg-3 col-md-3 col-sm-3">
-            <?php print render($page['content_bottom_fourth']); ?>
           </div>
         </div>
         <?php endif; ?>

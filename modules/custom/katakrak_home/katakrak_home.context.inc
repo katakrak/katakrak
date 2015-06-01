@@ -50,16 +50,10 @@ function katakrak_home_context_default_contexts() {
           'region' => 'content_bottom_first',
           'weight' => '-9',
         ),
-        'views-blog-block' => array(
-          'module' => 'views',
-          'delta' => 'blog-block',
-          'region' => 'content_bottom_second',
-          'weight' => '-10',
-        ),
         'boxes-twitter_feed' => array(
           'module' => 'boxes',
           'delta' => 'twitter_feed',
-          'region' => 'content_bottom_third',
+          'region' => 'content_bottom_second',
           'weight' => '-10',
         ),
         'katakrak_home-katakrak_home_promo_bottom' => array(

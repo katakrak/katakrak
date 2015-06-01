@@ -109,13 +109,13 @@ if (!$page) {
 
       <div class="row">
         <div class="col-lg-3 col-lg-offset-3">
-          <h2><?php print t("Ensaladas") ?></h2>
+          <h3><?php print t("Ensaladas") ?></h3>
           <?php foreach ($node->field_menu_hotzak['und'] as $key => $value): ?>
             <p><?php print $value['value'] ?></p>
           <?php endforeach; ?>
         </div>
         <div class="col-lg-3">
-          <h2><?php print t("Cuencos") ?></h2>
+          <h3><?php print t("Cuencos") ?></h3>
           <?php foreach ($node->field_menu_beroak['und'] as $key => $value): ?>
             <p><?php print $value['value'] ?></p>
           <?php endforeach; ?>
@@ -124,7 +124,7 @@ if (!$page) {
           
       <div class="row">
         <div class="col-lg-2 col-lg-offset-5">
-          <h2><?php print t("Postres") ?></h2>
+          <h3><?php print t("Postres") ?></h3>
           <?php foreach ($node->field_menu_azkenburukoak['und'] as $key => $value): ?>
             <p><?php print $value['value'] ?></p>
           <?php endforeach; ?>
