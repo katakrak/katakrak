@@ -102,7 +102,6 @@ $query = apachesolr_current_query(variable_get('apachesolr_default_environment',
     $searcher = $query->getSearcher();
     $response = apachesolr_static_response_cache($searcher);
   }
-  dpm($response);
       // Don't render suggestions. Use spellchecker pane instead.
       if (isset($results['suggestions'])) {
         unset($results['suggestions']);

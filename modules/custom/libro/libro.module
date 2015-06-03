@@ -338,9 +338,16 @@ function libro_search_home_form($form, &$form_state, $seccion) {
     '#type' => 'submit',
     '#value' => '<i class="fa fa-search"></i>',
   );
+  $form['seccion'] = array(
+    '#type' => 'hidden',
+    '#value' => $seccion->tid,
+  );
   return $form; 
 }
 
 function libro_search_home_form_submit($form, &$form_state) {
+  if ($seccion = $form_state['input']['seccion']) {
+    drupal_goto('buscar/libros/'.$form_state['values']['search_term'], array('query' => array('f[0]' => 'im_field_libro_categoria:'.$seccion)));
+  }
   $form_state['redirect'] = 'buscar/libros/'.$form_state['values']['search_term'];
 }
