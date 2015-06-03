@@ -26,6 +26,7 @@
   color: #2780af;
   border-bottom: 1px dashed #2780af;
   padding: 0 0 5px;
+  margin-top: 20px;
 }
 .block-tagclouds .content,
 #block-views-agenda-proximas-presentaciones .content {
@@ -575,7 +576,7 @@ h3.field-content a:hover {
   color: black;
 }
 #home-page-content-bottom {
-  margin: 40px 0 20px 0;
+  margin: 40px 0 0 0;
   padding: 20px 0;
 }
 #home-page-content-bottom {

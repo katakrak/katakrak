@@ -50,6 +50,12 @@ function katakrak_home_context_default_contexts() {
           'region' => 'content_bottom_first',
           'weight' => '-9',
         ),
+        'views-blog-block' => array(
+          'module' => 'views',
+          'delta' => 'blog-block',
+          'region' => 'content_bottom_first',
+          'weight' => '-8',
+        ),
         'boxes-twitter_feed' => array(
           'module' => 'boxes',
           'delta' => 'twitter_feed',
