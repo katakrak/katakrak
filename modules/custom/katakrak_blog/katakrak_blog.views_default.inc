@@ -221,13 +221,14 @@ function katakrak_blog_views_default_views() {
   /* Display: Blog home */
   $handler = $view->new_display('block', 'Blog home', 'block');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Últimos blogs';
+  $handler->display->display_options['title'] = 'Blog';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '4';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
+  $handler->display->display_options['style_options']['columns'] = '4';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -302,7 +303,6 @@ function katakrak_blog_views_default_views() {
     t('Page'),
     t('Tipo'),
     t('Blog home'),
-    t('Últimos blogs'),
     t('Blog isotope filter'),
   );
   $export['blog'] = $view;
