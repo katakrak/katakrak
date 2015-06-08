@@ -4,6 +4,8 @@
 @custom_blue: #2780AF;
 @custom_pink: #F50087;
 @block_gray: #808080;
+@banda_libreria: rgba(150, 189, 13, 0.8);
+@banda_agenda: rgba(105, 190, 228, 0.8);
 
 .generate-fa-sizes(@n, @i: 1) when (@i =< @n) {
   .fa-@{i}x {
@@ -696,6 +698,7 @@ h3.field-content{
 .block-book-search .banda-libreria {
   background: #1abc9c;
   background: rgba(26, 188, 156, 0.7);
+  background:@banda_libreria; 
 }
 
 #block-libro-libreria-home-search {
@@ -981,6 +984,10 @@ div.search-results div:last-child {
 }
 
 /** Agenda styles **/
+
+.banda-agenda{
+  background: @banda_agenda;
+}
 
 .agenda-page {
   h1 {

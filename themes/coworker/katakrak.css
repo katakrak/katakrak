@@ -604,6 +604,7 @@ h3.field-content a:hover {
 .block-book-search .banda-libreria {
   background: #1abc9c;
   background: rgba(26, 188, 156, 0.7);
+  background: rgba(150, 189, 13, 0.8);
 }
 #block-libro-libreria-home-search {
   text-align: center;
@@ -852,6 +853,9 @@ div.search-results div:last-child {
   background: none;
 }
 /** Agenda styles **/
+.banda-agenda {
+  background: rgba(105, 190, 228, 0.8);
+}
 .agenda-page h1 {
   word-break: break-word;
 }
