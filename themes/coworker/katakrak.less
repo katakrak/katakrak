@@ -6,6 +6,7 @@
 @block_gray: #808080;
 @banda_libreria: rgba(150, 189, 13, 0.8);
 @banda_agenda: rgba(105, 190, 228, 0.8);
+@banda_blog: rgba(227, 14, 111, 0.7);
 
 .generate-fa-sizes(@n, @i: 1) when (@i =< @n) {
   .fa-@{i}x {
@@ -62,6 +63,8 @@
     border-bottom: 1px dashed @custom_blue;
     padding: 0 0 5px;
     margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
   }
 }
 
@@ -1202,6 +1205,10 @@ ul.pager{
 /*******************************************************************************
 Blog
 *******************************************************************************/
+
+.banda-blog {
+  background: @banda_blog;
+}
 
 .blog-page {
   span.glyphicon {

@@ -38,23 +38,23 @@ function katakrak_home_context_default_contexts() {
           'region' => 'content',
           'weight' => '-10',
         ),
+        'views-blog-block' => array(
+          'module' => 'views',
+          'delta' => 'blog-block',
+          'region' => 'content_bottom_first',
+          'weight' => '-52',
+        ),
         'views-libros-book_block_home' => array(
           'module' => 'views',
           'delta' => 'libros-book_block_home',
           'region' => 'content_bottom_first',
-          'weight' => '-10',
+          'weight' => '-51',
         ),
         'views-itinerarios-block' => array(
           'module' => 'views',
           'delta' => 'itinerarios-block',
           'region' => 'content_bottom_first',
-          'weight' => '-9',
-        ),
-        'views-blog-block' => array(
-          'module' => 'views',
-          'delta' => 'blog-block',
-          'region' => 'content_bottom_first',
-          'weight' => '-8',
+          'weight' => '-50',
         ),
         'boxes-twitter_feed' => array(
           'module' => 'boxes',

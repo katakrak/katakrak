@@ -27,6 +27,8 @@
   border-bottom: 1px dashed #2780af;
   padding: 0 0 5px;
   margin-top: 20px;
+  font-weight: bold;
+  text-align: center;
 }
 .block-tagclouds .content,
 #block-views-agenda-proximas-presentaciones .content {
@@ -1167,6 +1169,9 @@ ul.pager li.pager-current {
 /*******************************************************************************
 Blog
 *******************************************************************************/
+.banda-blog {
+  background: rgba(227, 14, 111, 0.7);
+}
 .blog-page span.glyphicon {
   float: left;
   padding-left: 15px;

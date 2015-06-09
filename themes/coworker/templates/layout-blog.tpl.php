@@ -1,5 +1,5 @@
 <?php include 'page-header.inc' ?>
-<div class="container-fluid banda-libreria">
+<div class="container-fluid banda-blog">
   <div class="banda_header"></div>
   <div class="container">
     <?php if ($section_title): ?>
