@@ -21,6 +21,11 @@ function katakrak_home_block_info() {
     // Not worth caching.
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['katakrak_home_main'] = array(
+    'info' => t('Home Main'),
+    // Not worth caching.
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   return $blocks;
 }
 
@@ -37,6 +42,10 @@ function katakrak_home_block_view($delta) {
     $block['content'] = theme('katakrak_home_promo_bottom');
     return $block;
   }
+  if ($delta == 'katakrak_home_main') {
+    $block['content'] = theme('katakrak_home_main');
+    return $block;
+  }
 }
 
 /**
@@ -51,6 +60,10 @@ function katakrak_home_theme() {
     ),
     'katakrak_home_promo_bottom' => array(
       'template' => 'katakrak-home-promo-bottom',
+      'path' => $path . '/templates',
+    ),
+    'katakrak_home_main' => array(
+      'template' => 'katakrak-home-main',
       'path' => $path . '/templates',
     ),
   );

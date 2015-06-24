@@ -4,8 +4,8 @@
 @custom_blue: #2780AF;
 @custom_pink: #F50087;
 @block_gray: #808080;
-@banda_libreria: rgba(150, 189, 13, 0.8);
-@banda_agenda: rgba(105, 190, 228, 0.8);
+@banda_libreria: rgba(63, 188, 232, 0.8);
+@banda_agenda: rgba(150, 189, 13, 0.8);
 @banda_blog: rgba(227, 14, 111, 0.7);
 
 .generate-fa-sizes(@n, @i: 1) when (@i =< @n) {
@@ -49,7 +49,6 @@
   li {
     margin: 0 10px;
     padding: 10px;
-    border-radius: 15px;
     a {
       padding-top: 5px;
       font-size: 1.2em;
@@ -59,12 +58,12 @@
 
 #content .block {
   h2 {
-    color: @custom_blue;
-    border-bottom: 1px dashed @custom_blue;
+    color: black;
+    border-bottom: 1px dashed black;
     padding: 0 0 5px;
     margin-top: 20px;
     font-weight: bold;
-    text-align: center;
+    text-transform: uppercase;
   }
 }
 
@@ -363,12 +362,12 @@ h3.field-content{
 }
 
 #header {
-  background-color: @background_gray;
+  background-color: white;
 }
 
 .navbar-default {
-  background-color: @background_gray;
-  border-color: @background_gray; 
+  background-color:white;
+  border-color: white; 
   margin-top: 5px;
 }
 
@@ -643,7 +642,7 @@ h3.field-content{
 
 #block-katakrak-home-katakrak-home-promo-right {
   span.glyphicon {
-    color: rgba(39, 128, 175, 0.9);
+    color: rgba(100, 100, 100, 0.9);
   }
 }
 
@@ -859,7 +858,7 @@ html.js input.throbbing {
 .view-display-id-kantina_home, .view-display-id-home{
   .views-field-title {
     width: 100%;
-    background: rgba(39, 128, 175, 0.9);
+    background: rgba(230, 230, 230, 0.9);
     float: left;
     position: absolute;
     z-index: 10;
@@ -988,9 +987,6 @@ div.search-results div:last-child {
 
 /** Agenda styles **/
 
-.banda-agenda{
-  background: @banda_agenda;
-}
 
 .agenda-page {
   h1 {
@@ -1007,7 +1003,7 @@ div.search-results div:last-child {
   #portfolio-filter {
     li {
       a {
-        color: #FFFFFF;
+        color: black;
         padding-top: 5px;
         font-size: 1.2em;
       }
@@ -1253,6 +1249,14 @@ Responsiveness
 }
 
 @media (min-width: 768px) {
+  .views-field-field-libro-portada img {
+    filter: grayscale(75%);
+    -webkit-filter: grayscale(75%);
+  }
+  .views-field-field-libro-portada img:hover {
+    filter: grayscale(0);
+    -webkit-filter: grayscale(0);
+  }
   #top-menu li a,
   #top-menu li span {
     font-size: 12px;

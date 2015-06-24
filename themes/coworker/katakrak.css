@@ -16,19 +16,18 @@
 #portfolio-filter li {
   margin: 0 10px;
   padding: 10px;
-  border-radius: 15px;
 }
 #portfolio-filter li a {
   padding-top: 5px;
   font-size: 1.2em;
 }
 #content .block h2 {
-  color: #2780af;
-  border-bottom: 1px dashed #2780af;
+  color: black;
+  border-bottom: 1px dashed black;
   padding: 0 0 5px;
   margin-top: 20px;
   font-weight: bold;
-  text-align: center;
+  text-transform: uppercase;
 }
 .block-tagclouds .content,
 #block-views-agenda-proximas-presentaciones .content {
@@ -329,11 +328,11 @@ h3.field-content a:hover {
   height: 40px;
 }
 #header {
-  background-color: #e6e6e6;
+  background-color: white;
 }
 .navbar-default {
-  background-color: #e6e6e6;
-  border-color: #e6e6e6;
+  background-color: white;
+  border-color: white;
   margin-top: 5px;
 }
 /* ----------------------------------------------------------------
@@ -569,7 +568,7 @@ h3.field-content a:hover {
 /* Special regions */
 /* HOME STYLES */
 #block-katakrak-home-katakrak-home-promo-right span.glyphicon {
-  color: rgba(39, 128, 175, 0.9);
+  color: rgba(100, 100, 100, 0.9);
 }
 #block-katakrak-home-katakrak-home-promo-bottom div {
   text-align: center;
@@ -606,7 +605,7 @@ h3.field-content a:hover {
 .block-book-search .banda-libreria {
   background: #1abc9c;
   background: rgba(26, 188, 156, 0.7);
-  background: rgba(150, 189, 13, 0.8);
+  background: rgba(63, 188, 232, 0.8);
 }
 #block-libro-libreria-home-search {
   text-align: center;
@@ -747,7 +746,7 @@ html.js input.throbbing {
 .view-display-id-kantina_home .views-field-title,
 .view-display-id-home .views-field-title {
   width: 100%;
-  background: rgba(39, 128, 175, 0.9);
+  background: rgba(230, 230, 230, 0.9);
   float: left;
   position: absolute;
   z-index: 10;
@@ -855,9 +854,6 @@ div.search-results div:last-child {
   background: none;
 }
 /** Agenda styles **/
-.banda-agenda {
-  background: rgba(105, 190, 228, 0.8);
-}
 .agenda-page h1 {
   word-break: break-word;
 }
@@ -870,7 +866,7 @@ div.search-results div:last-child {
   padding-right: 20px;
 }
 .agenda-page #portfolio-filter li a {
-  color: #FFFFFF;
+  color: black;
   padding-top: 5px;
   font-size: 1.2em;
 }
@@ -1210,6 +1206,14 @@ Responsiveness
   }
 }
 @media (min-width: 768px) {
+  .views-field-field-libro-portada img {
+    filter: grayscale(75%);
+    -webkit-filter: grayscale(75%);
+  }
+  .views-field-field-libro-portada img:hover {
+    filter: grayscale(0);
+    -webkit-filter: grayscale(0);
+  }
   #top-menu li a,
   #top-menu li span {
     font-size: 12px;

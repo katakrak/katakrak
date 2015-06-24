@@ -1,9 +1,6 @@
 <?php include 'page-header.inc' ?>
 <div class="container-fluid banda-agenda">
   <div class="banda_header"></div>
-  <div class="container">
-  <h2><?php print $section_title?></h2>
-  </div>
 </div>
 <div id="content" class="agenda-page">
     <?php if ($page['contact_map']): ?>
