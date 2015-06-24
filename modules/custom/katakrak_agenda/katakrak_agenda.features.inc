@@ -66,9 +66,9 @@ function katakrak_agenda_image_default_styles() {
     'name' => 'event_highlight',
     'label' => 'Event highlight',
     'effects' => array(
-      3 => array(
-        'label' => 'Scale',
-        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
+      17 => array(
+        'label' => 'Escala',
+        'help' => 'El escalado mantiene la relación de proporciones de la imagen original. Si sólo se especifica una dimensión, la otra se calculará.',
         'effect callback' => 'image_scale_effect',
         'dimensions callback' => 'image_scale_dimensions',
         'form callback' => 'image_scale_form',
@@ -82,9 +82,9 @@ function katakrak_agenda_image_default_styles() {
         ),
         'weight' => 1,
       ),
-      8 => array(
-        'label' => 'Crop',
-        'help' => 'Cropping will remove portions of an image to make it the specified dimensions.',
+      18 => array(
+        'label' => 'Recortar',
+        'help' => 'El recorte eliminará partes de una imagen para que tenga las dimensiones especificadas.',
         'effect callback' => 'image_crop_effect',
         'dimensions callback' => 'image_resize_dimensions',
         'form callback' => 'image_crop_form',

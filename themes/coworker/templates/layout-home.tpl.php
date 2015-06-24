@@ -26,17 +26,8 @@
           <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
 
           <div class="row">
-            <div class="col-md-9 col-lg-9 col-sm-9">
+            <div class="col-md-12 col-lg-12 col-xs-12">
               <?php print render($page['content']); ?>
-            </div>
-            <div class="col-md-3 col-lg3 col-sm-3">
-              <?php if ($page['sidebar_second']): ?>
-              <!-- sidebar right --> 
-                <div id="sidebar-second" class="sidebar-right nobottommargin clearfix">
-                  <?php print render($page['sidebar_second']); ?>
-                </div>
-                <!-- // sidebar right -->
-              <?php endif; ?>
             </div>
           </div>
           
@@ -44,17 +35,21 @@
           <?php print $feed_icons; ?>
         </div>
       </div>
-      <div class="container-fluid" id="home-page-content-bottom">
-        <?php print render($page['content_bottom']); ?>
-      </div>
+      
       <div class="container">
         <?php if ($page['content_bottom_first'] || $page['content_bottom_second'] || $page['content_bottom_third'] || $page['content_bottom_fourth']): ?>
         <div id="content-bottom" class="row">
-          <div class="col-lg-9 col-md-9 col-sm-9">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <?php print render($page['content_bottom_first']); ?>
           </div>
-          <div class="col-lg-3 col-md-3 col-sm-3">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <?php print render($page['content_bottom_second']); ?>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <?php print render($page['content_bottom_third']); ?>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <?php print render($page['content_bottom_fourth']); ?>
           </div>
         </div>
         <?php endif; ?>

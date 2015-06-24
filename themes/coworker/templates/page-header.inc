@@ -58,8 +58,7 @@
         <div class="hidden-lg hidden-md hidden-sm" >
           <?php print $navigation ?>
         </div>  
-      </div>
-      <?php print render($search_form) ?>
+      </div>  
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

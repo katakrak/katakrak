@@ -211,7 +211,6 @@ function libro_cron() {
  */
 function libro_node_view($node, $view_mode, $langcode) {
   if ($node->type == 'libro' && $view_mode == 'full') {
-    dpm($node);
     $autores = array();
     foreach (element_children($node->content['field_libro_autores']) as $key) {
       $autores[] =  $node->content['field_libro_autores'][$key]['#markup'];
@@ -297,7 +296,7 @@ function libro_por_isbn() {
 }
 
 function template_preprocess_libreria_home_search(&$vars) {
-  if (is_null($vars['seccion'])) {
+  
     $book_count_db = db_query("SELECT COUNT(*) as total FROM  {node} WHERE type = 'libro'");
     foreach ($book_count_db as $count) {
       $vars['total_count'] = number_format($count->total, 0, ',', '.');
@@ -307,25 +306,11 @@ function template_preprocess_libreria_home_search(&$vars) {
       $terms[] = $term;
     }
     $vars['terms'] = i18n_taxonomy_localize_terms($terms);
-    $vars['form'] = drupal_get_form('libro_search_home_form');
-  }
-  else {
-    $book_count_db = db_query("SELECT COUNT(*) as total FROM  {taxonomy_index} WHERE tid = :tid", array(':tid' => $vars['seccion']->tid));
-    foreach ($book_count_db as $count) {
-      $vars['total_count'] = number_format($count->total, 0, ',', '.');
-    }
-    $vars['seccion'] = array_pop(i18n_taxonomy_localize_terms(array($vars['seccion'])));
-    $vars['form'] = drupal_get_form('libro_search_home_form', $vars['seccion']);
-  }
+    $vars['form'] = drupal_get_form('libro_search_home_form', $vars['total_count']);
 }
 
-function libro_search_home_form($form, &$form_state, $seccion) {
-  if ($seccion) {
-    $placeholder = t('Busca dentro de esta sección');
-  }
-  else {
-    $placeholder = t("ej. 'Marx'");
-  }
+function libro_search_home_form($form, &$form_state, $total, $seccion = NULL) {
+  $placeholder = t('@count libros a tu alcance', array('@count' => $total));
   $form['search_term'] = array(
     '#type' => 'textfield',
     '#title' => t('Nombre'),
@@ -339,16 +324,9 @@ function libro_search_home_form($form, &$form_state, $seccion) {
     '#type' => 'submit',
     '#value' => '<i class="fa fa-search"></i>',
   );
-  $form['seccion'] = array(
-    '#type' => 'hidden',
-    '#value' => $seccion->tid,
-  );
   return $form; 
 }
 
 function libro_search_home_form_submit($form, &$form_state) {
-  if ($seccion = $form_state['input']['seccion']) {
-    drupal_goto('buscar/libros/'.$form_state['values']['search_term'], array('query' => array('f[0]' => 'im_field_libro_categoria:'.$seccion)));
-  }
   $form_state['redirect'] = 'buscar/libros/'.$form_state['values']['search_term'];
 }

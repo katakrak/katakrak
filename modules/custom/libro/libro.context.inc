@@ -132,12 +132,17 @@ function libro_context_default_contexts() {
           'region' => 'content',
           'weight' => '-10',
         ),
+        'libro-libreria_home_search' => array(
+          'module' => 'libro',
+          'delta' => 'libreria_home_search',
+          'region' => 'content_top',
+          'weight' => '-10',
+        ),
       ),
       'layout' => 'book',
     ),
-    'theme' => array(
-      'title' => 'Librería',
-      'subtitle' => '',
+    'menu' => array(
+      0 => 'main-menu:tienda',
     ),
   );
   $context->condition_mode = 0;

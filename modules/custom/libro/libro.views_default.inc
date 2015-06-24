@@ -247,11 +247,12 @@ function libro_views_default_views() {
   $handler->display->display_options['use_more_text'] = 'Entra en la tienda online';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '6';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '12';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
-  $handler->display->display_options['style_options']['columns'] = '3';
+  $handler->display->display_options['style_options']['alignment'] = 'vertical';
+  $handler->display->display_options['style_options']['columns'] = '4';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -553,6 +554,9 @@ function libro_views_default_views() {
   $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
+
+  /* Display: Bloque 2 */
+  $handler = $view->new_display('block', 'Bloque 2', 'block_2');
   $translatables['libros'] = array(
     t('Master'),
     t('Tienda'),
@@ -588,6 +592,7 @@ function libro_views_default_views() {
     t('libros'),
     t('Libros grupo de lectura'),
     t('field_ciclo_libros'),
+    t('Bloque 2'),
   );
   $export['libros'] = $view;
 
