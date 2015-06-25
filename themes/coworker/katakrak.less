@@ -832,8 +832,12 @@ html.js input.throbbing {
 /** Flexlider STYLES */
 
 .view-display-id-kantina_home, .view-display-id-home{
+  .home-event {
+    position: relative; 
+  }
   a {
     color: black;
+    
   }
   .views-field-title, .home-events-title {
     width: 100%;
@@ -841,13 +845,7 @@ html.js input.throbbing {
     float: left;
     position: absolute;
     z-index: 10;
-    bottom: 0;
-  }
-  .home-events-title-main {
-    bottom: 192px;
-  }
-  .home-events-title-second {
-    bottom: 320px;
+    bottom: -1px;
   }
   h3 {
     color: @link_gray;
@@ -1231,14 +1229,7 @@ Responsiveness
 }
 
 @media (min-width: 768px) {
-  .grow { }
-.grow:hover {  }
-  .views-field-field-libro-portada img {
-     transition: all .2s ease-in-out;
-  }
-  .views-field-field-libro-portada img:hover {
-    transform: scale(1.1);
-  }
+ 
   #top-menu li a,
   #top-menu li span {
     font-size: 12px;
