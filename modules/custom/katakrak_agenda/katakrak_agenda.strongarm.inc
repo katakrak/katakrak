@@ -136,6 +136,9 @@ function katakrak_agenda_strongarm() {
         'path' => array(
           'weight' => '30',
         ),
+        'metatags' => array(
+          'weight' => '40',
+        ),
       ),
       'display' => array(
         'language' => array(

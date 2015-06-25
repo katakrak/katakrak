@@ -237,36 +237,12 @@ function katakrak_agenda_views_default_views() {
   /* Display: Home block */
   $handler = $view->new_display('page', 'Home block', 'home');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Hasiera';
+  $handler->display->display_options['title'] = 'Inicio';
   $handler->display->display_options['defaults']['cache'] = FALSE;
-  $handler->display->display_options['cache']['type'] = 'views_content_cache';
-  $handler->display->display_options['cache']['results_min_lifespan'] = '-1';
-  $handler->display->display_options['cache']['results_max_lifespan'] = '21600';
-  $handler->display->display_options['cache']['output_min_lifespan'] = '-1';
-  $handler->display->display_options['cache']['output_max_lifespan'] = '21600';
-  $handler->display->display_options['cache']['keys'] = array(
-    'comment' => array(
-      'changed' => 0,
-    ),
-    'node' => array(
-      'event' => 'event',
-      'article' => 0,
-      'page' => 0,
-      'blog' => 0,
-      'boletin' => 0,
-      'itinerario' => 0,
-      'libro' => 0,
-      'portfolio' => 0,
-      'simplenews' => 0,
-      'webform' => 0,
-    ),
-    'node_only' => array(
-      'node_changed' => 'node_changed',
-    ),
-  );
+  $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '4';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
@@ -334,6 +310,16 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['fields']['title']['element_class'] = '.flex-caption';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Campo: Contenido: Descripción */
+  $handler->display->display_options['fields']['field_event_descripcion']['id'] = 'field_event_descripcion';
+  $handler->display->display_options['fields']['field_event_descripcion']['table'] = 'field_data_field_event_descripcion';
+  $handler->display->display_options['fields']['field_event_descripcion']['field'] = 'field_event_descripcion';
+  $handler->display->display_options['fields']['field_event_descripcion']['label'] = '';
+  $handler->display->display_options['fields']['field_event_descripcion']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_event_descripcion']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['field_event_descripcion']['settings'] = array(
+    'trim_length' => '600',
+  );
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Contenido: Date (field_event_date) */
   $handler->display->display_options['sorts']['field_event_date_value']['id'] = 'field_event_date_value';
@@ -976,7 +962,7 @@ function katakrak_agenda_views_default_views() {
     t('Filter Bloque'),
     t('term'),
     t('Home block'),
-    t('Hasiera'),
+    t('Inicio'),
     t('<div class="event-type">[field_event_type]</div>
 [title] [field_event_date]
 

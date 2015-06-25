@@ -25,7 +25,8 @@ blockquote,
 .sitemap ul,
 .well.callout p,
 .quote, 
-.content p
+.content p,
+.date-display-single
 { 
   font-family: "Open Sans", "Slabo 13px";
 }

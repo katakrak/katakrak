@@ -1,5 +1,5 @@
-@link_gray: #777;
-@hover_gray: #444;
+@link_gray: #444;
+@hover_gray: #222;
 @background_gray: #E6E6E6;
 @custom_blue: #2780AF;
 @custom_pink: #F50087;
@@ -368,6 +368,12 @@ h3.field-content{
   margin-top: 5px;
 }
 
+#kata-main-menu {
+  ul {
+    margin-left: 60px;
+  }
+}
+
 /* ----------------------------------------------------------------
     Logo
 -----------------------------------------------------------------*/
@@ -636,33 +642,10 @@ h3.field-content{
 
 /* HOME STYLES */
 
-
-#block-katakrak-home-katakrak-home-promo-right {
-  span.glyphicon {
-    color: rgba(100, 100, 100, 0.9);
+a.home_events_second {
+  img {
+    margin-top: 30px;
   }
-}
-
-#block-katakrak-home-katakrak-home-promo-bottom {
-  div {
-    text-align: center;
-  }
-  span.glyphicon {
-    color: black;
-  }
-}
-
-#home-page-content-bottom  {
-  margin: 40px 0 0 0;
-  padding: 20px 0;
-}
-
-#home-page-content-bottom {
-  background: @background_gray;
-}
-
-#block-katakrak-newsletter-suscribe input[type="text"] {
-  width: 100%;
 }
 
 .view-display-id-book_block_home {
@@ -849,20 +832,30 @@ html.js input.throbbing {
 /** Flexlider STYLES */
 
 .view-display-id-kantina_home, .view-display-id-home{
-  .views-field-title {
+  a {
+    color: black;
+  }
+  .views-field-title, .home-events-title {
     width: 100%;
-    background: rgba(230, 230, 230, 0.9);
+    background: rgba(255, 255, 255, 0.8);
     float: left;
     position: absolute;
     z-index: 10;
     bottom: 0;
   }
+  .home-events-title-main {
+    bottom: 192px;
+  }
+  .home-events-title-second {
+    bottom: 320px;
+  }
   h3 {
-    color: #FFF;
+    color: @link_gray;
     margin-left: 10px;
-    span {
-      color: #000;
-    }
+  }
+  .date {
+    color: black;
+    margin-left: 10px;
   }
 }
 
@@ -1238,13 +1231,13 @@ Responsiveness
 }
 
 @media (min-width: 768px) {
+  .grow { }
+.grow:hover {  }
   .views-field-field-libro-portada img {
-    filter: grayscale(75%);
-    -webkit-filter: grayscale(75%);
+     transition: all .2s ease-in-out;
   }
   .views-field-field-libro-portada img:hover {
-    filter: grayscale(0);
-    -webkit-filter: grayscale(0);
+    transform: scale(1.1);
   }
   #top-menu li a,
   #top-menu li span {

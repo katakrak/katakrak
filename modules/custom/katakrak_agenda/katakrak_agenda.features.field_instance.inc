@@ -203,7 +203,6 @@ function katakrak_agenda_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
-          'show_repeat_rule' => 'show',
         ),
         'type' => 'date_default',
         'weight' => 1,
@@ -258,6 +257,48 @@ function katakrak_agenda_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-event-field_event_descripcion'
+  $field_instances['node-event-field_event_descripcion'] = array(
+    'bundle' => 'event',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_event_descripcion',
+    'label' => 'Descripción',
+    'required' => 0,
+    'settings' => array(
+      'display_summary' => 1,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 20,
+        'summary_rows' => 5,
+      ),
+      'type' => 'text_textarea_with_summary',
+      'weight' => 41,
+    ),
+  );
+
   // Exported field_instance: 'node-event-field_event_description'
   $field_instances['node-event-field_event_description'] = array(
     'bundle' => 'event',
@@ -270,7 +311,7 @@ function katakrak_agenda_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'home_event' => array(
         'label' => 'hidden',
@@ -481,7 +522,7 @@ function katakrak_agenda_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 8,
       ),
       'home_event' => array(
         'label' => 'hidden',
@@ -680,6 +721,7 @@ function katakrak_agenda_field_default_field_instances() {
   t('Ciclo');
   t('Color');
   t('Date');
+  t('Descripción');
   t('Description');
   t('Event type');
   t('Image');

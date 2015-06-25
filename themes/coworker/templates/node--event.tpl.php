@@ -93,7 +93,7 @@
       <div class="col-lg-10">
         
         <h3><?php print render($content['field_event_type']) ?></h3>
-        <p><?php print render($content['field_event_description']) ?></p>
+        <p><?php print render($content['field_event_descripcion']) ?></p>
       </div>
   </div>
   <div class="col-lg-5">
