@@ -136,7 +136,7 @@ function katakrak_block_view($delta) {
     if (isset($links->links)) {
       drupal_add_css(drupal_get_path('module', 'locale') . '/locale.css');
       foreach ($links->links as $id => &$link) {
-        $link['title'] = t($link['language']->name);
+        $link['title'] = t($link['language']->prefix);
       }
       $class = "language-switcher-{$links->provider}";
       $variables = array('links' => $links->links, 'attributes' => array('class' => array($class)));

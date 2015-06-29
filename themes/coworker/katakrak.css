@@ -225,32 +225,17 @@ h3.field-content a:hover {
 #bottom-social li.ts-facebook a {
   background-color: #3B5998;
 }
-#bottom-social li.ts-facebook .ts-icon {
-  background: url("images/icons/social/facebook.png") no-repeat center center;
-}
 #bottom-social li.ts-twitter a {
   background-color: #3CF;
-}
-#bottom-social li.ts-twitter .ts-icon {
-  background: url("images/icons/social/twitter.png") no-repeat center center;
 }
 #bottom-social li.ts-rss a {
   background-color: #F88F16;
 }
-#bottom-social li.ts-rss .ts-icon {
-  background: url("images/icons/social/rss.png") no-repeat center center;
-}
 #bottom-social li.ts-phone a {
   background-color: #4818AB;
 }
-#bottom-social li.ts-phone .ts-icon {
-  background: url("images/icons/social/phone.png") no-repeat center center;
-}
 #bottom-social li.ts-mail a {
   background-color: #444;
-}
-#bottom-social li.ts-mail .ts-icon {
-  background: url("images/icons/social/mail.png") no-repeat center center;
 }
 /* ----------------------------------------------------------------
     Top Bar Style 2

@@ -201,8 +201,9 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['label'] = '';
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['created']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['created']['date_format'] = 'media';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'd/m/Y';
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
   /* Campo: Contenido: Tipo */
   $handler->display->display_options['fields']['field_blog_tipo']['id'] = 'field_blog_tipo';
   $handler->display->display_options['fields']['field_blog_tipo']['table'] = 'field_data_field_blog_tipo';
@@ -262,8 +263,9 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['label'] = '';
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['created']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['created']['date_format'] = 'media';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'd/m/Y';
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
   $handler->display->display_options['block_description'] = 'Blog home';
 
   /* Display: Blog isotope filter */

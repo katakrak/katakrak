@@ -82,6 +82,7 @@
 <div class="row">
   <div class="col-lg-7">
       <h1><?php print $node->title ?></h1>
+      <div class="row">
       <div class="col-lg-2">
         <?php print theme('agenda_date', array('time' => $node->field_event_date['und'][0]['value'])); ?>
       </div>
@@ -90,12 +91,12 @@
         <h3><?php print render($content['field_event_type']) ?></h3>
         <p><?php print render($content['field_event_descripcion']) ?></p>
       </div>
+        </div>
   </div>
   <div class="col-lg-5">
     <?php print render($content['field_event_image']) ?>
   </div>
 </div>
-<h3>Libros</h3>
-<div class="dotted-divider"></div>
+<h2>Libros relacionados</h2>
 <p><?php print views_embed_view('libros', 'books_related_event', $node->nid); ?></p>
       

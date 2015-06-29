@@ -1,4 +1,4 @@
-.dedia, .denoche, .kantina_blog, .circulo_ficha, .flecha_dcha, .mParada, .uparada, .correspondencia, .circulo_trans2, .submenu, .mainsubmenu, .mainsubmenuh, .banda_header, .banda_footer, .begiak, .menu_mediodia, .begi-urdinak {
+.dedia, .denoche, .kantina_blog, .circulo_ficha, .flecha_dcha, .mParada, .uparada, .correspondencia, .circulo_trans2, .submenu, .mainsubmenu, .mainsubmenuh, .banda_header, .banda_footer, .begiak, .menu_mediodia, .begi-urdinak, .rss, .twitter, .phone, .facebook, .mail {
        background: url("images/sprites.png") no-repeat;
 }
 .dedia{
@@ -104,4 +104,30 @@
   background-position: -515px -201px;
   width: 119px;
   height: 48px;
+}
+
+.rss{
+background-position: 4px -369px;
+width: 16px;
+height: 16px;
+}
+.twitter{
+background-position: -54px -362px;
+width: 16px;
+height: 16px;
+}
+.facebook{
+background-position: -90px -366px;
+width: 16px;
+height: 16px;
+}
+.phone{
+background-position: -144px -358px;
+width: 16px;
+height: 16px;
+}
+.mail{
+background-position: -192px -358px;
+width: 15px;
+height: 11px;
 }
