@@ -94,6 +94,7 @@ layouts[home][regions][] = "content_bottom_first"
 layouts[home][regions][] = "content_bottom_second"
 layouts[home][regions][] = "content_bottom_third"
 layouts[home][regions][] = "content_bottom_fourth"
+layouts[home][regions][] = "post_content_bottom_right"
 
 
 layouts[search][name] = "Search"

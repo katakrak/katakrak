@@ -4,9 +4,6 @@
   -webkit-border-radius: 10px;
   padding: 10px;
 }
-.btn {
-  margin-top: 10px;
-}
 .btn a {
   color: white;
 }
@@ -237,59 +234,11 @@ h3.field-content a:hover {
 #bottom-social li.ts-twitter .ts-icon {
   background: url("images/icons/social/twitter.png") no-repeat center center;
 }
-#bottom-social li.ts-gplus a {
-  background-color: #BD3518;
-}
-#bottom-social li.ts-gplus .ts-icon {
-  background: url("images/icons/social/gplus.png") no-repeat center center;
-}
-#bottom-social li.ts-dribbble a {
-  background-color: #D97AA5;
-}
-#bottom-social li.ts-dribbble .ts-icon {
-  background: url("images/icons/social/dribbble.png") no-repeat center center;
-}
-#bottom-social li.ts-forrst a {
-  background-color: #304C25;
-}
-#bottom-social li.ts-forrst .ts-icon {
-  background: url("images/icons/social/forrst.png") no-repeat center center;
-}
-#bottom-social li.ts-blogger a {
-  background-color: #FCA448;
-}
-#bottom-social li.ts-blogger .ts-icon {
-  background: url("images/icons/social/blogger.png") no-repeat center center;
-}
-#bottom-social li.ts-flickr a {
-  background-color: #FF0084;
-}
-#bottom-social li.ts-flickr .ts-icon {
-  background: url("images/icons/social/flickr.png") no-repeat center center;
-}
-#bottom-social li.ts-pinterest a {
-  background-color: #CB2027;
-}
-#bottom-social li.ts-pinterest .ts-icon {
-  background: url("images/icons/social/pinterest.png") no-repeat center center;
-}
 #bottom-social li.ts-rss a {
   background-color: #F88F16;
 }
 #bottom-social li.ts-rss .ts-icon {
   background: url("images/icons/social/rss.png") no-repeat center center;
-}
-#bottom-social li.ts-vimeo a {
-  background-color: #0590B8;
-}
-#bottom-social li.ts-vimeo .ts-icon {
-  background: url("images/icons/social/vimeo.png") no-repeat center center;
-}
-#bottom-social li.ts-youtube a {
-  background-color: #F33;
-}
-#bottom-social li.ts-youtube .ts-icon {
-  background: url("images/icons/social/youtube.png") no-repeat center center;
 }
 #bottom-social li.ts-phone a {
   background-color: #4818AB;
@@ -302,12 +251,6 @@ h3.field-content a:hover {
 }
 #bottom-social li.ts-mail .ts-icon {
   background: url("images/icons/social/mail.png") no-repeat center center;
-}
-#bottom-social li.ts-linkedin a {
-  background-color: #0A6495;
-}
-#bottom-social li.ts-linkedin .ts-icon {
-  background: url("images/icons/social/linkedin.png") no-repeat center center;
 }
 /* ----------------------------------------------------------------
     Top Bar Style 2
@@ -590,6 +533,75 @@ a.home_events_second img {
   margin-top: 0;
 }
 /* ESTILOS PARA LIBRERIA */
+#block-views-libros-book-block-home div.field-content {
+  position: relative;
+  overflow: hidden;
+}
+#block-views-libros-book-block-home div.field-content .prod-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #000;
+  width: 262px;
+  padding: 16px 9px 29px 29px;
+  -moz-transition: all 0.4s ease 0s;
+  -webkit-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  opacity: 0;
+  -webkit-transform: scale(6);
+  -moz-transform: scale(6);
+  -o-transform: scale(6);
+  -ms-transform: scale(6);
+  transform: scale(6);
+}
+#block-views-libros-book-block-home div.field-content .prod-info h4 {
+  text-align: center;
+}
+#block-views-libros-book-block-home div.field-content .prod-info h4 a {
+  color: white;
+}
+#block-views-libros-book-block-home div.field-content .prod-info .btn {
+  border-top: 2px solid #000000;
+  border-left: 2px solid #000000;
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  padding: 5px 10px !important;
+  background: #000000;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+#block-views-libros-book-block-home div.field-content .prod-info .btn:hover {
+  border-top: 2px solid #000000;
+  border-left: 2px solid #000000;
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  padding: 5px 10px !important;
+  background: #000000;
+  text-transform: uppercase;
+  color: #f50087;
+}
+#block-views-libros-book-block-home div.field-content .prod-info .price {
+  display: block;
+  padding: 3px 24px 0 0;
+  color: #f50087;
+  float: left;
+}
+#block-views-libros-book-block-home div.field-content:hover .prod-info {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+@media \0screen {
+  #block-views-libros-book-block-home div.field-content div.prod-info {
+    display: none;
+  }
+  #block-views-libros-book-block-home div.field-content:hover .prod-info {
+    display: block;
+  }
+}
 #block-libro-libreria-home-search {
   text-align: center;
 }
@@ -738,7 +750,7 @@ html.js input.throbbing {
 .view-display-id-kantina_home .home-events-title,
 .view-display-id-home .home-events-title {
   width: 100%;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(38, 128, 175, 0.9);
   float: left;
   position: absolute;
   z-index: 10;
@@ -746,13 +758,15 @@ html.js input.throbbing {
 }
 .view-display-id-kantina_home h3,
 .view-display-id-home h3 {
-  color: #444444;
+  color: white;
   margin-left: 10px;
 }
-.view-display-id-kantina_home .date,
-.view-display-id-home .date {
+.view-display-id-kantina_home .date-display-single,
+.view-display-id-home .date-display-single {
   color: black;
   margin-left: 10px;
+  font-weight: bold;
+  font-size: 16px;
 }
 .view-id-kantina .flexslider {
   box-shadow: none;
@@ -890,11 +904,7 @@ div.search-results div:last-child {
   font-weight: 600;
 }
 #block-views-agenda-next-events-node-block .views-row {
-  background-color: #eee;
   margin-bottom: 18px;
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
   padding: 10px;
 }
 #block-views-agenda-next-events-node-block h3 a {
@@ -1051,7 +1061,6 @@ div.search-results div:last-child {
   background: #2780af;
   text-transform: uppercase;
   color: #ffffff;
-  margin-top: 15px;
 }
 .commerce-add-to-cart button:hover {
   border-top: 2px solid #2780af;
@@ -1062,7 +1071,6 @@ div.search-results div:last-child {
   background: #2780af;
   text-transform: uppercase;
   color: #ffffff;
-  margin-top: 15px;
 }
 .btn {
   border-top: 2px solid #2780af;
@@ -1073,7 +1081,6 @@ div.search-results div:last-child {
   background: #2780af;
   text-transform: uppercase;
   color: #ffffff;
-  margin-top: 15px;
 }
 .btn:hover {
   border-top: 2px solid #777777;
@@ -1084,7 +1091,6 @@ div.search-results div:last-child {
   background: #e6e6e6;
   text-transform: uppercase;
   color: #000000;
-  margin-top: 15px;
 }
 button.checkout-cancel {
   border: none !important;
@@ -1100,7 +1106,6 @@ button.checkout-cancel {
   background: #e6e6e6;
   text-transform: uppercase;
   color: #000000;
-  margin-top: 15px;
   border-radius: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -1126,7 +1131,6 @@ button.checkout-cancel {
   background: #2780af;
   text-transform: uppercase;
   color: #ffffff;
-  margin-top: 15px;
 }
 span.fieldset-legend {
   font-size: 15px;

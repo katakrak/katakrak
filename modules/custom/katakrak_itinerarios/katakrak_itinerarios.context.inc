@@ -31,9 +31,8 @@ function katakrak_itinerarios_context_default_contexts() {
       'blocks' => array(),
       'layout' => 'book',
     ),
-    'theme' => array(
-      'title' => 'Librería',
-      'subtitle' => '',
+    'menu' => array(
+      0 => 'main-menu:tienda',
     ),
   );
   $context->condition_mode = 1;

@@ -28,31 +28,7 @@ function libro_views_default_views() {
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'más';
   $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'views_content_cache';
-  $handler->display->display_options['cache']['results_min_lifespan'] = '-1';
-  $handler->display->display_options['cache']['results_max_lifespan'] = '21600';
-  $handler->display->display_options['cache']['output_min_lifespan'] = '-1';
-  $handler->display->display_options['cache']['output_max_lifespan'] = '21600';
-  $handler->display->display_options['cache']['keys'] = array(
-    'comment' => array(
-      'changed' => 0,
-    ),
-    'node' => array(
-      'libro' => 'libro',
-      'article' => 0,
-      'page' => 0,
-      'blog' => 0,
-      'boletin' => 0,
-      'event' => 0,
-      'itinerario' => 0,
-      'portfolio' => 0,
-      'simplenews' => 0,
-      'webform' => 0,
-    ),
-    'node_only' => array(
-      'node_changed' => 'node_changed',
-    ),
-  );
+  $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['disable_sql_rewrite'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -239,7 +215,6 @@ function libro_views_default_views() {
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'book-block-home';
   $handler->display->display_options['defaults']['use_more'] = FALSE;
-  $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['defaults']['use_more_always'] = FALSE;
   $handler->display->display_options['defaults']['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_always'] = TRUE;
@@ -271,6 +246,12 @@ function libro_views_default_views() {
     'libros_destacados' => 0,
     'evento_home' => 0,
   );
+  /* Relationship: Contenido: Referenced products */
+  $handler->display->display_options['relationships']['field_libro_producto_product_id']['id'] = 'field_libro_producto_product_id';
+  $handler->display->display_options['relationships']['field_libro_producto_product_id']['table'] = 'field_data_field_libro_producto';
+  $handler->display->display_options['relationships']['field_libro_producto_product_id']['field'] = 'field_libro_producto_product_id';
+  $handler->display->display_options['relationships']['field_libro_producto_product_id']['label'] = 'Producto';
+  $handler->display->display_options['relationships']['field_libro_producto_product_id']['required'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Campo: Contenido: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
@@ -291,6 +272,38 @@ function libro_views_default_views() {
     'image_style' => 'cover_home',
     'image_link' => '',
   );
+  /* Campo: Contenido: Título */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Campo: Producto de Comercio: Price */
+  $handler->display->display_options['fields']['commerce_price']['id'] = 'commerce_price';
+  $handler->display->display_options['fields']['commerce_price']['table'] = 'field_data_commerce_price';
+  $handler->display->display_options['fields']['commerce_price']['field'] = 'commerce_price';
+  $handler->display->display_options['fields']['commerce_price']['relationship'] = 'field_libro_producto_product_id';
+  $handler->display->display_options['fields']['commerce_price']['label'] = '';
+  $handler->display->display_options['fields']['commerce_price']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['commerce_price']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['commerce_price']['click_sort_column'] = 'amount';
+  $handler->display->display_options['fields']['commerce_price']['settings'] = array(
+    'calculation' => '0',
+  );
+  /* Campo: Producto de Comercio: Formulario de añadir a la cesta */
+  $handler->display->display_options['fields']['add_to_cart_form']['id'] = 'add_to_cart_form';
+  $handler->display->display_options['fields']['add_to_cart_form']['table'] = 'views_entity_commerce_product';
+  $handler->display->display_options['fields']['add_to_cart_form']['field'] = 'add_to_cart_form';
+  $handler->display->display_options['fields']['add_to_cart_form']['relationship'] = 'field_libro_producto_product_id';
+  $handler->display->display_options['fields']['add_to_cart_form']['label'] = '';
+  $handler->display->display_options['fields']['add_to_cart_form']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['add_to_cart_form']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['add_to_cart_form']['show_quantity'] = 0;
+  $handler->display->display_options['fields']['add_to_cart_form']['default_quantity'] = '1';
+  $handler->display->display_options['fields']['add_to_cart_form']['combine'] = 1;
+  $handler->display->display_options['fields']['add_to_cart_form']['display_path'] = 0;
+  $handler->display->display_options['fields']['add_to_cart_form']['line_item_type'] = 0;
 
   /* Display: Libros por categoria */
   $handler = $view->new_display('block', 'Libros por categoria', 'block_1');
@@ -576,6 +589,7 @@ function libro_views_default_views() {
     t('Books block home'),
     t('Librería'),
     t('Entra en la tienda online'),
+    t('Producto'),
     t('Libros por categoria'),
     t('Elementos por página'),
     t('- Todos -'),

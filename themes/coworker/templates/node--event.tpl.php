@@ -79,14 +79,9 @@
  * @ingroup themeable
  */
 ?>
-<div class="dotted-divider"></div>
-<div class="row">
-      <div class="col-lg-12">
-        <h1><?php print $node->title ?></h1>
-      </div>
-</div>
 <div class="row">
   <div class="col-lg-7">
+      <h1><?php print $node->title ?></h1>
       <div class="col-lg-2">
         <?php print theme('agenda_date', array('time' => $node->field_event_date['und'][0]['value'])); ?>
       </div>
