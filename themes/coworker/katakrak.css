@@ -26,11 +26,6 @@
   font-weight: bold;
   text-transform: uppercase;
 }
-.block-tagclouds .content,
-#block-views-agenda-proximas-presentaciones .content {
-  padding: 10px;
-  border: 1px dashed #444444;
-}
 /* ----------------------------------------------------------------
     Overrides
 -----------------------------------------------------------------*/
@@ -508,9 +503,6 @@ a.home_events_second img {
 .view-display-id-book_block_home div.row:nth-child(1) {
   margin-top: 0;
 }
-.view-display-id-home .event-type {
-  font-size: 11px;
-}
 #block-views-blog-block .views-row {
   margin-top: 15px;
 }
@@ -530,7 +522,7 @@ a.home_events_second img {
   width: 262px;
   padding: 16px 9px 29px 29px;
   -moz-transition: all 0.4s ease 0s;
-  -webkit-transition: all 0.4s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
   -o-transition: all 0.4s ease 0s;
   opacity: 0;
   -webkit-transform: scale(6);
@@ -721,7 +713,11 @@ html.js input.form-autocomplete {
 html.js input.throbbing {
   background-position: 99% 50%;
 }
-/** Flexlider STYLES */
+/** Home STYLES */
+.view-display-id-kantina_home img,
+.view-display-id-home img {
+  width: 100%;
+}
 .view-display-id-kantina_home .home-event,
 .view-display-id-home .home-event {
   position: relative;
@@ -1348,23 +1344,9 @@ Responsiveness
     margin: 0 auto;
     position: relative;
   }
-  #block-katakrak-home-katakrak-home-promo-right span.glyphicon {
-    float: left;
-  }
-  #block-katakrak-home-katakrak-home-promo-right .promo-right-text {
-    padding-left: 90px;
-  }
-  #block-katakrak-home-katakrak-home-promo-right .promo-right-text h3 {
-    margin: 0 !important;
-  }
-  #block-katakrak-home-katakrak-home-promo-right .promo-right-text h3 a {
-    color: #000;
-  }
-  #block-katakrak-home-katakrak-home-promo-right div.promo-right-first {
-    margin-top: 60px;
-  }
-  #block-katakrak-home-katakrak-home-promo-right div.promo-right {
-    margin-top: 40px;
+  .region-sidebar-second {
+    box-shadow: -2px 0 2px -2px #808080;
+    padding: 3px 27px;
   }
 }
 @media only screen and (min-width: 1040px) {

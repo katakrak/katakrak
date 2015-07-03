@@ -63,13 +63,6 @@
   }
 }
 
-.block-tagclouds, #block-views-agenda-proximas-presentaciones {
-  .content {
-    padding: 10px;
-    border: 1px dashed @link_gray;
-  }
-}
-
 /* ----------------------------------------------------------------
     Overrides
 -----------------------------------------------------------------*/
@@ -609,12 +602,6 @@ a.home_events_second {
   }
 }
 
-.view-display-id-home {
-  .event-type {
-    font-size: 11px;
-  }
-}
-
 #block-views-blog-block {
   .views-row {
     margin-top: 15px;
@@ -662,7 +649,6 @@ a.home_events_second {
       .btn:hover {
         .katakrak-button(black, black, @custom_pink);
       }
-
       .price {
         display: block;
         padding: 3px 24px 0 0;
@@ -838,9 +824,12 @@ html.js input.throbbing {
 }
 
 
-/** Flexlider STYLES */
+/** Home STYLES */
 
-.view-display-id-kantina_home, .view-display-id-home{
+.view-display-id-kantina_home, .view-display-id-home {
+  img {
+    width: 100%;
+  }
   .home-event {
     position: relative; 
   }
@@ -1423,28 +1412,10 @@ Responsiveness
   position: relative; 
 }
 
-#block-katakrak-home-katakrak-home-promo-right {
-    span.glyphicon {
-      float: left;
-    }
-  .promo-right-text {
-    padding-left: 90px;
-    h3 {
-      margin: 0 !important; 
-      a {
-        color: #000;
-      }
-    }
-  }
-  div.promo-right-first {
-    margin-top: 60px;
-  }
-  div.promo-right {
-    margin-top: 40px;
-  }
-  
+.region-sidebar-second {
+  box-shadow: -2px 0 2px -2px gray;
+  padding: 3px 27px;
 }
-
 }
 
 @media only screen and (min-width: 1040px) {

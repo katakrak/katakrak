@@ -6,6 +6,7 @@
  *
  * @ingroup views_templates
  */
+dpm($view)
 ?>
 <div class="row">
   <div class="col-lg-7">
@@ -14,8 +15,8 @@
       theme('image_style', array('style_name' => 'home_agenda_main', 'path' => $view->result[0]->field_field_event_image[0]['raw']['uri'])).
         '<div class="home-events-title home-events-title-main">
         <h3>'.$view->result[0]->node_title.'</h3>'.
-        $view->result[0]->field_field_event_descripcion[0]['rendered']['#markup'].
         $view->result[0]->field_field_event_date[0]['rendered']['#markup'].
+        '<p>'.$view->result[0]->field_field_event_descripcion[0]['raw']['summary'].'</p>'.
         '</div>',
       'node/'.$view->result[0]->nid, array('html' => TRUE)); ?>
 
