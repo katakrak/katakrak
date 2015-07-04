@@ -776,6 +776,27 @@ Eguneko menuak
 .eguneko-menua p {
   margin-bottom: 10px;
 }
+.sf2015 {
+  text-align: center;
+  color: black;
+}
+.sf2015 h2 {
+  border-top: dotted;
+  margin: 40px 33% 40px 33%;
+  border-bottom: dotted;
+  padding: 5px 0px;
+}
+.sf2015 .circle {
+  margin: 0 46%;
+  width: 65px;
+  height: 50px;
+  color: white;
+  padding-top: 20px;
+  font-size: 20px;
+}
+.sf2015 #vermu span {
+  color: #777777;
+}
 /*******************************************************************************
 Responsiveness
 *******************************************************************************/
