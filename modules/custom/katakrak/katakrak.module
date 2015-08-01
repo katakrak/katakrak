@@ -152,7 +152,7 @@ function katakrak_block_view($delta) {
     if (user_is_anonymous()) {
       //Generate login link
       
-       $block['content'] = l('<i class="fa fa-user"></i> '.t('Acceder'), 'user', array('html' => TRUE));
+       $block['content'] = l('<i class="fa fa-user"></i> '.t('Acceder'), 'user', array('html' => TRUE, 'query' => array('destination' => $_GET['q'])));
     }
     else {
         $block['content'] = l('<i class="fa fa-user"></i> '.t('Hola !username', array('!username' => $user->name)), 'user', array('html' => TRUE));
