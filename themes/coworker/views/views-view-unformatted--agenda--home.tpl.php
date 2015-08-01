@@ -5,8 +5,9 @@
  * Default simple view template to display a list of rows.
  *
  * @ingroup views_templates
+ * 
+        '<p>'.$view->result[0]->field_field_event_descripcion[0]['raw']['summary'].'</p>'.
  */
-dpm($view)
 ?>
 <div class="row">
   <div class="col-lg-7">
@@ -16,7 +17,6 @@ dpm($view)
         '<div class="home-events-title home-events-title-main">
         <h3>'.$view->result[0]->node_title.'</h3>'.
         $view->result[0]->field_field_event_date[0]['rendered']['#markup'].
-        '<p>'.$view->result[0]->field_field_event_descripcion[0]['raw']['summary'].'</p>'.
         '</div>',
       'node/'.$view->result[0]->nid, array('html' => TRUE)); ?>
 

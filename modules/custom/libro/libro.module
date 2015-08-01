@@ -95,8 +95,11 @@ function libro_block_view($delta) {
     return $block;
   }
   if ($delta == 'libreria_home_search') {
-    $seccion = menu_get_object('taxonomy_term', 2);
-    $block['content'] = theme('libreria_home_search', array('seccion' => $seccion));
+    $book_count_db = db_query("SELECT COUNT(*) as total FROM  {node} WHERE type = 'libro'");
+    foreach ($book_count_db as $count) {
+      $total_count = number_format($count->total, 0, ',', '.');
+    }
+    $block['content'] = drupal_get_form('libro_search_home_form', $total_count);
     return $block;
   }
 }
@@ -109,13 +112,6 @@ function libro_theme() {
       'path' => $path . '/templates',
       'arguments' => array(
         'link' => NULL,
-      )
-    ),
-    'libreria_home_search' => array(
-      'template' => 'libreria-home-search',
-      'path' => $path . '/templates',
-      'arguments' => array(
-        'seccion' => NULL,
       )
     ),
   );
@@ -295,21 +291,7 @@ function libro_por_isbn() {
   
 }
 
-function template_preprocess_libreria_home_search(&$vars) {
-  
-    $book_count_db = db_query("SELECT COUNT(*) as total FROM  {node} WHERE type = 'libro'");
-    foreach ($book_count_db as $count) {
-      $vars['total_count'] = number_format($count->total, 0, ',', '.');
-    }
-    $terms_db = db_query('SELECT * FROM {taxonomy_term_data} WHERE weight > 0 AND vid = 7 ORDER BY weight ASC LIMIT 5');
-    foreach ($terms_db as $term) {
-      $terms[] = $term;
-    }
-    $vars['terms'] = i18n_taxonomy_localize_terms($terms);
-    $vars['form'] = drupal_get_form('libro_search_home_form', $vars['total_count']);
-}
-
-function libro_search_home_form($form, &$form_state, $total, $seccion = NULL) {
+function libro_search_home_form($form, &$form_state, $total = NULL) {
   $placeholder = t('@count libros a tu alcance', array('@count' => $total));
   $form['search_term'] = array(
     '#type' => 'textfield',

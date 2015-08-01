@@ -522,7 +522,7 @@ a.home_events_second img {
   width: 262px;
   padding: 16px 9px 29px 29px;
   -moz-transition: all 0.4s ease 0s;
-  -webkit-transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.4s ease 0s;
   -o-transition: all 0.4s ease 0s;
   opacity: 0;
   -webkit-transform: scale(6);
@@ -605,9 +605,9 @@ a.home_events_second img {
 }
 #block-libro-libreria-home-search #libro-search-home-form input,
 #block-libro-libreria-home-search #apachesolr-panels-search-form input {
-  height: 50px;
+  height: 70px;
   width: 300px;
-  border-radius: 4px 0 0 4px;
+  border-radius: 14px 0 0 14px;
 }
 #block-libro-libreria-home-search #libro-search-home-form .btn,
 #block-libro-libreria-home-search #apachesolr-panels-search-form .btn {
@@ -615,9 +615,9 @@ a.home_events_second img {
   background: white;
   color: #000;
   border: 1px solid #e6e6e6;
-  height: 50px;
-  width: 50px;
-  border-radius: 0 4px 4px 0;
+  height: 70px;
+  width: 70px;
+  border-radius: 0 14px 14px 0;
 }
 .view-display-id-book_block_home .views-field-field-libro-portada {
   margin-top: 20px;
@@ -844,6 +844,14 @@ div.search-results div:last-child {
 /** Agenda styles **/
 .agenda-page h1 {
   word-break: break-word;
+  margin-top: 0;
+}
+.agenda-page h2 {
+  margin-top: 0;
+}
+.agenda-page h4 {
+  margin: 0;
+  padding: 0;
 }
 .agenda-page #block-views-agenda-isotope-filter {
   padding-top: 15px;
@@ -1166,6 +1174,27 @@ Irakurle taldeak
 .pane-views-libros-libros-grupo-lectura .pane-content {
   margin-top: 10px;
 }
+.sf2015 {
+  text-align: center;
+  color: black;
+}
+.sf2015 h2 {
+  border-top: dotted;
+  margin: 40px 33% 40px 33%;
+  border-bottom: dotted;
+  padding: 5px 0px;
+}
+.sf2015 .circle {
+  margin: 0 46%;
+  width: 65px;
+  height: 50px;
+  color: white;
+  padding-top: 20px;
+  font-size: 20px;
+}
+.sf2015 #vermu span {
+  color: #444444;
+}
 /*******************************************************************************
 Responsiveness
 *******************************************************************************/
@@ -1242,6 +1271,14 @@ Responsiveness
   }
   #primary-links ul ul li {
     background-color: #57B3DF;
+  }
+}
+/*******************************************************************************
+Responsiveness
+*******************************************************************************/
+@media (max-width: 767px) {
+  #page-title .page-title {
+    width: 100%;
   }
   #primary-links ul > li.sub-menu > a > div {
     background-image: url("images/icons/mainsubmenu.png");
@@ -1329,16 +1366,6 @@ Responsiveness
     background-image: none;
     padding-right: 0;
   }
-  #libro-search-home-form,
-  #apachesolr-panels-search-form {
-    margin-left: auto;
-    margin-right: auto;
-    width: 600px;
-  }
-  #libro-search-home-form .controls input,
-  #apachesolr-panels-search-form .controls input {
-    width: 550px !important;
-  }
   .container-banda {
     width: 1200px;
     margin: 0 auto;
@@ -1350,12 +1377,17 @@ Responsiveness
   }
 }
 @media only screen and (min-width: 1040px) {
-  #logo {
-    /*    top: 40px;
-      margin-left: 530px;*/
-  
+  #libro-search-home-form,
+  #apachesolr-panels-search-form {
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
   }
-}
-.dropdown:hover .dropdown-menu {
-  display: block;
+  #libro-search-home-form .controls input,
+  #apachesolr-panels-search-form .controls input {
+    width: 530px !important;
+  }
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
 }

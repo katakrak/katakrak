@@ -84,7 +84,7 @@
     <h1><?php print $node->title ?></h1>
     <?php print render($content['field_image']) ?>
     
-    <p><?php print t("Published on !date", array('!date' => format_date($node->changed, 'custom', 'd/m/Y'))) ?></p>
+    <p><?php print t("Published on !date by !author", array('!author' => $node->name, '!date' => format_date($node->changed, 'custom', 'd/m/Y'))) ?></p>
     <div class="clear"></div>
     <?php print render($content['sharethis']) ?>
     <div class="clear"></div>

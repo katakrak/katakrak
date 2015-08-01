@@ -691,21 +691,22 @@ a.home_events_second {
   #libro-search-home-form, #apachesolr-panels-search-form {
     height: 60px;
     .controls {
-      float: left;
-    }
+       float: left;
+     }
+
     input {
-      height: 50px;
+      height: 70px;
       width: 300px;
-      border-radius: 4px 0 0 4px;
+      border-radius: 14px 0 0 14px;
     }
     .btn {
       margin-top: 0px;
       background: white;
       color: #000;
       border: 1px solid @background_gray;
-      height: 50px;
-      width: 50px;
-      border-radius: 0 4px 4px 0;
+      height: 70px;
+      width: 70px;
+      border-radius: 0 14px 14px 0;
     }
   }
 }
@@ -974,8 +975,15 @@ div.search-results div:last-child {
 
 .agenda-page {
   h1 {
-    word-break: break-word;
-    
+    word-break: break-word; 
+    margin-top: 0;
+  }
+  h2 {
+    margin-top: 0;
+  }
+  h4 {
+    margin: 0;
+    padding: 0;
   }
   #block-views-agenda-isotope-filter {
     padding-top: 15px;
@@ -1001,6 +1009,8 @@ div.search-results div:last-child {
     } 
   }
 }
+
+
 .entry_date {
   float: none;
 }
@@ -1211,6 +1221,31 @@ Irakurle taldeak
   }
 }
 
+
+.sf2015 {
+  text-align: center;
+  color: black;
+  h2 {
+      border-top: dotted;
+    margin: 40px 33% 40px 33%;
+    border-bottom: dotted;
+    padding: 5px 0px
+  }
+  .circle {
+    margin: 0 46%;
+    width: 65px;
+    height: 50px;
+    color: white;
+    padding-top: 20px;
+    font-size: 20px;
+  }
+  #vermu {
+    span {
+      color: @link_gray;
+    }
+  }
+}
+
 /*******************************************************************************
 Responsiveness
 *******************************************************************************/
@@ -1300,6 +1335,17 @@ Responsiveness
         }
       }
     }
+  }
+}
+
+
+/*******************************************************************************
+Responsiveness
+*******************************************************************************/
+
+@media (max-width: 767px) {
+  #page-title .page-title {
+    width: 100%;
   }
   #primary-links ul > li.sub-menu > a > div {
     background-image: url("images/icons/mainsubmenu.png");
@@ -1395,17 +1441,6 @@ Responsiveness
   padding-right: 0;
 } 
 
-#libro-search-home-form, #apachesolr-panels-search-form {
-  margin-left: auto;
-  margin-right: auto;
-  width: 600px;
-  .controls {
-    input {
-      width: 550px !important;
-    }
-  }
-}
-
 .container-banda {
   width: 1200px;
   margin: 0 auto;
@@ -1419,13 +1454,17 @@ Responsiveness
 }
 
 @media only screen and (min-width: 1040px) {
-  #logo {
-/*    top: 40px;
-    margin-left: 530px;*/
-
+#libro-search-home-form, #apachesolr-panels-search-form {
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  .controls {
+    input {
+      width: 530px !important;
+    }
   }
 }
-
 .dropdown:hover .dropdown-menu {
 display: block;
+}
 }
