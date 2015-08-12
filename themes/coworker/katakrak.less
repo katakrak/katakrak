@@ -674,12 +674,20 @@ a.home_events_second {
 
 #block-libro-libreria-home-search {
   .content {
-    p {
-      font-size: 20px;
-      color: @background_gray;
-      a {
-        color: white;
-        font-weight: bold;
+    .pane-apachesolr-search-sort {
+      background: @background_gray;
+      display: inline-block;
+      width: 100%;
+      h2 {
+        float: left;
+        padding-left: 5px;
+      }
+      ul 
+      {
+        li {
+          float: left;
+          margin: 0 10px;
+        }
       }
     }
   }
@@ -714,6 +722,7 @@ a.home_events_second {
           color: #868379;
         }
       }
+      a:hover .facet-bar{background-color:#dfdfdf}
     }
   }
   #libro-search-home-form, #apachesolr-panels-search-form {

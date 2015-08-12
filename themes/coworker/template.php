@@ -86,6 +86,7 @@ function coworker_preprocess_search_result(&$vars) {
   if ($vars['result']['entity_type'] == 'node') {
     $node = node_load($vars['result']['node']->entity_id);
     if ($node->type == 'libro') {
+      
       if ($node->field_libro_portada) {
         $query = array(
           'utm_source'=> 'search',
@@ -102,6 +103,7 @@ function coworker_preprocess_search_result(&$vars) {
         $vars['image'] = '<i class="fa fa-book fa-10x"></i>';
       }
       $product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
+      $vars['price'] = commerce_currency_format($product->commerce_price['und'][0]['amount'], 'EUR', $product);
       $default_quantity = 1;
       $product_ids = array($product->product_id);
 

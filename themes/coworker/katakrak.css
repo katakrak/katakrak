@@ -579,13 +579,18 @@ a.home_events_second img {
     display: block;
   }
 }
-#block-libro-libreria-home-search .content p {
-  font-size: 20px;
-  color: #e6e6e6;
+#block-libro-libreria-home-search .content .pane-apachesolr-search-sort {
+  background: #e6e6e6;
+  display: inline-block;
+  width: 100%;
 }
-#block-libro-libreria-home-search .content p a {
-  color: white;
-  font-weight: bold;
+#block-libro-libreria-home-search .content .pane-apachesolr-search-sort h2 {
+  float: left;
+  padding-left: 5px;
+}
+#block-libro-libreria-home-search .content .pane-apachesolr-search-sort ul li {
+  float: left;
+  margin: 0 10px;
 }
 #block-libro-libreria-home-search .pane-block h2 {
   font-size: 18px;
@@ -617,6 +622,9 @@ a.home_events_second img {
 #block-libro-libreria-home-search .pane-block ul.facetapi-facetapi-links a .facet_count {
   float: right;
   color: #868379;
+}
+#block-libro-libreria-home-search .pane-block ul.facetapi-facetapi-links a:hover .facet-bar {
+  background-color: #dfdfdf;
 }
 #block-libro-libreria-home-search #libro-search-home-form,
 #block-libro-libreria-home-search #apachesolr-panels-search-form {

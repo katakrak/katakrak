@@ -1,7 +1,7 @@
 <div id="block-libro-libreria-home-search" class="container-fluid banda-libreria">
   <div class="banda_header"></div>
   <div class="container">
-      <div id="content-top">
+      <div class="content">
         <div class="row">
           <div class="col-lg-3 search-page-col-left">
             <?php print $content['col_left'] ?>

@@ -66,29 +66,32 @@
 ?>
 
 <div class="row <?php print $classes; ?>"<?php print $attributes; ?>>
-  <div class="col-lg-12">
-    <div class="row">
-      <div class="col-lg-12">
-      <?php print render($title_prefix); ?>
-      <h3 class="title"<?php print $title_attributes; ?>>
-        <a href="<?php print $url; ?>?utm_source=search&utm_medium=web&utm_content=titulo&utm_campaign=libros"><?php print $title; ?></a>
-      </h3>
-      <?php print render($title_suffix); ?>
-      </div>
-    </div>
-  </div>
   <div class="row">
-  <div class="col-lg-4">
-    <?php print $image ?>
-  </div>
-  <div class="col-lg-8">
-    <div class="search-snippet-info">
-      <?php if ($snippet): ?>
-        <p class="search-snippet"<?php print $content_attributes; ?>><?php print $snippet; ?></p>
-      <?php endif; ?>
-        <?php print $add_to_cart ?>
+    <div class="col-lg-3">
+      <?php print $image ?>
     </div>
+    <div class="col-lg-7">
+      <div class="search-snippet-info">
+        <h2 class="title"<?php print $title_attributes; ?>>
+          <a href="<?php print $url; ?>?utm_source=search&utm_medium=web&utm_content=titulo&utm_campaign=libros"><?php print $title; ?></a>
+        </h2>
+        <p>
+          <?php print t("Autores"); ?>: 
+          <?php foreach($node->autores as $i => $autor): ?>
+            <?php print $autor; print $i+1 == count($node->autores) ? '' : ','; ?>
+          <?php endforeach; ?>
+            
+        </p>
+        <?php if ($snippet): ?>
+          <p class="search-snippet"<?php print $content_attributes; ?>><?php print $snippet; ?></p>
+        <?php endif; ?>
+
+      </div>
     </div>  
+    <div>
+      <?php print $price ?>
+      <?php print $add_to_cart ?>
+    </div>
   </div>
 </div>
-<div class="dotted-divider"></div>
+<div class="clear"></div>
