@@ -176,7 +176,7 @@ function katakrak_search_default_page_manager_pages() {
     $pane->panel = 'content';
     $pane->type = 'apachesolr_result';
     $pane->subtype = 'apachesolr_result';
-    $pane->shown = FALSE;
+    $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
       'keys_action' => 'none',
@@ -189,7 +189,7 @@ function katakrak_search_default_page_manager_pages() {
       'sort_action' => 'none',
       'sort' => '',
       'breadcrumb' => 1,
-      'title_override' => 0,
+      'title_override' => 1,
       'title_override_text' => '',
       'empty_override' => 0,
       'empty_override_title' => '',
@@ -218,7 +218,7 @@ function katakrak_search_default_page_manager_pages() {
     $pane->panel = 'content';
     $pane->type = 'search_result';
     $pane->subtype = 'search_result';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'keys_action' => 'none',

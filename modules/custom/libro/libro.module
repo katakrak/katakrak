@@ -99,7 +99,8 @@ function libro_block_view($delta) {
     foreach ($book_count_db as $count) {
       $total_count = number_format($count->total, 0, ',', '.');
     }
-    $block['content'] = drupal_get_form('libro_search_home_form', $total_count);
+    $form = drupal_get_form('libro_search_home_form', $total_count);
+    $block['content'] = theme('libreria_home_search', array('form' => $form));
     return $block;
   }
 }
@@ -112,6 +113,13 @@ function libro_theme() {
       'path' => $path . '/templates',
       'arguments' => array(
         'link' => NULL,
+      )
+    ),
+    'libreria_home_search' => array(
+      'template' => 'libreria-home-search',
+      'path' => $path . '/templates',
+      'arguments' => array(
+        'form' => NULL,
       )
     ),
   );

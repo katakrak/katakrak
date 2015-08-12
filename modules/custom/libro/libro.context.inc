@@ -168,12 +168,6 @@ function libro_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-agenda-proximas_presentaciones' => array(
-          'module' => 'views',
-          'delta' => 'agenda-proximas_presentaciones',
-          'region' => 'sidebar_second',
-          'weight' => '-7',
-        ),
         'libro-libreria_home_search' => array(
           'module' => 'libro',
           'delta' => 'libreria_home_search',

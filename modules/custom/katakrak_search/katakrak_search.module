@@ -270,3 +270,51 @@ function katakrak_search_search_execute($search) {
     return theme('katakrak_search_results', array('results' => $results, 'columns' => $search['columns']));
   }
 }
+
+function katakrak_search_theme_registry_alter(&$theme_registry) {
+  $theme_registry['facetapi_link_inactive']['function'] = 'katakrak_search_facetapi_link_inactive';
+  $theme_registry['facetapi_link_inactive']['includes'] = array();
+  $theme_registry['facetapi_link_inactive']['theme path'] = drupal_get_path('module','katakrak_search');
+}
+
+
+function katakrak_search_facetapi_link_inactive($variables) {
+   // Builds accessible markup.
+  // @see http://drupal.org/node/1316580
+  
+  if (isset($variables['count'])) {
+    $markup = '<span class="facet_count">'.$variables['count'].'</span>';  
+  }
+  $markup .= $variables['text'];
+  $accessible_vars = array(
+    'text' => $variables['text'],
+    'active' => FALSE,
+  );
+  $accessible_markup = theme('facetapi_accessible_markup', $accessible_vars);
+  
+  $variables['text'] = '<span class="link_text">'.$variables['text'].'</span>';
+  // Sanitizes the link text if necessary.
+  $sanitize = empty($variables['options']['html']);
+  $variables['text'] .= ($sanitize) ? check_plain($variables['text']) : $variables['text'];
+
+  // Adds count to link if one was passed.
+  
+
+  // Resets link text, sets to options to HTML since we already sanitized the
+  // link text and are providing additional markup for accessibility.
+  $markup .= $accessible_markup;
+  
+  //Calculates the size of the bar
+  $query = apachesolr_current_query(variable_get('apachesolr_default_environment', 'default'));
+  if ($query) {
+    $searcher = $query->getSearcher();
+    $response = apachesolr_static_response_cache($searcher);
+    $max = $response->response->numFound;
+    $width = (100 * $variables['count']) / $max;
+  }
+  
+  $markup .= '<span class="facet-bar" style="width:'.$width.'%;"></span>';
+  $variables['text'] = $markup;
+  $variables['options']['html'] = TRUE;
+  return theme_link($variables);
+}

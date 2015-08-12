@@ -673,7 +673,6 @@ a.home_events_second {
 }
 
 #block-libro-libreria-home-search {
-  text-align: center;
   .content {
     p {
       font-size: 20px;
@@ -684,9 +683,38 @@ a.home_events_second {
       }
     }
   }
-  h1, h2 {
-    color: white;
-    text-transform: uppercase;
+  .pane-block {
+    h2 {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 10px 0 0 0;
+    }
+    ul.facetapi-facetapi-links { 
+      margin-left: 0;
+      width: 90%;
+      a {
+        padding: 4px 0;
+        display: block;
+        position: relative;
+        line-height: 1em;
+        .facet-bar {
+          background-color: #f2f2f2;
+          display: inline-block;
+          position: absolute;
+          right: 0;
+          bottom: 1px;
+          top: 1px;
+          z-index: -1;
+          -moz-border-radius: 2px;
+          -webkit-border-radius: 2px;
+          border-radius: 2px;
+        }
+        .facet_count {
+          float: right;
+          color: #868379;
+        }
+      }
+    }
   }
   #libro-search-home-form, #apachesolr-panels-search-form {
     height: 60px;
@@ -698,6 +726,7 @@ a.home_events_second {
       height: 70px;
       width: 300px;
       border-radius: 14px 0 0 14px;
+      font-size: 25px;
     }
     .btn {
       margin-top: 0px;
@@ -1343,7 +1372,7 @@ Responsiveness
 Responsiveness
 *******************************************************************************/
 
-@media (max-width: 767px) {
+@media (min-width: 767px) {
   #page-title .page-title {
     width: 100%;
   }
@@ -1455,8 +1484,8 @@ Responsiveness
 
 @media only screen and (min-width: 1040px) {
 #libro-search-home-form, #apachesolr-panels-search-form {
-  margin-left: auto;
-  margin-right: auto;
+/*  margin-left: auto;
+  margin-right: auto;*/
   width: 600px;
   .controls {
     input {
