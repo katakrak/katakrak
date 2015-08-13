@@ -243,7 +243,6 @@ function katakrak_search_ctools_plugin_directory($module, $plugin) {
   }
 }
 
-
 /**
  * Execute a Solr search.
  *
@@ -275,6 +274,20 @@ function katakrak_search_theme_registry_alter(&$theme_registry) {
   $theme_registry['facetapi_link_inactive']['function'] = 'katakrak_search_facetapi_link_inactive';
   $theme_registry['facetapi_link_inactive']['includes'] = array();
   $theme_registry['facetapi_link_inactive']['theme path'] = drupal_get_path('module','katakrak_search');
+}
+
+ function katakrak_search_apachesolr_index_document_build_node(ApacheSolrDocument $document, $entity, $entity_type) {
+  if ($entity->type == 'libro') {
+    $product = commerce_product_load($entity->field_libro_producto['und'][0]['product_id']);
+    $document->addField('sm_field_book_stock', $product->commerce_stock['und'][0]['value']);
+  }
+}
+
+/**
+ * Implements hook_apachesolr_query_prepare().
+ */
+function katakrak_search_apachesolr_query_prepare($query) {
+  $query->setAvailableSort('sm_field_book_stock', array('title' => t('Stock'), 'default' => 'desc'));
 }
 
 
