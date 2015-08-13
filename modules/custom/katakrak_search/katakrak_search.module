@@ -186,6 +186,8 @@ function katakrak_search_apachesolr_index_document_build_node(ApacheSolrDocument
   }
 }
 
+
+
 //function katakrak_search_apachesolr_query_prepare($query) {
 //  // Add Publication Date sort to the faculty-research search
 //  if (arg(1) == 'books') {
