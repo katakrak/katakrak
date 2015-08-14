@@ -331,3 +331,17 @@ function katakrak_search_facetapi_link_inactive($variables) {
   $variables['options']['html'] = TRUE;
   return theme_link($variables);
 }
+
+//function katakrak_search_apachesolr_query_prepare($query) {
+//  // Add Publication Date sort to the faculty-research search
+//  if (arg(1) == 'books') {
+//    // Add the new field as a sort option
+//    $query->setAvailableSort('is_field_book_stock', array(
+//      'title' => t('Stock'),
+//      'default' => 'desc',
+//    ));
+// 
+//    // Sort on our new field
+//    $query->setSolrSort('is_field_book_stock', 'desc');
+//  }
+//}

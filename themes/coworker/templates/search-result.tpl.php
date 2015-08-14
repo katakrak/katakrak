@@ -89,9 +89,9 @@
       </div>
     </div>  
     <div>
-      <?php print $price ?>
+      <div class="book-price"><?php print $price ?></div>
       <?php print $add_to_cart ?>
     </div>
   </div>
 </div>
-<div class="clear"></div>
+<div class="dotted-divider"></div>

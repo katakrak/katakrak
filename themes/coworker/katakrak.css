@@ -662,7 +662,7 @@ a.home_events_second img {
 .book-info-entry {
   border-bottom: 1px solid #eee;
 }
-.book-info-entry .book-price {
+.book-price {
   color: #f50087;
   font-weight: bold;
 }
