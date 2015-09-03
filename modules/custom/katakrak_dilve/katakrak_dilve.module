@@ -128,7 +128,7 @@ function katakrak_dilve_batch_process_form($form, &$form_state) {
     '#description' => t('If no value all items will be processed'),
     '#type' => 'textfield',
     '#size' => 10,
-    '#default_value' => 100,
+    '#default_value' => 10,
   );
   $form['recheck'] = array(
     '#type' => 'checkbox',
