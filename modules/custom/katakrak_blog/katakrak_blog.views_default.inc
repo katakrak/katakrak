@@ -135,6 +135,7 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'blog' => 'blog',
+    'boletin' => 'boletin',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Contenido: Idioma */
@@ -211,6 +212,15 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['fields']['field_blog_tipo']['element_type'] = 'div';
   $handler->display->display_options['fields']['field_blog_tipo']['element_class'] = 'isotope-filter';
   $handler->display->display_options['fields']['field_blog_tipo']['element_default_classes'] = FALSE;
+  /* Campo: Contenido: Imagen */
+  $handler->display->display_options['fields']['field_boletin_imagen']['id'] = 'field_boletin_imagen';
+  $handler->display->display_options['fields']['field_boletin_imagen']['table'] = 'field_data_field_boletin_imagen';
+  $handler->display->display_options['fields']['field_boletin_imagen']['field'] = 'field_boletin_imagen';
+  $handler->display->display_options['fields']['field_boletin_imagen']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_boletin_imagen']['settings'] = array(
+    'image_style' => 'blog_home',
+    'image_link' => 'content',
+  );
   $handler->display->display_options['path'] = 'blog';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Blog';
@@ -304,6 +314,7 @@ function katakrak_blog_views_default_views() {
     t('Bide-izena'),
     t('Page'),
     t('Tipo'),
+    t('Imagen'),
     t('Blog home'),
     t('Blog isotope filter'),
   );

@@ -24,11 +24,14 @@ function portfolio_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Portfolio';
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'más';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Aplicar';
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordenar por';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'isotope';
   $handler->display->display_options['style_options']['portfolio_style'] = 'portfolio-4';
@@ -114,10 +117,10 @@ function portfolio_views_default_views() {
   $translatables['portfolio'] = array(
     t('Master'),
     t('Portfolio'),
-    t('more'),
-    t('Apply'),
+    t('más'),
+    t('Aplicar'),
     t('Reiniciar'),
-    t('Sort by'),
+    t('Ordenar por'),
     t('Asc'),
     t('Desc'),
     t('Portfolio 4 columns (default)'),
@@ -140,11 +143,14 @@ function portfolio_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Portfolio filter';
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'más';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Aplicar';
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordenar por';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'isotope_filter_block';
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -170,10 +176,10 @@ function portfolio_views_default_views() {
   $translatables['portfolio_filter'] = array(
     t('Master'),
     t('Portfolio filter'),
-    t('more'),
-    t('Apply'),
+    t('más'),
+    t('Aplicar'),
     t('Reiniciar'),
-    t('Sort by'),
+    t('Ordenar por'),
     t('Asc'),
     t('Desc'),
     t('Block'),
@@ -193,11 +199,14 @@ function portfolio_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'más';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Aplicar';
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordenar por';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '4';
   $handler->display->display_options['style_plugin'] = 'isotope';
@@ -254,10 +263,10 @@ function portfolio_views_default_views() {
   $handler = $view->new_display('block', 'Home Recent Work', 'block');
   $translatables['recent_works'] = array(
     t('Master'),
-    t('more'),
-    t('Apply'),
+    t('más'),
+    t('Aplicar'),
     t('Reiniciar'),
-    t('Sort by'),
+    t('Ordenar por'),
     t('Asc'),
     t('Desc'),
     t('<h2 class="center" id="home-portfolio-list">Something we\'ve <span>worked</span> on</h2>'),

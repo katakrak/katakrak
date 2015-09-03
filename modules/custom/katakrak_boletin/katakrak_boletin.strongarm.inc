@@ -102,10 +102,13 @@ function katakrak_boletin_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '5',
+          'weight' => '6',
         ),
         'language' => array(
           'weight' => '1',
+        ),
+        'metatags' => array(
+          'weight' => '12',
         ),
       ),
       'display' => array(

@@ -8,7 +8,6 @@
  * 
         '<p>'.$view->result[0]->field_field_event_descripcion[0]['raw']['summary'].'</p>'.
  */
-dpm($view);
 ?>
 <div class="row">
   <div class="col-lg-7">

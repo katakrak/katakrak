@@ -570,6 +570,20 @@ function libro_views_default_views() {
 
   /* Display: Bloque 2 */
   $handler = $view->new_display('block', 'Bloque 2', 'block_2');
+
+  /* Display: Bloque 3 */
+  $handler = $view->new_display('block', 'Bloque 3', 'block_3');
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Contenido: Referenced products */
+  $handler->display->display_options['relationships']['field_libro_producto_product_id']['id'] = 'field_libro_producto_product_id';
+  $handler->display->display_options['relationships']['field_libro_producto_product_id']['table'] = 'field_data_field_libro_producto';
+  $handler->display->display_options['relationships']['field_libro_producto_product_id']['field'] = 'field_libro_producto_product_id';
+  $handler->display->display_options['relationships']['field_libro_producto_product_id']['required'] = TRUE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Global: Random */
+  $handler->display->display_options['sorts']['random']['id'] = 'random';
+  $handler->display->display_options['sorts']['random']['table'] = 'views';
+  $handler->display->display_options['sorts']['random']['field'] = 'random';
   $translatables['libros'] = array(
     t('Master'),
     t('Tienda'),
@@ -607,6 +621,7 @@ function libro_views_default_views() {
     t('Libros grupo de lectura'),
     t('field_ciclo_libros'),
     t('Bloque 2'),
+    t('Bloque 3'),
   );
   $export['libros'] = $view;
 

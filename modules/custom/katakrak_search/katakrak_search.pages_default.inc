@@ -172,6 +172,28 @@ function katakrak_search_default_page_manager_pages() {
     $display->content['new-4cb9ad4d-0a29-4bfb-8e5c-73d5aa870beb'] = $pane;
     $display->panels['col_left'][2] = 'new-4cb9ad4d-0a29-4bfb-8e5c-73d5aa870beb';
     $pane = new stdClass();
+    $pane->pid = 'new-3f31ef65-2e1f-41f0-8651-33e5d34c0cdd';
+    $pane->panel = 'content';
+    $pane->type = 'block';
+    $pane->subtype = 'apachesolr_search-sort';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '3f31ef65-2e1f-41f0-8651-33e5d34c0cdd';
+    $display->content['new-3f31ef65-2e1f-41f0-8651-33e5d34c0cdd'] = $pane;
+    $display->panels['content'][0] = 'new-3f31ef65-2e1f-41f0-8651-33e5d34c0cdd';
+    $pane = new stdClass();
     $pane->pid = 'new-17ceb96f-8dc5-4cf7-b598-a300f730cb7b';
     $pane->panel = 'content';
     $pane->type = 'apachesolr_result';
@@ -208,11 +230,11 @@ function katakrak_search_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = '17ceb96f-8dc5-4cf7-b598-a300f730cb7b';
     $display->content['new-17ceb96f-8dc5-4cf7-b598-a300f730cb7b'] = $pane;
-    $display->panels['content'][0] = 'new-17ceb96f-8dc5-4cf7-b598-a300f730cb7b';
+    $display->panels['content'][1] = 'new-17ceb96f-8dc5-4cf7-b598-a300f730cb7b';
     $pane = new stdClass();
     $pane->pid = 'new-5c9fe66a-4865-4cac-ba9f-6bcc9948d81d';
     $pane->panel = 'content';
@@ -250,11 +272,11 @@ function katakrak_search_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 2;
     $pane->locks = array();
     $pane->uuid = '5c9fe66a-4865-4cac-ba9f-6bcc9948d81d';
     $display->content['new-5c9fe66a-4865-4cac-ba9f-6bcc9948d81d'] = $pane;
-    $display->panels['content'][1] = 'new-5c9fe66a-4865-4cac-ba9f-6bcc9948d81d';
+    $display->panels['content'][2] = 'new-5c9fe66a-4865-4cac-ba9f-6bcc9948d81d';
     $pane = new stdClass();
     $pane->pid = 'new-305fb4d7-25e7-48b9-bb13-60c1fbda3d88';
     $pane->panel = 'content_top';

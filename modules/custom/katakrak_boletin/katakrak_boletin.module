@@ -40,3 +40,7 @@ function katakrak_boletin_node_view($node, $view_mode, $langcode) {
     }
   }
 }
+
+function katakrak_boletin_init() {
+  //$node->field_image = $node->field_boletin_imagen;
+}

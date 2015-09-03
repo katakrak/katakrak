@@ -26,39 +26,14 @@ function katakrak_kantina_views_default_views() {
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'más';
   $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'views_content_cache';
-  $handler->display->display_options['cache']['results_min_lifespan'] = '-1';
-  $handler->display->display_options['cache']['results_max_lifespan'] = '21600';
-  $handler->display->display_options['cache']['output_min_lifespan'] = '-1';
-  $handler->display->display_options['cache']['output_max_lifespan'] = '21600';
-  $handler->display->display_options['cache']['keys'] = array(
-    'comment' => array(
-      'changed' => 0,
-    ),
-    'node' => array(
-      'portfolio' => 'portfolio',
-      'article' => 0,
-      'page' => 0,
-      'blog' => 0,
-      'boletin' => 0,
-      'event' => 0,
-      'itinerario' => 0,
-      'libro' => 0,
-      'simplenews' => 0,
-      'webform' => 0,
-    ),
-    'node_only' => array(
-      'node_changed' => 'node_changed',
-    ),
-  );
+  $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Aplicar';
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
   $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordenar por';
   $handler->display->display_options['pager']['type'] = 'none';
-  $handler->display->display_options['style_plugin'] = 'flexslider';
-  $handler->display->display_options['style_options']['optionset'] = 'kantina';
+  $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Relationship: Nodequeue: Queue */
   $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
