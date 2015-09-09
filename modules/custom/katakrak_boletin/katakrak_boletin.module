@@ -40,3 +40,39 @@ function katakrak_boletin_node_view($node, $view_mode, $langcode) {
     }
   }
 }
+
+
+function katakrak_boletin_menu() {
+  $items['node/%node/boletin'] = array(
+    'title' => 'Boletin',
+    'page callback' => 'katakrak_boletin_codigo',
+    'page arguments' => array(1),
+    'access callback' => 'katakrak_boletin_access_node_info',
+    'access arguments' => array('access dilve information', 1),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 100,
+  );
+  return $items;
+}
+
+
+function katakrak_boletin_access_node_info($perm, $node) {
+  if (user_access($perm) && $node->type == 'boletin')
+    return TRUE;
+  return FALSE;
+}
+
+function katakrak_boletin_theme() {  
+  $path = drupal_get_path('module', 'katakrak_boletin');
+  return array(
+    'boletin_codigo' => array(
+      'template' => 'boletin-codigo',
+      'arguments' => array('node' => NULL),
+      'path' => $path . '/templates',
+    ),
+  );
+}
+
+function katakrak_boletin_codigo($node) {
+  return check_plain(theme('boletin_codigo', array('node' => $node)));
+}
