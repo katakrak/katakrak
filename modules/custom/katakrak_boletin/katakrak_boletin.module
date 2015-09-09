@@ -42,7 +42,7 @@ function katakrak_boletin_node_view($node, $view_mode, $langcode) {
 }
 
 function katakrak_boletin_init() {
-  $node->field_image = $node->field_boletin_imagen;
+  //$node->field_image = $node->field_boletin_imagen;
 }
 
 
@@ -79,4 +79,13 @@ function katakrak_boletin_theme() {
 
 function katakrak_boletin_codigo($node) {
   return check_plain(theme('boletin_codigo', array('node' => $node)));
+}
+
+function katakrak_boletin_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'mailchimp_signup_subscribe_block_newsletter_form_form') {
+    foreach (array('EMAIL', 'FNAME', 'LNAME') as $value) {
+      $form['mergevars'][$value]['#attributes']['placeholder'] = $form['mergevars'][$value]['#title'];
+      $form['mergevars'][$value]['#title_display'] = 'invisible';
+    }
+  }
 }

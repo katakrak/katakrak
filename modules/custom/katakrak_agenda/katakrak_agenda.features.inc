@@ -255,7 +255,7 @@ function katakrak_agenda_image_default_styles() {
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 800,
-          'height' => 200,
+          'height' => 220,
         ),
         'weight' => 1,
       ),

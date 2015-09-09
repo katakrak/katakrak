@@ -783,6 +783,16 @@ html.js input.throbbing {
   margin-top: 5px;
   display: block;
 }
+.mailchimp-signup-subscribe-form div.form-item-mergevars-EMAIL,
+.mailchimp-signup-subscribe-form div.form-item-mergevars-FNAME,
+.mailchimp-signup-subscribe-form div.form-item-mergevars-LNAME {
+  float: left;
+}
+.mailchimp-signup-subscribe-form div.form-item-mergevars-FNAME,
+.mailchimp-signup-subscribe-form div.form-item-mergevars-LNAME,
+.mailchimp-signup-subscribe-form #edit-submit {
+  margin-left: 10px;
+}
 .view-id-kantina .flexslider {
   box-shadow: none;
   -webkit-box-shadow: none;
