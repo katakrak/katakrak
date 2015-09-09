@@ -312,7 +312,7 @@ function libro_search_home_form($form, &$form_state, $total = NULL) {
   );
   $form['submit'] = array(
     '#type' => 'submit',
-    '#value' => '<i class="fa fa-search"></i>',
+    '#value' => '<i class="fa fa-3x fa-search"></i>',
   );
   return $form; 
 }

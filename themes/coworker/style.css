@@ -5131,3 +5131,9 @@ a.twitter-follow-me:hover,
 #page-title #top-search .form-submit{
   display: none;
 }
+
+.alerts-error {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}

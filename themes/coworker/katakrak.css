@@ -779,7 +779,9 @@ html.js input.throbbing {
   color: black;
   margin-left: 10px;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 18px;
+  margin-top: 5px;
+  display: block;
 }
 .view-id-kantina .flexslider {
   box-shadow: none;
@@ -795,7 +797,7 @@ html.js input.throbbing {
   text-align: center;
 }
 .kantina-page .kantina_navigation {
-  margin-top: 15px;
+  margin-top: 20px;
 }
 .kantina-page .kantina_navigation .navigation-element {
   text-align: center;
