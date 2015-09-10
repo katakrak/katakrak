@@ -263,10 +263,12 @@ function libro_node_load($nodes, $types) {
         $term = taxonomy_term_load($autores['tid']);
         $node->autores[] = $term->name;
       }
-      $ubicacion = taxonomy_get_parents($node->field_libro_categoria['und'][0]['tid']);
-      if ($ubicacion) {
-        $ubicacion = array_pop($ubicacion);
-        $node->ubicacion = $ubicacion->name;
+      if ($node->field_libro_categoria['und']) {
+        $ubicacion = taxonomy_get_parents($node->field_libro_categoria['und'][0]['tid']);
+        if ($ubicacion) {
+          $ubicacion = array_pop($ubicacion);
+          $node->ubicacion = $ubicacion->name;
+        }
       }
 
       $query = db_query("SELECT p.entity_id AS id, n.language as lang
@@ -277,8 +279,10 @@ INNER JOIN node n ON n.nid = p.entity_id
 WHERE  `field_parada_libro_nid` = :nid AND n.status = 1", array(':nid' => $node->nid));
       $itinerarios = $query->fetchAll();
       foreach ($itinerarios as $itinerario) {
-        $color = array_pop(db_query("Select i.field_itinerario_color_rgb as color FROM field_data_field_itinerario_color i WHERE entity_id = :nid", array(':nid' => $itinerario->id))->fetchAll());
-        $linea = array_pop(db_query("Select i.field_itinerario_linea_value as linea FROM field_data_field_itinerario_linea i WHERE entity_id = :nid", array(':nid' => $itinerario->id))->fetchAll());
+        $color_db = db_query("Select i.field_itinerario_color_rgb as color FROM field_data_field_itinerario_color i WHERE entity_id = :nid", array(':nid' => $itinerario->id))->fetchAll();
+        $color = array_pop($color_db);
+        $linea_db = db_query("Select i.field_itinerario_linea_value as linea FROM field_data_field_itinerario_linea i WHERE entity_id = :nid", array(':nid' => $itinerario->id))->fetchAll();
+        $linea = array_pop($linea_db);
         $node->itinerarios[$itinerario->lang][$itinerario->id] = array('nid' => $itinerario->id,  'color' => $color->color, 'linea' => $linea->linea);
       }
     }
