@@ -67,10 +67,10 @@ function katakrak_kantina_fe_nodequeue_export_fields() {
 function katakrak_kantina_image_default_styles() {
   $styles = array();
 
-  // Exported image style: kantina_full.
-  $styles['kantina_full'] = array(
-    'name' => 'kantina_full',
-    'label' => 'Kantina full',
+  // Exported image style: kantina_large.
+  $styles['kantina_large'] = array(
+    'name' => 'kantina_large',
+    'label' => 'Kantina large',
     'effects' => array(
       3 => array(
         'label' => 'Escalar y recortar',
@@ -82,8 +82,8 @@ function katakrak_kantina_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 950,
-          'height' => 400,
+          'width' => 652,
+          'height' => 300,
         ),
         'weight' => 1,
       ),
