@@ -35,14 +35,14 @@ function libro_views_api($module = NULL, $api = NULL) {
 function libro_fe_nodequeue_export_fields() {
   $nodequeues = array();
 
-  // Exported nodequeues: libros_destacados
-  $nodequeues['libros_destacados'] = array(
-    'name' => 'libros_destacados',
-    'title' => 'Libros destacados',
+  // Exported nodequeues: libros_recomendados
+  $nodequeues['libros_recomendados'] = array(
+    'name' => 'libros_recomendados',
+    'title' => 'Libros recomendados',
     'subqueue_title' => '',
-    'size' => 6,
-    'link' => 'Llevar a página de libros',
-    'link_remove' => 'Quitar de página de libros',
+    'size' => 12,
+    'link' => 'Añadir a recomendados',
+    'link_remove' => 'Quitar de recomendados',
     'owner' => 'nodequeue',
     'show_in_ui' => 1,
     'show_in_tab' => 1,

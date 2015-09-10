@@ -23,7 +23,7 @@ function libro_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Tienda';
-  $handler->display->display_options['css_class'] = 'book-page-view';
+  $handler->display->display_options['css_class'] = 'book-page-view book-recomendados-view';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'más';
@@ -145,11 +145,13 @@ function libro_views_default_views() {
   $handler->display->display_options['relationships']['nodequeue_rel']['required'] = TRUE;
   $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
   $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
-    'libros_destacados' => 'libros_destacados',
-    'evento_portada' => 0,
-    'libro_portada' => 0,
-    'producto_kafeta_destacado' => 0,
+    'libros_recomendados' => 'libros_recomendados',
     'evento_home' => 0,
+    'libro_portada' => 0,
+    'libros_destacados' => 0,
+    'producto_kafeta_destacado' => 0,
+    'blog_portada' => 0,
+    'imagenes_kantina' => 0,
   );
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Campo: Contenido: Nid */
@@ -176,6 +178,7 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['path'] = 'node/[nid]?utm_source=tienda&utm_medium=web&utm_content=titulo&utm_campaign=libros';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
@@ -189,6 +192,7 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['field_libro_autores']['table'] = 'field_data_field_libro_autores';
   $handler->display->display_options['fields']['field_libro_autores']['field'] = 'field_libro_autores';
   $handler->display->display_options['fields']['field_libro_autores']['label'] = '';
+  $handler->display->display_options['fields']['field_libro_autores']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_libro_autores']['element_type'] = 'h4';
   $handler->display->display_options['fields']['field_libro_autores']['element_class'] = 'book-author';
   $handler->display->display_options['fields']['field_libro_autores']['element_label_colon'] = FALSE;
@@ -200,6 +204,7 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['add_to_cart_form']['field'] = 'add_to_cart_form';
   $handler->display->display_options['fields']['add_to_cart_form']['relationship'] = 'field_libro_producto_product_id';
   $handler->display->display_options['fields']['add_to_cart_form']['label'] = '';
+  $handler->display->display_options['fields']['add_to_cart_form']['exclude'] = TRUE;
   $handler->display->display_options['fields']['add_to_cart_form']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['add_to_cart_form']['show_quantity'] = 0;
   $handler->display->display_options['fields']['add_to_cart_form']['default_quantity'] = '1';
@@ -213,7 +218,7 @@ function libro_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Librería';
   $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['css_class'] = 'book-block-home';
+  $handler->display->display_options['css_class'] = 'book-block-home book-recomendados-view ';
   $handler->display->display_options['defaults']['use_more'] = FALSE;
   $handler->display->display_options['defaults']['use_more_always'] = FALSE;
   $handler->display->display_options['defaults']['use_more_always'] = FALSE;
@@ -240,11 +245,13 @@ function libro_views_default_views() {
   $handler->display->display_options['relationships']['nodequeue_rel']['required'] = TRUE;
   $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
   $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
-    'libro_portada' => 'libro_portada',
-    'evento_portada' => 0,
-    'producto_kafeta_destacado' => 0,
-    'libros_destacados' => 0,
+    'libros_recomendados' => 'libros_recomendados',
     'evento_home' => 0,
+    'libro_portada' => 0,
+    'libros_destacados' => 0,
+    'producto_kafeta_destacado' => 0,
+    'blog_portada' => 0,
+    'imagenes_kantina' => 0,
   );
   /* Relationship: Contenido: Referenced products */
   $handler->display->display_options['relationships']['field_libro_producto_product_id']['id'] = 'field_libro_producto_product_id';

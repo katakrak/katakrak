@@ -48,28 +48,5 @@ function katakrak_home_fe_nodequeue_export_fields() {
     'count' => 0,
   );
 
-  // Exported nodequeues: libro_portada
-  $nodequeues['libro_portada'] = array(
-    'name' => 'libro_portada',
-    'title' => 'Libros portada',
-    'subqueue_title' => '',
-    'size' => 0,
-    'link' => 'Llevar a portada',
-    'link_remove' => 'Eliminar de la portada',
-    'owner' => 'nodequeue',
-    'show_in_ui' => 1,
-    'show_in_tab' => 1,
-    'show_in_links' => 1,
-    'reference' => 0,
-    'reverse' => 0,
-    'i18n' => 0,
-    'subqueues' => 1,
-    'types' => array(
-      0 => 'libro',
-    ),
-    'roles' => array(),
-    'count' => 0,
-  );
-
   return $nodequeues;
 }

@@ -510,11 +510,11 @@ a.home_events_second img {
   margin-top: 0;
 }
 /* ESTILOS PARA LIBRERIA */
-#block-views-libros-book-block-home div.field-content {
+.book-recomendados-view div.field-content {
   position: relative;
   overflow: hidden;
 }
-#block-views-libros-book-block-home div.field-content .prod-info {
+.book-recomendados-view div.field-content .prod-info {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -531,13 +531,13 @@ a.home_events_second img {
   -ms-transform: scale(6);
   transform: scale(6);
 }
-#block-views-libros-book-block-home div.field-content .prod-info h4 {
+.book-recomendados-view div.field-content .prod-info h4 {
   text-align: center;
 }
-#block-views-libros-book-block-home div.field-content .prod-info h4 a {
+.book-recomendados-view div.field-content .prod-info h4 a {
   color: white;
 }
-#block-views-libros-book-block-home div.field-content .prod-info .btn {
+.book-recomendados-view div.field-content .prod-info .btn {
   border-top: 2px solid #000000;
   border-left: 2px solid #000000;
   border-right: 2px solid #000000;
@@ -547,7 +547,7 @@ a.home_events_second img {
   text-transform: uppercase;
   color: #ffffff;
 }
-#block-views-libros-book-block-home div.field-content .prod-info .btn:hover {
+.book-recomendados-view div.field-content .prod-info .btn:hover {
   border-top: 2px solid #000000;
   border-left: 2px solid #000000;
   border-right: 2px solid #000000;
@@ -557,19 +557,22 @@ a.home_events_second img {
   text-transform: uppercase;
   color: #f50087;
 }
-#block-views-libros-book-block-home div.field-content .prod-info .price {
+.book-recomendados-view div.field-content .prod-info .price {
   display: block;
   padding: 3px 24px 0 0;
   color: #f50087;
   float: left;
 }
-#block-views-libros-book-block-home div.field-content:hover .prod-info {
+.book-recomendados-view div.field-content:hover .prod-info {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -o-transform: scale(1);
   -ms-transform: scale(1);
   transform: scale(1);
   opacity: 1;
+}
+.book-recomendados-view .views-field-field-libro-portada {
+  margin-top: 20px;
 }
 @media \0screen {
   #block-views-libros-book-block-home div.field-content div.prod-info {
@@ -650,14 +653,6 @@ a.home_events_second img {
   height: 70px;
   width: 70px;
   border-radius: 0 14px 14px 0;
-}
-.view-display-id-book_block_home .views-field-field-libro-portada {
-  margin-top: 20px;
-}
-.book-page span.glyphicon {
-  float: left;
-  padding-left: 15px;
-  padding-right: 20px;
 }
 .book-info-entry {
   border-bottom: 1px solid #eee;
