@@ -105,8 +105,8 @@ function katakrak_kantina_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 260,
-          'height' => 100,
+          'width' => 457,
+          'height' => 300,
         ),
         'weight' => 1,
       ),

@@ -741,21 +741,16 @@ html.js input.throbbing {
   background-position: 99% 50%;
 }
 /** Home STYLES */
-.view-display-id-kantina_home img,
 .view-display-id-home img {
   width: 100%;
 }
-.view-display-id-kantina_home .home-event,
 .view-display-id-home .home-event {
   position: relative;
 }
-.view-display-id-kantina_home a,
 .view-display-id-home a {
   color: black;
 }
-.view-display-id-kantina_home .views-field-title,
 .view-display-id-home .views-field-title,
-.view-display-id-kantina_home .home-events-title,
 .view-display-id-home .home-events-title {
   width: 100%;
   background: rgba(38, 128, 175, 0.9);
@@ -764,12 +759,10 @@ html.js input.throbbing {
   z-index: 10;
   bottom: -1px;
 }
-.view-display-id-kantina_home h3,
 .view-display-id-home h3 {
   color: white;
   margin-left: 10px;
 }
-.view-display-id-kantina_home .date-display-single,
 .view-display-id-home .date-display-single {
   color: black;
   margin-left: 10px;
@@ -787,13 +780,6 @@ html.js input.throbbing {
 .mailchimp-signup-subscribe-form div.form-item-mergevars-LNAME,
 .mailchimp-signup-subscribe-form #edit-submit {
   margin-left: 10px;
-}
-.view-id-kantina .flexslider {
-  box-shadow: none;
-  -webkit-box-shadow: none;
-}
-.view-id-kantina .flexslider ol.flex-control-thumbs {
-  margin: 20px 0 0 0;
 }
 /* ----------------------------------------------------------------
     Kantina page
@@ -824,6 +810,9 @@ html.js input.throbbing {
 }
 .kantina-page legend {
   border-bottom: none;
+}
+.kantina-images-second-row {
+  margin-top: 30px;
 }
 .kantina-menu {
   text-align: center;
