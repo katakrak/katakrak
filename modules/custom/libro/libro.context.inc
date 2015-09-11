@@ -171,6 +171,18 @@ function libro_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'views-secciones-secciones_block' => array(
+          'module' => 'views',
+          'delta' => 'secciones-secciones_block',
+          'region' => 'content_bottom_first',
+          'weight' => '-10',
+        ),
+        'views-itinerarios-block' => array(
+          'module' => 'views',
+          'delta' => 'itinerarios-block',
+          'region' => 'content_bottom_second',
+          'weight' => '-10',
+        ),
         'libro-libreria_home_search' => array(
           'module' => 'libro',
           'delta' => 'libreria_home_search',
