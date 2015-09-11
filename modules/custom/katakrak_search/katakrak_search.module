@@ -279,16 +279,11 @@ function katakrak_search_theme_registry_alter(&$theme_registry) {
  function katakrak_search_apachesolr_index_document_build_node(ApacheSolrDocument $document, $entity, $entity_type) {
   if ($entity->type == 'libro') {
     $product = commerce_product_load($entity->field_libro_producto['und'][0]['product_id']);
-    $document->setField('sm_field_book_stock', $product->commerce_stock['und'][0]['value']);
+    $document->addField('is_field_product_stock', $product->commerce_stock['und'][0]['value']);
   }
 }
 
-/**
- * Implements hook_apachesolr_query_prepare().
- */
-function katakrak_search_apachesolr_query_prepare($query) {
-  $query->setAvailableSort('sm_field_book_stock', array('title' => t('Stock'), 'default' => 'desc'));
-}
+
 
 
 function katakrak_search_facetapi_link_inactive($variables) {
@@ -345,3 +340,17 @@ function katakrak_search_facetapi_link_inactive($variables) {
 //    $query->setSolrSort('is_field_book_stock', 'desc');
 //  }
 //}
+
+function katakrak_search_apachesolr_query_prepare($query) {
+  // Add Publication Date sort to the faculty-research search
+  if (arg(1) == 'books') {
+    // Add the new field as a sort option
+    $query->setAvailableSort('is_field_product_stock', array(
+      'title' => t('Stock'),
+      'default' => 'desc',
+    ));
+ 
+    // Sort on our new field
+    $query->setSolrSort('is_field_product_stock', 'desc');
+  }
+}
