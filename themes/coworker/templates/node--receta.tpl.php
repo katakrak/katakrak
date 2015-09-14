@@ -85,6 +85,7 @@
     <?php print render($content['field_receta_imagen']) ?>
   </div>
   <div class="col-lg-7">
+    <h4><?php print t("Ingredientes:") ?></h4>
     <ul class="osagai-zerrenda">
       <?php foreach($node->field_receta_ingredientes['und'] as $ingrediente): ?>
       <li><?php print $ingrediente['value'] ?></li>

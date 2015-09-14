@@ -1148,8 +1148,8 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['rendered_entity']['field'] = 'rendered_entity';
   $handler->display->display_options['fields']['rendered_entity']['label'] = '';
   $handler->display->display_options['fields']['rendered_entity']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['rendered_entity']['element_type'] = 'span';
   $handler->display->display_options['fields']['rendered_entity']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['rendered_entity']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['rendered_entity']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'full';
   $handler->display->display_options['fields']['rendered_entity']['bypass_access'] = 0;
@@ -1160,10 +1160,11 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['field_image']['label'] = '';
   $handler->display->display_options['fields']['field_image']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_image']['alter']['text'] = '[field_image] 
-<span class="term-name">
-<h4>[rendered_entity]</h4>
-</span>';
-  $handler->display->display_options['fields']['field_image']['element_type'] = 'span';
+<div class="portfolio_shader"></div>
+<div class="term-name">
+  <h3>[rendered_entity]</h3>
+</div>';
+  $handler->display->display_options['fields']['field_image']['element_type'] = 'div';
   $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
@@ -1205,9 +1206,10 @@ function libro_views_default_views() {
     t('Asc'),
     t('Desc'),
     t('[field_image] 
-<span class="term-name">
-<h4>[rendered_entity]</h4>
-</span>'),
+<div class="portfolio_shader"></div>
+<div class="term-name">
+  <h3>[rendered_entity]</h3>
+</div>'),
   );
   $export['secciones'] = $view;
 

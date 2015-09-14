@@ -52,8 +52,6 @@
           </div>  
           
           <?php print render($page['content_bottom']) ?>
-        
-        <div class="container">
         <?php if ($page['content_bottom_first'] || $page['content_bottom_second'] || $page['content_bottom_third'] || $page['content_bottom_fourth']): ?>
         <div id="content-bottom" class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -70,7 +68,6 @@
           </div>
         </div>
         <?php endif; ?>
-      </div>
           <?php print $feed_icons; ?>
         </div>
         <!-- // content region -->
