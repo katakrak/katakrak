@@ -150,7 +150,7 @@ function katakrak_boletin_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 10,
+      'weight' => 8,
     ),
   );
 
@@ -193,7 +193,48 @@ function katakrak_boletin_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 11,
+      'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance: 'node-boletin-field_blog_tipo'
+  $field_instances['node-boletin-field_blog_tipo'] = array(
+    'bundle' => 'boletin',
+    'default_value' => array(
+      0 => array(
+        'value' => 'boletin',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 11,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_blog_tipo',
+    'label' => 'Tipo',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 14,
     ),
   );
 
@@ -334,7 +375,7 @@ function katakrak_boletin_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 7,
+      'weight' => 6,
     ),
   );
 
@@ -466,7 +507,7 @@ function katakrak_boletin_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 9,
+      'weight' => 7,
     ),
   );
 
@@ -520,7 +561,7 @@ function katakrak_boletin_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 5,
+      'weight' => 4,
     ),
   );
 
@@ -582,6 +623,7 @@ function katakrak_boletin_field_default_field_instances() {
   t('Seccion');
   t('Subtitulo');
   t('Texto');
+  t('Tipo');
 
   return $field_instances;
 }

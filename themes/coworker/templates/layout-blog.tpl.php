@@ -2,9 +2,6 @@
 <div class="container-fluid banda-blog">
   <div class="banda_header"></div>
   <div class="container">
-    <?php if ($section_title): ?>
-      <h2><?php print $section_title ?></h2>
-    <?php endif; ?>
     <?php if ($page['content_top']): ?>
       <div id="content-top">
         <?php print render($page['content_top']); ?>

@@ -203,6 +203,7 @@ function katakrak_agenda_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
+          'show_repeat_rule' => 'show',
         ),
         'type' => 'date_default',
         'weight' => 1,
@@ -311,7 +312,7 @@ function katakrak_agenda_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 2,
       ),
       'home_event' => array(
         'label' => 'hidden',
@@ -522,7 +523,7 @@ function katakrak_agenda_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 3,
       ),
       'home_event' => array(
         'label' => 'hidden',
