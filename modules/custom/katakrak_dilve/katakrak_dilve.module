@@ -425,7 +425,9 @@ function katakrak_dilve_batch_process($max, $limit, $recheck, &$context){
       }
 
       $node->field_libro_dilve['und'][0]['value'] = 2;
-
+      if ($recheck) {
+        $node->field_libro_dilve['und'][0]['value'] = 3;
+      }
       commerce_product_save($product);
       $context['results']['in_dilve']++;
     }
@@ -544,17 +546,18 @@ function create_cover($url, $isbn) {
  
   $fid = db_select('file_managed', 'f')->condition('filename', $filename)->fields('f', array('fid'))
     ->execute()->fetchObject();
-  $filepath = sprintf("%s/%s/portadas/%s",DRUPAL_ROOT, variable_get('file_public_path', 'sites/test.katakrak.net/files'), $filename);
+  $filepath = sprintf("%s/%s/portadas/%s",DRUPAL_ROOT, variable_get('file_public_path', 'sites/default/files'), $filename);
 
   if ($fid) {
     $file = file_load($fid->fid);
     if (!file_exists($filepath) && $cover_request->code == 200) {
       file_put_contents($filepath, $cover_request->data);
+      watchdog('dilve', $isbn);
     }
   }
   else {
   
-    $filepath = sprintf("%s/%s/portadas/%s",DRUPAL_ROOT, variable_get('file_public_path', 'sites/test.katakrak.net/files'), $filename);
+    $filepath = sprintf("%s/%s/portadas/%s",DRUPAL_ROOT, variable_get('file_public_path', 'default'), $filename);
     $file = new stdClass();
     if ($cover_request->code == 200) {
       file_put_contents($filepath, $cover_request->data);
