@@ -577,10 +577,12 @@ a.home_events_second img {
 .book-recomendados-view .views-field-field-libro-portada {
   margin-top: 20px;
 }
-#block-views-secciones-secciones-block img {
+#block-views-secciones-secciones-block img,
+.view-display-id-kantina_home img {
   max-width: none;
 }
-#block-views-secciones-secciones-block .term-name {
+#block-views-secciones-secciones-block .term-name,
+.view-display-id-kantina_home .term-name {
   padding: 80px 90px 115px;
   position: absolute;
   display: block;
@@ -591,15 +593,19 @@ a.home_events_second img {
   z-index: 100;
   opacity: 0;
 }
-#block-views-secciones-secciones-block .term-name h3 {
+#block-views-secciones-secciones-block .term-name h3,
+.view-display-id-kantina_home .term-name h3 {
   color: white;
 }
 #block-views-secciones-secciones-block .views-field-field-image:hover .portfolio_shader,
-#block-views-secciones-secciones-block .views-field-field-image:hover .term-name {
+.view-display-id-kantina_home .views-field-field-image:hover .portfolio_shader,
+#block-views-secciones-secciones-block .views-field-field-image:hover .term-name,
+.view-display-id-kantina_home .views-field-field-image:hover .term-name {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-#block-views-secciones-secciones-block .portfolio_shader {
+#block-views-secciones-secciones-block .portfolio_shader,
+.view-display-id-kantina_home .portfolio_shader {
   background: rgba(39, 128, 175, 0.7);
   position: absolute;
   display: inline-block;
