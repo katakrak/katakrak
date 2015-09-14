@@ -77,7 +77,7 @@ color: #2ba6cb !important;
 h3 a:visited {
 color: #2ba6cb !important;
 }
-h4 a:visited {h2
+h4 a:visited {
 color: #2ba6cb !important;
 }
 h5 a:visited {
