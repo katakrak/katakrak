@@ -281,7 +281,7 @@ function dilve_node_info_form_submit($form, &$form_state) {
     $node->field_libro_paginas['und'][0]['value'] = $values['pages'];
   
   if ($values['image']) {
-    
+    dpm($values);
     $file = create_cover($values['image'], $node->field_libro_ean['und'][0]['value']);
     
     if (!empty($file)) {
@@ -535,7 +535,6 @@ function katakrak_dilve_process_item($nid) {
  * @return type
  */
 function create_cover($url, $isbn) {
-  watchdog('dilve', $isbn);
   global $user;
   $cover_request = drupal_http_request($url);
   if (strpos($cover_request->headers['content-type'], 'image') !== 0) {
@@ -552,7 +551,6 @@ function create_cover($url, $isbn) {
     $file = file_load($fid->fid);
     if (!file_exists($filepath) && $cover_request->code == 200) {
       file_put_contents($filepath, $cover_request->data);
-      watchdog('dilve', $isbn);
     }
   }
   else {
