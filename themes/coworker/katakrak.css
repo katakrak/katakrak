@@ -22,7 +22,7 @@
   color: black;
   border-bottom: 1px dashed black;
   padding: 0 0 5px;
-  margin-top: 20px;
+  margin-top: 50px;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -497,6 +497,9 @@ h3.field-content a:hover {
 a.home_events_second img {
   margin-top: 30px;
 }
+#block-mailchimp-signup-recibe-nuestro-boletin-semanal h2 {
+  text-align: center;
+}
 .view-display-id-book_block_home div.row {
   margin-top: 15px;
 }
@@ -577,12 +580,10 @@ a.home_events_second img {
 .book-recomendados-view .views-field-field-libro-portada {
   margin-top: 20px;
 }
-#block-views-secciones-secciones-block img,
-.view-display-id-kantina_home img {
+#block-views-secciones-secciones-block img {
   max-width: none;
 }
-#block-views-secciones-secciones-block .term-name,
-.view-display-id-kantina_home .term-name {
+#block-views-secciones-secciones-block .term-name {
   padding: 80px 90px 115px;
   position: absolute;
   display: block;
@@ -593,19 +594,15 @@ a.home_events_second img {
   z-index: 100;
   opacity: 0;
 }
-#block-views-secciones-secciones-block .term-name h3,
-.view-display-id-kantina_home .term-name h3 {
+#block-views-secciones-secciones-block .term-name h3 {
   color: white;
 }
 #block-views-secciones-secciones-block .views-field-field-image:hover .portfolio_shader,
-.view-display-id-kantina_home .views-field-field-image:hover .portfolio_shader,
-#block-views-secciones-secciones-block .views-field-field-image:hover .term-name,
-.view-display-id-kantina_home .views-field-field-image:hover .term-name {
+#block-views-secciones-secciones-block .views-field-field-image:hover .term-name {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-#block-views-secciones-secciones-block .portfolio_shader,
-.view-display-id-kantina_home .portfolio_shader {
+#block-views-secciones-secciones-block .portfolio_shader {
   background: rgba(39, 128, 175, 0.7);
   position: absolute;
   display: inline-block;
@@ -830,11 +827,13 @@ html.js input.throbbing {
 .mailchimp-signup-subscribe-form div.form-item-mergevars-FNAME,
 .mailchimp-signup-subscribe-form div.form-item-mergevars-LNAME {
   float: left;
-}
-.mailchimp-signup-subscribe-form div.form-item-mergevars-FNAME,
-.mailchimp-signup-subscribe-form div.form-item-mergevars-LNAME,
-.mailchimp-signup-subscribe-form #edit-submit {
   margin-left: 10px;
+}
+.mailchimp-signup-subscribe-form #edit-actions {
+  text-align: center;
+}
+.mailchimp-signup-subscribe-form #edit-actions .btn {
+  padding: 10px 20px !important;
 }
 /* ----------------------------------------------------------------
     Kantina page
@@ -1160,7 +1159,7 @@ div.search-results div:last-child {
   border-right: 2px solid #777777;
   border-bottom: 2px solid #777777;
   padding: 5px 10px !important;
-  background: #e6e6e6;
+  background: #f50087;
   text-transform: uppercase;
   color: #000000;
 }

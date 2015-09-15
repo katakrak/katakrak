@@ -57,7 +57,7 @@
     color: black;
     border-bottom: 1px dashed black;
     padding: 0 0 5px;
-    margin-top: 20px;
+    margin-top: 50px;
     font-weight: bold;
     text-transform: uppercase;
   }
@@ -593,6 +593,12 @@ a.home_events_second {
   }
 }
 
+#block-mailchimp-signup-recibe-nuestro-boletin-semanal {
+  h2 {
+    text-align: center;
+  }
+}
+
 .view-display-id-book_block_home {
   div.row {
     margin-top: 15px;
@@ -671,7 +677,7 @@ a.home_events_second {
   }
 }
 
-#block-views-secciones-secciones-block, .view-display-id-kantina_home {
+#block-views-secciones-secciones-block {
   img {
     max-width: none;
   }
@@ -944,12 +950,15 @@ html.js input.throbbing {
 .mailchimp-signup-subscribe-form {
   div.form-item-mergevars-EMAIL, div.form-item-mergevars-FNAME, div.form-item-mergevars-LNAME {
     float: left;
-  }
-
-  div.form-item-mergevars-FNAME, div.form-item-mergevars-LNAME, #edit-submit {
     margin-left: 10px;
   }
-  
+  #edit-actions {
+    text-align: center;
+    .btn {
+      padding: 10px 20px !important;
+    }    
+  }
+
 }
 
 /* ----------------------------------------------------------------
@@ -1219,7 +1228,7 @@ div.search-results div:last-child {
 }
 
 .btn:hover {
-  .katakrak-button(#777, @background_gray, #000);
+  .katakrak-button(#777, @custom_pink, #000);
 }
 
 button.checkout-cancel {
