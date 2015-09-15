@@ -27,29 +27,23 @@ function katakrak_kantina_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'katakrak_kantina-katakrak_reserva_block' => array(
+          'module' => 'katakrak_kantina',
+          'delta' => 'katakrak_reserva_block',
+          'region' => 'content_bottom_first',
+          'weight' => '-49',
+        ),
         'views-kantina_blog-block_1' => array(
           'module' => 'views',
           'delta' => 'kantina_blog-block_1',
           'region' => 'content_bottom_first',
-          'weight' => '-10',
+          'weight' => '-48',
         ),
         'views-kantina_recetas-block_1' => array(
           'module' => 'views',
           'delta' => 'kantina_recetas-block_1',
           'region' => 'content_bottom_first',
-          'weight' => '-9',
-        ),
-        'katakrak_kantina-katakrak_reserva_block' => array(
-          'module' => 'katakrak_kantina',
-          'delta' => 'katakrak_reserva_block',
-          'region' => 'content_bottom_first',
-          'weight' => '-8',
-        ),
-        'boxes-twitter_kantina' => array(
-          'module' => 'boxes',
-          'delta' => 'twitter_kantina',
-          'region' => 'content_bottom_second',
-          'weight' => '-10',
+          'weight' => '-47',
         ),
         'katakrak_kantina-katakrak_kantina_page_header' => array(
           'module' => 'katakrak_kantina',

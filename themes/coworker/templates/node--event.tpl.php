@@ -79,12 +79,12 @@
  * @ingroup themeable
  */
 ?>
+<h1><?php print $node->title ?></h1>
 <div class="row">
   <div class="col-lg-5">
     <?php print render($content['field_event_image']) ?>
   </div>
   <div class="col-lg-7">
-    <h1><?php print $node->title ?></h1>
     <div class="row">
       <div class="col-lg-2">
         <?php print theme('agenda_date', array('time' => $node->field_event_date['und'][0]['value'])); ?>

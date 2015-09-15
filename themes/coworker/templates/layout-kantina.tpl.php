@@ -54,16 +54,20 @@
           </div>  
           
           <?php print render($page['content_bottom']) ?>
-        
-          <?php if ($page['content_bottom_first'] || $page['content_bottom_second'] || $page['content_bottom_third'] || $page['content_bottom_fourth']): ?>
+            <?php if ($page['content_bottom_first'] || $page['content_bottom_second'] || $page['content_bottom_third'] || $page['content_bottom_fourth']): ?>
         <div id="content-bottom" class="row">
-          <div class="col-lg-9 col-md-9 col-sm-9">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <?php print render($page['content_bottom_first']); ?>
           </div>
-          <div class="col-lg-3 col-md-3 col-sm-3">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <?php print render($page['content_bottom_second']); ?>
           </div>
-          
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <?php print render($page['content_bottom_third']); ?>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <?php print render($page['content_bottom_fourth']); ?>
+          </div>
         </div>
         <?php endif; ?>
           <?php print $feed_icons; ?>
