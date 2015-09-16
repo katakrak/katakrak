@@ -427,13 +427,19 @@ function katakrak_boletin_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'image',
+        'label' => 'hidden',
+        'module' => 'colorbox',
         'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
+          'colorbox_caption' => 'auto',
+          'colorbox_caption_custom' => '',
+          'colorbox_gallery' => 'post',
+          'colorbox_gallery_custom' => '',
+          'colorbox_image_style' => 'boletin_destacado',
+          'colorbox_multivalue_index' => NULL,
+          'colorbox_node_style' => 'boletin_destacado',
+          'colorbox_node_style_first' => 'extra_large',
         ),
-        'type' => 'image',
+        'type' => 'colorbox',
         'weight' => 10,
       ),
       'teaser' => array(
@@ -565,6 +571,46 @@ function katakrak_boletin_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-boletin-field_tags'
+  $field_instances['node-boletin-field_tags'] = array(
+    'bundle' => 'boletin',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 12,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_tags',
+    'label' => 'Etiqueta',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 16,
+    ),
+  );
+
   // Exported field_instance: 'node-simplenews-field_simplenews_boletin'
   $field_instances['node-simplenews-field_simplenews_boletin'] = array(
     'bundle' => 'simplenews',
@@ -614,6 +660,7 @@ function katakrak_boletin_field_default_field_instances() {
   t('Body');
   t('Boletin');
   t('Cuerpo');
+  t('Etiqueta');
   t('Eventos');
   t('Image');
   t('Imagen');

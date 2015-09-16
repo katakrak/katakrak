@@ -19,3 +19,27 @@ function katakrak_agenda_theme() {
     ),
   );
 }
+
+function katakrak_agenda_init() {
+//  $nodes = db_select('node', 'n')->condition('n.type', 'ciclo')->fields('n', array('nid'))->execute()->fetchAll();
+//  foreach ($nodes as $nid) {
+//    node_delete($nid->nid);
+//  }
+//  $terms_db = db_select('taxonomy_term_data', 't')->condition('vid', 9)->fields('t', array('tid'))->execute()->fetchAll();
+//  foreach ($terms_db as $tid) {
+//    $term = taxonomy_term_load($tid->tid);
+//    $nodes = taxonomy_select_nodes($term->tid);
+//    
+//    $node = new stdClass;
+//    $node->title = $term->name;
+//    $node->type = 'ciclo';
+//    $node->language = $term->language;
+//    $node->field_ciclo_libros = $term->field_ciclo_libros;
+//    
+//    foreach ($nodes as $nid) {
+//      $node->field_ciclo_actos['und'][]['nid'] = $nid;
+//    }
+//    $node->uid = 1;
+//    node_save($node);
+//  }
+}

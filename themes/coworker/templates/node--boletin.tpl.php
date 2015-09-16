@@ -81,7 +81,7 @@
 ?>
 <div class="row">
   <div class="col-lg-5">
-    <?php print render($content['field_boletin_imagen']) ?>
+    <?php print render($content['field_image']) ?>
   </div>
   <div class="col-lg-7">
     <h1><?php print $node->title ?></h1>
