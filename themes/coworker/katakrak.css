@@ -865,6 +865,9 @@ html.js input.throbbing {
 .kantina-page legend {
   border-bottom: none;
 }
+.kantina-page #block-katakrak-kantina-katakrak-reserva-block h2 {
+  text-align: center;
+}
 .kantina-images-second-row {
   margin-top: 30px;
 }
