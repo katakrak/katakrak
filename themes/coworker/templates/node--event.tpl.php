@@ -97,6 +97,8 @@
     </div>
   </div>
 </div>
-<h2>Libros relacionados</h2>
-<p><?php print views_embed_view('libros', 'books_related_event', $node->nid); ?></p>
+<?php if ($node->field_event_libro['und']): ?>
+  <h2>Libros relacionados</h2>
+  <p><?php print views_embed_view('libros', 'books_related_event', $node->nid); ?></p>
+<?php endif; ?>
       

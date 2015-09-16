@@ -82,12 +82,8 @@
 <div class="row">
   <div class="col-lg-12">
     <h1><?php print $node->title ?></h1>
-    <?php print render($content['field_image']) ?>
-    
     <p><?php print t("Published on !date by !author", array('!author' => $node->name, '!date' => format_date($node->changed, 'custom', 'd/m/Y'))) ?></p>
-    <div class="clear"></div>
-    <?php print render($content['sharethis']) ?>
-    <div class="clear"></div>
+    <?php print render($content['field_image']) ?>
     <p><?php print render($content['field_blog_cuerpo']) ?></p>
     <p><?php print $node->event_table; ?></p>
     <p><?php print render($content['field_blog_adjunto']) ?></p>

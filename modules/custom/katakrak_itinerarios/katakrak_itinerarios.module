@@ -45,7 +45,7 @@ function katakrak_itinerarios_node_load($nodes, $types) {
       $node->paradas = $paradas;
       $portadas_tmp = array();
       $row = array();
-      shuffle($portadas);
+      
       foreach ($portadas as $k => $portada) {
         $row [] = $portada;
         if ((($k+1) % 4) == 0 ) {

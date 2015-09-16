@@ -276,16 +276,12 @@ function katakrak_search_theme_registry_alter(&$theme_registry) {
   $theme_registry['facetapi_link_inactive']['theme path'] = drupal_get_path('module','katakrak_search');
 }
 
- function katakrak_search_apachesolr_index_document_build_node(ApacheSolrDocument $document, $entity, $entity_type) {
-  if ($entity->type == 'libro') {
-    $product = commerce_product_load($entity->field_libro_producto['und'][0]['product_id']);
-    $document->addField('is_field_product_stock', $product->commerce_stock['und'][0]['value']);
-  }
-}
 
-
-
-
+/**
+ * 
+ * @param type $variables
+ * @return type
+ */
 function katakrak_search_facetapi_link_inactive($variables) {
    // Builds accessible markup.
   // @see http://drupal.org/node/1316580
@@ -327,23 +323,14 @@ function katakrak_search_facetapi_link_inactive($variables) {
   return theme_link($variables);
 }
 
-//function katakrak_search_apachesolr_query_prepare($query) {
-//  // Add Publication Date sort to the faculty-research search
-//  if (arg(1) == 'books') {
-//    // Add the new field as a sort option
-//    $query->setAvailableSort('is_field_book_stock', array(
-//      'title' => t('Stock'),
-//      'default' => 'desc',
-//    ));
-// 
-//    // Sort on our new field
-//    $query->setSolrSort('is_field_book_stock', 'desc');
-//  }
-//}
+ function katakrak_search_apachesolr_index_document_build_node(ApacheSolrDocument $document, $entity, $entity_type) {
+  if ($entity->type == 'libro') {
+    $product = commerce_product_load($entity->field_libro_producto['und'][0]['product_id']);
+    $document->addField('is_field_product_stock', $product->commerce_stock['und'][0]['value']);
+  }
+}
 
 function katakrak_search_apachesolr_query_prepare($query) {
-  // Add Publication Date sort to the faculty-research search
-  if (arg(1) == 'books') {
     // Add the new field as a sort option
     $query->setAvailableSort('is_field_product_stock', array(
       'title' => t('Stock'),
@@ -352,5 +339,4 @@ function katakrak_search_apachesolr_query_prepare($query) {
  
     // Sort on our new field
     $query->setSolrSort('is_field_product_stock', 'desc');
-  }
 }

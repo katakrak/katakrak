@@ -103,7 +103,7 @@
                <?php print render($content['field_libro_portada']) ?>
             </div>
            <div class="col-sm-8 col-md-8">
-            <div class="col-1 book-title-author hidden-sm">
+            <div class="col-1 book-title-author hidden-sm hidden-xs">
               <div class="col_three_fourth <?php print isset($node->field_libro_subtitulo['und'][0]['value']) ? 'col_last': '' ?>">
                 <h1>
                   <?php print $node->title ?>

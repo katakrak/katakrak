@@ -1233,10 +1233,9 @@ ul.pager li.pager-current {
 /*******************************************************************************
 Blog
 *******************************************************************************/
-.blog-page span.glyphicon {
+.blog-page .field-name-field-image img {
   float: left;
-  padding-left: 15px;
-  padding-right: 20px;
+  margin: 0 20px 10px 0;
 }
 /*******************************************************************************
 Irakurle taldeak
