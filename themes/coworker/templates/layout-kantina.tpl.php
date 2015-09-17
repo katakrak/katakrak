@@ -10,18 +10,16 @@
 <div class="container-fluid banda-kantina kantina-page">
   <div class="banda_header"></div>
   <div class="container">
-    <?php if ($section_title): ?>
-      <h2><?php print $section_title ?></h2>
-    <?php endif; ?>
+        <div class="content-wrap">
     <?php if ($page['content_top']): ?>
       <div id="content-top">
         <?php print render($page['content_top']); ?>
       </div>
     <?php endif; ?>
   </div>
+  </div>
 </div>
 <div id="content">
-    <div class="content-wrap">
       <div class="container clearfix kantina-page">
         <!-- content region -->
         <div class="<?php print $content_class; ?> nobottommargin clearfix">
