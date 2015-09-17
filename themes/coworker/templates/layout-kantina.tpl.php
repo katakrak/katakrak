@@ -75,7 +75,6 @@
         <!-- // content region -->
 
     </div>
-  </div>
 
 </div>
 <?php include 'page-footer.inc' ?>

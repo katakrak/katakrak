@@ -467,9 +467,6 @@ h3.field-content a:hover {
 #content {
   margin-bottom: 50px;
 }
-#content .content-wrap {
-  z-index: 3;
-}
 .begiak {
   position: absolute;
   right: 10%;
@@ -694,17 +691,46 @@ a.home_events_second img {
   height: 70px;
   width: 300px;
   border-radius: 14px 0 0 14px;
+  border: 2px solid #808080;
+  border-right-width: 0;
   font-size: 25px;
+}
+#block-libro-libreria-home-search #libro-search-home-form ::-webkit-input-placeholder,
+#block-libro-libreria-home-search #apachesolr-panels-search-form ::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+
+  color: #808080;
+}
+#block-libro-libreria-home-search #libro-search-home-form :-moz-placeholder,
+#block-libro-libreria-home-search #apachesolr-panels-search-form :-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+
+  color: #808080;
+  opacity: 1;
+}
+#block-libro-libreria-home-search #libro-search-home-form ::-moz-placeholder,
+#block-libro-libreria-home-search #apachesolr-panels-search-form ::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+
+  color: #808080;
+  opacity: 1;
+}
+#block-libro-libreria-home-search #libro-search-home-form :-ms-input-placeholder,
+#block-libro-libreria-home-search #apachesolr-panels-search-form :-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+
+  color: #808080;
 }
 #block-libro-libreria-home-search #libro-search-home-form .btn,
 #block-libro-libreria-home-search #apachesolr-panels-search-form .btn {
   margin-top: 0px;
   background: white;
   color: #000;
-  border: 1px solid #e6e6e6;
+  border: 2px solid #808080;
   height: 70px;
   width: 70px;
   border-radius: 0 14px 14px 0;
+  color: #f50087;
 }
 .book-info-entry {
   border-bottom: 1px solid #eee;
@@ -868,8 +894,12 @@ html.js input.throbbing {
 .kantina-page #block-katakrak-kantina-katakrak-reserva-block h2 {
   text-align: center;
 }
-.kantina-images-second-row {
-  margin-top: 30px;
+.kantina-page .views-field-field-image {
+  margin-top: 15px;
+}
+.kantina-page .col-kantina {
+  padding-left: 5px;
+  padding-right: 5px;
 }
 .kantina-menu {
   text-align: center;
@@ -996,7 +1026,7 @@ div.search-results div:last-child {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   padding: 10px;
-  background-color: #e6e6e6;
+  background-color: #808080;
 }
 #katakrak-search-form input {
   width: 45%;

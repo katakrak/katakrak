@@ -550,9 +550,6 @@ h3.field-content{
 
 #content {
  margin-bottom: 50px; 
- .content-wrap {
-   z-index: 3;
- }
 }
 
 .begiak {
@@ -797,16 +794,34 @@ a.home_events_second {
       height: 70px;
       width: 300px;
       border-radius: 14px 0 0 14px;
+      border: 2px solid @block_gray;
+      border-right-width: 0;
       font-size: 25px;
     }
+    ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+      color: @block_gray;
+    }
+    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+      color:@block_gray;
+      opacity:  1;
+    }
+    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+      color:@block_gray;
+      opacity:  1;
+    }
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+      color:@block_gray;
+    }  
+    
     .btn {
       margin-top: 0px;
       background: white;
       color: #000;
-      border: 1px solid @background_gray;
+      border: 2px solid @block_gray;
       height: 70px;
       width: 70px;
       border-radius: 0 14px 14px 0;
+      color: @custom_pink;
     }
   }
 }
@@ -999,11 +1014,15 @@ html.js input.throbbing {
       text-align: center;
     }
   }
+  .views-field-field-image {
+    margin-top:15px;
+  }
+  .col-kantina {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }
 
-.kantina-images-second-row {
-  margin-top: 30px;
-}
 
 .kantina-menu {
   .eguneko-menua {
@@ -1155,7 +1174,7 @@ div.search-results div:last-child {
 #block-katakrak-newsletter-suscribe, #katakrak-books-search-form, #block-katakrak-search-katakrak-search-block  {
   padding: 10px;
   .rounded;
-  background-color: @background_gray;
+  background-color: @block_gray;
 }
 
 #katakrak-search-form {

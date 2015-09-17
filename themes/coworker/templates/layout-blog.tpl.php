@@ -71,11 +71,6 @@
       <?php endif; ?>
         </div>
         <!-- // content region -->
-
-        
-
-
-
     </div>
   </div>
 

@@ -100,8 +100,8 @@ function katakrak_kantina_theme() {
 function katakrak_kantina_reserva_form($form, &$form_state) {
   $form['datos'] = array(
     '#type' => 'fieldset', 
-    '#title' => t('Datos personales'), 
-    '#weight' => 5, 
+    //'#title' => t('Datos personales'), 
+    '#weight' => 0, 
     '#collapsible' => FALSE, 
   );
   $form['datos']['nombre'] = array(
@@ -145,7 +145,7 @@ function katakrak_kantina_reserva_form($form, &$form_state) {
     '#type' => 'submit',
     '#value' => t('Submit'),
   );
-  $form['#theme'] = 'katakrak_reserva_block';
+  //$form['#theme'] = 'katakrak_reserva_block';
   return $form;
 }
 

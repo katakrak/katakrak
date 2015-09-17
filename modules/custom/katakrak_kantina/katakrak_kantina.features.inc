@@ -82,7 +82,7 @@ function katakrak_kantina_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 662,
+          'width' => 667,
           'height' => 300,
         ),
         'weight' => 1,
@@ -95,7 +95,7 @@ function katakrak_kantina_image_default_styles() {
     'name' => 'kantina_medium',
     'label' => 'Kantina medium',
     'effects' => array(
-      7 => array(
+      24 => array(
         'label' => 'Escalar y recortar',
         'help' => 'Escalar y recortar mantendrán la relación de proporciones de la imagen original y se desechará lo que sobre por el lado mayor. Esto es especialmente útil para crear miniaturas perfectamente cuadradas sin deformar la imagen.',
         'effect callback' => 'image_scale_and_crop_effect',
@@ -105,7 +105,7 @@ function katakrak_kantina_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 457,
+          'width' => 472,
           'height' => 300,
         ),
         'weight' => 1,

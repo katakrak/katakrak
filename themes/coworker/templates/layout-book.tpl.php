@@ -10,16 +10,18 @@
 <div class="container-fluid banda-libreria">
 <div class="banda_header"></div>
   <div class="container">
+    <div class="content-wrap">
     <?php if ($page['content_top']): ?>
       <div id="content-top">
         <?php print render($page['content_top']); ?>
       </div>
     <?php endif; ?>
+      </div>
   </div>
 </div>
 
 <div id="content" class="book-page">
-    <div class="content-wrap">
+    
       <div class="container clearfix">
         <!-- content region -->
         <div class="<?php print $content_class; ?> nobottommargin clearfix">
@@ -75,5 +77,4 @@
     </div>
   </div>
 
-</div>
 <?php include 'page-footer.inc' ?>
