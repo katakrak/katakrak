@@ -1,9 +1,3 @@
-.rounded {
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  padding: 10px;
-}
 .btn a {
   color: white;
 }
@@ -415,7 +409,7 @@ h3.field-content a:hover {
   width: 110px;
 }
 #block-katakrak-language-switcher {
-  float: left;
+  float: right;
 }
 #block-katakrak-language-switcher ul li {
   float: left;
@@ -434,35 +428,141 @@ h3.field-content a:hover {
   font-weight: bold;
 }
 /** User block */
-#block-katakrak-katakrak-user-top,
-#block-katakrak-katakrak-cart {
-  margin-top: 20px;
-  float: left;
-}
-#block-katakrak-katakrak-user-top a,
-#block-katakrak-katakrak-cart a {
-  font-size: 15px;
-  color: #444444;
-  color: #222222;
-  background: none;
-}
-/** Cart block **/
-/* {
-  float: left;
-  margin-right: 15px;
-  margin-top: 15px;
-  .content{
-    margin-top: 13px;
-    margin-left: 5px;
-    a 
-    {
-      color: #000;
-      font-size: 20px;
-      span {
-        font-size: 12px;
+/*#block-katakrak-katakrak-user-top, #block-katakrak-katakrak-cart {
+  position: fixed;
+  z-index: 1010;
+  .rounded(10px, 0, 0, 10px, 0px);
+  .content {
+    -webkit-transition:all 260ms cubic-bezier(0.26,0.67,0.27,1);
+    -moz-transition:all 260ms cubic-bezier(0.26,0.67,0.27,1); 
+    -o-transition:all 260ms cubic-bezier(0.26,0.67,0.27,1);  
+    transition:all 260ms cubic-bezier(0.26,0.67,0.27,1);
+    i {
+      color: white;
+    }
+    .user-icon, .cart-icon {
+      position: relative;
+      height: 50px;
+      width: 50px;
+      float: left;
+      border-right: solid 1px #000;
+      padding: 9px;
+      cursor: pointer;
+    }
+    .user-login, .user-logged-in, .cart-text {
+      position: relative;
+      float: left;
+      width: 220px;
+      padding: 8px;
+      a {
+        font-weight: bold;
+        font-size: 15px;
       }
     }
+    .cart-text {
+      width: 240px;
+    }
+    .cart-count {
+      float: left;
+    }
   }
+  
+  a {
+    font-size: 15px;
+    color: white;
+    background: none;
+  }
+}
+
+#block-katakrak-katakrak-user-top:hover, #block-katakrak-katakrak-cart:hover {
+  right: -2px;
+}
+
+#block-katakrak-katakrak-user-top {
+  top: 100px;
+  right: -221px;
+  background: @custom_blue;
+}*/
+ul#cart-sticky,
+ul#user-sticky {
+  z-index: 1010;
+  position: fixed;
+  right: 40px;
+  top: 150px;
+  margin: 0;
+  padding: 0;
+  height: 50px;
+  list-style: none;
+  color: white;
+}
+ul#cart-sticky li,
+ul#user-sticky li {
+  position: absolute;
+  top: 0;
+  right: -321px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  border-radius: 6px 0 0 6px;
+  -webkit-transition: all 260ms cubic-bezier(0.26, 0.67, 0.27, 1);
+  -moz-transition: all 260ms cubic-bezier(0.26, 0.67, 0.27, 1);
+  -o-transition: all 260ms cubic-bezier(0.26, 0.67, 0.27, 1);
+  transition: all 260ms cubic-bezier(0.26, 0.67, 0.27, 1);
+  height: 50px;
+  width: 321px;
+}
+ul#cart-sticky li .tab,
+ul#user-sticky li .tab {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  padding: 9px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  float: left;
+  border-right: solid 1px #000;
+}
+ul#cart-sticky li .tab.read,
+ul#user-sticky li .tab.read {
+  cursor: pointer;
+}
+ul#cart-sticky li .text,
+ul#user-sticky li .text {
+  position: relative;
+  float: left;
+  display: block;
+  width: 170px;
+  font-size: 20px;
+  line-height: 28px;
+  padding: 12px 0 0 14px;
+}
+ul#cart-sticky li .text a,
+ul#user-sticky li .text a {
+  font-weight: bold;
+  font-size: 15px;
+  color: white;
+}
+ul#cart-sticky li:hover,
+ul#user-sticky li:hover {
+  right: -50px;
+}
+ul#cart-sticky {
+  top: 180px;
+}
+ul#cart-sticky li {
+  background: #f50087;
+}
+ul#user-sticky {
+  top: 120px;
+}
+ul#user-sticky li {
+  background: #2780af;
+}
+/*#block-katakrak-katakrak-cart .cart-empty  {
+  color: @hover_gray;
+}
+
+#block-katakrak-katakrak-cart .cart {
+  color: @custom_pink;
 }*/
 #content {
   margin-bottom: 50px;
@@ -801,9 +901,9 @@ view-id-libros .book-author {
 }
 .view-secciones select {
   margin-top: 10px;
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
   padding: 10px;
   font-size: 15px;
   max-width: 100%;
@@ -1022,9 +1122,9 @@ div.search-results div:last-child {
 #block-katakrak-newsletter-suscribe,
 #katakrak-books-search-form,
 #block-katakrak-search-katakrak-search-block {
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
   padding: 10px;
   background-color: #808080;
 }
@@ -1140,20 +1240,14 @@ div.search-results div:last-child {
 .checkout_review {
   font-size: 1.2em;
 }
-#block-katakrak-katakrak-cart .cart-empty {
-  color: #222222;
-}
-#block-katakrak-katakrak-cart .cart {
-  color: #f50087;
-}
 .view-id-commerce_cart_form .views-table,
 .view-commerce-cart-summary .views-table,
 #customer-profile-billing-ajax-wrapper,
 #customer-profile-shipping-ajax-wrapper {
   background-color: #f0f0f0;
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
   padding: 10px;
 }
 .commerce-add-to-cart button {
@@ -1210,9 +1304,9 @@ button.checkout-cancel {
   background: #e6e6e6;
   text-transform: uppercase;
   color: #000000;
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
   padding: 10px;
   float: left;
   max-width: 100px;

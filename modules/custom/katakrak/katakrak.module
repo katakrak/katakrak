@@ -149,16 +149,14 @@ function katakrak_block_view($delta) {
     return $block;
   }
   if ($delta == 'katakrak_user_top') {
-    if (user_is_anonymous()) {
-      //Generate login link
-      
-       $block['content'] = l('<i class="fa fa-user"></i> '.t('Acceder'), 'user', array('html' => TRUE, 'query' => array('destination' => $_GET['q'])));
+    $block['content'] = '<ul id="user-sticky"><li><div class="tab read"><i class="fa fa-user fa-2x"></i></div>';
+    if (user_is_anonymous()) {  
+     $block['content'] .= '<div class="text">'.l(t('Acceder'), 'user').'</div>';
     }
     else {
-        $block['content'] = l('<i class="fa fa-user"></i> '.t('Hola !username', array('!username' => $user->name)), 'user', array('html' => TRUE));
-
+      $block['content'] .=  '<div class="text">'.l(truncate_utf8($user->name, 12, TRUE, TRUE, 1), 'user').' / '.l(t('Log out'), 'logout').'</div>';
     }
-    ;
+    $block['content'] .= '</li></ul>';
     return $block;
   }
   if ($delta == 'katakrak_cart') {

@@ -10,7 +10,7 @@ function _coworker_add_css() {
     'style.css',
     //'css/tipsy.css',
     'bootstrap/css/bootstrap.css',  
-    //'bootstrap/css/bootstrap.theme.min.css',
+    'bootstrap/css/bootstrap.theme.min.css',
     //'css/font-dinnext.css',
     'css/ibilbideak.css',
     'css/font-awesome.css',

@@ -25,11 +25,11 @@
 }
 
 
-.rounded {
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  padding: 10px;
+.rounded(@top_left: 10px, @top_right: 10px, @bottom_right: 10px, @bottom_left: 10px, @padding: 10px) {
+  border-radius: @top_left  @top_right @bottom_right @bottom_left;
+  -moz-border-radius: @top_left  @top_right @bottom_right @bottom_left;
+  -webkit-border-radius: @top_left  @top_right @bottom_right @bottom_left;
+  padding: @padding;
 }
 
 .btn {
@@ -489,12 +489,11 @@ h3.field-content{
 
 
 #block-katakrak-language-switcher  {
-  float: left;
+  float: right;
   ul li {
     float: left;
     padding-left: 4px;
   }
-  
 }
 
 #block-katakrak-language-switcher li.first:after {
@@ -515,37 +514,145 @@ h3.field-content{
 
 /** User block */
 
-#block-katakrak-katakrak-user-top, #block-katakrak-katakrak-cart {
-  margin-top: 20px;
-  float: left;
+/*#block-katakrak-katakrak-user-top, #block-katakrak-katakrak-cart {
+  position: fixed;
+  z-index: 1010;
+  .rounded(10px, 0, 0, 10px, 0px);
+  .content {
+    -webkit-transition:all 260ms cubic-bezier(0.26,0.67,0.27,1);
+    -moz-transition:all 260ms cubic-bezier(0.26,0.67,0.27,1); 
+    -o-transition:all 260ms cubic-bezier(0.26,0.67,0.27,1);  
+    transition:all 260ms cubic-bezier(0.26,0.67,0.27,1);
+    i {
+      color: white;
+    }
+    .user-icon, .cart-icon {
+      position: relative;
+      height: 50px;
+      width: 50px;
+      float: left;
+      border-right: solid 1px #000;
+      padding: 9px;
+      cursor: pointer;
+    }
+    .user-login, .user-logged-in, .cart-text {
+      position: relative;
+      float: left;
+      width: 220px;
+      padding: 8px;
+      a {
+        font-weight: bold;
+        font-size: 15px;
+      }
+    }
+    .cart-text {
+      width: 240px;
+    }
+    .cart-count {
+      float: left;
+    }
+  }
+  
   a {
     font-size: 15px;
-    color: @link_gray;
-    color: @hover_gray;
+    color: white;
     background: none;
   }
 }
 
+#block-katakrak-katakrak-user-top:hover, #block-katakrak-katakrak-cart:hover {
+  right: -2px;
+}
 
-/** Cart block **/
+#block-katakrak-katakrak-user-top {
+  top: 100px;
+  right: -221px;
+  background: @custom_blue;
+}*/
 
-/* {
-  float: left;
-  margin-right: 15px;
-  margin-top: 15px;
-  .content{
-    margin-top: 13px;
-    margin-left: 5px;
-    a 
-    {
-      color: #000;
-      font-size: 20px;
-      span {
-        font-size: 12px;
+ul#cart-sticky, ul#user-sticky {
+  z-index:1010;
+  position:fixed;
+  right: 40px;
+  top:150px;
+  margin:0;
+  padding:0;
+  height:50px;
+  list-style:none;
+  color: white;
+  li{
+    position:absolute;
+    top:0;
+    right:-321px;
+    margin-bottom:5px;
+    font-size:14px;
+    border-radius:6px 0 0 6px;
+    -webkit-transition:all 260ms cubic-bezier(0.26,0.67,0.27,1);
+    -moz-transition:all 260ms cubic-bezier(0.26,0.67,0.27,1); 
+    -o-transition:all 260ms cubic-bezier(0.26,0.67,0.27,1);  
+    transition:all 260ms cubic-bezier(0.26,0.67,0.27,1);
+    height:50px;
+    width:321px;
+    .tab{
+      position:relative;
+      height:50px;
+      width:50px;
+      padding: 9px;
+      background-position:center center;
+      background-repeat:no-repeat;
+      float:left;
+      border-right:solid 1px #000;
+    }
+    .tab.read {
+      
+      cursor:pointer;
+    }
+    .text{
+      position:relative;
+      float:left;
+      display:block;
+      width:170px;
+      font-size:20px;
+      line-height:28px;
+      padding: 12px 0 0 14px;
+       a {
+        font-weight: bold;
+        font-size: 15px;
+        color: white;
       }
     }
   }
+  li:hover{
+    right:-50px;
+  }
+}
+
+ul#cart-sticky {
+  top:180px;
+  li {
+    background: @custom_pink;
+  }
+}
+ul#user-sticky {
+  top:120px;
+  li {
+    background: @custom_blue;
+  }
+}
+
+
+
+
+
+
+/*#block-katakrak-katakrak-cart .cart-empty  {
+  color: @hover_gray;
+}
+
+#block-katakrak-katakrak-cart .cart {
+  color: @custom_pink;
 }*/
+
 
 
 #content {
@@ -1220,14 +1327,6 @@ div.search-results div:last-child {
 .checkout_review
 {
   font-size: 1.2em;
-}
-
-#block-katakrak-katakrak-cart .cart-empty  {
-  color: @hover_gray;
-}
-
-#block-katakrak-katakrak-cart .cart {
-  color: @custom_pink;
 }
 
 .view-id-commerce_cart_form .views-table,

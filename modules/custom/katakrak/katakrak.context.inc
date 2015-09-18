@@ -32,17 +32,17 @@ function katakrak_context_default_contexts() {
           'region' => 'top_right',
           'weight' => '-10',
         ),
-        'katakrak-katakrak_user_top' => array(
-          'module' => 'katakrak',
-          'delta' => 'katakrak_user_top',
-          'region' => 'top_right',
-          'weight' => '-9',
-        ),
         'katakrak-katakrak_cart' => array(
           'module' => 'katakrak',
           'delta' => 'katakrak_cart',
-          'region' => 'top_right',
-          'weight' => '-8',
+          'region' => 'menu_lateral',
+          'weight' => '-10',
+        ),
+        'katakrak-katakrak_user_top' => array(
+          'module' => 'katakrak',
+          'delta' => 'katakrak_user_top',
+          'region' => 'menu_lateral',
+          'weight' => '-9',
         ),
         'katakrak-katakrak_social' => array(
           'module' => 'katakrak',

@@ -1,23 +1,6 @@
-
+<?php print render($page['menu_lateral']) ?>
 <div id="header" class="clearfix ">
-  <?php if ($page['top_left'] || $page['top_right']): ?>
-  <div id="top-bar" class="container">
-
-    <div class="clearfix">
-
-      
-
-      <?php if ($page['top_right']): ?>
-        <div id="top-menu">
-
-          <?php print render($page['top_right']); ?>
-        </div>
-      <?php endif; ?>
-
-    </div>
-  </div>
-<?php endif; ?>
-<nav class="navbar navbar-default navbar-fix">
+<nav class="navbar navbar-default">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -58,7 +41,9 @@
         <div class="hidden-lg hidden-md hidden-sm" >
           <?php print $navigation ?>
         </div>  
+        
       </div>  
+      <?php print render($page['top_right']); ?>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

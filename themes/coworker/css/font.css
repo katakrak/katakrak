@@ -77,7 +77,8 @@ h6,
 .circle,
 .view-secciones label, button,
 .entry_meta,
-.date-display-single{
+.date-display-single,
+.text a {
   font-family: "Ropa Sans", sans-serif;
 }
 
