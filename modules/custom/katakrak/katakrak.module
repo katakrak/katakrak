@@ -154,7 +154,7 @@ function katakrak_block_view($delta) {
      $block['content'] .= '<div class="text">'.l(t('Acceder'), 'user').'</div>';
     }
     else {
-      $block['content'] .=  '<div class="text">'.l(truncate_utf8($user->name, 12, TRUE, TRUE, 1), 'user').' / '.l(t('Log out'), 'logout').'</div>';
+      $block['content'] .=  '<div class="text">'.l(truncate_utf8($user->name, 12, TRUE, TRUE, 1), 'user').' / '.l(t('Log out'), 'user/logout').'</div>';
     }
     $block['content'] .= '</li></ul>';
     return $block;

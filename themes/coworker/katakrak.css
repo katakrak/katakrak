@@ -51,7 +51,6 @@ p.field-content {
   /*  font-size: 35px;
   line-height: 40px;
   font-weight: normal;*/
-
 }
 #page-title .page-title {
   width: 33.333%;
@@ -242,7 +241,6 @@ h3.field-content a:hover {
 #top-bar {
   position: relative;
   /*box-shadow: 0px 2px 0px 0px rgba(222,213,222,0.75);*/
-
   height: 40px;
 }
 #header {
@@ -269,7 +267,6 @@ h3.field-content a:hover {
   font-family: 'Open Sans', sans-serif;
   font-size: 36px;
   line-height: 120px;*/
-
 }
 #logo a {
   display: block;
@@ -293,9 +290,7 @@ h3.field-content a:hover {
 }
 #primary-links ul li {
   /*background: url("images/icons/menu-divider.png") no-repeat left center;*/
-
   /*background-color: black;*/
-
   margin-left: 5px;
 }
 #primary-links ul li i {
@@ -323,7 +318,6 @@ h3.field-content a:hover {
 }
 #primary-links ul ul {
   /* Nested menu */
-
   z-index: 200;
   width: 200px;
   margin: 0;
@@ -417,7 +411,6 @@ h3.field-content a:hover {
 }
 #block-katakrak-language-switcher li.first:after {
   /*content: " /";*/
-
 }
 #block-katakrak-language-switcher a {
   text-transform: uppercase;
@@ -499,7 +492,7 @@ ul#cart-sticky li,
 ul#user-sticky li {
   position: absolute;
   top: 0;
-  right: -321px;
+  right: -255px;
   margin-bottom: 5px;
   font-size: 14px;
   border-radius: 6px 0 0 6px;
@@ -508,7 +501,7 @@ ul#user-sticky li {
   -o-transition: all 260ms cubic-bezier(0.26, 0.67, 0.27, 1);
   transition: all 260ms cubic-bezier(0.26, 0.67, 0.27, 1);
   height: 50px;
-  width: 321px;
+  width: 255px;
 }
 ul#cart-sticky li .tab,
 ul#user-sticky li .tab {
@@ -530,7 +523,7 @@ ul#user-sticky li .text {
   position: relative;
   float: left;
   display: block;
-  width: 170px;
+  width: 200px;
   font-size: 20px;
   line-height: 28px;
   padding: 12px 0 0 14px;
@@ -798,27 +791,23 @@ a.home_events_second img {
 #block-libro-libreria-home-search #libro-search-home-form ::-webkit-input-placeholder,
 #block-libro-libreria-home-search #apachesolr-panels-search-form ::-webkit-input-placeholder {
   /* WebKit, Blink, Edge */
-
   color: #808080;
 }
 #block-libro-libreria-home-search #libro-search-home-form :-moz-placeholder,
 #block-libro-libreria-home-search #apachesolr-panels-search-form :-moz-placeholder {
   /* Mozilla Firefox 4 to 18 */
-
   color: #808080;
   opacity: 1;
 }
 #block-libro-libreria-home-search #libro-search-home-form ::-moz-placeholder,
 #block-libro-libreria-home-search #apachesolr-panels-search-form ::-moz-placeholder {
   /* Mozilla Firefox 19+ */
-
   color: #808080;
   opacity: 1;
 }
 #block-libro-libreria-home-search #libro-search-home-form :-ms-input-placeholder,
 #block-libro-libreria-home-search #apachesolr-panels-search-form :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-
   color: #808080;
 }
 #block-libro-libreria-home-search #libro-search-home-form .btn,
@@ -853,7 +842,6 @@ a.home_events_second img {
 }
 .books-search-block-help {
   /*text-transform: uppercase;*/
-
   font-size: 24px;
   margin: 15px 0;
 }
@@ -1040,7 +1028,8 @@ div.field-name-field-receta-cuerpo {
   font-size: 14px;
   line-height: 1.5em;
 }
-/** Search Page **/div.search-page-ol-left div.panel-pane {
+/** Search Page **/
+div.search-page-ol-left div.panel-pane {
   background: #d0d0d0;
   margin: 15px 0;
   padding: 15px;
@@ -1493,7 +1482,6 @@ Responsiveness
     background-position: right top;
     background-repeat: no-repeat;
     /*padding-right: 16px;*/
-  
   }
   #primary-links li:first-child a span {
     display: block;
@@ -1588,8 +1576,7 @@ Responsiveness
   #libro-search-home-form,
   #apachesolr-panels-search-form {
     /*  margin-left: auto;
-    margin-right: auto;*/
-  
+  margin-right: auto;*/
     width: 600px;
   }
   #libro-search-home-form .controls input,
