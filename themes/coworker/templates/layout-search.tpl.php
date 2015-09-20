@@ -1,4 +1,5 @@
 <?php include 'page-header.inc' ?>
+
 <?php print render($page['content']); ?>         
  <?php if ($messages): ?>
   <?php print $messages; ?>

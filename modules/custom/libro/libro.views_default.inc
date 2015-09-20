@@ -550,11 +550,11 @@ function libro_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Contenido: Libros (field_ciclo_libros) - reverse (to Término de taxonomía) */
-  $handler->display->display_options['relationships']['reverse_field_ciclo_libros_taxonomy_term']['id'] = 'reverse_field_ciclo_libros_taxonomy_term';
-  $handler->display->display_options['relationships']['reverse_field_ciclo_libros_taxonomy_term']['table'] = 'node';
-  $handler->display->display_options['relationships']['reverse_field_ciclo_libros_taxonomy_term']['field'] = 'reverse_field_ciclo_libros_taxonomy_term';
-  $handler->display->display_options['relationships']['reverse_field_ciclo_libros_taxonomy_term']['required'] = TRUE;
+  /* Relationship: Contenido: Libros (field_ciclo_libros) - reverse (to Contenido) */
+  $handler->display->display_options['relationships']['reverse_field_ciclo_libros_node']['id'] = 'reverse_field_ciclo_libros_node';
+  $handler->display->display_options['relationships']['reverse_field_ciclo_libros_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_ciclo_libros_node']['field'] = 'reverse_field_ciclo_libros_node';
+  $handler->display->display_options['relationships']['reverse_field_ciclo_libros_node']['required'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Campo: Contenido: Portada */
   $handler->display->display_options['fields']['field_libro_portada']['id'] = 'field_libro_portada';
@@ -570,17 +570,16 @@ function libro_views_default_views() {
   );
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Término de taxonomía: ID del término */
-  $handler->display->display_options['arguments']['tid']['id'] = 'tid';
-  $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['arguments']['tid']['field'] = 'tid';
-  $handler->display->display_options['arguments']['tid']['relationship'] = 'reverse_field_ciclo_libros_taxonomy_term';
-  $handler->display->display_options['arguments']['tid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['tid']['exception']['title'] = 'Todo(s)';
-  $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'taxonomy_tid';
-  $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Contenido: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'reverse_field_ciclo_libros_node';
+  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Todo(s)';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
 
   /* Display: Bloque 2 */
   $handler = $view->new_display('block', 'Bloque 2', 'block_2');

@@ -43,3 +43,20 @@ function katakrak_agenda_init() {
 //    node_save($node);
 //  }
 }
+
+function katakrak_agenda_node_presave($node) {
+  if ($node->type == 'ciclo' && $node->language != 'und') {
+    $citas = array();
+    $nids = array();
+    foreach ($node->field_ciclo_actos['und'] as $nid) {
+      $acto = node_load($nid['nid']);
+      $translations = translation_node_get_translations($acto->tnid);
+      if (!in_array($translations[$node->language]->nid, $nids)) {
+        $citas[]['nid'] = $translations[$node->language]->nid;
+      }
+      $nids[] = $translations[$node->language]->nid;
+
+    }
+    $node->field_ciclo_actos['und'] = $citas;
+  }
+}
