@@ -70,4 +70,3 @@ features[variable][] = pathauto_node_itinerario_pattern
 features[variable][] = pathauto_node_itinerario_und_pattern
 features[views_view][] = itinerarios
 features[views_view][] = itinerarios_admin
-mtime = 1433172074

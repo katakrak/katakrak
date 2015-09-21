@@ -14,6 +14,9 @@ function katakrak_agenda_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "context" && $api == "context") {
     return array("version" => "3");
   }
+  if ($module == "field_group" && $api == "field_group") {
+    return array("version" => "1");
+  }
   if ($module == "flexslider" && $api == "flexslider_default_preset") {
     return array("version" => "1");
   }
@@ -146,7 +149,7 @@ function katakrak_agenda_image_default_styles() {
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 450,
-          'height' => 290,
+          'height' => 300,
         ),
         'weight' => 1,
       ),
@@ -160,8 +163,8 @@ function katakrak_agenda_image_default_styles() {
       19 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 800,
-          'height' => 500,
+          'width' => 650,
+          'height' => 390,
         ),
         'weight' => 1,
       ),
@@ -175,7 +178,7 @@ function katakrak_agenda_image_default_styles() {
       21 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 800,
+          'width' => 650,
           'height' => 220,
         ),
         'weight' => 1,
