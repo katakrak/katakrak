@@ -326,7 +326,7 @@ function katakrak_search_facetapi_link_inactive($variables) {
  function katakrak_search_apachesolr_index_document_build_node(ApacheSolrDocument $document, $entity, $entity_type) {
   if ($entity->type == 'libro') {
     $product = commerce_product_load($entity->field_libro_producto['und'][0]['product_id']);
-    $document->addField('is_field_product_stock', $product->commerce_stock['und'][0]['value']);
+    $document->addField('is_field_product_stock', (int)$product->commerce_stock['und'][0]['value']);
   }
 }
 

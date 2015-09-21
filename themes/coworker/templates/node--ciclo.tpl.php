@@ -82,8 +82,17 @@
 <div class="row">
   <div class="col-lg-12">
     <h1><?php print $node->title ?></h1>
-    
     <?php print render($content['field_image']) ?>
-    <?php print views_embed_view('libros', 'libros_grupo_lectura', $node->nid) ?>
+    
+    <?php if ($node->field_ciclo_libros['und']): ?>
+      <h2><?php print t('citas') ?></h2>
+      <?php print views_embed_view('agenda', 'citas_ciclo', $node->nid) ?>
+    <?php endif; ?>
+    
+    
+    <?php if ($node->field_ciclo_libros['und']): ?>
+    <h2><?php print t('Libros') ?></h2>
+      <?php print views_embed_view('libros', 'libros_grupo_lectura', $node->nid) ?>
+    <?php endif; ?>
   </div>
 </div>
