@@ -549,6 +549,7 @@ function create_cover($url, $isbn) {
 
   if ($fid) {
     $file = file_load($fid->fid);
+    watchdog('dilve', $filepath);
     if (!file_exists($filepath) && $cover_request->code == 200) {
       file_put_contents($filepath, $cover_request->data);
     }
