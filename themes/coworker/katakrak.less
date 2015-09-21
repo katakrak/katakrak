@@ -52,15 +52,13 @@
   }
 }
 
-#content .block {
-  h2 {
-    color: black;
-    border-bottom: 1px dashed black;
-    padding: 0 0 5px;
-    margin-top: 50px;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
+#content h2.block {
+  color: black;
+  border-bottom: 1px dashed black;
+  padding: 0 0 5px;
+  margin-top: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 /* ----------------------------------------------------------------
@@ -98,11 +96,14 @@ h1, h2, h3, h4, h5, h6 {
   width: 33.333%
 }
 
-#block-views-agenda-next-events-node-block h3.field-content {
-  font-size: 18px;
-  line-height: 22px;
-  font-weight: bold;
-}
+#block-views-agenda-next-events-node-block {
+  
+  h3.field-content {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: bold;
+  }
+} 
 
 h3.field-content{
   a {
@@ -1055,9 +1056,30 @@ html.js input.throbbing {
     z-index: 10;
     bottom: -1px;
   }
-  h3 {
+  h2 {
     color: white;
     margin-left: 10px;
+    padding-bottom: 1px;
+  }
+  h3 {
+    font-size: 20px;
+    color: @hover_gray;
+    margin-left: 10px;
+  }
+  .entry_date {
+    float: left;
+    width: 20%;
+  }
+ 
+  .entry_date div.month,
+  .entry_date div.day,
+  .entry_date div.weekday,
+  .entry_date div.hour {
+    background: transparent;
+  }
+  .event_info {
+    float: left;
+    width: 80%
   }
   .date-display-single {
     color: black;
@@ -1471,7 +1493,7 @@ Irakurle taldeak
 Responsiveness
 *******************************************************************************/
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .banda_header {
     max-width: 90%;
   }
@@ -1484,7 +1506,7 @@ Responsiveness
 }
 
 @media (min-width: 768px) {
- 
+  
   #top-menu li a,
   #top-menu li span {
     font-size: 12px;
@@ -1557,14 +1579,7 @@ Responsiveness
       }
     }
   }
-}
-
-
-/*******************************************************************************
-Responsiveness
-*******************************************************************************/
-
-@media (min-width: 767px) {
+  
   #page-title .page-title {
     width: 100%;
   }
@@ -1674,7 +1689,12 @@ Responsiveness
 }
 }
 
-@media only screen and (min-width: 1040px) {
+@media only screen and (min-width: 992px) {
+  .home-events-title-main {
+    .event_info {
+      width: 80%;
+    }
+  }
 #libro-search-home-form, #apachesolr-panels-search-form {
 /*  margin-left: auto;
   margin-right: auto;*/

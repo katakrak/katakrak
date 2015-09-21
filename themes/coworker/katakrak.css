@@ -12,7 +12,7 @@
   padding-top: 5px;
   font-size: 1.2em;
 }
-#content .block h2 {
+#content h2.block {
   color: black;
   border-bottom: 1px dashed black;
   padding: 0 0 5px;
@@ -925,9 +925,29 @@ html.js input.throbbing {
   z-index: 10;
   bottom: -1px;
 }
-.view-display-id-home h3 {
+.view-display-id-home h2 {
   color: white;
   margin-left: 10px;
+  padding-bottom: 1px;
+}
+.view-display-id-home h3 {
+  font-size: 20px;
+  color: #222222;
+  margin-left: 10px;
+}
+.view-display-id-home .entry_date {
+  float: left;
+  width: 20%;
+}
+.view-display-id-home .entry_date div.month,
+.view-display-id-home .entry_date div.day,
+.view-display-id-home .entry_date div.weekday,
+.view-display-id-home .entry_date div.hour {
+  background: transparent;
+}
+.view-display-id-home .event_info {
+  float: left;
+  width: 80%;
 }
 .view-display-id-home .date-display-single {
   color: black;
@@ -1395,7 +1415,7 @@ Irakurle taldeak
 /*******************************************************************************
 Responsiveness
 *******************************************************************************/
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .banda_header {
     max-width: 90%;
   }
@@ -1469,11 +1489,6 @@ Responsiveness
   #primary-links ul ul li {
     background-color: #57B3DF;
   }
-}
-/*******************************************************************************
-Responsiveness
-*******************************************************************************/
-@media (min-width: 767px) {
   #page-title .page-title {
     width: 100%;
   }
@@ -1572,7 +1587,10 @@ Responsiveness
     padding: 3px 27px;
   }
 }
-@media only screen and (min-width: 1040px) {
+@media only screen and (min-width: 992px) {
+  .home-events-title-main .event_info {
+    width: 80%;
+  }
   #libro-search-home-form,
   #apachesolr-panels-search-form {
     /*  margin-left: auto;
