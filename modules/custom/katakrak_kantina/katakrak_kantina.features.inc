@@ -50,6 +50,7 @@ function katakrak_kantina_fe_nodequeue_export_fields() {
     'reference' => 0,
     'reverse' => 0,
     'i18n' => 0,
+    'insert_at_front' => 0,
     'subqueues' => 1,
     'types' => array(
       0 => 'portfolio',
@@ -69,17 +70,9 @@ function katakrak_kantina_image_default_styles() {
 
   // Exported image style: kantina_large.
   $styles['kantina_large'] = array(
-    'name' => 'kantina_large',
     'label' => 'Kantina large',
     'effects' => array(
       23 => array(
-        'label' => 'Escalar y recortar',
-        'help' => 'Escalar y recortar mantendrán la relación de proporciones de la imagen original y se desechará lo que sobre por el lado mayor. Esto es especialmente útil para crear miniaturas perfectamente cuadradas sin deformar la imagen.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 667,
@@ -92,17 +85,9 @@ function katakrak_kantina_image_default_styles() {
 
   // Exported image style: kantina_medium.
   $styles['kantina_medium'] = array(
-    'name' => 'kantina_medium',
     'label' => 'Kantina medium',
     'effects' => array(
       24 => array(
-        'label' => 'Escalar y recortar',
-        'help' => 'Escalar y recortar mantendrán la relación de proporciones de la imagen original y se desechará lo que sobre por el lado mayor. Esto es especialmente útil para crear miniaturas perfectamente cuadradas sin deformar la imagen.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 472,
@@ -115,17 +100,9 @@ function katakrak_kantina_image_default_styles() {
 
   // Exported image style: kantina_thumbnail.
   $styles['kantina_thumbnail'] = array(
-    'name' => 'kantina_thumbnail',
     'label' => 'Kantina thumbnail',
     'effects' => array(
       4 => array(
-        'label' => 'Escalar y recortar',
-        'help' => 'Escalar y recortar mantendrán la relación de proporciones de la imagen original y se desechará lo que sobre por el lado mayor. Esto es especialmente útil para crear miniaturas perfectamente cuadradas sin deformar la imagen.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 60,
@@ -138,17 +115,9 @@ function katakrak_kantina_image_default_styles() {
 
   // Exported image style: receta_page.
   $styles['receta_page'] = array(
-    'name' => 'receta_page',
     'label' => 'Receta page',
     'effects' => array(
       8 => array(
-        'label' => 'Escalar y recortar',
-        'help' => 'Escalar y recortar mantendrán la relación de proporciones de la imagen original y se desechará lo que sobre por el lado mayor. Esto es especialmente útil para crear miniaturas perfectamente cuadradas sin deformar la imagen.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 500,

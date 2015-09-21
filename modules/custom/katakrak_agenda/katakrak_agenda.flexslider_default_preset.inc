@@ -16,8 +16,6 @@ function katakrak_agenda_flexslider_default_presets() {
   $preset->name = 'home';
   $preset->title = 'Home';
   $preset->theme = 'classic';
-  $preset->imagestyle_normal = 'flexslider_full';
-  $preset->imagestyle_thumbnail = 'flexslider_thumbnail';
   $preset->options = array(
     'namespace' => 'flex-',
     'selector' => '.slides > li',

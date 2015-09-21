@@ -17,14 +17,6 @@ function katakrak_blog_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_blog_adjunto',
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
@@ -48,14 +40,6 @@ function katakrak_blog_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_blog_body',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -75,14 +59,6 @@ function katakrak_blog_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_blog_cuerpo',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -102,14 +78,6 @@ function katakrak_blog_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_blog_eventos',
-    'foreign keys' => array(
-      'nid' => array(
-        'columns' => array(
-          'nid' => 'nid',
-        ),
-        'table' => 'node',
-      ),
-    ),
     'indexes' => array(
       'nid' => array(
         0 => 'nid',
@@ -149,14 +117,6 @@ function katakrak_blog_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_blog_libro',
-    'foreign keys' => array(
-      'nid' => array(
-        'columns' => array(
-          'nid' => 'nid',
-        ),
-        'table' => 'node',
-      ),
-    ),
     'indexes' => array(
       'nid' => array(
         0 => 'nid',
@@ -199,7 +159,6 @@ function katakrak_blog_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_blog_tipo',
-    'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
         0 => 'value',

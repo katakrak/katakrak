@@ -10,7 +10,8 @@
 function katakrak_boletin_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'field_collection_item-field_boletin_body-field_boletin_body_seccion'
+  // Exported field_instance:
+  // 'field_collection_item-field_boletin_body-field_boletin_body_seccion'
   $field_instances['field_collection_item-field_boletin_body-field_boletin_body_seccion'] = array(
     'bundle' => 'field_boletin_body',
     'default_value' => NULL,
@@ -41,7 +42,8 @@ function katakrak_boletin_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_boletin_body-field_boletin_body_subtitulo'
+  // Exported field_instance:
+  // 'field_collection_item-field_boletin_body-field_boletin_body_subtitulo'
   $field_instances['field_collection_item-field_boletin_body-field_boletin_body_subtitulo'] = array(
     'bundle' => 'field_boletin_body',
     'default_value' => NULL,
@@ -75,7 +77,8 @@ function katakrak_boletin_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_boletin_body-field_boletin_body_texto'
+  // Exported field_instance:
+  // 'field_collection_item-field_boletin_body-field_boletin_body_texto'
   $field_instances['field_collection_item-field_boletin_body-field_boletin_body_texto'] = array(
     'bundle' => 'field_boletin_body',
     'default_value' => NULL,

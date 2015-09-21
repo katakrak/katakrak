@@ -64,4 +64,3 @@ features[variable][] = node_submitted_sukalde_errezeta
 features[variable][] = node_submitted_sukalde_produktua
 features[views_view][] = sukalde_produktuak_reference
 features[views_view][] = sukaldea
-mtime = 1419108864

@@ -49,25 +49,23 @@ function katakrak_agenda_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
-  // Exported field_instance: 'node-ciclo-field_ciclo_imagen'
-  $field_instances['node-ciclo-field_ciclo_imagen'] = array(
+  // Exported field_instance: 'node-ciclo-field_ciclo_descripci_n'
+  $field_instances['node-ciclo-field_ciclo_descripci_n'] = array(
     'bundle' => 'ciclo',
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
-        ),
-        'type' => 'image',
-        'weight' => 2,
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -77,30 +75,23 @@ function katakrak_agenda_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_ciclo_imagen',
-    'label' => 'Imagen',
+    'field_name' => 'field_ciclo_descripci_n',
+    'label' => 'Descripción',
     'required' => 0,
     'settings' => array(
-      'alt_field' => 0,
-      'default_image' => 0,
-      'file_directory' => '',
-      'file_extensions' => 'png gif jpg jpeg',
-      'max_filesize' => '',
-      'max_resolution' => '',
-      'min_resolution' => '',
-      'title_field' => 0,
+      'display_summary' => 1,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'image',
+      'module' => 'text',
       'settings' => array(
-        'imce_filefield_on' => 0,
-        'preview_image_style' => 'thumbnail',
-        'progress_indicator' => 'throbber',
+        'rows' => 20,
+        'summary_rows' => 5,
       ),
-      'type' => 'image_image',
-      'weight' => 6,
+      'type' => 'text_textarea_with_summary',
+      'weight' => 8,
     ),
   );
 
@@ -114,8 +105,10 @@ function katakrak_agenda_field_default_field_instances() {
       'default' => array(
         'label' => 'above',
         'module' => 'node_reference',
-        'settings' => array(),
-        'type' => 'node_reference_default',
+        'settings' => array(
+          'node_reference_view_mode' => 'teaser',
+        ),
+        'type' => 'node_reference_node',
         'weight' => 0,
       ),
       'teaser' => array(
@@ -143,7 +136,101 @@ function katakrak_agenda_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
-      'weight' => 4,
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'node-ciclo-field_ciclo_tipo'
+  $field_instances['node-ciclo-field_ciclo_tipo'] = array(
+    'bundle' => 'ciclo',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_ciclo_tipo',
+    'label' => 'Tipo',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'node-ciclo-field_image'
+  $field_instances['node-ciclo-field_image'] = array(
+    'bundle' => 'ciclo',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'colorbox',
+        'settings' => array(
+          'colorbox_caption' => 'none',
+          'colorbox_caption_custom' => '',
+          'colorbox_gallery' => 'post',
+          'colorbox_gallery_custom' => '',
+          'colorbox_image_style' => '',
+          'colorbox_multivalue_index' => NULL,
+          'colorbox_node_style' => 'extra_large',
+          'colorbox_node_style_first' => 'blog_post_page',
+        ),
+        'type' => 'colorbox',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_image',
+    'label' => 'Imagen',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'imce_filefield_on' => 0,
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 9,
     ),
   );
 
@@ -203,6 +290,7 @@ function katakrak_agenda_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
+          'show_remaining_days' => FALSE,
           'show_repeat_rule' => 'show',
         ),
         'type' => 'date_default',
@@ -223,6 +311,7 @@ function katakrak_agenda_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
+          'show_remaining_days' => FALSE,
           'show_repeat_rule' => 'show',
         ),
         'type' => 'date_default',
@@ -729,6 +818,7 @@ function katakrak_agenda_field_default_field_instances() {
   t('Imagen');
   t('Libro');
   t('Libros');
+  t('Tipo');
   t('Title');
 
   return $field_instances;

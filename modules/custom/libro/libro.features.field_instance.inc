@@ -1242,7 +1242,8 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-editoriales-field_editorial_geslib_id'
+  // Exported field_instance:
+  // 'taxonomy_term-editoriales-field_editorial_geslib_id'
   $field_instances['taxonomy_term-editoriales-field_editorial_geslib_id'] = array(
     'bundle' => 'editoriales',
     'default_value' => NULL,
@@ -1282,7 +1283,8 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-estado_de_articulo-field_estado_geslib_id'
+  // Exported field_instance:
+  // 'taxonomy_term-estado_de_articulo-field_estado_geslib_id'
   $field_instances['taxonomy_term-estado_de_articulo-field_estado_geslib_id'] = array(
     'bundle' => 'estado_de_articulo',
     'default_value' => NULL,

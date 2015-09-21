@@ -16,8 +16,6 @@ function katakrak_kantina_flexslider_default_presets() {
   $preset->name = 'kantina';
   $preset->title = 'Kantina';
   $preset->theme = 'classic';
-  $preset->imagestyle_normal = 'kantina_full';
-  $preset->imagestyle_thumbnail = 'kantina_thumbnail';
   $preset->options = array(
     'namespace' => 'flex-',
     'selector' => '.slides > li',

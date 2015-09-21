@@ -17,14 +17,6 @@ function katakrak_agenda_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_ciclo_actos',
-    'foreign keys' => array(
-      'nid' => array(
-        'columns' => array(
-          'nid' => 'nid',
-        ),
-        'table' => 'node',
-      ),
-    ),
     'indexes' => array(
       'nid' => array(
         0 => 'nid',
@@ -61,6 +53,25 @@ function katakrak_agenda_field_default_field_bases() {
     'type' => 'node_reference',
   );
 
+  // Exported field_base: 'field_ciclo_descripci_n'
+  $field_bases['field_ciclo_descripci_n'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_ciclo_descripci_n',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'text_with_summary',
+  );
+
   // Exported field_base: 'field_ciclo_imagen'
   $field_bases['field_ciclo_imagen'] = array(
     'active' => 1,
@@ -68,14 +79,6 @@ function katakrak_agenda_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_ciclo_imagen',
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
@@ -98,14 +101,6 @@ function katakrak_agenda_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_ciclo_libros',
-    'foreign keys' => array(
-      'nid' => array(
-        'columns' => array(
-          'nid' => 'nid',
-        ),
-        'table' => 'node',
-      ),
-    ),
     'indexes' => array(
       'nid' => array(
         0 => 'nid',
@@ -140,6 +135,31 @@ function katakrak_agenda_field_default_field_bases() {
     'type' => 'node_reference',
   );
 
+  // Exported field_base: 'field_ciclo_tipo'
+  $field_bases['field_ciclo_tipo'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_ciclo_tipo',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'irakurle' => 'Irakurle taldea',
+        'jornadas' => 'Jornadas',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_event_ciclo'
   $field_bases['field_event_ciclo'] = array(
     'active' => 1,
@@ -147,14 +167,6 @@ function katakrak_agenda_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_event_ciclo',
-    'foreign keys' => array(
-      'tid' => array(
-        'columns' => array(
-          'tid' => 'tid',
-        ),
-        'table' => 'taxonomy_term_data',
-      ),
-    ),
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
@@ -182,7 +194,6 @@ function katakrak_agenda_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_event_date',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'date',
@@ -213,14 +224,6 @@ function katakrak_agenda_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_event_descripcion',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -240,14 +243,6 @@ function katakrak_agenda_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_event_description',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -267,14 +262,6 @@ function katakrak_agenda_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_event_image',
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
@@ -297,14 +284,6 @@ function katakrak_agenda_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_event_libro',
-    'foreign keys' => array(
-      'nid' => array(
-        'columns' => array(
-          'nid' => 'nid',
-        ),
-        'table' => 'node',
-      ),
-    ),
     'indexes' => array(
       'nid' => array(
         0 => 'nid',
@@ -344,14 +323,6 @@ function katakrak_agenda_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_event_type',
-    'foreign keys' => array(
-      'tid' => array(
-        'columns' => array(
-          'tid' => 'tid',
-        ),
-        'table' => 'taxonomy_term_data',
-      ),
-    ),
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
@@ -379,7 +350,6 @@ function katakrak_agenda_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_event_type_color',
-    'foreign keys' => array(),
     'indexes' => array(
       'rgb' => array(
         0 => 'rgb',
