@@ -93,13 +93,17 @@ h1, h3, .month {
 h1 {
   font-size: 20px;
 }
+h2 {
+  font-size: 18px;
+}
 h3 {
   font-size: 14px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   h1 {
     font-size: 35px;
+    font-weight: bold;
   }
   h2 {
     font-size: 25px;

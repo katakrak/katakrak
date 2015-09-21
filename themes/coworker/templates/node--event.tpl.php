@@ -81,24 +81,20 @@
 ?>
 <h1><?php print $node->title ?></h1>
 <div class="row">
-  <div class="col-lg-5">
+  <div class="col-lg-5 col-md-5 col-sm-5">
     <?php print render($content['field_event_image']) ?>
   </div>
-  <div class="col-lg-7">
-    <div class="row">
-      <div class="col-lg-2">
-        <?php print theme('agenda_date', array('time' => $node->field_event_date['und'][0]['value'])); ?>
-      </div>
-      <div class="col-lg-10">
-
-        <h4><?php print render($content['field_event_type']) ?></h4>
-        <?php print render($content['field_event_descripcion']) ?>
-      </div>
+  <div class="col-lg-7 col-md-7 col-sm-7">
+    <div class="event-info">
+      <?php print theme('agenda_date', array('time' => $node->field_event_date['und'][0]['value'])); ?>
+      <h3><?php print render($content['field_event_type']) ?></h3>
     </div>
+    <?php print render($content['field_event_descripcion']) ?>
+      
   </div>
 </div>
 <?php if ($node->field_event_libro['und']): ?>
-  <h2>Libros relacionados</h2>
+<h2 class="block"><?php print t('Libros relacionados') ?></h2>
   <p><?php print views_embed_view('libros', 'books_related_event', $node->nid); ?></p>
 <?php endif; ?>
       

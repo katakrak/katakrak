@@ -30,11 +30,11 @@
 <?php print $fields['field_event_image']->wrapper_suffix; ?>
 
 <div class="row">
-  <div class="col-lg-2">
+  <div class="col-lg-3">
     <?php print $fields['field_event_date']->content ?>
   </div>
 
-  <div class="col-lg-10">
+  <div class="col-lg-9">
     <?php print $fields['field_event_type']->content ?>
     <?php print $fields['title']->content ?>
     <?php print $fields['field_event_description']->content ?>

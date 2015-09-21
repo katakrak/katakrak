@@ -80,11 +80,13 @@
  */
 ?>
 <div class="row">
-  <div class="col-lg-12">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <h1><?php print $node->title ?></h1>
     <?php print render($content['field_image']) ?>
-    
-    <?php if ($node->field_ciclo_libros['und']): ?>
+    <?php print render($content['field_ciclo_descripci_n']) ?>
+  </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <?php if ($node->field_ciclo_actos['und']): ?>
       <h2><?php print t('citas') ?></h2>
       <?php print views_embed_view('agenda', 'citas_ciclo', $node->nid) ?>
     <?php endif; ?>
@@ -96,3 +98,4 @@
     <?php endif; ?>
   </div>
 </div>
+    

@@ -16,14 +16,9 @@
         <?php
         $content_class = 'content-main-column';
         $content_rows = "col-md-12 col-lg-12 col-sd-12";
-        $sidebar_class = 'sidebar-column';
-        if ($page['sidebar_first']) {
-          $content_class = 'postcontent col_last';
-        }
         if ($page['sidebar_second']) {
-          $sidebar_class = 'col_last';
-          $sidebar_rows = "col-md-3";
-          $content_rows = "col-md-9";
+          $sidebar_rows = "col-lg-3 col-md-3 col-sm-2";
+          $content_rows = "col-lg-9 col-md-9 col-sm-10";
         }
         ?>
         <!-- content region -->
@@ -50,11 +45,8 @@
 
           
           <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-12">
               <?php print render($page['content_top']); ?>
-            </div>
-            <div class="col-lg-offset-1 col-lg-8">
-              
             </div>
           </div>
           
@@ -63,11 +55,11 @@
             <?php print $feed_icons; ?>
           </div>
           <?php if ($page['sidebar_second']): ?>
-        <div class="<?php print $sidebar_rows?>">
-          <!-- sidebar right --> 
-          <div id="sidebar-second" class="sidebar <?php print $sidebar_class; ?> nobottommargin clearfix">
-            <?php print render($page['sidebar_second']); ?>
-          </div>
+            <div class="<?php print $sidebar_rows?>">
+              <!-- sidebar right --> 
+              <div id="sidebar-second" class="sidebar <?php print $sidebar_class; ?> nobottommargin clearfix">
+                <?php print render($page['sidebar_second']); ?>
+              </div>
           </div>
           <!-- // sidebar right -->
           

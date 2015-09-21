@@ -584,10 +584,7 @@ ul#user-sticky li {
 }
 /* Special regions */
 /* HOME STYLES */
-a.home_events_second img {
-  margin-top: 30px;
-}
-#block-mailchimp-signup-recibe-nuestro-boletin-semanal h2 {
+a #block-mailchimp-signup-recibe-nuestro-boletin-semanal h2 {
   text-align: center;
 }
 .view-display-id-book_block_home div.row {
@@ -916,6 +913,9 @@ html.js input.throbbing {
 .view-display-id-home a {
   color: black;
 }
+.view-display-id-home img {
+  margin-top: 30px;
+}
 .view-display-id-home .views-field-title,
 .view-display-id-home .home-events-title {
   width: 100%;
@@ -934,6 +934,7 @@ html.js input.throbbing {
   font-size: 20px;
   color: #222222;
   margin-left: 10px;
+  font-weight: bold;
 }
 .view-display-id-home .entry_date {
   float: left;
@@ -1098,6 +1099,7 @@ div.search-results div:last-child {
 }
 .entry_date {
   float: none;
+  width: 90px;
 }
 .entry_date div.month,
 .entry_date div.day,
@@ -1376,19 +1378,18 @@ Blog
 /*******************************************************************************
 Irakurle taldeak
 *******************************************************************************/
-.pane-views-agenda-citas-ciclo,
-.pane-views-libros-libros-grupo-lectura {
-  margin-top: 10px;
-}
-.pane-views-agenda-citas-ciclo .pane-title,
-.pane-views-libros-libros-grupo-lectura .pane-title {
+body.node-type-ciclo h2 {
   background: black;
   color: #fff;
   text-transform: uppercase;
   padding: 11px;
+  margin-top: 40px;
 }
-.pane-views-agenda-citas-ciclo .pane-content,
-.pane-views-libros-libros-grupo-lectura .pane-content {
+body.node-type-ciclo .field-name-field-image {
+  float: left;
+  margin: 0 20px 20px 0;
+}
+body.node-type-ciclo .view-content {
   margin-top: 10px;
 }
 .sf2015 {
