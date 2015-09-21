@@ -921,9 +921,7 @@ html.js input.throbbing {
   width: 100%;
   background: rgba(38, 128, 175, 0.9);
   float: left;
-  position: absolute;
   z-index: 10;
-  bottom: -1px;
 }
 .view-display-id-home h2 {
   color: white;
@@ -949,14 +947,6 @@ html.js input.throbbing {
 .view-display-id-home .event_info {
   float: left;
   width: 80%;
-}
-.view-display-id-home .date-display-single {
-  color: black;
-  margin-left: 10px;
-  font-weight: bold;
-  font-size: 18px;
-  margin-top: 5px;
-  display: block;
 }
 .mailchimp-signup-subscribe-form div.form-item-mergevars-EMAIL,
 .mailchimp-signup-subscribe-form div.form-item-mergevars-FNAME,
@@ -1582,6 +1572,11 @@ Responsiveness
     width: 1200px;
     margin: 0 auto;
     position: relative;
+  }
+  .view-display-id-home .views-field-title,
+  .view-display-id-home .home-events-title {
+    position: absolute;
+    bottom: -1px;
   }
   .region-sidebar-second {
     box-shadow: -2px 0 2px -2px #808080;

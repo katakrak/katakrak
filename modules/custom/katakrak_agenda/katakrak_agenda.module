@@ -61,9 +61,8 @@ function katakrak_agenda_node_presave($node) {
       $translations = translation_node_get_translations($acto->tnid);
       if (!in_array($translations[$node->language]->nid, $nids)) {
         $citas[]['nid'] = $translations[$node->language]->nid;
+        $nids[] = $translations[$node->language]->nid;
       }
-      $nids[] = $translations[$node->language]->nid;
-
     }
     $node->field_ciclo_actos['und'] = $citas;
   }

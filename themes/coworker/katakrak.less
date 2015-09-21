@@ -1049,9 +1049,7 @@ html.js input.throbbing {
     width: 100%;
     background: rgba(38, 128, 175, 0.9);
     float: left;
-    position: absolute;
     z-index: 10;
-    bottom: -1px;
   }
   h2 {
     color: white;
@@ -1498,6 +1496,7 @@ Responsiveness
   #bottom-social {
     max-width: 90%;
   }
+  
 }
 
 @media (min-width: 768px) {
@@ -1677,6 +1676,13 @@ Responsiveness
   margin: 0 auto;
   position: relative; 
 }
+
+  .view-display-id-home {
+    .views-field-title, .home-events-title {
+      position: absolute;
+      bottom: -1px;
+    }   
+  }
 
 .region-sidebar-second {
   box-shadow: -2px 0 2px -2px gray;
