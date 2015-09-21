@@ -151,7 +151,7 @@ function commerce_physical_product_line_item_dimensions($line_item) {
         $product_wrapper = entity_metadata_wrapper('commerce_product', $product);
 
         // Add dimension values per product in the line item.
-        for ($i = 0; $i < $line_item->quantity; $i++) {
+        for ($i = 0; $i < $line_item_wrapper->quantity->value(); $i++) {
           $dimensions = $product_wrapper->{$field_name}->value();
         }
       }
