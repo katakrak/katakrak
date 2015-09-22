@@ -1,5 +1,5 @@
 <?php include 'page-header.inc' ?>
-<div class="container-fluid banda-agenda">
+<div class="container-fluid">
   <div class="banda_header"></div>
 </div>
 <div id="content" class="agenda-page">
@@ -60,17 +60,28 @@
               <div id="sidebar-second" class="sidebar <?php print $sidebar_class; ?> nobottommargin clearfix">
                 <?php print render($page['sidebar_second']); ?>
               </div>
-          </div>
-          <!-- // sidebar right -->
-          
-      <?php endif; ?>
+            </div>
+            <!-- // sidebar right -->
+          <?php endif; ?>
         </div>
         <!-- // content region -->
-
-        
-
-
-
+         <?php print render($page['content_bottom']) ?>
+        <?php if ($page['content_bottom_first'] || $page['content_bottom_second'] || $page['content_bottom_third'] || $page['content_bottom_fourth']): ?>
+        <div id="content-bottom" class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <?php print render($page['content_bottom_first']); ?>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <?php print render($page['content_bottom_second']); ?>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <?php print render($page['content_bottom_third']); ?>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <?php print render($page['content_bottom_fourth']); ?>
+          </div>
+        </div>
+        <?php endif; ?>
     </div>
   </div>
 

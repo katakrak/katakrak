@@ -1,6 +1,6 @@
 <?php include 'page-header.inc' ?>
 <div class="container-fluid">
-  <div class="banda_header"></div
+  <div class="banda_header"></div>
 </div>
 <div class="clear"></div>
 <div id="content"class="page-home">
