@@ -141,11 +141,31 @@ function katakrak_kantina_reserva_form($form, &$form_state) {
     '#collapsible' => FALSE, 
   );
   $form['reserva']['fecha'] = array(
-  '#type' => 'date_popup',
-  '#title' => t('Fecha y hora'),
-  '#required' => TRUE,
-  '#title_display' => 'invisible',
-  '#date_format' => 'Y-m-d H:i',
+    '#type' => 'date_popup',
+    '#timepicker' => 'timepicker',
+    // New #timepicker_options property handled by the Date Popup Timepicker
+    // module and lets to customize timepicker options.
+    '#timepicker_options' => array(
+      'rows' => 2,
+      'hourText' => t('Hora'),             // Define the locale text for "Hours"
+      'minuteText' => t('Minutos'), 
+      'minutes' => array(
+        'starts' => 0,
+        'ends' => 45,
+        'interval' => 15,
+      ),
+      'hours' => array(
+        'starts' => 13,
+        'ends'=> 23,
+        
+      ),
+      'showCloseButton' => TRUE,
+      'closeButtonText' => t('Close'),
+    ),
+    '#title' => t('Fecha y hora'),
+    '#required' => TRUE,
+    '#title_display' => 'invisible',
+    '#date_format' => 'Y-m-d H:i',
   );
   $options = array();
   for($i = 1; $i < 31; $i++) {
@@ -174,7 +194,6 @@ function katakrak_kantina_form_katakrak_kantina_reserva_form_alter(&$form, &$for
 }
 
 function katakrak_kantina_form_reserva_after_build($form, &$form_state){
-  dpm($form);
   $form['reserva']['fecha']['date']['#description'] = '';
   $form['reserva']['fecha']['date']['#attributes']['placeholder'] = t('Fecha');
   $form['reserva']['fecha']['date']['#title_display'] = 'invisible';
@@ -184,6 +203,17 @@ function katakrak_kantina_form_reserva_after_build($form, &$form_state){
   return $form;
 }
 
+function katakrak_kantina_reserva_form_validate($form, $form_state) {
+  $fecha = strtotime($form_state['values']['fecha']);
+  dpm(date('D', $fecha));
+  if ($fecha < time()) {
+    form_set_error('reserva][fecha', t('Erroraco gordo'));
+  }
+  if (date('D', $fecha) == 'Sun') {
+    form_set_error('reserva][fecha', t('Katakrak está cerrado los domingos'));
+  }
+  
+}
 function katakrak_kantina_reserva_form_submit($form, &$form_state) {
 }
 
