@@ -22,7 +22,7 @@
       'node/'.$view->result[0]->nid, array('html' => TRUE)); ?>
 
     </div>
-    <div class="home-event hidden-xs">
+    <div class="home-event hidden-xs hidden-sm">
       <?php print l(
       theme('image_style', array('style_name' => 'home_agenda_main_secondary', 'path' => $view->result[3]->field_field_event_image[0]['raw']['uri'])).
         '<div class="home-events-title home-events-title-main">'.
@@ -54,7 +54,7 @@
         '</div>',
       'node/'.$view->result[2]->nid, array('html' => TRUE, 'attributes' => array('class' => array('home_events_second'))));  ?>
     </div>
-    <div class="home-event visible-xs"><?php print l(
+    <div class="home-event visible-xs visible-sm"><?php print l(
       theme('image_style', array('style_name' => 'home_agenda', 'path' => $view->result[3]->field_field_event_image[0]['raw']['uri'])).
         '<div class="home-events-title">'.
         theme('agenda_date', array('time' => $view->result[3]->field_field_event_date[0]['raw']['value'])).
