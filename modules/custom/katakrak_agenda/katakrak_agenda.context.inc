@@ -19,7 +19,6 @@ function katakrak_agenda_context_default_contexts() {
   $context->conditions = array(
     'views' => array(
       'values' => array(
-        'agenda:agenda_page' => 'agenda:agenda_page',
         'agenda:events_page' => 'agenda:events_page',
       ),
     ),
@@ -27,6 +26,12 @@ function katakrak_agenda_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'views-ciclos-block' => array(
+          'module' => 'views',
+          'delta' => 'ciclos-block',
+          'region' => 'content_bottom_first',
+          'weight' => '-10',
+        ),
         'views-agenda-isotope_filter' => array(
           'module' => 'views',
           'delta' => 'agenda-isotope_filter',
