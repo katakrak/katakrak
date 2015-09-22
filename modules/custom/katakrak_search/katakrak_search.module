@@ -331,13 +331,12 @@ function katakrak_search_apachesolr_index_document_build_node(ApacheSolrDocument
 }
 
 function katakrak_search_apachesolr_query_prepare($query) {
-    // Add the new field as a sort option
-    $query->setAvailableSort('is_field_product_stock', array(
-      'title' => t('Stock'),
-      'default' => 'desc',
-    ));
- 
-    // Sort on our new field
-    $query->setSolrSort('is_field_product_stock', 'desc');
-}
+  // Add the new field as a sort option
+  $query->setAvailableSort('is_field_product_stock', array(
+    'title' => t('Disponibilidad'),
+    'default' => 'desc',
+  ));
 
+  // Sort on our new field
+  $query->setSolrSort('is_field_product_stock', 'desc');
+}
