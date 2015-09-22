@@ -190,14 +190,12 @@ function katakrak_search_apachesolr_index_document_build_node(ApacheSolrDocument
 
 function katakrak_search_apachesolr_query_prepare($query) {
   // Add Publication Date sort to the faculty-research search
-  if (arg(1) == 'books') {
     // Add the new field as a sort option
     $query->setAvailableSort('is_field_product_stock', array(
-      'title' => t('Stock'),
+      'title' => t('Disponibilidad'),
       'default' => 'desc',
     ));
  
     // Sort on our new field
-    //$query->setSolrSort('sm_field_book_stock', 'desc');
-  }
+    $query->setSolrSort('is_field_product_stock', 'desc');
 }
