@@ -31,8 +31,9 @@ function katakrak_itinerarios_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '4';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
-  $handler->display->display_options['style_options']['columns'] = '4';
+  $handler->display->display_options['style_plugin'] = 'katakrak_grid_plugin_style';
+  $handler->display->display_options['style_options']['columns_lg'] = '4';
+  $handler->display->display_options['style_options']['columns_md'] = '4';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Campo: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';

@@ -9,6 +9,7 @@ dependencies[] = features
 dependencies[] = file
 dependencies[] = i18n_taxonomy
 dependencies[] = image
+dependencies[] = katakrak
 dependencies[] = list
 dependencies[] = node
 dependencies[] = node_reference

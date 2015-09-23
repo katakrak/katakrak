@@ -15,6 +15,7 @@ dependencies[] = field_group
 dependencies[] = filter
 dependencies[] = i18n_taxonomy
 dependencies[] = image
+dependencies[] = katakrak
 dependencies[] = katakrak_geslib
 dependencies[] = katakrak_search
 dependencies[] = list
