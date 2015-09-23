@@ -778,7 +778,7 @@ ul#user-sticky {
 
 #block-views-secciones-secciones-block {
   img {
-    max-width: none;
+    max-width: 90%;
   }
   .term-name{
    padding: 80px 90px 115px;
@@ -891,14 +891,15 @@ ul#user-sticky {
     .controls {
        float: left;
      }
-
+     .fa-3x {
+       font-size: 1.4em;
+     }
     input {
-      height: 70px;
-      width: 300px;
+      height: 40px;
+      width: 180px;
       border-radius: 14px 0 0 14px;
       border: 2px solid @block_gray;
       border-right-width: 0;
-      font-size: 25px;
     }
     ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
       color: @block_gray;
@@ -920,8 +921,8 @@ ul#user-sticky {
       background: white;
       color: #000;
       border: 2px solid @block_gray;
-      height: 70px;
-      width: 70px;
+      height: 40px;
+      width: 40px;
       border-radius: 0 14px 14px 0;
       color: @custom_pink;
     }
@@ -1504,7 +1505,11 @@ Responsiveness
   #bottom-social {
     max-width: 90%;
   }
-  
+  #block-views-secciones-secciones-block {
+    .col {
+      padding: 0 !important;
+    }
+  }
 }
 
 @media (min-width: 768px) {
@@ -1699,22 +1704,34 @@ Responsiveness
 }
 
 @media only screen and (min-width: 992px) {
-  .home-events-title-main {
-    .event_info {
-      width: 80%;
-    }
+.home-events-title-main {
+  .event_info {
+    width: 80%;
   }
+}
 #libro-search-home-form, #apachesolr-panels-search-form {
 /*  margin-left: auto;
   margin-right: auto;*/
   width: 600px;
-  .controls {
-    input {
-      width: 530px !important;
-    }
+  .fa-3x {
+    font-size: 3em;
+  }
+  input {
+    height: 70px !important;
+    width: 530px !important;
+    font-size: 25px;
+  }
+  .btn {
+    height: 70px !important; 
+    width: 70px !important;
   }
 }
 .dropdown:hover .dropdown-menu {
-display: block;
+  display: block;
+}
+#block-views-secciones-secciones-block {
+  img {
+    max-width: none;
+  }
 }
 }

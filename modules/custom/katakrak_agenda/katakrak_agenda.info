@@ -111,4 +111,3 @@ features_exclude[dependencies][date_views] = date_views
 features_exclude[dependencies][views] = views
 features_exclude[dependencies][views_bootstrap] = views_bootstrap
 features_exclude[dependencies][views_isotope] = views_isotope
-files[] = views/katakrak_agenda_grid_plugin_style.inc

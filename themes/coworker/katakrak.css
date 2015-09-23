@@ -668,7 +668,7 @@ a #block-mailchimp-signup-recibe-nuestro-boletin-semanal h2 {
   margin-top: 20px;
 }
 #block-views-secciones-secciones-block img {
-  max-width: none;
+  max-width: 90%;
 }
 #block-views-secciones-secciones-block .term-name {
   padding: 80px 90px 115px;
@@ -776,14 +776,17 @@ a #block-mailchimp-signup-recibe-nuestro-boletin-semanal h2 {
 #block-libro-libreria-home-search #apachesolr-panels-search-form .controls {
   float: left;
 }
+#block-libro-libreria-home-search #libro-search-home-form .fa-3x,
+#block-libro-libreria-home-search #apachesolr-panels-search-form .fa-3x {
+  font-size: 1.4em;
+}
 #block-libro-libreria-home-search #libro-search-home-form input,
 #block-libro-libreria-home-search #apachesolr-panels-search-form input {
-  height: 70px;
-  width: 300px;
+  height: 40px;
+  width: 180px;
   border-radius: 14px 0 0 14px;
   border: 2px solid #808080;
   border-right-width: 0;
-  font-size: 25px;
 }
 #block-libro-libreria-home-search #libro-search-home-form ::-webkit-input-placeholder,
 #block-libro-libreria-home-search #apachesolr-panels-search-form ::-webkit-input-placeholder {
@@ -813,8 +816,8 @@ a #block-mailchimp-signup-recibe-nuestro-boletin-semanal h2 {
   background: white;
   color: #000;
   border: 2px solid #808080;
-  height: 70px;
-  width: 70px;
+  height: 40px;
+  width: 40px;
   border-radius: 0 14px 14px 0;
   color: #f50087;
 }
@@ -1424,6 +1427,9 @@ Responsiveness
   #bottom-social {
     max-width: 90%;
   }
+  #block-views-secciones-secciones-block .col {
+    padding: 0 !important;
+  }
 }
 @media (min-width: 768px) {
   #top-menu li a,
@@ -1601,11 +1607,25 @@ Responsiveness
   margin-right: auto;*/
     width: 600px;
   }
-  #libro-search-home-form .controls input,
-  #apachesolr-panels-search-form .controls input {
+  #libro-search-home-form .fa-3x,
+  #apachesolr-panels-search-form .fa-3x {
+    font-size: 3em;
+  }
+  #libro-search-home-form input,
+  #apachesolr-panels-search-form input {
+    height: 70px !important;
     width: 530px !important;
+    font-size: 25px;
+  }
+  #libro-search-home-form .btn,
+  #apachesolr-panels-search-form .btn {
+    height: 70px !important;
+    width: 70px !important;
   }
   .dropdown:hover .dropdown-menu {
     display: block;
+  }
+  #block-views-secciones-secciones-block img {
+    max-width: none;
   }
 }
