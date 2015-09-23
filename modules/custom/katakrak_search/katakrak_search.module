@@ -330,7 +330,7 @@ function katakrak_search_apachesolr_index_document_build_node(ApacheSolrDocument
   }
 }
 
-function katakrak_search_apachesolr_query_prepare($query) {
+function katakrak_search_apachesolr_query_prepare(DrupalSolrQueryInterface $query) {
   // Add the new field as a sort option
   $query->setAvailableSort('is_field_product_stock', array(
     'title' => t('Disponibilidad'),
@@ -338,5 +338,7 @@ function katakrak_search_apachesolr_query_prepare($query) {
   ));
 
   // Sort on our new field
-  $query->setSolrSort('is_field_product_stock', 'desc');
+  $original_sort = $query->getSolrsortUrlQuery();
+  if (empty($original_sort))
+    $query->setSolrSort('is_field_product_stock', 'desc');
 }
