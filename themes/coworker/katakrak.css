@@ -853,10 +853,6 @@ view-id-libros .book-author {
 .block-title-author {
   width: 100%;
 }
-.book-title-author .col_three_fourth,
-.book-title-author .col_one_fourth {
-  margin: 0;
-}
 .book-metadata {
   border-top: solid 2px #C0C0C0;
   padding-top: 20px;
@@ -880,6 +876,34 @@ view-id-libros .book-author {
 }
 #block-libro-katakrak-libro-estilo h3 a:hover {
   color: #222222;
+}
+.node-libro h1 {
+  padding: 5px 0;
+  margin: 0;
+}
+.node-libro h3 {
+  margin-top: 0;
+}
+.node-libro .field-name-field-libro-autores {
+  margin-top: 20px;
+}
+.node-libro .field-name-field-libro-autores .field-item:after {
+  content: ", ";
+}
+.node-libro .field-name-field-libro-autores .field-item:last-child:after {
+  content: "";
+}
+.node-libro .field-name-field-libro-sinopsis {
+  margin-top: 30px;
+}
+.node-libro .itinerarios a {
+  float: left;
+  padding: 10px;
+}
+.node-libro .book-buy {
+  position: absolute;
+  right: 0;
+  top: 60px;
 }
 .view-secciones label {
   font-weight: normal;
@@ -1596,11 +1620,6 @@ Responsiveness
     box-shadow: -2px 0 2px -2px #808080;
     padding: 3px 27px;
   }
-}
-@media only screen and (min-width: 992px) {
-  .home-events-title-main .event_info {
-    width: 80%;
-  }
   #libro-search-home-form,
   #apachesolr-panels-search-form {
     /*  margin-left: auto;
@@ -1622,10 +1641,15 @@ Responsiveness
     height: 70px !important;
     width: 70px !important;
   }
-  .dropdown:hover .dropdown-menu {
-    display: block;
-  }
   #block-views-secciones-secciones-block img {
     max-width: none;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .home-events-title-main .event_info {
+    width: 80%;
+  }
+  .dropdown:hover .dropdown-menu {
+    display: block;
   }
 }

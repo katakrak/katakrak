@@ -584,11 +584,13 @@ function libro_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
 
-  /* Display: Bloque 2 */
-  $handler = $view->new_display('block', 'Bloque 2', 'block_2');
-
-  /* Display: Bloque 3 */
-  $handler = $view->new_display('block', 'Bloque 3', 'block_3');
+  /* Display: Libros relacionados por autor */
+  $handler = $view->new_display('block', 'Libros relacionados por autor', 'libros_rel_autor');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '4';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Content: Referenced products */
   $handler->display->display_options['relationships']['field_libro_producto_product_id']['id'] = 'field_libro_producto_product_id';
@@ -600,6 +602,73 @@ function libro_views_default_views() {
   $handler->display->display_options['sorts']['random']['id'] = 'random';
   $handler->display->display_options['sorts']['random']['table'] = 'views';
   $handler->display->display_options['sorts']['random']['field'] = 'random';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Autor (field_libro_autores) */
+  $handler->display->display_options['arguments']['field_libro_autores_tid']['id'] = 'field_libro_autores_tid';
+  $handler->display->display_options['arguments']['field_libro_autores_tid']['table'] = 'field_data_field_libro_autores';
+  $handler->display->display_options['arguments']['field_libro_autores_tid']['field'] = 'field_libro_autores_tid';
+  $handler->display->display_options['arguments']['field_libro_autores_tid']['exception']['title'] = 'Todo(s)';
+  $handler->display->display_options['arguments']['field_libro_autores_tid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_libro_autores_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_libro_autores_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_libro_autores_tid']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Todo(s)';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'raw';
+  $handler->display->display_options['arguments']['nid']['default_argument_options']['index'] = '1';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['nid']['not'] = TRUE;
+
+  /* Display: Libros relacionados por categoría */
+  $handler = $view->new_display('block', 'Libros relacionados por categoría', 'libros_rel_cat');
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '4';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Content: Referenced products */
+  $handler->display->display_options['relationships']['field_libro_producto_product_id']['id'] = 'field_libro_producto_product_id';
+  $handler->display->display_options['relationships']['field_libro_producto_product_id']['table'] = 'field_data_field_libro_producto';
+  $handler->display->display_options['relationships']['field_libro_producto_product_id']['field'] = 'field_libro_producto_product_id';
+  $handler->display->display_options['relationships']['field_libro_producto_product_id']['required'] = TRUE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Global: Random */
+  $handler->display->display_options['sorts']['random']['id'] = 'random';
+  $handler->display->display_options['sorts']['random']['table'] = 'views';
+  $handler->display->display_options['sorts']['random']['field'] = 'random';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Sección (field_libro_categoria) */
+  $handler->display->display_options['arguments']['field_libro_categoria_tid']['id'] = 'field_libro_categoria_tid';
+  $handler->display->display_options['arguments']['field_libro_categoria_tid']['table'] = 'field_data_field_libro_categoria';
+  $handler->display->display_options['arguments']['field_libro_categoria_tid']['field'] = 'field_libro_categoria_tid';
+  $handler->display->display_options['arguments']['field_libro_categoria_tid']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['field_libro_categoria_tid']['exception']['title'] = 'Todo(s)';
+  $handler->display->display_options['arguments']['field_libro_categoria_tid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_libro_categoria_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_libro_categoria_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_libro_categoria_tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Commerce Product: Stock (commerce_stock) */
+  $handler->display->display_options['filters']['commerce_stock_value']['id'] = 'commerce_stock_value';
+  $handler->display->display_options['filters']['commerce_stock_value']['table'] = 'field_data_commerce_stock';
+  $handler->display->display_options['filters']['commerce_stock_value']['field'] = 'commerce_stock_value';
+  $handler->display->display_options['filters']['commerce_stock_value']['relationship'] = 'field_libro_producto_product_id';
+  $handler->display->display_options['filters']['commerce_stock_value']['operator'] = '>';
+  $handler->display->display_options['filters']['commerce_stock_value']['value']['value'] = '0';
   $translatables['libros'] = array(
     t('Master'),
     t('Tienda'),
@@ -638,8 +707,8 @@ function libro_views_default_views() {
     t('Libros grupo de lectura'),
     t('Libros'),
     t('field_ciclo_libros'),
-    t('Bloque 2'),
-    t('Bloque 3'),
+    t('Libros relacionados por autor'),
+    t('Libros relacionados por categoría'),
   );
   $export['libros'] = $view;
 
@@ -1159,7 +1228,7 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['rendered_entity']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'full';
   $handler->display->display_options['fields']['rendered_entity']['bypass_access'] = 0;
-  /* Campo: Field: Image */
+  /* Campo: Field: Imagen */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
