@@ -19,6 +19,13 @@ function libro_menu() {
     'access arguments' => array('administer site settings'),
     'type' => MENU_NORMAL_ITEM,
   );
+   $items['admin/commerce/config/portadas'] = array(
+    'title' => 'Portadas',
+    'description' => 'Dilve options',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('libro_portadas_form'),
+    'access arguments' => array('administer site configuration'),
+  );
    $items['node/%node/portada'] = array(
     'title' => 'Portada',
     'page callback' => 'drupal_get_form',
@@ -59,17 +66,135 @@ function libro_portada_form($form, $form_state, $node) {
 
 function libro_portada_form_submit($form, $form_state) {
   $node = $form_state['build_info']['args'][0];
+
+  $download_cover = FALSE;
+  if ($node->field_libro_portada['und'][0]['uri']) {
+    if (!file_exists($node->field_libro_portada['und'][0]['uri'])) {
+      $download_cover = TRUE;
+    }
+  }
+  if ($download_cover) {
+    $ean = $node->field_libro_ean['und'][0]['value'];
+
+    $url = sprintf("http://image.casadellibro.com/a/l/t0/%s/%s.jpg", substr($ean, 11, 2), $ean);
+
+    $file = create_cover($url, $ean);
+    if (!empty($file)) {
+      $node->field_libro_portada['und'][0] = $file;
+      $node->field_libro_portada['und'][0]['title'] = $node->title;
+      $node->field_libro_portada['und'][0]['alt'] = $node->title;
+      node_save($node);
+    }
+  }
+}
+
+function libro_portadas_form($form, &$form_state) {
+   $form['limit'] = array(
+    '#title' => t('libros por iteración'),
+    '#description' => t('If no value all items will be processed'),
+    '#type' => 'textfield',
+    '#size' => 10,
+    '#default_value' => 10,
+  );
+  $form['max'] = array(
+    '#title' => t('Máximo número de items'),
+    '#description' => t('If no value all items will be processed'),
+    '#type' => 'textfield',
+    '#size' => 10,
+    '#default_value' => 10,
+  );
+  $form['skip'] = array(
+    '#title' => t('Skip items'),
+    '#description' => t('If no value all items will be processed'),
+    '#type' => 'textfield',
+    '#size' => 10,
+    '#default_value' => 0,
+  );
+   $form['enviar'] = array(
+    '#type' => 'submit',
+    '#value' => t('Enviar'),
+  );
+  return $form;
+}
+
+function libro_portadas_form_submit($form, &$form_state){
+  $limit = $form_state['values']['limit'];
+  $max = $form_state['values']['max'];
+  $skip = $form_state['values']['skip'];
+  $batch = array(
+    'title' => t('Recuperando portadas'),
+    'operations' => array(
+      array('libro_portada_process', array($limit, $max, $skip)),
+    ),
+    'finished' => 'libro_portadas_finish',
+  );
+  batch_set($batch);  
+}
+
+function libro_portada_process($limit, $max, $skip, &$context) {
+  $nodes = db_select('node', 'n')->condition('type', 'libro')->fields('n', array('nid'))->orderBy('nid');
+  if (!isset($context['sandbox']['progress'])) {
+    $context['sandbox']['progress'] = $skip;
+    $context['sandbox']['max'] = $max ? $max : $nodes->execute()->rowCount();
+    $context['results']['conseguidas'] = 0;
+    $context['results']['no_conseguidas'] = 0;
+    $context['results']['imagenes_existentes'] = 0;
+  }
   
-  $ean = $node->field_libro_ean['und'][0]['value'];
+  $nids = $nodes->range($context['sandbox']['progress'], $limit)->execute()->fetchAll();
   
-  $url = sprintf("http://image.casadellibro.com/a/l/t0/%s/%s.jpg", substr($ean, 11, 2), $ean);
+  foreach ($nids as $nid) {
+    $node = node_load($nid->nid);
+    $download_cover = FALSE;
+    if ($node->field_libro_portada['und'][0]['uri']) {
+      if (!file_exists($node->field_libro_portada['und'][0]['uri'])) {
+        $download_cover = TRUE;
+      }
+      else {
+        $context['results']['imagenes_existentes']++;
+      }
+    }
+    else {
+      $download_cover = TRUE;
+    }
+    
+    if ($download_cover) {
+      $ean = $node->field_libro_ean['und'][0]['value'];
+      $url = sprintf("http://image.casadellibro.com/a/l/t0/%s/%s.jpg", substr($ean, 11, 2), $ean);
+      $file = create_cover($url, $ean);
+      if (!empty($file)) {
+        $node->field_libro_portada['und'][0] = $file;
+        $node->field_libro_portada['und'][0]['title'] = $node->title;
+        $node->field_libro_portada['und'][0]['alt'] = $node->title;
+        node_save($node);
+        $context['results']['conseguidas'] ++;
+      }
+      else {
+        $context['results']['no_conseguidas'] ++;
+      }
+    }
+    $context['sandbox']['progress'] += 1;
+  }
   
-  $file = create_cover($url, $ean);
-  if (!empty($file)) {
-    $node->field_libro_portada['und'][0] = $file;
-    $node->field_libro_portada['und'][0]['title'] = $node->title;
-    $node->field_libro_portada['und'][0]['alt'] = $node->title;
-    node_save($node);
+
+  $context['message'] = t("Processed @progress of @max books", array('@progress' => $context['sandbox']['progress'], '@max' => $context['sandbox']['max']));
+  if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
+    $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
+  }
+}
+
+function libro_portadas_finish($success, $results, $operations) {
+  if ($success) {
+    drupal_set_message(t("@count book convers found", array('@count' => $results['conseguidas'])));
+    drupal_set_message(t("@count book covers not found", array('@count' => $results['no_conseguidas'])));
+    drupal_set_message(t("@count book covers already there", array('@count' => $results['imagenes_existentes'])));
+  }
+  else {
+    // An error occurred.
+    // $operations contains the operations that remained unprocessed.
+    $error_operation = reset($operations);
+    $message = t('An error occurred while processing %error_operation with arguments: @arguments', array('%error_operation' => $error_operation[0], '@arguments' => print_r($error_operation[1], TRUE)));
+    drupal_set_message($message, 'error');
   }
 }
 function libro_block_info() {
@@ -328,26 +453,19 @@ function libro_por_isbn() {
   else {
     drupal_not_found();
   }
+}
   
-}
+/**
+ * Checks if the cover exists and if it does returns the file object. 
+ * It it doesn't exists downloads it and creates the object
+ * 
+ * @param type $url
+ * @param type $isbn
+ * @return type
+ */
 
-function libro_search_home_form($form, &$form_state, $total = NULL) {
-  $placeholder = t('@count libros a tu alcance', array('@count' => $total));
-  $form['search_term'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Nombre'),
-    '#title_display' => 'invisible',
-    '#required' => TRUE,
-    '#attributes' => array(
-      'placeholder' => $placeholder
-      )
-  );
-  $form['submit'] = array(
-    '#type' => 'submit',
-    '#value' => '<i class="fa fa-3x fa-search"></i>',
-  );
-  return $form; 
-}
+
+
 
 function libro_search_home_form_submit($form, &$form_state) {
   $form_state['redirect'] = 'buscar/libros/'.$form_state['values']['search_term'];
@@ -405,4 +523,22 @@ function create_cover($url, $isbn) {
     }
   }
   return (array)$file;
+}
+
+function libro_search_home_form($form, &$form_state, $total = NULL) {
+  $placeholder = t('@count libros a tu alcance', array('@count' => $total));
+  $form['search_term'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Nombre'),
+    '#title_display' => 'invisible',
+    '#required' => TRUE,
+    '#attributes' => array(
+      'placeholder' => $placeholder
+      )
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => '<i class="fa fa-3x fa-search"></i>',
+  );
+  return $form; 
 }
