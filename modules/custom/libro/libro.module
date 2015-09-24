@@ -21,29 +21,57 @@ function libro_menu() {
   );
    $items['node/%node/portada'] = array(
     'title' => 'Portada',
-    'page callback' => 'libro_borrar_portada',
-    'page arguments' => array(1),
-    'access arguments' => array('access dilve information'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('libro_portada_form', 1),
+    'access callback' => 'katakrak_dilve_access_node_info',
+    'access arguments' => array('access dilve information', 1),
     'type' => MENU_LOCAL_TASK,
     'weight' => 100,
   );
   $items['libro'] = array(
     'title' => 'Portada',
     'page callback' => 'libro_por_isbn',
-    'access arguments' => array('access content'),
-    'type' => MENU_CALLBACK,
+    'access callback' => array('access content'),
+    'type' => MENU_CALLBACK,kakatakrak_dilve_access_node_infotakrak_dilve_access_node_info
   );
   return $items;
 }
 
-function libro_borrar_portada($node) {
-  return drupal_get_form('libro_borrar_portada_form', $node);
-}
-
-function libro_borrar_portada_form($node) {
+function libro_portada_form($form, $form_state, $node) {
+  $ean = $node->field_libro_ean['und'][0]['value'];
   
+  $url = sprintf("http://image.casadellibro.com/a/l/t0/%s/%s.jpg", substr($ean, 11, 2), $ean);
+  
+  $form['image'] = array(
+    '#markup' => theme('image', array(
+      'path' => $url,
+      'width' => 120,
+      'height' => 200,
+      )
+    ),
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => "Actualizar libro",
+  );
+  return $form;
 }
 
+function libro_portada_form_submit($form, $form_state) {
+  $node = $form_state['build_info']['args'][0];
+  
+  $ean = $node->field_libro_ean['und'][0]['value'];
+  
+  $url = sprintf("http://image.casadellibro.com/a/l/t0/%s/%s.jpg", substr($ean, 11, 2), $ean);
+  
+  $file = create_cover($url, $ean);
+  if (!empty($file)) {
+    $node->field_libro_portada['und'][0] = $file;
+    $node->field_libro_portada['und'][0]['title'] = $node->title;
+    $node->field_libro_portada['und'][0]['alt'] = $node->title;
+    node_save($node);
+  }
+}
 function libro_block_info() {
   $blocks = array();
   $blocks['katakrak_libro_estilo'] = array(
@@ -323,4 +351,58 @@ function libro_search_home_form($form, &$form_state, $total = NULL) {
 
 function libro_search_home_form_submit($form, &$form_state) {
   $form_state['redirect'] = 'buscar/libros/'.$form_state['values']['search_term'];
+}
+
+/**
+ * Checks if the cover exists and if it does returns the file object. 
+ * It it doesn't exists downloads it and creates the object
+ * 
+ * @param type $url
+ * @param type $isbn
+ * @return type
+ */
+function create_cover($url, $isbn) {
+  global $user;
+  $cover_request = drupal_http_request($url);
+  if ($cover_request->code != 200) {
+    return;
+  }
+  $ext = substr($cover_request->headers['content-type'], strrpos($cover_request->headers['content-type'], '/') + 1);
+  $filename = $isbn.".".$ext;
+  $fid = db_select('file_managed', 'f')->condition('filename', $filename)->fields('f', array('fid'))
+    ->execute()->fetchObject();
+  $filepath = sprintf("%s/%s/portadas/%s",DRUPAL_ROOT, variable_get('file_public_path', 'sites/default/files'), $filename);
+  if ($fid) {
+    $file = file_load($fid->fid);
+    if (!file_exists($filepath) && $cover_request->code == 200) {
+      file_put_contents($filepath, $cover_request->data);
+    }
+  }
+  else {
+  
+    $filepath = sprintf("%s/%s/portadas/%s",DRUPAL_ROOT, variable_get('file_public_path', 'default'), $filename);
+    $file = new stdClass();
+    if ($cover_request->code == 200) {
+      file_put_contents($filepath, $cover_request->data);
+      $file = new stdClass();
+      $file->uri = "public://portadas/".$filename;
+      
+      $image = image_load($file->uri);
+//      $width = variable_get('dilve_max_image_width', 500);
+//      if ($image->info['width'] > $width) {
+//        if (image_scale($image, $width)) {
+//          image_save($image);
+//        }
+//      }
+      
+      $file->uid = $user->uid;
+      $file->filename = $filename;
+      $file->filemime = $cover_request->headers['content-type'];
+      $file->filesize = $image->info['file_size']; 
+      $file->status = 1;
+      $file->timestamp = REQUEST_TIME;
+      file_save($file);
+    }
+  }
+  return (array)$file;
 }

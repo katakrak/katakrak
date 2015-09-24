@@ -34,7 +34,7 @@ function katakrak_dilve_menu() {
     'title' => 'Dilve',
     'page callback' => 'katakrak_dilve_info',
     'page arguments' => array(1),
-    'access callback' => 'katakrak_dilve_access_node_info',
+      'access callback' => 'katakrak_dilve_access_node_info',
     'access arguments' => array('access dilve information', 1),
     'type' => MENU_LOCAL_TASK,
     'weight' => 100,
@@ -237,7 +237,7 @@ function dilve_node_info_form($form, &$form_state, $node, $book) {
     $form['image_markup'] = array(
       '#suffix' => '</div>',
       '#prefix' => '<div>',
-      '#markup' => theme('image', array(
+      '#markup' => theme_image(array(
         'path' => $book['cover_url'],
         'width' => 120,
         'height' => 200,
@@ -281,7 +281,6 @@ function dilve_node_info_form_submit($form, &$form_state) {
     $node->field_libro_paginas['und'][0]['value'] = $values['pages'];
   
   if ($values['image']) {
-    dpm($values);
     $file = create_cover($values['image'], $node->field_libro_ean['und'][0]['value']);
     
     if (!empty($file)) {
@@ -523,62 +522,4 @@ function katakrak_dilve_process_item($nid) {
     }
     node_save($node);
   }
-}
-
-
-/**
- * Checks if the cover exists and if it does returns the file object. 
- * It it doesn't exists downloads it and creates the object
- * 
- * @param type $url
- * @param type $isbn
- * @return type
- */
-function create_cover($url, $isbn) {
-  global $user;
-  $cover_request = drupal_http_request($url);
-  if (strpos($cover_request->headers['content-type'], 'image') !== 0) {
-    return '';
-  }
-  $ext = substr($cover_request->headers['content-type'], strrpos($cover_request->headers['content-type'], '/') + 1);
-  $filename = $isbn.".".$ext;
- 
-  $fid = db_select('file_managed', 'f')->condition('filename', $filename)->fields('f', array('fid'))
-    ->execute()->fetchObject();
-  $filepath = sprintf("%s/%s/portadas/%s",DRUPAL_ROOT, variable_get('file_public_path', 'sites/default/files'), $filename);
-
-  if ($fid) {
-    $file = file_load($fid->fid);
-    watchdog('dilve', $filepath);
-    if (!file_exists($filepath) && $cover_request->code == 200) {
-      file_put_contents($filepath, $cover_request->data);
-    }
-  }
-  else {
-  
-    $filepath = sprintf("%s/%s/portadas/%s",DRUPAL_ROOT, variable_get('file_public_path', 'default'), $filename);
-    $file = new stdClass();
-    if ($cover_request->code == 200) {
-      file_put_contents($filepath, $cover_request->data);
-      $file = new stdClass();
-      $file->uri = "public://portadas/".$filename;
-      
-      $image = image_load($file->uri);
-//      $width = variable_get('dilve_max_image_width', 500);
-//      if ($image->info['width'] > $width) {
-//        if (image_scale($image, $width)) {
-//          image_save($image);
-//        }
-//      }
-      
-      $file->uid = $user->uid;
-      $file->filename = $filename;
-      $file->filemime = $cover_request->headers['content-type'];
-      $file->filesize = $image->info['file_size']; 
-      $file->status = 1;
-      $file->timestamp = REQUEST_TIME;
-      file_save($file);
-    }
-  }
-  return (array)$file;
 }
