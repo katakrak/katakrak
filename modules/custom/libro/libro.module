@@ -20,6 +20,13 @@ function libro_menu() {
     'access arguments' => array('administer site settings'),
     'type' => MENU_NORMAL_ITEM,
   );
+   $items['admin/commerce/config/portadas'] = array(
+    'title' => 'Portadas',
+    'description' => 'Dilve options',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('libro_portadas_form'),
+    'access arguments' => array('administer site configuration'),
+  );
    $items['node/%node/portada'] = array(
     'title' => 'Portada',
     'page callback' => 'libro_borrar_portada',
@@ -37,12 +44,103 @@ function libro_menu() {
   return $items;
 }
 
-function libro_borrar_portada($node) {
-  return drupal_get_form('libro_borrar_portada_form', $node);
+function libro_portadas_form($form, &$form_state) {
+   $form['limit'] = array(
+    '#title' => t('libros por iteración'),
+    '#description' => t('If no value all items will be processed'),
+    '#type' => 'textfield',
+    '#size' => 10,
+    '#default_value' => 10,
+  );
+   $form['max'] = array(
+    '#title' => t('Máximo número de items'),
+    '#description' => t('If no value all items will be processed'),
+    '#type' => 'textfield',
+    '#size' => 10,
+    '#default_value' => 10,
+  );
+   $form['enviar'] = array(
+    '#type' => 'submit',
+    '#value' => t('Enviar'),
+  );
+  return $form;
 }
 
-function libro_borrar_portada_form($node) {
+function libro_portadas_form_submit($form, &$form_state){
+  $limit = $form_state['values']['limit'];
+  $max = $form_state['values']['max'];
+  $batch = array(
+    'title' => t('Recuperando portadas'),
+    'operations' => array(
+      array('libro_portada_process', array($limit, $max)),
+    ),
+    'finished' => 'libro_portadas_finish',
+  );
+  batch_set($batch);  
+}
+
+function libro_portada_process($limit, $max, &$context) {
+  $nodes = db_select('node', 'n')->condition('type', 'libro')->fields('n', array('nid'));
+  if (!isset($context['sandbox']['progress'])) {
+    $context['sandbox']['progress'] = 0;
+    $context['sandbox']['max'] = $max ? $max : $nodes->execute()->rowCount();
+    $context['results']['conseguidas'] = 0;
+    $context['results']['no_conseguidas'] = 0;
+  }
   
+  $nids = $nodes->range($context['sandbox']['progress'], $limit)->execute()->fetchAll();
+  $download_cover = FALSE;
+  foreach ($nids as $nid) {
+    $node = node_load($nid->nid);
+    
+    if ($node->field_libro_portada['und'][0]['uri']) {
+      $filename = substr($node->field_libro_portada['und'][0]['uri'], 9); 
+      $filepath = sprintf("%s/%s/portadas/%s",DRUPAL_ROOT, variable_get('file_public_path', 'sites/default/files'), $filename);
+      if (!file_exists($filepath)) {
+        $download_cover = TRUE;
+      }
+    }
+    else {
+      $download_cover = TRUE;
+    }
+    
+    if ($download_cover) {
+      $ean = $node->field_libro_ean['und'][0]['value'];
+      $url = sprintf("http://image.casadellibro.com/a/l/t0/%s/%s.jpg", substr($ean, 11, 2), $ean);
+      $file = create_cover($url, $ean);
+      if (!empty($file)) {
+        $node->field_libro_portada['und'][0] = $file;
+        $node->field_libro_portada['und'][0]['title'] = $node->title;
+        $node->field_libro_portada['und'][0]['alt'] = $node->title;
+        node_save($node);
+        $context['results']['conseguidas'] ++;
+      }
+      else {
+        $context['results']['no_conseguidas'] ++;
+      }
+    }
+    $context['sandbox']['progress'] += 1;
+  }
+  
+
+  $context['message'] = t("Processed @progress of @max books", array('@progress' => $context['sandbox']['progress'], '@max' => $context['sandbox']['max']));
+  if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
+    $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
+  }
+}
+
+function libro_portadas_finish($success, $results, $operations) {
+  if ($success) {
+    drupal_set_message(t("@count book convers found", array('@count' => $results['conseguidas'])));
+    drupal_set_message(t("@count book covers not found", array('@count' => $results['no_conseguidas'])));
+  }
+  else {
+    // An error occurred.
+    // $operations contains the operations that remained unprocessed.
+    $error_operation = reset($operations);
+    $message = t('An error occurred while processing %error_operation with arguments: @arguments', array('%error_operation' => $error_operation[0], '@arguments' => print_r($error_operation[1], TRUE)));
+    drupal_set_message($message, 'error');
+  }
 }
 
 function libro_block_info() {
@@ -240,5 +338,58 @@ function libro_por_isbn() {
   else {
     drupal_not_found();
   }
+}
   
+/**
+ * Checks if the cover exists and if it does returns the file object. 
+ * It it doesn't exists downloads it and creates the object
+ * 
+ * @param type $url
+ * @param type $isbn
+ * @return type
+ */
+function create_cover($url, $isbn) {
+  global $user;
+  $cover_request = drupal_http_request($url);
+  if ($cover_request->code != 200) {
+    return;
+  }
+  $ext = substr($cover_request->headers['content-type'], strrpos($cover_request->headers['content-type'], '/') + 1);
+  $filename = $isbn.".".$ext  ;
+  $fid = db_select('file_managed', 'f')->condition('filename', $filename)->fields('f', array('fid'))
+    ->execute()->fetchObject();
+  $filepath = sprintf("%s/%s/portadas/%s",DRUPAL_ROOT, variable_get('file_public_path', 'sites/default/files'), $filename);
+  if ($fid) {
+    $file = file_load($fid->fid);
+    if (!file_exists($filepath) && $cover_request->code == 200) {
+      file_put_contents($filepath, $cover_request->data);
+    }
+  }
+  else {
+  
+    $filepath = sprintf("%s/%s/portadas/%s",DRUPAL_ROOT, variable_get('file_public_path', 'default'), $filename);
+    $file = new stdClass();
+    if ($cover_request->code == 200) {
+      file_put_contents($filepath, $cover_request->data);
+      $file = new stdClass();
+      $file->uri = "public://portadas/".$filename;
+      
+      $image = image_load($file->uri);
+//      $width = variable_get('dilve_max_image_width', 500);
+//      if ($image->info['width'] > $width) {
+//        if (image_scale($image, $width)) {
+//          image_save($image);
+//        }
+//      }
+      
+      $file->uid = $user->uid;
+      $file->filename = $filename;
+      $file->filemime = $cover_request->headers['content-type'];
+      $file->filesize = $image->info['file_size']; 
+      $file->status = 1;
+      $file->timestamp = REQUEST_TIME;
+      file_save($file);
+    }
+  }
+  return (array)$file;
 }
