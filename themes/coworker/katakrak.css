@@ -659,10 +659,12 @@ a #block-mailchimp-signup-recibe-nuestro-boletin-semanal h2 {
 .book-recomendados-view .views-field-field-libro-portada {
   margin-top: 20px;
 }
-#block-views-secciones-secciones-block img {
+#block-views-secciones-secciones-block img,
+#block-katakrak-home-katakrak-home-promo img {
   max-width: 90%;
 }
-#block-views-secciones-secciones-block a {
+#block-views-secciones-secciones-block a,
+#block-katakrak-home-katakrak-home-promo a {
   position: absolute;
   top: 0;
   left: 0;
@@ -674,7 +676,8 @@ a #block-mailchimp-signup-recibe-nuestro-boletin-semanal h2 {
   color: transparent!important;
   z-index: 110;
 }
-#block-views-secciones-secciones-block .term-name {
+#block-views-secciones-secciones-block .name,
+#block-katakrak-home-katakrak-home-promo .name {
   padding: 80px 90px 115px;
   position: absolute;
   display: block;
@@ -685,15 +688,19 @@ a #block-mailchimp-signup-recibe-nuestro-boletin-semanal h2 {
   z-index: 100;
   opacity: 0;
 }
-#block-views-secciones-secciones-block .term-name h3 {
+#block-views-secciones-secciones-block .name h3,
+#block-katakrak-home-katakrak-home-promo .name h3 {
   color: white;
 }
 #block-views-secciones-secciones-block .views-field-field-image:hover .portfolio_shader,
-#block-views-secciones-secciones-block .views-field-field-image:hover .term-name {
+#block-katakrak-home-katakrak-home-promo .views-field-field-image:hover .portfolio_shader,
+#block-views-secciones-secciones-block .views-field-field-image:hover .name,
+#block-katakrak-home-katakrak-home-promo .views-field-field-image:hover .name {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-#block-views-secciones-secciones-block .portfolio_shader {
+#block-views-secciones-secciones-block .portfolio_shader,
+#block-katakrak-home-katakrak-home-promo .portfolio_shader {
   background: rgba(39, 128, 175, 0.7);
   position: absolute;
   display: inline-block;
@@ -1447,7 +1454,8 @@ Responsiveness
   #bottom-social {
     max-width: 90%;
   }
-  #block-views-secciones-secciones-block .col {
+  #block-views-secciones-secciones-block .col,
+  #block-katakrak-home-katakrak-home-promo .col {
     padding: 0 !important;
   }
 }
@@ -1612,15 +1620,6 @@ Responsiveness
     position: absolute;
     bottom: -1px;
   }
-  #block-katakrak-home-katakrak-home-promo .row {
-    margin: 0 30px 0 -15px;
-  }
-  #block-katakrak-home-katakrak-home-promo .col {
-    padding: 0;
-  }
-  #block-katakrak-home-katakrak-home-promo img {
-    max-width: none;
-  }
   .region-sidebar-second {
     box-shadow: -2px 0 2px -2px #808080;
     padding: 3px 27px;
@@ -1651,7 +1650,8 @@ Responsiveness
     font-style: italic;
     margin-bottom: 20px;
   }
-  #block-views-secciones-secciones-block img {
+  #block-views-secciones-secciones-block img,
+  #block-katakrak-home-katakrak-home-promo img {
     max-width: none;
   }
   .sharethis-buttons {

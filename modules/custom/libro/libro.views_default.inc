@@ -1238,7 +1238,7 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['rendered_entity_1']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['rendered_entity_1']['view_mode'] = 'full';
   $handler->display->display_options['fields']['rendered_entity_1']['bypass_access'] = 0;
-  /* Campo: Field: Imagen */
+  /* Campo: Field: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -1247,7 +1247,7 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['field_image']['alter']['text'] = '[field_image] 
 [rendered_entity]
 <div class="portfolio_shader"></div>
-<div class="term-name">
+<div class="name">
   <h3>[rendered_entity_1]</h3>
 </div>';
   $handler->display->display_options['fields']['field_image']['element_type'] = 'div';
@@ -1295,7 +1295,7 @@ function libro_views_default_views() {
     t('[field_image] 
 [rendered_entity]
 <div class="portfolio_shader"></div>
-<div class="term-name">
+<div class="name">
   <h3>[rendered_entity_1]</h3>
 </div>'),
     t('more'),

@@ -20,4 +20,3 @@ features[ctools][] = strongarm:strongarm:1
 features[fe_nodequeue][] = evento_home
 features[features_api][] = api:2
 features[variable][] = site_frontpage
-mtime = 1442307790

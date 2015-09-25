@@ -11,18 +11,8 @@ include_once 'katakrak_home.features.inc';
  */
 function katakrak_home_block_info() {
   $blocks = array();
-  $blocks['katakrak_home_promo_right'] = array(
-    'info' => t('Home Promo right'),
-    // Not worth caching.
-    'cache' => DRUPAL_CACHE_GLOBAL,
-  );
-  $blocks['katakrak_home_promo_bottom'] = array(
-    'info' => t('Home Promo second'),
-    // Not worth caching.
-    'cache' => DRUPAL_CACHE_GLOBAL,
-  );
-  $blocks['katakrak_home_main'] = array(
-    'info' => t('Home Main'),
+  $blocks['katakrak_home_promo'] = array(
+    'info' => t('Home Promo'),
     // Not worth caching.
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
@@ -34,16 +24,9 @@ function katakrak_home_block_info() {
  * Implements hook_block_view().
  */
 function katakrak_home_block_view($delta) {
-  if ($delta == 'katakrak_home_promo_right') {
-    $block['content'] = theme('katakrak_home_promo_right');
-    return $block;
-  }
-  if ($delta == 'katakrak_home_promo_bottom') {
-    $block['content'] = theme('katakrak_home_promo_bottom');
-    return $block;
-  }
-  if ($delta == 'katakrak_home_main') {
-    $block['content'] = theme('katakrak_home_main');
+  if ($delta == 'katakrak_home_promo') {
+    $block['title'] = t('Conoce Katakrak');
+    $block['content'] = theme('katakrak_home_promo');
     return $block;
   }
 }
@@ -54,16 +37,8 @@ function katakrak_home_block_view($delta) {
 function katakrak_home_theme() {
   $path = drupal_get_path('module', 'katakrak_home');
   return array(
-    'katakrak_home_promo_right' => array(
-      'template' => 'katakrak-home-promo-right',
-      'path' => $path . '/templates',
-    ),
-    'katakrak_home_promo_bottom' => array(
-      'template' => 'katakrak-home-promo-bottom',
-      'path' => $path . '/templates',
-    ),
-    'katakrak_home_main' => array(
-      'template' => 'katakrak-home-main',
+    'katakrak_home_promo' => array(
+      'template' => 'katakrak-home-promo',
       'path' => $path . '/templates',
     ),
   );
