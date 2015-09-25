@@ -72,9 +72,9 @@
     </div>
     <div class="col-lg-7 col-md-7 col-sm-7 col-xs-8">
       <div class="search-snippet-info">
-        <h2 class="title"<?php print $title_attributes; ?>>
+        <h3 class=""<?php print $title_attributes; ?>>
           <a href="<?php print $url; ?>?utm_source=search&utm_medium=web&utm_content=titulo&utm_campaign=libros"><?php print $title; ?></a>
-        </h2>
+        </h3>
         <p>
           <?php print t("Autores"); ?>: 
           <?php foreach($node->autores as $i => $autor): ?>

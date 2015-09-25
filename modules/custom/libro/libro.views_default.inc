@@ -1225,9 +1225,19 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['rendered_entity']['exclude'] = TRUE;
   $handler->display->display_options['fields']['rendered_entity']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['rendered_entity']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['rendered_entity']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['rendered_entity']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'full';
   $handler->display->display_options['fields']['rendered_entity']['bypass_access'] = 0;
+  /* Campo: Taxonomy term: Rendered Taxonomy term */
+  $handler->display->display_options['fields']['rendered_entity_1']['id'] = 'rendered_entity_1';
+  $handler->display->display_options['fields']['rendered_entity_1']['table'] = 'views_entity_taxonomy_term';
+  $handler->display->display_options['fields']['rendered_entity_1']['field'] = 'rendered_entity';
+  $handler->display->display_options['fields']['rendered_entity_1']['label'] = '';
+  $handler->display->display_options['fields']['rendered_entity_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['rendered_entity_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['rendered_entity_1']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['rendered_entity_1']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['rendered_entity_1']['bypass_access'] = 0;
   /* Campo: Field: Imagen */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
@@ -1235,17 +1245,19 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['field_image']['label'] = '';
   $handler->display->display_options['fields']['field_image']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_image']['alter']['text'] = '[field_image] 
+[rendered_entity]
 <div class="portfolio_shader"></div>
 <div class="term-name">
-  <h3>[rendered_entity]</h3>
+  <h3>[rendered_entity_1]</h3>
 </div>';
   $handler->display->display_options['fields']['field_image']['element_type'] = 'div';
   $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
     'image_style' => 'seccion',
-    'image_link' => 'content',
+    'image_link' => '',
   );
+  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
   /* Sort criterion: Taxonomy term: Nombre euskera (field_nombre_euskera) */
   $handler->display->display_options['sorts']['field_nombre_euskera_value']['id'] = 'field_nombre_euskera_value';
   $handler->display->display_options['sorts']['field_nombre_euskera_value']['table'] = 'field_data_field_nombre_euskera';
@@ -1281,9 +1293,10 @@ function libro_views_default_views() {
     t('Asc'),
     t('Desc'),
     t('[field_image] 
+[rendered_entity]
 <div class="portfolio_shader"></div>
 <div class="term-name">
-  <h3>[rendered_entity]</h3>
+  <h3>[rendered_entity_1]</h3>
 </div>'),
     t('more'),
   );

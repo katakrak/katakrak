@@ -35,7 +35,7 @@ function katakrak_search_book_search_info_content_type_render($subtype, $conf, $
   $block->module  = 'katakrak_search';
   $block->delta   = 'info';
   $block->title   = '';
-  $block->content = '<h2>'.t('@count libros en @term', array('@count' => $response->response->numFound, '@term' => $search['keys'])).'</h2>';
+  $block->content = t('Hemos encontrado @count libros para tu búsqueda', array('@count' => $response->response->numFound));
 
   return $block;
 }

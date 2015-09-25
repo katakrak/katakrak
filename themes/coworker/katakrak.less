@@ -772,6 +772,18 @@ ul#user-sticky {
   img {
     max-width: 90%;
   }
+  a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+    background: none!important;
+    color: transparent!important;
+    z-index: 110;
+  }
   .term-name{
    padding: 80px 90px 115px;
    position: absolute;
@@ -1704,12 +1716,24 @@ Responsiveness
   position: relative; 
 }
 
-  .view-display-id-home {
-    .views-field-title, .home-events-title {
-      position: absolute;
-      bottom: -1px;
-    }   
+.view-display-id-home {
+  .views-field-title, .home-events-title {
+    position: absolute;
+    bottom: -1px;
+  }   
+}
+
+#block-katakrak-home-katakrak-home-promo {
+  .row {
+    margin: 0 30px 0 -15px;
   }
+  .col {
+    padding: 0;
+  }
+  img {
+    max-width: none;
+  }
+}
 
 .region-sidebar-second {
   box-shadow: -2px 0 2px -2px gray;
@@ -1733,6 +1757,14 @@ Responsiveness
     width: 70px !important;
   }
 }
+
+.pane-book-search-info {
+  color: @link_gray;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+
 #block-views-secciones-secciones-block {
   img {
     max-width: none;
@@ -1754,17 +1786,5 @@ Responsiveness
 }
 .dropdown:hover .dropdown-menu {
   display: block;
-}
-.book-buy {
-  position: absolute;
-  right:30px;
-  bottom: 30px;
-}
-
-.node-libro {
-  .book-buy {
-    bottom: 0;
-    top: 60px;
-  }
 }
 }
