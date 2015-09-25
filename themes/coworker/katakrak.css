@@ -259,14 +259,6 @@ h3.field-content a:hover {
 -----------------------------------------------------------------*/
 #logo {
   margin: 20px 0;
-  /*  position: relative;
-  float: left;
-  height: 120px;
-  max-width: 230px;
-  margin-right: 20px;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 36px;
-  line-height: 120px;*/
 }
 #logo a {
   display: block;
@@ -624,10 +616,10 @@ a #block-mailchimp-signup-recibe-nuestro-boletin-semanal h2 {
   -ms-transform: scale(6);
   transform: scale(6);
 }
-.book-recomendados-view div.field-content .prod-info h4 {
+.book-recomendados-view div.field-content .prod-info h3 {
   text-align: center;
 }
-.book-recomendados-view div.field-content .prod-info h4 a {
+.book-recomendados-view div.field-content .prod-info h3 a {
   color: white;
 }
 .book-recomendados-view div.field-content .prod-info .btn {
@@ -950,15 +942,14 @@ html.js input.throbbing {
   float: left;
   z-index: 10;
 }
-.view-display-id-home h2 {
+.view-display-id-home h3 {
   color: white;
   margin-left: 10px;
   padding-bottom: 1px;
 }
-.view-display-id-home h3 {
-  font-size: 20px;
+.view-display-id-home div.event_type {
   color: #222222;
-  margin-left: 10px;
+  margin: 10px 13px 0 10px;
   font-weight: bold;
 }
 .view-display-id-home .entry_date {
@@ -1132,7 +1123,6 @@ div.search-results div:last-child {
 .entry_date div.hour {
   background-color: #2780af;
   color: #FFF;
-  font-size: 20px;
   line-height: 1;
   font-weight: 300;
   padding: 0 0 10px;
@@ -1140,7 +1130,6 @@ div.search-results div:last-child {
 .entry_date div.day {
   font-weight: normal;
   padding: 10px 0 0;
-  font-size: 32px;
   font-weight: 600;
 }
 #block-views-agenda-next-events-node-block .views-row {

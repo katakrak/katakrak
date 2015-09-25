@@ -151,23 +151,13 @@ function libro_image_default_styles() {
   $styles['search_result_cover'] = array(
     'label' => 'Search result cover',
     'effects' => array(
-      3 => array(
-        'name' => 'image_scale',
+      27 => array(
+        'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 300,
-          'height' => '',
-          'upscale' => 1,
+          'width' => 220,
+          'height' => 350,
         ),
-        'weight' => -10,
-      ),
-      4 => array(
-        'name' => 'image_crop',
-        'data' => array(
-          'width' => 250,
-          'height' => 200,
-          'anchor' => 'left-top',
-        ),
-        'weight' => -9,
+        'weight' => 1,
       ),
     ),
   );

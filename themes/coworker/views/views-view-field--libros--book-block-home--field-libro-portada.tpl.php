@@ -42,11 +42,9 @@ $add_to_cart = drupal_render($form);
 ?>
 <?php print $output; ?>
 <div class="prod-info">
-  <h4>
+  <h3>
     <?php print l($row->node_title, 'node/'.$row->nid); ?>
-    <!--<a class="product_link" href="http://livedemo00.template-help.com/prestashop_40228/product.php?id_product=1" title="Lorem ipsum dolor sit amet...">Lorem ipsum dolor sit amet conse ctetur </a>-->
-  </h4>
+  </h3>
  <span class="price"><?php print $row->field_commerce_price[0]['rendered']['#markup'] ?></span>
- <?php print $add_to_cart ?>
- <!--<a class="exclusive ajax_add_to_cart_button" rel="ajax_id_product_1" href="http://livedemo00.template-help.com/prestashop_40228/cart.php?qty=1&amp;id_product=1&amp;token=9fbbee26e8d009d66d597040a025a688&amp;add" title="Add to cart">Add to cart</a>-->
+ <?php print $add_to_cart ?>s
 </div>

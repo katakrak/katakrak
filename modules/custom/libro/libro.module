@@ -135,7 +135,7 @@ function libro_portada_process($limit, $max, $skip, &$context) {
   $nodes = db_select('node', 'n')->condition('type', 'libro')->fields('n', array('nid'))->orderBy('nid');
   if (!isset($context['sandbox']['progress'])) {
     $context['sandbox']['progress'] = $skip;
-    $context['sandbox']['max'] = $max ? $max : $nodes->execute()->rowCount();
+    $context['sandbox']['max'] = $max ? $max + $skip : $nodes->execute()->rowCount();
     $context['results']['conseguidas'] = 0;
     $context['results']['no_conseguidas'] = 0;
     $context['results']['imagenes_existentes'] = 0;
