@@ -67,10 +67,10 @@
 
 <div class="row <?php print $classes; ?>"<?php print $attributes; ?>>
   <div class="row">
-    <div class="col-lg-3">
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-8 col-xs-offset-2 col-sm-offset-0">
       <?php print $image ?>
     </div>
-    <div class="col-lg-7">
+    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-8">
       <div class="search-snippet-info">
         <h2 class="title"<?php print $title_attributes; ?>>
           <a href="<?php print $url; ?>?utm_source=search&utm_medium=web&utm_content=titulo&utm_campaign=libros"><?php print $title; ?></a>
@@ -88,9 +88,11 @@
 
       </div>
     </div>  
-    <div>
-      <div class="book-price"><?php print $price ?></div>
-      <?php print $add_to_cart ?>
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 col_book_buy">
+      <div class="book-buy">
+        <div class="book-price"><?php print $price ?></div>
+        <?php print $add_to_cart ?>
+      </div>
     </div>
   </div>
 </div>

@@ -892,11 +892,6 @@ view-id-libros .book-author {
   float: left;
   padding: 10px;
 }
-.node-libro .book-buy {
-  position: absolute;
-  right: 0;
-  top: 60px;
-}
 .view-secciones label {
   font-weight: normal;
   font-size: 24px;
@@ -1633,6 +1628,12 @@ Responsiveness
   #block-views-secciones-secciones-block img {
     max-width: none;
   }
+  .sharethis-buttons {
+    margin-top: 20px;
+  }
+  .sharethis-buttons .stButton .stMainServices {
+    height: 20px;
+  }
 }
 @media only screen and (min-width: 992px) {
   .home-events-title-main .event_info {
@@ -1640,5 +1641,14 @@ Responsiveness
   }
   .dropdown:hover .dropdown-menu {
     display: block;
+  }
+  .book-buy {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+  }
+  .node-libro .book-buy {
+    bottom: 0;
+    top: 60px;
   }
 }

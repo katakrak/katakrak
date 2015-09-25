@@ -107,11 +107,23 @@ global $language;
             </div>
             <div class="col-sm-8 col-md-8">
               <div class="hidden-xs">
-                <h1>
-                  <?php print $node->title ?>
-                </h1>
-                <?php print render($content['field_libro_subtitulo']) ?>
-                <h3><?php print render($content['field_libro_autores']) ?></h3>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <h1>
+                      <?php print $node->title ?>
+                    </h1>
+                    <?php print render($content['field_libro_subtitulo']) ?>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h3><?php print render($content['field_libro_autores']) ?></h3>
+                  </div>
+                  <div class="col-sm-4">
+                    <?php print render($content['sharethis']) ?>
+                  </div>
+                </div>
+                
               </div>
                
               <div class="book-metadata row">

@@ -1016,13 +1016,7 @@ view-id-libros .book-author {
       padding: 10px;
     }
   }
-  .book-buy {
-    position: absolute;
-    right: 0;
-    top: 60px;
-  }
 }
-
 
 .view-secciones {
   label {
@@ -1744,6 +1738,12 @@ Responsiveness
     max-width: none;
   }
 }
+.sharethis-buttons {
+  margin-top: 20px;
+  .stButton .stMainServices {
+    height: 20px;
+  }
+}
 }
 
 @media only screen and (min-width: 992px) {
@@ -1754,5 +1754,17 @@ Responsiveness
 }
 .dropdown:hover .dropdown-menu {
   display: block;
+}
+.book-buy {
+  position: absolute;
+  right:30px;
+  bottom: 30px;
+}
+
+.node-libro {
+  .book-buy {
+    bottom: 0;
+    top: 60px;
+  }
 }
 }
