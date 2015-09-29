@@ -1,3 +1,32 @@
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #555555;
+}
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #555555;
+  opacity: 1;
+}
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #555555;
+  opacity: 1;
+}
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #555555;
+}
+.alert-error {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.alert-error hr {
+  border-top-color: #e4b9c0;
+}
+.alert-error .alert-link {
+  color: #843534;
+}
 .btn a {
   color: white;
 }
@@ -43,17 +72,6 @@ h6 {
 p.field-content {
   font-size: 18px;
   line-height: 22px;
-}
-.view-agenda h3.field-content,
-.view-ciclos h3.field-content,
-.view-display-id-book_block_home h3.field-content,
-.view-boletin h3.field-content {
-  /*  font-size: 35px;
-  line-height: 40px;
-  font-weight: normal;*/
-}
-#page-title .page-title {
-  width: 33.333%;
 }
 #block-views-agenda-next-events-node-block h3.field-content {
   font-size: 18px;
@@ -574,10 +592,24 @@ ul#user-sticky li {
 #boxes-box-footer {
   text-align: center;
 }
-/* Special regions */
 /* HOME STYLES */
-a #block-mailchimp-signup-recibe-nuestro-boletin-semanal h2 {
+.block-mailchimp-signup {
+  padding: 10px;
+}
+.block-mailchimp-signup h2 {
   text-align: center;
+}
+.block-mailchimp-signup .mailchimp-signup-subscribe-form div.form-item-mergevars-EMAIL,
+.block-mailchimp-signup .mailchimp-signup-subscribe-form div.form-item-mergevars-FNAME,
+.block-mailchimp-signup .mailchimp-signup-subscribe-form div.form-item-mergevars-LNAME {
+  float: left;
+  margin-left: 10px;
+}
+.block-mailchimp-signup .mailchimp-signup-subscribe-form #edit-actions {
+  text-align: center;
+}
+.block-mailchimp-signup .mailchimp-signup-subscribe-form #edit-actions .btn {
+  padding: 10px 20px !important;
 }
 .view-display-id-book_block_home div.row {
   margin-top: 15px;
@@ -659,10 +691,6 @@ a #block-mailchimp-signup-recibe-nuestro-boletin-semanal h2 {
 .book-recomendados-view .views-field-field-libro-portada {
   margin-top: 20px;
 }
-#block-views-secciones-secciones-block img,
-#block-katakrak-home-katakrak-home-promo img {
-  max-width: 90%;
-}
 #block-views-secciones-secciones-block a,
 #block-katakrak-home-katakrak-home-promo a {
   position: absolute;
@@ -691,6 +719,12 @@ a #block-mailchimp-signup-recibe-nuestro-boletin-semanal h2 {
 #block-views-secciones-secciones-block .name h3,
 #block-katakrak-home-katakrak-home-promo .name h3 {
   color: white;
+}
+#block-views-secciones-secciones-block .name h2,
+#block-katakrak-home-katakrak-home-promo .name h2 {
+  font-weight: bolder;
+  text-transform: uppercase;
+  color: #f50087;
 }
 #block-views-secciones-secciones-block .views-field-field-image:hover .portfolio_shader,
 #block-katakrak-home-katakrak-home-promo .views-field-field-image:hover .portfolio_shader,
@@ -796,37 +830,15 @@ a #block-mailchimp-signup-recibe-nuestro-boletin-semanal h2 {
   height: 40px;
   width: 180px;
   border-radius: 14px 0 0 14px;
-  border: 2px solid #808080;
+  border: 2px solid #555555;
   border-right-width: 0;
-}
-#block-libro-libreria-home-search #libro-search-home-form ::-webkit-input-placeholder,
-#block-libro-libreria-home-search #apachesolr-panels-search-form ::-webkit-input-placeholder {
-  /* WebKit, Blink, Edge */
-  color: #808080;
-}
-#block-libro-libreria-home-search #libro-search-home-form :-moz-placeholder,
-#block-libro-libreria-home-search #apachesolr-panels-search-form :-moz-placeholder {
-  /* Mozilla Firefox 4 to 18 */
-  color: #808080;
-  opacity: 1;
-}
-#block-libro-libreria-home-search #libro-search-home-form ::-moz-placeholder,
-#block-libro-libreria-home-search #apachesolr-panels-search-form ::-moz-placeholder {
-  /* Mozilla Firefox 19+ */
-  color: #808080;
-  opacity: 1;
-}
-#block-libro-libreria-home-search #libro-search-home-form :-ms-input-placeholder,
-#block-libro-libreria-home-search #apachesolr-panels-search-form :-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: #808080;
 }
 #block-libro-libreria-home-search #libro-search-home-form .btn,
 #block-libro-libreria-home-search #apachesolr-panels-search-form .btn {
   margin-top: 0px;
   background: white;
   color: #000;
-  border: 2px solid #808080;
+  border: 2px solid #555555;
   height: 40px;
   width: 40px;
   border-radius: 0 14px 14px 0;
@@ -979,18 +991,6 @@ html.js input.throbbing {
 .view-display-id-home .event_info {
   float: left;
   width: 80%;
-}
-.mailchimp-signup-subscribe-form div.form-item-mergevars-EMAIL,
-.mailchimp-signup-subscribe-form div.form-item-mergevars-FNAME,
-.mailchimp-signup-subscribe-form div.form-item-mergevars-LNAME {
-  float: left;
-  margin-left: 10px;
-}
-.mailchimp-signup-subscribe-form #edit-actions {
-  text-align: center;
-}
-.mailchimp-signup-subscribe-form #edit-actions .btn {
-  padding: 10px 20px !important;
 }
 /* ----------------------------------------------------------------
     Kantina page
@@ -1165,7 +1165,7 @@ div.search-results div:last-child {
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px 10px 10px 10px;
   padding: 10px;
-  background-color: #808080;
+  background-color: #555555;
 }
 #katakrak-search-form input {
   width: 45%;
@@ -1457,6 +1457,14 @@ Responsiveness
   #block-views-secciones-secciones-block .col,
   #block-katakrak-home-katakrak-home-promo .col {
     padding: 0 !important;
+    text-align: center;
+  }
+  #block-katakrak-home-katakrak-home-promo .name {
+    opacity: 1;
+  }
+  #block-katakrak-home-katakrak-home-promo .portfolio_shader {
+    left: 0;
+    background: none;
   }
 }
 @media (min-width: 768px) {
@@ -1650,8 +1658,7 @@ Responsiveness
     font-style: italic;
     margin-bottom: 20px;
   }
-  #block-views-secciones-secciones-block img,
-  #block-katakrak-home-katakrak-home-promo img {
+  #block-views-secciones-secciones-block img {
     max-width: none;
   }
   .sharethis-buttons {
@@ -1660,6 +1667,9 @@ Responsiveness
   .sharethis-buttons .stButton .stMainServices {
     height: 20px;
   }
+  #block-katakrak-home-katakrak-home-promo .portfolio_shader {
+    width: 220px;
+  }
 }
 @media only screen and (min-width: 992px) {
   .home-events-title-main .event_info {
@@ -1667,5 +1677,8 @@ Responsiveness
   }
   .dropdown:hover .dropdown-menu {
     display: block;
+  }
+  #block-katakrak-home-katakrak-home-promo .portfolio_shader {
+    width: 360px;
   }
 }

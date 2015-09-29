@@ -26,7 +26,10 @@ function katakrak_home_block_info() {
 function katakrak_home_block_view($delta) {
   if ($delta == 'katakrak_home_promo') {
     $block['title'] = t('Conoce Katakrak');
-    $block['content'] = theme('katakrak_home_promo');
+     $block['content'] = array(
+      '#theme' => 'katakrak_home_promo',
+    );
+    //$block['content']['#markup'] = theme('');
     return $block;
   }
 }

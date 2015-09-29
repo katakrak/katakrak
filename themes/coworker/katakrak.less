@@ -3,7 +3,7 @@
 @background_gray: #E6E6E6;
 @custom_blue: #2780AF;
 @custom_pink: #F50087;
-@block_gray: #808080;
+@block_gray: #555;
 @ie8: \0screen;
 
 .generate-fa-sizes(@n, @i: 1) when (@i =< @n) {
@@ -30,6 +30,32 @@
   -moz-border-radius: @top_left  @top_right @bottom_right @bottom_left;
   -webkit-border-radius: @top_left  @top_right @bottom_right @bottom_left;
   padding: @padding;
+}  
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color: @block_gray;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: @block_gray;
+  opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: @block_gray;
+  opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: @block_gray;
+}  
+
+.alert-error {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  hr {
+    border-top-color: #e4b9c0;
+  }
+  .alert-link {
+    color: #843534;
+  }
 }
 
 .btn {
@@ -80,20 +106,6 @@ h1, h2, h3, h4, h5, h6 {
 .field-type-text-long, .field-content p, p.field-content {
   font-size: 18px;
   line-height: 22px;
-}
-
-.view-agenda h3.field-content, 
-.view-ciclos h3.field-content,
-.view-display-id-book_block_home h3.field-content,
-.view-boletin h3.field-content
-{
-/*  font-size: 35px;
-  line-height: 40px;
-  font-weight: normal;*/
-}
-
-#page-title .page-title {
-  width: 33.333%
 }
 
 #block-views-agenda-next-events-node-block {
@@ -680,14 +692,26 @@ ul#user-sticky {
   text-align: center;
 }
 
-/* Special regions */
+/* HOME STYLES */
 
-/* HOME STYLES */a
-
-#block-mailchimp-signup-recibe-nuestro-boletin-semanal {
+.block-mailchimp-signup {
+  padding: 10px;
   h2 {
     text-align: center;
   }
+  .mailchimp-signup-subscribe-form {
+  div.form-item-mergevars-EMAIL, div.form-item-mergevars-FNAME, div.form-item-mergevars-LNAME {
+    float: left;
+    margin-left: 10px;
+  }
+  #edit-actions {
+    text-align: center;
+    .btn {
+      padding: 10px 20px !important;
+    }    
+  }
+
+}
 }
 
 .view-display-id-book_block_home {
@@ -769,9 +793,6 @@ ul#user-sticky {
 }
 
 #block-views-secciones-secciones-block, #block-katakrak-home-katakrak-home-promo {
-  img {
-    max-width: 90%;
-  }
   a {
     position: absolute;
     top: 0;
@@ -784,7 +805,7 @@ ul#user-sticky {
     color: transparent!important;
     z-index: 110;
   }
-  .name{
+  .name {
    padding: 80px 90px 115px;
    position: absolute;
     display: block;
@@ -796,6 +817,11 @@ ul#user-sticky {
     opacity: 0;
     h3 {
       color: white;
+    }
+    h2 {
+      font-weight: bolder;
+      text-transform: uppercase;
+      color:  @custom_pink;
     }
   }
   .views-field-field-image:hover .portfolio_shader,  .views-field-field-image:hover .name{
@@ -821,6 +847,8 @@ ul#user-sticky {
     transition: opacity .3s ease-in-out;
   }
 }
+
+
 
 .view-id-itinerarios {
   .circle {
@@ -905,20 +933,7 @@ ul#user-sticky {
       border: 2px solid @block_gray;
       border-right-width: 0;
     }
-    ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-      color: @block_gray;
-    }
-    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-      color:@block_gray;
-      opacity:  1;
-    }
-    ::-moz-placeholder { /* Mozilla Firefox 19+ */
-      color:@block_gray;
-      opacity:  1;
-    }
-    :-ms-input-placeholder { /* Internet Explorer 10-11 */
-      color:@block_gray;
-    }  
+  
     
     .btn {
       margin-top: 0px;
@@ -1106,20 +1121,6 @@ html.js input.throbbing {
     float: left;
     width: 80%
   }
-}
-
-.mailchimp-signup-subscribe-form {
-  div.form-item-mergevars-EMAIL, div.form-item-mergevars-FNAME, div.form-item-mergevars-LNAME {
-    float: left;
-    margin-left: 10px;
-  }
-  #edit-actions {
-    text-align: center;
-    .btn {
-      padding: 10px 20px !important;
-    }    
-  }
-
 }
 
 /* ----------------------------------------------------------------
@@ -1534,8 +1535,18 @@ Responsiveness
   #block-views-secciones-secciones-block, #block-katakrak-home-katakrak-home-promo {
     .col {
       padding: 0 !important;
+      text-align: center;
     }
   }
+  #block-katakrak-home-katakrak-home-promo {
+    .name {
+      opacity: 1
+    }
+    .portfolio_shader {
+      left: 0;
+      background: none;
+    }
+  } 
 }
 
 @media (min-width: 768px) {
@@ -1753,7 +1764,7 @@ Responsiveness
 }
 
 
-#block-views-secciones-secciones-block , #block-katakrak-home-katakrak-home-promo{
+#block-views-secciones-secciones-block{
   img {
     max-width: none;
   }
@@ -1763,6 +1774,9 @@ Responsiveness
   .stButton .stMainServices {
     height: 20px;
   }
+}
+#block-katakrak-home-katakrak-home-promo .portfolio_shader {
+  width: 220px;
 }
 }
 
@@ -1775,4 +1789,9 @@ Responsiveness
 .dropdown:hover .dropdown-menu {
   display: block;
 }
+
+#block-katakrak-home-katakrak-home-promo .portfolio_shader {
+  width: 360px;
+}
+
 }
