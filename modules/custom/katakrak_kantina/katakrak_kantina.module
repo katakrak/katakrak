@@ -142,26 +142,6 @@ function katakrak_kantina_reserva_form($form, &$form_state) {
   );
   $form['reserva']['fecha'] = array(
     '#type' => 'date_popup',
-    '#timepicker' => 'timepicker',
-    // New #timepicker_options property handled by the Date Popup Timepicker
-    // module and lets to customize timepicker options.
-    '#timepicker_options' => array(
-      'rows' => 2,
-      'hourText' => t('Hora'),             // Define the locale text for "Hours"
-      'minuteText' => t('Minutos'), 
-      'minutes' => array(
-        'starts' => 0,
-        'ends' => 45,
-        'interval' => 15,
-      ),
-      'hours' => array(
-        'starts' => 13,
-        'ends'=> 23,
-        
-      ),
-      'showCloseButton' => TRUE,
-      'closeButtonText' => t('Close'),
-    ),
     '#title' => t('Fecha y hora'),
     '#required' => TRUE,
     '#title_display' => 'invisible',
@@ -205,12 +185,14 @@ function katakrak_kantina_form_reserva_after_build($form, &$form_state){
 
 function katakrak_kantina_reserva_form_validate($form, $form_state) {
   $fecha = strtotime($form_state['values']['fecha']);
-  dpm(date('D', $fecha));
   if ($fecha < time()) {
-    form_set_error('reserva][fecha', t('Erroraco gordo'));
+    form_set_error('reserva][fecha', t('No puedes hacer una reserva en el pasado ;)'));
   }
-  if (date('D', $fecha) == 'Sun') {
-    form_set_error('reserva][fecha', t('Katakrak está cerrado los domingos'));
+  elseif (date('D', $fecha) == 'Sun') {
+    form_set_error('reserva][fecha][date', t('Katakrak está cerrado los domingos'));
+  }
+  else {
+    
   }
   
 }
