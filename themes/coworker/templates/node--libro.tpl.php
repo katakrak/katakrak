@@ -178,7 +178,7 @@ global $language;
               </div>
             </div>
 
-              <div class="col-sm-6 col-md-6">
+              <div class="col-sm-4">
                 <?php if ($node->itinerarios): ?>
                 <div class="itinerarios">
                   <?php foreach($node->itinerarios[$language->language] as $itinerario): ?>
@@ -193,6 +193,8 @@ global $language;
                   <?php endforeach; ?>
                   </div>
                 <?php endif; ?>
+              </div>
+              <div class="col-sm-2">
                 <div class="book-buy">
                   <div class="book-price"><?php print $content['product:commerce_price'][0]['#markup'] ?></div>
                   <?php print render($content['field_libro_producto']) ?>
@@ -212,10 +214,13 @@ global $language;
       
       <div class="row">
         <div class="col-xs-12">
-          <h2 class="block"><?php print t('Libros relacionados')?></h2>
+          <h2 class="block"><?php print t('Otros libros en %term', array('%term' => $content['field_libro_categoria']['#items'][0]['taxonomy_term']->name))?></h2>
           <?php print views_embed_view('libros', 'libros_rel_cat', $node->field_libro_categoria['und'][0]['tid']) ?>
-          <h2 class="block"><?php print t('Libros del autor')?></h2>
-          <?php print views_embed_view('libros', 'libros_rel_autor', $node->field_libro_autores['und'][0]['tid']) ?>
+         <?php $view = views_get_view_result('libros', 'libros_rel_autor', $node->field_libro_autores['und'][0]['tid'])?>
+          <?php if ($view): ?>
+            <h2 class="block"><?php print t('Otro libros del autor')?></h2>
+            <?php print views_embed_view('libros', 'libros_rel_autor', $node->field_libro_autores['und'][0]['tid']) ?>
+          <?php endif; ?>
         </div>
       </div>
       

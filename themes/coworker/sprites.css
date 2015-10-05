@@ -1,4 +1,4 @@
-.dedia, .denoche, .blog, .circulo_ficha, .flecha_dcha, .mParada, .uparada, .correspondencia, .circulo_trans2, .submenu, .mainsubmenu, .mainsubmenuh, .banda_header, .banda_footer, .begiak, .menu_mediodia, .kantina_txiki{
+.dedia, .denoche, .blog, .circulo_ficha, .flecha_dcha, .mParada, .uparada, .correspondencia, .circulo_trans2, .submenu, .mainsubmenu, .mainsubmenuh, .banda_header, .banda_footer, .begiak, .menu_mediodia, .kantina_txiki, .facebook, .twitter, .mail, .rss, .phone, .kantina_logo_txiki{
 	background: url(sprites.png) no-repeat;
 }
 
@@ -15,7 +15,7 @@
 }
 
 .blog{
-	background-position: -84.98861694335938px 0;
+	background-position: -84px 0;
 	width: 80px;
 	height: 80px;
 }
@@ -102,5 +102,41 @@
 	background-position: -99px -251px ;
 	width: 100px;
 	height: 140px;
+}
+
+.facebook{
+	background-position: -251px -248px ;
+	width: 16px;
+	height: 16px;
+}
+
+.twitter{
+	background-position: -250px -271px ;
+	width: 16px;
+	height: 16px;
+}
+
+.mail{
+	background-position: -315px -269px ;
+	width: 15px;
+	height: 11px;
+}
+
+.rss{
+	background-position: -358px -269px ;
+	width: 16px;
+	height: 16px;
+}
+
+.phone{
+	background-position: -383px -248px ;
+	width: 16px;
+	height: 16px;
+}
+
+.kantina_logo_txiki{
+	background-position: -450px -319px ;
+	width: 190px;
+	height: 161px;
 }
 

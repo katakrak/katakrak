@@ -193,6 +193,16 @@ function katakrak_boletin_field_default_field_instances() {
       'module' => 'file',
       'settings' => array(
         'imce_filefield_on' => 0,
+        'insert' => 0,
+        'insert_absolute' => FALSE,
+        'insert_class' => '',
+        'insert_default' => array(
+          0 => 'auto',
+        ),
+        'insert_styles' => array(
+          0 => 'auto',
+        ),
+        'insert_width' => '',
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
@@ -374,6 +384,16 @@ function katakrak_boletin_field_default_field_instances() {
       'module' => 'image',
       'settings' => array(
         'imce_filefield_on' => 1,
+        'insert' => 0,
+        'insert_absolute' => FALSE,
+        'insert_class' => '',
+        'insert_default' => array(
+          0 => 'auto',
+        ),
+        'insert_styles' => array(
+          0 => 'auto',
+        ),
+        'insert_width' => '',
         'preview_image_style' => 'thumbnail',
         'progress_indicator' => 'throbber',
       ),
@@ -472,6 +492,16 @@ function katakrak_boletin_field_default_field_instances() {
       'module' => 'image',
       'settings' => array(
         'imce_filefield_on' => 0,
+        'insert' => 0,
+        'insert_absolute' => FALSE,
+        'insert_class' => '',
+        'insert_default' => array(
+          0 => 'auto',
+        ),
+        'insert_styles' => array(
+          0 => 'auto',
+        ),
+        'insert_width' => '',
         'preview_image_style' => 'thumbnail',
         'progress_indicator' => 'throbber',
       ),

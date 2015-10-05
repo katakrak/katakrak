@@ -133,7 +133,7 @@ function libro_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<h2>Recomendamos</h2>';
+  $handler->display->display_options['header']['area']['content'] = '<h2 class="block">Recomendamos</h2>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Content: Referenced products */
@@ -685,7 +685,7 @@ function libro_views_default_views() {
     t('Page'),
     t('Librería'),
     t('more'),
-    t('<h2>Recomendamos</h2>'),
+    t('<h2 class="block">Recomendamos</h2>'),
     t('Precio'),
     t('Books block home'),
     t('Entra en la tienda online'),
@@ -1238,7 +1238,7 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['rendered_entity_1']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['rendered_entity_1']['view_mode'] = 'full';
   $handler->display->display_options['fields']['rendered_entity_1']['bypass_access'] = 0;
-  /* Campo: Field: Image */
+  /* Campo: Field: Imagen */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';

@@ -45,12 +45,6 @@ function katakrak_kantina_context_default_contexts() {
           'region' => 'content_bottom_third',
           'weight' => '-10',
         ),
-        'katakrak_kantina-katakrak_kantina_page_header' => array(
-          'module' => 'katakrak_kantina',
-          'delta' => 'katakrak_kantina_page_header',
-          'region' => 'content_top',
-          'weight' => '-10',
-        ),
       ),
       'layout' => 'kantina',
     ),
