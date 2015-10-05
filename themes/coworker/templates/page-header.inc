@@ -1,5 +1,5 @@
 <?php print render($page['menu_lateral']) ?>
-<div id="header" class="clearfix ">
+<header id="header" class="clearfix">
 <nav class="navbar navbar-default">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -34,6 +34,7 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="kata-main-menu">
+      <a href="" class="logo-txiki"><img src="/sites/all/themes/coworker/images/logo-txiki.png"></a>
       <div id="primary-links">
         <div id="main-menu" class="hidden-xs">
           <?php print $navigation ?>
@@ -46,6 +47,9 @@
       <?php print render($page['top_right']); ?>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
+  <div class="container-fluid">
+  <div class="banda_header"></div>
+</div>
 </nav>
-</div>  
+</header>  
 

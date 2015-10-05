@@ -60,7 +60,7 @@
         <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
       <![endif]-->
     <?php print $scripts; ?>
-
+    
   </head>
   
     <?php $theme_layout = theme_get_setting('theme_layout', 'coworker'); ?>

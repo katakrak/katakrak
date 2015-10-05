@@ -361,6 +361,7 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['filters']['field_event_date_value']['field'] = 'field_event_date_value';
   $handler->display->display_options['filters']['field_event_date_value']['operator'] = '>=';
   $handler->display->display_options['filters']['field_event_date_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_event_date_value']['granularity'] = 'hour';
   $handler->display->display_options['filters']['field_event_date_value']['default_date'] = 'now';
   /* Filter criterion: Content: Language */
   $handler->display->display_options['filters']['language']['id'] = 'language';
@@ -571,22 +572,12 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Campo: Content: Description */
-  $handler->display->display_options['fields']['field_event_description']['id'] = 'field_event_description';
-  $handler->display->display_options['fields']['field_event_description']['table'] = 'field_data_field_event_description';
-  $handler->display->display_options['fields']['field_event_description']['field'] = 'field_event_description';
-  $handler->display->display_options['fields']['field_event_description']['label'] = '';
-  $handler->display->display_options['fields']['field_event_description']['alter']['max_length'] = '60';
-  $handler->display->display_options['fields']['field_event_description']['alter']['more_link'] = TRUE;
-  $handler->display->display_options['fields']['field_event_description']['alter']['more_link_text'] = '[leer más]';
-  $handler->display->display_options['fields']['field_event_description']['alter']['more_link_path'] = 'node/[nid]';
-  $handler->display->display_options['fields']['field_event_description']['alter']['trim'] = TRUE;
-  $handler->display->display_options['fields']['field_event_description']['element_label_colon'] = FALSE;
   /* Campo: Content: Event type */
   $handler->display->display_options['fields']['field_event_type_1']['id'] = 'field_event_type_1';
   $handler->display->display_options['fields']['field_event_type_1']['table'] = 'field_data_field_event_type';
   $handler->display->display_options['fields']['field_event_type_1']['field'] = 'field_event_type';
   $handler->display->display_options['fields']['field_event_type_1']['label'] = '';
+  $handler->display->display_options['fields']['field_event_type_1']['element_type'] = 'h4';
   $handler->display->display_options['fields']['field_event_type_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_event_type_1']['type'] = 'i18n_taxonomy_term_reference_plain';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -977,7 +968,6 @@ function katakrak_agenda_views_default_views() {
     t('Date browser 2'),
     t('Events page'),
     t('Agenda'),
-    t('[leer más]'),
     t('Feed'),
     t('Next events block page'),
     t('Hurrengo ekitaldiak'),

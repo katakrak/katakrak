@@ -7,8 +7,6 @@
   }
 ?>
 <?php include 'page-header.inc' ?>
-<div class="container-fluid banda-libreria">
-<div class="banda_header"></div>
   <div class="container">
     <div class="content-wrap">
     <?php if ($page['content_top']): ?>
@@ -18,7 +16,6 @@
     <?php endif; ?>
       </div>
   </div>
-</div>
 
 <div id="content" class="book-page">
     

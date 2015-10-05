@@ -1,7 +1,4 @@
 <?php include 'page-header.inc' ?>
-<div class="container-fluid">
-  <div class="banda_header"></div>
-</div>
 <div id="content" class="agenda-page">
     <?php if ($page['contact_map']): ?>
       <div id="google-map" class="contact-map">

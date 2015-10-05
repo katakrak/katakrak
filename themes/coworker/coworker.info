@@ -14,6 +14,7 @@ scripts[] = js/plugins.js
 scripts[] = js/custom.js
 scripts[] = js/coworker.js
 scripts[] = bootstrap/js/bootstrap.js
+scripts[] = js/jquery.sticky.js
 
 regions[top_right] = Top right
 regions[menu_lateral] = Menu lateral

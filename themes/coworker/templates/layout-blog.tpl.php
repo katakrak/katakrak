@@ -1,13 +1,10 @@
 <?php include 'page-header.inc' ?>
-<div class="container-fluid banda-blog">
-  <div class="banda_header"></div>
-  <div class="container">
-    <?php if ($page['content_top']): ?>
-      <div id="content-top">
-        <?php print render($page['content_top']); ?>
-      </div>
-    <?php endif; ?>
-  </div>
+<div class="container">
+  <?php if ($page['content_top']): ?>
+    <div id="content-top">
+      <?php print render($page['content_top']); ?>
+    </div>
+  <?php endif; ?>
 </div>
 <div id="content" class="blog-page">
     <?php if ($page['contact_map']): ?>

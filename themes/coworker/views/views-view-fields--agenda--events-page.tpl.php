@@ -37,7 +37,7 @@
   <div class="col-lg-9">
     <?php print $fields['field_event_type']->content ?>
     <?php print $fields['title']->content ?>
-    <?php print $fields['field_event_description']->content ?>
+    <?php print $fields['field_event_type_1']->content ?>
    
   </div>
 </div>

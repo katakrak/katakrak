@@ -7,18 +7,16 @@
   }
 ?>
 <?php include 'page-header.inc' ?>
-<div class="container-fluid banda-kantina kantina-page">
-  <div class="banda_header"></div>
+
   <div class="container">
-        <div class="content-wrap">
+    <div class="content-wrap">
     <?php if ($page['content_top']): ?>
       <div id="content-top">
         <?php print render($page['content_top']); ?>
       </div>
     <?php endif; ?>
+    </div>
   </div>
-  </div>
-</div>
 <div id="content">
       <div class="container clearfix kantina-page">
         <!-- content region -->
