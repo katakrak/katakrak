@@ -343,14 +343,24 @@ function libro_node_view($node, $view_mode, $langcode) {
 }
 
 function libro_node_presave($node) {
-//  if ($node->type == 'libro') {
-//    if ($node->field_libro_estado['und'][0]['value'] === '0') {
-//      $node->status = 1;
-//    }
-//    else {
-//      $node->status = 0;
-//    }
-//  }
+  if ($node->type == 'libro') {
+    foreach ($node->field_libro_categoria['und'] as $cat){
+      $parents = taxonomy_get_parents($cat['tid']);
+      if ($parents) {
+        $parent = array_pop($parents);
+        $anadir = TRUE;
+        foreach ($node->field_libro_categoria['und'] as $cat){
+          if ($cat['tid'] == $parent->tid){
+            $anadir = FALSE;
+          }
+        }
+        if ($anadir){
+          $node->field_libro_categoria['und'][] = array ('tid' => $parent->tid);
+        }
+      }
+    }
+    
+  }
 }
 
 function libro_node_load($nodes, $types) {
