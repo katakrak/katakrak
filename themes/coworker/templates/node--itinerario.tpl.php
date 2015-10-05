@@ -114,24 +114,23 @@ if (!$page) {
       
       
       ?>
-      <div class="itinerario-header row">
-        <div class="col-lg-10 col-lg-offset-1">
+      <div class="row ">
+        <div class="col-sm-1 col itinerario-header">
+          <div class="circle circle-header">
+             <div class="circle-<?php print $node->field_itinerario_linea['und'][0]['value'] ?>">           </div>
+          </div>
+        </div>
+        <div class="col-sm-11 itinerario-header">
           <h1><?php print $node->title ?></h1>
         </div>
       </div>
       <div class="clear"></div>
       <div class="row itinerario-desc">
-        <div class="col-lg-1">
-          <div class="circle">
-            <div class="circle-<?php print $node->field_itinerario_linea['und'][0]['value'] ?>">
-            </div>
-          </div>
-        </div>
         <div class="col-lg-5">
           <div class="bubble"><?php print check_markup($node->field_itinerario_descripcion['und'][0]['value'], $node->field_itinerario_descripcion['und'][0]['format']) ?>
           </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-7">
           <?php print render($content['field_itinerario_imagen']) ?>
         </div>
       </div>

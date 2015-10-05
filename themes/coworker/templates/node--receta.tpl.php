@@ -81,10 +81,10 @@
   ?>
 <h1><?php print $node->title ?></h1>
 <div class="row">
-  <div class="col-lg-5">
+  <div class="col-sm-5">
     <?php print render($content['field_receta_imagen']) ?>
   </div>
-  <div class="col-lg-7">
+  <div class="col-sm-7">
     <h4><?php print t("Ingredientes:") ?></h4>
     <ul class="osagai-zerrenda">
       <?php foreach($node->field_receta_ingredientes['und'] as $ingrediente): ?>
@@ -94,5 +94,8 @@
   </div>
 </div>
 <div class="row">
-  <p><?php print render($content['field_receta_cuerpo']) ?></p>
+  <div class="col-sm-12">
+    <?php print render($content['sharethis']) ?>
+    <p><?php print render($content['field_receta_cuerpo']) ?></p>
+  </div>
 </div>

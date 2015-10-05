@@ -119,11 +119,7 @@ function katakrak_agenda_context_default_contexts() {
       'layout' => 'agenda',
     ),
     'menu' => array(
-      0 => 'main-menu:agenda',
-    ),
-    'theme' => array(
-      'title' => 'Agenda',
-      'subtitle' => '',
+      0 => 'main-menu:actos',
     ),
   );
   $context->condition_mode = 0;

@@ -483,7 +483,7 @@ function katakrak_agenda_views_default_views() {
   /* Display: Events page */
   $handler = $view->new_display('page', 'Events page', 'events_page');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Agenda';
+  $handler->display->display_options['title'] = 'Actos';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'isotope';
   $handler->display->display_options['style_options']['portfolio_style'] = 'portfolio-2';
@@ -625,7 +625,13 @@ function katakrak_agenda_views_default_views() {
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
   $handler->display->display_options['filters']['language']['group'] = 2;
-  $handler->display->display_options['path'] = 'agenda';
+  $handler->display->display_options['path'] = 'actos';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Actos';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
 
   /* Display: Calendario */
   $handler = $view->new_display('page', 'Calendario', 'calendario');
@@ -967,7 +973,7 @@ function katakrak_agenda_views_default_views() {
     t('Proximas presentaciones'),
     t('Date browser 2'),
     t('Events page'),
-    t('Agenda'),
+    t('Actos'),
     t('Feed'),
     t('Next events block page'),
     t('Hurrengo ekitaldiak'),

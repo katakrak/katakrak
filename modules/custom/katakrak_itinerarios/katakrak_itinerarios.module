@@ -80,8 +80,17 @@ function katakrak_itinerarios_init() {
     font-weight: bold;
     font-size: 40px;
     }
-    
     ";
+    $css .= " .linea-$numero .circle-header .circle-$numero {
+      background-color: white;
+      color: $color;
+        border-radius: 50%;
+        margin-top: 5px;
+    }";
+    $css .= ".circle-header .circle-$numero:before {
+    color: $color;
+      
+    }";
     $css .= ".linea-$numero .bubble:before { border-color: transparent $color } .linea-$numero .bubble {border-color: $color}";
     drupal_add_css($css, array('type' => 'inline', 'group' => CSS_THEME, 'weight' => 200));
   }
