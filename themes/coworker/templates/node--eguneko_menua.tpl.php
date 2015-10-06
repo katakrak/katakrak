@@ -82,39 +82,54 @@ if (!$page) {
   include 'node_teaser.tpl.php';
 } else {
   ?>
-  <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+  <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix kantina-menu"<?php print $attributes; ?>>
     <?php print render($title_prefix); ?>
     <?php if (!$page): ?>
       <div class="entry_title">
         <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
       </div>
     <?php endif; ?>
-    <?php
-    if ($page && $node->type == 'blog'):
-      ?>
-      <div class="entry_title">
-        <h2<?php print $title_attributes; ?>><?php print $title; ?></h2>
-      </div>
-    <?php endif; ?>
 
     <?php print render($title_suffix); ?>
 
     <div class="entry_content content eguneko-menua"<?php print $content_attributes; ?>>
-      <h1><i class="fa fa-spoon"></i> <?php print $node->title ?> <i class="fa fa-cutlery"></i></h1>
+      <div class="subseccion">
+        <?php print theme('image', array('path' => drupal_get_path('theme', 'coworker'). '/images/kantina/desayunos.png')) ?>
+        <h4>desayunos</h4>
+      </div>
+      <?php print $node->field_menu_gosariak['und'][0]['value'] ?>
+      <div class="dedia_divider"></div>
+      <h1 class="hidden"><?php print $node->title ?></h1>
+      <a id="menu_dia"></a>
+      <div class="subseccion">
+        <?php print theme('image', array('path' => drupal_get_path('theme', 'coworker'). '/images/kantina/menu_mediodia.png')) ?>
+        <h4>menú mediodia</h4>
+      </div>
       <p><?php print format_date($node->changed, 'media') ?></p>
-      <h2><?php print t("Ensaladas") ?></h2>
-      <?php foreach ($node->field_menu_hotzak['und'] as $key => $value): ?>
-      <p><?php print $value['value'] ?></p>
-      <?php endforeach; ?>
-      <h2><?php print t("Cuencos") ?></h2>
-      <?php foreach ($node->field_menu_beroak['und'] as $key => $value): ?>
-      <p><?php print $value['value'] ?></p>
-      <?php endforeach; ?>
-      <h2><?php print t("Postres") ?></h2>
-      <?php foreach ($node->field_menu_azkenburukoak['und'] as $key => $value): ?>
-      <p><?php print $value['value'] ?></p>
-      <?php endforeach; ?>
-      
+
+      <div class="row">
+        <div class="col-lg-3 col-lg-offset-3">
+          <h3><?php print t("Ensaladas") ?></h3>
+          <?php foreach ($node->field_menu_hotzak['und'] as $key => $value): ?>
+            <p><?php print $value['value'] ?></p>
+          <?php endforeach; ?>
+        </div>
+        <div class="col-lg-3">
+          <h3><?php print t("Cuencos") ?></h3>
+          <?php foreach ($node->field_menu_beroak['und'] as $key => $value): ?>
+            <p><?php print $value['value'] ?></p>
+          <?php endforeach; ?>
+        </div>
+      </div>
+          
+      <div class="row">
+        <div class="col-lg-2 col-lg-offset-5">
+          <h3><?php print t("Postres") ?></h3>
+          <?php foreach ($node->field_menu_azkenburukoak['und'] as $key => $value): ?>
+            <p><?php print $value['value'] ?></p>
+          <?php endforeach; ?>
+        </div>
+      </div>
       
       -----------------------------------------------------------------------------------
       <p><?php print $node->field_menu_oharrak['und'][0]['value']?></p>

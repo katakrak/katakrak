@@ -6,7 +6,6 @@
 
 include_once 'libro.features.inc';
 
-
 /**
  * Implementation of hook_menu().
  */
@@ -39,8 +38,8 @@ function libro_menu() {
   $items['libro'] = array(
     'title' => 'Portada',
     'page callback' => 'libro_por_isbn',
-    'access arguments' => array('access content'),
-    'type' => MENU_CALLBACK,
+    'access callback' => array('access content'),
+    'type' => MENU_CALLBACK,kakatakrak_dilve_access_node_infotakrak_dilve_access_node_info
   );
   return $items;
 }
@@ -67,6 +66,7 @@ function libro_portada_form($form, $form_state, $node) {
 
 function libro_portada_form_submit($form, $form_state) {
   $node = $form_state['build_info']['args'][0];
+
   $download_cover = FALSE;
   if ($node->field_libro_portada['und'][0]['uri']) {
     if (!file_exists($node->field_libro_portada['und'][0]['uri'])) {
@@ -135,7 +135,7 @@ function libro_portada_process($limit, $max, $skip, &$context) {
   $nodes = db_select('node', 'n')->condition('type', 'libro')->fields('n', array('nid'))->orderBy('nid');
   if (!isset($context['sandbox']['progress'])) {
     $context['sandbox']['progress'] = $skip;
-    $context['sandbox']['max'] = $max ? $max : $nodes->execute()->rowCount();
+    $context['sandbox']['max'] = $max ? $max + $skip : $nodes->execute()->rowCount();
     $context['results']['conseguidas'] = 0;
     $context['results']['no_conseguidas'] = 0;
     $context['results']['imagenes_existentes'] = 0;
@@ -197,11 +197,18 @@ function libro_portadas_finish($success, $results, $operations) {
     drupal_set_message($message, 'error');
   }
 }
-
 function libro_block_info() {
   $blocks = array();
   $blocks['katakrak_libro_estilo'] = array(
     'info' => t('Libro de estilo'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['katakrak_secciones'] = array(
+    'info' => t('Navegador por secciones'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['libreria_home_search'] = array(
+    'info' => t('Bloque busqueda home libros'),
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
   return $blocks;
@@ -222,6 +229,33 @@ function libro_block_view($delta) {
     $block['content'] = theme('katakrak_libro_estilo', array('link' => $link));
     return $block;
   }
+  if ($delta == 'katakrak_secciones') {
+    if ($voc = taxonomy_vocabulary_machine_name_load('materias')) {
+      $block['subject'] = t('Por secciones');
+      $tags = tagclouds_get_tags(array($voc->vid), variable_get('tagclouds_levels', 6), variable_get('tagclouds_block_tags_' . $voc->vid, 12));
+
+      //$tags = tagclouds_sort_tags($tags, "hook_block_view");;
+      $tags = tagclouds_sort_tags($tags);
+
+      $block['content'] = theme('tagclouds_weighted', array('terms' => $tags)); //return a chunk of 12 tags
+      if ($language->language == 'es') {
+        $block['content'] .= views_embed_view('secciones', 'secciones_es');
+      }
+      else {
+        $block['content'] .= views_embed_view('secciones', 'secciones_eu');
+      }
+    }
+    return $block;
+  }
+  if ($delta == 'libreria_home_search') {
+    $book_count_db = db_query("SELECT COUNT(*) as total FROM  {node} WHERE type = 'libro'");
+    foreach ($book_count_db as $count) {
+      $total_count = number_format($count->total, 0, ',', '.');
+    }
+    $form = drupal_get_form('libro_search_home_form', $total_count);
+    $block['content'] = theme('libreria_home_search', array('form' => $form));
+    return $block;
+  }
 }
 
 function libro_theme() {
@@ -232,6 +266,13 @@ function libro_theme() {
       'path' => $path . '/templates',
       'arguments' => array(
         'link' => NULL,
+      )
+    ),
+    'libreria_home_search' => array(
+      'template' => 'libreria-home-search',
+      'path' => $path . '/templates',
+      'arguments' => array(
+        'form' => NULL,
       )
     ),
   );
@@ -366,14 +407,21 @@ function libro_node_presave($node) {
 function libro_node_load($nodes, $types) {
   if (count(array_intersect(array('libro'), $types))) {
     foreach($nodes as $node) {
-      foreach ($node->field_libro_autores['und'] as $autores) {
-        $term = taxonomy_term_load($autores['tid']);
-        $node->autores[] = $term->name;
-      }
       $ubicacion = taxonomy_get_parents($node->field_libro_categoria['und'][0]['tid']);
       if ($ubicacion) {
         $ubicacion = array_pop($ubicacion);
         $node->ubicacion = $ubicacion->name;
+      }
+      foreach ($node->field_libro_autores['und'] as $autores) {
+        $term = taxonomy_term_load($autores['tid']);
+        $node->autores[] = $term->name;
+      }
+      if ($node->field_libro_categoria['und']) {
+        $ubicacion = taxonomy_get_parents($node->field_libro_categoria['und'][0]['tid']);
+        if ($ubicacion) {
+          $ubicacion = array_pop($ubicacion);
+          $node->ubicacion = $ubicacion->name;
+        }
       }
 
       $query = db_query("SELECT p.entity_id AS id, n.language as lang
@@ -384,8 +432,10 @@ INNER JOIN node n ON n.nid = p.entity_id
 WHERE  `field_parada_libro_nid` = :nid AND n.status = 1", array(':nid' => $node->nid));
       $itinerarios = $query->fetchAll();
       foreach ($itinerarios as $itinerario) {
-        $color = array_pop(db_query("Select i.field_itinerario_color_rgb as color FROM field_data_field_itinerario_color i WHERE entity_id = :nid", array(':nid' => $itinerario->id))->fetchAll());
-        $linea = array_pop(db_query("Select i.field_itinerario_linea_value as linea FROM field_data_field_itinerario_linea i WHERE entity_id = :nid", array(':nid' => $itinerario->id))->fetchAll());
+        $color_db = db_query("Select i.field_itinerario_color_rgb as color FROM field_data_field_itinerario_color i WHERE entity_id = :nid", array(':nid' => $itinerario->id))->fetchAll();
+        $color = array_pop($color_db);
+        $linea_db = db_query("Select i.field_itinerario_linea_value as linea FROM field_data_field_itinerario_linea i WHERE entity_id = :nid", array(':nid' => $itinerario->id))->fetchAll();
+        $linea = array_pop($linea_db);
         $node->itinerarios[$itinerario->lang][$itinerario->id] = array('nid' => $itinerario->id,  'color' => $color->color, 'linea' => $linea->linea);
       }
     }
@@ -413,6 +463,22 @@ function libro_por_isbn() {
  * @param type $isbn
  * @return type
  */
+
+
+
+
+function libro_search_home_form_submit($form, &$form_state) {
+  $form_state['redirect'] = 'buscar/libros/'.$form_state['values']['search_term'];
+}
+
+/**
+ * Checks if the cover exists and if it does returns the file object. 
+ * It it doesn't exists downloads it and creates the object
+ * 
+ * @param type $url
+ * @param type $isbn
+ * @return type
+ */
 function create_cover($url, $isbn) {
   global $user;
   $cover_request = drupal_http_request($url);
@@ -420,7 +486,7 @@ function create_cover($url, $isbn) {
     return;
   }
   $ext = substr($cover_request->headers['content-type'], strrpos($cover_request->headers['content-type'], '/') + 1);
-  $filename = $isbn.".".$ext  ;
+  $filename = $isbn.".".$ext;
   $fid = db_select('file_managed', 'f')->condition('filename', $filename)->fields('f', array('fid'))
     ->execute()->fetchObject();
   $filepath = sprintf("%s/%s/portadas/%s",DRUPAL_ROOT, variable_get('file_public_path', 'sites/default/files'), $filename);
@@ -457,4 +523,22 @@ function create_cover($url, $isbn) {
     }
   }
   return (array)$file;
+}
+
+function libro_search_home_form($form, &$form_state, $total = NULL) {
+  $placeholder = t('@count libros a tu alcance', array('@count' => $total));
+  $form['search_term'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Nombre'),
+    '#title_display' => 'invisible',
+    '#required' => TRUE,
+    '#attributes' => array(
+      'placeholder' => $placeholder
+      )
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => '<i class="fa fa-3x fa-search"></i>',
+  );
+  return $form; 
 }

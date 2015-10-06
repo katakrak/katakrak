@@ -24,14 +24,10 @@ blockquote,
 .wp-caption,
 .sitemap ul,
 .well.callout p,
-.quote,
-.pricing-title h4 span,
-.pricing-inner .pricing-price,
-.testimonial-item .testi-content,
-.testimonial-item .testi-author span,
+.quote, 
 .content p
 { 
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", "Slabo 13px";
 }
 
 h1,
@@ -75,9 +71,67 @@ h6,
 .entry_date,
 #block-katakrak-language-switcher a,
 .texto_principal,
-.books-search-block-help,
+.books-search-block-help
 .view-secciones label,
 .itinerario-libro-tipo,
-.circle {
-  font-family: "Abel", sans-serif;
+.circle,
+.view-secciones label, button,
+.entry_meta,
+.date-display-single,
+.text a, div.event_type {
+  font-family: "Ropa Sans", sans-serif;
+}
+
+h1, h3, .month {
+  /*text-transform: uppercase;*/
+}
+
+.weekday {
+  text-transform: lowercase;
+}
+
+h1 {
+  font-size: 25px;
+  font-weight: bold;
+}
+h2 {
+  font-size: 22px;
+}
+h3 {
+  font-size: 19px;
+  padding: 0;
+  margin: 0;
+}
+
+div.event_type {
+  font-size: 13px;
+}
+
+.entry_date div.day {
+  font-size: 19px;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 35px;
+    font-weight: bold;
+  }
+  h2 {
+    font-size: 30px;
+  }
+  h3 {
+    font-size: 25px;
+    padding: 0;
+    margin: 0;
+  }
+  div.event_type {
+    font-size: 20px;
+  }
+  .entry_date div.month,
+  .entry_date div.hour {
+    font-size: 20px;
+  }
+  .entry_date div.day {
+    font-size: 25px;
+  }
 }

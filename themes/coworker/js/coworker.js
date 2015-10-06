@@ -1,7 +1,8 @@
 (function($) {
 
   $(document).ready(function() {
-
+      $("#kata-main-menu").sticky({ topSpacing: 0 });
+    
     $('#main-menu a.sf-depth-1.active, #main-menu a.sf-depth-1.active-trail').parent().addClass('current');
 
 

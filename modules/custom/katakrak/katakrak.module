@@ -135,9 +135,8 @@ function katakrak_block_view($delta) {
     $links = language_negotiation_get_switch_links('language', $path);
     if (isset($links->links)) {
       drupal_add_css(drupal_get_path('module', 'locale') . '/locale.css');
-
       foreach ($links->links as $id => &$link) {
-        $link['title'] = $link['language']->prefix;
+        $link['title'] = t($link['language']->prefix);
       }
       $class = "language-switcher-{$links->provider}";
       $variables = array('links' => $links->links, 'attributes' => array('class' => array($class)));
@@ -150,32 +149,14 @@ function katakrak_block_view($delta) {
     return $block;
   }
   if ($delta == 'katakrak_user_top') {
-    if (user_is_anonymous()) {
-      //Generate login link
-      $block['title'] = t('Acceder');
-      $block['content'] = drupal_get_form('user_login_block');
+    $block['content'] = '<ul id="user-sticky"><li><div class="tab read"><i class="fa fa-user fa-2x"></i></div>';
+    if (user_is_anonymous()) {  
+     $block['content'] .= '<div class="text">'.l(t('Acceder'), 'user').'</div>';
     }
     else {
-      //Generate user block
-      $block['title'] = $user->name;
-      $links = array(
-        'account' => array(
-          'title' => t('My account'),
-          'href' => 'user',
-        ),
-        'orders' => array(
-          'title' => t('Mis pedidos'),
-          'href' => 'user/'.$user->uid.'/orders',
-        ),
-        'logout' => array(
-          'title' => t('Logout'),
-          'href' => 'user/logout',
-        ),
-      );
-      $block['content'] = theme('links', array('links' => $links));
-
+      $block['content'] .=  '<div class="text">'.l(truncate_utf8($user->name, 12, TRUE, TRUE, 1), 'user').' / '.l(t('Log out'), 'user/logout').'</div>';
     }
-    ;
+    $block['content'] .= '</li></ul>';
     return $block;
   }
   if ($delta == 'katakrak_cart') {

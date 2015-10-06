@@ -15,7 +15,7 @@ function katakrak_itinerarios_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'itinerario';
   $context->description = '';
-  $context->tag = 'Book';
+  $context->tag = 'Libro';
   $context->conditions = array(
     'node' => array(
       'values' => array(
@@ -27,16 +27,19 @@ function katakrak_itinerarios_context_default_contexts() {
     ),
   );
   $context->reactions = array(
-    'theme' => array(
-      'title' => 'Leer os hará libros',
-      'subtitle' => '',
+    'block' => array(
+      'blocks' => array(),
+      'layout' => 'book',
+    ),
+    'menu' => array(
+      0 => 'main-menu:libreria',
     ),
   );
   $context->condition_mode = 1;
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Book');
+  t('Libro');
   $export['itinerario'] = $context;
 
   return $export;

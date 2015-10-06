@@ -26,4 +26,4 @@ features[variable][] = apachesolr_cron_limit
 features[variable][] = apachesolr_default_environment
 features[variable][] = apachesolr_search_default_search_page
 features[variable][] = apachesolr_search_mlt_blocks
-mtime = 1419108859
+mtime = 1441268373

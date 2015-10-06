@@ -33,7 +33,7 @@ function libro_taxonomy_default_vocabularies() {
       'name' => 'Sección',
       'machine_name' => 'materias',
       'description' => '',
-      'hierarchy' => 0,
+      'hierarchy' => 1,
       'module' => 'taxonomy',
       'weight' => 0,
       'language' => 'und',

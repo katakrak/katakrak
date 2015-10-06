@@ -19,16 +19,22 @@ function katakrak_agenda_context_default_contexts() {
   $context->conditions = array(
     'views' => array(
       'values' => array(
-        'agenda:agenda_page' => 'agenda:agenda_page',
+        'agenda:events_page' => 'agenda:events_page',
       ),
     ),
   );
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-agenda-highlight' => array(
+        'views-ciclos-block' => array(
           'module' => 'views',
-          'delta' => 'agenda-highlight',
+          'delta' => 'ciclos-block',
+          'region' => 'content_bottom_first',
+          'weight' => '-10',
+        ),
+        'views-agenda-isotope_filter' => array(
+          'module' => 'views',
+          'delta' => 'agenda-isotope_filter',
           'region' => 'content_top',
           'weight' => '-10',
         ),
@@ -49,6 +55,40 @@ function katakrak_agenda_context_default_contexts() {
   // Included for use with string extractors like potx.
   t('Agenda');
   $export['agenda'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'calendario';
+  $context->description = 'Calendario view';
+  $context->tag = 'Agenda';
+  $context->conditions = array(
+    'views' => array(
+      'values' => array(
+        'agenda:calendario' => 'agenda:calendario',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(),
+      'layout' => 'agenda',
+    ),
+    'menu' => array(
+      0 => 'main-menu:agenda',
+    ),
+    'theme' => array(
+      'title' => 'Agenda',
+      'subtitle' => '',
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Agenda');
+  t('Calendario view');
+  $export['calendario'] = $context;
 
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
@@ -75,21 +115,11 @@ function katakrak_agenda_context_default_contexts() {
           'region' => 'sidebar_second',
           'weight' => '-10',
         ),
-        'boxes-twitter_feed' => array(
-          'module' => 'boxes',
-          'delta' => 'twitter_feed',
-          'region' => 'sidebar_second',
-          'weight' => '-9',
-        ),
       ),
       'layout' => 'agenda',
     ),
     'menu' => array(
-      0 => 'main-menu:agenda',
-    ),
-    'theme' => array(
-      'title' => 'Agenda',
-      'subtitle' => '',
+      0 => 'main-menu:actos',
     ),
   );
   $context->condition_mode = 0;

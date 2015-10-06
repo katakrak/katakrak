@@ -820,12 +820,18 @@ function libro_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'image',
+        'module' => 'colorbox',
         'settings' => array(
-          'image_link' => 'file',
-          'image_style' => 'book_cover',
+          'colorbox_caption' => 'auto',
+          'colorbox_caption_custom' => '',
+          'colorbox_gallery' => 'post',
+          'colorbox_gallery_custom' => '',
+          'colorbox_image_style' => '',
+          'colorbox_multivalue_index' => NULL,
+          'colorbox_node_style' => 'book_cover',
+          'colorbox_node_style_first' => 'extra_large',
         ),
-        'type' => 'image',
+        'type' => 'colorbox',
         'weight' => 10,
       ),
       'home_event' => array(
@@ -878,6 +884,16 @@ function libro_field_default_field_instances() {
       'module' => 'image',
       'settings' => array(
         'imce_filefield_on' => 1,
+        'insert' => 0,
+        'insert_absolute' => FALSE,
+        'insert_class' => '',
+        'insert_default' => array(
+          0 => 'auto',
+        ),
+        'insert_styles' => array(
+          0 => 'auto',
+        ),
+        'insert_width' => '',
         'preview_image_style' => 'thumbnail',
         'progress_indicator' => 'throbber',
       ),
@@ -1242,7 +1258,8 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-editoriales-field_editorial_geslib_id'
+  // Exported field_instance:
+  // 'taxonomy_term-editoriales-field_editorial_geslib_id'
   $field_instances['taxonomy_term-editoriales-field_editorial_geslib_id'] = array(
     'bundle' => 'editoriales',
     'default_value' => NULL,
@@ -1282,7 +1299,8 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-estado_de_articulo-field_estado_geslib_id'
+  // Exported field_instance:
+  // 'taxonomy_term-estado_de_articulo-field_estado_geslib_id'
   $field_instances['taxonomy_term-estado_de_articulo-field_estado_geslib_id'] = array(
     'bundle' => 'estado_de_articulo',
     'default_value' => NULL,
@@ -1319,6 +1337,61 @@ function libro_field_default_field_instances() {
       'settings' => array(),
       'type' => 'number',
       'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'taxonomy_term-materias-field_image'
+  $field_instances['taxonomy_term-materias-field_image'] = array(
+    'bundle' => 'materias',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_image',
+    'label' => 'Imagen',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'imce_filefield_on' => 0,
+        'insert' => 0,
+        'insert_absolute' => FALSE,
+        'insert_class' => '',
+        'insert_default' => array(
+          0 => 'auto',
+        ),
+        'insert_styles' => array(
+          0 => 'auto',
+        ),
+        'insert_width' => '',
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 42,
     ),
   );
 
@@ -1402,6 +1475,7 @@ function libro_field_default_field_instances() {
   t('Estado');
   t('Estado geslib_id');
   t('Idioma');
+  t('Imagen');
   t('Isbn');
   t('Nombre');
   t('Nombre euskera');

@@ -34,17 +34,9 @@ function katakrak_image_default_styles() {
 
   // Exported image style: extra_large.
   $styles['extra_large'] = array(
-    'name' => 'extra_large',
     'label' => 'Extra large',
     'effects' => array(
       11 => array(
-        'label' => 'Scale',
-        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
-        'effect callback' => 'image_scale_effect',
-        'dimensions callback' => 'image_scale_dimensions',
-        'form callback' => 'image_scale_form',
-        'summary theme' => 'image_scale_summary',
-        'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
           'width' => 1000,
@@ -64,6 +56,14 @@ function katakrak_image_default_styles() {
  */
 function katakrak_node_info() {
   $items = array(
+    'imagen' => array(
+      'name' => t('Imagen'),
+      'base' => 'node_content',
+      'description' => t('Proporciona imágenes para galerias'),
+      'has_title' => '1',
+      'title_label' => t('Titulo'),
+      'help' => '',
+    ),
     'page' => array(
       'name' => t('Basic page'),
       'base' => 'node_content',

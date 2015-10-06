@@ -8,6 +8,9 @@
  * Implements hook_ctools_plugin_api().
  */
 function katakrak_home_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "boxes" && $api == "box") {
+    return array("version" => "1");
+  }
   if ($module == "context" && $api == "context") {
     return array("version" => "3");
   }
@@ -37,6 +40,7 @@ function katakrak_home_fe_nodequeue_export_fields() {
     'reference' => 0,
     'reverse' => 0,
     'i18n' => 0,
+    'insert_at_front' => 0,
     'subqueues' => 1,
     'types' => array(
       0 => 'event',
@@ -45,28 +49,29 @@ function katakrak_home_fe_nodequeue_export_fields() {
     'count' => 0,
   );
 
-  // Exported nodequeues: libro_portada
-  $nodequeues['libro_portada'] = array(
-    'name' => 'libro_portada',
-    'title' => 'Libro portada',
-    'subqueue_title' => '',
-    'size' => 1,
-    'link' => 'Llevar a portada',
-    'link_remove' => 'Eliminar de la portada',
-    'owner' => 'nodequeue',
-    'show_in_ui' => 1,
-    'show_in_tab' => 1,
-    'show_in_links' => 1,
-    'reference' => 0,
-    'reverse' => 0,
-    'i18n' => 0,
-    'subqueues' => 1,
-    'types' => array(
-      0 => 'libro',
+  return $nodequeues;
+}
+
+/**
+ * Implements hook_image_default_styles().
+ */
+function katakrak_home_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: home_promo.
+  $styles['home_promo'] = array(
+    'label' => 'Home Promo',
+    'effects' => array(
+      28 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 390,
+          'height' => 390,
+        ),
+        'weight' => 1,
+      ),
     ),
-    'roles' => array(),
-    'count' => 0,
   );
 
-  return $nodequeues;
+  return $styles;
 }

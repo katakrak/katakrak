@@ -79,38 +79,23 @@
  * @ingroup themeable
  */
 ?>
-
-<div class="row-fluid">
-  <div class="span12">
-    <div class="visible-phone">
-      <h1>
-        <?php print $node->title ?>
-      </h1>
-       <?php print theme('agenda_date', array('time' => $node->field_event_date['und'][0]['value'])); ?>
+<h1><?php print $node->title ?></h1>
+<div class="row">
+  <div class="col-lg-5 col-md-5 col-sm-5">
+    <?php print render($content['field_event_image']) ?>
+  </div>
+  <div class="col-lg-7 col-md-7 col-sm-7">
+    <div class="event-info">
+      <?php print theme('agenda_date', array('time' => $node->field_event_date['und'][0]['value'])); ?>
+      <?php print render($content['sharethis']) ?>
+      <h3><?php print render($content['field_event_type']) ?></h3>
     </div>
-    <div class="row-fluid">
-      <div class="span4">
-         <?php print render($content['field_event_image']) ?>
-      </div>
-      <div class="span8">
-        <div class="col-1 hidden-phone">
-          <div class="row-fluid">
-            <div class="span2">
-              <?php print theme('agenda_date', array('time' => $node->field_event_date['und'][0]['value'])); ?>
-            </div>
-            <div class="span10">
-              <h1><?php print $node->title ?></h1>
-              <h3><?php print render($content['field_event_type']) ?></h3>
-              <h3><?php print render($content['field_event_ciclo']) ?></h3>
-            </div>
-          </div>
-        </div>
-        <div class="clear"></div>
-        <?php print render($content['sharethis']) ?>
-        <div class="clear"></div>
-        <p><?php print render($content['field_event_description']) ?></p>
-        <p><?php print views_embed_view('libros', 'books_related_event', $node->nid); ?></p>
-      </div>
-    </div>
+    <?php print render($content['field_event_description']) ?>
+      
   </div>
 </div>
+<?php if ($node->field_event_libro['und']): ?>
+  <h2 class="block"><?php print t('Libros relacionados') ?></h2>
+  <p><?php print views_embed_view('libros', 'books_related_event', $node->nid); ?></p>
+<?php endif; ?>
+      

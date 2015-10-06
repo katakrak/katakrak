@@ -44,6 +44,7 @@ function katakrak_blog_fe_nodequeue_export_fields() {
     'reference' => 0,
     'reverse' => 0,
     'i18n' => 0,
+    'insert_at_front' => 0,
     'subqueues' => 1,
     'types' => array(
       0 => 'blog',
@@ -63,17 +64,9 @@ function katakrak_blog_image_default_styles() {
 
   // Exported image style: blog_home.
   $styles['blog_home'] = array(
-    'name' => 'blog_home',
     'label' => 'Blog home',
     'effects' => array(
       15 => array(
-        'label' => 'Escalar y recortar',
-        'help' => 'Escalar y recortar mantendrán la relación de proporciones de la imagen original y se desechará lo que sobre por el lado mayor. Esto es especialmente útil para crear miniaturas perfectamente cuadradas sin deformar la imagen.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 400,
@@ -86,21 +79,13 @@ function katakrak_blog_image_default_styles() {
 
   // Exported image style: blog_post_page.
   $styles['blog_post_page'] = array(
-    'name' => 'blog_post_page',
     'label' => 'Blog post page',
     'effects' => array(
       2 => array(
-        'label' => 'Escalar y recortar',
-        'help' => 'Escalar y recortar mantendrán la relación de proporciones de la imagen original y se desechará lo que sobre por el lado mayor. Esto es especialmente útil para crear miniaturas perfectamente cuadradas sin deformar la imagen.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 300,
-          'height' => 400,
+          'width' => 400,
+          'height' => 300,
         ),
         'weight' => 1,
       ),

@@ -78,10 +78,12 @@
  *
  * @ingroup themeable
  */
+global $language;
 ?>
+
   <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
-    <div class="entry_content content"<?php print $content_attributes; ?>>
+    <div class="entry_content content <?php print $content_attributes; ?>">
       <?php
       // We hide the comments and links now so that we can render them later.
       
@@ -89,47 +91,43 @@
       hide($content['links']);
       //print render($content);
       ?>
-      <div class="row-fluid">
-        <div class="span12">
-          <div class="visible-phone">
-          <h1>
-            <?php print $node->title ?>
-          </h1>
-          <h4><?php print $content['autores'] ?></h4>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="visible-xs">
+            <h1>
+              <?php print $node->title ?>
+            </h1>
+            <?php print render($content['field_libro_subtitulo']) ?>
+            <h4><?php print render($content['field_libro_autores'])  ?></h4>
           </div>
-          <div class="row-fluid">
-            <div class="span4">
-               <?php print render($content['field_libro_portada']) ?>
+          
+          <div class="row">
+            <div class="col-sm-4 col-md-4">
+              <?php print render($content['field_libro_portada']) ?>
             </div>
-           <div class="span8">
-            <div class="col-1 hidden-phone book-title-author">
-              <div class="col_three_fourth <?php print isset($node->field_libro_subtitulo['und'][0]['value']) ? 'col_last': '' ?>">
-                <h1>
-                  <?php print $node->title ?>
-                </h1>
-              </div>
-              <?php if (isset($node->field_libro_subtitulo['und'][0]['value'])): ?>
-                <div class="col_three_fourth">
-                  <?php print render($content['field_libro_subtitulo']) ?>
+            <div class="col-sm-8 col-md-8">
+              <div class="hidden-xs">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <h1>
+                      <?php print $node->title ?>
+                    </h1>
+                    <?php print render($content['field_libro_subtitulo']) ?>
+                  </div>
                 </div>
-              <?php endif; ?>
-              <div class="col_one_fourth col_last">
-                <h5><?php print $content['autores'] ?></h5>
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h3><?php print render($content['field_libro_autores']) ?></h3>
+                  </div>
+                  <div class="col-sm-4">
+                    <?php print render($content['sharethis']) ?>
+                  </div>
+                </div>
+                
               </div>
-            </div>
-            <div class="clear"></div>
-             <?php print render($content['sharethis']) ?>
-             <div class="clear"></div>
-            <div class="book-metadata row-fluid">
-            <div class="span6 hidden-phone hidden-tablet">
-              <div class="book-info-entry">
-                <span class="col-2 book-info-label">
-                  <?php print t('Precio') ?>
-                </span>
-                <span class="col-2 book-info-data book-price">
-                    <?php print $content['product:commerce_price'][0]['#markup'] ?>
-                </span>
-              </div>
+               
+              <div class="book-metadata row">
+                <div class="col-sm-6 col-md-6">
               <div class="book-info-entry">
                 <span class="col-2 book-info-label">
                   <?php print t('ISBN') ?>
@@ -151,7 +149,7 @@
                   <?php print t('Año') ?>
                 </span>
                 <span class="col-2 book-info-data">
-                    <?php print $content['field_libro_year'][0]['#markup'] ?>
+                  <?php print $content['field_libro_year'][0]['#markup'] ?>
                 </span>
               </div>
               <div class="book-info-entry">
@@ -159,7 +157,7 @@
                   <?php print t('Editorial') ?>
                 </span>
                 <span class="col-2 book-info-data">
-                    <?php print $content['field_libro_editorial'][0]['#markup'] ?>
+                  <?php print $content['field_libro_editorial'][0]['#markup'] ?>
                 </span>
               </div>
               <div class="book-info-entry">
@@ -167,7 +165,7 @@
                   <?php print t('Estado') ?>
                 </span>
                 <span class="col-2 book-info-data">
-                    <?php print isset($content['estado']) ? $content['estado'] :  t($content['field_libro_estado'][0]['#markup']) ?>
+                  <?php print isset($content['estado']) ? $content['estado'] :  t($content['field_libro_estado'][0]['#markup']) ?>
                 </span>
               </div>
               <div class="book-info-entry">
@@ -179,76 +177,50 @@
                 </span>
               </div>
             </div>
-          <div class="span6">
-            <?php print render($content['field_libro_producto']) ?>
-          </div>
-            <div class="hidden-desktop">
-              <div class="book-info-entry">
-                <span class="col-2 book-info-label">
-                  <?php print t('Precio') ?>
-                </span>
-                <span class="col-2 book-info-data book-price">
-                    <?php print $content['product:commerce_price'][0]['#markup'] ?>
-                </span>
+
+              <div class="col-sm-4">
+                <?php if ($node->itinerarios): ?>
+                <div class="itinerarios">
+                  <?php foreach($node->itinerarios[$language->language] as $itinerario): ?>
+                    <a title="<?php print t('Este libro pertenece a un itinerario de lectura')?>" href="<?php print url('node/'.$itinerario['nid'])?>">
+                      <div class="linea-<?php print $itinerario['linea'] ?>">
+                        <div class="circle">
+                          <div class="circle-<?php print $itinerario['linea'] ?>">
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  <?php endforeach; ?>
+                  </div>
+                <?php endif; ?>
               </div>
-              <div class="book-info-entry">
-                <span class="col-2 book-info-label">
-                  <?php print t('ISBN') ?>
-                </span>
-                <span class="col-2 book-info-data">
-                    <?php print $content['field_libro_isbn'][0]['#markup'] ?>
-                </span>
+              <div class="col-sm-2">
+                <div class="book-buy">
+                  <div class="book-price"><?php print $content['product:commerce_price'][0]['#markup'] ?></div>
+                  <?php print render($content['field_libro_producto']) ?>
+                </div>
               </div>
-              <div class="book-info-entry">
-                <span class="col-2 book-info-label">
-                  <?php print t('Páginas') ?>
-                </span>
-                <span class="col-2 book-info-data">
-                    <?php print $content['field_libro_paginas'][0]['#markup'] ?>
-                </span>
+              <div class="row">
+                <div class="col-sm-12 col-md-12">
+                  <?php print render($content['field_libro_sinopsis']) ?>
+                </div>
               </div>
-              <div class="book-info-entry">
-                <span class="col-2 book-info-label">
-                  <?php print t('Año') ?>
-                </span>
-                <span class="col-2 book-info-data">
-                    <?php print $content['field_libro_year'][0]['#markup'] ?>
-                </span>
-              </div>
-              <div class="book-info-entry">
-                <span class="col-2 book-info-label">
-                  <?php print t('Editorial') ?>
-                </span>
-                <span class="col-2 book-info-data">
-                    <?php print $content['field_libro_editorial'][0]['#markup'] ?>
-                </span>
-              </div>
-              <div class="book-info-entry">
-                <span class="col-2 book-info-label">
-                  <?php print t('Estado') ?>
-                </span>
-                <span class="col-2 book-info-data">
-                    <?php print isset($content['estado']) ? $content['estado'] :  t($content['field_libro_estado'][0]['#markup']) ?>
-                </span>
-              </div>
-              <div class="book-info-entry">
-                <span class="col-2 book-info-label">
-                  <?php print t('Sección') ?>
-                </span>
-                <span class="col-2 book-info-data">
-                    <?php print $content['field_libro_categoria'][0]['#markup'] ?>
-                </span>
-              </div>
-            </div>
-            <div class="row-fluid">
-              <div class="span12">
-                <?php print render($content['field_libro_sinopsis']) ?>
-              </div>
-            </div>
               
             </div>
           </div>
         </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="block"><?php print t('Otros libros en %term', array('%term' => $content['field_libro_categoria']['#items'][0]['taxonomy_term']->name))?></h2>
+          <?php print views_embed_view('libros', 'libros_rel_cat', $node->field_libro_categoria['und'][0]['tid']) ?>
+         <?php $view = views_get_view_result('libros', 'libros_rel_autor', $node->field_libro_autores['und'][0]['tid'])?>
+          <?php if ($view): ?>
+            <h2 class="block"><?php print t('Otros libros del autor')?></h2>
+            <?php print views_embed_view('libros', 'libros_rel_autor', $node->field_libro_autores['und'][0]['tid']) ?>
+          <?php endif; ?>
         </div>
       </div>
       

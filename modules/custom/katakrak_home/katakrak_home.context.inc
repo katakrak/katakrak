@@ -26,35 +26,41 @@ function katakrak_home_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-libros-book_block_home' => array(
-          'module' => 'views',
-          'delta' => 'libros-book_block_home',
-          'region' => 'sidebar_second',
-          'weight' => '-10',
-        ),
         'system-main' => array(
           'module' => 'system',
           'delta' => 'main',
           'region' => 'content',
           'weight' => '-10',
         ),
-        'katakrak-newsletter_suscribe' => array(
-          'module' => 'katakrak',
-          'delta' => 'newsletter_suscribe',
-          'region' => 'content_bottom',
+        'mailchimp_signup-recibe_nuestro_boletin_semanal' => array(
+          'module' => 'mailchimp_signup',
+          'delta' => 'recibe_nuestro_boletin_semanal',
+          'region' => 'content_bottom_first',
           'weight' => '-10',
         ),
-        'views-boletin-block' => array(
-          'module' => 'views',
-          'delta' => 'boletin-block',
-          'region' => 'content_bottom',
+        'katakrak_home-katakrak_home_promo' => array(
+          'module' => 'katakrak_home',
+          'delta' => 'katakrak_home_promo',
+          'region' => 'content_bottom_second',
           'weight' => '-9',
         ),
-        'katakrak_search-katakrak_search_block' => array(
-          'module' => 'katakrak_search',
-          'delta' => 'katakrak_search_block',
-          'region' => 'content_bottom',
-          'weight' => '-8',
+        'views-blog-block' => array(
+          'module' => 'views',
+          'delta' => 'blog-block',
+          'region' => 'content_bottom_third',
+          'weight' => '-10',
+        ),
+        'views-libros-book_block_home' => array(
+          'module' => 'views',
+          'delta' => 'libros-book_block_home',
+          'region' => 'content_bottom_fourth',
+          'weight' => '-10',
+        ),
+        'views-itinerarios-block' => array(
+          'module' => 'views',
+          'delta' => 'itinerarios-block',
+          'region' => 'content_bottom_fourth',
+          'weight' => '-9',
         ),
       ),
       'layout' => 'home',

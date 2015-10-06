@@ -15,7 +15,7 @@ function libro_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'faq-libreria';
   $context->description = '';
-  $context->tag = 'Book';
+  $context->tag = 'Libro';
   $context->conditions = array(
     'path' => array(
       'values' => array(
@@ -24,14 +24,12 @@ function libro_context_default_contexts() {
       ),
     ),
   );
-  $context->reactions = array(
-    'menu' => 'libros',
-  );
+  $context->reactions = array();
   $context->condition_mode = 0;
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Book');
+  t('Libro');
   $export['faq-libreria'] = $context;
 
   $context = new stdClass();
@@ -39,7 +37,7 @@ function libro_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'libros_por_categoria';
   $context->description = '';
-  $context->tag = 'Book';
+  $context->tag = 'Libro';
   $context->conditions = array(
     'taxonomy_term' => array(
       'values' => array(
@@ -53,36 +51,71 @@ function libro_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'katakrak_search-katakrak_books_search_block' => array(
-          'module' => 'katakrak_search',
-          'delta' => 'katakrak_books_search_block',
-          'region' => 'content_bottom_left',
-          'weight' => '-10',
-        ),
-        'libro-katakrak_libro_estilo' => array(
+        'libro-libreria_home_search' => array(
           'module' => 'libro',
-          'delta' => 'katakrak_libro_estilo',
-          'region' => 'content_bottom_right',
+          'delta' => 'libreria_home_search',
+          'region' => 'content_top',
           'weight' => '-10',
         ),
       ),
       'layout' => 'book',
     ),
-    'menu' => 'libros',
+    'theme_html' => array(
+      'class' => 'block-book-search',
+    ),
   );
   $context->condition_mode = 0;
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Book');
+  t('Libro');
   $export['libros_por_categoria'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'libros_secciones';
+  $context->description = 'Libros secciones';
+  $context->tag = 'Libro';
+  $context->conditions = array(
+    'taxonomy_term' => array(
+      'values' => array(
+        'materias' => 'materias',
+      ),
+      'options' => array(
+        'term_form' => '0',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'libro-libreria_home_search' => array(
+          'module' => 'libro',
+          'delta' => 'libreria_home_search',
+          'region' => 'content_top',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+    'menu' => array(
+      0 => 'main-menu:tienda',
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Libro');
+  t('Libros secciones');
+  $export['libros_secciones'] = $context;
 
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'node_book';
   $context->description = '';
-  $context->tag = 'Book';
+  $context->tag = 'Libro';
   $context->conditions = array(
     'node' => array(
       'values' => array(
@@ -90,11 +123,6 @@ function libro_context_default_contexts() {
       ),
       'options' => array(
         'node_form' => '0',
-      ),
-    ),
-    'views' => array(
-      'values' => array(
-        'libros:page' => 'libros:page',
       ),
     ),
   );
@@ -107,33 +135,80 @@ function libro_context_default_contexts() {
           'region' => 'content',
           'weight' => '-10',
         ),
-        'katakrak_search-katakrak_books_search_block' => array(
-          'module' => 'katakrak_search',
-          'delta' => 'katakrak_books_search_block',
-          'region' => 'content_bottom_left',
-          'weight' => '-10',
-        ),
-        'libro-katakrak_libro_estilo' => array(
+        'libro-libreria_home_search' => array(
           'module' => 'libro',
-          'delta' => 'katakrak_libro_estilo',
-          'region' => 'content_bottom_right',
+          'delta' => 'libreria_home_search',
+          'region' => 'content_top',
           'weight' => '-10',
         ),
       ),
       'layout' => 'book',
     ),
-    'menu' => 'libros',
-    'theme' => array(
-      'title' => 'Leer os hará libros',
-      'subtitle' => '',
+    'menu' => array(
+      0 => 'main-menu:libreria',
     ),
   );
   $context->condition_mode = 0;
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Book');
+  t('Libro');
   $export['node_book'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'pagina_libreria';
+  $context->description = 'Página principal librería';
+  $context->tag = 'Libro';
+  $context->conditions = array(
+    'views' => array(
+      'values' => array(
+        'libros:page' => 'libros:page',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'views-secciones-secciones_block' => array(
+          'module' => 'views',
+          'delta' => 'secciones-secciones_block',
+          'region' => 'content_bottom_first',
+          'weight' => '-10',
+        ),
+        'views-itinerarios-block' => array(
+          'module' => 'views',
+          'delta' => 'itinerarios-block',
+          'region' => 'content_bottom_second',
+          'weight' => '-10',
+        ),
+        'views-agenda-eventos_libreria' => array(
+          'module' => 'views',
+          'delta' => 'agenda-eventos_libreria',
+          'region' => 'content_bottom_third',
+          'weight' => '-10',
+        ),
+        'libro-libreria_home_search' => array(
+          'module' => 'libro',
+          'delta' => 'libreria_home_search',
+          'region' => 'content_top',
+          'weight' => '-10',
+        ),
+      ),
+      'layout' => 'book',
+    ),
+    'theme_html' => array(
+      'class' => 'block-book-search',
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Libro');
+  t('Página principal librería');
+  $export['pagina_libreria'] = $context;
 
   return $export;
 }

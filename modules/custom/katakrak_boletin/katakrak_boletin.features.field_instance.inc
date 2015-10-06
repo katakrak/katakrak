@@ -10,7 +10,8 @@
 function katakrak_boletin_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'field_collection_item-field_boletin_body-field_boletin_body_seccion'
+  // Exported field_instance:
+  // 'field_collection_item-field_boletin_body-field_boletin_body_seccion'
   $field_instances['field_collection_item-field_boletin_body-field_boletin_body_seccion'] = array(
     'bundle' => 'field_boletin_body',
     'default_value' => NULL,
@@ -41,7 +42,8 @@ function katakrak_boletin_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_boletin_body-field_boletin_body_subtitulo'
+  // Exported field_instance:
+  // 'field_collection_item-field_boletin_body-field_boletin_body_subtitulo'
   $field_instances['field_collection_item-field_boletin_body-field_boletin_body_subtitulo'] = array(
     'bundle' => 'field_boletin_body',
     'default_value' => NULL,
@@ -75,7 +77,8 @@ function katakrak_boletin_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_boletin_body-field_boletin_body_texto'
+  // Exported field_instance:
+  // 'field_collection_item-field_boletin_body-field_boletin_body_texto'
   $field_instances['field_collection_item-field_boletin_body-field_boletin_body_texto'] = array(
     'bundle' => 'field_boletin_body',
     'default_value' => NULL,
@@ -190,10 +193,61 @@ function katakrak_boletin_field_default_field_instances() {
       'module' => 'file',
       'settings' => array(
         'imce_filefield_on' => 0,
+        'insert' => 0,
+        'insert_absolute' => FALSE,
+        'insert_class' => '',
+        'insert_default' => array(
+          0 => 'auto',
+        ),
+        'insert_styles' => array(
+          0 => 'auto',
+        ),
+        'insert_width' => '',
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
       'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance: 'node-boletin-field_blog_tipo'
+  $field_instances['node-boletin-field_blog_tipo'] = array(
+    'bundle' => 'boletin',
+    'default_value' => array(
+      0 => array(
+        'value' => 'boletin',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 11,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_blog_tipo',
+    'label' => 'Tipo',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 14,
     ),
   );
 
@@ -330,6 +384,16 @@ function katakrak_boletin_field_default_field_instances() {
       'module' => 'image',
       'settings' => array(
         'imce_filefield_on' => 1,
+        'insert' => 0,
+        'insert_absolute' => FALSE,
+        'insert_class' => '',
+        'insert_default' => array(
+          0 => 'auto',
+        ),
+        'insert_styles' => array(
+          0 => 'auto',
+        ),
+        'insert_width' => '',
         'preview_image_style' => 'thumbnail',
         'progress_indicator' => 'throbber',
       ),
@@ -376,6 +440,73 @@ function katakrak_boletin_field_default_field_instances() {
       ),
       'type' => 'node_reference_autocomplete',
       'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'node-boletin-field_image'
+  $field_instances['node-boletin-field_image'] = array(
+    'bundle' => 'boletin',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'colorbox',
+        'settings' => array(
+          'colorbox_caption' => 'auto',
+          'colorbox_caption_custom' => '',
+          'colorbox_gallery' => 'post',
+          'colorbox_gallery_custom' => '',
+          'colorbox_image_style' => 'boletin_destacado',
+          'colorbox_multivalue_index' => NULL,
+          'colorbox_node_style' => 'boletin_destacado',
+          'colorbox_node_style_first' => 'extra_large',
+        ),
+        'type' => 'colorbox',
+        'weight' => 10,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_image',
+    'label' => 'Image',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'imce_filefield_on' => 0,
+        'insert' => 0,
+        'insert_absolute' => FALSE,
+        'insert_class' => '',
+        'insert_default' => array(
+          0 => 'auto',
+        ),
+        'insert_styles' => array(
+          0 => 'auto',
+        ),
+        'insert_width' => '',
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 8,
     ),
   );
 
@@ -473,6 +604,46 @@ function katakrak_boletin_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-boletin-field_tags'
+  $field_instances['node-boletin-field_tags'] = array(
+    'bundle' => 'boletin',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 12,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_tags',
+    'label' => 'Etiqueta',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 16,
+    ),
+  );
+
   // Exported field_instance: 'node-simplenews-field_simplenews_boletin'
   $field_instances['node-simplenews-field_simplenews_boletin'] = array(
     'bundle' => 'simplenews',
@@ -522,7 +693,9 @@ function katakrak_boletin_field_default_field_instances() {
   t('Body');
   t('Boletin');
   t('Cuerpo');
+  t('Etiqueta');
   t('Eventos');
+  t('Image');
   t('Imagen');
   t('Libros');
   t('Link imagen');
@@ -530,6 +703,7 @@ function katakrak_boletin_field_default_field_instances() {
   t('Seccion');
   t('Subtitulo');
   t('Texto');
+  t('Tipo');
 
   return $field_instances;
 }

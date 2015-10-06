@@ -8,15 +8,18 @@ function _coworker_add_css() {
   $theme_path = path_to_theme();
   $css_files = array(
     'style.css',
-    'css/tipsy.css',
-    'css/bootstrap.css',
+    //'css/tipsy.css',
+    'bootstrap/css/bootstrap.css',  
+    'bootstrap/css/bootstrap.theme.min.css',
     //'css/font-dinnext.css',
     'css/ibilbideak.css',
     'css/font-awesome.css',
     'css/font.css',
-    'css/prettyPhoto.css',
+    //'css/prettyPhoto.css',
     'css/coworker.css',
+    'sprites.css',
   );
+  drupal_add_css($theme_path . '/' . 'katakrak.css', array('group' => CSS_THEME, 'weight' => 200));
   $css_files[] = 'katakrak.css';
   foreach ($css_files as $css_file) {
     drupal_add_css($theme_path . '/' . $css_file);
@@ -24,7 +27,7 @@ function _coworker_add_css() {
   $theme_color = variable_get('coworker_theme_color', 'coworker');
 
   drupal_add_css($theme_color);
-  drupal_add_css($theme_path . '/css/responsive.css');
+  //drupal_add_css($theme_path . '/css/responsive.css');
   }
 
 function coworker_preprocess_html(&$variables) {
@@ -45,6 +48,7 @@ function coworker_preprocess_html(&$variables) {
 }
 
 function coworker_preprocess_page(&$vars) {
+  $vars['search_form'] = drupal_get_form('katakrak_search_form');
   // navigation
   $trail = NULL;
   foreach ($vars['main_menu'] as $id => $menu_item) {
@@ -71,7 +75,6 @@ function coworker_preprocess_page(&$vars) {
 //    ));
 //  }
   $vars['rentina_logo'] = theme_get_setting('rentina_logo', 'coworker');
-
   if (module_exists('search')) {
     $seach_block_form = drupal_get_form('search_block_form');
     $vars['search_block'] = drupal_render($seach_block_form);
@@ -83,6 +86,7 @@ function coworker_preprocess_search_result(&$vars) {
   if ($vars['result']['entity_type'] == 'node') {
     $node = node_load($vars['result']['node']->entity_id);
     if ($node->type == 'libro') {
+      
       if ($node->field_libro_portada) {
         $query = array(
           'utm_source'=> 'search',
@@ -99,6 +103,7 @@ function coworker_preprocess_search_result(&$vars) {
         $vars['image'] = '<i class="fa fa-book fa-10x"></i>';
       }
       $product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
+      $vars['price'] = commerce_currency_format($product->commerce_price['und'][0]['amount'], 'EUR', $product);
       $default_quantity = 1;
       $product_ids = array($product->product_id);
 

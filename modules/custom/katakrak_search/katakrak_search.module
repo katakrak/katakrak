@@ -9,6 +9,7 @@ include_once 'katakrak_search.features.inc';
 function katakrak_search_form_alter(&$form, &$form_state, $form_id){
   if ($form_id == 'apachesolr_panels_search_form') {
     $form['#theme'] = 'katakrak_search_book_search_form';
+    $form['actions']['submit']['#value'] = '<i class="fa fa-search"></i>';
     if (module_exists('apachesolr_autocomplete')) {
       $element = &$form['apachesolr_panels_search_form'];
       apachesolr_autocomplete_do_alter($element);
@@ -41,6 +42,14 @@ function katakrak_search_theme() {
     ),
     'katakrak_search_search_form' => array(
       
+    ),
+    'katakrak_search_results' => array(
+      'template' =>  'katakrak-search-results',
+      'arguments' => array(
+        'results' => NULL,
+        'columns' => NULL,
+      ),
+      'path' => $path . '/templates',
     ),
   );
 }
@@ -83,12 +92,12 @@ function katakrak_books_search_form($form, &$form_state) {
     '#title' => t('Término'),
     '#title_display' => 'invisible',
     '#attributes' => array(
-      'onblur' => "if (this.value == '') {this.value = '".t('¿Qué buscas?')."';}",
-      'onfocus' => "if (this.value == '".t('¿Qué buscas?')."') {this.value = '';}",
+      'onblur' => "if (this.value == '') {this.value = '".t('Buscar')."';}",
+      'onfocus' => "if (this.value == '".t('Buscar')."') {this.value = '';}",
       // Prevent user from searching the default text
-      'onsubmit' => "if(this.search_block_form.value=='".t('¿Qué buscas?')."'{ alert('Please enter a search'); return false; }",
+      'onsubmit' => "if(this.search_block_form.value=='".t('Buscar')."'{ alert('Please enter a search'); return false; }",
       // Alternative (HTML5) placeholder attribute instead of using the javascript
-      'placeholder' => t('¿Qué buscas?'),
+      'placeholder' => t('Buscar'),
     ),
   );
   $form['submit'] = array(
@@ -108,40 +117,27 @@ function katakrak_search_form($form, &$form_state) {
     '#type' => 'textfield',
     '#title' => t('Término'),
     '#title_display' => 'invisible',
-    '#attributes' => array(
-      'onblur' => "if (this.value == '') {this.value = '".t('¿Qué buscas?')."';}",
-      'onfocus' => "if (this.value == '".t('¿Qué buscas?')."') {this.value = '';}",
-      // Prevent user from searching the default text
-      'onsubmit' => "if(this.search_block_form.value=='".t('¿Qué buscas?')."'{ alert('Please enter a search'); return false; }",
-      // Alternative (HTML5) placeholder attribute instead of using the javascript
-      'placeholder' => t('¿Qué buscas?'),
-    ),
-    '#prefix' => '<div class="row-fluid"><div class="span8">',
-    '#suffix' => '</div>',
+    '#size' => 40,
+//    '#attributes' => array(
+//      'onblur' => "if (this.value == '') {this.value = '".t('Buscar')."';}",
+//      'onfocus' => "if (this.value == '".t('Buscar')."') {this.value = '';}",
+//      // Prevent user from searching the default text
+//      'onsubmit' => "if(this.search_block_form.value=='".t('Buscar')."'{ alert('Please enter a search'); return false; }",
+//      // Alternative (HTML5) placeholder attribute instead of using the javascript
+//      'placeholder' => t('Buscar'),
+//    ),
   );
-  $form['type'] = array(
-    '#type' => 'select',
-    '#title' => t(''),
-    '#options' => array(
-      'all' => t('Todo'),
-      'books' => t('Libros'),
-      'agenda' => t('Actos'),
-    ),
-    '#prefix' => '<div class="span2">',
-    '#suffix' => '</div>',
-  );
-  $form['submit'] = array(
-    '#type' => 'submit',
-    '#value' => t('Buscar'),
-    '#attributes' => array('class' => array('katakrak-button')),
-    '#prefix' => '<div class="span2">',
-    '#suffix' => '</div></div>',
-  );
+    $form['submit'] = array(
+      '#type' => 'submit',
+      '#value' => t('Buscar'),
+      '#attributes' => array('class' => array('katakrak-button')),
+    );
+  $form['#attributes']['class'] = 'navbar-form navbar-right';
   return $form;
 }
 
 function  katakrak_search_form_submit($form, &$form_state) {
-  $form_state['redirect'] = 'search/'.$form_state['values']['type'].'/'.$form_state['values']['search_term'];
+  $form_state['redirect'] = 'search/books/'.$form_state['values']['search_term'];
 }
 
 function katakrak_books_search_form_submit($form, &$form_state) {
@@ -170,6 +166,74 @@ function template_preprocess_katakrak_search_book_search_form(&$vars) {
   }
 }
 
+function template_preprocess_katakrak_search_results(&$vars) {
+  $rows = array();
+  foreach($vars['results'] as $result) {
+    if ($result['bundle'] == 'libro') {
+      $node = node_load($result['node']->entity_id);
+      $query = array(
+          'utm_source'=> 'search',
+          'utm_medium' => 'web',
+          'utm_content' => 'imagen',
+          'utm_campaign' => 'libros',
+        );
+      if ($node->field_libro_portada) {
+        $libro['image'] = l(theme('image_style', array(
+          'style_name' => 'cover_home',
+          'path' => $node->field_libro_portada['und'][0]['uri']
+        )), 'node/'.$node->nid, array('html' => TRUE, 'query' => $query));
+      }
+      else {
+        $libro['image'] = l(theme('image_style', array(
+          'style_name' => 'cover_home',
+          'path' => 'public://default_book.png'
+        )), 'node/'.$node->nid, array('html' => TRUE, 'query' => $query));
+      }
+      $product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
+      $default_quantity = 1;
+      $product_ids = array($product->product_id);
+
+      // Build the line item we'll pass to the Add to Cart form.
+      $line_item = commerce_product_line_item_new($product, $default_quantity, 0, array(), 0);
+      $line_item->data['context']['product_ids'] = $product_ids;
+      $line_item->data['context']['add_to_cart_combine'] = 1;
+
+      // Generate a form ID for this add to cart form.
+      $form_id = commerce_cart_add_to_cart_form_id($product_ids);
+      $line_item->data['context']['display_path'] = current_path();
+
+      
+
+      // Build the Add to Cart form using the prepared values.
+      $form = drupal_get_form($form_id, $line_item, 0, array());
+      $libro['add_to_cart'] = drupal_render($form);
+      $libro['title'] = l($node->title, 'node/'.$node->nid);
+      
+      $row[] = $libro;
+      $row_count += 1;
+      if ($row_count == $vars['columns']) {
+        $rows[] = $row;
+        $row = array();
+        $row_count = 0;
+      }
+      
+    }
+  }
+  $vars['rows'] = $rows;
+  $query = apachesolr_current_query(variable_get('apachesolr_default_environment', 'default'));
+  if ($query) {
+    $searcher = $query->getSearcher();
+    $response = apachesolr_static_response_cache($searcher);
+  }
+  
+  $per_page = 12;
+  // Initialize the pager
+  $current_page = pager_default_initialize($response->response->numFound, $per_page);
+  // Split your list into page sized chunks
+  // Show the appropriate items from the list
+  
+  $vars['pager'] = theme('pager', array('quantity',count($rows)));
+}
 /**
  * Implements hook_ctools_plugin_directory().
  */
@@ -179,6 +243,86 @@ function katakrak_search_ctools_plugin_directory($module, $plugin) {
   }
 }
 
+/**
+ * Execute a Solr search.
+ *
+ * Using hook_search() would make this module a first-class search module
+ * alongside Apache Solr Search, which we don't want. Instead, we execute the
+ * search directly and imitate what the core Search module does.
+ *
+ * @see search_data()
+ */
+function katakrak_search_search_execute($search) {
+  // Store information about the search for use in other panes.
+  apachesolr_panels_static_search_cache($search);
+
+  $results = NULL;
+  try {
+    $solr = apachesolr_get_solr($search['env_id']);
+    $results = apachesolr_search_run('apachesolr', array_filter(array('q' => $search['keys'], 'fq' => $search['filters'], 'rows' => $search['rows'])), $search['sort'], $search['path'], $search['page'], $solr);
+  }
+  catch (Exception $e) {
+    watchdog('Apache Solr', nl2br(check_plain($e->getMessage())), NULL, WATCHDOG_ERROR);
+    apachesolr_failure(t('Solr search'), $search['keys']);
+  }
+  if (is_array($results) && count($results)) {
+    return theme('katakrak_search_results', array('results' => $results, 'columns' => $search['columns']));
+  }
+}
+
+function katakrak_search_theme_registry_alter(&$theme_registry) {
+  $theme_registry['facetapi_link_inactive']['function'] = 'katakrak_search_facetapi_link_inactive';
+  $theme_registry['facetapi_link_inactive']['includes'] = array();
+  $theme_registry['facetapi_link_inactive']['theme path'] = drupal_get_path('module','katakrak_search');
+}
+
+
+/**
+ * 
+ * @param type $variables
+ * @return type
+ */
+function katakrak_search_facetapi_link_inactive($variables) {
+   // Builds accessible markup.
+  // @see http://drupal.org/node/1316580
+  
+  if (isset($variables['count'])) {
+    $markup = '<span class="facet_count">'.$variables['count'].'</span>';  
+  }
+  $markup .= $variables['text'];
+  $accessible_vars = array(
+    'text' => $variables['text'],
+    'active' => FALSE,
+  );
+  $accessible_markup = theme('facetapi_accessible_markup', $accessible_vars);
+  
+  $variables['text'] = '<span class="link_text">'.$variables['text'].'</span>';
+  // Sanitizes the link text if necessary.
+  $sanitize = empty($variables['options']['html']);
+  $variables['text'] .= ($sanitize) ? check_plain($variables['text']) : $variables['text'];
+
+  // Adds count to link if one was passed.
+  
+
+  // Resets link text, sets to options to HTML since we already sanitized the
+  // link text and are providing additional markup for accessibility.
+  $markup .= $accessible_markup;
+  
+  //Calculates the size of the bar
+  $query = apachesolr_current_query(variable_get('apachesolr_default_environment', 'default'));
+  if ($query) {
+    $searcher = $query->getSearcher();
+    $response = apachesolr_static_response_cache($searcher);
+    $max = $response->response->numFound;
+    $width = (100 * $variables['count']) / $max;
+  }
+  
+  $markup .= '<span class="facet-bar" style="width:'.$width.'%;"></span>';
+  $variables['text'] = $markup;
+  $variables['options']['html'] = TRUE;
+  return theme_link($variables);
+}
+
 function katakrak_search_apachesolr_index_document_build_node(ApacheSolrDocument $document, $entity, $entity_type) {
   if ($entity->type == 'libro') {
     $product = commerce_product_load($entity->field_libro_producto['und'][0]['product_id']);
@@ -186,16 +330,15 @@ function katakrak_search_apachesolr_index_document_build_node(ApacheSolrDocument
   }
 }
 
+function katakrak_search_apachesolr_query_prepare(DrupalSolrQueryInterface $query) {
+  // Add the new field as a sort option
+  $query->setAvailableSort('is_field_product_stock', array(
+    'title' => t('Disponibilidad'),
+    'default' => 'desc',
+  ));
 
-
-function katakrak_search_apachesolr_query_prepare($query) {
-  // Add Publication Date sort to the faculty-research search
-    // Add the new field as a sort option
-    $query->setAvailableSort('is_field_product_stock', array(
-      'title' => t('Disponibilidad'),
-      'default' => 'desc',
-    ));
- 
-    // Sort on our new field
-    $query->setSolrSort('is_field_product_stock', 'desc');
+  // Sort on our new field
+//  $original_sort = $query->getSolrsortUrlQuery();
+//  if (empty($original_sort))
+//    $query->setSolrSort('is_field_product_stock', 'desc');
 }

@@ -34,7 +34,7 @@ function katakrak_dilve_menu() {
     'title' => 'Dilve',
     'page callback' => 'katakrak_dilve_info',
     'page arguments' => array(1),
-    'access callback' => 'katakrak_dilve_access_node_info',
+      'access callback' => 'katakrak_dilve_access_node_info',
     'access arguments' => array('access dilve information', 1),
     'type' => MENU_LOCAL_TASK,
     'weight' => 100,
@@ -237,7 +237,7 @@ function dilve_node_info_form($form, &$form_state, $node, $book) {
     $form['image_markup'] = array(
       '#suffix' => '</div>',
       '#prefix' => '<div>',
-      '#markup' => theme('image', array(
+      '#markup' => theme_image(array(
         'path' => $book['cover_url'],
         'width' => 120,
         'height' => 200,
@@ -281,7 +281,6 @@ function dilve_node_info_form_submit($form, &$form_state) {
     $node->field_libro_paginas['und'][0]['value'] = $values['pages'];
   
   if ($values['image']) {
-    
     $file = create_cover($values['image'], $node->field_libro_ean['und'][0]['value']);
     
     if (!empty($file)) {
@@ -524,4 +523,3 @@ function katakrak_dilve_process_item($nid) {
     node_save($node);
   }
 }
-

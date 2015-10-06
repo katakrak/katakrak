@@ -78,18 +78,16 @@
  *
  * @ingroup themeable
  */
+$profile = user_load($node->uid); 
 ?>
-<div class="row-fluid">
-  <div class="span5">
-    <?php print render($content['field_image']) ?>
-  </div>
-  <div class="span7">
+<div class="row">
+  <div class="col-lg-12">
+    <div class="pull-right"><?php  print theme('user_picture', array('account' => $profile)) ?></div>
     <h1><?php print $node->title ?></h1>
     <p><?php print t("Published on !date by !author", array('!author' => $node->name, '!date' => format_date($node->changed, 'custom', 'd/m/Y'))) ?></p>
-    <div class="clear"></div>
-    <?php print render($content['sharethis']) ?>
-    <div class="clear"></div>
-    <p><?php print render($content['field_blog_body']) ?></p>
+    
+    <?php print render($content['field_image']) ?>
+    <p><?php print render($content['field_blog_cuerpo']) ?></p>
     <p><?php print $node->event_table; ?></p>
     <p><?php print render($content['field_blog_adjunto']) ?></p>
   </div>

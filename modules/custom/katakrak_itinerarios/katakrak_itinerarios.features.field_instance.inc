@@ -10,7 +10,8 @@
 function katakrak_itinerarios_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'field_collection_item-field_itinerario_parada_libros-field_itineraro_tipo'
+  // Exported field_instance:
+  // 'field_collection_item-field_itinerario_parada_libros-field_itineraro_tipo'
   $field_instances['field_collection_item-field_itinerario_parada_libros-field_itineraro_tipo'] = array(
     'bundle' => 'field_itinerario_parada_libros',
     'default_value' => NULL,
@@ -41,7 +42,8 @@ function katakrak_itinerarios_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_itinerario_parada_libros-field_parada_libro'
+  // Exported field_instance:
+  // 'field_collection_item-field_itinerario_parada_libros-field_parada_libro'
   $field_instances['field_collection_item-field_itinerario_parada_libros-field_parada_libro'] = array(
     'bundle' => 'field_itinerario_parada_libros',
     'default_value' => NULL,
@@ -78,7 +80,8 @@ function katakrak_itinerarios_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_itinerario_paradas-field_itinerario_parada_libros'
+  // Exported field_instance:
+  // 'field_collection_item-field_itinerario_paradas-field_itinerario_parada_libros'
   $field_instances['field_collection_item-field_itinerario_paradas-field_itinerario_parada_libros'] = array(
     'bundle' => 'field_itinerario_paradas',
     'default_value' => NULL,
@@ -245,6 +248,16 @@ function katakrak_itinerarios_field_default_field_instances() {
       'module' => 'image',
       'settings' => array(
         'imce_filefield_on' => 0,
+        'insert' => 0,
+        'insert_absolute' => FALSE,
+        'insert_class' => '',
+        'insert_default' => array(
+          0 => 'auto',
+        ),
+        'insert_styles' => array(
+          0 => 'auto',
+        ),
+        'insert_width' => '',
         'preview_image_style' => 'thumbnail',
         'progress_indicator' => 'throbber',
       ),

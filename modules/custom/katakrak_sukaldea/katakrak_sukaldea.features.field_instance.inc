@@ -10,7 +10,8 @@
 function katakrak_sukaldea_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'field_collection_item-field_errezeta_osagai-field_errezeta_kopurua'
+  // Exported field_instance:
+  // 'field_collection_item-field_errezeta_osagai-field_errezeta_kopurua'
   $field_instances['field_collection_item-field_errezeta_osagai-field_errezeta_kopurua'] = array(
     'bundle' => 'field_errezeta_osagai',
     'default_value' => NULL,
@@ -50,7 +51,8 @@ function katakrak_sukaldea_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_errezeta_osagai-field_errezeta_produktua'
+  // Exported field_instance:
+  // 'field_collection_item-field_errezeta_osagai-field_errezeta_produktua'
   $field_instances['field_collection_item-field_errezeta_osagai-field_errezeta_produktua'] = array(
     'bundle' => 'field_errezeta_osagai',
     'default_value' => NULL,
@@ -87,7 +89,8 @@ function katakrak_sukaldea_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_errezeta_osagai-field_osagai_izena'
+  // Exported field_instance:
+  // 'field_collection_item-field_errezeta_osagai-field_osagai_izena'
   $field_instances['field_collection_item-field_errezeta_osagai-field_osagai_izena'] = array(
     'bundle' => 'field_errezeta_osagai',
     'default_value' => NULL,
@@ -170,7 +173,8 @@ function katakrak_sukaldea_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sukalde_errezeta-field_errezeta_porzio_kopurua'
+  // Exported field_instance:
+  // 'node-sukalde_errezeta-field_errezeta_porzio_kopurua'
   $field_instances['node-sukalde_errezeta-field_errezeta_porzio_kopurua'] = array(
     'bundle' => 'sukalde_errezeta',
     'default_value' => NULL,

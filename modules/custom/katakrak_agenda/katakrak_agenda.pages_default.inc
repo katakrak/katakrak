@@ -142,10 +142,10 @@ function katakrak_agenda_default_page_manager_handlers() {
     $display->content['new-264f8297-1e4c-48aa-83c9-f3e6c11e8fa9'] = $pane;
     $display->panels['middle'][2] = 'new-264f8297-1e4c-48aa-83c9-f3e6c11e8fa9';
     $pane = new stdClass();
-    $pane->pid = 'new-38ddf5d6-7eb1-4e65-bfe6-029d0f241036';
+    $pane->pid = 'new-d1e882fa-1681-44d8-b310-48a76000d5ba';
     $pane->panel = 'middle';
     $pane->type = 'block';
-    $pane->subtype = 'views-ciclos-block';
+    $pane->subtype = 'views-agenda-citas_ciclo';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -160,9 +160,9 @@ function katakrak_agenda_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 3;
     $pane->locks = array();
-    $pane->uuid = '38ddf5d6-7eb1-4e65-bfe6-029d0f241036';
-    $display->content['new-38ddf5d6-7eb1-4e65-bfe6-029d0f241036'] = $pane;
-    $display->panels['middle'][3] = 'new-38ddf5d6-7eb1-4e65-bfe6-029d0f241036';
+    $pane->uuid = 'd1e882fa-1681-44d8-b310-48a76000d5ba';
+    $display->content['new-d1e882fa-1681-44d8-b310-48a76000d5ba'] = $pane;
+    $display->panels['middle'][3] = 'new-d1e882fa-1681-44d8-b310-48a76000d5ba';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

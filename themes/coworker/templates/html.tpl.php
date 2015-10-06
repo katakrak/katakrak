@@ -47,33 +47,23 @@
   <head profile="<?php print $grddl_profile; ?>">
     <?php print $head ?>
     <title><?php print $head_title; ?></title>
-    <link href='http://fonts.googleapis.com/css?family=Abel|Open Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ropa+Sans:400,400italic|Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <?php print $styles; ?>
-    <?php $theme_background_image = theme_get_setting('theme_background_image', 'coworker'); ?>
-    <?php if (!empty($theme_background_image)): ?>
-      <style type="text/css">
-        body{background: url('<?php print base_path() . path_to_theme(); ?>/images/patterns/<?php print $theme_background_image; ?>') scroll 0 0 repeat;}
-
-      </style>
-    <?php endif; ?>
-
     <?php $theme_custom_css = theme_get_setting('theme_custom_css', 'coworker'); ?>
-
-    <?php
-    if (!empty($theme_custom_css)) {
-      print '<style type="text/css">' . $theme_custom_css . '</style>';
-    }
-    ?>
+    <?php if (!empty($theme_custom_css)): ?>
+      <?php print '<style type="text/css">' . $theme_custom_css . '</style>'; ?>
+    <?php endif; ?>
     
 
     <!--[if lt IE 9]>
         <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
       <![endif]-->
     <?php print $scripts; ?>
-
+    
   </head>
-  <?php $theme_layout = theme_get_setting('theme_layout', 'coworker'); ?>
+  
+    <?php $theme_layout = theme_get_setting('theme_layout', 'coworker'); ?>
   <body class="<?php print $theme_layout; ?> <?php print $classes; ?>" <?php print $attributes; ?>>
     <div id="skip-link">
       <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>

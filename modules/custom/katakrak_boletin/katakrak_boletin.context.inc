@@ -19,7 +19,6 @@ function katakrak_boletin_context_default_contexts() {
   $context->conditions = array(
     'views' => array(
       'values' => array(
-        'blog:page' => 'blog:page',
         'boletin:page' => 'boletin:page',
       ),
     ),

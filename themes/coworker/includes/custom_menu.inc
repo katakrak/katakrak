@@ -121,7 +121,7 @@ function _custom_main_menu_render_superfish($trail) {
         }
         $output['content'] = isset($wmul[0]) ? $wmul[0] : '';
         $output['content'] .= '<ul id="main-menu" ';
-        $output['content'] .= ' class="nav_simple sf-menu ' . $menu_name . ' sf-' . $sfsettings['type'] . ' sf-style-' . $sfsettings['style'];
+        $output['content'] .= ' class=" nav_simple navbar-left sf-menu ' . $menu_name . ' sf-' . $sfsettings['type'] . ' sf-style-' . $sfsettings['style'];
         $output['content'] .= ($sfsettings['itemcounter']) ? ' sf-total-items-' . $menu_tree['total_children'] : '';
         $output['content'] .= ($sfsettings['itemcounter']) ? ' sf-parent-items-' . $menu_tree['parent_children'] : '';
         $output['content'] .= ($sfsettings['itemcounter']) ? ' sf-single-items-' . $menu_tree['single_children'] : '';

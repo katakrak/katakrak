@@ -65,30 +65,35 @@
  */
 ?>
 
-<div class="row-fluid <?php print $classes; ?>"<?php print $attributes; ?>>
-  <div class="span12">
-    <div class="row-fluid">
-      <div class="span12">
-      <?php print render($title_prefix); ?>
-      <h3 class="title"<?php print $title_attributes; ?>>
-        <a href="<?php print $url; ?>?utm_source=search&utm_medium=web&utm_content=titulo&utm_campaign=libros"><?php print $title; ?></a>
-      </h3>
-      <?php print render($title_suffix); ?>
+<div class="row <?php print $classes; ?>"<?php print $attributes; ?>>
+  <div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-8 col-xs-offset-2 col-sm-offset-0">
+      <?php print $image ?>
+    </div>
+    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-8">
+      <div class="search-snippet-info">
+        <h3 class=""<?php print $title_attributes; ?>>
+          <a href="<?php print $url; ?>?utm_source=search&utm_medium=web&utm_content=titulo&utm_campaign=libros"><?php print $title; ?></a>
+        </h3>
+        <p>
+          <?php print t("Autores"); ?>: 
+          <?php foreach($node->autores as $i => $autor): ?>
+            <?php print $autor; print $i+1 == count($node->autores) ? '' : ','; ?>
+          <?php endforeach; ?>
+            
+        </p>
+        <?php if ($snippet): ?>
+          <p class="search-snippet"<?php print $content_attributes; ?>><?php print $snippet; ?></p>
+        <?php endif; ?>
+
+      </div>
+    </div>  
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 col_book_buy">
+      <div class="book-buy">
+        <div class="book-price"><?php print $price ?></div>
+        <?php print $add_to_cart ?>
       </div>
     </div>
-  </div>
-  <div class="row-fluid">
-  <div class="span4">
-    <?php print $image ?>
-  </div>
-  <div class="span8">
-    <div class="search-snippet-info">
-      <?php if ($snippet): ?>
-        <p class="search-snippet"<?php print $content_attributes; ?>><?php print $snippet; ?></p>
-      <?php endif; ?>
-        <?php print $add_to_cart ?>
-    </div>
-    </div>  
   </div>
 </div>
 <div class="dotted-divider"></div>

@@ -11,6 +11,9 @@ function libro_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "context" && $api == "context") {
     return array("version" => "3");
   }
+  if ($module == "field_group" && $api == "field_group") {
+    return array("version" => "1");
+  }
   if ($module == "page_manager" && $api == "pages_default") {
     return array("version" => "1");
   }
@@ -32,14 +35,14 @@ function libro_views_api($module = NULL, $api = NULL) {
 function libro_fe_nodequeue_export_fields() {
   $nodequeues = array();
 
-  // Exported nodequeues: libros_destacados
-  $nodequeues['libros_destacados'] = array(
-    'name' => 'libros_destacados',
-    'title' => 'Libros destacados',
+  // Exported nodequeues: libros_recomendados
+  $nodequeues['libros_recomendados'] = array(
+    'name' => 'libros_recomendados',
+    'title' => 'Libros recomendados',
     'subqueue_title' => '',
-    'size' => 6,
-    'link' => 'Llevar a página de libros',
-    'link_remove' => 'Quitar de página de libros',
+    'size' => 12,
+    'link' => 'Añadir a recomendados',
+    'link_remove' => 'Quitar de recomendados',
     'owner' => 'nodequeue',
     'show_in_ui' => 1,
     'show_in_tab' => 1,
@@ -47,6 +50,7 @@ function libro_fe_nodequeue_export_fields() {
     'reference' => 0,
     'reverse' => 0,
     'i18n' => 0,
+    'insert_at_front' => 0,
     'subqueues' => 1,
     'types' => array(
       0 => 'libro',
@@ -66,17 +70,9 @@ function libro_image_default_styles() {
 
   // Exported image style: book_cover.
   $styles['book_cover'] = array(
-    'name' => 'book_cover',
     'label' => 'Book cover',
     'effects' => array(
       1 => array(
-        'label' => 'Escala',
-        'help' => 'El escalado mantiene la relación de proporciones de la imagen original. Si sólo se especifica una dimensión, la otra se calculará.',
-        'effect callback' => 'image_scale_effect',
-        'dimensions callback' => 'image_scale_dimensions',
-        'form callback' => 'image_scale_form',
-        'summary theme' => 'image_scale_summary',
-        'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
           'width' => 290,
@@ -90,17 +86,9 @@ function libro_image_default_styles() {
 
   // Exported image style: book_irakurle_taldea.
   $styles['book_irakurle_taldea'] = array(
-    'name' => 'book_irakurle_taldea',
     'label' => 'Book irakurle taldea',
     'effects' => array(
       8 => array(
-        'label' => 'Escalar y recortar',
-        'help' => 'Escalar y recortar mantendrán la relación de proporciones de la imagen original y se desechará lo que sobre por el lado mayor. Esto es especialmente útil para crear miniaturas perfectamente cuadradas sin deformar la imagen.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 150,
@@ -113,17 +101,9 @@ function libro_image_default_styles() {
 
   // Exported image style: book_medium.
   $styles['book_medium'] = array(
-    'name' => 'book_medium',
     'label' => 'Book medium (120x)',
     'effects' => array(
       3 => array(
-        'label' => 'Escala',
-        'help' => 'El escalado mantiene la relación de proporciones de la imagen original. Si sólo se especifica una dimensión, la otra se calculará.',
-        'effect callback' => 'image_scale_effect',
-        'dimensions callback' => 'image_scale_dimensions',
-        'form callback' => 'image_scale_form',
-        'summary theme' => 'image_scale_summary',
-        'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
           'width' => 120,
@@ -137,17 +117,9 @@ function libro_image_default_styles() {
 
   // Exported image style: book_thumbnail.
   $styles['book_thumbnail'] = array(
-    'name' => 'book_thumbnail',
     'label' => 'Book thumbnail',
     'effects' => array(
       6 => array(
-        'label' => 'Escala',
-        'help' => 'El escalado mantiene la relación de proporciones de la imagen original. Si sólo se especifica una dimensión, la otra se calculará.',
-        'effect callback' => 'image_scale_effect',
-        'dimensions callback' => 'image_scale_dimensions',
-        'form callback' => 'image_scale_form',
-        'summary theme' => 'image_scale_summary',
-        'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
           'width' => '',
@@ -161,21 +133,14 @@ function libro_image_default_styles() {
 
   // Exported image style: cover_home.
   $styles['cover_home'] = array(
-    'name' => 'cover_home',
     'label' => 'Cover home',
     'effects' => array(
-      15 => array(
-        'label' => 'Scale and crop',
-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
-        'name' => 'image_scale_and_crop',
+      20 => array(
+        'name' => 'image_scale',
         'data' => array(
           'width' => 300,
-          'height' => 400,
+          'height' => '',
+          'upscale' => 0,
         ),
         'weight' => 1,
       ),
@@ -184,40 +149,30 @@ function libro_image_default_styles() {
 
   // Exported image style: search_result_cover.
   $styles['search_result_cover'] = array(
-    'name' => 'search_result_cover',
     'label' => 'Search result cover',
     'effects' => array(
-      3 => array(
-        'label' => 'Escala',
-        'help' => 'El escalado mantiene la relación de proporciones de la imagen original. Si sólo se especifica una dimensión, la otra se calculará.',
-        'effect callback' => 'image_scale_effect',
-        'dimensions callback' => 'image_scale_dimensions',
-        'form callback' => 'image_scale_form',
-        'summary theme' => 'image_scale_summary',
-        'module' => 'image',
-        'name' => 'image_scale',
+      27 => array(
+        'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 300,
-          'height' => '',
-          'upscale' => 1,
+          'width' => 220,
+          'height' => 300,
         ),
-        'weight' => -10,
+        'weight' => 1,
       ),
-      4 => array(
-        'label' => 'Recortar',
-        'help' => 'El recorte eliminará partes de una imagen para que tenga las dimensiones especificadas.',
-        'effect callback' => 'image_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_crop_form',
-        'summary theme' => 'image_crop_summary',
-        'module' => 'image',
-        'name' => 'image_crop',
+    ),
+  );
+
+  // Exported image style: seccion.
+  $styles['seccion'] = array(
+    'label' => 'seccion',
+    'effects' => array(
+      22 => array(
+        'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 250,
-          'height' => 200,
-          'anchor' => 'left-top',
+          'width' => 293,
+          'height' => 293,
         ),
-        'weight' => -9,
+        'weight' => 1,
       ),
     ),
   );
