@@ -612,8 +612,11 @@ ul#user-sticky li {
   text-align: center;
 }
 /** Sala nagusia */
-.sala-nagusia .row {
-  margin-top: 20px;
+.sala-nagusia .seccion {
+  margin-top: 40px;
+}
+.sala-nagusia h2 {
+  padding-bottom: 0;
 }
 /* HOME STYLES */
 .block-mailchimp-signup {

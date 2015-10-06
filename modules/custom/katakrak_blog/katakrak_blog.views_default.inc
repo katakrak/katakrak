@@ -162,7 +162,7 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['header']['view']['id'] = 'view';
   $handler->display->display_options['header']['view']['table'] = 'views';
   $handler->display->display_options['header']['view']['field'] = 'view';
-  $handler->display->display_options['header']['view']['view_to_insert'] = 'blog:block_1';
+  $handler->display->display_options['header']['view']['view_to_insert'] = 'blog:isotope_filter';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Campo: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
@@ -281,7 +281,7 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['block_description'] = 'Blog home';
 
   /* Display: Blog isotope filter */
-  $handler = $view->new_display('block', 'Blog isotope filter', 'block_1');
+  $handler = $view->new_display('block', 'Blog isotope filter', 'isotope_filter');
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
