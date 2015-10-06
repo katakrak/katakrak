@@ -218,7 +218,7 @@ global $language;
           <?php print views_embed_view('libros', 'libros_rel_cat', $node->field_libro_categoria['und'][0]['tid']) ?>
          <?php $view = views_get_view_result('libros', 'libros_rel_autor', $node->field_libro_autores['und'][0]['tid'])?>
           <?php if ($view): ?>
-            <h2 class="block"><?php print t('Otro libros del autor')?></h2>
+            <h2 class="block"><?php print t('Otros libros del autor')?></h2>
             <?php print views_embed_view('libros', 'libros_rel_autor', $node->field_libro_autores['und'][0]['tid']) ?>
           <?php endif; ?>
         </div>
