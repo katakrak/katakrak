@@ -41,9 +41,11 @@ function katakrak_agenda_init() {
 //    }
 //    $node->uid = 1;
 //    node_save($node);
+//    taxonomy_term_delete($tid->tid);
 //  }
   
-//    $nodes = db_select('node', 'n')->condition('n.type', 'event')->fields('n', array('nid'))->execute()->fetchAll();
+//    $nodes = db_select('node', 'n')->condition('n.type', 'event')->fields('n', array('nid'))->range(150,50)
+//      ->execute()->fetchAll();
 //    foreach ($nodes as $nid) {
 //      $node = node_load($nid->nid);
 //      $node->field_event_descripcion['und'][0]['value'] = $node->field_event_description['und'][0]['value'];

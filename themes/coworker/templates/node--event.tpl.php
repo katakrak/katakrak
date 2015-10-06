@@ -90,7 +90,7 @@
       <?php print render($content['sharethis']) ?>
       <h3><?php print render($content['field_event_type']) ?></h3>
     </div>
-    <?php print render($content['field_event_descripcion']) ?>
+    <?php print render($content['field_event_description']) ?>
       
   </div>
 </div>

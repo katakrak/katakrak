@@ -103,6 +103,7 @@ features[image][] = book_medium
 features[image][] = book_thumbnail
 features[image][] = cover_home
 features[image][] = search_result_cover
+features[image][] = seccion
 features[node][] = libro
 features[page_manager_handlers][] = term_view_panel_context
 features[taxonomy][] = autores

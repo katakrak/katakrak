@@ -338,7 +338,7 @@ function katakrak_search_apachesolr_query_prepare(DrupalSolrQueryInterface $quer
   ));
 
   // Sort on our new field
-  $original_sort = $query->getSolrsortUrlQuery();
-  if (empty($original_sort))
-    $query->setSolrSort('is_field_product_stock', 'desc');
+//  $original_sort = $query->getSolrsortUrlQuery();
+//  if (empty($original_sort))
+//    $query->setSolrSort('is_field_product_stock', 'desc');
 }

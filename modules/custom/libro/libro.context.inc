@@ -183,6 +183,12 @@ function libro_context_default_contexts() {
           'region' => 'content_bottom_second',
           'weight' => '-10',
         ),
+        'views-agenda-eventos_libreria' => array(
+          'module' => 'views',
+          'delta' => 'agenda-eventos_libreria',
+          'region' => 'content_bottom_third',
+          'weight' => '-10',
+        ),
         'libro-libreria_home_search' => array(
           'module' => 'libro',
           'delta' => 'libreria_home_search',

@@ -24,10 +24,18 @@ function katakrak_home_block_info() {
  * Implements hook_block_view().
  */
 function katakrak_home_block_view($delta) {
+  global $language;
   if ($delta == 'katakrak_home_promo') {
+    if ($language->language == 'es') {
+      $nid = 49320;
+    }
+    else {
+      $nid = 49321;
+    }
     $block['title'] = t('Conoce Katakrak');
      $block['content'] = array(
       '#theme' => 'katakrak_home_promo',
+       '#nid' => $nid,
     );
     //$block['content']['#markup'] = theme('');
     return $block;
@@ -42,6 +50,7 @@ function katakrak_home_theme() {
   return array(
     'katakrak_home_promo' => array(
       'template' => 'katakrak-home-promo',
+      'variables' => array('nid' => NULL),
       'path' => $path . '/templates',
     ),
   );

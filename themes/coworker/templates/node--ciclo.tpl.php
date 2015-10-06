@@ -87,7 +87,7 @@
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <?php if ($node->field_ciclo_actos['und']): ?>
-      <h2><?php print t('citas') ?></h2>
+      <h2><?php print t('Citas') ?></h2>
       <?php print views_embed_view('agenda', 'citas_ciclo', $node->nid) ?>
     <?php endif; ?>
     

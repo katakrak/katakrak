@@ -162,6 +162,21 @@ function libro_image_default_styles() {
     ),
   );
 
+  // Exported image style: seccion.
+  $styles['seccion'] = array(
+    'label' => 'seccion',
+    'effects' => array(
+      22 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 293,
+          'height' => 293,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   return $styles;
 }
 

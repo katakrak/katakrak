@@ -51,3 +51,27 @@ function katakrak_home_fe_nodequeue_export_fields() {
 
   return $nodequeues;
 }
+
+/**
+ * Implements hook_image_default_styles().
+ */
+function katakrak_home_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: home_promo.
+  $styles['home_promo'] = array(
+    'label' => 'Home Promo',
+    'effects' => array(
+      28 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 390,
+          'height' => 390,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  return $styles;
+}

@@ -219,6 +219,7 @@ function libro_field_default_field_bases() {
         0 => 'En cola',
         1 => 'No',
         2 => 'Sí',
+        3 => 'checked',
       ),
       'allowed_values_function' => '',
     ),
