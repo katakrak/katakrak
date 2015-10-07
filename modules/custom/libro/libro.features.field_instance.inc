@@ -902,6 +902,55 @@ function libro_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-libro-field_libro_portada_checked'
+  $field_instances['node-libro-field_libro_portada_checked'] = array(
+    'bundle' => 'libro',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 18,
+      ),
+      'search_index' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_libro_portada_checked',
+    'label' => 'Portada checked',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 14,
+    ),
+  );
+
   // Exported field_instance: 'node-libro-field_libro_producto'
   $field_instances['node-libro-field_libro_producto'] = array(
     'bundle' => 'libro',
@@ -1482,6 +1531,7 @@ function libro_field_default_field_instances() {
   t('Peso');
   t('Peso medio');
   t('Portada');
+  t('Portada checked');
   t('Price');
   t('Producto');
   t('Páginas');
