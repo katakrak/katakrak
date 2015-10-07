@@ -10,6 +10,7 @@ function katakrak_itinerarios_node_load($nodes, $types) {
   if (count(array_intersect(array('itinerario'), $types))) {
     foreach($nodes as $node) {
       $paradas = array();
+      $portadas = array();
       foreach ($node->field_itinerario_paradas['und'] as $v) {
         $parada_entity = field_collection_item_load($v['value']);
         
