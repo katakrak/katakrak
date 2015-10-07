@@ -33,7 +33,7 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="kata-main-menu">
+    <div class="collapse navbar-collapse hidden-xs" id="kata-main-menu">
       <a href="<?php print $front_page; ?>" class="logo-txiki"><img src="/sites/all/themes/coworker/images/logo-txiki.png"></a>
       <div id="primary-links">
         <div id="main-menu" class="hidden-xs">
