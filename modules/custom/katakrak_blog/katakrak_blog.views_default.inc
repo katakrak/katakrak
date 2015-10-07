@@ -187,6 +187,7 @@ function katakrak_blog_views_default_views() {
     'image_style' => 'blog_home',
     'image_link' => 'content',
   );
+  $handler->display->display_options['fields']['field_image']['delta_limit'] = '1';
   $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
   /* Campo: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
