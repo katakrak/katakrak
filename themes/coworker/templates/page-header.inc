@@ -4,7 +4,7 @@
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#kata-main-menu">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#kata-mobile-menu">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -33,19 +33,20 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse hidden-xs" id="kata-main-menu">
+    <div  id="kata-main-menu" class="hidden-xs">
       <a href="<?php print $front_page; ?>" class="logo-txiki"><img src="/sites/all/themes/coworker/images/logo-txiki.png"></a>
       <div id="primary-links">
         <div id="main-menu" class="hidden-xs">
           <?php print $navigation ?>
         </div>
-        <div class="hidden-lg hidden-md hidden-sm" >
-          <?php print $navigation ?>
-        </div>  
-        
       </div>  
       <?php print render($page['top_right']); ?>
     </div><!-- /.navbar-collapse -->
+    <div class="hidden-lg hidden-md hidden-sm" id="primary-links">
+      <div id="kata-mobile-menu" class="collapse navbar-collapse" >
+        <?php print $navigation ?>
+      </div>  
+    </div>
   </div><!-- /.container-fluid -->
   <div class="container-fluid">
   <div class="banda_header"></div>
