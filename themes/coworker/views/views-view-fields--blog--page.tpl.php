@@ -34,5 +34,6 @@ else {
 <?php print $fields['field_image']->content ?>
 <?php print $fields['title']->content ?>
 <?php print t("Posted on !date", array('!date' => format_date($fields['created']->raw, 'custom', $date_format))) ?>
-<?php print $fields['field_blog_body']->content ?>
+<?php print $fields['field_blog_cuerpo']->content ?>
+<?php print $fields['field_boletin_body']->content ?>
 <?php print $fields['field_blog_tipo']->content ?>

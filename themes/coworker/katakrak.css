@@ -785,6 +785,9 @@ ul#user-sticky li {
 .view-id-itinerarios .views-field-title {
   text-align: center;
 }
+.views-field-field-itinerario-linea a {
+  text-decoration: none;
+}
 @media \0screen {
   #block-views-libros-book-block-home div.field-content div.prod-info {
     display: none;
@@ -1382,7 +1385,7 @@ button.checkout-cancel {
   padding: 10px;
   float: left;
   max-width: 100px;
-  height: 60px;
+  height: 100px;
   margin: 5px 10px;
 }
 #commerce-checkout-form-checkout label.radio input,
@@ -1401,6 +1404,11 @@ button.checkout-cancel {
   background: #2780af;
   text-transform: uppercase;
   color: #ffffff;
+}
+#commerce-checkout-form-checkout .checkout-buttons,
+#commerce-checkout-form-review .checkout-buttons,
+#commerce-checkout-form-shipping .checkout-buttons {
+  margin-top: 30px;
 }
 span.fieldset-legend {
   font-size: 15px;

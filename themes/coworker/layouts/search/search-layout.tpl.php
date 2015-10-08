@@ -1,5 +1,4 @@
 <div id="block-libro-libreria-home-search" class="container-fluid banda-libreria">
-  <div class="container">
     <div class="content-wrap">
       <div class="content">
         <div class="row">
@@ -15,7 +14,6 @@
         
       </div>
     </div>
-  </div>
 </div>
 
 <div class="container">
