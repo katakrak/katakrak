@@ -629,7 +629,7 @@ ul#user-sticky li {
 .block-mailchimp-signup .mailchimp-signup-subscribe-form div.form-item-mergevars-FNAME,
 .block-mailchimp-signup .mailchimp-signup-subscribe-form div.form-item-mergevars-LNAME {
   float: left;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 .block-mailchimp-signup .mailchimp-signup-subscribe-form #edit-actions {
   text-align: center;
@@ -648,6 +648,12 @@ ul#user-sticky li {
 }
 #block-views-blog-block .views-row-first {
   margin-top: 0;
+}
+.view-blog h2 {
+  padding-bottom: 5px;
+}
+.view-blog .views-row {
+  margin-top: 30px;
 }
 /* ESTILOS PARA LIBRERIA */
 .book-recomendados-view {

@@ -31,9 +31,18 @@ else {
   $date_format = 'Y/m/d';
 }
 ?>
-<?php print $fields['field_image']->content ?>
-<?php print $fields['title']->content ?>
-<?php print t("Posted on !date", array('!date' => format_date($fields['created']->raw, 'custom', $date_format))) ?>
-<?php print $fields['field_blog_cuerpo']->content ?>
-<?php print $fields['field_boletin_body']->content ?>
+<div class="row">
+  <div class="col-xs-12">
+    <?php print $fields['title']->content ?>
+    <?php print t("Posted on !date", array('!date' => format_date($fields['created']->raw, 'custom', $date_format))) ?>
+  </div>
+  <div class="col-sm-5">
+    <?php print $fields['field_image']->content ?>
+  </div>
+  <div class="col-sm-7">
+    <?php print $fields['field_blog_body']->content ?>
+    <?php print $fields['field_boletin_body']->content ?>
+  </div>
+</div>
+
 <?php print $fields['field_blog_tipo']->content ?>

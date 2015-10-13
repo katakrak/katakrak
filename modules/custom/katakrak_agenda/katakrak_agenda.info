@@ -8,7 +8,6 @@ dependencies[] = colorbox
 dependencies[] = date
 dependencies[] = field_group
 dependencies[] = flexslider
-dependencies[] = flexslider_views
 dependencies[] = katakrak_itinerarios
 dependencies[] = page_manager
 dependencies[] = title

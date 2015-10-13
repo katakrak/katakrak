@@ -71,8 +71,7 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹‹';
   $handler->display->display_options['pager']['options']['tags']['next'] = '››';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
-  $handler->display->display_options['style_plugin'] = 'isotope';
-  $handler->display->display_options['style_options']['portfolio_style'] = 'portfolio-3';
+  $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Campo: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
@@ -196,7 +195,7 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Campo: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
@@ -207,13 +206,6 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['fields']['created']['date_format'] = 'media';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'd/m/Y';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
-  /* Campo: Content: Tipo */
-  $handler->display->display_options['fields']['field_blog_tipo']['id'] = 'field_blog_tipo';
-  $handler->display->display_options['fields']['field_blog_tipo']['table'] = 'field_data_field_blog_tipo';
-  $handler->display->display_options['fields']['field_blog_tipo']['field'] = 'field_blog_tipo';
-  $handler->display->display_options['fields']['field_blog_tipo']['element_type'] = 'div';
-  $handler->display->display_options['fields']['field_blog_tipo']['element_class'] = 'isotope-filter';
-  $handler->display->display_options['fields']['field_blog_tipo']['element_default_classes'] = FALSE;
   /* Campo: Content: Imagen */
   $handler->display->display_options['fields']['field_boletin_imagen']['id'] = 'field_boletin_imagen';
   $handler->display->display_options['fields']['field_boletin_imagen']['table'] = 'field_data_field_boletin_imagen';
@@ -222,6 +214,41 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['fields']['field_boletin_imagen']['settings'] = array(
     'image_style' => 'blog_home',
     'image_link' => 'content',
+  );
+  /* Campo: Content: Cuerpo */
+  $handler->display->display_options['fields']['field_boletin_body']['id'] = 'field_boletin_body';
+  $handler->display->display_options['fields']['field_boletin_body']['table'] = 'field_data_field_boletin_body';
+  $handler->display->display_options['fields']['field_boletin_body']['field'] = 'field_boletin_body';
+  $handler->display->display_options['fields']['field_boletin_body']['label'] = '';
+  $handler->display->display_options['fields']['field_boletin_body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_boletin_body']['settings'] = array(
+    'edit' => 'Editar',
+    'delete' => 'Eliminar',
+    'add' => 'Agregar',
+    'description' => 1,
+    'view_mode' => 'full',
+  );
+  $handler->display->display_options['fields']['field_boletin_body']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_boletin_body']['delta_offset'] = '0';
+  /* Campo: Content: Body */
+  $handler->display->display_options['fields']['field_blog_body']['id'] = 'field_blog_body';
+  $handler->display->display_options['fields']['field_blog_body']['table'] = 'field_data_field_blog_body';
+  $handler->display->display_options['fields']['field_blog_body']['field'] = 'field_blog_body';
+  $handler->display->display_options['fields']['field_blog_body']['label'] = '';
+  $handler->display->display_options['fields']['field_blog_body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_blog_body']['type'] = 'text_trimmed';
+  $handler->display->display_options['fields']['field_blog_body']['settings'] = array(
+    'trim_length' => '400',
+  );
+  /* Campo: Content: Cuerpo */
+  $handler->display->display_options['fields']['field_blog_cuerpo']['id'] = 'field_blog_cuerpo';
+  $handler->display->display_options['fields']['field_blog_cuerpo']['table'] = 'field_data_field_blog_cuerpo';
+  $handler->display->display_options['fields']['field_blog_cuerpo']['field'] = 'field_blog_cuerpo';
+  $handler->display->display_options['fields']['field_blog_cuerpo']['label'] = '';
+  $handler->display->display_options['fields']['field_blog_cuerpo']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_blog_cuerpo']['type'] = 'text_trimmed';
+  $handler->display->display_options['fields']['field_blog_cuerpo']['settings'] = array(
+    'trim_length' => '400',
   );
   $handler->display->display_options['path'] = 'blogs';
   $handler->display->display_options['menu']['type'] = 'normal';
@@ -281,26 +308,6 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'd/m/Y';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
   $handler->display->display_options['block_description'] = 'Blog home';
-
-  /* Display: Blog isotope filter */
-  $handler = $view->new_display('block', 'Blog isotope filter', 'isotope_filter');
-  $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'none';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'isotope_filter_block';
-  $handler->display->display_options['style_options']['portfolio_style'] = 'portfolio-4';
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Content: Tipo */
-  $handler->display->display_options['fields']['field_blog_tipo']['id'] = 'field_blog_tipo';
-  $handler->display->display_options['fields']['field_blog_tipo']['table'] = 'field_data_field_blog_tipo';
-  $handler->display->display_options['fields']['field_blog_tipo']['field'] = 'field_blog_tipo';
-  $handler->display->display_options['fields']['field_blog_tipo']['label'] = '';
-  $handler->display->display_options['fields']['field_blog_tipo']['element_label_colon'] = FALSE;
   $translatables['blog'] = array(
     t('Master'),
     t('Blog'),
@@ -321,10 +328,8 @@ function katakrak_blog_views_default_views() {
     t('Bide-izena'),
     t('Page'),
     t('more'),
-    t('Tipo'),
     t('Imagen'),
     t('Blog home'),
-    t('Blog isotope filter'),
   );
   $export['blog'] = $view;
 

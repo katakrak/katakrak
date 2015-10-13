@@ -20,17 +20,6 @@ function katakrak_agenda_theme() {
   );
 }
 
-function katakrak_agenda_init() {  
-//    $nodes = db_select('node', 'n')->condition('n.type', 'event')->fields('n', array('nid'))->range(150,50)
-//      ->execute()->fetchAll();
-//    foreach ($nodes as $nid) {
-//      $node = node_load($nid->nid);
-//      $node->field_event_descripcion['und'][0]['value'] = $node->field_event_description['und'][0]['value'];
-//      $node->field_event_descripcion['und'][0]['format'] = $node->field_event_description['und'][0]['format'];
-//      node_save($node);
-//    }
-}
-
 function katakrak_agenda_node_presave($node) {
   if ($node->type == 'ciclo' && $node->language != 'und') {
     $citas = array();
