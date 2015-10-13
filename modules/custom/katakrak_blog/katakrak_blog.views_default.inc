@@ -206,50 +206,44 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['fields']['created']['date_format'] = 'media';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'd/m/Y';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
-  /* Campo: Content: Imagen */
-  $handler->display->display_options['fields']['field_boletin_imagen']['id'] = 'field_boletin_imagen';
-  $handler->display->display_options['fields']['field_boletin_imagen']['table'] = 'field_data_field_boletin_imagen';
-  $handler->display->display_options['fields']['field_boletin_imagen']['field'] = 'field_boletin_imagen';
-  $handler->display->display_options['fields']['field_boletin_imagen']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_boletin_imagen']['settings'] = array(
-    'image_style' => 'blog_home',
-    'image_link' => 'content',
+  /* Campo: Content: Cuerpo */
+  $handler->display->display_options['fields']['field_blog_cuerpo']['id'] = 'field_blog_cuerpo';
+  $handler->display->display_options['fields']['field_blog_cuerpo']['table'] = 'field_data_field_blog_cuerpo';
+  $handler->display->display_options['fields']['field_blog_cuerpo']['field'] = 'field_blog_cuerpo';
+  $handler->display->display_options['fields']['field_blog_cuerpo']['label'] = '';
+  $handler->display->display_options['fields']['field_blog_cuerpo']['alter']['max_length'] = '600';
+  $handler->display->display_options['fields']['field_blog_cuerpo']['alter']['more_link'] = TRUE;
+  $handler->display->display_options['fields']['field_blog_cuerpo']['alter']['more_link_text'] = 'Leer más [+]';
+  $handler->display->display_options['fields']['field_blog_cuerpo']['alter']['more_link_path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_blog_cuerpo']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_blog_cuerpo']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['field_blog_cuerpo']['settings'] = array(
+    'trim_length' => '400',
   );
   /* Campo: Content: Cuerpo */
   $handler->display->display_options['fields']['field_boletin_body']['id'] = 'field_boletin_body';
   $handler->display->display_options['fields']['field_boletin_body']['table'] = 'field_data_field_boletin_body';
   $handler->display->display_options['fields']['field_boletin_body']['field'] = 'field_boletin_body';
   $handler->display->display_options['fields']['field_boletin_body']['label'] = '';
+  $handler->display->display_options['fields']['field_boletin_body']['alter']['max_length'] = '600';
+  $handler->display->display_options['fields']['field_boletin_body']['alter']['more_link_text'] = 'Leer más [+]';
+  $handler->display->display_options['fields']['field_boletin_body']['alter']['more_link_path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_boletin_body']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['field_boletin_body']['alter']['html'] = TRUE;
   $handler->display->display_options['fields']['field_boletin_body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_boletin_body']['type'] = 'field_collection_fields';
   $handler->display->display_options['fields']['field_boletin_body']['settings'] = array(
-    'edit' => 'Editar',
-    'delete' => 'Eliminar',
-    'add' => 'Agregar',
-    'description' => 1,
     'view_mode' => 'full',
   );
   $handler->display->display_options['fields']['field_boletin_body']['delta_limit'] = '1';
   $handler->display->display_options['fields']['field_boletin_body']['delta_offset'] = '0';
-  /* Campo: Content: Body */
-  $handler->display->display_options['fields']['field_blog_body']['id'] = 'field_blog_body';
-  $handler->display->display_options['fields']['field_blog_body']['table'] = 'field_data_field_blog_body';
-  $handler->display->display_options['fields']['field_blog_body']['field'] = 'field_blog_body';
-  $handler->display->display_options['fields']['field_blog_body']['label'] = '';
-  $handler->display->display_options['fields']['field_blog_body']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_blog_body']['type'] = 'text_trimmed';
-  $handler->display->display_options['fields']['field_blog_body']['settings'] = array(
-    'trim_length' => '400',
-  );
-  /* Campo: Content: Cuerpo */
-  $handler->display->display_options['fields']['field_blog_cuerpo']['id'] = 'field_blog_cuerpo';
-  $handler->display->display_options['fields']['field_blog_cuerpo']['table'] = 'field_data_field_blog_cuerpo';
-  $handler->display->display_options['fields']['field_blog_cuerpo']['field'] = 'field_blog_cuerpo';
-  $handler->display->display_options['fields']['field_blog_cuerpo']['label'] = '';
-  $handler->display->display_options['fields']['field_blog_cuerpo']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_blog_cuerpo']['type'] = 'text_trimmed';
-  $handler->display->display_options['fields']['field_blog_cuerpo']['settings'] = array(
-    'trim_length' => '400',
-  );
+  /* Campo: Content: Link */
+  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['view_node']['text'] = 'Leer más [+]';
   $handler->display->display_options['path'] = 'blogs';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Blogs';
@@ -328,7 +322,7 @@ function katakrak_blog_views_default_views() {
     t('Bide-izena'),
     t('Page'),
     t('more'),
-    t('Imagen'),
+    t('Leer más [+]'),
     t('Blog home'),
   );
   $export['blog'] = $view;

@@ -87,7 +87,7 @@ $profile = user_load($node->uid);
     <p><?php print t("Published on !date by !author", array('!author' => $node->name, '!date' => format_date($node->changed, 'custom', 'd/m/Y'))) ?></p>
     
     <?php print render($content['field_image']) ?>
-    <p><?php print render($content['field_blog_body']) ?></p>
+    <p><?php print render($content['field_blog_cuerpo']) ?></p>
     <p><?php print $node->event_table; ?></p>
     <p><?php print render($content['field_blog_adjunto']) ?></p>
   </div>

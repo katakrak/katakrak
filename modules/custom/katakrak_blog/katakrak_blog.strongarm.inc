@@ -108,7 +108,7 @@ function katakrak_blog_strongarm() {
           'weight' => '1',
         ),
         'metatags' => array(
-          'weight' => '6',
+          'weight' => '9',
         ),
       ),
       'display' => array(

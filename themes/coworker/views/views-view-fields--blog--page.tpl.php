@@ -40,8 +40,9 @@ else {
     <?php print $fields['field_image']->content ?>
   </div>
   <div class="col-sm-7">
-    <?php print $fields['field_blog_body']->content ?>
+    <?php print $fields['field_blog_cuerpo']->content ?>
     <?php print $fields['field_boletin_body']->content ?>
+    <?php print $fields['view_node']->content ?>
   </div>
 </div>
 
