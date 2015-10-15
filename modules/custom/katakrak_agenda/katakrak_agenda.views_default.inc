@@ -1442,6 +1442,170 @@ function katakrak_agenda_views_default_views() {
   $export['agenda_admin'] = $view;
 
   $view = new view();
+  $view->name = 'agenda_service';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Agenda_service';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
+  $handler->display->display_options['query']['options']['pure_distinct'] = TRUE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Campo: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'title';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Campo: Content: Date */
+  $handler->display->display_options['fields']['field_event_date']['id'] = 'field_event_date';
+  $handler->display->display_options['fields']['field_event_date']['table'] = 'field_data_field_event_date';
+  $handler->display->display_options['fields']['field_event_date']['field'] = 'field_event_date';
+  $handler->display->display_options['fields']['field_event_date']['label'] = 'Fecha';
+  $handler->display->display_options['fields']['field_event_date']['type'] = 'date_plain';
+  $handler->display->display_options['fields']['field_event_date']['settings'] = array(
+    'format_type' => 'long',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
+  $handler->display->display_options['fields']['field_event_date']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_event_date']['delta_offset'] = '0';
+  /* Campo: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = 'id';
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Campo: Content: Image */
+  $handler->display->display_options['fields']['field_event_image']['id'] = 'field_event_image';
+  $handler->display->display_options['fields']['field_event_image']['table'] = 'field_data_field_event_image';
+  $handler->display->display_options['fields']['field_event_image']['field'] = 'field_event_image';
+  $handler->display->display_options['fields']['field_event_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_event_image']['settings'] = array(
+    'image_style' => 'medium',
+    'image_link' => '',
+  );
+  /* Campo: Content: Image */
+  $handler->display->display_options['fields']['field_event_image_1']['id'] = 'field_event_image_1';
+  $handler->display->display_options['fields']['field_event_image_1']['table'] = 'field_data_field_event_image';
+  $handler->display->display_options['fields']['field_event_image_1']['field'] = 'field_event_image';
+  $handler->display->display_options['fields']['field_event_image_1']['label'] = 'thumbnail';
+  $handler->display->display_options['fields']['field_event_image_1']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_event_image_1']['settings'] = array(
+    'image_style' => 'event_thumbnail',
+    'image_link' => '',
+  );
+  /* Campo: Content: Description */
+  $handler->display->display_options['fields']['field_event_description']['id'] = 'field_event_description';
+  $handler->display->display_options['fields']['field_event_description']['table'] = 'field_data_field_event_description';
+  $handler->display->display_options['fields']['field_event_description']['field'] = 'field_event_description';
+  $handler->display->display_options['fields']['field_event_description']['label'] = 'description';
+  $handler->display->display_options['fields']['field_event_description']['element_label_colon'] = FALSE;
+  /* Campo: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = 'link';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href="http://katakrak.net/node/[nid]">ver mas</a>';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  /* Sort criterion: Content: Date (field_event_date) */
+  $handler->display->display_options['sorts']['field_event_date_value']['id'] = 'field_event_date_value';
+  $handler->display->display_options['sorts']['field_event_date_value']['table'] = 'field_data_field_event_date';
+  $handler->display->display_options['sorts']['field_event_date_value']['field'] = 'field_event_date_value';
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid_1']['id'] = 'nid_1';
+  $handler->display->display_options['arguments']['nid_1']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid_1']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid_1']['exception']['title'] = 'Todo(s)';
+  $handler->display->display_options['arguments']['nid_1']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid_1']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid_1']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid_1']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'event' => 'event',
+  );
+  /* Filter criterion: Content: Date (field_event_date) */
+  $handler->display->display_options['filters']['field_event_date_value']['id'] = 'field_event_date_value';
+  $handler->display->display_options['filters']['field_event_date_value']['table'] = 'field_data_field_event_date';
+  $handler->display->display_options['filters']['field_event_date_value']['field'] = 'field_event_date_value';
+  $handler->display->display_options['filters']['field_event_date_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_event_date_value']['default_date'] = 'now';
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    'es' => 'es',
+  );
+
+  /* Display: Services */
+  $handler = $view->new_display('services', 'Services', 'services_1');
+  $handler->display->display_options['path'] = 'agenda';
+  $translatables['agenda_service'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('title'),
+    t('Fecha'),
+    t('id'),
+    t('Image'),
+    t('thumbnail'),
+    t('description'),
+    t('link'),
+    t('<a href="http://katakrak.net/node/[nid]">ver mas</a>'),
+    t('All'),
+    t('Todo(s)'),
+    t('Services'),
+  );
+  $export['agenda_service'] = $view;
+
+  $view = new view();
   $view->name = 'ciclos_admin';
   $view->description = '';
   $view->tag = 'default';

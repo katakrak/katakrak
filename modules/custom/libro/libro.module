@@ -38,8 +38,8 @@ function libro_menu() {
   $items['libro'] = array(
     'title' => 'Portada',
     'page callback' => 'libro_por_isbn',
-    'access callback' => array('access content'),
-    'type' => MENU_CALLBACK,kakatakrak_dilve_access_node_infotakrak_dilve_access_node_info
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
   );
   return $items;
 }

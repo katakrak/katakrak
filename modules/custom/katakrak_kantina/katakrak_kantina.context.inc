@@ -85,19 +85,9 @@ function katakrak_kantina_context_default_contexts() {
     ),
   );
   $context->reactions = array(
-    'block' => array(
-      'blocks' => array(
-        'katakrak_kantina-katakrak_kantina_page_header' => array(
-          'module' => 'katakrak_kantina',
-          'delta' => 'katakrak_kantina_page_header',
-          'region' => 'content_top',
-          'weight' => '-10',
-        ),
-      ),
-      'layout' => 'kantina',
-    ),
     'menu' => array(
-      0 => 'main-menu:cantina',
+      0 => 'main-menu:node/2134',
+      1 => 'main-menu:node/2133',
     ),
   );
   $context->condition_mode = 0;

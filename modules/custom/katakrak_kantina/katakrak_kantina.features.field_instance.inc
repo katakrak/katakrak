@@ -359,6 +359,43 @@ function katakrak_kantina_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-receta-field_receta_tipo'
+  $field_instances['node-receta-field_receta_tipo'] = array(
+    'bundle' => 'receta',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_receta_tipo',
+    'label' => 'Tipo receta',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 7,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Azkenburukoak');
@@ -369,6 +406,7 @@ function katakrak_kantina_field_default_field_instances() {
   t('Imagen');
   t('Ingredientes');
   t('Oharrak');
+  t('Tipo receta');
 
   return $field_instances;
 }

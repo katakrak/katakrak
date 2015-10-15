@@ -294,7 +294,7 @@ function katakrak_kantina_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'isotope';
-  $handler->display->display_options['style_options']['portfolio_style'] = 'portfolio-4';
+  $handler->display->display_options['style_options']['portfolio_style'] = 'portfolio-3';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Campo: Content: Imagen */
   $handler->display->display_options['fields']['field_receta_imagen']['id'] = 'field_receta_imagen';
@@ -353,6 +353,49 @@ function katakrak_kantina_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Encabezado: Global: View area */
+  $handler->display->display_options['header']['view']['id'] = 'view';
+  $handler->display->display_options['header']['view']['table'] = 'views';
+  $handler->display->display_options['header']['view']['field'] = 'view';
+  $handler->display->display_options['header']['view']['view_to_insert'] = 'kantina_recetas:isotope_filter';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Campo: Content: Imagen */
+  $handler->display->display_options['fields']['field_receta_imagen']['id'] = 'field_receta_imagen';
+  $handler->display->display_options['fields']['field_receta_imagen']['table'] = 'field_data_field_receta_imagen';
+  $handler->display->display_options['fields']['field_receta_imagen']['field'] = 'field_receta_imagen';
+  $handler->display->display_options['fields']['field_receta_imagen']['label'] = '';
+  $handler->display->display_options['fields']['field_receta_imagen']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_receta_imagen']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_receta_imagen']['settings'] = array(
+    'image_style' => 'kantina_medium',
+    'image_link' => 'content',
+  );
+  /* Campo: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Campo: Content: Link */
+  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['view_node']['text'] = 'leer más [+]';
+  /* Campo: Content: Tipo receta */
+  $handler->display->display_options['fields']['field_receta_tipo']['id'] = 'field_receta_tipo';
+  $handler->display->display_options['fields']['field_receta_tipo']['table'] = 'field_data_field_receta_tipo';
+  $handler->display->display_options['fields']['field_receta_tipo']['field'] = 'field_receta_tipo';
+  $handler->display->display_options['fields']['field_receta_tipo']['label'] = '';
+  $handler->display->display_options['fields']['field_receta_tipo']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_receta_tipo']['element_class'] = 'isotope-filter';
+  $handler->display->display_options['fields']['field_receta_tipo']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_receta_tipo']['element_default_classes'] = FALSE;
   $handler->display->display_options['path'] = 'cantina/recetas';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Blog';
@@ -378,6 +421,23 @@ function katakrak_kantina_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+
+  /* Display: Isotope Filter */
+  $handler = $view->new_display('block', 'Isotope Filter', 'isotope_filter');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'isotope_filter_block';
+  $handler->display->display_options['style_options']['portfolio_style'] = 'portfolio-4';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Campo: Content: Tipo receta */
+  $handler->display->display_options['fields']['field_receta_tipo']['id'] = 'field_receta_tipo';
+  $handler->display->display_options['fields']['field_receta_tipo']['table'] = 'field_data_field_receta_tipo';
+  $handler->display->display_options['fields']['field_receta_tipo']['field'] = 'field_receta_tipo';
+  $handler->display->display_options['fields']['field_receta_tipo']['label'] = '';
+  $handler->display->display_options['fields']['field_receta_tipo']['element_label_colon'] = FALSE;
   $translatables['kantina_recetas'] = array(
     t('Master'),
     t('Recetas'),
@@ -399,6 +459,7 @@ function katakrak_kantina_views_default_views() {
     t('more'),
     t('Bloque'),
     t('Ver todas las recetas'),
+    t('Isotope Filter'),
   );
   $export['kantina_recetas'] = $view;
 
@@ -494,7 +555,8 @@ function katakrak_kantina_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<a href="/node/add/event">Crear evento</a>';
+  $handler->display->display_options['header']['area']['empty'] = TRUE;
+  $handler->display->display_options['header']['area']['content'] = '<a href="/node/add/receta">Crear receta</a>';
   $handler->display->display_options['header']['area']['format'] = 'sinopsis';
   /* Campo: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -562,7 +624,7 @@ function katakrak_kantina_views_default_views() {
     t('‹ anterior'),
     t('siguiente ›'),
     t('última »'),
-    t('<a href="/node/add/event">Crear evento</a>'),
+    t('<a href="/node/add/receta">Crear receta</a>'),
     t('Title'),
     t('Language'),
     t('Imagen'),

@@ -49,7 +49,7 @@ function katakrak_kantina_fe_nodequeue_export_fields() {
     'show_in_links' => 1,
     'reference' => 0,
     'reverse' => 0,
-    'i18n' => 0,
+    'i18n' => NULL,
     'insert_at_front' => 0,
     'subqueues' => 1,
     'types' => array(
@@ -149,7 +149,7 @@ function katakrak_kantina_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Título'),
       'help' => '',
     ),
   );

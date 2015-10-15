@@ -151,7 +151,7 @@ function katakrak_block_view($delta) {
   if ($delta == 'katakrak_user_top') {
     $block['content'] = '<ul id="user-sticky"><li><div class="tab read"><i class="fa fa-user fa-2x"></i></div>';
     if (user_is_anonymous()) {  
-     $block['content'] .= '<div class="text">'.l(t('Acceder'), 'user').'</div>';
+     $block['content'] .= '<div class="text">'.l(t('Acceder'), 'user', array('query' => array('destination' => $_GET['q']))).'</div>';
     }
     else {
       $block['content'] .=  '<div class="text">'.l(truncate_utf8($user->name, 12, TRUE, TRUE, 1), 'user').' / '.l(t('Log out'), 'user/logout').'</div>';
