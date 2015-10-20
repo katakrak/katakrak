@@ -518,6 +518,10 @@ function katakrak_agenda_views_default_views() {
     'materias' => 0,
     'tags' => 0,
   );
+  /* Relationship: Content: Actos (field_ciclo_actos) - reverse */
+  $handler->display->display_options['relationships']['reverse_field_ciclo_actos_node']['id'] = 'reverse_field_ciclo_actos_node';
+  $handler->display->display_options['relationships']['reverse_field_ciclo_actos_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_ciclo_actos_node']['field'] = 'reverse_field_ciclo_actos_node';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Campo: Taxonomy term: Color */
   $handler->display->display_options['fields']['field_event_type_color']['id'] = 'field_event_type_color';
@@ -589,6 +593,14 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['fields']['field_event_type_1']['element_type'] = 'h4';
   $handler->display->display_options['fields']['field_event_type_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_event_type_1']['type'] = 'i18n_taxonomy_term_reference_plain';
+  /* Campo: Content: Title */
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'reverse_field_ciclo_actos_node';
+  $handler->display->display_options['fields']['title_1']['label'] = '';
+  $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title_1']['hide_empty'] = TRUE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['filter_groups']['groups'] = array(
     1 => 'AND',
@@ -1087,12 +1099,12 @@ function katakrak_agenda_views_default_views() {
     t('Date browser 2'),
     t('Events page'),
     t('Actos'),
+    t('field_ciclo_actos'),
     t('Feed'),
     t('Next events block page'),
     t('Hurrengo ekitaldiak'),
     t('Citas de ciclo'),
     t('Citas'),
-    t('field_ciclo_actos'),
     t('Guztiak'),
     t('Eventos librería'),
     t('Próximos actos'),

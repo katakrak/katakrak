@@ -148,42 +148,6 @@ function katakrak_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_blog_tipo'
-  $field_instances['node-blog-field_blog_tipo'] = array(
-    'bundle' => 'blog',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 7,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_blog_tipo',
-    'label' => 'Tipo',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 3,
-    ),
-  );
-
   // Exported field_instance: 'node-blog-field_blog_type'
   $field_instances['node-blog-field_blog_type'] = array(
     'bundle' => 'blog',
@@ -324,7 +288,6 @@ function katakrak_blog_field_default_field_instances() {
   t('Etiqueta');
   t('Imagen');
   t('Libro(s)');
-  t('Tipo');
 
   return $field_instances;
 }

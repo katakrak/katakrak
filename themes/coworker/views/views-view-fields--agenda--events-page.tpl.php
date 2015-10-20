@@ -22,7 +22,7 @@
  * - $row: The raw result object from the query, with all data it fetched.
  *
  * @ingroup views_templates
- */
+ */ 
 ?>
 
 <?php print $fields['field_event_image']->wrapper_prefix ?>
@@ -37,7 +37,16 @@
   <div class="col-lg-9">
     <?php print $fields['field_event_type']->content ?>
     <?php print $fields['title']->content ?>
-    <?php print $fields['field_event_type_1']->content ?>
+    
+    
+    
+    <?php if ($fields['title_1']->content): ?>
+      <?php print $fields['field_event_type_1']->content ?> : <?php print $fields['title_1']->content ?>
+    <?php else: ?>
+      <?php print $fields['field_event_type_1']->content ?>
+    <?php endif; ?>
+    
+    
    
   </div>
 </div>

@@ -32,7 +32,7 @@ function katakrak_blog_context_default_contexts() {
       'layout' => 'blog',
     ),
     'menu' => array(
-      0 => 'main-menu:blog',
+      0 => 'main-menu:blogs',
     ),
     'theme' => array(
       'title' => 'Blog',
