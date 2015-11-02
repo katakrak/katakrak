@@ -214,16 +214,6 @@ function katakrak_user_default_permissions() {
     'module' => 'menu',
   );
 
-  // Exported permission: 'administer newsletters'.
-  $permissions['administer newsletters'] = array(
-    'name' => 'administer newsletters',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'simplenews',
-  );
-
   // Exported permission: 'administer nodequeue'.
   $permissions['administer nodequeue'] = array(
     'name' => 'administer nodequeue',
@@ -314,25 +304,6 @@ function katakrak_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_shipping',
-  );
-
-  // Exported permission: 'administer simplenews settings'.
-  $permissions['administer simplenews settings'] = array(
-    'name' => 'administer simplenews settings',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'simplenews',
-  );
-
-  // Exported permission: 'administer simplenews subscriptions'.
-  $permissions['administer simplenews subscriptions'] = array(
-    'name' => 'administer simplenews subscriptions',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'simplenews',
   );
 
   // Exported permission: 'administer taxonomy'.
@@ -1400,28 +1371,6 @@ function katakrak_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'mimemail',
-  );
-
-  // Exported permission: 'send newsletter'.
-  $permissions['send newsletter'] = array(
-    'name' => 'send newsletter',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'simplenews',
-  );
-
-  // Exported permission: 'subscribe to newsletters'.
-  $permissions['subscribe to newsletters'] = array(
-    'name' => 'subscribe to newsletters',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'administrator' => 'administrator',
-      'anonymous user' => 'anonymous user',
-      'authenticated user' => 'authenticated user',
-    ),
-    'module' => 'simplenews',
   );
 
   // Exported permission: 'translate admin strings'.

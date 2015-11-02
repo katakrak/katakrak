@@ -118,6 +118,12 @@ function katakrak_blog_strongarm() {
             'visible' => TRUE,
           ),
         ),
+        'sharethis' => array(
+          'default' => array(
+            'weight' => '10',
+            'visible' => TRUE,
+          ),
+        ),
       ),
     ),
   );

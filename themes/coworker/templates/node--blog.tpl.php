@@ -90,5 +90,10 @@ $profile = user_load($node->uid);
     <p><?php print render($content['field_blog_cuerpo']) ?></p>
     <p><?php print $node->event_table; ?></p>
     <p><?php print render($content['field_blog_adjunto']) ?></p>
+    
+    <?php if ($content['field_blog_libro']): ?>  
+      <h2 class="block"><?php print t("Libro") ?>:</h2>
+      <?php print render($content['field_blog_libro']) ?>
+    <?php endif; ?>
   </div>
 </div>

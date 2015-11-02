@@ -35,3 +35,17 @@ function katakrak_agenda_node_presave($node) {
     $node->field_ciclo_actos['und'] = $citas;
   }
 }
+
+function katakrak_agenda_node_load($nodes, $types) {
+  if (count(array_intersect(array('event'), $types))) {
+    foreach ($nodes as $node) {
+      $ciclos = db_select('field_data_field_ciclo_actos', 'a')->condition('a.field_ciclo_actos_nid', $node->nid)->fields('a')->execute()->fetchAll();
+      foreach ($ciclos as $ciclo_db) {
+        $ciclo = node_load($ciclo_db->entity_id);
+        if ($ciclo->language == $node->language) {
+          $node->ciclo = $ciclo;
+        }
+      }
+    }
+  }
+}

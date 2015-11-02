@@ -89,9 +89,19 @@
       <?php print theme('agenda_date', array('time' => $node->field_event_date['und'][0]['value'])); ?>
       <?php print render($content['sharethis']) ?>
       <h3><?php print render($content['field_event_type']) ?></h3>
+      <?php if ($node->ciclo): ?>
+        <?php print l($node->ciclo->title, 'node/'.$node->ciclo->nid) ?>
+      <?php endif; ?>
     </div>
     <?php print render($content['field_event_description']) ?>
-      
+    
+    <div class="field-content"><p>
+    <?php if ($node->field_event_idioma['und'][0]['value'] == 'es'): ?>
+      <?php print t("* El evento será en castellano") ?>
+    <?php elseif ($node->field_event_idioma['und'][0]['value'] == 'eu'): ?>
+      <?php print t("* El evento será en euskera") ?>
+    <?php endif; ?>  
+    </p></div>
   </div>
 </div>
 <?php if ($node->field_event_libro['und']): ?>

@@ -20,7 +20,7 @@ function katakrak_agenda_taxonomy_default_vocabularies() {
       'i18n_mode' => 4,
     ),
     'event_type' => array(
-      'name' => 'Event Type',
+      'name' => 'Tipo de evento',
       'machine_name' => 'event_type',
       'description' => 'Event Categories for the AIO Calendar',
       'hierarchy' => 0,

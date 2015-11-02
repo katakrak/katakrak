@@ -82,10 +82,13 @@
 <div class="row">
   <div class="col-lg-5">
     <?php print render($content['field_image']) ?>
+    <p><?php print $node->event_table; ?></p>
+    <h4><?php print t("Selección") ?></h4>
+    <p><?php print views_embed_view('libros', 'books_related_boletin', $node->nid); ?></p>
   </div>
   <div class="col-lg-7">
     <h1><?php print $node->title ?></h1>
-    <p><?php print t("Published on !date", array('!date' => format_date($node->created, 'custom', 'd/m/Y'))) ?></p>
+    <p><?php print t("Posted on !date", array('!date' => format_date($node->created, 'custom', 'd/m/Y'))) ?></p>
     <div class="clear"></div>
     <?php print render($content['sharethis']) ?>
     <div class="clear"></div>
@@ -96,9 +99,7 @@
        <?php endif; ?>
     <p><?php print check_markup($body->field_boletin_body_texto['und'][0]['value'], $body->field_boletin_body_texto['und'][0]['format']) ?></p>
     <?php endforeach; ?>
-    <p><?php print $node->event_table; ?></p>
-    <h4><?php print t("Selección") ?></h4>
-    <p><?php print views_embed_view('libros', 'books_related_boletin', $node->nid); ?></p>
+    
     <p><?php print render($content['field_blog_adjunto']) ?></p>
   </div>
 </div>

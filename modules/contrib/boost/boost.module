@@ -314,7 +314,7 @@ function boost_exit($destination = NULL) {
     $cached_at = date('Y-m-d H:i:s', REQUEST_TIME);
     $expires_at = date('Y-m-d H:i:s', REQUEST_TIME + $expire);
     $note = "\n" . $_boost['matched_header_info']['comment_start'] . 'Page cached by Boost @ ' . $cached_at . ', expires @ ' . $expires_at . ', lifetime ' . format_interval($expire) . $_boost['matched_header_info']['comment_end'];
-    $data .= $note;
+    //$data .= $note;
   }
 
   // Write data to a file.
@@ -1178,8 +1178,10 @@ function boost_boost_storage_types() {
     'gzip'            => TRUE,
     'lifetime_max'    => 3600,
     'lifetime_min'    => 0,
-    'comment_start'  => '/* ',
-    'comment_end'    => ' */',
+    'comment_start'  => NULL,
+    'comment_end'    => NULL,
+    //'comment_start'  => '/* ',
+    //'comment_end'    => ' */',
     'variants'        => array(),
   );
   return $types;

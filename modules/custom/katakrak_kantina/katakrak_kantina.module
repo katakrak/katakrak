@@ -62,7 +62,7 @@ function katakrak_kantina_block_view($delta) {
     $block['title'] = t('Reservas');
     //$block['content'] = drupal_get_form('katakrak_kantina_reserva_form');
     $block['content'] = '<span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> '.
-      t('Si quieres reservar sitio para comer o cenar llama al <a href="tel:94822520">94822520</a>');
+      t('Si quieres reservar sitio para comer o cenar llama al <a href="tel:948225520">948225520</a>');
     return $block;
   }
   if ($delta == 'katakrak_kantina_page_header') {

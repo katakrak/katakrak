@@ -80,7 +80,6 @@
  */
 global $language;
 ?>
-
   <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
     <div class="entry_content content <?php print $content_attributes; ?>">
@@ -95,7 +94,11 @@ global $language;
         <div class="col-xs-12">
           <div class="visible-xs">
             <h1>
-              <?php print $node->title ?>
+              <?php if ($page): ?>
+                <?php print $node->title ?>
+              <?php else: ?>
+                <?php print l($node->title, 'node/'.$node->nid) ?>
+              <?php endif; ?>
             </h1>
             <?php print render($content['field_libro_subtitulo']) ?>
             <h4><?php print render($content['field_libro_autores'])  ?></h4>
@@ -110,7 +113,11 @@ global $language;
                 <div class="row">
                   <div class="col-xs-12">
                     <h1>
-                      <?php print $node->title ?>
+                      <?php if ($page): ?>
+                        <?php print $node->title ?>
+                      <?php else: ?>
+                        <?php print l($node->title, 'node/'.$node->nid) ?>
+                      <?php endif; ?>
                     </h1>
                     <?php print render($content['field_libro_subtitulo']) ?>
                   </div>
@@ -205,24 +212,28 @@ global $language;
                   <?php print render($content['field_libro_sinopsis']) ?>
                 </div>
               </div>
-              
+              <?php if($content['field_libro_sinopsis']): ?>
+                <?php print l(t("Leer más [+]"), 'node/'.$node->nid) ?>
+              <?php endif; ?>
             </div>
           </div>
         </div>
         </div>
       </div>
       
-      <div class="row">
-        <div class="col-xs-12">
-          <h2 class="block"><?php print t('Otros libros en %term', array('%term' => $content['field_libro_categoria']['#items'][0]['taxonomy_term']->name))?></h2>
-          <?php print views_embed_view('libros', 'libros_rel_cat', $node->field_libro_categoria['und'][0]['tid']) ?>
-         <?php $view = views_get_view_result('libros', 'libros_rel_autor', $node->field_libro_autores['und'][0]['tid'])?>
-          <?php if ($view): ?>
-            <h2 class="block"><?php print t('Otros libros del autor')?></h2>
-            <?php print views_embed_view('libros', 'libros_rel_autor', $node->field_libro_autores['und'][0]['tid']) ?>
-          <?php endif; ?>
+      <?php if ($page): ?>
+        <div class="row">
+          <div class="col-xs-12">
+            <h2 class="block"><?php print t('Otros libros en %term', array('%term' => $content['field_libro_categoria']['#items'][0]['taxonomy_term']->name))?></h2>
+            <?php print views_embed_view('libros', 'libros_rel_cat', $node->field_libro_categoria['und'][0]['tid']) ?>
+           <?php $view = views_get_view_result('libros', 'libros_rel_autor', $node->field_libro_autores['und'][0]['tid'])?>
+            <?php if ($view): ?>
+              <h2 class="block"><?php print t('Otros libros del autor')?></h2>
+              <?php print views_embed_view('libros', 'libros_rel_autor', $node->field_libro_autores['und'][0]['tid']) ?>
+            <?php endif; ?>
+          </div>
         </div>
-      </div>
+      <?php endif; ?>
       
 
       <?php if ($page): print render($content['links']);

@@ -131,6 +131,10 @@ function libro_strongarm() {
             'weight' => '-10',
             'visible' => FALSE,
           ),
+          'teaser' => array(
+            'weight' => '-10',
+            'visible' => FALSE,
+          ),
         ),
         'product:title' => array(
           'default' => array(
@@ -142,6 +146,10 @@ function libro_strongarm() {
             'visible' => TRUE,
           ),
           'search_result' => array(
+            'weight' => '-5',
+            'visible' => FALSE,
+          ),
+          'teaser' => array(
             'weight' => '-5',
             'visible' => FALSE,
           ),
@@ -159,6 +167,10 @@ function libro_strongarm() {
             'weight' => '5',
             'visible' => FALSE,
           ),
+          'teaser' => array(
+            'weight' => '5',
+            'visible' => FALSE,
+          ),
         ),
         'product:commerce_price' => array(
           'default' => array(
@@ -170,6 +182,10 @@ function libro_strongarm() {
             'visible' => FALSE,
           ),
           'search_result' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
             'weight' => '0',
             'visible' => TRUE,
           ),
@@ -187,6 +203,10 @@ function libro_strongarm() {
             'weight' => '0',
             'visible' => FALSE,
           ),
+          'teaser' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
         ),
         'product:commerce_product_tariff_service' => array(
           'default' => array(
@@ -200,6 +220,10 @@ function libro_strongarm() {
           'search_result' => array(
             'weight' => '0',
             'visible' => FALSE,
+          ),
+          'teaser' => array(
+            'weight' => '0',
+            'visible' => TRUE,
           ),
         ),
         'product:commerce_stock' => array(
@@ -215,6 +239,10 @@ function libro_strongarm() {
             'weight' => '37',
             'visible' => FALSE,
           ),
+          'teaser' => array(
+            'weight' => '37',
+            'visible' => TRUE,
+          ),
         ),
         'product:field_product_peso' => array(
           'default' => array(
@@ -229,6 +257,10 @@ function libro_strongarm() {
             'weight' => '36',
             'visible' => FALSE,
           ),
+          'teaser' => array(
+            'weight' => '36',
+            'visible' => TRUE,
+          ),
         ),
         'language' => array(
           'search_index' => array(
@@ -240,6 +272,10 @@ function libro_strongarm() {
             'visible' => FALSE,
           ),
           'default' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
             'weight' => '0',
             'visible' => TRUE,
           ),
@@ -257,9 +293,17 @@ function libro_strongarm() {
             'weight' => '38',
             'visible' => TRUE,
           ),
+          'teaser' => array(
+            'weight' => '38',
+            'visible' => TRUE,
+          ),
         ),
         'sharethis' => array(
           'default' => array(
+            'weight' => '10',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
             'weight' => '10',
             'visible' => TRUE,
           ),

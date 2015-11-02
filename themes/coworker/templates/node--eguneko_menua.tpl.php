@@ -93,17 +93,19 @@ if (!$page) {
     <?php print render($title_suffix); ?>
 
     <div class="entry_content content eguneko-menua"<?php print $content_attributes; ?>>
-      <div class="subseccion">
-        <?php print theme('image', array('path' => drupal_get_path('theme', 'coworker'). '/images/kantina/desayunos.png')) ?>
-        <h4>desayunos</h4>
-      </div>
-      <?php print $node->field_menu_gosariak['und'][0]['value'] ?>
+      <?php if ($node->field_menu_gosariak['und'][0]['value']): ?>
+        <div class="subseccion">
+          <?php print theme('image', array('path' => drupal_get_path('theme', 'coworker'). '/images/kantina/desayunos.png')) ?>
+          <h4>desayunos</h4>
+        </div>
+        <?php print $node->field_menu_gosariak['und'][0]['value'] ?>
+      <?php endif; ?>
       <div class="dedia_divider"></div>
       <h1 class="hidden"><?php print $node->title ?></h1>
       <a id="menu_dia"></a>
       <div class="subseccion">
         <?php print theme('image', array('path' => drupal_get_path('theme', 'coworker'). '/images/kantina/menu_mediodia.png')) ?>
-        <h4>menú mediodia</h4>
+        <h4><?php print t('menú de mediodía') ?></h4>
       </div>
       <p><?php print format_date($node->changed, 'media') ?></p>
 

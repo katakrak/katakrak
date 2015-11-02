@@ -52,6 +52,45 @@ function katakrak_blog_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
+  // Exported field_base: 'field_blog_eventos'
+  $field_bases['field_blog_eventos'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_blog_eventos',
+    'indexes' => array(
+      'nid' => array(
+        0 => 'nid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'node_reference',
+    'settings' => array(
+      'referenceable_types' => array(
+        'article' => 0,
+        'blog' => 0,
+        'boletin' => 0,
+        'event' => 'event',
+        'itinerario' => 0,
+        'libro' => 0,
+        'page' => 0,
+        'portfolio' => 0,
+        'simplenews' => 0,
+        'sukalde_errezeta' => 0,
+        'sukalde_produktua' => 0,
+        'webform' => 0,
+      ),
+      'view' => array(
+        'args' => array(),
+        'display_name' => '',
+        'view_name' => '',
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'node_reference',
+  );
+
   // Exported field_base: 'field_blog_libro'
   $field_bases['field_blog_libro'] = array(
     'active' => 1,
