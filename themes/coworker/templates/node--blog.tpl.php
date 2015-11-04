@@ -88,7 +88,7 @@ $profile = user_load($node->uid);
     
     <?php print render($content['field_image']) ?>
     <p><?php print render($content['field_blog_cuerpo']) ?></p>
-    <p><?php print $node->event_table; ?></p>
+    <?php print render($content['field_media']) ?>
     <p><?php print render($content['field_blog_adjunto']) ?></p>
     
     <?php if ($content['field_blog_libro']): ?>  

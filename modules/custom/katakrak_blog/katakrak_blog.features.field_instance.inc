@@ -295,6 +295,51 @@ function katakrak_blog_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-blog-field_media'
+  $field_instances['node-blog-field_media'] = array(
+    'bundle' => 'blog',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'file_entity',
+        'settings' => array(
+          'file_view_mode' => 'default',
+        ),
+        'type' => 'file_rendered',
+        'weight' => 11,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_media',
+    'label' => 'Media',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'txt',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'emfield',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'enfield_widget',
+      'weight' => 11,
+    ),
+  );
+
   // Exported field_instance: 'node-blog-field_tags'
   $field_instances['node-blog-field_tags'] = array(
     'bundle' => 'blog',
@@ -343,6 +388,7 @@ function katakrak_blog_field_default_field_instances() {
   t('Eventos');
   t('Imagen');
   t('Libro(s)');
+  t('Media');
 
   return $field_instances;
 }

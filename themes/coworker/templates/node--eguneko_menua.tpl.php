@@ -107,7 +107,6 @@ if (!$page) {
         <?php print theme('image', array('path' => drupal_get_path('theme', 'coworker'). '/images/kantina/menu_mediodia.png')) ?>
         <h4><?php print t('menú de mediodía') ?></h4>
       </div>
-      <p><?php print format_date($node->changed, 'media') ?></p>
 
       <div class="row">
         <div class="col-lg-3 col-lg-offset-3">

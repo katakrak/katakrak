@@ -95,6 +95,12 @@ function katakrak_kantina_strongarm() {
             'visible' => FALSE,
           ),
         ),
+        'sharethis' => array(
+          'default' => array(
+            'weight' => '10',
+            'visible' => TRUE,
+          ),
+        ),
       ),
     ),
   );
