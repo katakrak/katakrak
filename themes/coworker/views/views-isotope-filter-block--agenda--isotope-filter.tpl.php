@@ -24,13 +24,7 @@
           <?php
           // remove characters that cause problems with classes
           // this is also do to the isotope elements
-          if (($v = strpos($row, '#'))) {
-            $color = substr($row, $v, 7);
-            $row = substr($row, 0, $v);
-          }
-          else {
-            $color = FALSE;
-          }
+          
           $dataoption = trim(strip_tags(strtolower($row)));
           $dataoption = str_replace(' ', '-', $dataoption);
           $dataoption = str_replace('/', '-', $dataoption);
