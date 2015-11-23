@@ -148,6 +148,7 @@ function katakrak_kantina_strongarm() {
   $strongarm->value = array(
     0 => 'field_receta_imagen',
     1 => 'field_receta_tipo',
+    2 => 'field_media',
   );
   $export['i18n_sync_node_type_receta'] = $strongarm;
 

@@ -191,6 +191,7 @@ function katakrak_kantina_views_default_views() {
     'image_style' => 'kantina_medium',
     'image_link' => '',
   );
+  $handler->display->display_options['fields']['field_image']['delta_limit'] = '1';
   $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
   /* Campo: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -227,13 +228,17 @@ function katakrak_kantina_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'blog' => 'blog',
   );
-  /* Filter criterion: Content: Tipo (field_blog_tipo) */
-  $handler->display->display_options['filters']['field_blog_tipo_value']['id'] = 'field_blog_tipo_value';
-  $handler->display->display_options['filters']['field_blog_tipo_value']['table'] = 'field_data_field_blog_tipo';
-  $handler->display->display_options['filters']['field_blog_tipo_value']['field'] = 'field_blog_tipo_value';
-  $handler->display->display_options['filters']['field_blog_tipo_value']['value'] = array(
-    'kantina' => 'kantina',
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Blog_type (field_blog_type) */
+  $handler->display->display_options['filters']['field_blog_type_tid']['id'] = 'field_blog_type_tid';
+  $handler->display->display_options['filters']['field_blog_type_tid']['table'] = 'field_data_field_blog_type';
+  $handler->display->display_options['filters']['field_blog_type_tid']['field'] = 'field_blog_type_tid';
+  $handler->display->display_options['filters']['field_blog_type_tid']['value'] = array(
+    40727 => '40727',
   );
+  $handler->display->display_options['filters']['field_blog_type_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_blog_type_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_blog_type_tid']['vocabulary'] = 'blog_type';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -424,6 +429,9 @@ function katakrak_kantina_views_default_views() {
 
   /* Display: Isotope Filter */
   $handler = $view->new_display('block', 'Isotope Filter', 'isotope_filter');
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'isotope_filter_block';
   $handler->display->display_options['style_options']['portfolio_style'] = 'portfolio-4';

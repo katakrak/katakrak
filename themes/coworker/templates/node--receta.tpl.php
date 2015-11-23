@@ -97,5 +97,6 @@
   <div class="col-sm-12">
     <?php print render($content['sharethis']) ?>
     <p><?php print render($content['field_receta_cuerpo']) ?></p>
+    <p><?php print render($content['field_media']) ?></p>
   </div>
 </div>
