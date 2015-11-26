@@ -254,6 +254,9 @@ a.logo-txiki img {
 #bottom-social li.ts-rss a {
   background-color: #F88F16;
 }
+#bottom-social li.ts-soundcloud a {
+  background-color: #FF6300;
+}
 #bottom-social li.ts-phone a {
   background-color: #4818AB;
 }
@@ -348,9 +351,9 @@ a.logo-txiki img {
 #primary-links ul ul {
   /* Nested menu */
   z-index: 200;
-  width: 200px;
+  /*width: 200px;*/
   margin: 0;
-  position: absolute;
+  /*position: absolute;*/
   left: 0;
 }
 #primary-links ul ul a {

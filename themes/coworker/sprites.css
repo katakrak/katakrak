@@ -1,4 +1,4 @@
-.dedia, .denoche, .blog, .circulo_ficha, .flecha_dcha, .mParada, .uparada, .correspondencia, .circulo_trans2, .submenu, .mainsubmenu, .mainsubmenuh, .banda_header, .banda_footer, .begiak, .menu_mediodia, .kantina_txiki, .facebook, .twitter, .mail, .rss, .phone, .kantina_logo_txiki{
+.dedia, .denoche, .blog, .circulo_ficha, .flecha_dcha, .mParada, .uparada, .correspondencia, .circulo_trans2, .submenu, .mainsubmenu, .mainsubmenuh, .banda_header, .banda_footer, .begiak, .menu_mediodia, .kantina_txiki, .facebook, .twitter, .mail, .rss, .phone, .kantina_logo_txiki, .soundcloud{
 	background: url(sprites.png) no-repeat;
 }
 
@@ -138,5 +138,11 @@
 	background-position: -450px -319px ;
 	width: 190px;
 	height: 161px;
+}
+
+.soundcloud{
+	background-position: -415px -323px ;
+	width: 20px;
+	height: 20px;
 }
 

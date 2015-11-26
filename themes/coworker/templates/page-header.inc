@@ -13,9 +13,6 @@
        <div id="logo">
            <?php if ($logo): ?>
               <a href="<?php print $front_page; ?>" class="standard-logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" title="<?php print t('Home'); ?>" /></a>
-                <?php if ($rentina_logo): ?>
-                  <a href="<?php print $front_page; ?>" class="retina-logo"><img src="<?php print $rentina_logo; ?>" /></a>
-                <?php endif; ?>
               <?php endif; ?>
               <?php if ($site_name || $site_slogan): ?>
                 <div id="name-and-slogan">

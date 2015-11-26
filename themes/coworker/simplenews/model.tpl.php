@@ -847,7 +847,7 @@ body.outlook p {
                 <table class="six columns">
                   <tr>
                     <td>
-                      <h6>Próximos eventos</br> Hurrengo ekitaldiak</h6>
+                      <h6>Próximos eventos Hurrengo ekitaldiak</h6>
                       <br>
                       <?php foreach($node->field_boletin_eventos['und'] as $i => $nid): ?>
                       <?php $event = node_load($nid['nid']); 
