@@ -119,11 +119,11 @@ function libro_image_default_styles() {
   $styles['book_thumbnail'] = array(
     'label' => 'Book thumbnail',
     'effects' => array(
-      6 => array(
+      1 => array(
         'name' => 'image_scale',
         'data' => array(
-          'width' => '',
-          'height' => 250,
+          'width' => 280,
+          'height' => '',
           'upscale' => 0,
         ),
         'weight' => 2,
