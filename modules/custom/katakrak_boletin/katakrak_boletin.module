@@ -52,6 +52,15 @@ function katakrak_boletin_menu() {
     'type' => MENU_LOCAL_TASK,
     'weight' => 100,
   );
+  $items['node/%node/new_boletin'] = array(
+    'title' => 'Nuevo Boletin',
+    'page callback' => 'katakrak_boletin_codigo_new',
+    'page arguments' => array(1),
+    'access callback' => 'katakrak_boletin_access_node_info',
+    'access arguments' => array('access dilve information', 1),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 100,
+  );
   return $items;
 }
 
@@ -70,12 +79,23 @@ function katakrak_boletin_theme() {
       'arguments' => array('node' => NULL),
       'path' => $path . '/templates',
     ),
+    'new_boletin' => array(
+      'template' => 'new-boletin',
+      'arguments' => array('node' => NULL),
+      'path' => $path . '/templates',
+    ),
   );
 }
 
 function katakrak_boletin_codigo($node) {
   return check_plain(theme('boletin_codigo', array('node' => $node)));
 }
+
+function katakrak_boletin_codigo_new($node) {
+  print theme('new_boletin', array('node' => $node));
+  exit();
+}
+
 
 function katakrak_boletin_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'mailchimp_signup_subscribe_block_recibe_nuestro_boletin_semanal_form') {
