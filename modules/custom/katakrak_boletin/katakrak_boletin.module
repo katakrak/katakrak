@@ -52,9 +52,9 @@ function katakrak_boletin_menu() {
     'type' => MENU_LOCAL_TASK,
     'weight' => 100,
   );
-  $items['node/%node/new_boletin'] = array(
-    'title' => 'Nuevo Boletin',
-    'page callback' => 'katakrak_boletin_codigo_new',
+  $items['node/%node/boletin_preview'] = array(
+    'title' => 'Boletin preview',
+    'page callback' => 'katakrak_boletin_preview',
     'page arguments' => array(1),
     'access callback' => 'katakrak_boletin_access_node_info',
     'access arguments' => array('access dilve information', 1),
@@ -75,12 +75,12 @@ function katakrak_boletin_theme() {
   $path = drupal_get_path('module', 'katakrak_boletin');
   return array(
     'boletin_codigo' => array(
-      'template' => 'boletin-codigo',
+      'template' => 'boletin-inline',
       'arguments' => array('node' => NULL),
       'path' => $path . '/templates',
     ),
-    'new_boletin' => array(
-      'template' => 'new-boletin',
+    'boletin_preview' => array(
+      'template' => 'boletin-preview',
       'arguments' => array('node' => NULL),
       'path' => $path . '/templates',
     ),
@@ -91,8 +91,8 @@ function katakrak_boletin_codigo($node) {
   return check_plain(theme('boletin_codigo', array('node' => $node)));
 }
 
-function katakrak_boletin_codigo_new($node) {
-  print theme('new_boletin', array('node' => $node));
+function katakrak_boletin_preview($node) {
+  print theme('boletin_preview', array('node' => $node));
   exit();
 }
 

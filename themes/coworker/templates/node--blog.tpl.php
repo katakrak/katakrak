@@ -84,7 +84,18 @@ $profile = user_load($node->uid);
   <div class="col-lg-12">
     <div class="pull-right"><?php  print theme('user_picture', array('account' => $profile)) ?></div>
     <h1><?php print $node->title ?></h1>
-    <p><?php print t("Posted on !date", array('!date' => format_date($node->changed, 'custom', 'd/m/Y'))) ?></p>
+    <?php if ($display_submitted): ?>
+      <div class="submitted">
+        <ul class="entry_meta clearfix">
+          <li><i class="icon-calendar"></i><?php print format_date($node->changed, 'custom', 'd/m/Y'); ?></li>
+          <?php if (!empty($content['field_tags'])): ?>
+            <?php hide($content['field_tags']); ?>
+            <li><span>/</span><i class="icon-copy"></i><?php print coworker_format_comma_field('field_tags', $node); ?></li>
+          <?php endif; ?>
+        </ul>
+
+      </div>
+    <?php endif; ?>
     
     <?php print render($content['field_image']) ?>
     <p><?php print render($content['field_blog_cuerpo']) ?></p>
