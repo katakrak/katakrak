@@ -415,7 +415,7 @@ color: #444 !important;
                                   <?php print format_date($event->field_event_date['und'][0]['value'], 'custom', 'M', NULL, 'es') ?>
                                   <?php print format_date($event->field_event_date['und'][0]['value'], 'custom', 'G:i', NULL, 'es') ?>
                                 </strong>
-                                <a href="http://www.katakrak.net/cas/&lt;?php print drupal_get_path_alias('node/'.$translations['es']->nid, 'es') ?>" style="color: #2ba6cb; text-decoration: none;"> <?php print $translations['es']->title ?></a><br /><br /><?php endforeach;?></td>
+                                <a href="http://www.katakrak.net/cas/<?php print drupal_get_path_alias('node/'.$translations['es']->nid, 'es') ?>" style="color: #2ba6cb; text-decoration: none;"> <?php print $translations['es']->title ?></a><br /><br /><?php endforeach;?></td>
                               <td class="expander" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; text-align: left; visibility: hidden; width: 0px; color: #222222; font-family: 'Helvetica','Arial',sans-serif; font-weight: normal; line-height: 19px; font-size: 14px; margin: 0; padding: 0;" align="left" valign="top"></td>
                             </tr></table></td>
                         <td class="wrapper" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; text-align: left; position: relative; color: #222222; font-family: 'Helvetica','Arial',sans-serif; font-weight: normal; line-height: 19px; font-size: 14px; margin: 0; padding: 10px 20px 0px 0px;" align="left" valign="top">
@@ -427,7 +427,7 @@ color: #444 !important;
                                   <?php print format_date($event->field_event_date['und'][0]['value'], 'custom', 'd', NULL, 'es') ?>
                                   <?php print format_date($event->field_event_date['und'][0]['value'], 'custom', 'G:i', NULL, 'es') ?>
                                 </strong>
-                                <a href="http://www.katakrak.net/eus/&lt;?php print drupal_get_path_alias('node/'.$translations['eu']->nid, 'eu') ?>" style="color: #2ba6cb; text-decoration: none;"> <?php print $translations['eu']->title ?></a><br /><br /><?php endforeach;?></td>
+                                <a href="http://www.katakrak.net/eus/<?php print drupal_get_path_alias('node/'.$translations['eu']->nid, 'eu') ?>" style="color: #2ba6cb; text-decoration: none;"> <?php print $translations['eu']->title ?></a><br /><br /><?php endforeach;?></td>
                               <td class="expander" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; text-align: left; visibility: hidden; width: 0px; color: #222222; font-family: 'Helvetica','Arial',sans-serif; font-weight: normal; line-height: 19px; font-size: 14px; margin: 0; padding: 0;" align="left" valign="top"></td>
                             </tr></table></td>
                       </tr></table></td>

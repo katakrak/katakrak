@@ -198,7 +198,7 @@ foreach($node->field_boletin_libros['und'] as $i => $nid){
                   </td>
                 </tr>
               </table>
-            <table class="row social">
+            <table class="row social footer">
               <tr>
                 <td class="wrapper">
                   <table class="three columns">
@@ -236,20 +236,6 @@ foreach($node->field_boletin_libros['und'] as $i => $nid){
 	                     <p><a href="mailto:info@katakrak.net">info@katakrak.net</a></p>
 	                     <p><a href="http://katakrak.net">katakrak.net</a></p>
 	                  </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-            <table class="row">
-              <tr>
-                <td class="wrapper last">
-                  <table class="twelve columns">
-                    <tr>
-                      <td class="last right-text-pad">
-                         
-                      </td>
-                      <td class="expander"></td>
                     </tr>
                   </table>
                 </td>
