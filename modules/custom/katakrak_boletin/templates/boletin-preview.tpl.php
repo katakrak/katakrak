@@ -152,7 +152,7 @@ foreach($node->field_boletin_libros['und'] as $i => $nid){
                           <table class="six columns">
                             <tr>
                               <td>
-                              [CAS]<br />
+                              <h5>Gazteleraz</h5><br />
                                 <?php foreach($node_es->field_boletin_eventos['und'] as $i => $nid): ?>
                                   <?php $event = node_load($nid['nid']); ?>
                                   <?php $translations = translation_node_get_translations($event->tnid); ?>
@@ -174,7 +174,7 @@ foreach($node->field_boletin_libros['und'] as $i => $nid){
                           <table class="six columns">
                             <tr>
                               <td>
-                              [EUS]<br />
+                              <h5>En euskera</h5><br />
                                 <?php foreach($node_eu->field_boletin_eventos['und'] as $i => $nid): ?>
                                   <?php $event = node_load($nid['nid']); ?>
                                   <?php $translations = translation_node_get_translations($event->tnid); ?>

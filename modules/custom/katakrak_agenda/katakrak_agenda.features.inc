@@ -130,11 +130,11 @@ function katakrak_agenda_image_default_styles() {
   $styles['event_thumbnail'] = array(
     'label' => 'Event thumbnail',
     'effects' => array(
-      11 => array(
+      2 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 150,
-          'height' => 80,
+          'width' => 200,
+          'height' => 150,
         ),
         'weight' => 2,
       ),
