@@ -302,6 +302,23 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'd/m/Y';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
   $handler->display->display_options['block_description'] = 'Blog home';
+
+  /* Display: Bloque */
+  $handler = $view->new_display('block', 'Bloque', 'blogs_by_cat');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Blog articles for category';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Blog_type (field_blog_type) */
+  $handler->display->display_options['arguments']['field_blog_type_tid']['id'] = 'field_blog_type_tid';
+  $handler->display->display_options['arguments']['field_blog_type_tid']['table'] = 'field_data_field_blog_type';
+  $handler->display->display_options['arguments']['field_blog_type_tid']['field'] = 'field_blog_type_tid';
+  $handler->display->display_options['arguments']['field_blog_type_tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_blog_type_tid']['exception']['title'] = 'Todo(s)';
+  $handler->display->display_options['arguments']['field_blog_type_tid']['default_argument_type'] = 'raw';
+  $handler->display->display_options['arguments']['field_blog_type_tid']['default_argument_options']['index'] = '2';
+  $handler->display->display_options['arguments']['field_blog_type_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_blog_type_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_blog_type_tid']['summary_options']['items_per_page'] = '25';
   $translatables['blog'] = array(
     t('Master'),
     t('Blog'),
@@ -324,6 +341,9 @@ function katakrak_blog_views_default_views() {
     t('more'),
     t('Leer más [+]'),
     t('Blog home'),
+    t('Bloque'),
+    t('Blog articles for category'),
+    t('Todo(s)'),
   );
   $export['blog'] = $view;
 
