@@ -1859,7 +1859,7 @@ function katakrak_agenda_views_default_views() {
 
   /* Display: Services */
   $handler = $view->new_display('services', 'Services', 'services_1');
-  $handler->display->display_options['path'] = 'agenda';
+  $handler->display->display_options['path'] = 'service_agenda';
   $translatables['service_agenda'] = array(
     t('Master'),
     t('more'),

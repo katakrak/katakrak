@@ -409,7 +409,6 @@ color: #444 !important;
                           <table class="six columns" style="border-spacing: 0; border-collapse: collapse; vertical-align: top; text-align: left; width: 280px; margin: 0 auto; padding: 0;"><tr style="vertical-align: top; text-align: left; padding: 0;" align="left"><td style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; text-align: left; color: #222222; font-family: 'Helvetica','Arial',sans-serif; font-weight: normal; line-height: 19px; font-size: 14px; margin: 0; padding: 0px 0px 10px;" align="left" valign="top">
                               <h5 style="color: #222222; font-family: 'Helvetica','Arial',sans-serif; font-weight: normal; text-align: left; line-height: 1.3; word-break: normal; font-size: 24px; margin: 0; padding: 0;" align="left">Gazteleraz</h5><br /><?php foreach($node_es->field_boletin_eventos['und'] as $i => $nid): ?>
                                   <?php $event = node_load($nid['nid']); ?><?php $translations = translation_node_get_translations($event->tnid); ?>
-                                  
                                 <strong>
                                   <?php print format_date($event->field_event_date['und'][0]['value'], 'custom', 'd', NULL, 'es') ?>
                                   <?php print format_date($event->field_event_date['und'][0]['value'], 'custom', 'M', NULL, 'es') ?>
