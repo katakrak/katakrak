@@ -13,6 +13,42 @@ function katakrak_boletin_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'boletin_node';
+  $context->description = 'Boletin node';
+  $context->tag = 'Boletin';
+  $context->conditions = array(
+    'node' => array(
+      'values' => array(
+        'boletin' => 'boletin',
+      ),
+      'options' => array(
+        'node_form' => '1',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'mailchimp_signup-recibe_nuestro_boletin_semanal' => array(
+          'module' => 'mailchimp_signup',
+          'delta' => 'recibe_nuestro_boletin_semanal',
+          'region' => 'content_bottom',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Boletin');
+  t('Boletin node');
+  $export['boletin_node'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'boletin_page';
   $context->description = '';
   $context->tag = 'Boletin';
