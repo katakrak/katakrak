@@ -78,6 +78,13 @@
           </div>  
           <?php print $feed_icons; ?>
         </div>
+        <?php if ($page['content_bottom']): ?>
+          <div class="row">
+            <div class="col-md-12">
+              <?php print render($page['content_bottom']) ?>
+            </div>
+          </div>
+        <?php endif; ?>
         <!-- // content region -->
 
         <?php if ($page['sidebar_first']): ?>

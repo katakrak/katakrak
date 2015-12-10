@@ -25,6 +25,14 @@ function katakrak_blog_context_default_contexts() {
         'node_form' => '1',
       ),
     ),
+    'taxonomy_term' => array(
+      'values' => array(
+        'blog_type' => 'blog_type',
+      ),
+      'options' => array(
+        'term_form' => '1',
+      ),
+    ),
   );
   $context->reactions = array(
     'block' => array(

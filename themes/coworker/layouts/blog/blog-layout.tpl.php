@@ -1,3 +1,5 @@
+<?php if (empty($content['right'])) {$left_col_num = 12;} else {$left_col_num = 9;}?>
+
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -5,11 +7,13 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-<?php print $left_col_num ?>">
       <?php print $content['left'] ?>
      </div>
-    <div class="col-md-3">
-      <?php print $content['right'] ?>
-    </div>
+    <?php if ($content['right']): ?>
+      <div class="col-md-3">
+        <?php print $content['right'] ?>
+      </div>
+    <?php endif; ?>
   </div>
 </div>

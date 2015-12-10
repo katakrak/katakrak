@@ -10,14 +10,14 @@
 function katakrak_blog_taxonomy_default_vocabularies() {
   return array(
     'blog_type' => array(
-      'name' => 'Blog type',
+      'name' => 'Blogs',
       'machine_name' => 'blog_type',
       'description' => '',
       'hierarchy' => 0,
       'module' => 'taxonomy',
       'weight' => 0,
       'language' => 'und',
-      'i18n_mode' => 1,
+      'i18n_mode' => 4,
     ),
   );
 }

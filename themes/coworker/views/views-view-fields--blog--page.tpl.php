@@ -45,5 +45,5 @@ else {
     <?php print $fields['view_node']->content ?>
   </div>
 </div>
-<div class="dotted-divider"></div>
+
 <?php print $fields['field_blog_tipo']->content ?>

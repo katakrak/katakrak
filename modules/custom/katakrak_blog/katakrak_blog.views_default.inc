@@ -103,7 +103,7 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Campo: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
@@ -306,6 +306,64 @@ function katakrak_blog_views_default_views() {
   /* Display: Blog articles for category */
   $handler = $view->new_display('block', 'Blog articles for category', 'blogs_by_cat');
   $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Campo: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  /* Campo: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = 'Bide-izena';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  /* Campo: Field: Imagen */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => 'blog_home',
+    'image_link' => 'content',
+  );
+  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
+  /* Campo: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h2';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Campo: Content: Post date */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'node';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['label'] = '';
+  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['created']['custom_date_format'] = 'd/m/Y';
+  /* Campo: Content: Cuerpo */
+  $handler->display->display_options['fields']['field_blog_cuerpo']['id'] = 'field_blog_cuerpo';
+  $handler->display->display_options['fields']['field_blog_cuerpo']['table'] = 'field_data_field_blog_cuerpo';
+  $handler->display->display_options['fields']['field_blog_cuerpo']['field'] = 'field_blog_cuerpo';
+  $handler->display->display_options['fields']['field_blog_cuerpo']['label'] = '';
+  $handler->display->display_options['fields']['field_blog_cuerpo']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_blog_cuerpo']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['field_blog_cuerpo']['settings'] = array(
+    'trim_length' => '400',
+  );
+  /* Campo: Content: Link */
+  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['view_node']['text'] = 'Leer más [+]';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Blog_type (field_blog_type) */
   $handler->display->display_options['arguments']['field_blog_type_tid']['id'] = 'field_blog_type_tid';
@@ -318,6 +376,108 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['arguments']['field_blog_type_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_blog_type_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_blog_type_tid']['summary_options']['items_per_page'] = '25';
+
+  /* Display: Blog articles category filter */
+  $handler = $view->new_display('block', 'Blog articles category filter', 'block_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Campo: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  /* Campo: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = 'Bide-izena';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  /* Campo: Field: Imagen */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => 'blog_home',
+    'image_link' => 'content',
+  );
+  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
+  /* Campo: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Campo: Content: Post date */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'node';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['label'] = '';
+  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['created']['custom_date_format'] = 'd/m/Y';
+  /* Campo: Content: Link */
+  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['view_node']['text'] = 'Leer más [+]';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Todo(s)';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'raw';
+  $handler->display->display_options['arguments']['nid']['default_argument_options']['index'] = '1';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['nid']['not'] = TRUE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'OR',
+  );
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'blog' => 'blog',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language_1']['id'] = 'language_1';
+  $handler->display->display_options['filters']['language_1']['table'] = 'node';
+  $handler->display->display_options['filters']['language_1']['field'] = 'language';
+  $handler->display->display_options['filters']['language_1']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
+  $handler->display->display_options['filters']['language_1']['group'] = 2;
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    'und' => 'und',
+  );
+  $handler->display->display_options['filters']['language']['group'] = 2;
   $translatables['blog'] = array(
     t('Master'),
     t('Blog'),
@@ -342,6 +502,7 @@ function katakrak_blog_views_default_views() {
     t('Blog home'),
     t('Blog articles for category'),
     t('Todo(s)'),
+    t('Blog articles category filter'),
   );
   $export['blog'] = $view;
 
