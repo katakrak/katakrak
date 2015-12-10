@@ -46,13 +46,14 @@ function katakrak_blog_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display();
-  $display->layout = 'twocol';
+  $display->layout = 'blog';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
       'right' => NULL,
       'left' => NULL,
+      'header' => NULL,
     ),
   );
   $display->cache = array();
@@ -62,7 +63,7 @@ function katakrak_blog_default_page_manager_handlers() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-3be758fa-a129-4d80-a446-1e7b4400c2ab';
-    $pane->panel = 'left';
+    $pane->panel = 'header';
     $pane->type = 'entity_field';
     $pane->subtype = 'taxonomy_term:field_image';
     $pane->shown = TRUE;
@@ -78,7 +79,7 @@ function katakrak_blog_default_page_manager_handlers() {
         'image_link' => '',
       ),
       'context' => 'argument_term_1',
-      'override_title' => 0,
+      'override_title' => 1,
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
@@ -92,7 +93,7 @@ function katakrak_blog_default_page_manager_handlers() {
     $pane->locks = array();
     $pane->uuid = '3be758fa-a129-4d80-a446-1e7b4400c2ab';
     $display->content['new-3be758fa-a129-4d80-a446-1e7b4400c2ab'] = $pane;
-    $display->panels['left'][0] = 'new-3be758fa-a129-4d80-a446-1e7b4400c2ab';
+    $display->panels['header'][0] = 'new-3be758fa-a129-4d80-a446-1e7b4400c2ab';
     $pane = new stdClass();
     $pane->pid = 'new-76683b64-bc0c-4822-939a-f2e56959616e';
     $pane->panel = 'left';
@@ -111,11 +112,11 @@ function katakrak_blog_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = '76683b64-bc0c-4822-939a-f2e56959616e';
     $display->content['new-76683b64-bc0c-4822-939a-f2e56959616e'] = $pane;
-    $display->panels['left'][1] = 'new-76683b64-bc0c-4822-939a-f2e56959616e';
+    $display->panels['left'][0] = 'new-76683b64-bc0c-4822-939a-f2e56959616e';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-3be758fa-a129-4d80-a446-1e7b4400c2ab';
   $handler->conf['display'] = $display;

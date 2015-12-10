@@ -1,0 +1,1 @@
+views-view-fields--blog--page.tpl.php

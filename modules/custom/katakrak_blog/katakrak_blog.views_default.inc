@@ -303,10 +303,9 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
   $handler->display->display_options['block_description'] = 'Blog home';
 
-  /* Display: Bloque */
-  $handler = $view->new_display('block', 'Bloque', 'blogs_by_cat');
+  /* Display: Blog articles for category */
+  $handler = $view->new_display('block', 'Blog articles for category', 'blogs_by_cat');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Blog articles for category';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Blog_type (field_blog_type) */
   $handler->display->display_options['arguments']['field_blog_type_tid']['id'] = 'field_blog_type_tid';
@@ -341,7 +340,6 @@ function katakrak_blog_views_default_views() {
     t('more'),
     t('Leer más [+]'),
     t('Blog home'),
-    t('Bloque'),
     t('Blog articles for category'),
     t('Todo(s)'),
   );
