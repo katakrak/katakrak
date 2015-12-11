@@ -22,7 +22,7 @@ function katakrak_blog_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Blog';
+  $handler->display->display_options['title'] = 'Otros artículos en el blog';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'más';
   $handler->display->display_options['access']['type'] = 'perm';
@@ -377,66 +377,24 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['arguments']['field_blog_type_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_blog_type_tid']['summary_options']['items_per_page'] = '25';
 
-  /* Display: Blog articles category filter */
-  $handler = $view->new_display('block', 'Blog articles category filter', 'block_1');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Content: Nid */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'node';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  /* Campo: Content: Path */
-  $handler->display->display_options['fields']['path']['id'] = 'path';
-  $handler->display->display_options['fields']['path']['table'] = 'node';
-  $handler->display->display_options['fields']['path']['field'] = 'path';
-  $handler->display->display_options['fields']['path']['label'] = 'Bide-izena';
-  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
-  /* Campo: Field: Imagen */
-  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
-  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
-  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
-  $handler->display->display_options['fields']['field_image']['label'] = '';
-  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_image']['settings'] = array(
-    'image_style' => 'blog_home',
-    'image_link' => 'content',
-  );
-  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
-  /* Campo: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Campo: Content: Post date */
-  $handler->display->display_options['fields']['created']['id'] = 'created';
-  $handler->display->display_options['fields']['created']['table'] = 'node';
-  $handler->display->display_options['fields']['created']['field'] = 'created';
-  $handler->display->display_options['fields']['created']['label'] = '';
-  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['created']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['created']['custom_date_format'] = 'd/m/Y';
-  /* Campo: Content: Link */
-  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
-  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
-  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
-  $handler->display->display_options['fields']['view_node']['label'] = '';
-  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['view_node']['text'] = 'Leer más [+]';
+  /* Display: Related blog posts */
+  $handler = $view->new_display('panel_pane', 'Related blog posts', 'blog_post_libreria');
   $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Blog_type (field_blog_type) */
+  $handler->display->display_options['arguments']['field_blog_type_tid']['id'] = 'field_blog_type_tid';
+  $handler->display->display_options['arguments']['field_blog_type_tid']['table'] = 'field_data_field_blog_type';
+  $handler->display->display_options['arguments']['field_blog_type_tid']['field'] = 'field_blog_type_tid';
+  $handler->display->display_options['arguments']['field_blog_type_tid']['exception']['title'] = 'Todo(s)';
+  $handler->display->display_options['arguments']['field_blog_type_tid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_blog_type_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_blog_type_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_blog_type_tid']['summary_options']['items_per_page'] = '25';
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
   $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Todo(s)';
-  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'raw';
-  $handler->display->display_options['arguments']['nid']['default_argument_options']['index'] = '1';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
@@ -478,9 +436,27 @@ function katakrak_blog_views_default_views() {
     'und' => 'und',
   );
   $handler->display->display_options['filters']['language']['group'] = 2;
+  $handler->display->display_options['argument_input'] = array(
+    'field_blog_type_tid' => array(
+      'type' => 'user',
+      'context' => 'entity:node.field-blog-type',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Blog type',
+    ),
+    'nid' => array(
+      'type' => 'user',
+      'context' => 'entity:file.field_file_image_alt_text',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Nid',
+    ),
+  );
   $translatables['blog'] = array(
     t('Master'),
-    t('Blog'),
+    t('Otros artículos en el blog'),
     t('más'),
     t('Aplicar'),
     t('Reiniciar'),
@@ -500,9 +476,11 @@ function katakrak_blog_views_default_views() {
     t('more'),
     t('Leer más [+]'),
     t('Blog home'),
+    t('Blog'),
     t('Blog articles for category'),
     t('Todo(s)'),
-    t('Blog articles category filter'),
+    t('Related blog posts'),
+    t('View panes'),
   );
   $export['blog'] = $view;
 
