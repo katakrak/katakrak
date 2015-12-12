@@ -234,6 +234,7 @@ function template_preprocess_katakrak_search_results(&$vars) {
   
   $vars['pager'] = theme('pager', array('quantity',count($rows)));
 }
+
 /**
  * Implements hook_ctools_plugin_directory().
  */

@@ -6,3 +6,11 @@
 
 include_once 'katakrak_blog.features.inc';
 
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function katakrak_blog_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'ctools' && !empty($plugin)) {
+    return "plugins/$plugin";
+  }
+}

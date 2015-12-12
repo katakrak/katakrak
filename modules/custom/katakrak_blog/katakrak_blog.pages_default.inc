@@ -71,43 +71,10 @@ function katakrak_blog_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-37401d5a-23bb-4d19-9dbd-f03c4acb1307';
+    $pane->pid = 'new-178848e4-07f1-4bdf-a79b-00aae294566b';
     $pane->panel = 'header';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'taxonomy_term:field_image';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'title',
-      'formatter' => 'image',
-      'delta_limit' => '0',
-      'delta_offset' => '0',
-      'delta_reversed' => 0,
-      'formatter_settings' => array(
-        'image_style' => '',
-        'image_link' => 'content',
-      ),
-      'context' => 'relationship_entity_from_field:field_blog_type-node-taxonomy_term_1',
-      'override_title' => 1,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '37401d5a-23bb-4d19-9dbd-f03c4acb1307';
-    $display->content['new-37401d5a-23bb-4d19-9dbd-f03c4acb1307'] = $pane;
-    $display->panels['header'][0] = 'new-37401d5a-23bb-4d19-9dbd-f03c4acb1307';
-    $pane = new stdClass();
-    $pane->pid = 'new-7e6568aa-af5b-4503-854f-be19af8e8b68';
-    $pane->panel = 'header';
-    $pane->type = 'term_name';
-    $pane->subtype = 'term_name';
+    $pane->type = 'header';
+    $pane->subtype = 'header';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -126,11 +93,11 @@ function katakrak_blog_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '7e6568aa-af5b-4503-854f-be19af8e8b68';
-    $display->content['new-7e6568aa-af5b-4503-854f-be19af8e8b68'] = $pane;
-    $display->panels['header'][1] = 'new-7e6568aa-af5b-4503-854f-be19af8e8b68';
+    $pane->uuid = '178848e4-07f1-4bdf-a79b-00aae294566b';
+    $display->content['new-178848e4-07f1-4bdf-a79b-00aae294566b'] = $pane;
+    $display->panels['header'][0] = 'new-178848e4-07f1-4bdf-a79b-00aae294566b';
     $pane = new stdClass();
     $pane->pid = 'new-85af7824-4fe1-451b-b812-644327076e6c';
     $pane->panel = 'left';
@@ -245,43 +212,10 @@ function katakrak_blog_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-3be758fa-a129-4d80-a446-1e7b4400c2ab';
+    $pane->pid = 'new-85fa99a1-8b0d-4d03-82b0-61beaecdb464';
     $pane->panel = 'header';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'taxonomy_term:field_image';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'title',
-      'formatter' => 'image',
-      'delta_limit' => '0',
-      'delta_offset' => '0',
-      'delta_reversed' => 0,
-      'formatter_settings' => array(
-        'image_style' => '',
-        'image_link' => 'content',
-      ),
-      'context' => 'argument_term_1',
-      'override_title' => 1,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '3be758fa-a129-4d80-a446-1e7b4400c2ab';
-    $display->content['new-3be758fa-a129-4d80-a446-1e7b4400c2ab'] = $pane;
-    $display->panels['header'][0] = 'new-3be758fa-a129-4d80-a446-1e7b4400c2ab';
-    $pane = new stdClass();
-    $pane->pid = 'new-0d41fb77-6c84-4b78-b973-c3e4d9533956';
-    $pane->panel = 'header';
-    $pane->type = 'term_name';
-    $pane->subtype = 'term_name';
+    $pane->type = 'header';
+    $pane->subtype = 'header';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -300,11 +234,11 @@ function katakrak_blog_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '0d41fb77-6c84-4b78-b973-c3e4d9533956';
-    $display->content['new-0d41fb77-6c84-4b78-b973-c3e4d9533956'] = $pane;
-    $display->panels['header'][1] = 'new-0d41fb77-6c84-4b78-b973-c3e4d9533956';
+    $pane->uuid = '85fa99a1-8b0d-4d03-82b0-61beaecdb464';
+    $display->content['new-85fa99a1-8b0d-4d03-82b0-61beaecdb464'] = $pane;
+    $display->panels['header'][0] = 'new-85fa99a1-8b0d-4d03-82b0-61beaecdb464';
     $pane = new stdClass();
     $pane->pid = 'new-76683b64-bc0c-4822-939a-f2e56959616e';
     $pane->panel = 'left';
@@ -329,7 +263,7 @@ function katakrak_blog_default_page_manager_handlers() {
     $display->content['new-76683b64-bc0c-4822-939a-f2e56959616e'] = $pane;
     $display->panels['left'][0] = 'new-76683b64-bc0c-4822-939a-f2e56959616e';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-3be758fa-a129-4d80-a446-1e7b4400c2ab';
+  $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $export['term_view__panel_context_be36e115-8c57-44cb-b384-0e9f7e36ab71'] = $handler;
 

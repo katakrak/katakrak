@@ -95,6 +95,7 @@ function katakrak_blog_views_default_views() {
     'image_style' => 'blog_home',
     'image_link' => 'content',
   );
+  $handler->display->display_options['fields']['field_image']['delta_limit'] = '1';
   $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
   /* Campo: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -329,6 +330,7 @@ function katakrak_blog_views_default_views() {
     'image_style' => 'blog_home',
     'image_link' => 'content',
   );
+  $handler->display->display_options['fields']['field_image']['delta_limit'] = '1';
   $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
   /* Campo: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -380,7 +382,7 @@ function katakrak_blog_views_default_views() {
   /* Display: Related blog posts */
   $handler = $view->new_display('panel_pane', 'Related blog posts', 'blog_post_libreria');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'En el blog';
+  $handler->display->display_options['title'] = 'Otras entradas';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '4';
@@ -486,7 +488,7 @@ function katakrak_blog_views_default_views() {
     t('Blog articles for category'),
     t('Todo(s)'),
     t('Related blog posts'),
-    t('En el blog'),
+    t('Otras entradas'),
     t('View panes'),
   );
   $export['blog'] = $view;
