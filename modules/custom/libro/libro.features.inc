@@ -68,6 +68,21 @@ function libro_fe_nodequeue_export_fields() {
 function libro_image_default_styles() {
   $styles = array();
 
+  // Exported image style: app_book_thumbnail.
+  $styles['app_book_thumbnail'] = array(
+    'label' => 'App book thumbnail',
+    'effects' => array(
+      3 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 100,
+          'height' => 200,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: book_cover.
   $styles['book_cover'] = array(
     'label' => 'Book cover',

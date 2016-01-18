@@ -1487,7 +1487,7 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['field_libro_portada']['empty'] = '<i class="fa fa-book fa-26x book-cover-not-found"></i>';
   $handler->display->display_options['fields']['field_libro_portada']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_libro_portada']['settings'] = array(
-    'image_style' => 'cover_home',
+    'image_style' => 'app_book_thumbnail',
     'image_link' => '',
   );
   /* Campo: Content: Title */

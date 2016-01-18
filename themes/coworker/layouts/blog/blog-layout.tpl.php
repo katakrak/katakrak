@@ -1,6 +1,5 @@
 <?php if (empty($content['right'])) {$left_col_num = 12;} else {$left_col_num = 9;}?>
 
-<div class="container">
   <div class="row">
     <div class="col-md-12">
       <?php print $content['header'] ?>
@@ -16,4 +15,3 @@
       </div>
     <?php endif; ?>
   </div>
-</div>

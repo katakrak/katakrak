@@ -67,7 +67,7 @@
 
           <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
            <div class="row">
-            <div class="<?php print $content_classes ?>">
+            <div class="<?php //print $content_classes ?>">
               <?php print render($page['content']); ?>
             </div>
             <?php if ($page['sidebar_left']): ?>

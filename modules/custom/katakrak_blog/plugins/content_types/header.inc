@@ -36,8 +36,6 @@ function katakrak_blog_header_content_type_render($subtype, $conf, $panel_args, 
 
   // Generate the title
   
-  dpm($term);
-  
   // Build any surrounding markup if so configured
   if (isset($conf['markup']) && $conf['markup'] != 'none') {
     $markup = theme('image',  array('path' => $term->field_image['und'][0]['uri']));

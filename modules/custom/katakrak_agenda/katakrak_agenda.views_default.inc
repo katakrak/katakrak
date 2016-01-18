@@ -1819,6 +1819,55 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['fields']['nothing']['label'] = 'link';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href="http://katakrak.net/node/[nid]">ver mas</a>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  /* Campo: Content: Date */
+  $handler->display->display_options['fields']['field_event_date_1']['id'] = 'field_event_date_1';
+  $handler->display->display_options['fields']['field_event_date_1']['table'] = 'field_data_field_event_date';
+  $handler->display->display_options['fields']['field_event_date_1']['field'] = 'field_event_date';
+  $handler->display->display_options['fields']['field_event_date_1']['label'] = 'hora';
+  $handler->display->display_options['fields']['field_event_date_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_event_date_1']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_event_date_1']['settings'] = array(
+    'format_type' => 'hora',
+    'fromto' => '',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
+  $handler->display->display_options['fields']['field_event_date_1']['delta_offset'] = '0';
+  /* Campo: Content: Date */
+  $handler->display->display_options['fields']['field_event_date_2']['id'] = 'field_event_date_2';
+  $handler->display->display_options['fields']['field_event_date_2']['table'] = 'field_data_field_event_date';
+  $handler->display->display_options['fields']['field_event_date_2']['field'] = 'field_event_date';
+  $handler->display->display_options['fields']['field_event_date_2']['label'] = 'mes';
+  $handler->display->display_options['fields']['field_event_date_2']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_event_date_2']['settings'] = array(
+    'format_type' => 'mes',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
+  $handler->display->display_options['fields']['field_event_date_2']['delta_offset'] = '0';
+  /* Campo: Content: Date */
+  $handler->display->display_options['fields']['field_event_date_3']['id'] = 'field_event_date_3';
+  $handler->display->display_options['fields']['field_event_date_3']['table'] = 'field_data_field_event_date';
+  $handler->display->display_options['fields']['field_event_date_3']['field'] = 'field_event_date';
+  $handler->display->display_options['fields']['field_event_date_3']['label'] = 'dia';
+  $handler->display->display_options['fields']['field_event_date_3']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_event_date_3']['element_class'] = 'day';
+  $handler->display->display_options['fields']['field_event_date_3']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_event_date_3']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_event_date_3']['settings'] = array(
+    'format_type' => 'dia',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
+  $handler->display->display_options['fields']['field_event_date_3']['delta_offset'] = '0';
   /* Sort criterion: Content: Date (field_event_date) */
   $handler->display->display_options['sorts']['field_event_date_value']['id'] = 'field_event_date_value';
   $handler->display->display_options['sorts']['field_event_date_value']['table'] = 'field_data_field_event_date';
@@ -1883,6 +1932,9 @@ function katakrak_agenda_views_default_views() {
     t('description'),
     t('link'),
     t('<a href="http://katakrak.net/node/[nid]">ver mas</a>'),
+    t('hora'),
+    t('mes'),
+    t('dia'),
     t('All'),
     t('Services'),
   );

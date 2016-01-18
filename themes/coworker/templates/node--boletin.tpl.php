@@ -80,13 +80,13 @@
  */
 ?>
 <div class="row">
-  <div class="col-lg-5">
+  <div class="col-lg-5 col-md-5">
     <?php print render($content['field_image']) ?>
     <p><?php print $node->event_table; ?></p>
     <h4><?php print t("Selección") ?></h4>
     <p><?php print views_embed_view('libros', 'books_related_boletin', $node->nid); ?></p>
   </div>
-  <div class="col-lg-7">
+  <div class="col-lg-7 col-md-7">
     <h1><?php print $node->title ?></h1>
     <p><?php print t("Posted on !date", array('!date' => format_date($node->created, 'custom', 'd/m/Y'))) ?></p>
     <div class="clear"></div>

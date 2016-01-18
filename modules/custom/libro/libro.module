@@ -430,7 +430,7 @@ function libro_node_load($nodes, $types) {
         $term = taxonomy_term_load($autores['tid']);
         $node->autores[] = $term->name;
       }
-      if ($node->field_libro_categoria['und']) {
+      if (isset($node->field_libro_categoria['und'])) {
         $ubicacion = taxonomy_get_parents($node->field_libro_categoria['und'][0]['tid']);
         if ($ubicacion) {
           $ubicacion = array_pop($ubicacion);
