@@ -10,7 +10,7 @@
 function katakrak_blog_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_blog_adjunto'
+  // Exported field_base: 'field_blog_adjunto'.
   $field_bases['field_blog_adjunto'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -33,7 +33,7 @@ function katakrak_blog_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_blog_cuerpo'
+  // Exported field_base: 'field_blog_cuerpo'.
   $field_bases['field_blog_cuerpo'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -52,7 +52,7 @@ function katakrak_blog_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'field_blog_eventos'
+  // Exported field_base: 'field_blog_eventos'.
   $field_bases['field_blog_eventos'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -91,7 +91,7 @@ function katakrak_blog_field_default_field_bases() {
     'type' => 'node_reference',
   );
 
-  // Exported field_base: 'field_blog_libro'
+  // Exported field_base: 'field_blog_libro'.
   $field_bases['field_blog_libro'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -133,7 +133,7 @@ function katakrak_blog_field_default_field_bases() {
     'type' => 'node_reference',
   );
 
-  // Exported field_base: 'field_blog_tipo'
+  // Exported field_base: 'field_blog_tipo'.
   $field_bases['field_blog_tipo'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -159,7 +159,7 @@ function katakrak_blog_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_blog_type'
+  // Exported field_base: 'field_blog_type'.
   $field_bases['field_blog_type'] = array(
     'active' => 1,
     'cardinality' => -1,

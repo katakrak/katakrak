@@ -1,18 +1,95 @@
 <?php
+
 /**
  * @file
- * Provides a payment method for Drupal Commerce using Sermepa gateway.
+ * Provides a payment method for Drupal Commerce using Sermepa/Redsys gateway.
  */
 
-DEFINE('COMMERCE_SERMEPA_URL_TEST', 'https://sis-t.sermepa.es:25443/sis/realizarPago');
-DEFINE('COMMERCE_SERMEPA_URL_LIVE', 'https://sis.sermepa.es/sis/realizarPago');
+use CommerceRedsys\Payment\Sermepa;
+
+/**
+ * Implements hook_hook_info().
+ */
+function commerce_sermepa_hook_info() {
+  $hooks = array(
+    'commerce_sermepa_gateway' => array(
+      'group' => 'commerce_sermepa',
+    ),
+  );
+
+  return $hooks;
+}
+
+/**
+ * Implements hook_libraries_info().
+ */
+function commerce_sermepa_libraries_info() {
+  $libraries['sermepa'] = array(
+    'name' => 'Sermepa/Redsys API',
+    'vendor url' => 'https://github.com/CommerceRedsys/sermepa',
+    'download url' => 'https://github.com/CommerceRedsys/sermepa/releases',
+    'version arguments' => array(
+      'file' => 'CHANGELOG.md',
+      'pattern' => '@([0-9.]+)@',
+      'lines' => 1,
+      'cols' => 20,
+    ),
+    'files' => array(
+      'php' => array(
+        'src/SermepaException.php',
+        'src/SermepaInterface.php',
+        'src/Sermepa.php',
+      ),
+    ),
+  );
+
+  return $libraries;
+}
+
+/**
+ * Helper function to create a Sermepa instance.
+ *
+ * @param array $settings
+ *   An array of the current payment method settings.
+ *
+ * @return mixed
+ *   Initialized \CommerceRedsys\Payment\Sermepa Object, otherwise FALSE.
+ */
+function commerce_sermepa_library_initialize($settings) {
+  // Load Sermepa API.
+  if (!class_exists('Sermepa')) {
+    $library = libraries_load('sermepa');
+    if (!$library || empty($library['loaded'])) {
+      return FALSE;
+    }
+  }
+
+  // Create a Sermepa instance.
+  if (!empty($settings['advanced']['override_url'])) {
+    $environment = $settings['advanced']['override_url'];
+  }
+  else {
+    $environment = $settings['mode'];
+  }
+
+  $gateway = new Sermepa(
+    $settings['Ds_MerchantName'],
+    $settings['Ds_MerchantCode'],
+    $settings['Ds_Merchant_Terminal'],
+    $settings['Ds_MerchantPassword'],
+    $environment
+  );
+
+  return $gateway;
+}
 
 /**
  * Implements hook_menu().
  */
 function commerce_sermepa_menu() {
-  $items['sermepa/callback'] = array(
+  $items['sermepa/callback/%commerce_order'] = array(
     'page callback' => 'commerce_sermepa_callback',
+    'page arguments' => array(2),
     'access callback' => TRUE,
     'type' => MENU_CALLBACK,
   );
@@ -23,22 +100,46 @@ function commerce_sermepa_menu() {
 /**
  * Get POST response from sermepa.
  */
-function commerce_sermepa_callback() {
-  // Load order and payment_method objects
-  if ($feedback = commerce_sermepa_get_feedback()) {
-    $order_id = explode("_", $feedback['Ds_Order']);
-    $order = commerce_order_load($order_id[1]);
-    if ($order) {
-      // Load the payment method, since it won't be available if no $order object was passed in as argument
-      $payment_method = commerce_payment_method_instance_load($order->data['payment_method']);
-      if (!$payment_method || $payment_method['method_id'] != 'commerce_sermepa') {
-        return FALSE;
-      }
-      if (commerce_sermepa_valid_sha1($order, $payment_method, $feedback)) {
-        commerce_sermepa_process_transaction($order, $payment_method, $feedback);
-      }
-    }
+function commerce_sermepa_callback($order) {
+  if (!$order) {
+    watchdog('commerce_sermepa', "Bad '%order_id' order id received in feedback values.", array('%order_id' => arg(2)), WATCHDOG_WARNING);
+    return FALSE;
   }
+
+  // Load the payment method.
+  $payment_method = commerce_payment_method_instance_load($order->data['payment_method']);
+  if (!$payment_method || $payment_method['method_id'] != 'commerce_sermepa') {
+    watchdog('commerce_sermepa', "Unknown or non-existent '%method_id' payment method.", array('%method_id' => 'commerce_sermepa'), WATCHDOG_WARNING);
+    return FALSE;
+  }
+
+  // Create a sermepa instance.
+  if (!$gateway = commerce_sermepa_library_initialize($payment_method['settings'])) {
+    return FALSE;
+  }
+
+  // Get response data.
+  if (!$feedback = $gateway->getFeedback()) {
+    watchdog('commerce_sermepa', "Bad feedback response data.", array(), WATCHDOG_WARNING);
+    return FALSE;
+  }
+
+  // Get order number from feedback data and compare it with the order object
+  // argument.
+  $parameters = $gateway->decodeMerchantParameters($feedback['Ds_MerchantParameters']);
+  $order_id = $parameters['Ds_MerchantData'];
+  if ($order_id != $order->order_id) {
+    watchdog('commerce_sermepa', "The order id from feedback and the order object argument id don't match.", array(), WATCHDOG_WARNING);
+  }
+
+  // Validate feedback values.
+  if (!$gateway->validSignatures($feedback)) {
+    watchdog('commerce_sermepa', "Bad feedback response, signatures don't match.", array(), WATCHDOG_WARNING);
+    return FALSE;
+  }
+
+  // Process the transaction.
+  commerce_sermepa_process_transaction($order, $payment_method, $parameters);
 
   return FALSE;
 }
@@ -53,7 +154,7 @@ function commerce_sermepa_commerce_payment_method_info() {
     'base' => 'commerce_sermepa',
     'title' => t('Sermepa Payment'),
     'short_title' => t('Sermepa'),
-    'description' => t('Sermepa payment gateway integration'),
+    'description' => t('Sermepa/Redsys payment gateway integration'),
     'terminal' => FALSE,
     'offsite' => TRUE,
     'offsite_autoredirect' => TRUE,
@@ -65,47 +166,44 @@ function commerce_sermepa_commerce_payment_method_info() {
 
 /**
  * Payment method callback: settings form.
+ *
+ * @return array
+ *   Form elements for the payment method's settings form included
+ *   as part of the payment method's enabling action in Rules.
  */
 function commerce_sermepa_settings_form($settings = NULL) {
+  libraries_load('sermepa');
   $form = array();
 
   $settings = (array) $settings + array(
-    'name' => '',
     'mode' => 'test',
-    'Ds_Merchant_Titular' => '',
+    'Ds_MerchantName' => '',
     'Ds_MerchantCode' => '',
-    'Ds_MerchantSignature' => '',
-    'Ds_Merchant_Terminal' => '001',
+    'Ds_MerchantPassword' => '',
+    'Ds_Merchant_Terminal' => '',
+    'Ds_Merchant_ConsumerLanguage' => '001',
     'currency' => '978',
     'advanced' => array(
       'override_url' => '',
-      'encryption' => 'sha1-enhanced',
     ),
   );
 
-  $form['name'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Bank Name'),
-    '#description' => t('Administrative name for the bank.'),
-    '#default_value' => $settings['name'],
-    '#size' => 80,
-    '#maxlength' => 255,
-    '#required' => TRUE,
-  );
   $form['mode'] = array(
     '#type' => 'radios',
     '#title' => t('Mode of the transactions'),
     '#default_value' => $settings['mode'],
-    '#options' => array('test' => t('Test'), 'live' => t('Live')),
-    '#maxlength' => 5,
+    '#options' => array(
+      'test' => t('Test'),
+      'live' => t('Live'),
+    ),
     '#required' => TRUE,
   );
-  $form['Ds_Merchant_Titular'] = array(
+  $form['Ds_MerchantName'] = array(
     '#type' => 'textfield',
-    '#title' => t('Merchant Titular'),
-    '#default_value' => $settings['Ds_Merchant_Titular'],
+    '#title' => t('Merchant Name'),
+    '#default_value' => $settings['Ds_MerchantName'],
     '#size' => 80,
-    '#maxlength' => 255,
+    '#maxlength' => Sermepa::getMerchantNameMaxLength(),
     '#required' => TRUE,
   );
   $form['Ds_MerchantCode'] = array(
@@ -113,15 +211,15 @@ function commerce_sermepa_settings_form($settings = NULL) {
     '#title' => t('Merchant Code'),
     '#default_value' => $settings['Ds_MerchantCode'],
     '#size' => 80,
-    '#maxlength' => 255,
+    '#maxlength' => Sermepa::getMerchantCodeMaxLength(),
     '#required' => TRUE,
   );
-  $form['Ds_MerchantSignature'] = array(
+  $form['Ds_MerchantPassword'] = array(
     '#type' => 'textfield',
-    '#title' => t('Merchant Signature'),
-    '#default_value' => $settings['Ds_MerchantSignature'],
+    '#title' => t('SHA256 Merchant Password'),
+    '#default_value' => $settings['Ds_MerchantPassword'],
     '#size' => 80,
-    '#maxlength' => 255,
+    '#maxlength' => Sermepa::getMerchantPasswordMaxLength(),
     '#required' => TRUE,
   );
   $form['Ds_Merchant_Terminal'] = array(
@@ -129,30 +227,21 @@ function commerce_sermepa_settings_form($settings = NULL) {
     '#title' => t('Merchant Terminal'),
     '#default_value' => $settings['Ds_Merchant_Terminal'],
     '#size' => 5,
-    '#maxlength' => 5,
+    '#maxlength' => Sermepa::getMerchantTerminalMaxLength(),
+    '#required' => TRUE,
+  );
+  $form['Ds_Merchant_ConsumerLanguage'] = array(
+    '#type' => 'select',
+    '#title' => t('Merchant Consumer Language'),
+    '#default_value' => $settings['Ds_Merchant_ConsumerLanguage'],
+    '#options' => Sermepa::getAvailableConsumerLanguages(),
     '#required' => TRUE,
   );
   $form['currency'] = array(
     '#type' => 'select',
     '#title' => t('Currency'),
     '#default_value' => $settings['currency'],
-    '#options' => array(
-      '978' => t('Euro'),
-      '840' => t('U.S. Dollar'),
-      '826' => t('Pound'),
-      '392' => t('Yen'),
-       '32' => t('Southern Argentina'),
-      '124' => t('Canadian Dollar'),
-      '152' => t('Chilean Peso'),
-      '170' => t('Colombian Peso'),
-      '356' => t('India Rupee'),
-      '484' => t('New Mexican Peso'),
-      '604' => t('Soles'),
-      '756' => t('Swiss Franc'),
-      '986' => t('Brazilian Real'),
-      '937' => t('Bolivar'),
-      '949' => t('Turkish lira')
-    ),
+    '#options' => Sermepa::getAvailableCurrencies(),
     '#required' => TRUE,
   );
   $form['description'] = array(
@@ -175,23 +264,32 @@ function commerce_sermepa_settings_form($settings = NULL) {
     '#default_value' => $settings['advanced']['override_url'],
     '#size' => 80,
     '#maxlength' => 255,
-  );
-  $form['advanced']['encryption'] = array(
-    '#type' => 'radios',
-    '#title' => t('Method of encryption'),
-    '#default_value' => $settings['advanced']['encryption'],
-    '#options' => array(
-      'sha1' => t('SHA'),
-      'sha1-enhanced' => t('Enhanced SHA'),
-    ),
-    '#required' => TRUE,
+    '#element_validate' => array('commerce_sermepa_settings_override_url_validate'),
   );
 
   return $form;
 }
 
 /**
+ * Form element validation handler for override bank connect url.
+ */
+function commerce_sermepa_settings_override_url_validate($element, &$form_state, $form) {
+  if (!empty($element['#value']) && !filter_var($element['#value'], FILTER_VALIDATE_URL)) {
+    form_error($element, t('The specified "Override bank connect url" is not valid.'));
+  }
+}
+
+/**
  * Payment method callback: redirect form to sermepa gateway.
+ *
+ * @param commerce_order $order
+ *   The fully loaded order being paid for.
+ * @param array $payment_method
+ *   An array of the current settings.
+ *
+ * @return array
+ *   Form elements that should be submitted to the redirected
+ *   payment service.
  */
 function commerce_sermepa_redirect_form($form, &$form_state, $order, $payment_method) {
   // Return an error if the enabling action's settings haven't been configured.
@@ -200,19 +298,24 @@ function commerce_sermepa_redirect_form($form, &$form_state, $order, $payment_me
     return array();
   }
 
-  if (empty($payment_method['settings']['Ds_MerchantSignature'])) {
-    drupal_set_message(t('Sermepa signature is not set for use. Merchant signature has not been specified.'), 'error');
+  if (empty($payment_method['settings']['Ds_MerchantPassword'])) {
+    drupal_set_message(t('SHA256 Sermepa password is not set for use. Merchant password has not been specified.'), 'error');
+    return array();
+  }
+
+  if (empty($payment_method['settings']['Ds_Merchant_Terminal'])) {
+    drupal_set_message(t('Sermepa is not configured for use. Merchant terminal has not been specified.'), 'error');
     return array();
   }
 
   $settings = array(
-    // Return to the previous page when payment is canceled
+    // Return to the previous page when payment is canceled.
     'cancel_return' => url('checkout/' . $order->order_id . '/payment/back/' . $order->data['payment_redirect_key'], array('absolute' => TRUE)),
-    // Return to the payment redirect page for processing successful payments
+    // Return to the payment redirect page for processing successful payments.
     'return' => url('checkout/' . $order->order_id . '/payment/return/' . $order->data['payment_redirect_key'], array('absolute' => TRUE)),
     // Url to get POST result of payment.
-    'merchant_url' => url('sermepa/callback', array('absolute' => TRUE)),
-    // Specify the current payment method instance ID in the notify_url
+    'merchant_url' => url('sermepa/callback/' . $order->order_id, array('absolute' => TRUE)),
+    // Specify the current payment method instance ID in the notify_url.
     'payment_method' => $payment_method['instance_id'],
   );
 
@@ -222,212 +325,141 @@ function commerce_sermepa_redirect_form($form, &$form_state, $order, $payment_me
 /**
  * Build the order form for the sermepa.
  *
- * @param $order
+ * @param commerce_order $order
  *   The fully loaded order being paid for.
+ * @param array $settings
+ *   An array of the current settings.
+ *
+ * @return array
+ *   Form elements that should be submitted to the redirected
+ *   payment service.
  */
 function commerce_sermepa_order_form($form, &$form_state, $order, $settings) {
-  $merchant_order = substr(date('ymdHis') . '_' . $order->order_id, -12, 12);
-  $transactiontype = '0';
-
-  if ($settings['advanced']['encryption'] == 'sha1-enhanced') {
-    $message = $order->commerce_order_total[LANGUAGE_NONE][0]['amount'] . $merchant_order . $settings['Ds_MerchantCode'] . $settings['currency'] . $transactiontype . $settings['merchant_url'] . $settings['Ds_MerchantSignature'];
-    $signature = strtoupper(sha1($message));
-  }
-  elseif ($settings['advanced']['encryption'] == 'sha1') {
-    module_load_include('inc', 'commerce_sermepa', 'sha1');
-    $sha = new SHA1;
-    $message = $order->commerce_order_total[LANGUAGE_NONE][0]['amount'] . $merchant_order . $settings['Ds_MerchantCode'] . $settings['currency'] . $settings['Ds_MerchantSignature'];
-    $digest1 = $sha->hash_string($message);
-    $signature = strtoupper($sha->hash_to_string($digest1));
+  // Create a sermepa instance.
+  if (!$gateway = commerce_sermepa_library_initialize($settings)) {
+    return FALSE;
   }
 
-  // Get the url to connect to.
-  if (!empty($settings['advanced']['override_url'])) {
-    $url = $settings['advanced']['override_url'];
-  }
-  elseif ($settings['mode'] == 'live') {
-    $url = COMMERCE_SERMEPA_URL_LIVE;
-  }
-  else {
-    $url = COMMERCE_SERMEPA_URL_TEST;
-  }
+  // Prepare transaction data.
+  // Set Authorization trasaction type.
+  // See \CommerceRedsys\Payment\Sermepa::getAvailableTransactionTypes() for full list.
+  $gateway->setTransactionType('0')
+  // Assign an order number.
+          ->setOrder(substr(date('ymdHis') . $order->order_id, -12, 12))
+  // Set transaction amount.
+          ->setAmount($order->commerce_order_total[LANGUAGE_NONE][0]['amount'])
+  // Set currency.
+          ->setCurrency($settings['currency'])
+  // Set feedback url.
+          ->setMerchantURL($settings['merchant_url'])
+  // Set merchant OK url.
+          ->setUrlOK($settings['return'])
+  // Set merchant KO url.
+          ->setUrlKO($settings['cancel_return'])
+  // Set customer language.
+          ->setConsumerLanguage($settings['Ds_Merchant_ConsumerLanguage'])
+  // Store commerce order id in merchant data.
+         ->setMerchantData($order->order_id);
 
-  $hidden_fields = array(
-    'Ds_Merchant_Amount' => $order->commerce_order_total[LANGUAGE_NONE][0]['amount'],
-    'Ds_Merchant_Currency' => $settings['currency'],
-    'Ds_Merchant_Order' => $merchant_order,
-    'Ds_Merchant_Titular' => $settings['Ds_Merchant_Titular'],
-    'Ds_Merchant_MerchantName' => $settings['Ds_Merchant_Titular'],
-    'Ds_Merchant_MerchantCode' => $settings['Ds_MerchantCode'],
-    'Ds_Merchant_MerchantURL' => $settings['merchant_url'],
-    'Ds_Merchant_UrlOK' => $settings['return'],
-    'Ds_Merchant_UrlKO' => $settings['cancel_return'],
-    'Ds_Merchant_ConsumerLanguage' => 1,
-    'Ds_Merchant_TransactionType' => $transactiontype,
-    'Ds_Merchant_MerchantSignature' => $signature,
-    'Ds_Merchant_Terminal' => $settings['Ds_Merchant_Terminal'],
-  );
+  // Allow user to make changes in the gateway configuration data.
+  rules_invoke_all('commerce_sermepa_gateway', $gateway, $order);
 
-  $form['#action'] = $url;
+  $form['#action'] = $gateway->getEnvironment();
+
+  // Force rebuild the form.
+  $form_sate['rebuild'] = TRUE;
 
   // Create hidden fields.
-  foreach ($hidden_fields as $name => $value) {
-    $form[$name] = array(
+  $parameters = $gateway->composeMerchantParameters();
+  if ($parameters) {
+    $form['Ds_SignatureVersion'] = array(
       '#type' => 'hidden',
-      '#value' => $value,
+      '#value' => $gateway->getSignatureVersion(),
+    );
+    $form['Ds_MerchantParameters'] = array(
+      '#type' => 'hidden',
+      '#value' => $parameters,
+    );
+    $form['Ds_Signature'] = array(
+      '#type' => 'hidden',
+      '#value' => $gateway->composeMerchantSignature(),
     );
   }
 
   $form['submit'] = array(
     '#type' => 'submit',
-    '#value' => t('Redirect to Sermepa platform'),
+    '#value' => t('Redirect to Redsys platform'),
   );
 
   return $form;
 }
 
 /**
- * Implements hook_redirect_form_validate.
+ * Implements hook_redirect_form_validate().
+ *
+ * @param commerce_order $order
+ *   The order object.
+ * @param array $payment_method
+ *   The payment method array.
+ *
+ * @return boolean
+ *   TRUE if the customer should proceed to checkout completion or FALSE to go
+ *   back one step in the checkout process.
  */
 function commerce_sermepa_redirect_form_validate($order, $payment_method) {
   commerce_sermepa_process_callback($order, $payment_method);
 }
 
 /**
- * Gets the Sermepa feedback from GET / POST parameters.
+ * Process callback information from Sermepa.
  *
- * @return
- *   An associative array containing the Sermepa feedback taken from the $_GET and
- *   $_POST superglobals, excluding 'q'.
- *   Returns FALSE if the Ds_Order parameter is missing (indicating missing or
- *   invalid Sermepa feedback).
+ * This can either be through a redirect after payment,
+ * or a Direct HTTP server-to-server request.
+ *
+ * @param commerce_order $order
+ *   The order object.
+ * @param array $payment_method
+ *   The payment method array.
+ *
+ * @return boolean
+ *   TRUE if is valid, otherwise FALSE.
  */
-function commerce_sermepa_get_feedback() {
-  $feedback = FALSE;
-  if (isset($_REQUEST['Ds_Order'])) {
-    // Prepare the feedback values sent by Sermepa for processing. We don't use
-    // $_REQUEST since this includes the $_SESSION variables.
-    $feedback = $_GET + $_POST;
-    unset($feedback['q']);
-  }
-  return $feedback;
-}
-
-/**
- * Check if SHA1 in callback feedback is valid
- */
-function commerce_sermepa_valid_sha1($order, $payment_method, $feedback) {
-  $order_id = explode("_", $feedback['Ds_Order']);
-  $order = commerce_order_load($order_id[1]);
-
-  $message = $order->commerce_order_total[LANGUAGE_NONE][0]['amount'] . $feedback['Ds_Order'] . $feedback['Ds_MerchantCode'] . $feedback['Ds_Currency'] . $feedback['Ds_Response'] . $payment_method['settings']['Ds_MerchantSignature'];
-
-  if ($feedback['Ds_Signature'] != strtoupper(sha1($message))) {
-    watchdog('commerce_sermepa', t('Signature for the payment doesn\'t match'), array(), WATCHDOG_ERROR);
+function commerce_sermepa_process_callback($order, $payment_method) {
+  // Create a sermepa instance.
+  if (!$gateway = commerce_sermepa_library_initialize($payment_method['settings'])) {
     return FALSE;
   }
 
-  if (empty($feedback['Ds_AuthorisationCode'])) {
-    watchdog('commerce_sermepa', t('No authorisation code for the transaction'), array(), WATCHDOG_ERROR);
+  // Get response data.
+  if (!$feedback = $gateway->getFeedback()) {
+    watchdog('commerce_sermepa', "Bad feedback response data.", array(), WATCHDOG_WARNING);
     return FALSE;
   }
+
+  // Validate feedback values.
+  if (!$gateway->validSignatures($feedback)) {
+    watchdog('commerce_sermepa', "Bad feedback response, signatures don't match.", array(), WATCHDOG_WARNING);
+    return FALSE;
+  }
+
+  $parameters = $gateway->decodeMerchantParameters($feedback['Ds_MerchantParameters']);
+  commerce_sermepa_process_transaction($order, $payment_method, $parameters);
 
   return TRUE;
 }
 
 /**
- * Process callback information from Sermepa
- * This can either be through a redirect after payment, or a Direct HTTP server-to-server request
- */
-function commerce_sermepa_process_callback($order, $payment_method) {
-  if ($feedback = commerce_sermepa_get_feedback()) {
-    if (commerce_sermepa_valid_sha1($order, $payment_method, $feedback)) {
-      // Process the transaction based on the Sermepa parameters received
-      commerce_sermepa_process_transaction($order, $payment_method, $feedback);
-      return TRUE;
-    }
-  }
-}
-
-/**
- * Handle the response of the payment transaction.
- * Messages from "Guía de Comercios TPV Virtual SIS" v5.19
- */
-function _commerce_sermepa_response($response = NULL) {
-  if ((int) $response <= 99) {
-    $st = COMMERCE_PAYMENT_STATUS_SUCCESS;
-    $msg = t('Transaction authorized for payments and preauthorizations');
-  }
-  else {
-    $st = COMMERCE_PAYMENT_STATUS_FAILURE;
-    switch ((int) $response) {
-      case 900:
-        $msg = t('Transaction authorized for returns and confirmations');
-        break;
-      case 101:
-        $msg = t('Expired card');
-        break;
-      case 102:
-        $msg = t('Temporary exception card or on suspicion of fraud');
-        break;
-      case 104:
-      case 9104:
-        $msg = t('Operation not allowed for the card or terminal');
-        break;
-      case 116:
-        $msg = t('Asset insufficient');
-        break;
-      case 118:
-        $msg = t('Card not registered');
-        break;
-      case 129:
-        $msg = t('Wrong security code (CVV2/CVC2)');
-        break;
-      case 180:
-        $msg = t('Card out of the service');
-        break;
-      case 184:
-        $msg = t('Error on owner authentication');
-        break;
-      case 190:
-        $msg = t('Denied without specific reasons');
-        break;
-      case 191:
-        $msg = t('Wrong expiration date');
-        break;
-      case 202:
-        $msg = t('Temporary or emergency card on suspicion of withdrawal card fraud');
-        break;
-      case 912:
-      case 9912:
-        $msg = t('Issuer not available');
-        break;
-      case 913:
-        $msg = t('Order duplicated');
-        break;
-      default:
-        $msg = t('Transaction refused');
-        break;
-    }
-  }
-
-  return array(
-      'code' => $st,
-      'message' => $msg,
-  );
-}
-
-/**
  * Get transaction with a specific Sermepa Ds_AuthorisationCode.
+ *
+ * @param string $authorisation_code
+ *   The authorisation code received from Sermepa regarding the payment.
  */
-function commerce_sermepa_get_payment_transaction($feedback) {
-  $feedback_remote_id = $feedback['Ds_AuthorisationCode'];
-
-  $query = new EntityFieldQuery;
+function commerce_sermepa_get_payment_transaction($authorisation_code) {
+  $query = new EntityFieldQuery();
 
   $result = $query->entityCondition('entity_type', 'commerce_payment_transaction')
                   ->propertyCondition('payment_method', 'commerce_sermepa')
-                  ->propertyCondition('remote_id', $feedback_remote_id)
+                  ->propertyCondition('remote_id', $authorisation_code)
                   ->execute();
 
   if (!empty($result['commerce_payment_transaction']) && count($result['commerce_payment_transaction']) > 0) {
@@ -440,22 +472,58 @@ function commerce_sermepa_get_payment_transaction($feedback) {
 
 /**
  * Save the payment transaction for the order.
+ *
+ * @param commerce_order $order
+ *   The loaded order that is being processed.
+ * @param array $payment_method
+ *   The payment method settings.
+ * @param array $feedback_parameters
+ *   An associative array of feedback merchant parameters values:
+ *   - Ds_Date: Transaction date (dd/mm/yyyy).
+ *   - Ds_Hour: Transaction time (HH:mm).
+ *   - Ds_Amount: Same of the transaction.
+ *   - Ds_Currency: Same of the transaction.
+ *   - Ds_Order: Same of the transaction.
+ *   - Ds_MerchantCode: Same of the transaction.
+ *   - Ds_Terminal: Assigned by Sermepa.
+ *   - Ds_Response: Response values, see $this->handleResponse.
+ *   - Ds_MerchantData: Optional sended from commerce form.
+ *   - Ds_SecurePayment: 0 for no secure payment, 1 for secure.
+ *   - Ds_TrasactionType: Trasaction type sended from commerce form.
+ *   - Ds_Card_Country: (Optional) Country of issuance of the card that has
+ *       tried to make the payment..
+ *   - Ds_AuthorisationCode: (Optional) Assigned authorisation code.
+ *   - Ds_ConsumerLanguage: (Optional) 0 indicates that has not been
+ *       determined the customer's language..
+ *   - Ds_Card_Type: (Optional) C for credit, D for debit.
+ * @param boolean $redirect
+ *   Specifies whether to call redirect functions or not.
  */
-function commerce_sermepa_process_transaction($order, $payment_method, $feedback, $redirect = TRUE) {
-  $transaction_id = commerce_sermepa_get_payment_transaction($feedback);
+function commerce_sermepa_process_transaction($order, $payment_method, $feedback_parameters, $redirect = TRUE) {
+  $authorisation_code = $feedback_parameters['Ds_AuthorisationCode'];
+  $transaction_id = commerce_sermepa_get_payment_transaction($authorisation_code);
   if (!$transaction_id) {
     $transaction = commerce_payment_transaction_new('commerce_sermepa', $order->order_id);
   }
   else {
     $transaction = commerce_payment_transaction_load($transaction_id);
   }
+
   // Handle the response of the bank.
-  $transaction_status = _commerce_sermepa_response($feedback['Ds_Response']);
+  if (!class_exists('Sermepa')) {
+    libraries_load('sermepa');
+  }
+  $response_code = $feedback_parameters['Ds_Response'];
+  $transaction_status = array(
+    'code' => (($response_code <= 99) ? COMMERCE_PAYMENT_STATUS_SUCCESS : COMMERCE_PAYMENT_STATUS_FAILURE),
+    'message' => Sermepa::handleResponse($response_code),
+  );
 
   $transaction->instance_id = $payment_method['instance_id'];
   $transaction->amount = $order->commerce_order_total[LANGUAGE_NONE][0]['amount'];
   $transaction->currency_code = $order->commerce_order_total[LANGUAGE_NONE][0]['currency_code'];
-  $transaction->remote_id = $feedback['Ds_AuthorisationCode'];
+  $transaction->remote_id = $authorisation_code;
+  $transaction->remote_status = $feedback_parameters['Ds_Response'];
 
   $transaction->status = $transaction_status['code'];
   if ($transaction_status['code'] == COMMERCE_PAYMENT_STATUS_SUCCESS) {
@@ -465,7 +533,7 @@ function commerce_sermepa_process_transaction($order, $payment_method, $feedback
     $transaction->message = 'Error for the transaction with id @transaction_id: ' . $transaction_status['message'];
   }
   $transaction->message_variables = array(
-    '@transaction_id' => $feedback['Ds_AuthorisationCode'],
+    '@transaction_id' => $authorisation_code,
   );
   commerce_payment_transaction_save($transaction);
   if ($redirect) {
@@ -480,15 +548,30 @@ function commerce_sermepa_process_transaction($order, $payment_method, $feedback
 
 /**
  * Payment method callback: checkout form.
+ *
+ * @param array $payment_method
+ *   An array of the current settings.
+ * @param array $pane_values
+ *   The current values of the pane.
+ * @param array $checkout_pane
+ *   The checkout pane array. The checkout pane will be NULL if the payment is
+ *   being added through the administration form.
+ * @param commerce_order $order
+ *   The order object.
+ *
+ * @return array
+ *   A form snippet for the checkout pane.
  */
 function commerce_sermepa_submit_form($payment_method, $pane_values, $checkout_pane, $order) {
   if (!empty($payment_method['settings']['description'])) {
     $form = array();
+
     $form['sermepa_description'] = array(
       '#type' => 'item',
       '#title' => t('Payment instructions'),
-      '#markup' => '<p class="sermepa-description">' . $payment_method['settings']['description'] . '</p>'
+      '#markup' => '<p class="sermepa-description">' . $payment_method['settings']['description'] . '</p>',
     );
+
     return $form;
   }
 }

@@ -24,7 +24,7 @@ function libro_menu() {
     'description' => 'Dilve options',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('libro_portadas_form'),
-    'access arguments' => array('administer site configuration'),
+    'access arguments' => array('access dilve information'),
   );
    $items['node/%node/portada'] = array(
     'title' => 'Portada',
@@ -42,6 +42,15 @@ function libro_menu() {
     'type' => MENU_CALLBACK,
   );
   return $items;
+}
+
+function libro_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'libro_node_form') {
+    //dpm($form);
+    $form['field_libro_autores']['#access'] = FALSE;
+    $form['field_libro_categoria']['#access'] = FALSE;
+    $form['field_libro_editorial']['#access'] = FALSE;
+  }
 }
 
 function libro_portada_form($form, $form_state, $node) {

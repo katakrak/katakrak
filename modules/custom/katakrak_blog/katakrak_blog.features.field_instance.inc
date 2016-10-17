@@ -10,7 +10,7 @@
 function katakrak_blog_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-blog-field_blog_adjunto'
+  // Exported field_instance: 'node-blog-field_blog_adjunto'.
   $field_instances['node-blog-field_blog_adjunto'] = array(
     'bundle' => 'blog',
     'deleted' => 0,
@@ -63,7 +63,7 @@ function katakrak_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_blog_cuerpo'
+  // Exported field_instance: 'node-blog-field_blog_cuerpo'.
   $field_instances['node-blog-field_blog_cuerpo'] = array(
     'bundle' => 'blog',
     'default_value' => NULL,
@@ -105,7 +105,7 @@ function katakrak_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_blog_eventos'
+  // Exported field_instance: 'node-blog-field_blog_eventos'.
   $field_instances['node-blog-field_blog_eventos'] = array(
     'bundle' => 'blog',
     'default_value' => NULL,
@@ -146,7 +146,7 @@ function katakrak_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_blog_libro'
+  // Exported field_instance: 'node-blog-field_blog_libro'.
   $field_instances['node-blog-field_blog_libro'] = array(
     'bundle' => 'blog',
     'default_value' => NULL,
@@ -191,7 +191,7 @@ function katakrak_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_blog_type'
+  // Exported field_instance: 'node-blog-field_blog_type'.
   $field_instances['node-blog-field_blog_type'] = array(
     'bundle' => 'blog',
     'default_value' => NULL,
@@ -228,7 +228,7 @@ function katakrak_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_image'
+  // Exported field_instance: 'node-blog-field_image'.
   $field_instances['node-blog-field_image'] = array(
     'bundle' => 'blog',
     'deleted' => 0,
@@ -266,7 +266,7 @@ function katakrak_blog_field_default_field_instances() {
       'default_image' => 0,
       'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',
-      'max_filesize' => '',
+      'max_filesize' => '1 MB',
       'max_resolution' => '',
       'min_resolution' => '',
       'title_field' => 0,
@@ -278,13 +278,86 @@ function katakrak_blog_field_default_field_instances() {
       'settings' => array(
         'imce_filefield_on' => 0,
         'insert' => 0,
-        'insert_absolute' => FALSE,
+        'insert_absolute' => 0,
         'insert_class' => '',
-        'insert_default' => array(
-          0 => 'auto',
-        ),
+        'insert_default' => 'auto',
         'insert_styles' => array(
-          0 => 'auto',
+          'auto' => 'auto',
+          'colorbox__app_book_thumbnail' => 0,
+          'colorbox__app_evento' => 0,
+          'colorbox__app_evento_thumbnail' => 0,
+          'colorbox__blog_home' => 0,
+          'colorbox__blog_post_page' => 0,
+          'colorbox__boletin_destacado' => 0,
+          'colorbox__book_cover' => 0,
+          'colorbox__book_irakurle_taldea' => 0,
+          'colorbox__book_medium' => 0,
+          'colorbox__book_thumbnail' => 0,
+          'colorbox__cover_home' => 0,
+          'colorbox__event_ciclos' => 0,
+          'colorbox__event_highlight' => 0,
+          'colorbox__event_home' => 0,
+          'colorbox__event_node_view' => 0,
+          'colorbox__event_teaser' => 0,
+          'colorbox__event_thumbnail' => 0,
+          'colorbox__extra_large' => 0,
+          'colorbox__flexslider_full' => 0,
+          'colorbox__flexslider_thumbnail' => 0,
+          'colorbox__home_agenda' => 0,
+          'colorbox__home_agenda_main' => 0,
+          'colorbox__home_agenda_main_secondary' => 0,
+          'colorbox__home_promo' => 0,
+          'colorbox__kantina_large' => 0,
+          'colorbox__kantina_medium' => 0,
+          'colorbox__kantina_thumbnail' => 0,
+          'colorbox__large' => 0,
+          'colorbox__media_thumbnail' => 0,
+          'colorbox__medium' => 0,
+          'colorbox__portfolio' => 0,
+          'colorbox__portfolio_item' => 0,
+          'colorbox__receta_page' => 0,
+          'colorbox__search_result_cover' => 0,
+          'colorbox__seccion' => 0,
+          'colorbox__thumbnail' => 0,
+          'icon_link' => 0,
+          'image' => 0,
+          'image_app_book_thumbnail' => 0,
+          'image_app_evento' => 0,
+          'image_app_evento_thumbnail' => 0,
+          'image_blog_home' => 0,
+          'image_blog_post_page' => 0,
+          'image_boletin_destacado' => 0,
+          'image_book_cover' => 0,
+          'image_book_irakurle_taldea' => 0,
+          'image_book_medium' => 0,
+          'image_book_thumbnail' => 0,
+          'image_cover_home' => 0,
+          'image_event_ciclos' => 0,
+          'image_event_highlight' => 0,
+          'image_event_home' => 0,
+          'image_event_node_view' => 0,
+          'image_event_teaser' => 0,
+          'image_event_thumbnail' => 0,
+          'image_extra_large' => 0,
+          'image_flexslider_full' => 0,
+          'image_flexslider_thumbnail' => 0,
+          'image_home_agenda' => 0,
+          'image_home_agenda_main' => 0,
+          'image_home_agenda_main_secondary' => 0,
+          'image_home_promo' => 0,
+          'image_kantina_large' => 0,
+          'image_kantina_medium' => 0,
+          'image_kantina_thumbnail' => 0,
+          'image_large' => 0,
+          'image_media_thumbnail' => 0,
+          'image_medium' => 0,
+          'image_portfolio' => 0,
+          'image_portfolio_item' => 0,
+          'image_receta_page' => 0,
+          'image_search_result_cover' => 0,
+          'image_seccion' => 0,
+          'image_thumbnail' => 0,
+          'link' => 0,
         ),
         'insert_width' => '',
         'preview_image_style' => 'thumbnail',
@@ -295,7 +368,7 @@ function katakrak_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_media'
+  // Exported field_instance: 'node-blog-field_media'.
   $field_instances['node-blog-field_media'] = array(
     'bundle' => 'blog',
     'default_value' => NULL,
@@ -340,7 +413,7 @@ function katakrak_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_tags'
+  // Exported field_instance: 'node-blog-field_tags'.
   $field_instances['node-blog-field_tags'] = array(
     'bundle' => 'blog',
     'default_value' => NULL,
@@ -379,7 +452,7 @@ function katakrak_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-blog_type-field_image'
+  // Exported field_instance: 'taxonomy_term-blog_type-field_image'.
   $field_instances['taxonomy_term-blog_type-field_image'] = array(
     'bundle' => 'blog_type',
     'deleted' => 0,

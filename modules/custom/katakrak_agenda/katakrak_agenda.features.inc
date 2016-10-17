@@ -41,6 +41,36 @@ function katakrak_agenda_views_api($module = NULL, $api = NULL) {
 function katakrak_agenda_image_default_styles() {
   $styles = array();
 
+  // Exported image style: app_evento.
+  $styles['app_evento'] = array(
+    'label' => 'app_evento',
+    'effects' => array(
+      5 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 400,
+          'height' => 300,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: app_evento_thumbnail.
+  $styles['app_evento_thumbnail'] = array(
+    'label' => 'app_evento_thumbnail',
+    'effects' => array(
+      4 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 190,
+          'height' => 150,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: event_ciclos.
   $styles['event_ciclos'] = array(
     'label' => 'Event ciclos',

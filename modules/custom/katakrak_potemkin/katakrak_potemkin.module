@@ -24,78 +24,73 @@ function katakrak_potemkin_menu() {
 }
 
 function potemkin_first_import_form($form, &$form_state) {
-  $potemkin_dir = DRUPAL_ROOT.'/'.variable_get('potemkin_directory', 'sites/default/files/potemkin');
-  if (!file_exists($potemkin_dir)) {
-    mkdir($potemkin_dir);
-  }
-  $files = scandir($potemkin_dir);
-  foreach ($files as $key => $value) {
-    if (strpos($value, '.') !== 0 AND $value != '..'){
-      $options[$potemkin_dir.'/'.$value] = $value;
-    }
-  }
-  $form['potemkin_file'] = array(
-    '#type' => 'select',
-    '#title' => 'Potemkin File',
-    '#options' => $options,
+  $form['limit'] = array(
+    '#title' => t('Limit'),
+    '#description' => t('If no value all items will be processed'),
+    '#type' => 'textfield',
+    '#size' => 10,
+    '#default_value' => 10,
+  );
+  $form['max'] = array(
+    '#title' => t('Max'),
+    '#description' => t('Max'),
+    '#type' => 'textfield',
+    '#size' => 10,
+    '#default_value' => 0,
   );
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => 'Submit',  
   );
+//  $pelis_db = db_select('pelis', 'p');
+//  
+//  
+//  $pelis = $pelis_db->fields('p')->range(100,100)->execute()->fetchAll();
+//  dpm($pelis);
   return $form;
 }
 
 
 function potemkin_first_import_form_submit($form, &$form_state) {
-  $file_path = $form_state['values']['potemkin_file'];
-  $file = fopen($file_path, 'r');
-  $items = array();
-  $i = 0;
-  $header_tmp = fgetcsv($file, 0, ',', '"');
-  foreach ($header_tmp as $k =>$v) {
-      $header[$k] = strtolower(str_replace(' ', '_', $v));
-  }
-  while ($line = fgetcsv($file, 0, ',', '"')) {
-    foreach ($line as $k => $v) {
-      $items[$i][$header[$k]] = $v;
-    }
-    $i++;
-  }
+
   $batch = array(
     'title' => t('Cargando información de Potemkin'),
     'operations' => array(
-      array('potemkin_process_csv', array($items)),
+      array('potemkin_process', array($form_state['values']['limit'], $form_state['values']['max'])),
     ),
     'finished' => 'potemkin_import_process_finish',
   );
   batch_set($batch);
 }
 
-function potemkin_process_csv($items, &$context) {
-  if (!isset($context['sandbox']['progress'])) {
-    $context['sandbox']['items'] = $items;
-    $context['sandbox']['progress'] = 0;
-    $context['sandbox']['max'] = count($items);
-  }
-  $limit = 100;
-  $i = 0;
-  while($i < $limit) {
-    $dvd = array_shift($context['sandbox']['items']);
-    potemkin_process_dvd($dvd);
-    $i++;
-  }
+function potemkin_process($limit, $max, &$context) {
   
+  if (!isset($context['sandbox']['progress'])) {
+    $context['sandbox']['progress'] = 0;
+    $context['sandbox']['max'] = $max ? $max : db_select('pelis', 'p')->fields('p')->execute()->rowCount();
+    //$context['sandbox']['max']= 200;
+  }
+ 
+
+  $pelis = db_select('pelis', 'p')->fields('p')->range($context['sandbox']['progress'], $limit)->execute()->fetchAll(PDO::FETCH_ASSOC);
+  foreach($pelis as $peli) {
+    potemkin_process_dvd($peli);
+  }
+  //watchdog('potemkin', $peli)
   $context['sandbox']['progress'] += $limit;  
+  $context['message'] = t("Processed @progress of @max dvds", array('@progress' => $context['sandbox']['progress'], '@max' => $context['sandbox']['max']));
   if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
     $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
   }
 }
 
 function potemkin_process_dvd($dvd) {
-  $nid = db_select('field_data_field_dvd_id', 'd')->fields('d', array('entity_id'))->condition('field_dvd_id_value', $dvd['codigo'])->execute()->fetchCol();
-  if ($nid) {
-    $node = node_load($nid);
+  
+  
+  $nid = db_select('field_data_field_dvd_id', 'd')->fields('d', array('entity_id'))->condition('field_dvd_id_value', $dvd['CODPEL'])->execute()->fetchCol();
+  if ($nid) { 
+    //$node = node_load($nid[0]);
+    return;
   }
   else {
     $node = new stdClass();
@@ -104,38 +99,38 @@ function potemkin_process_dvd($dvd) {
     $node->uid = 1;
   }
     
-  $node->field_dvd_id['und'][0]['value'] = $dvd['codigo'];
+  $node->field_dvd_id['und'][0]['value'] = $dvd['CODPEL'];
 
-  $node->title = $dvd['titulo'];
+  $node->title = $dvd['TITPEL'];
 
   foreach (array(1,2,3,4,5,6) as $i) {
-    if ($dvd['act'.$i.'pel']) {
-      $term = _potemkin_get_cast($dvd['act'.$i.'pel']);
+    if ($dvd['ACT'.$i.'PEL']) {
+      $term = _potemkin_get_cast($dvd['ACT'.$i.'PEL']);
       $node->field_dvd_starring['und'][($i-1)]['tid'] = $term->tid;
     }  
   }
   
-  if ($dvd['sistema'] == 'DVD')
+  if ($dvd['SISTPEL'] == 'DVD')
     $node->field_dvd_formato['und'][0]['value'] = 0;
   else 
     $node->field_dvd_formato['und'][0]['value'] = 1;
   
-  if ($dvd['pais']) {
-    $node->field_dvd_pais['und'][0]['value'] = $dvd['pais'];
+  if ($dvd['NACIOPEL']) {
+    $node->field_dvd_pais['und'][0]['value'] = $dvd['PAIS'];
   }
-  if ($dvd['duracion']) {
-    $node->field_dvd_duracion['und'][0]['value'] = $dvd['duracion'];
+  if ($dvd['DURPEL']) {
+    $node->field_dvd_duracion['und'][0]['value'] = $dvd['DURPEL'];
   }
-  if ($dvd['ano']) {
-    $node->field_dvd_ano['und'][0]['value'] = $dvd['ano'];
+  if ($dvd['ANYPEL']) {
+    $node->field_dvd_ano['und'][0]['value'] = $dvd['ANYPEL'];
   }
-  if ($dvd['sinopsis']) {
-    $node->field_dvd_descripcion['und'][0]['value'] = $dvd['sinopsis'];
+  if ($dvd['SINOPEL']) {
+    $node->field_dvd_descripcion['und'][0]['value'] = $dvd['SINOPEL'];
     $node->field_dvd_descripcion['und'][0]['format'] = 'sinopsis';
   }
   
-  if ($dvd['genero']) {
-    $tid = db_select('field_data_field_genero_dvd_id', 'd')->fields('d', array('entity_id'))->condition('field_genero_dvd_id_value', $dvd['genero'])->execute()->fetchField();
+  if ($dvd['GENPEL']) {
+    $tid = db_select('field_data_field_genero_dvd_id', 'd')->fields('d', array('entity_id'))->condition('field_genero_dvd_id_value', $dvd['GENPEL'])->execute()->fetchField();
     if ($tid) {
       $genero = taxonomy_term_load($tid);
     }
@@ -143,15 +138,15 @@ function potemkin_process_dvd($dvd) {
       $vocab = _potemkin_get_vocab("Género DVD");
       $genero = new stdClass();
       $genero->vid = $vocab->vid;
-      $genero->name = $dvd['genero'];
-      $genero->field_genero_dvd_id['und'][0]['value'] = $dvd['genero'];
+      $genero->name = $dvd['GENPEL'];
+      $genero->field_genero_dvd_id['und'][0]['value'] = $dvd['GENPEL'];
       taxonomy_term_save($genero);
     }
     $node->field_dvd_genero['und'][0]['tid'] = $genero->tid;
   }
   
-  if ($dvd['director']) {
-    $directores = explode('&', $dvd['director']);
+  if ($dvd['DIRPEL']) {
+    $directores = explode('&', $dvd['DIRPEL']);
     foreach ($directores as $i => $value) {
       $value = trim($value);
       if ($value) {
@@ -161,8 +156,8 @@ function potemkin_process_dvd($dvd) {
     }
   }
   
-  if ($dvd['guion']) {
-    $guionistas = explode('&', $dvd['guion']);
+  if ($dvd['GUIOPEL']) {
+    $guionistas = explode('&', $dvd['GUIOPEL']);
     foreach ($guionistas as $i => $value) {
       $value = trim($value);
       if ($value) {
@@ -172,8 +167,8 @@ function potemkin_process_dvd($dvd) {
     }
   }
   
-  if ($dvd['musica']) {
-    $musica = explode('&', $dvd['musica']);
+  if ($dvd['MUSIPEL']) {
+    $musica = explode('&', $dvd['MUSIPEL']);
     foreach ($musica as $i => $value) {
       $value = trim($value);
       if ($value) {
@@ -183,8 +178,8 @@ function potemkin_process_dvd($dvd) {
     }
   }
   
-   if ($dvd['fotografia']) {
-    $fotografia = explode('&', $dvd['fotografia']);
+   if ($dvd['FOTOPEL']) {
+    $fotografia = explode('&', $dvd['FOTOPEL']);
     foreach ($fotografia as $i => $value) {
       $value = trim($value);
       if ($value) {
@@ -194,8 +189,8 @@ function potemkin_process_dvd($dvd) {
     }
   }
   
-  if ($dvd['productor']) {
-    $productor = explode('&', $dvd['productor']);
+  if ($dvd['PRODPEL']) {
+    $productor = explode('&', $dvd['PRODPEL']);
     foreach ($productor as $i => $value) {
       $value = trim($value);
       if ($value) {
@@ -206,7 +201,7 @@ function potemkin_process_dvd($dvd) {
   }
   
   if (empty($node->field_dvd_caratula)) {
-    $filename = $dvd['caratula'];
+    $filename = 'p'.$dvd['CODPEL'].'.jpg';
     $uri = "public://caratulas/".$filename;
     $fid = db_select('file_managed', 'f')->fields('f', array('fid'))->condition('uri', $uri)
             ->execute()->fetchCol();
@@ -227,6 +222,7 @@ function potemkin_process_dvd($dvd) {
     $node->field_dvd_caratula['und'][0]['title'] = $node->title;
     $node->field_dvd_caratula['und'][0]['alt'] = $node->title;
   }
+  //dpm($node);
   
   node_save($node);
   

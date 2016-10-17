@@ -15,7 +15,7 @@ function katakrak_dilve_menu() {
     'description' => 'Dilve options',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('katakrak_dilve_batch_process_form'),
-    'access arguments' => array('administer site configuration'),
+    'access arguments' => array('access dilve information'),
   );
   $items['admin/commerce/config/dilve/process'] = array(
     'title' => 'Process Items',
@@ -87,8 +87,6 @@ function katakrak_dilve_permission() {
     ),
   );
 }
-
-  
 
 function katakrak_dilve_settings_form($form, &$form_state) {
   $form['dilve_user'] = array(

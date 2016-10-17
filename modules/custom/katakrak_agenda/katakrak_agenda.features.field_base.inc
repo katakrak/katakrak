@@ -10,7 +10,7 @@
 function katakrak_agenda_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_ciclo_actos'
+  // Exported field_base: 'field_ciclo_actos'.
   $field_bases['field_ciclo_actos'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -53,7 +53,7 @@ function katakrak_agenda_field_default_field_bases() {
     'type' => 'node_reference',
   );
 
-  // Exported field_base: 'field_ciclo_descripci_n'
+  // Exported field_base: 'field_ciclo_descripci_n'.
   $field_bases['field_ciclo_descripci_n'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -72,7 +72,7 @@ function katakrak_agenda_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'field_ciclo_imagen'
+  // Exported field_base: 'field_ciclo_imagen'.
   $field_bases['field_ciclo_imagen'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -94,7 +94,7 @@ function katakrak_agenda_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_ciclo_libros'
+  // Exported field_base: 'field_ciclo_libros'.
   $field_bases['field_ciclo_libros'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -135,7 +135,7 @@ function katakrak_agenda_field_default_field_bases() {
     'type' => 'node_reference',
   );
 
-  // Exported field_base: 'field_ciclo_tipo'
+  // Exported field_base: 'field_ciclo_tipo'.
   $field_bases['field_ciclo_tipo'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -160,7 +160,7 @@ function katakrak_agenda_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_event_ciclo'
+  // Exported field_base: 'field_event_ciclo'.
   $field_bases['field_event_ciclo'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -187,7 +187,7 @@ function katakrak_agenda_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_event_date'
+  // Exported field_base: 'field_event_date'.
   $field_bases['field_event_date'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -217,7 +217,7 @@ function katakrak_agenda_field_default_field_bases() {
     'type' => 'datestamp',
   );
 
-  // Exported field_base: 'field_event_descripcion'
+  // Exported field_base: 'field_event_descripcion'.
   $field_bases['field_event_descripcion'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -236,7 +236,7 @@ function katakrak_agenda_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'field_event_description'
+  // Exported field_base: 'field_event_description'.
   $field_bases['field_event_description'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -255,7 +255,7 @@ function katakrak_agenda_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_event_image'
+  // Exported field_base: 'field_event_image'.
   $field_bases['field_event_image'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -277,7 +277,7 @@ function katakrak_agenda_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_event_libro'
+  // Exported field_base: 'field_event_libro'.
   $field_bases['field_event_libro'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -316,7 +316,7 @@ function katakrak_agenda_field_default_field_bases() {
     'type' => 'node_reference',
   );
 
-  // Exported field_base: 'field_event_type'
+  // Exported field_base: 'field_event_type'.
   $field_bases['field_event_type'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -343,7 +343,7 @@ function katakrak_agenda_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_event_type_color'
+  // Exported field_base: 'field_event_type_color'.
   $field_bases['field_event_type_color'] = array(
     'active' => 1,
     'cardinality' => 1,

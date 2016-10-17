@@ -178,7 +178,7 @@
           $(this).attr('title', topIconTitle);
         });
 
-        sTip();
+        //sTip();
 
         $("#bottom-social li a").hover(function() {
           $(this).stop().animate({width: 40}, 1, 'jswing');

@@ -87,7 +87,7 @@ $profile = user_load($node->uid);
     <?php if ($display_submitted): ?>
       <div class="submitted">
         <ul class="entry_meta clearfix">
-          <li><i class="icon-calendar"></i><?php print format_date($node->changed, 'custom', 'd/m/Y'); ?></li>
+          <li><i class="icon-calendar"></i><?php print format_date($node->created, 'custom', 'd/m/Y'); ?></li>
           <?php if (!empty($content['field_tags'])): ?>
             <?php hide($content['field_tags']); ?>
             <li><span>/</span><i class="icon-copy"></i><?php print coworker_format_comma_field('field_tags', $node); ?></li>

@@ -10,7 +10,7 @@
 function katakrak_agenda_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-ciclo-field_ciclo_actos'
+  // Exported field_instance: 'node-ciclo-field_ciclo_actos'.
   $field_instances['node-ciclo-field_ciclo_actos'] = array(
     'bundle' => 'ciclo',
     'default_value' => NULL,
@@ -53,7 +53,7 @@ function katakrak_agenda_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ciclo-field_ciclo_descripci_n'
+  // Exported field_instance: 'node-ciclo-field_ciclo_descripci_n'.
   $field_instances['node-ciclo-field_ciclo_descripci_n'] = array(
     'bundle' => 'ciclo',
     'default_value' => NULL,
@@ -95,7 +95,7 @@ function katakrak_agenda_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ciclo-field_ciclo_libros'
+  // Exported field_instance: 'node-ciclo-field_ciclo_libros'.
   $field_instances['node-ciclo-field_ciclo_libros'] = array(
     'bundle' => 'ciclo',
     'default_value' => NULL,
@@ -140,7 +140,7 @@ function katakrak_agenda_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ciclo-field_ciclo_tipo'
+  // Exported field_instance: 'node-ciclo-field_ciclo_tipo'.
   $field_instances['node-ciclo-field_ciclo_tipo'] = array(
     'bundle' => 'ciclo',
     'default_value' => NULL,
@@ -177,7 +177,7 @@ function katakrak_agenda_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ciclo-field_image'
+  // Exported field_instance: 'node-ciclo-field_image'.
   $field_instances['node-ciclo-field_image'] = array(
     'bundle' => 'ciclo',
     'deleted' => 0,
@@ -244,7 +244,7 @@ function katakrak_agenda_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_event_ciclo'
+  // Exported field_instance: 'node-event-field_event_ciclo'.
   $field_instances['node-event-field_event_ciclo'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -284,7 +284,7 @@ function katakrak_agenda_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_event_date'
+  // Exported field_instance: 'node-event-field_event_date'.
   $field_instances['node-event-field_event_date'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -357,7 +357,7 @@ function katakrak_agenda_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_event_descripcion'
+  // Exported field_instance: 'node-event-field_event_descripcion'.
   $field_instances['node-event-field_event_descripcion'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -399,7 +399,7 @@ function katakrak_agenda_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_event_description'
+  // Exported field_instance: 'node-event-field_event_description'.
   $field_instances['node-event-field_event_description'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -447,7 +447,7 @@ function katakrak_agenda_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_event_image'
+  // Exported field_instance: 'node-event-field_event_image'.
   $field_instances['node-event-field_event_image'] = array(
     'bundle' => 'event',
     'deleted' => 0,
@@ -505,7 +505,7 @@ function katakrak_agenda_field_default_field_instances() {
       'default_image' => 0,
       'file_directory' => 'events',
       'file_extensions' => 'png gif jpg jpeg',
-      'max_filesize' => '',
+      'max_filesize' => '1 MB',
       'max_resolution' => '',
       'min_resolution' => '',
       'title_field' => 1,
@@ -517,13 +517,86 @@ function katakrak_agenda_field_default_field_instances() {
       'settings' => array(
         'imce_filefield_on' => 0,
         'insert' => 0,
-        'insert_absolute' => FALSE,
+        'insert_absolute' => 0,
         'insert_class' => '',
-        'insert_default' => array(
-          0 => 'auto',
-        ),
+        'insert_default' => 'auto',
         'insert_styles' => array(
-          0 => 'auto',
+          'auto' => 'auto',
+          'colorbox__app_book_thumbnail' => 0,
+          'colorbox__app_evento' => 0,
+          'colorbox__app_evento_thumbnail' => 0,
+          'colorbox__blog_home' => 0,
+          'colorbox__blog_post_page' => 0,
+          'colorbox__boletin_destacado' => 0,
+          'colorbox__book_cover' => 0,
+          'colorbox__book_irakurle_taldea' => 0,
+          'colorbox__book_medium' => 0,
+          'colorbox__book_thumbnail' => 0,
+          'colorbox__cover_home' => 0,
+          'colorbox__event_ciclos' => 0,
+          'colorbox__event_highlight' => 0,
+          'colorbox__event_home' => 0,
+          'colorbox__event_node_view' => 0,
+          'colorbox__event_teaser' => 0,
+          'colorbox__event_thumbnail' => 0,
+          'colorbox__extra_large' => 0,
+          'colorbox__flexslider_full' => 0,
+          'colorbox__flexslider_thumbnail' => 0,
+          'colorbox__home_agenda' => 0,
+          'colorbox__home_agenda_main' => 0,
+          'colorbox__home_agenda_main_secondary' => 0,
+          'colorbox__home_promo' => 0,
+          'colorbox__kantina_large' => 0,
+          'colorbox__kantina_medium' => 0,
+          'colorbox__kantina_thumbnail' => 0,
+          'colorbox__large' => 0,
+          'colorbox__media_thumbnail' => 0,
+          'colorbox__medium' => 0,
+          'colorbox__portfolio' => 0,
+          'colorbox__portfolio_item' => 0,
+          'colorbox__receta_page' => 0,
+          'colorbox__search_result_cover' => 0,
+          'colorbox__seccion' => 0,
+          'colorbox__thumbnail' => 0,
+          'icon_link' => 0,
+          'image' => 0,
+          'image_app_book_thumbnail' => 0,
+          'image_app_evento' => 0,
+          'image_app_evento_thumbnail' => 0,
+          'image_blog_home' => 0,
+          'image_blog_post_page' => 0,
+          'image_boletin_destacado' => 0,
+          'image_book_cover' => 0,
+          'image_book_irakurle_taldea' => 0,
+          'image_book_medium' => 0,
+          'image_book_thumbnail' => 0,
+          'image_cover_home' => 0,
+          'image_event_ciclos' => 0,
+          'image_event_highlight' => 0,
+          'image_event_home' => 0,
+          'image_event_node_view' => 0,
+          'image_event_teaser' => 0,
+          'image_event_thumbnail' => 0,
+          'image_extra_large' => 0,
+          'image_flexslider_full' => 0,
+          'image_flexslider_thumbnail' => 0,
+          'image_home_agenda' => 0,
+          'image_home_agenda_main' => 0,
+          'image_home_agenda_main_secondary' => 0,
+          'image_home_promo' => 0,
+          'image_kantina_large' => 0,
+          'image_kantina_medium' => 0,
+          'image_kantina_thumbnail' => 0,
+          'image_large' => 0,
+          'image_media_thumbnail' => 0,
+          'image_medium' => 0,
+          'image_portfolio' => 0,
+          'image_portfolio_item' => 0,
+          'image_receta_page' => 0,
+          'image_search_result_cover' => 0,
+          'image_seccion' => 0,
+          'image_thumbnail' => 0,
+          'link' => 0,
         ),
         'insert_width' => '',
         'preview_image_style' => 'thumbnail',
@@ -534,7 +607,7 @@ function katakrak_agenda_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_event_libro'
+  // Exported field_instance: 'node-event-field_event_libro'.
   $field_instances['node-event-field_event_libro'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -575,7 +648,7 @@ function katakrak_agenda_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_event_type'
+  // Exported field_instance: 'node-event-field_event_type'.
   $field_instances['node-event-field_event_type'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -621,7 +694,7 @@ function katakrak_agenda_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-title_field'
+  // Exported field_instance: 'node-event-title_field'.
   $field_instances['node-event-title_field'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -674,7 +747,7 @@ function katakrak_agenda_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-ciclo-field_adjunto'
+  // Exported field_instance: 'taxonomy_term-ciclo-field_adjunto'.
   $field_instances['taxonomy_term-ciclo-field_adjunto'] = array(
     'bundle' => 'ciclo',
     'deleted' => 0,
@@ -721,7 +794,7 @@ function katakrak_agenda_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-ciclo-field_ciclo_imagen'
+  // Exported field_instance: 'taxonomy_term-ciclo-field_ciclo_imagen'.
   $field_instances['taxonomy_term-ciclo-field_ciclo_imagen'] = array(
     'bundle' => 'ciclo',
     'deleted' => 0,
@@ -776,7 +849,7 @@ function katakrak_agenda_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-ciclo-field_ciclo_libros'
+  // Exported field_instance: 'taxonomy_term-ciclo-field_ciclo_libros'.
   $field_instances['taxonomy_term-ciclo-field_ciclo_libros'] = array(
     'bundle' => 'ciclo',
     'default_value' => NULL,
@@ -813,7 +886,7 @@ function katakrak_agenda_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-event_type-field_event_type_color'
+  // Exported field_instance: 'taxonomy_term-event_type-field_event_type_color'.
   $field_instances['taxonomy_term-event_type-field_event_type_color'] = array(
     'bundle' => 'event_type',
     'default_value' => NULL,

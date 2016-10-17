@@ -57,40 +57,7 @@
 
 
 
-    var clientsCarousel = $("#clients-scroller");
-
-    clientsCarousel.carouFredSel({
-      width: "100%",
-      height: "auto",
-      circular: false,
-      responsive: true,
-      infinite: false,
-      auto: false,
-      items: {
-        width: 160,
-        visible: {
-          min: 1,
-          max: 6
-        }
-      },
-      scroll: {
-        wipe: true
-      },
-      prev: {
-        button: "#ourclients_prev",
-        key: "left"
-      },
-      next: {
-        button: "#ourclients_next",
-        key: "right"
-      },
-      onCreate: function() {
-        $(window).on('resize', function() {
-          clientsCarousel.parent().add(clientsCarousel).css('height', clientsCarousel.children().first().outerHeight() + 'px');
-        }).trigger('resize');
-      }
-    });
-
+  
 
     var $faqItems = $('#faqs .faq');
 
