@@ -56,30 +56,32 @@ function libro_default_page_manager_handlers() {
   $display->cache = array();
   $display->title = '%term:i18n-name';
   $display->uuid = 'a43c7295-d4a5-45b6-9805-5dbb59464dfb';
+  $display->storage_type = 'page_manager';
+  $display->storage_id = 'term_view_panel_context';
   $display->content = array();
   $display->panels = array();
-    $pane = new stdClass();
-    $pane->pid = 'new-f916320a-c72d-4e65-b551-75bc25ffab07';
-    $pane->panel = 'middle';
-    $pane->type = 'block';
-    $pane->subtype = 'views-libros-block_1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = 'f916320a-c72d-4e65-b551-75bc25ffab07';
-    $display->content['new-f916320a-c72d-4e65-b551-75bc25ffab07'] = $pane;
-    $display->panels['middle'][0] = 'new-f916320a-c72d-4e65-b551-75bc25ffab07';
+  $pane = new stdClass();
+  $pane->pid = 'new-f916320a-c72d-4e65-b551-75bc25ffab07';
+  $pane->panel = 'middle';
+  $pane->type = 'block';
+  $pane->subtype = 'views-libros-block_1';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 0,
+    'override_title_text' => '',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = 'f916320a-c72d-4e65-b551-75bc25ffab07';
+  $display->content['new-f916320a-c72d-4e65-b551-75bc25ffab07'] = $pane;
+  $display->panels['middle'][0] = 'new-f916320a-c72d-4e65-b551-75bc25ffab07';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-f916320a-c72d-4e65-b551-75bc25ffab07';
   $handler->conf['display'] = $display;

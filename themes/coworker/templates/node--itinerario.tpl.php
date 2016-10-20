@@ -126,27 +126,27 @@ if (!$page) {
       </div>
       <div class="clear"></div>
       <div class="row itinerario-desc">
-        <div class="col-lg-5">
+        <div class="col-lg-5 col-md-5">
           <div class="bubble"><?php print check_markup($node->field_itinerario_descripcion['und'][0]['value'], $node->field_itinerario_descripcion['und'][0]['format']) ?>
           </div>
         </div>
-        <div class="col-lg-7">
+        <div class="col-lg-7 col-md-7">
           <?php print render($content['field_itinerario_imagen']) ?>
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-md-6">
           <?php foreach($node->portadas as $row): ?>
             <div class="row">
               <?php foreach($row as $portada): ?>
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-md-3">
                   <?php print l($portada['image'], 'node/'.$portada['nid'], array('html' => true, 'query' => $ga_libro_mosaico)); ?>
                 </div>
               <?php endforeach; ?>
             </div>
           <?php endforeach; ?>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-md-6">
           <div class="ficharight">
             <ul class="listaparadastrayecto" id="listaparadastrayecto">
               <?php foreach($node->paradas as $parada): ?>

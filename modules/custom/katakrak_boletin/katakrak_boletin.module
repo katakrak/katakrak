@@ -104,7 +104,7 @@ function katakrak_boletin_form_alter(&$form, &$form_state, $form_id) {
     $form['actions']['submit']['#value'] = t('Suscríbeme!'); 
     foreach (array('EMAIL', 'FNAME', 'LNAME') as $value) {
       $form['mergevars'][$value]['#attributes']['placeholder'] = t($form['mergevars'][$value]['#title']);
-      $form['mergevars'][$value]['#title_display'] = 'invisible';
+      unset($form['mergevars'][$value]['#title']);
     }
   }
 }

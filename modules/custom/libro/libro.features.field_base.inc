@@ -10,7 +10,7 @@
 function libro_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'commerce_price'
+  // Exported field_base: 'commerce_price'.
   $field_bases['commerce_price'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -32,7 +32,7 @@ function libro_field_default_field_bases() {
     'type' => 'commerce_price',
   );
 
-  // Exported field_base: 'commerce_stock'
+  // Exported field_base: 'commerce_stock'.
   $field_bases['commerce_stock'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -53,7 +53,7 @@ function libro_field_default_field_bases() {
     'type' => 'number_decimal',
   );
 
-  // Exported field_base: 'field_autor_apellido'
+  // Exported field_base: 'field_autor_apellido'.
   $field_bases['field_autor_apellido'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -74,7 +74,7 @@ function libro_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_autor_geslib_id'
+  // Exported field_base: 'field_autor_geslib_id'.
   $field_bases['field_autor_geslib_id'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -95,7 +95,7 @@ function libro_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_autor_nombre'
+  // Exported field_base: 'field_autor_nombre'.
   $field_bases['field_autor_nombre'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -116,7 +116,7 @@ function libro_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_editorial_geslib_id'
+  // Exported field_base: 'field_editorial_geslib_id'.
   $field_bases['field_editorial_geslib_id'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -131,7 +131,7 @@ function libro_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_estado_geslib_id'
+  // Exported field_base: 'field_estado_geslib_id'.
   $field_bases['field_estado_geslib_id'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -146,7 +146,7 @@ function libro_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_libro_autores'
+  // Exported field_base: 'field_libro_autores'.
   $field_bases['field_libro_autores'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -173,7 +173,7 @@ function libro_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_libro_categoria'
+  // Exported field_base: 'field_libro_categoria'.
   $field_bases['field_libro_categoria'] = array(
     'active' => 1,
     'cardinality' => 2,
@@ -200,7 +200,7 @@ function libro_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_libro_dilve'
+  // Exported field_base: 'field_libro_dilve'.
   $field_bases['field_libro_dilve'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -227,7 +227,7 @@ function libro_field_default_field_bases() {
     'type' => 'list_integer',
   );
 
-  // Exported field_base: 'field_libro_ean'
+  // Exported field_base: 'field_libro_ean'.
   $field_bases['field_libro_ean'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -248,7 +248,7 @@ function libro_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_libro_editorial'
+  // Exported field_base: 'field_libro_editorial'.
   $field_bases['field_libro_editorial'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -275,7 +275,7 @@ function libro_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_libro_estado'
+  // Exported field_base: 'field_libro_estado'.
   $field_bases['field_libro_estado'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -307,7 +307,7 @@ function libro_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_libro_idioma'
+  // Exported field_base: 'field_libro_idioma'.
   $field_bases['field_libro_idioma'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -336,7 +336,7 @@ function libro_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_libro_isbn'
+  // Exported field_base: 'field_libro_isbn'.
   $field_bases['field_libro_isbn'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -357,7 +357,7 @@ function libro_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_libro_paginas'
+  // Exported field_base: 'field_libro_paginas'.
   $field_bases['field_libro_paginas'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -378,7 +378,7 @@ function libro_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_libro_portada'
+  // Exported field_base: 'field_libro_portada'.
   $field_bases['field_libro_portada'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -400,7 +400,7 @@ function libro_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_libro_portada_checked'
+  // Exported field_base: 'field_libro_portada_checked'.
   $field_bases['field_libro_portada_checked'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -426,7 +426,7 @@ function libro_field_default_field_bases() {
     'type' => 'list_integer',
   );
 
-  // Exported field_base: 'field_libro_producto'
+  // Exported field_base: 'field_libro_producto'.
   $field_bases['field_libro_producto'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -447,7 +447,7 @@ function libro_field_default_field_bases() {
     'type' => 'commerce_product_reference',
   );
 
-  // Exported field_base: 'field_libro_sinopsis'
+  // Exported field_base: 'field_libro_sinopsis'.
   $field_bases['field_libro_sinopsis'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -466,7 +466,7 @@ function libro_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_libro_subtitulo'
+  // Exported field_base: 'field_libro_subtitulo'.
   $field_bases['field_libro_subtitulo'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -487,7 +487,7 @@ function libro_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_libro_year'
+  // Exported field_base: 'field_libro_year'.
   $field_bases['field_libro_year'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -514,7 +514,7 @@ function libro_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_materias_geslib_id'
+  // Exported field_base: 'field_materias_geslib_id'.
   $field_bases['field_materias_geslib_id'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -535,7 +535,7 @@ function libro_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_nombre_euskera'
+  // Exported field_base: 'field_nombre_euskera'.
   $field_bases['field_nombre_euskera'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -556,7 +556,7 @@ function libro_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_peso_medio'
+  // Exported field_base: 'field_peso_medio'.
   $field_bases['field_peso_medio'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -581,7 +581,7 @@ function libro_field_default_field_bases() {
     'type' => 'list_boolean',
   );
 
-  // Exported field_base: 'field_product_peso'
+  // Exported field_base: 'field_product_peso'.
   $field_bases['field_product_peso'] = array(
     'active' => 1,
     'cardinality' => 1,

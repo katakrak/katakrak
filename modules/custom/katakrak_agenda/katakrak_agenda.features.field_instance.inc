@@ -343,11 +343,11 @@ function katakrak_agenda_field_default_field_instances() {
       'active' => 1,
       'module' => 'date',
       'settings' => array(
-        'display_all_day' => 0,
         'increment' => 15,
         'input_format' => 'm/d/Y - H:i:s',
         'input_format_custom' => '',
         'label_position' => 'above',
+        'no_fieldset' => 0,
         'repeat_collapsed' => 0,
         'text_parts' => array(),
         'year_range' => '-3:+3',
@@ -447,6 +447,47 @@ function katakrak_agenda_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-event-field_event_idioma'.
+  $field_instances['node-event-field_event_idioma'] = array(
+    'bundle' => 'event',
+    'default_value' => array(
+      0 => array(
+        'value' => 'es',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_event_idioma',
+    'label' => 'Idioma del acto',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 42,
+    ),
+  );
+
   // Exported field_instance: 'node-event-field_event_image'.
   $field_instances['node-event-field_event_image'] = array(
     'bundle' => 'event',
@@ -505,7 +546,7 @@ function katakrak_agenda_field_default_field_instances() {
       'default_image' => 0,
       'file_directory' => 'events',
       'file_extensions' => 'png gif jpg jpeg',
-      'max_filesize' => '1 MB',
+      'max_filesize' => '2 MB',
       'max_resolution' => '',
       'min_resolution' => '',
       'title_field' => 1,
@@ -648,6 +689,47 @@ function katakrak_agenda_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-event-field_event_lugar'.
+  $field_instances['node-event-field_event_lugar'] = array(
+    'bundle' => 'event',
+    'default_value' => array(
+      0 => array(
+        'value' => 'Sala nagusia',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 8,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_event_lugar',
+    'label' => 'Lugar',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 43,
+    ),
+  );
+
   // Exported field_instance: 'node-event-field_event_type'.
   $field_instances['node-event-field_event_type'] = array(
     'bundle' => 'event',
@@ -678,12 +760,12 @@ function katakrak_agenda_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_event_type',
     'label' => 'Event type',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
+      'active' => 0,
       'module' => 'taxonomy',
       'settings' => array(
         'autocomplete_path' => 'taxonomy/autocomplete',
@@ -927,10 +1009,12 @@ function katakrak_agenda_field_default_field_instances() {
   t('Descripción');
   t('Description');
   t('Event type');
+  t('Idioma del acto');
   t('Image');
   t('Imagen');
   t('Libro');
   t('Libros');
+  t('Lugar');
   t('Tipo');
   t('Title');
 

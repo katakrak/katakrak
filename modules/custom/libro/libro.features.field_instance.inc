@@ -10,7 +10,7 @@
 function libro_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'commerce_product-libro-commerce_price'
+  // Exported field_instance: 'commerce_product-libro-commerce_price'.
   $field_instances['commerce_product-libro-commerce_price'] = array(
     'bundle' => 'libro',
     'default_value' => NULL,
@@ -95,7 +95,7 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_product-libro-commerce_stock'
+  // Exported field_instance: 'commerce_product-libro-commerce_stock'.
   $field_instances['commerce_product-libro-commerce_stock'] = array(
     'bundle' => 'libro',
     'default_value' => array(
@@ -174,7 +174,7 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_product-libro-field_peso_medio'
+  // Exported field_instance: 'commerce_product-libro-field_peso_medio'.
   $field_instances['commerce_product-libro-field_peso_medio'] = array(
     'bundle' => 'libro',
     'commerce_cart_settings' => array(
@@ -222,7 +222,7 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_product-libro-field_product_peso'
+  // Exported field_instance: 'commerce_product-libro-field_product_peso'.
   $field_instances['commerce_product-libro-field_product_peso'] = array(
     'bundle' => 'libro',
     'default_value' => NULL,
@@ -280,7 +280,7 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-libro-field_libro_autores'
+  // Exported field_instance: 'node-libro-field_libro_autores'.
   $field_instances['node-libro-field_libro_autores'] = array(
     'bundle' => 'libro',
     'default_value' => NULL,
@@ -337,7 +337,7 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-libro-field_libro_categoria'
+  // Exported field_instance: 'node-libro-field_libro_categoria'.
   $field_instances['node-libro-field_libro_categoria'] = array(
     'bundle' => 'libro',
     'default_value' => NULL,
@@ -395,7 +395,7 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-libro-field_libro_dilve'
+  // Exported field_instance: 'node-libro-field_libro_dilve'.
   $field_instances['node-libro-field_libro_dilve'] = array(
     'bundle' => 'libro',
     'default_value' => NULL,
@@ -456,7 +456,7 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-libro-field_libro_ean'
+  // Exported field_instance: 'node-libro-field_libro_ean'.
   $field_instances['node-libro-field_libro_ean'] = array(
     'bundle' => 'libro',
     'default_value' => NULL,
@@ -516,7 +516,7 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-libro-field_libro_editorial'
+  // Exported field_instance: 'node-libro-field_libro_editorial'.
   $field_instances['node-libro-field_libro_editorial'] = array(
     'bundle' => 'libro',
     'default_value' => NULL,
@@ -574,7 +574,7 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-libro-field_libro_estado'
+  // Exported field_instance: 'node-libro-field_libro_estado'.
   $field_instances['node-libro-field_libro_estado'] = array(
     'bundle' => 'libro',
     'default_value' => array(
@@ -635,7 +635,7 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-libro-field_libro_idioma'
+  // Exported field_instance: 'node-libro-field_libro_idioma'.
   $field_instances['node-libro-field_libro_idioma'] = array(
     'bundle' => 'libro',
     'default_value' => array(
@@ -695,7 +695,7 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-libro-field_libro_isbn'
+  // Exported field_instance: 'node-libro-field_libro_isbn'.
   $field_instances['node-libro-field_libro_isbn'] = array(
     'bundle' => 'libro',
     'default_value' => NULL,
@@ -756,7 +756,7 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-libro-field_libro_paginas'
+  // Exported field_instance: 'node-libro-field_libro_paginas'.
   $field_instances['node-libro-field_libro_paginas'] = array(
     'bundle' => 'libro',
     'default_value' => NULL,
@@ -817,7 +817,7 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-libro-field_libro_portada'
+  // Exported field_instance: 'node-libro-field_libro_portada'.
   $field_instances['node-libro-field_libro_portada'] = array(
     'bundle' => 'libro',
     'deleted' => 0,
@@ -911,7 +911,7 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-libro-field_libro_portada_checked'
+  // Exported field_instance: 'node-libro-field_libro_portada_checked'.
   $field_instances['node-libro-field_libro_portada_checked'] = array(
     'bundle' => 'libro',
     'default_value' => NULL,
@@ -960,7 +960,7 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-libro-field_libro_producto'
+  // Exported field_instance: 'node-libro-field_libro_producto'.
   $field_instances['node-libro-field_libro_producto'] = array(
     'bundle' => 'libro',
     'default_value' => NULL,
@@ -1040,7 +1040,7 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-libro-field_libro_sinopsis'
+  // Exported field_instance: 'node-libro-field_libro_sinopsis'.
   $field_instances['node-libro-field_libro_sinopsis'] = array(
     'bundle' => 'libro',
     'default_value' => NULL,
@@ -1103,7 +1103,7 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-libro-field_libro_subtitulo'
+  // Exported field_instance: 'node-libro-field_libro_subtitulo'.
   $field_instances['node-libro-field_libro_subtitulo'] = array(
     'bundle' => 'libro',
     'default_value' => NULL,
@@ -1167,7 +1167,7 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-libro-field_libro_year'
+  // Exported field_instance: 'node-libro-field_libro_year'.
   $field_instances['node-libro-field_libro_year'] = array(
     'bundle' => 'libro',
     'default_value' => NULL,
@@ -1225,7 +1225,7 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-autores-field_autor_apellido'
+  // Exported field_instance: 'taxonomy_term-autores-field_autor_apellido'.
   $field_instances['taxonomy_term-autores-field_autor_apellido'] = array(
     'bundle' => 'autores',
     'default_value' => NULL,
@@ -1259,7 +1259,7 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-autores-field_autor_geslib_id'
+  // Exported field_instance: 'taxonomy_term-autores-field_autor_geslib_id'.
   $field_instances['taxonomy_term-autores-field_autor_geslib_id'] = array(
     'bundle' => 'autores',
     'default_value' => NULL,
@@ -1293,7 +1293,7 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-autores-field_autor_nombre'
+  // Exported field_instance: 'taxonomy_term-autores-field_autor_nombre'.
   $field_instances['taxonomy_term-autores-field_autor_nombre'] = array(
     'bundle' => 'autores',
     'default_value' => NULL,
@@ -1328,7 +1328,7 @@ function libro_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'taxonomy_term-editoriales-field_editorial_geslib_id'
+  // 'taxonomy_term-editoriales-field_editorial_geslib_id'.
   $field_instances['taxonomy_term-editoriales-field_editorial_geslib_id'] = array(
     'bundle' => 'editoriales',
     'default_value' => NULL,
@@ -1369,7 +1369,7 @@ function libro_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'taxonomy_term-estado_de_articulo-field_estado_geslib_id'
+  // 'taxonomy_term-estado_de_articulo-field_estado_geslib_id'.
   $field_instances['taxonomy_term-estado_de_articulo-field_estado_geslib_id'] = array(
     'bundle' => 'estado_de_articulo',
     'default_value' => NULL,
@@ -1409,7 +1409,7 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-materias-field_image'
+  // Exported field_instance: 'taxonomy_term-materias-field_image'.
   $field_instances['taxonomy_term-materias-field_image'] = array(
     'bundle' => 'materias',
     'deleted' => 0,
@@ -1464,7 +1464,7 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-materias-field_materias_geslib_id'
+  // Exported field_instance: 'taxonomy_term-materias-field_materias_geslib_id'.
   $field_instances['taxonomy_term-materias-field_materias_geslib_id'] = array(
     'bundle' => 'materias',
     'default_value' => NULL,
@@ -1498,7 +1498,7 @@ function libro_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-materias-field_nombre_euskera'
+  // Exported field_instance: 'taxonomy_term-materias-field_nombre_euskera'.
   $field_instances['taxonomy_term-materias-field_nombre_euskera'] = array(
     'bundle' => 'materias',
     'default_value' => NULL,

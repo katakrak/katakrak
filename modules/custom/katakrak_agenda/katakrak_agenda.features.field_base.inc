@@ -255,6 +255,31 @@ function katakrak_agenda_field_default_field_bases() {
     'type' => 'text_long',
   );
 
+  // Exported field_base: 'field_event_idioma'.
+  $field_bases['field_event_idioma'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_event_idioma',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'es' => 'Español',
+        'eu' => 'Vascuence',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_event_image'.
   $field_bases['field_event_image'] = array(
     'active' => 1,
@@ -314,6 +339,33 @@ function katakrak_agenda_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'node_reference',
+  );
+
+  // Exported field_base: 'field_event_lugar'.
+  $field_bases['field_event_lugar'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_event_lugar',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'kantina' => 'Kantina',
+        'libreria' => 'Librería',
+        'nagusia' => 'Sala nagusia',
+        'reuniones' => 'Sala de reuniones',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
   );
 
   // Exported field_base: 'field_event_type'.
