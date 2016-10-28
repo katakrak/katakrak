@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Katakrak Editorial feature.
+ */
+
+include_once 'katakrak_editorial.features.inc';
