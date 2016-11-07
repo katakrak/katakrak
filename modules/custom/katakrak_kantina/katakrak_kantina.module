@@ -20,16 +20,16 @@ function katakrak_kantina_query_alter($query) {
 
 function katakrak_kantina_menu() {
   $items = array();
-  $items['cantina/denoche'] = array(
-    'title' => 'De noche',
-    'page callback' => 'katakrak_kantina_denoche_page',
+  $items['cantina/menu'] = array(
+    'title' => 'Menú',
+    'page callback' => 'katakrak_kantina_menu_page',
     'access callback' => TRUE,
   );
   return $items;
 }
 
-function katakrak_kantina_denoche_page() {
-  return theme('katakrak_kantina_denoche_page');
+function katakrak_kantina_menu_page() {
+  return theme('katakrak_kantina_menu_page');
 }
 
 
@@ -84,8 +84,8 @@ function katakrak_kantina_theme() {
       ),
       'path' => $path . '/templates',
     ),
-    'katakrak_kantina_denoche_page' => array(
-      'template' => 'katakrak-kantina-denoche-page',
+    'katakrak_kantina_menu_page' => array(
+      'template' => 'katakrak-kantina-menu-page',
       'path' => $path . '/templates',
     ),
     'katakrak_reserva_block' => array(
@@ -238,4 +238,11 @@ function katakrak_kantina_preprocess_katakrak_kantina_page_header(&$vars) {
     $vars['link_denoche'] = l($denoche_imagen.'<h3>Gauez</h3>', 'node/2222', array('html' => TRUE));
     $vars['link_blog'] = l($blog_imagen.'<h3>Blog</h3>', 'cantina/blog', array('html' => TRUE));
   }
+}
+
+function katakrak_kantina_preprocess_katakrak_kantina_menu_page(&$vars) {
+    global $language;
+    $node = node_load(44194);
+    $translations = translation_node_get_translations($node->tnid);
+    $vars['node'] = node_load($translations[$language->language]->nid);
 }
