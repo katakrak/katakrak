@@ -124,7 +124,7 @@ function katakrak_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['label'] = 'Editar';
-  /* Campo: Content: Imagen */
+  /* Campo: Nodo: Foto */
   $handler->display->display_options['fields']['field_imagen']['id'] = 'field_imagen';
   $handler->display->display_options['fields']['field_imagen']['table'] = 'field_data_field_imagen';
   $handler->display->display_options['fields']['field_imagen']['field'] = 'field_imagen';
@@ -143,7 +143,7 @@ function katakrak_views_default_views() {
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
   $handler->display->display_options['sorts']['changed']['field'] = 'changed';
   $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
-  /* Sort criterion: Content: Páginas (field_libro_paginas) */
+  /* Sort criterion: Nodo: Páginas (field_libro_paginas) */
   $handler->display->display_options['sorts']['field_libro_paginas_value']['id'] = 'field_libro_paginas_value';
   $handler->display->display_options['sorts']['field_libro_paginas_value']['table'] = 'field_data_field_libro_paginas';
   $handler->display->display_options['sorts']['field_libro_paginas_value']['field'] = 'field_libro_paginas_value';
@@ -155,7 +155,7 @@ function katakrak_views_default_views() {
     'imagen' => 'imagen',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Etiqueta (field_imagen_etiqueta) */
+  /* Filter criterion: Nodo: Etiqueta (field_imagen_etiqueta) */
   $handler->display->display_options['filters']['field_imagen_etiqueta_tid']['id'] = 'field_imagen_etiqueta_tid';
   $handler->display->display_options['filters']['field_imagen_etiqueta_tid']['table'] = 'field_data_field_imagen_etiqueta';
   $handler->display->display_options['filters']['field_imagen_etiqueta_tid']['field'] = 'field_imagen_etiqueta_tid';
@@ -205,7 +205,7 @@ function katakrak_views_default_views() {
     t('Language'),
     t('Promocionar'),
     t('Editar'),
-    t('Imagen'),
+    t('Foto'),
     t('Queue'),
     t('Etiqueta'),
     t('Page'),

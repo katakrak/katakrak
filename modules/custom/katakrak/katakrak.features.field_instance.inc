@@ -10,7 +10,7 @@
 function katakrak_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-imagen-field_imagen'
+  // Exported field_instance: 'node-imagen-field_imagen'.
   $field_instances['node-imagen-field_imagen'] = array(
     'bundle' => 'imagen',
     'deleted' => 0,
@@ -136,7 +136,7 @@ function katakrak_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-imagen-field_imagen_etiqueta'
+  // Exported field_instance: 'node-imagen-field_imagen_etiqueta'.
   $field_instances['node-imagen-field_imagen_etiqueta'] = array(
     'bundle' => 'imagen',
     'default_value' => NULL,
@@ -176,7 +176,7 @@ function katakrak_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-body'
+  // Exported field_instance: 'node-page-body'.
   $field_instances['node-page-body'] = array(
     'bundle' => 'page',
     'default_value' => NULL,
@@ -221,7 +221,7 @@ function katakrak_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-field_adjunto'
+  // Exported field_instance: 'node-page-field_adjunto'.
   $field_instances['node-page-field_adjunto'] = array(
     'bundle' => 'page',
     'deleted' => 0,
@@ -274,7 +274,7 @@ function katakrak_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-field_image'
+  // Exported field_instance: 'node-page-field_image'.
   $field_instances['node-page-field_image'] = array(
     'bundle' => 'page',
     'deleted' => 0,

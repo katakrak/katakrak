@@ -10,7 +10,7 @@
 function katakrak_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_adjunto'
+  // Exported field_base: 'field_adjunto'.
   $field_bases['field_adjunto'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -33,10 +33,10 @@ function katakrak_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_imagen'
+  // Exported field_base: 'field_imagen'.
   $field_bases['field_imagen'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_imagen',
@@ -55,7 +55,7 @@ function katakrak_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_imagen_etiqueta'
+  // Exported field_base: 'field_imagen_etiqueta'.
   $field_bases['field_imagen_etiqueta'] = array(
     'active' => 1,
     'cardinality' => 1,
