@@ -152,7 +152,7 @@ function commerce_physical_product_line_item_dimensions($line_item) {
 
         // Add dimension values per product in the line item.
         for ($i = 0; $i < $line_item_wrapper->quantity->value(); $i++) {
-          $dimensions = $product_wrapper->{$field_name}->value();
+          $dimensions[] = $product_wrapper->{$field_name}->value();
         }
       }
     }
@@ -184,7 +184,7 @@ function commerce_physical_order_weight($order, $unit = 'lb') {
   // Loop over each line item on the order.
   foreach ($order_wrapper->commerce_line_items as $delta => $line_item_wrapper) {
     // Get the weight value of product line items.
-    if (in_array($line_item_wrapper->type->value(), commerce_product_line_item_types())) {
+    if (in_array($line_item_wrapper->getBundle(), commerce_product_line_item_types())) {
       $line_item_weight = commerce_physical_product_line_item_weight($line_item_wrapper->value());
 
       // Add it to the running total converting it to the required weight unit.
@@ -230,6 +230,9 @@ function commerce_physical_order_volume($order, $unit = 'in') {
     // Get the dimensions value of product line items.
     if (in_array($line_item_wrapper->type->value(), commerce_product_line_item_types())) {
       $line_item_dimensions = commerce_physical_product_line_item_dimensions($line_item_wrapper->value());
+      // Each product in a line item has the same dimensions, so we index into
+      // only the first product.
+      $line_item_dimensions = reset($line_item_dimensions);
 
       // Add it to the running total converting it to the required weight unit.
       if (!physical_field_is_empty($line_item_dimensions, array('type' => 'physical_dimensions'))) {

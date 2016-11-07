@@ -80,6 +80,17 @@ function commerce_physical_rules_condition_info() {
     'group' => t('Commerce Physical'),
   );
 
+  $conditions['commerce_physical_rules_line_item_is_shippable'] = array(
+    'label' => t("The line item is a shippable product"),
+    'parameter' => array(
+      'commerce_line_item' => array(
+        'type' => 'commerce_line_item',
+        'label' => t('Line Item'),
+      ),
+    ),
+    'group' => t('Commerce Physical'),
+  );
+
   return $conditions;
 }
 
@@ -165,4 +176,11 @@ function commerce_physical_rules_order_weight_comparison($order, $operator, $val
  */
 function commerce_physical_rules_order_is_shippable($order) {
   return commerce_physical_order_shippable($order);
+}
+
+/**
+ * Rules condition: check if the line item is a shippable product.
+ */
+function commerce_physical_rules_line_item_is_shippable($line_item) {
+  return commerce_physical_line_item_shippable($line_item);
 }
