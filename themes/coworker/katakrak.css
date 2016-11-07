@@ -939,26 +939,33 @@ view-id-libros .book-author {
 #block-libro-katakrak-libro-estilo h3 a:hover {
   color: #222222;
 }
-.node-libro h1 {
+.node-libro h1,
+.node-libro-ed h1 {
   padding: 5px 0;
   margin: 0;
 }
-.node-libro h3 {
+.node-libro h3,
+.node-libro-ed h3 {
   margin-top: 0;
 }
-.node-libro .field-name-field-libro-autores {
+.node-libro .field-name-field-libro-autores,
+.node-libro-ed .field-name-field-libro-autores {
   margin-top: 20px;
 }
-.node-libro .field-name-field-libro-autores .field-item:after {
+.node-libro .field-name-field-libro-autores .field-item:after,
+.node-libro-ed .field-name-field-libro-autores .field-item:after {
   content: ", ";
 }
-.node-libro .field-name-field-libro-autores .field-item:last-child:after {
+.node-libro .field-name-field-libro-autores .field-item:last-child:after,
+.node-libro-ed .field-name-field-libro-autores .field-item:last-child:after {
   content: "";
 }
-.node-libro .field-name-field-libro-sinopsis {
+.node-libro .field-name-field-libro-sinopsis,
+.node-libro-ed .field-name-field-libro-sinopsis {
   margin-top: 30px;
 }
-.node-libro .itinerarios a {
+.node-libro .itinerarios a,
+.node-libro-ed .itinerarios a {
   float: left;
   padding: 10px;
 }
@@ -1457,11 +1464,11 @@ Blog
   float: left;
   margin: 0 20px 10px 0;
 }
-.blog-page .pane-header h1 {
-    position: absolute;
-    background: white;
-    top: 30%;
-    padding: 26px 30px;
+.blog-page .panel-term-name {
+  position: absolute;
+  background: white;
+  top: 30%;
+  padding: 20px 30px 0 30px;
 }
 /*******************************************************************************
 Irakurle taldeak

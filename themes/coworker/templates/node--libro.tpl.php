@@ -212,7 +212,7 @@ global $language;
                   <?php print render($content['field_libro_sinopsis']) ?>
                 </div>
               </div>
-              <?php if($content['field_libro_sinopsis']): ?>
+              <?php if(!$page && $content['field_libro_sinopsis']): ?>
                 <?php print l(t("Leer más [+]"), 'node/'.$node->nid) ?>
               <?php endif; ?>
             </div>

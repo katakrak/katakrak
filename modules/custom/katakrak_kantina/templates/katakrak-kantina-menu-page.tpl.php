@@ -47,7 +47,8 @@
     </div>
     
     <div class="eguneko-menua">
-      
+            <div class="dedia_divider"></div>
+
       <a id="menu_sabado"></a>
       <div class="subseccion">
         <?php print theme('image', array('path' => drupal_get_path('theme', 'coworker'). '/images/kantina/dedia.png')) ?>

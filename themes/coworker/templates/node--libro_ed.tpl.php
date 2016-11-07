@@ -119,21 +119,40 @@ global $language;
                         <?php print l($node->title, 'node/'.$node->nid) ?>
                       <?php endif; ?>
                     </h1>
-                    <?php print render($content['field_libro_subtitulo']) ?>
+		      <h3><?php print render($content['field_libro_subtitulo']) ?></h3>
+			
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-sm-8">
-                    <h3><?php print render($content['field_libro_autores']) ?></h3>
+                    <h3><?php print render($content['field_libro_ed_autor']) ?></h3>
                   </div>
                   <div class="col-sm-4">
                     <?php print render($content['sharethis']) ?>
                   </div>
                 </div>
-                
+		  <div class="row">
+                <div class="col-sm-12 col-md-12">
+                  <?php print render($content['field_libro_sinopsis']) ?>
+                </div>
+              </div>
               </div>
                
-              <div class="book-metadata row">
+              
+          </div>
+        </div>
+        </div>
+      </div>
+      
+
+      <?php if ($page): print render($content['links']);
+      endif;
+      ?>
+    </div>
+
+  </div>
+
+<div class="book-metadata row">
                 <div class="col-sm-6 col-md-6">
               <div class="book-info-entry">
                 <span class="col-2 book-info-label">
@@ -161,14 +180,6 @@ global $language;
               </div>
               <div class="book-info-entry">
                 <span class="col-2 book-info-label">
-                  <?php print t('Editorial') ?>
-                </span>
-                <span class="col-2 book-info-data">
-                  <?php print $content['field_libro_editorial'][0]['#markup'] ?>
-                </span>
-              </div>
-              <div class="book-info-entry">
-                <span class="col-2 book-info-label">
                   <?php print t('Estado') ?>
                 </span>
                 <span class="col-2 book-info-data">
@@ -184,61 +195,11 @@ global $language;
                 </span>
               </div>
             </div>
-
-              <div class="col-sm-4">
-                <?php if ($node->itinerarios): ?>
-                <div class="itinerarios">
-                  <?php foreach($node->itinerarios[$language->language] as $itinerario): ?>
-                    <a title="<?php print t('Este libro pertenece a un itinerario de lectura')?>" href="<?php print url('node/'.$itinerario['nid'])?>">
-                      <div class="linea-<?php print $itinerario['linea'] ?>">
-                        <div class="circle">
-                          <div class="circle-<?php print $itinerario['linea'] ?>">
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  <?php endforeach; ?>
-                  </div>
-                <?php endif; ?>
-              </div>
               <div class="col-sm-2">
                 <div class="book-buy">
                   <div class="book-price"><?php print $content['product:commerce_price'][0]['#markup'] ?></div>
                   <?php print render($content['field_libro_producto']) ?>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-sm-12 col-md-12">
-                  <?php print render($content['field_libro_sinopsis']) ?>
-                </div>
-              </div>
-              <?php if($content['field_libro_sinopsis']): ?>
-                <?php print l(t("Leer más [+]"), 'node/'.$node->nid) ?>
-              <?php endif; ?>
+              
             </div>
-          </div>
-        </div>
-        </div>
-      </div>
-      
-      <?php if ($page): ?>
-        <div class="row">
-          <div class="col-xs-12">
-            <h2 class="block"><?php print t('Otros libros en %term', array('%term' => $content['field_libro_categoria']['#items'][0]['taxonomy_term']->name))?></h2>
-            <?php print views_embed_view('libros', 'libros_rel_cat', $node->field_libro_categoria['und'][0]['tid']) ?>
-           <?php $view = views_get_view_result('libros', 'libros_rel_autor', $node->field_libro_autores['und'][0]['tid'])?>
-            <?php if ($view): ?>
-              <h2 class="block"><?php print t('Otros libros del autor')?></h2>
-              <?php print views_embed_view('libros', 'libros_rel_autor', $node->field_libro_autores['und'][0]['tid']) ?>
-            <?php endif; ?>
-          </div>
-        </div>
-      <?php endif; ?>
-      
-
-      <?php if ($page): print render($content['links']);
-      endif;
-      ?>
-    </div>
-
-  </div>
