@@ -5,3 +5,16 @@
  */
 
 include_once 'katakrak_editorial.features.inc';
+
+/**
+ * 
+ * @param type $nodes
+ * @param type $types
+ */
+function katakrak_editorial_node_load($nodes, $types) {
+  if (count(array_intersect(array('libro_ed'), $types))) {
+    foreach($nodes as $node) {
+      dpm($node);
+    }
+  }
+}

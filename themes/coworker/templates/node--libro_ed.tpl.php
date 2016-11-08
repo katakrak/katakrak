@@ -152,54 +152,24 @@ global $language;
 
   </div>
 
-<div class="book-metadata row">
-                <div class="col-sm-6 col-md-6">
-              <div class="book-info-entry">
-                <span class="col-2 book-info-label">
-                  <?php print t('ISBN') ?>
-                </span>
-                <span class="col-2 book-info-data">
-                    <?php print $content['field_libro_isbn'][0]['#markup'] ?>
-                </span>
-              </div>
-              <div class="book-info-entry">
-                <span class="col-2 book-info-label">
-                  <?php print t('Páginas') ?>
-                </span>
-                <span class="col-2 book-info-data">
-                    <?php print $content['field_libro_paginas'][0]['#markup'] ?>
-                </span>
-              </div>
-              <div class="book-info-entry">
-                <span class="col-2 book-info-label">
-                  <?php print t('Año') ?>
-                </span>
-                <span class="col-2 book-info-data">
-                  <?php print $content['field_libro_year'][0]['#markup'] ?>
-                </span>
-              </div>
-              <div class="book-info-entry">
-                <span class="col-2 book-info-label">
-                  <?php print t('Estado') ?>
-                </span>
-                <span class="col-2 book-info-data">
-                  <?php print isset($content['estado']) ? $content['estado'] :  t($content['field_libro_estado'][0]['#markup']) ?>
-                </span>
-              </div>
-              <div class="book-info-entry">
-                <span class="col-2 book-info-label">
-                  <?php print t('Sección') ?>
-                </span>
-                <span class="col-2 book-info-data">
-                    <?php $node->ubicacion ? print $node->ubicacion . ' / ': ''?><?php print l($content['field_libro_categoria']['#items'][0]['taxonomy_term']->name, 'taxonomy/term/'.$content['field_libro_categoria']['#items'][0]['tid']); ?>
-                </span>
-              </div>
-            </div>
-              <div class="col-sm-2">
-                <div class="book-buy">
-                  <div class="book-price"><?php print $content['product:commerce_price'][0]['#markup'] ?></div>
-                  <?php print render($content['field_libro_producto']) ?>
-                </div>
-              </div>
-              
-            </div>
+<div class="row">
+  <div class="col-md-4">
+    <h3><?php print t("Ficha Técnica")?> </h3>
+    <div class="book-info-entry">
+      <span class="col-2 book-info-label">
+	<?php print t('ISBN') ?>
+      </span>
+      <span class="col-2 book-info-data">
+	<?php print $content['field_libro_isbn'][0]['#markup'] ?>
+      </span>
+    </div>
+    <div class="book-info-entry">
+      <span class="col-2 book-info-label">
+	<?php print t('Páginas') ?>
+      </span>
+      <span class="col-2 book-info-data">
+	<?php print $content['field_libro_paginas'][0]['#markup'] ?>
+      </span>
+    </div>
+  </div>
+</div>

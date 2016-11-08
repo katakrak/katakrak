@@ -319,6 +319,130 @@ function katakrak_editorial_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-libro_ed-field_libro_ed_encuadernacion'.
+  $field_instances['node-libro_ed-field_libro_ed_encuadernacion'] = array(
+    'bundle' => 'libro_ed',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 10,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_libro_ed_encuadernacion',
+    'label' => 'Encuadernación',
+    'required' => FALSE,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 14,
+    ),
+  );
+
+  // Exported field_instance: 'node-libro_ed-field_libro_ed_tamano'.
+  $field_instances['node-libro_ed-field_libro_ed_tamano'] = array(
+    'bundle' => 'libro_ed',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 11,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_libro_ed_tamano',
+    'label' => 'Tamaño',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 15,
+    ),
+  );
+
+  // Exported field_instance: 'node-libro_ed-field_libro_ed_traductor'.
+  $field_instances['node-libro_ed-field_libro_ed_traductor'] = array(
+    'bundle' => 'libro_ed',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'node_reference',
+        'settings' => array(),
+        'type' => 'node_reference_default',
+        'weight' => 9,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 0,
+    'entityconnect_unload_edit' => 0,
+    'field_name' => 'field_libro_ed_traductor',
+    'label' => 'Traductor',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'node_reference',
+      'settings' => array(
+        'autocomplete_match' => 'contains',
+        'autocomplete_path' => 'node_reference/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'node_reference_autocomplete',
+      'weight' => 13,
+    ),
+  );
+
   // Exported field_instance: 'node-libro_ed-field_libro_idioma'.
   $field_instances['node-libro_ed-field_libro_idioma'] = array(
     'bundle' => 'libro_ed',
@@ -660,6 +784,7 @@ function katakrak_editorial_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Autor');
   t('Biografía');
+  t('Encuadernación');
   t('Esto es para linkar la ficha de la editorial a la ficha que viene de geslib, sobre todo bueno para la venta on-line');
   t('Fecha y lugar nacimiento');
   t('Foto');
@@ -670,6 +795,8 @@ function katakrak_editorial_field_default_field_instances() {
   t('Páginas');
   t('Sinopsis');
   t('Subtitulo');
+  t('Tamaño');
+  t('Traductor');
 
   return $field_instances;
 }
