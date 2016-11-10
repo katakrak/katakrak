@@ -14,7 +14,19 @@ include_once 'katakrak_editorial.features.inc';
 function katakrak_editorial_node_load($nodes, $types) {
   if (count(array_intersect(array('libro_ed'), $types))) {
     foreach($nodes as $node) {
-      dpm($node);
+      $traductores = '';
+      foreach($node->field_libro_ed_traductor['und'] as $i => $trad_nid) {
+				$traductor = node_load($trad_nid['nid']);
+				$traductores .= $traductor->title;
+				if (count($node->field_libro_ed_traductor['und']) > $i+1)
+					$traductores .= ', ';
+			}
+      $node->traductores = $traductores;
+			
+			foreach($node->field_libro_ed_autor['und'] as $i => $aut_nid) {
+				$autor = node_load($aut_nid['nid']);
+				$node->autores[] = $autor;
+			}
     }
   }
 }

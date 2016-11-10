@@ -78,6 +78,7 @@
  *
  * @ingroup themeable
  */
+dpm($node);
 global $language;
 ?>
   <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
@@ -119,13 +120,15 @@ global $language;
                         <?php print l($node->title, 'node/'.$node->nid) ?>
                       <?php endif; ?>
                     </h1>
-		      <h3><?php print render($content['field_libro_subtitulo']) ?></h3>
+										<h3><?php print render($content['field_libro_subtitulo']) ?></h3>
 			
-                  </div>
+									</div>
                 </div>
                 <div class="row">
                   <div class="col-sm-8">
                     <h3><?php print render($content['field_libro_ed_autor']) ?></h3>
+							<p><?php print t('Prólogo de ')?><strong><?php print $content['field_libro_ed_prologo'][0]['#markup']?></strong></p>
+							<p><?php print t('Traducción de ') ?><strong><?php print $node->traductores ?></strong></p>
                   </div>
                   <div class="col-sm-4">
                     <?php print render($content['sharethis']) ?>
@@ -148,12 +151,8 @@ global $language;
       <?php if ($page): print render($content['links']);
       endif;
       ?>
-    </div>
-
-  </div>
-
-<div class="row">
-  <div class="col-md-4">
+				<div class="row ficha-editorial-info">
+  <div class="col-md-4 ficha-tecnica">
     <h3><?php print t("Ficha Técnica")?> </h3>
     <div class="book-info-entry">
       <span class="col-2 book-info-label">
@@ -171,5 +170,50 @@ global $language;
 	<?php print $content['field_libro_paginas'][0]['#markup'] ?>
       </span>
     </div>
+    <div class="book-info-entry">
+      <span class="col-2 book-info-label">
+	<?php print t('Tamaño') ?>
+      </span>
+      <span class="col-2 book-info-data">
+	<?php print $content['field_libro_ed_tamano'][0]['#markup'] ?>
+      </span>
+    </div>
+    <div class="book-info-entry">
+      <span class="col-2 book-info-label">
+	<?php print t('Encuadernación') ?>
+      </span>
+      <span class="col-2 book-info-data">
+	<?php print $content['field_libro_ed_encuadernacion'][0]['#markup'] ?>
+      </span>
+    </div>
+    <div class="book-info-entry">
+      <span class="col-2 book-info-label">
+	<?php print t('Precio') ?>
+      </span>
+      <span class="col-2 book-info-data">
+	<?php print $content['field_libro_ed_precio'][0]['#markup'] ?>€
+      </span>
+    </div>
+  </div>
+  <div class="col-md-8 ficha-autor">
+    <?php foreach($node->autores as $autor): ?>
+    <div class="row">
+      <div class="col-md-7">
+			  <h2><?php print l($autor->title, 'node/'.$autor->nid) ?></h2>
+				<p><?php print $autor->field_autor_nacimiento['und'][0]['value'] ?></p>
+				<p><?php print truncate_utf8($autor->body['und'][0]['value'], 640, TRUE, TRUE) ?></p>
+				<p><?php print l('[+] Leer más', 'node/'.$autor->nid) ?></p>
+      </div>
+			<div class="col-md-5">
+					<?php print theme('image_style', array('style_name' => 'autor_editorial_ficha_libro', 'path' => $autor->field_imagen['und'][0]['uri'])) ?>
+			</div>
+	
+    </div>
+		<?php	endforeach; ?>
   </div>
 </div>
+    </div>
+
+			
+  </div>
+
