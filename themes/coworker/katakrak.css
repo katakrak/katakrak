@@ -978,6 +978,20 @@ view-id-libros .book-author {
 .node-libro-ed .ficha-editorial-info .ficha-autor {
   background: #CACACA;
 }
+.node-libro .ficha-editorial-info .ficha-autor .imagen,
+.node-libro-ed .ficha-editorial-info .ficha-autor .imagen {
+  padding-right: 0;
+}
+.node-libro .proxima-aparicion,
+.node-libro-ed .proxima-aparicion {
+  position: relative;
+  top: -6px;
+  float: right;
+  margin-right: 7px;
+  height: 0;
+  overflow: visible;
+  z-index: 10;
+}
 .view-secciones label {
   font-weight: normal;
   font-size: 24px;
