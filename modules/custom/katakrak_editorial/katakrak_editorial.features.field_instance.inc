@@ -229,6 +229,46 @@ function katakrak_editorial_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-autor_ed-field_libro_autores'.
+  $field_instances['node-autor_ed-field_libro_autores'] = array(
+    'bundle' => 'autor_ed',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Esto es para que en la ficha del autor aparezcan libros que están en la librería pero no hemos publicado',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_libro_autores',
+    'label' => 'Autor Geslib',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 7,
+    ),
+  );
+
   // Exported field_instance: 'node-libro_ed-field_editorial_libro'.
   $field_instances['node-libro_ed-field_editorial_libro'] = array(
     'bundle' => 'libro_ed',
@@ -912,9 +952,11 @@ function katakrak_editorial_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Autor');
+  t('Autor Geslib');
   t('Biografía');
   t('Encuadernación');
   t('Esto es para linkar la ficha de la editorial a la ficha que viene de geslib, sobre todo bueno para la venta on-line');
+  t('Esto es para que en la ficha del autor aparezcan libros que están en la librería pero no hemos publicado');
   t('Fecha y lugar nacimiento');
   t('Foto');
   t('Idioma');

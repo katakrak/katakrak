@@ -12,6 +12,7 @@ include_once 'katakrak_editorial.features.inc';
  * @param type $types
  */
 function katakrak_editorial_node_load($nodes, $types) {
+  global $language;
   if (count(array_intersect(array('libro_ed'), $types))) {
     foreach($nodes as $node) {
       $traductores = '';
@@ -25,7 +26,9 @@ function katakrak_editorial_node_load($nodes, $types) {
 			
 			foreach($node->field_libro_ed_autor['und'] as $i => $aut_nid) {
 				$autor = node_load($aut_nid['nid']);
-				$node->autores[] = $autor;
+        $trad = translation_node_get_translations($autor->tnid);
+        $autor_trad = node_load($trad[$language->language]->nid);
+        $node->autores[] = $autor_trad;
 			}
     }
   }

@@ -88,6 +88,15 @@ foreach($node->field_boletin_libros['und'] as $i => $nid){
                     <table class="twelve columns">
                       <tr>
                         <td>
+                          <h5>En euskera</h5>
+                          <?php foreach($node_eu->field_boletin_body['und'] as $body): ?>
+                            <?php $body = field_collection_item_load($body['value']) ?>
+                              <?php if ($body->field_boletin_body_subtitulo['und'][0]['value']): ?>
+                              <p class="titulo-subseccion eu" ><?php print $body->field_boletin_body_subtitulo['und'][0]['value'] ?></p>
+                              <?php endif; ?>
+                              <p ><?php print $body->field_boletin_body_texto['und'][0]['value'] ?></p>
+                          <?php endforeach; ?>
+                              
                           <h5>Gazteleraz</h5>
                           <?php foreach($node_es->field_boletin_body['und'] as $body): ?>
                             <?php $body = field_collection_item_load($body['value']) ?>
@@ -97,15 +106,6 @@ foreach($node->field_boletin_libros['und'] as $i => $nid){
                               <p ><?php print $body->field_boletin_body_texto['und'][0]['value'] ?></p>
                           <?php endforeach; ?>
                           
-                          <h5>En euskera</h5>
-                          <?php foreach($node_eu->field_boletin_body['und'] as $body): ?>
-                            <?php $body = field_collection_item_load($body['value']) ?>
-                              <?php if ($body->field_boletin_body_subtitulo['und'][0]['value']): ?>
-                              <p class="titulo-subseccion eu" ><?php print $body->field_boletin_body_subtitulo['und'][0]['value'] ?></p>
-                              <?php endif; ?>
-                              <p ><?php print $body->field_boletin_body_texto['und'][0]['value'] ?></p>
-                          <?php endforeach; ?>
-                        
                         </td>
                         <td class="expander"></td>
                       </tr>
@@ -232,6 +232,7 @@ foreach($node->field_boletin_libros['und'] as $i => $nid){
                   <table class="three columns">
                       <tr>
 	                  <td>
+                      <a href="https://www.instagram.com/katakrak54/"><img src="http://katakrak.net/sites/all/themes/coworker/images/icons/boletin/instagram.png"><span>Instagram</span></a>
 	                     <p><a href="tel:+34 948 22 55 20">+34 948 22 55 20</a></p>
 	                     <p><a href="mailto:info@katakrak.net">info@katakrak.net</a></p>
 	                     <p><a href="http://katakrak.net">katakrak.net</a></p>

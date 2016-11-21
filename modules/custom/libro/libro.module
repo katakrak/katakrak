@@ -66,6 +66,9 @@ function libro_portada_form($form, $form_state, $node) {
       )
     ),
   );
+  $form['saludo'] = array(
+    '#markup' => '<div>Al mandar este formulario sustituyes la imagen del libro por la que está viendo ahora. </div>'
+  );
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => "Actualizar libro",
@@ -73,28 +76,21 @@ function libro_portada_form($form, $form_state, $node) {
   return $form;
 }
 
-function libro_portada_form_submit($form, $form_state) {
+function libro_portada_form_submit($form, &$form_state) {
   $node = $form_state['build_info']['args'][0];
+  $ean = $node->field_libro_ean['und'][0]['value'];
 
-  $download_cover = FALSE;
-  if ($node->field_libro_portada['und'][0]['uri']) {
-    if (!file_exists($node->field_libro_portada['und'][0]['uri'])) {
-      $download_cover = TRUE;
-    }
+  $url = sprintf("http://image.casadellibro.com/a/l/t0/%s/%s.jpg", substr($ean, 11, 2), $ean);
+
+  $file = create_cover($url, $ean, TRUE);
+  
+  if (!empty($file)) {
+    $node->field_libro_portada['und'][0] = $file;
+    $node->field_libro_portada['und'][0]['title'] = $node->title;
+    $node->field_libro_portada['und'][0]['alt'] = $node->title;
+    node_save($node);
   }
-  if ($download_cover) {
-    $ean = $node->field_libro_ean['und'][0]['value'];
-
-    $url = sprintf("http://image.casadellibro.com/a/l/t0/%s/%s.jpg", substr($ean, 11, 2), $ean);
-
-    $file = create_cover($url, $ean);
-    if (!empty($file)) {
-      $node->field_libro_portada['und'][0] = $file;
-      $node->field_libro_portada['und'][0]['title'] = $node->title;
-      $node->field_libro_portada['und'][0]['alt'] = $node->title;
-      node_save($node);
-    }
-  }
+  $form_state['redirect'] = 'node/'.$node->nid;
 }
 
 function libro_portadas_form($form, &$form_state) {
@@ -505,7 +501,7 @@ function libro_search_home_form_submit($form, &$form_state) {
  * @param type $isbn
  * @return type
  */
-function create_cover($url, $isbn) {
+function create_cover($url, $isbn, $force = FALSE) {
   global $user;
   $cover_request = drupal_http_request($url);
   if ($cover_request->code != 200) {
@@ -514,11 +510,13 @@ function create_cover($url, $isbn) {
   $ext = substr($cover_request->headers['content-type'], strrpos($cover_request->headers['content-type'], '/') + 1);
   $filename = $isbn.".".$ext;
   $fid = db_select('file_managed', 'f')->condition('filename', $filename)->fields('f', array('fid'))
-    ->execute()->fetchObject();
+    ->execute()->fetchAll();
   $filepath = sprintf("%s/%s/portadas/%s",DRUPAL_ROOT, variable_get('file_public_path', 'sites/default/files'), $filename);
   if ($fid) {
-    $file = file_load($fid->fid);
-    if (!file_exists($filepath) && $cover_request->code == 200) {
+    $file = file_load($fid[0]->fid);
+    
+    if ((!file_exists($filepath) || $force) && $cover_request->code == 200) {
+    
       file_put_contents($filepath, $cover_request->data);
     }
   }
