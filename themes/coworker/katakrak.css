@@ -974,6 +974,10 @@ view-id-libros .book-author {
   margin-top: 30px;
   background: #e6e6e6;
 }
+.node-libro .ficha-editorial-info .ficha-tecnica,
+.node-libro-ed .ficha-editorial-info .ficha-tecnica {
+  padding: 10px;
+}
 .node-libro .ficha-editorial-info .ficha-autor,
 .node-libro-ed .ficha-editorial-info .ficha-autor {
   background: #CACACA;
@@ -990,7 +994,14 @@ view-id-libros .book-author {
   margin-right: 7px;
   height: 0;
   overflow: visible;
-  z-index: 10;
+}
+.node-libro .proxima-aparicion .proxima,
+.node-libro-ed .proxima-aparicion .proxima {
+  padding: 4px 0 0 9px;
+  width: 120px;
+  height: 35px;
+  background-color: #f50087;
+  background-position: -48px -125px;
 }
 .view-secciones label {
   font-weight: normal;

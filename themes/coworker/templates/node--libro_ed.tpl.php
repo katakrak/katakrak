@@ -101,7 +101,11 @@ global $language;
         <div class="row">
 					<div class="col-sm-4 col-md-4">
 						<?php if ($node->field_libro_ed_proxima['und'][0]['value']):?>
-							<div class="proxima-aparicion"><?php print t("Próxima aparición") ?></div>
+							<div class="proxima-aparicion">
+                <div class="proxima">
+                  <?php print t("Próxima aparición") ?>
+                </div>
+              </div>
 						<?php endif; ?>
             <?php print render($content['field_libro_portada']) ?>
 					</div>

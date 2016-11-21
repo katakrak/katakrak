@@ -92,9 +92,22 @@
         <p><?php print render($content['body']) ?></p>
       </div>
 		</div>
+    <?php if ($page): ?>
+        <div class="row">
+          <div class="col-xs-12">
+            <h2 class="block"><?php print t('Libros Publicados')?></h2>
+            <?php print views_embed_view('editorial', 'libros_autor', $node->tnid) ?>
+            <?php $view = views_get_view_result('libros', 'libros_rel_autor', $node->field_libro_autores['und'][0]['tid'])?>
+            <?php if ($view): ?>
+              <h2 class="block"><?php print t('En la librería')?></h2>
+              <?php print views_embed_view('libros', 'libros_rel_autor', $node->field_libro_autores['und'][0]['tid']) ?>
+            <?php endif; ?>
+          </div>
+        </div>
+      <?php endif; ?>
 			
       <?php if ($page): ?>
-			<?php print render($content['links']); ?>
+			
 			<?php endif; ?>
     </div>
   </div>

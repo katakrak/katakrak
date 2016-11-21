@@ -43,10 +43,17 @@
           // Re-build the media if the macro has changed from the tagmap.
           if (!media && media_definition.fid) {
             Drupal.media.filter.ensureSourceMap();
-            var source = Drupal.settings.mediaSourceMap[media_definition.fid];
-            media = document.createElement(source.tagName);
-            media.src = source.src;
-            media.innerHTML = source.innerHTML;
+            var source;
+            if (source = Drupal.settings.mediaSourceMap[media_definition.fid]) {
+              media = document.createElement(source.tagName);
+              media.src = source.src;
+              media.innerHTML = source.innerHTML;
+            }
+            else {
+              // If the media element can't be found, leave it in to be resolved
+              // by the user later.
+              continue;
+            }
           }
 
           // Apply attributes.
@@ -182,7 +189,7 @@
       // media_get_file_without_label().
       //
       // Finds the media-element class.
-      var classRegex = 'class=([\'"])[^\\1]*?media-element';
+      var classRegex = 'class=[\'"][^\'"]*?media-element';
       // Image tag with the media-element class.
       var regex = '<img[^>]+' + classRegex + '[^>]*?>';
       // Or a span with the media-element class (used for documents).
@@ -231,8 +238,7 @@
 
       // Extract attributes represented by fields and use those values to keep
       // them in sync, usually alt and title.
-      info.fields = info.attributes;
-      var attributes = Drupal.media.filter.parseAttributeFields(info.attributes);
+      var attributes = Drupal.media.filter.parseAttributeFields(info.fields);
       info.attributes = $.extend(info.attributes, attributes);
 
       // Move attributes from the file info array to the placeholder element.

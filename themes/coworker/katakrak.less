@@ -1102,18 +1102,17 @@ view-id-libros .book-author {
     }
   }
   .ficha-editorial-info {
-      margin-top: 30px;
-      background: @background_gray;
-
-      .ficha-autor {
-        background: #CACACA;
-        .imagen {
-            padding-right: 0;
-        }
+    margin-top: 30px;
+    background: @background_gray;
+    .ficha-tecnica {
+      padding: 10px;
+    }
+    .ficha-autor {
+      background: #CACACA;
+      .imagen {
+          padding-right: 0;
       }
-      .ficha-tecnica {
-          
-      }
+    }
   }
   .proxima-aparicion {
     position: relative;
@@ -1122,7 +1121,13 @@ view-id-libros .book-author {
     margin-right: 7px;
     height: 0;
     overflow: visible;
-    z-index: 10;
+    .proxima {
+      padding: 4px 0 0 9px;
+      width: 120px;
+      height: 35px;
+      background-color: @custom_pink;
+      background-position: -48px -125px;
+    }
   }
 }
 
