@@ -95,7 +95,7 @@
     <?php if ($page): ?>
         <div class="row">
           <div class="col-xs-12">
-            <h2 class="block"><?php print t('Libros Publicados')?></h2>
+            <h2 class="block"><?php print t('En la editorial')?></h2>
             <?php print views_embed_view('editorial', 'libros_autor', $node->tnid) ?>
             <?php $view = views_get_view_result('libros', 'libros_rel_autor', $node->field_libro_autores['und'][0]['tid'])?>
             <?php if ($view): ?>

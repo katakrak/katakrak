@@ -137,6 +137,9 @@ global $language;
 								</div>
 								<div class="col-sm-4">
 									<?php print render($content['sharethis']) ?>
+                  <?php if ($node->field_libro_producto['und'][0]['product_id']): ?>
+                    <?php print libro_generar_boton_compra($node->field_libro_producto['und'][0]['product_id']) ?>
+                  <?php endif; ?>
 								</div>
 							</div>
 							<div class="row">
@@ -212,7 +215,7 @@ global $language;
 						<h2><?php print l($autor->title, 'node/'.$autor->nid) ?></h2>
 						<p><?php print $autor->field_autor_nacimiento['und'][0]['value'] ?></p>
 						<p><?php print truncate_utf8($autor->body['und'][0]['value'], 640, TRUE, TRUE) ?></p>
-						<p><?php print l('[+] Leer más', 'node/'.$autor->nid) ?></p>
+						<p><?php print l(t('Leer más [+]'), 'node/'.$autor->nid) ?></p>
 					</div>
 					<div class="col-md-5 imagen">
 							<?php print theme('image_style', array('style_name' => 'autor_editorial_ficha_libro', 'path' => $autor->field_imagen['und'][0]['uri'])) ?>

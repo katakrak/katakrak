@@ -269,51 +269,6 @@ function katakrak_editorial_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-libro_ed-field_editorial_libro'.
-  $field_instances['node-libro_ed-field_editorial_libro'] = array(
-    'bundle' => 'libro_ed',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'Esto es para linkar la ficha de la editorial a la ficha que viene de geslib, sobre todo bueno para la venta on-line',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'node_reference',
-        'settings' => array(),
-        'type' => 'node_reference_default',
-        'weight' => 7,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'entityconnect_show_add_icon' => 0,
-    'entityconnect_show_edit_icon' => 0,
-    'entityconnect_unload_add' => 1,
-    'entityconnect_unload_edit' => 1,
-    'field_name' => 'field_editorial_libro',
-    'label' => 'Libro',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'node_reference',
-      'settings' => array(
-        'autocomplete_match' => 'contains',
-        'autocomplete_path' => 'node_reference/autocomplete',
-        'size' => 60,
-      ),
-      'type' => 'node_reference_autocomplete',
-      'weight' => 10,
-    ),
-  );
-
   // Exported field_instance: 'node-libro_ed-field_libro_ed_autor'.
   $field_instances['node-libro_ed-field_libro_ed_autor'] = array(
     'bundle' => 'libro_ed',
@@ -869,6 +824,59 @@ function katakrak_editorial_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-libro_ed-field_libro_producto'.
+  $field_instances['node-libro_ed-field_libro_producto'] = array(
+    'bundle' => 'libro_ed',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'commerce_cart',
+        'settings' => array(
+          'combine' => TRUE,
+          'default_quantity' => 1,
+          'line_item_type' => 'product',
+          'show_quantity' => FALSE,
+          'show_single_product_attributes' => FALSE,
+        ),
+        'type' => 'commerce_cart_add_to_cart_form',
+        'weight' => 15,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_libro_producto',
+    'label' => 'Producto',
+    'required' => 0,
+    'settings' => array(
+      'field_injection' => 1,
+      'referenceable_types' => array(
+        'libro' => 'libro',
+        'product' => 0,
+        'shipping_tariff' => 0,
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'commerce_product_reference',
+      'settings' => array(
+        'autocomplete_match' => 'contains',
+        'autocomplete_path' => 'commerce_product/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'commerce_product_reference_autocomplete',
+      'weight' => 17,
+    ),
+  );
+
   // Exported field_instance: 'node-libro_ed-field_libro_sinopsis'.
   $field_instances['node-libro_ed-field_libro_sinopsis'] = array(
     'bundle' => 'libro_ed',
@@ -955,15 +963,14 @@ function katakrak_editorial_field_default_field_instances() {
   t('Autor Geslib');
   t('Biografía');
   t('Encuadernación');
-  t('Esto es para linkar la ficha de la editorial a la ficha que viene de geslib, sobre todo bueno para la venta on-line');
   t('Esto es para que en la ficha del autor aparezcan libros que están en la librería pero no hemos publicado');
   t('Fecha y lugar nacimiento');
   t('Foto');
   t('Idioma');
   t('Isbn');
-  t('Libro');
   t('Portada');
   t('Precio');
+  t('Producto');
   t('Prólogo');
   t('Próxima aparicion');
   t('Páginas');

@@ -18,7 +18,7 @@ function katakrak_editorial_node_load($nodes, $types) {
       $traductores = '';
       foreach($node->field_libro_ed_traductor['und'] as $i => $trad_nid) {
 				$traductor = node_load($trad_nid['nid']);
-				$traductores .= $traductor->title;
+				$traductores .= l($traductor->title, 'node/'.$traductor->nid);
 				if (count($node->field_libro_ed_traductor['und']) > $i+1)
 					$traductores .= ', ';
 			}
@@ -27,7 +27,7 @@ function katakrak_editorial_node_load($nodes, $types) {
 			foreach($node->field_libro_ed_autor['und'] as $i => $aut_nid) {
 				$autor = node_load($aut_nid['nid']);
         $trad = translation_node_get_translations($autor->tnid);
-        $autor_trad = node_load($trad[$language->language]->nid);
+        $autor_trad = node_load($trad[$node->language]->nid);
         $node->autores[] = $autor_trad;
 			}
     }

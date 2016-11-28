@@ -21,24 +21,7 @@
  * regardless of any changes in the aliasing that might happen if
  * the view is modified.
  */
-$product = commerce_product_load($row->commerce_product_field_data_field_libro_producto_product_id);
-$default_quantity = 1;
-$product_ids = array($product->product_id);
-
-// Build the line item we'll pass to the Add to Cart form.
-$line_item = commerce_product_line_item_new($product, $default_quantity, 0, array(), 0);
-$line_item->data['context']['product_ids'] = $product_ids;
-$line_item->data['context']['add_to_cart_combine'] = 1;
-
-// Generate a form ID for this add to cart form.
-$form_id = commerce_cart_add_to_cart_form_id($product_ids);
-$line_item->data['context']['display_path'] = current_path();
-
-
-
-// Build the Add to Cart form using the prepared values.
-$form = drupal_get_form($form_id, $line_item, 0, array());
-$add_to_cart = drupal_render($form);
+$add_to_cart = libro_generar_boton_compra($row->commerce_product_field_data_field_libro_producto_product_id);
 ?>
 <?php print $output; ?>
 <div class="prod-info">

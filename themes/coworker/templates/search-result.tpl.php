@@ -73,7 +73,7 @@
     <div class="col-lg-7 col-md-7 col-sm-7 col-xs-8">
       <div class="search-snippet-info">
         <h3 class=""<?php print $title_attributes; ?>>
-          <a href="<?php print $url; ?>><?php print $title; ?></a>
+          <a href="<?php print $url; ?>"><?php print $title; ?></a>
         </h3>
         <p>
           <?php print t("Autores"); ?>: 

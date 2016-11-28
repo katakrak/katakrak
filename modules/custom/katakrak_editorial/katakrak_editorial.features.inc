@@ -60,6 +60,30 @@ function katakrak_editorial_fe_nodequeue_export_fields() {
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function katakrak_editorial_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: autor_editorial_ficha_libro.
+  $styles['autor_editorial_ficha_libro'] = array(
+    'label' => 'Autor editorial ficha libro',
+    'effects' => array(
+      1 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 300,
+          'height' => 450,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_node_info().
  */
 function katakrak_editorial_node_info() {
