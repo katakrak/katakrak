@@ -137,8 +137,8 @@ global $language;
 								</div>
 								<div class="col-sm-4">
 									<?php print render($content['sharethis']) ?>
-                  <?php if ($node->field_libro_producto['und'][0]['product_id']): ?>
-                    <?php print libro_generar_boton_compra($node->field_libro_producto['und'][0]['product_id']) ?>
+                  <?php if ($node->field_editorial_libro['und'][0]['nid']): ?>
+                    <?php print libro_generar_boton_compra($node->field_editorial_libro['und'][0]['nid']) ?>
                   <?php endif; ?>
 								</div>
 							</div>

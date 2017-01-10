@@ -574,8 +574,10 @@ function libro_search_home_form($form, &$form_state, $total = NULL) {
   return $form; 
 }
 
-function libro_generar_boton_compra($product_id) {
-  $product = commerce_product_load($product_id);
+function libro_generar_boton_compra($nid) {
+  $node = node_load($nid);
+  
+  $product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
   $default_quantity = 1;
   $product_ids = array($product->product_id);
 

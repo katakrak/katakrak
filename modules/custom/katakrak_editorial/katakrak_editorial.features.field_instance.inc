@@ -269,6 +269,51 @@ function katakrak_editorial_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-libro_ed-field_editorial_libro'.
+  $field_instances['node-libro_ed-field_editorial_libro'] = array(
+    'bundle' => 'libro_ed',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'node_reference',
+        'settings' => array(),
+        'type' => 'node_reference_default',
+        'weight' => 16,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 1,
+    'entityconnect_unload_edit' => 1,
+    'field_name' => 'field_editorial_libro',
+    'label' => 'libro',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'node_reference',
+      'settings' => array(
+        'autocomplete_match' => 'contains',
+        'autocomplete_path' => 'node_reference/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'node_reference_autocomplete',
+      'weight' => 18,
+    ),
+  );
+
   // Exported field_instance: 'node-libro_ed-field_libro_ed_autor'.
   $field_instances['node-libro_ed-field_libro_ed_autor'] = array(
     'bundle' => 'libro_ed',
@@ -824,59 +869,6 @@ function katakrak_editorial_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-libro_ed-field_libro_producto'.
-  $field_instances['node-libro_ed-field_libro_producto'] = array(
-    'bundle' => 'libro_ed',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'commerce_cart',
-        'settings' => array(
-          'combine' => TRUE,
-          'default_quantity' => 1,
-          'line_item_type' => 'product',
-          'show_quantity' => FALSE,
-          'show_single_product_attributes' => FALSE,
-        ),
-        'type' => 'commerce_cart_add_to_cart_form',
-        'weight' => 15,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_libro_producto',
-    'label' => 'Producto',
-    'required' => 0,
-    'settings' => array(
-      'field_injection' => 1,
-      'referenceable_types' => array(
-        'libro' => 'libro',
-        'product' => 0,
-        'shipping_tariff' => 0,
-      ),
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'commerce_product_reference',
-      'settings' => array(
-        'autocomplete_match' => 'contains',
-        'autocomplete_path' => 'commerce_product/autocomplete',
-        'size' => 60,
-      ),
-      'type' => 'commerce_product_reference_autocomplete',
-      'weight' => 17,
-    ),
-  );
-
   // Exported field_instance: 'node-libro_ed-field_libro_sinopsis'.
   $field_instances['node-libro_ed-field_libro_sinopsis'] = array(
     'bundle' => 'libro_ed',
@@ -903,7 +895,7 @@ function katakrak_editorial_field_default_field_instances() {
     'label' => 'Sinopsis',
     'required' => 1,
     'settings' => array(
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -970,7 +962,6 @@ function katakrak_editorial_field_default_field_instances() {
   t('Isbn');
   t('Portada');
   t('Precio');
-  t('Producto');
   t('Prólogo');
   t('Próxima aparicion');
   t('Páginas');
@@ -978,6 +969,7 @@ function katakrak_editorial_field_default_field_instances() {
   t('Subtitulo');
   t('Tamaño');
   t('Traductor');
+  t('libro');
   t('¿Próxima aparición?');
 
   return $field_instances;

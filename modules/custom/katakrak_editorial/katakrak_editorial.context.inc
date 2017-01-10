@@ -34,6 +34,7 @@ function katakrak_editorial_context_default_contexts() {
     ),
     'menu' => array(
       0 => 'main-menu:editorial',
+      1 => 'main-menu:editorial',
     ),
   );
   $context->condition_mode = 0;

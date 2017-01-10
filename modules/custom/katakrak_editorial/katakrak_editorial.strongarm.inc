@@ -104,6 +104,9 @@ function katakrak_editorial_strongarm() {
         'path' => array(
           'weight' => '6',
         ),
+        'language' => array(
+          'weight' => '0',
+        ),
       ),
       'display' => array(
         'sharethis' => array(
@@ -127,9 +130,23 @@ function katakrak_editorial_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_extended_libro_ed';
+  $strongarm->value = '1';
+  $export['i18n_node_extended_libro_ed'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'i18n_node_options_autor_ed';
   $strongarm->value = array();
   $export['i18n_node_options_autor_ed'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_options_libro_ed';
+  $strongarm->value = array();
+  $export['i18n_node_options_libro_ed'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -145,7 +162,21 @@ function katakrak_editorial_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'i18n_sync_node_type_libro_ed';
-  $strongarm->value = array();
+  $strongarm->value = array(
+    0 => 'field_libro_sinopsis',
+    1 => 'field_libro_paginas',
+    2 => 'field_libro_portada',
+    3 => 'field_libro_subtitulo',
+    4 => 'field_libro_idioma',
+    5 => 'field_libro_isbn',
+    6 => 'field_libro_ed_autor',
+    7 => 'field_libro_ed_traductor',
+    8 => 'field_libro_ed_tamano',
+    9 => 'field_libro_ed_prologo',
+    10 => 'field_libro_ed_precio',
+    11 => 'field_libro_ed_proxima',
+    12 => 'field_libro_producto',
+  );
   $export['i18n_sync_node_type_libro_ed'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -159,7 +190,7 @@ function katakrak_editorial_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_libro_ed';
-  $strongarm->value = '0';
+  $strongarm->value = '2';
   $export['language_content_type_libro_ed'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -245,6 +276,20 @@ function katakrak_editorial_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_autor_ed_es_pattern';
+  $strongarm->value = 'editorial/autor/[node:title]';
+  $export['pathauto_node_autor_ed_es_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_autor_ed_eu_pattern';
+  $strongarm->value = 'argitaletxea/autorea/[node:title]';
+  $export['pathauto_node_autor_ed_eu_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_autor_ed_pattern';
   $strongarm->value = 'editorial/autor/[node:title]';
   $export['pathauto_node_autor_ed_pattern'] = $strongarm;
@@ -252,9 +297,37 @@ function katakrak_editorial_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_autor_ed_und_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_autor_ed_und_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_libro_ed_es_pattern';
+  $strongarm->value = 'editorial/libro/[node:title]';
+  $export['pathauto_node_libro_ed_es_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_libro_ed_eu_pattern';
+  $strongarm->value = 'argitaletxea/liburua/[node:title]';
+  $export['pathauto_node_libro_ed_eu_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_libro_ed_pattern';
   $strongarm->value = 'editorial/libro/[node:title]';
   $export['pathauto_node_libro_ed_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_libro_ed_und_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_libro_ed_und_pattern'] = $strongarm;
 
   return $export;
 }

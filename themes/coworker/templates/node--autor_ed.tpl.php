@@ -95,10 +95,20 @@
     <?php if ($page): ?>
         <div class="row">
           <div class="col-xs-12">
-            <h2 class="block"><?php print t('En la editorial')?></h2>
-            <?php print views_embed_view('editorial', 'libros_autor', $node->tnid) ?>
-            <?php $view = views_get_view_result('libros', 'libros_rel_autor', $node->field_libro_autores['und'][0]['tid'])?>
-            <?php if ($view): ?>
+            <?php $view_libros_pub = views_get_view_result('editorial', 'libros_autor', $node->tnid)?>
+            <?php if ($view_libros_pub): ?>
+              <h2 class="block"><?php print t('En la editorial')?></h2>
+              <?php print views_embed_view('editorial', 'libros_autor', $node->tnid) ?>
+            <?php endif; ?>
+             
+            <?php $view_libros_trad = views_get_view_result('editorial', 'libros_traductor', $node->tnid)?>
+            <?php if ($view_libros_trad): ?>
+              <h2 class="block"><?php print t('Libros traducidos')?></h2>
+              <?php print views_embed_view('editorial', 'libros_traductor', $node->tnid) ?>
+            <?php endif; ?>
+              
+            <?php $view_libreria = views_get_view_result('libros', 'libros_rel_autor', $node->field_libro_autores['und'][0]['tid'])?>
+            <?php if ($view_libreria): ?>
               <h2 class="block"><?php print t('En la librería')?></h2>
               <?php print views_embed_view('libros', 'libros_rel_autor', $node->field_libro_autores['und'][0]['tid']) ?>
             <?php endif; ?>
