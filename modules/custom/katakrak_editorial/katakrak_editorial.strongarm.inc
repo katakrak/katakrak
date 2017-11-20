@@ -115,6 +115,12 @@ function katakrak_editorial_strongarm() {
             'visible' => TRUE,
           ),
         ),
+        'language' => array(
+          'default' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+        ),
       ),
     ),
   );

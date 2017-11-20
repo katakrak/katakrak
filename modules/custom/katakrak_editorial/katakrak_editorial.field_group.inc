@@ -29,6 +29,7 @@ function katakrak_editorial_field_group_info() {
       3 => 'field_libro_ed_encuadernacion',
       4 => 'field_libro_ed_tamano',
       5 => 'field_libro_ed_precio',
+      6 => 'field_libro_editorial_nota',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

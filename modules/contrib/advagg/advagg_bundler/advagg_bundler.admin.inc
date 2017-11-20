@@ -8,7 +8,7 @@
 /**
  * Form builder; Configure advagg settings.
  *
- * @ingroup forms
+ * @ingroup advagg_forms
  *
  * @see system_settings_form()
  */
@@ -106,9 +106,10 @@ function advagg_bundler_admin_settings_form() {
   return system_settings_form($form);
 }
 
-// Submit callback.
 /**
- * Clear out the advagg cache bin when the save configuration button is pressed.
+ * Submit callback, clear out the advagg cache bin.
+ *
+ * @ingroup advagg_forms_callback
  */
 function advagg_bundler_admin_settings_form_submit($form, &$form_state) {
   // Clear caches.

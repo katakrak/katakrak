@@ -6,10 +6,31 @@
  */
 
 /**
+ * @addtogroup default_variables
+ * @{
+ */
+
+/**
+ * Default version of csslint to use.
+ */
+define('ADVAGG_VALIDATOR_GITHUB_VERSION_CSSLINT', '1.0.5');
+
+/**
+ * Default version of jshint to use.
+ */
+define('ADVAGG_VALIDATOR_GITHUB_VERSION_JSHINT', '2.9.4');
+
+/**
+ * @} End of "addtogroup default_variables".
+ */
+
+/**
  * Form builder; CSS validator via w3.
  *
  * @return array
  *   form array.
+ *
+ * @ingroup advagg_forms
  */
 function advagg_validator_admin_css_w3_form() {
   drupal_set_title(t('AdvAgg: CSS Validator using w3.org'));
@@ -30,15 +51,18 @@ function advagg_validator_admin_css_w3_form() {
  *
  * @return array
  *   form array.
+ *
+ * @ingroup advagg_forms
  */
 function advagg_validator_admin_css_lint_form() {
   drupal_set_title(t('AdvAgg: CSS Validator using CSSLINT'));
 
   $form = advagg_validator_admin_form_generator('css', TRUE);
 
+  $version = variable_get('advagg_validator_github_version_csslint', ADVAGG_VALIDATOR_GITHUB_VERSION_CSSLINT);
   $form['#attached']['js'][] = array(
     // https://github.com/CSSLint/csslint.
-    'data' => '//cdn.rawgit.com/stubbornella/csslint/master/release/csslint.js',
+    'data' => "//cdn.rawgit.com/CSSLint/csslint/v$version/dist/csslint.js",
     'type' => 'external',
   );
   $form['#attached']['js'][] = array(
@@ -65,15 +89,18 @@ function advagg_validator_admin_css_lint_form() {
  *
  * @return array
  *   form array.
+ *
+ * @ingroup advagg_forms
  */
 function advagg_validator_admin_js_hint_form() {
   drupal_set_title(t('AdvAgg: JavaScript Validator using JSHINT'));
 
   $form = advagg_validator_admin_form_generator('js', TRUE);
 
+  $version = variable_get('advagg_validator_github_version_jshint', ADVAGG_VALIDATOR_GITHUB_VERSION_JSHINT);
   $form['#attached']['js'][] = array(
     // https://github.com/jshint/jshint.
-    'data' => '//cdn.rawgit.com/jshint/jshint/master/dist/jshint.js',
+    'data' => "//cdn.rawgit.com/jshint/jshint/$version/dist/jshint.js",
     'type' => 'external',
   );
   $form['#attached']['js'][] = array(
@@ -254,9 +281,13 @@ function advagg_validator_admin_form_generator($type, $run_client_side) {
   return $form;
 }
 
-// Submit callbacks.
 /**
- * Display file info in a drupal message.
+ * @addtogroup advagg_forms_callback
+ * @{
+ */
+
+/**
+ * Submit callback, display file info in a drupal message.
  */
 function advagg_validator_admin_test_advagg_css_submit($form, &$form_state) {
   module_load_include('inc', 'advagg_validator', 'advagg_validator');
@@ -492,6 +523,10 @@ function advagg_validator_admin_test_all_css_callback($form, &$form_state) {
   }
   return '<div id="advagg-validator-css-validator-ajax">' . $output . '</div>';
 }
+
+/**
+ * @} End of "addtogroup advagg_forms_callback".
+ */
 
 /**
  * Do not display info on a file if it is valid.

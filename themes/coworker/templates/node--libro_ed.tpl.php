@@ -199,6 +199,14 @@ global $language;
 						<?php print $content['field_libro_ed_encuadernacion'][0]['#markup'] ?>
 					</span>
 				</div>
+        <div class="book-info-entry">
+					<span class="col-2 book-info-label">
+						<?php print t('Nota editorial') ?>
+					</span>
+					<span class="col-2 book-info-data">
+						<?php print render($content['field_libro_editorial_nota']) ?>
+					</span>
+				</div>
 				<div class="book-info-entry">
 					<span class="col-2 book-info-label">
 						<?php print t('Precio') ?>

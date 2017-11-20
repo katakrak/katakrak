@@ -6,6 +6,11 @@
  */
 
 /**
+ * @addtogroup hooks
+ * @{
+ */
+
+/**
  * Implements hook_requirements().
  */
 function advagg_css_compress_requirements($phase) {
@@ -52,8 +57,6 @@ function advagg_css_compress_requirements($phase) {
 
 /**
  * Upgrade AdvAgg CSS Compress versions (6.x-1.x and 7.x-1.x) to 7.x-2.x.
- *
- * Implements hook_update_N().
  */
 function advagg_css_compress_update_7200(&$sandbox) {
   // Bail if old DB Table does not exist.
@@ -74,8 +77,6 @@ function advagg_css_compress_update_7200(&$sandbox) {
 
 /**
  * Change variable names so they are prefixed with the modules name.
- *
- * Implements hook_update_N().
  */
 function advagg_css_compress_update_7201(&$sandbox) {
   // Rename advagg_css_inline_compressor to advagg_css_compress_inline.
@@ -100,8 +101,6 @@ function advagg_css_compress_update_7201(&$sandbox) {
 
 /**
  * Remove unused variables from the variable table.
- *
- * Implements hook_update_N().
  */
 function advagg_css_compress_update_7202(&$sandbox) {
   // Remove all old advagg css compress variables.
@@ -109,3 +108,7 @@ function advagg_css_compress_update_7202(&$sandbox) {
     ->condition('name', 'advagg_css_compressor_file_settings_%', 'LIKE')
     ->execute();
 }
+
+/**
+ * @} End of "addtogroup hooks".
+ */

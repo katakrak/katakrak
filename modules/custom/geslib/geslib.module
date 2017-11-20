@@ -41,7 +41,7 @@ function geslib_cron_queue_info() {
   $queues = array();
   $queues['geslibCronQueue'] = array(
     'worker callback' => 'geslib_process_item', //function to call for each item
-    'time' => 30, //seconds to spend working on the queue
+    'time' => 15, //seconds to spend working on the queue
   );
   return $queues;
 }
@@ -252,7 +252,7 @@ function _geslib_get_file_to_process() {
     ->execute()->fetchCol();
   
   if (empty($processed_files)) {
-    //If nothing in the log, it means we haven't done the first import
+    watchdog("geslib", "nothing in the log");//If nothing in the log, it means we haven't done the first import
     return '';
   }
   

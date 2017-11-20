@@ -6,6 +6,11 @@
  */
 
 /**
+ * @addtogroup hooks
+ * @{
+ */
+
+/**
  * Implements hook_install().
  */
 function advagg_validator_install() {
@@ -86,8 +91,6 @@ function advagg_validator_schema() {
 }
 
 /**
- * Implements hook_update_N().
- *
  * Update the schema making the varchar columns utf8_bin in MySQL.
  */
 function advagg_validator_update_7201(&$sandbox) {
@@ -111,8 +114,6 @@ function advagg_validator_update_7201(&$sandbox) {
 }
 
 /**
- * Implements hook_update_N().
- *
  * Update schema making the varchar columns char. Change utf8_bin to ascii_bin.
  */
 function advagg_validator_update_7202(&$sandbox) {
@@ -134,3 +135,7 @@ function advagg_validator_update_7202(&$sandbox) {
     advagg_install_change_table_collation($table, $fields, 'ascii_bin', $schema[$table]['fields']);
   }
 }
+
+/**
+ * @} End of "addtogroup hooks".
+ */

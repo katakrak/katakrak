@@ -228,15 +228,37 @@ foreach($node->field_boletin_libros['und'] as $i => $nid){
                     </tr>
                   </table>
                 </td>
+                 <td class="wrapper last">
+                  <table class="three columns">
+                    <tr>
+                      <td>
+                        <a href="https://www.instagram.com/katakrak54/"><img src="http://katakrak.net/sites/all/themes/coworker/images/icons/boletin/instagram.png"><span>Instagram</span></a>
+                         
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="wrapper">
+                  <table class="three columns">
+                    <tr>
+	                  <td class="left-text-pad">
+	                   <a href="https://t.me/katakrak54"><img src="http://katakrak.net/sites/all/themes/coworker/images/icons/boletin/telegram.png"> <span>Telegram</span></a>
+	                  </td>
+                    </tr>
+                     
+                  </table>
+                </td>
                 <td class="wrapper last">
                   <table class="three columns">
-                      <tr>
-	                  <td>
-                      <a href="https://www.instagram.com/katakrak54/"><img src="http://katakrak.net/sites/all/themes/coworker/images/icons/boletin/instagram.png"><span>Instagram</span></a>
-	                     <p><a href="tel:+34 948 22 55 20">+34 948 22 55 20</a></p>
-	                     <p><a href="mailto:info@katakrak.net">info@katakrak.net</a></p>
-	                     <p><a href="http://katakrak.net">katakrak.net</a></p>
-	                  </td>
+                    <tr>
+                      <td>
+                        
+                         <p><a href="tel:+34 948 22 55 20">+34 948 22 55 20</a></p>
+                         <p><a href="mailto:info@katakrak.net">info@katakrak.net</a></p>
+                         <p><a href="http://katakrak.net">katakrak.net</a></p>
+                      </td>
                     </tr>
                   </table>
                 </td>

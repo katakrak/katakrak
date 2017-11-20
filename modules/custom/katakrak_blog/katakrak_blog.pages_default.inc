@@ -83,7 +83,7 @@ function katakrak_blog_default_page_manager_handlers() {
     'link' => 1,
     'markup' => 'h1',
     'id' => '',
-    'class' => '',
+    'class' => 'panel-term-name',
     'context' => 'relationship_entity_from_field:field_blog_type-node-taxonomy_term_1',
     'override_title' => 1,
     'override_title_text' => '',
@@ -226,7 +226,7 @@ function katakrak_blog_default_page_manager_handlers() {
     'link' => 1,
     'markup' => 'h1',
     'id' => '',
-    'class' => '',
+    'class' => 'panel-term-name',
     'context' => 'argument_term_1',
     'override_title' => 1,
     'override_title_text' => '',
@@ -236,7 +236,10 @@ function katakrak_blog_default_page_manager_handlers() {
   $pane->style = array(
     'settings' => NULL,
   );
-  $pane->css = array();
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => '',
+  );
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();
