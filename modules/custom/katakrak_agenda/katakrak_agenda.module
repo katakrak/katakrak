@@ -52,7 +52,6 @@ function katakrak_agenda_pagina_medios() {
         $evento->fecha = format_date($timestamp, 'custom', 'd F H:i '). $evento->fecha = format_date($timestamp, 'custom', 'F\k d ', NULL, 'eu');
         $eventos[] = $evento;
     }
-    dpm($eventos_db);
     return theme('agenda_medios', array('actos' => $eventos));
 }
 
