@@ -17,7 +17,43 @@ function katakrak_agenda_theme() {
         'color' => '#2780af'
       )
     ),
+    'agenda_medios' => array(
+      'template' => 'agenda-medios',
+      'path' => $path . '/templates',
+      'arguments' => array(
+        'actos' => NULL,
+      ),
+    )
   );
+}
+
+function katakrak_agenda_menu() {
+  $items['agenda_medios'] = array(
+    'title' => 'Agenda Medios',
+    'page callback' => 'katakrak_agenda_pagina_medios',
+    'access arguments' => array('access dilve information'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 100,
+  );
+  return $items;
+}
+
+function katakrak_agenda_pagina_medios() {
+    $eventos_db = views_get_view_result('agenda', 'events_page');
+    $eventos = array();
+    foreach($eventos_db as $evento_db) {
+        $term = taxonomy_term_load($evento_db->field_field_event_type[0]['raw']['tid']);
+       
+        $evento = new stdClass();
+        $evento->type = $term->name . " | " . i18n_taxonomy_term_name($term, 'eu');
+        $evento->title = $evento_db->node_title;
+        
+        $timestamp = $evento_db->field_data_field_event_date_field_event_date_value;
+        $evento->fecha = format_date($timestamp, 'custom', 'd F H:i '). $evento->fecha = format_date($timestamp, 'custom', 'F\k d ', NULL, 'eu');
+        $eventos[] = $evento;
+    }
+    dpm($eventos_db);
+    return theme('agenda_medios', array('actos' => $eventos));
 }
 
 function katakrak_agenda_node_presave($node) {
