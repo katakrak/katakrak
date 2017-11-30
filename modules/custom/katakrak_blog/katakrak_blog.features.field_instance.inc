@@ -127,6 +127,16 @@ function katakrak_blog_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
+    'entityconnect' => array(
+      'button' => array(
+        'unload_add_button' => NULL,
+        'unload_edit_button' => NULL,
+      ),
+      'icon' => array(
+        'show_add_icon' => NULL,
+        'show_edit_icon' => NULL,
+      ),
+    ),
     'field_name' => 'field_blog_eventos',
     'label' => 'Eventos',
     'required' => 0,
@@ -170,6 +180,16 @@ function katakrak_blog_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
+    'entityconnect' => array(
+      'button' => array(
+        'unload_add_button' => 0,
+        'unload_edit_button' => 0,
+      ),
+      'icon' => array(
+        'show_add_icon' => NULL,
+        'show_edit_icon' => NULL,
+      ),
+    ),
     'entityconnect_unload_add' => 0,
     'entityconnect_unload_edit' => 0,
     'field_name' => 'field_blog_libro',
