@@ -291,6 +291,16 @@ function katakrak_editorial_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
+    'entityconnect' => array(
+      'button' => array(
+        'unload_add_button' => 1,
+        'unload_edit_button' => 1,
+      ),
+      'icon' => array(
+        'show_add_icon' => 0,
+        'show_edit_icon' => 0,
+      ),
+    ),
     'entityconnect_show_add_icon' => 0,
     'entityconnect_show_edit_icon' => 0,
     'entityconnect_unload_add' => 1,
@@ -310,7 +320,7 @@ function katakrak_editorial_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
-      'weight' => 18,
+      'weight' => 19,
     ),
   );
 
@@ -336,6 +346,16 @@ function katakrak_editorial_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
+    'entityconnect' => array(
+      'button' => array(
+        'unload_add_button' => 0,
+        'unload_edit_button' => 0,
+      ),
+      'icon' => array(
+        'show_add_icon' => 1,
+        'show_edit_icon' => 0,
+      ),
+    ),
     'entityconnect_show_add_icon' => 1,
     'entityconnect_show_edit_icon' => 0,
     'entityconnect_unload_add' => 0,
@@ -355,7 +375,7 @@ function katakrak_editorial_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -394,7 +414,7 @@ function katakrak_editorial_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 12,
+      'weight' => 14,
     ),
   );
 
@@ -440,7 +460,7 @@ function katakrak_editorial_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 13,
+      'weight' => 15,
     ),
   );
 
@@ -480,7 +500,7 @@ function katakrak_editorial_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -523,7 +543,7 @@ function katakrak_editorial_field_default_field_instances() {
         'display_label' => 0,
       ),
       'type' => 'options_onoff',
-      'weight' => 15,
+      'weight' => 17,
     ),
   );
 
@@ -563,7 +583,7 @@ function katakrak_editorial_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 14,
+      'weight' => 16,
     ),
   );
 
@@ -589,6 +609,16 @@ function katakrak_editorial_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
+    'entityconnect' => array(
+      'button' => array(
+        'unload_add_button' => 0,
+        'unload_edit_button' => 0,
+      ),
+      'icon' => array(
+        'show_add_icon' => 0,
+        'show_edit_icon' => 0,
+      ),
+    ),
     'entityconnect_show_add_icon' => 0,
     'entityconnect_show_edit_icon' => 0,
     'entityconnect_unload_add' => 0,
@@ -608,7 +638,7 @@ function katakrak_editorial_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -649,96 +679,10 @@ function katakrak_editorial_field_default_field_instances() {
       'active' => 1,
       'module' => 'file',
       'settings' => array(
-        'imce_filefield_on' => 0,
-        'insert' => 0,
-        'insert_absolute' => 0,
-        'insert_class' => '',
-        'insert_default' => 'auto',
-        'insert_styles' => array(
-          'auto' => 'auto',
-          'colorbox__app_book_thumbnail' => 0,
-          'colorbox__app_evento' => 0,
-          'colorbox__app_evento_thumbnail' => 0,
-          'colorbox__autor_editorial_ficha_libro' => 0,
-          'colorbox__blog_home' => 0,
-          'colorbox__blog_post_page' => 0,
-          'colorbox__boletin_destacado' => 0,
-          'colorbox__book_cover' => 0,
-          'colorbox__book_irakurle_taldea' => 0,
-          'colorbox__book_medium' => 0,
-          'colorbox__book_thumbnail' => 0,
-          'colorbox__cover_home' => 0,
-          'colorbox__event_ciclos' => 0,
-          'colorbox__event_highlight' => 0,
-          'colorbox__event_home' => 0,
-          'colorbox__event_node_view' => 0,
-          'colorbox__event_teaser' => 0,
-          'colorbox__event_thumbnail' => 0,
-          'colorbox__extra_large' => 0,
-          'colorbox__flexslider_full' => 0,
-          'colorbox__flexslider_thumbnail' => 0,
-          'colorbox__home_agenda' => 0,
-          'colorbox__home_agenda_main' => 0,
-          'colorbox__home_agenda_main_secondary' => 0,
-          'colorbox__home_promo' => 0,
-          'colorbox__kantina_large' => 0,
-          'colorbox__kantina_medium' => 0,
-          'colorbox__kantina_thumbnail' => 0,
-          'colorbox__large' => 0,
-          'colorbox__media_thumbnail' => 0,
-          'colorbox__medium' => 0,
-          'colorbox__portfolio' => 0,
-          'colorbox__portfolio_item' => 0,
-          'colorbox__receta_page' => 0,
-          'colorbox__search_result_cover' => 0,
-          'colorbox__seccion' => 0,
-          'colorbox__thumbnail' => 0,
-          'icon_link' => 0,
-          'image' => 0,
-          'image_app_book_thumbnail' => 0,
-          'image_app_evento' => 0,
-          'image_app_evento_thumbnail' => 0,
-          'image_autor_editorial_ficha_libro' => 0,
-          'image_blog_home' => 0,
-          'image_blog_post_page' => 0,
-          'image_boletin_destacado' => 0,
-          'image_book_cover' => 0,
-          'image_book_irakurle_taldea' => 0,
-          'image_book_medium' => 0,
-          'image_book_thumbnail' => 0,
-          'image_cover_home' => 0,
-          'image_event_ciclos' => 0,
-          'image_event_highlight' => 0,
-          'image_event_home' => 0,
-          'image_event_node_view' => 0,
-          'image_event_teaser' => 0,
-          'image_event_thumbnail' => 0,
-          'image_extra_large' => 0,
-          'image_flexslider_full' => 0,
-          'image_flexslider_thumbnail' => 0,
-          'image_home_agenda' => 0,
-          'image_home_agenda_main' => 0,
-          'image_home_agenda_main_secondary' => 0,
-          'image_home_promo' => 0,
-          'image_kantina_large' => 0,
-          'image_kantina_medium' => 0,
-          'image_kantina_thumbnail' => 0,
-          'image_large' => 0,
-          'image_media_thumbnail' => 0,
-          'image_medium' => 0,
-          'image_portfolio' => 0,
-          'image_portfolio_item' => 0,
-          'image_receta_page' => 0,
-          'image_search_result_cover' => 0,
-          'image_seccion' => 0,
-          'image_thumbnail' => 0,
-          'link' => 0,
-        ),
-        'insert_width' => '',
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 15,
+      'weight' => 17,
     ),
   );
 
@@ -775,7 +719,7 @@ function katakrak_editorial_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -815,7 +759,7 @@ function katakrak_editorial_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 11,
+      'weight' => 13,
     ),
   );
 
@@ -855,7 +799,7 @@ function katakrak_editorial_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 9,
+      'weight' => 12,
     ),
   );
 
@@ -995,7 +939,7 @@ function katakrak_editorial_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -1035,7 +979,7 @@ function katakrak_editorial_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 7,
+      'weight' => 8,
     ),
   );
 
@@ -1075,7 +1019,7 @@ function katakrak_editorial_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 1,
+      'weight' => 2,
     ),
   );
 

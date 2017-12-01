@@ -21,14 +21,14 @@ function katakrak_editorial_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Ficha técnica',
-    'weight' => '11',
+    'weight' => '12',
     'children' => array(
-      0 => 'field_libro_paginas',
-      1 => 'field_libro_idioma',
-      2 => 'field_libro_isbn',
-      3 => 'field_libro_ed_encuadernacion',
-      4 => 'field_libro_ed_tamano',
-      5 => 'field_libro_ed_precio',
+      0 => 'field_libro_ed_encuadernacion',
+      1 => 'field_libro_ed_precio',
+      2 => 'field_libro_ed_tamano',
+      3 => 'field_libro_idioma',
+      4 => 'field_libro_isbn',
+      5 => 'field_libro_paginas',
       6 => 'field_libro_editorial_nota',
     ),
     'format_type' => 'fieldset',
