@@ -177,6 +177,12 @@ function libro_context_default_contexts() {
           'region' => 'content_bottom_first',
           'weight' => '-10',
         ),
+        'views-secciones-secciones_block_m' => array(
+          'module' => 'views',
+          'delta' => 'secciones-secciones_block_m',
+          'region' => 'content_bottom_first',
+          'weight' => '-9',
+        ),
         'views-itinerarios-block' => array(
           'module' => 'views',
           'delta' => 'itinerarios-block',
