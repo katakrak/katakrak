@@ -598,6 +598,57 @@ function katakrak_editorial_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-libro_ed-field_libro_ed_resenas'.
+  $field_instances['node-libro_ed-field_libro_ed_resenas'] = array(
+    'bundle' => 'libro_ed',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'node_reference',
+        'settings' => array(),
+        'type' => 'node_reference_default',
+        'weight' => 19,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'entityconnect' => array(
+      'button' => array(
+        'unload_add_button' => 1,
+        'unload_edit_button' => 1,
+      ),
+      'icon' => array(
+        'show_add_icon' => 0,
+        'show_edit_icon' => 0,
+      ),
+    ),
+    'field_name' => 'field_libro_ed_resenas',
+    'label' => 'Reseñas',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'node_reference',
+      'settings' => array(
+        'autocomplete_match' => 'contains',
+        'autocomplete_path' => 'node_reference/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'node_reference_autocomplete',
+      'weight' => 18,
+    ),
+  );
+
   // Exported field_instance: 'node-libro_ed-field_libro_ed_tamano'.
   $field_instances['node-libro_ed-field_libro_ed_tamano'] = array(
     'bundle' => 'libro_ed',
@@ -1092,6 +1143,7 @@ function katakrak_editorial_field_default_field_instances() {
   t('Prólogo (deprecated)');
   t('Próxima aparicion');
   t('Páginas');
+  t('Reseñas');
   t('Sinopsis');
   t('Subtitulo');
   t('Tamaño');

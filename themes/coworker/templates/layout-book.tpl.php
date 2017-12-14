@@ -6,7 +6,9 @@
     $content_classes = 'col-md-12 col-lg-12 col-sm-12 col-xs-12';
   }
 ?>
+
 <?php include 'page-header.inc' ?>
+<div id="content" class="book-page">
   <div class="container">
     <div class="content-wrap">
     <?php if ($page['content_top']): ?>
@@ -17,7 +19,7 @@
       </div>
   </div>
 
-<div id="content" class="book-page">
+
     
       <div class="container clearfix">
         <!-- content region -->

@@ -152,7 +152,7 @@ function katakrak_blog_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
-      'weight' => 4,
+      'weight' => 3,
     ),
   );
 
@@ -245,6 +245,86 @@ function katakrak_blog_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_select',
       'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance: 'node-blog-field_cita'.
+  $field_instances['node-blog-field_cita'] = array(
+    'bundle' => 'blog',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Para que aparezca en la ficha del libro de la editorial. Usar siempre comillas latinas, si no Dios mata un gatito',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 12,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_cita',
+    'label' => 'Cita',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 13,
+    ),
+  );
+
+  // Exported field_instance: 'node-blog-field_fuente_cita'.
+  $field_instances['node-blog-field_fuente_cita'] = array(
+    'bundle' => 'blog',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Por ejemplo: Aritz Gorostiaga, Berria',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 13,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_fuente_cita',
+    'label' => 'Fuente cita',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 14,
     ),
   );
 
@@ -599,12 +679,16 @@ function katakrak_blog_field_default_field_instances() {
   t('Adjunto');
   t('Blog_type');
   t('Cabecera blog');
+  t('Cita');
   t('Cuerpo');
   t('Etiqueta');
   t('Eventos');
+  t('Fuente cita');
   t('Imagen');
   t('Libro(s)');
   t('Media');
+  t('Para que aparezca en la ficha del libro de la editorial. Usar siempre comillas latinas, si no Dios mata un gatito');
+  t('Por ejemplo: Aritz Gorostiaga, Berria');
 
   return $field_instances;
 }
