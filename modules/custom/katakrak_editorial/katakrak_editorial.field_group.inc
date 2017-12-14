@@ -21,7 +21,7 @@ function katakrak_editorial_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Ficha técnica',
-    'weight' => '12',
+    'weight' => '11',
     'children' => array(
       0 => 'field_libro_ed_encuadernacion',
       1 => 'field_libro_ed_precio',

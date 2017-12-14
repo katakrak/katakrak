@@ -35,18 +35,18 @@ function katakrak_editorial_fe_nodequeue_export_fields() {
   // Exported nodequeues: libros_editorial
   $nodequeues['libros_editorial'] = array(
     'name' => 'libros_editorial',
-    'title' => 'Libros editorial',
+    'title' => 'Editorial portada',
     'subqueue_title' => '',
-    'size' => 3,
-    'link' => 'Añadir a página de editorial',
-    'link_remove' => 'Quitar de página de editorial',
+    'size' => 4,
+    'link' => 'Añadir a portada ',
+    'link_remove' => 'Quitar de portada',
     'owner' => 'nodequeue',
     'show_in_ui' => 1,
     'show_in_tab' => 1,
     'show_in_links' => 1,
     'reference' => 0,
     'reverse' => 0,
-    'i18n' => 0,
+    'i18n' => 1,
     'insert_at_front' => 0,
     'subqueues' => 1,
     'types' => array(
@@ -74,6 +74,21 @@ function katakrak_editorial_image_default_styles() {
         'data' => array(
           'width' => 300,
           'height' => 450,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: editorial_page.
+  $styles['editorial_page'] = array(
+    'label' => 'editorial_page',
+    'effects' => array(
+      2 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 209,
+          'height' => 320,
         ),
         'weight' => 1,
       ),

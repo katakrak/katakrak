@@ -38,6 +38,12 @@ function katakrak_home_context_default_contexts() {
           'region' => 'content_bottom_first',
           'weight' => '-10',
         ),
+        'views-editorial-block_4' => array(
+          'module' => 'views',
+          'delta' => 'editorial-block_4',
+          'region' => 'content_bottom_second',
+          'weight' => '-10',
+        ),
         'katakrak_home-katakrak_home_promo' => array(
           'module' => 'katakrak_home',
           'delta' => 'katakrak_home_promo',
@@ -48,7 +54,7 @@ function katakrak_home_context_default_contexts() {
           'module' => 'views',
           'delta' => 'blog-block',
           'region' => 'content_bottom_third',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
         'views-libros-book_block_home' => array(
           'module' => 'views',

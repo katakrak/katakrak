@@ -320,7 +320,58 @@ function katakrak_editorial_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
-      'weight' => 19,
+      'weight' => 13,
+    ),
+  );
+
+  // Exported field_instance: 'node-libro_ed-field_editorial_prologuista'.
+  $field_instances['node-libro_ed-field_editorial_prologuista'] = array(
+    'bundle' => 'libro_ed',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'node_reference',
+        'settings' => array(),
+        'type' => 'node_reference_default',
+        'weight' => 18,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'entityconnect' => array(
+      'button' => array(
+        'unload_add_button' => 0,
+        'unload_edit_button' => 0,
+      ),
+      'icon' => array(
+        'show_add_icon' => 0,
+        'show_edit_icon' => 0,
+      ),
+    ),
+    'field_name' => 'field_editorial_prologuista',
+    'label' => 'Prologuista',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'node_reference',
+      'settings' => array(
+        'autocomplete_match' => 'contains',
+        'autocomplete_path' => 'node_reference/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'node_reference_autocomplete',
+      'weight' => 4,
     ),
   );
 
@@ -375,7 +426,7 @@ function katakrak_editorial_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -487,7 +538,7 @@ function katakrak_editorial_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_libro_ed_prologo',
-    'label' => 'Prólogo',
+    'label' => 'Prólogo (deprecated)',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -543,7 +594,7 @@ function katakrak_editorial_field_default_field_instances() {
         'display_label' => 0,
       ),
       'type' => 'options_onoff',
-      'weight' => 17,
+      'weight' => 12,
     ),
   );
 
@@ -638,7 +689,7 @@ function katakrak_editorial_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -939,7 +990,7 @@ function katakrak_editorial_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -979,7 +1030,7 @@ function katakrak_editorial_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 8,
+      'weight' => 9,
     ),
   );
 
@@ -1037,7 +1088,8 @@ function katakrak_editorial_field_default_field_instances() {
   t('Nota editorial');
   t('Portada');
   t('Precio');
-  t('Prólogo');
+  t('Prologuista');
+  t('Prólogo (deprecated)');
   t('Próxima aparicion');
   t('Páginas');
   t('Sinopsis');
