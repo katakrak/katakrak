@@ -80,6 +80,7 @@
  */
 
 global $language;
+global $user;
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <div class="entry_content content <?php print $content_attributes; ?>">
@@ -127,7 +128,7 @@ global $language;
 							</div>
 							<div class="row">
 								<div class="col-sm-8">
-									<h3><?php print render($content['field_libro_ed_autor']) ?></h3>
+									<h3 class="autores-libro"><?php print render($content['field_libro_ed_autor']) ?></h3>
 									<?php if ($node->field_libro_ed_prologo['und'][0]['value']): ?>
 										<p><?php print t('Prólogo de ')?><strong><?php print $content['field_libro_ed_prologo'][0]['#markup']?></strong></p>
 									<?php endif; ?>
@@ -145,6 +146,20 @@ global $language;
 							<div class="row">
 								<div class="col-sm-12 col-md-12">
 									<?php print render($content['field_libro_sinopsis']) ?>
+									<?php if ($node->resenas): ?>
+								        <div class="row ">
+								        	<div class="col-md-8 ">
+								        		<h3 class="block"><?php print t("En la prensa")?> </h3>
+								        		<?php foreach ($node->resenas as $resena): ?>
+								        			<div class="resena">
+								        			<p class="resena-cita"><?php print $resena->cita ?></p>
+								        			<p class="resena-fuente"><?php print l($resena->fuente, "node/".$resena->nid); ?></p>
+								        		</div>
+								        		<?php endforeach; ?>
+								        	</div>
+								        	
+								        </div>
+								      <?php endif;?>
 								</div>
 							</div>
 						</div>
@@ -152,10 +167,8 @@ global $language;
 				</div>
 			</div>
 		</div>
-		<?php if ($page): ?>
-			<?php print render($content['links']); ?>
-		<?php endif; ?>
       
+        
 		<div class="row ficha-editorial-info container">
 			<div class="col-md-4 ficha-tecnica">
 				<h3><?php print t("Ficha Técnica")?> </h3>
@@ -196,10 +209,12 @@ global $language;
 						<?php print t('Encuadernación') ?>
 					</span>
 					<span class="col-2 book-info-data">
-						<?php print $content['field_libro_ed_encuadernacion'][0]['#markup'] ?>
+						<?php print t($content['field_libro_ed_encuadernacion'][0]['#markup']) ?>
 					</span>
 				</div>
-        <div class="book-info-entry">
+
+				<?php if ($content['field_libro_editorial_nota']): ?>
+                <div class="book-info-entry">
 					<span class="col-2 book-info-label">
 						<?php print t('Nota editorial') ?>
 					</span>
@@ -207,6 +222,7 @@ global $language;
 						<?php print render($content['field_libro_editorial_nota']) ?>
 					</span>
 				</div>
+			<?php endif; ?>
 				<div class="book-info-entry">
 					<span class="col-2 book-info-label">
 						<?php print t('Precio') ?>
@@ -228,6 +244,7 @@ global $language;
 					<div class="col-md-5 imagen">
 							<?php print theme('image_style', array('style_name' => 'autor_editorial_ficha_libro', 'path' => $autor->field_imagen['und'][0]['uri'])) ?>
 					</div>
+
 
 				</div>
 				<?php	endforeach; ?>

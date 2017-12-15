@@ -80,6 +80,22 @@ function katakrak_editorial_image_default_styles() {
     ),
   );
 
+  // Exported image style: editorial_ficha.
+  $styles['editorial_ficha'] = array(
+    'label' => 'Editorial ficha (390px)',
+    'effects' => array(
+      3 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 390,
+          'height' => '',
+          'upscale' => 0,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: editorial_page.
   $styles['editorial_page'] = array(
     'label' => 'editorial_page',

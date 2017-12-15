@@ -41,12 +41,15 @@
   padding-top: 5px;
   font-size: 1.2em;
 }
-#content h2.block {
+#content h2.block,
+#content h3.block {
   color: black;
   border-bottom: 1px dashed black;
   padding: 0 0 5px;
   margin-top: 50px;
   font-weight: bold;
+}
+#content h2.block {
   text-transform: uppercase;
 }
 /* ----------------------------------------------------------------
@@ -975,6 +978,18 @@ view-id-libros .book-author {
 .node-libro-ed .itinerarios a {
   float: left;
   padding: 10px;
+}
+.node-libro .autores-libro,
+.node-libro-ed .autores-libro {
+  padding: 0.9em 0 1.3em 0;
+}
+.node-libro .resena-fuente,
+.node-libro-ed .resena-fuente {
+  font-weight: bold;
+}
+.node-libro .resena-cita,
+.node-libro-ed .resena-cita {
+  color: #656060;
 }
 .node-libro .ficha-editorial-info,
 .node-libro-ed .ficha-editorial-info {

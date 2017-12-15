@@ -623,7 +623,7 @@ function katakrak_editorial_field_default_field_instances() {
     'entityconnect' => array(
       'button' => array(
         'unload_add_button' => 1,
-        'unload_edit_button' => 1,
+        'unload_edit_button' => 0,
       ),
       'icon' => array(
         'show_add_icon' => 0,
@@ -913,18 +913,12 @@ function katakrak_editorial_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'colorbox',
+        'module' => 'image',
         'settings' => array(
-          'colorbox_caption' => 'auto',
-          'colorbox_caption_custom' => '',
-          'colorbox_gallery' => 'post',
-          'colorbox_gallery_custom' => '',
-          'colorbox_image_style' => '',
-          'colorbox_multivalue_index' => NULL,
-          'colorbox_node_style' => 'book_cover',
-          'colorbox_node_style_first' => '',
+          'image_link' => 'file',
+          'image_style' => 'editorial_ficha',
         ),
-        'type' => 'colorbox',
+        'type' => 'image',
         'weight' => 3,
       ),
       'teaser' => array(

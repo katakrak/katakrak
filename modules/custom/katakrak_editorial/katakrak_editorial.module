@@ -30,6 +30,22 @@ function katakrak_editorial_node_load($nodes, $types) {
         $autor_trad = node_load($trad[$node->language]->nid);
         $node->autores[] = $autor_trad;
 			}
+
+      $resenas = array();
+      if ($node->field_libro_ed_resenas) {
+        foreach ($node->field_libro_ed_resenas['und'] as $res_nid) {
+          $resena = node_load($res_nid['nid']);
+          if ($resena->field_cita){
+            $res_temp = new stdClass();
+            $res_temp->nid = $resena->nid;
+            $res_temp->cita = $resena->field_cita['und'][0]['value'];
+            $res_temp->fuente = $resena->field_fuente_cita['und'][0]['value'];
+            $resenas[] = $res_temp;
+            dpm($res_temp);
+          }
+        }
+      }
+      $node->resenas = $resenas;
     }
   }
 }
