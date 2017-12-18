@@ -146,7 +146,17 @@ global $user;
 							<div class="row">
 								<div class="col-sm-12 col-md-12">
 									<?php print render($content['field_libro_sinopsis']) ?>
-									<?php if ($node->resenas): ?>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-4">
+				<?php if ($node->resenas): ?>
 								        <div class="row ">
 								        	<div class="col-md-8 ">
 								        		<h3 class="block"><?php print t("En la prensa")?> </h3>
@@ -160,11 +170,6 @@ global $user;
 								        	
 								        </div>
 								      <?php endif;?>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
       

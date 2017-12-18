@@ -143,6 +143,7 @@ features[variable][] = pathauto_taxonomy_term_urtea_pattern
 features[views_view][] = libros
 features[views_view][] = libros_admin
 features[views_view][] = libros_blog
+features[views_view][] = productos_admin
 features[views_view][] = secciones
 features[views_view][] = service_libros
 features_exclude[field_base][body] = body

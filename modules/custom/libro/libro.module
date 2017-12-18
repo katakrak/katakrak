@@ -208,6 +208,8 @@ function libro_portadas_finish($success, $results, $operations) {
     drupal_set_message($message, 'error');
   }
 }
+
+
 function libro_block_info() {
   $blocks = array();
   $blocks['katakrak_libro_estilo'] = array(
@@ -290,8 +292,15 @@ function libro_theme() {
 }
 
 function libro_peso_moda_form($form, &$form_state) {
-  $libro_avg_weight = variable_get('libro_avg_weight', 0);
-  drupal_set_message("El promedio del peso de los libros en stock es de $libro_avg_weight gr");
+  
+  $form['valor_peso'] = array(
+    '#title' => t("Peso por defecto."),
+    '#description' => t('Expresado en gramos'),
+    '#type' => 'textfield',
+    '#size' => 10,
+    '#default_value' => variable_get('libro_avg_weight', 0),
+
+  );
   $form['borrar_pesos_pequeños'] = array(
     '#type' => 'submit',
     '#value' => t('Borrar pesos pequeños'),
@@ -315,6 +324,8 @@ function libro_peso_moda_form_submit($form, &$form_state) {
   }
   if ($form_state['clicked_button']['#value'] == t('Asignar peso medio')) {
     //Lanzar batch que actualice todos los pesos
+    variable_set('libro_avg_weight', $form_state['values']['valor_peso']);
+    
     $batch = array(
       'title' => t('Actualizando pesos'),
       'operations' => array(
@@ -330,22 +341,20 @@ function libro_peso_batch_process(&$context) {
   $products_db = db_select('commerce_product', 'p')->fields('p', array('product_id'));
   if (!isset($context['sandbox']['progress'])) {
     $context['sandbox']['progress'] = 0;
+    $context['results']['asignados'] = 0;
     $context['sandbox']['max'] = $products_db->execute()->rowCount();
   }
   $products = $products_db->range($context['sandbox']['progress'], 100)->execute()->fetchAll();
   
   foreach ($products as $product_id) {
     $libro = commerce_product_load($product_id->product_id);
-    
-    if (!isset($libro->field_product_peso) || !$libro->field_product_peso['und'][0]['weight']) {
+    if (!isset($libro->field_product_peso) || $libro->field_product_peso['und'][0]['weight'] < variable_get('libro_avg_weight', 0)) {
       $libro->field_product_peso['und'][0] = array(
         'weight' => variable_get('libro_avg_weight', 0),
         'unit' => 'g'
       );
+      $context['results']['asignados'] ++;
       $libro->field_peso_medio['und'][0]['value'] = 1;
-    }
-    else {
-      $libro->field_peso_medio['und'][0]['value'] = 0;
     }
     commerce_product_save($libro);
     $context['sandbox']['progress']++;
@@ -356,10 +365,24 @@ function libro_peso_batch_process(&$context) {
   }
 }
 
+function libro_peso_batch_process_finish($success, $results, $operations) {
+  if ($success) {
+    drupal_set_message(t("@count libros han sido asignados un peso medio", array('@count' => $results['asignados'])));
+    
+  }
+  else {
+    // An error occurred.
+    // $operations contains the operations that remained unprocessed.
+    $error_operation = reset($operations);
+    $message = t('An error occurred while processing %error_operation with arguments: @arguments', array('%error_operation' => $error_operation[0], '@arguments' => print_r($error_operation[1], TRUE)));
+    drupal_set_message($message, 'error');
+  }
+}
+
 /**
  * Implementation of hook_cron
  */
-function libro_cron() {
+/*function libro_cron() {
   $results = db_query("SELECT COUNT(*) AS total, field_product_peso_weight FROM  {field_data_field_product_peso} p INNER JOIN {field_data_commerce_stock} s  ON s.entity_id = p.entity_id WHERE commerce_stock_value > 0 GROUP BY  field_product_peso_weight ORDER BY total DESC LIMIT 0,10")->fetchAll();
  
   $total = 0;
@@ -372,7 +395,7 @@ function libro_cron() {
   
   $avg_round = ceil($avg / 10) * 10;
   variable_set('libro_avg_weight', $avg_round);
-}
+}*/
 
 /**
  * Implementation of hook_node_view

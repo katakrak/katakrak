@@ -41,7 +41,6 @@ function katakrak_editorial_node_load($nodes, $types) {
             $res_temp->cita = $resena->field_cita['und'][0]['value'];
             $res_temp->fuente = $resena->field_fuente_cita['und'][0]['value'];
             $resenas[] = $res_temp;
-            dpm($res_temp);
           }
         }
       }
