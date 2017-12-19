@@ -51,7 +51,47 @@ function katakrak_editorial_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 2,
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'node-autor_ed-field_autor_apellido'.
+  $field_instances['node-autor_ed-field_autor_apellido'] = array(
+    'bundle' => 'autor_ed',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'En formato Fillat, Nerea. Para ordenar en la página de autores',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 4,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_autor_apellido',
+    'label' => 'Nombre y apellido',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
     ),
   );
 
@@ -91,7 +131,7 @@ function katakrak_editorial_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 5,
+      'weight' => 7,
     ),
   );
 
@@ -225,7 +265,7 @@ function katakrak_editorial_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 3,
+      'weight' => 5,
     ),
   );
 
@@ -265,7 +305,7 @@ function katakrak_editorial_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 7,
+      'weight' => 8,
     ),
   );
 
@@ -1124,12 +1164,14 @@ function katakrak_editorial_field_default_field_instances() {
   t('Autor');
   t('Autor Geslib');
   t('Biografía');
+  t('En formato Fillat, Nerea. Para ordenar en la página de autores');
   t('Encuadernación');
   t('Esto es para que en la ficha del autor aparezcan libros que están en la librería pero no hemos publicado');
   t('Fecha y lugar nacimiento');
   t('Foto');
   t('Idioma');
   t('Isbn');
+  t('Nombre y apellido');
   t('Nota editorial');
   t('Portada');
   t('Precio');

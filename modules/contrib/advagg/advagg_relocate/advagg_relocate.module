@@ -21,6 +21,11 @@ define('ADVAGG_RELOCATE_JS', FALSE);
 define('ADVAGG_RELOCATE_JS_TTL', 604800);
 
 /**
+ * Minimum cache lifetime, 600 seconds by default.
+ */
+define('ADVAGG_RELOCATE_JS_MIN_TTL', 600);
+
+/**
  * Default value to see if GA JS is loaded locally.
  */
 define('ADVAGG_RELOCATE_JS_GA_LOCAL', FALSE);
@@ -49,6 +54,11 @@ define('ADVAGG_RELOCATE_CSS', FALSE);
  * If the external file has a longer TTL then this value do not cache locally.
  */
 define('ADVAGG_RELOCATE_CSS_TTL', 604800);
+
+/**
+ * Minimum cache lifetime, 600 seconds by default.
+ */
+define('ADVAGG_RELOCATE_CSS_MIN_TTL', 600);
 
 /**
  * Default value to see if css inlining import is enabled.
@@ -136,7 +146,7 @@ function advagg_relocate_css_alter(&$css) {
 
   $aggregate_settings = advagg_current_hooks_hash_array();
   // Check external css setting.
-  if (!$aggregate_settings['variables']['advagg_relocate_css_inline_external']) {
+  if (empty($aggregate_settings['variables']['advagg_relocate_css_inline_external'])) {
     return;
   }
 
@@ -318,7 +328,7 @@ function advagg_relocate_css_post_alter(array &$css, $force_check = FALSE) {
     $css = advagg_relocate_key_rename($css, array($relative_path => $key));
     $css[$relative_path]['data'] = $relative_path;
     $css[$relative_path]['type'] = 'file';
-    if (defined('ADVAGG_MOD_CSS_PREPROCESS') && variable_get('advagg_mod_css_preprocess', ADVAGG_MOD_CSS_PREPROCESS)) {
+    if (defined('ADVAGG_MOD_CSS_PREPROCESS') && variable_get('advagg_mod_css_preprocess', ADVAGG_MOD_CSS_PREPROCESS) && empty($css[$relative_path]['preprocess_lock'])) {
       $css[$relative_path]['preprocess'] = TRUE;
     }
 
@@ -359,7 +369,7 @@ function advagg_relocate_js_post_alter(array &$js, $force_check = FALSE) {
 
   $aggregate_settings = advagg_current_hooks_hash_array();
   // Check external js setting.
-  if (!$aggregate_settings['variables']['advagg_relocate_js']) {
+  if (empty($aggregate_settings['variables']['advagg_relocate_js'])) {
     return;
   }
 
@@ -637,7 +647,7 @@ function advagg_relocate_js_post_alter(array &$js, $force_check = FALSE) {
     $js = advagg_relocate_key_rename($js, array($relative_path => $key));
     $js[$relative_path]['data'] = $relative_path;
     $js[$relative_path]['type'] = 'file';
-    if (defined('ADVAGG_MOD_JS_PREPROCESS') && variable_get('advagg_mod_js_preprocess', ADVAGG_MOD_JS_PREPROCESS)) {
+    if (defined('ADVAGG_MOD_JS_PREPROCESS') && variable_get('advagg_mod_js_preprocess', ADVAGG_MOD_JS_PREPROCESS) && empty($js[$relative_path]['preprocess_lock'])) {
       $js[$relative_path]['preprocess'] = TRUE;
     }
 
@@ -818,8 +828,15 @@ function _advagg_relocate_get_urls(array $data, $type, array $aggregate_settings
     if ($value['type'] !== 'external') {
       continue;
     }
+    // If no_relocate=TRUE, do not move it to be local.
+    if (!empty($value['no_relocate'])) {
+      continue;
+    }
+    if (empty($value['data'])) {
+      $value['data'] = $key;
+    }
+    $parsed = parse_url($value['data']);
     if (!empty($domains_blacklist)) {
-      $parsed = parse_url($value['data']);
       foreach ($domains_blacklist as $domain) {
         if ($domain === $parsed['host']) {
           continue 2;

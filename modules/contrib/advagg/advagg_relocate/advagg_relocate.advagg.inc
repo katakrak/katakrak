@@ -20,7 +20,7 @@ function advagg_relocate_advagg_get_css_aggregate_contents_alter(&$data, $files,
   }
 
   // Do nothing if this is disabled.
-  if (!$aggregate_settings['variables']['advagg_relocate_css_inline_import']) {
+  if (empty($aggregate_settings['variables']['advagg_relocate_css_inline_import'])) {
     return;
   }
 
@@ -182,7 +182,25 @@ function advagg_relocate_get_remote_data($urls, $type, array $options = array(),
   $cached_data = cache_get_multiple($cids, 'cache_advagg_info');
   $cached_data = array_merge($cids, $cached_data);
   $url_to_cid = array();
+  $request_sent = FALSE;
   foreach ($cached_data as $cid => $cache) {
+    // CID not set, skip.
+    if (empty($cid)) {
+      continue;
+    }
+    // Set cid, filename and get url.
+    $options['cid'] = $cid;
+    $options['filename'] = substr($cid, 26 + strlen($type));
+
+    // Filename lookup failure, skip.
+    if (empty($urls[$options['filename']])) {
+      continue;
+    }
+
+    // Add url to the lookup array.
+    $url = advagg_force_https_path($urls[$options['filename']]);
+    $url_to_cid[$url] = $cid;
+
     // Reset headers if needed.
     if (isset($options['headers']['If-None-Match'])) {
       unset($options['headers']['If-None-Match']);
@@ -193,7 +211,10 @@ function advagg_relocate_get_remote_data($urls, $type, array $options = array(),
 
     // Use cached data or setup for 304.
     if (!empty($cache->data)) {
-      if ($cache->expire >= REQUEST_TIME && isset($cache->data->url) && !$force_check) {
+      if ($cache->expire >= REQUEST_TIME
+        && isset($cache->data->url)
+        && empty($force_check)
+      ) {
         $return[$cache->data->url] = $cache->data;
         continue;
       }
@@ -208,21 +229,17 @@ function advagg_relocate_get_remote_data($urls, $type, array $options = array(),
       }
     }
 
-    // Set cid, filename and get url.
-    $options['cid'] = $cid;
-    $options['filename'] = substr($cid, 26 + strlen($type));
-    $url = advagg_force_https_path($urls[$options['filename']]);
-    $url_to_cid[$url] = $cid;
-
     // Get data.
     if (module_exists('httprl')) {
+      $request_sent = TRUE;
       httprl_request($url, $options);
     }
     else {
+      $request_sent = TRUE;
       $responses[$url] = drupal_http_request($url, $options);
     }
   }
-  if (module_exists('httprl')) {
+  if ($request_sent && module_exists('httprl')) {
     $responses = httprl_send_request();
   }
   if (empty($responses)) {
@@ -231,6 +248,13 @@ function advagg_relocate_get_remote_data($urls, $type, array $options = array(),
 
   // Try failures again.
   foreach ($responses as $key => $response) {
+    if (!empty($response->headers['content-length'])
+      && $response->headers['content-length'] > strlen($response->data)
+    ) {
+      $response->code = 0;
+      unset($response->options['headers']['connection']);
+    }
+
     if ($response->code == 0) {
       if (isset($response->options)) {
         $options = $response->options;
@@ -241,6 +265,13 @@ function advagg_relocate_get_remote_data($urls, $type, array $options = array(),
 
   // Process remote data.
   foreach ($responses as $url => $response) {
+    // Content length does not match the response data.
+    if (!empty($response->headers['content-length'])
+      && $response->headers['content-length'] > strlen($response->data)
+    ) {
+      continue;
+    }
+
     // No url is a no go.
     if (empty($response->url)) {
       $response->url = $url;
@@ -309,6 +340,13 @@ function advagg_relocate_get_remote_data($urls, $type, array $options = array(),
 function advagg_relocate_process_http_request(&$response, $type) {
   // Get ttl from response.
   $ttl = 0;
+  if ($type === 'css') {
+    $ttl = variable_get('advagg_relocate_css_min_ttl', ADVAGG_RELOCATE_CSS_MIN_TTL);
+  }
+  if ($type === 'js') {
+    $ttl = variable_get('advagg_relocate_js_min_ttl', ADVAGG_RELOCATE_JS_MIN_TTL);
+  }
+
   $now = REQUEST_TIME;
   if (isset($response->headers['expires'])) {
     $expires = strtotime($response->headers['expires']);
@@ -349,9 +387,11 @@ function advagg_relocate_process_http_request(&$response, $type) {
   }
 
   // If a BOM is found, convert the string to UTF-8.
-  $encoding = advagg_get_encoding_from_bom($response->data);
-  if (!empty($encoding)) {
-    $response->data = advagg_convert_to_utf8($response->data, $encoding);
+  if (isset($response->data)) {
+    $encoding = advagg_get_encoding_from_bom($response->data);
+    if (!empty($encoding)) {
+      $response->data = advagg_convert_to_utf8($response->data, $encoding);
+    }
   }
 
   drupal_alter('advagg_relocate_process_http_request', $response, $type);
@@ -361,64 +401,116 @@ function advagg_relocate_process_http_request(&$response, $type) {
  * Implements hook_advagg_relocate_process_http_request_alter().
  */
 function advagg_relocate_advagg_relocate_process_http_request_alter(&$response, $type) {
-  if ($type === 'js') {
-    if (strpos($response->url, 'connect.facebook.net/en_US/fbevents.js') !== FALSE) {
-      $baseURL = 'https://connect.facebook.net';
-      // Fix loader so it works if not loaded from connect.facebook.net.
-      $response->data = str_replace("function xb(){var ac=null,bc=null,cc=rb.getElementsByTagName('script');", "function xb(){var ac='$baseURL',cc=rb.getElementsByTagName('script'),bc=cc[0];", $response->data);
+  if ($type !== 'js'
+    || strpos($response->url, 'connect.facebook.net/en_US/fbevents.js') === FALSE
+  ) {
+    return;
+  }
+  // Fix loader so it works if not loaded from connect.facebook.net.
+  $base_fb_url = 'https://connect.facebook.net';
+  $matches = array();
+  $pattern = '/function\s+([\w]{1,2})\(\)\{var ([\w]{1,2})=null,([\w]{1,2})=null,([\w]{1,2})=([\w]{1,2})\.getElementsByTagName\([\'"]script[\'"]\)/';
+  preg_match($pattern, $response->data, $matches);
+  // Bail out if not matched.
+  if (empty($matches[0])) {
+    return;
+  }
+  // Transform
+  // function B(){var E=null,F=null,G=b.getElementsByTagName("script");
+  // to
+  // function B(){var E="https://connect.facebook.net",G=b.getElementsByTagName("script"),F=G[0].
+  $response->data = str_replace($matches[0], "function {$matches[1]}(){var {$matches[2]}=\"$base_fb_url\",{$matches[4]}={$matches[5]}.getElementsByTagName(\"script\"),{$matches[3]}={$matches[4]}[0]", $response->data);
 
-      // Get Facebook IDs.
-      $fb_ids = array_filter(array_map('trim', explode("\n", variable_get('advagg_relocate_js_fbevents_local_ids', ADVAGG_RELOCATE_JS_FBEVENTS_LOCAL_IDS))));
-      if (empty($fb_ids)) {
-        return;
-      }
+  // Get Facebook IDs.
+  $fb_ids = array_filter(array_map('trim', explode("\n", variable_get('advagg_relocate_js_fbevents_local_ids', ADVAGG_RELOCATE_JS_FBEVENTS_LOCAL_IDS))));
+  if (empty($fb_ids)) {
+    return;
+  }
 
-      // Get Facebook Version.
-      $matches = array();
-      preg_match('/fbq.version\s*=\s*[\'"]([\.\d]+)[\'"]/', $response->data, $matches);
-      if (empty($matches[1])) {
-        return;
-      }
-      $version = $matches[1];
+  // Get Facebook Version.
+  $matches = array();
+  $pattern = '/fbq.version\s*=\s*[\'"]([\.\d]+)[\'"]/';
+  preg_match($pattern, $response->data, $matches);
+  if (empty($matches[1])) {
+    return;
+  }
+  $version = $matches[1];
 
-      // Update local copies of the /signals/config/ js.
-      $js = array();
-      foreach ($fb_ids as $fb_id) {
-        $url = "$baseURL/signals/config/$fb_id?v=$version";
-        $js[$url]['data'] = $url;
-        $js[$url]['type'] = 'external';
-        $js[$url]['#fbid'] = $fb_id;
+  // Update local copies of the /signals/config/ js.
+  $js = array();
+  foreach ($fb_ids as $fb_id) {
+    $url = "$base_fb_url/signals/config/$fb_id?v=$version";
+    $js[$url]['data'] = $url;
+    $js[$url]['type'] = 'external';
+    $js[$url]['#fbid'] = "config$fb_id";
+    $url = "$base_fb_url/signals/plugins/$fb_id?v=$version";
+    $js[$url]['data'] = $url;
+    $js[$url]['type'] = 'external';
+    $js[$url]['#fbid'] = "plugins$fb_id";
+  }
+  if (!empty($js)) {
+    advagg_relocate_js_post_alter($js, TRUE);
+  }
+  // Get a list of the local copies for this version.
+  $local_copies = array();
+  foreach ($js as $values) {
+    if ($values['type'] === 'file') {
+      // Create an aggregate just for this file.
+      $values += drupal_js_defaults($values);
+      $elements = array($values);
+      $groups = advagg_group_js($elements);
+      _advagg_aggregate_js($groups);
+      if (isset($groups[0]['data'])) {
+        $local_copies[$values['#fbid']] = advagg_file_create_url($groups[0]['data']);
       }
-      if (!empty($js)) {
-        advagg_relocate_js_post_alter($js, TRUE);
-      }
-      // Get a list of the local copies for this version.
-      $local_copies = array();
-      foreach ($js as $values) {
-        if ($values['type'] === 'file') {
-          // Create an aggregate just for this file.
-          $values += drupal_js_defaults($values);
-          $elements = array($values);
-          $groups = advagg_group_js($elements);
-          _advagg_aggregate_js($groups);
-          if (isset($groups[0]['data'])) {
-            $local_copies[$values['#fbid']] = advagg_file_create_url($groups[0]['data']);
-          }
-        }
-      }
-      if (empty($local_copies)) {
-        return;
-      }
-
-      // Add the local copies to the js file.
-      $local_copies = json_encode($local_copies);
-      $response->data = str_replace("return {baseURL:ac,scriptElement:bc}", "return {baseURL:ac,scriptElement:bc,localCopies:$local_copies}", $response->data);
-      // Change logic so it'll use the local copy if it exists.
-      $response->data = str_replace("var yc=xc.baseURL+'/signals/config/'+vc+'?v='+wc,zc=rb.createElement('script');zc.src=yc;", "var yc=xc.baseURL+'/signals/config/'+vc+'?v='+wc,zc=rb.createElement('script');if (xc.localCopies && xc.localCopies[vc]) {yc = xc.localCopies[vc];}zc.src=yc;", $response->data);
-      // Change logic so it'll use the local copy if it exists.
-      $response->data = str_replace("if(sb.baseURL&&sb.scriptElement){var tb=sb.baseURL+'/signals/plugins/'+qb+'.js?v='+g.version;", "if(sb.baseURL&&sb.scriptElement){var tb=sb.baseURL+'/signals/plugins/'+qb+'.js?v='+g.version;if (sb.localCopies && sb.localCopies[qb]) {yc = sb.localCopies[qb];}", $response->data);
     }
   }
+  if (empty($local_copies)) {
+    return;
+  }
+
+  // Add the local copies to the js file.
+  $local_copies = json_encode($local_copies);
+  $matches = array();
+  $pattern = '/return\s*\{baseURL:([\w]{1,2}),scriptElement:([\w]{1,2})}/';
+  preg_match($pattern, $response->data, $matches);
+  // Bail out if not matched.
+  if (empty($matches[0])) {
+    return;
+  }
+  // Transform
+  // return{baseURL:E,scriptElement:F}
+  // to
+  // return{baseURL:E,scriptElement:F,localCopies:ARRAY_OF_LOCAL_JS_FILES}.
+  $response->data = str_replace($matches[0], "return{baseURL:{$matches[1]},scriptElement:{$matches[2]},localCopies:$local_copies}", $response->data);
+
+  // Change logic so it'll use the local copy if it exists.
+  $matches = array();
+  $pattern = '/var\s+([\w]{1,2})=([\w]{1,2})\.baseURL\+[\'"]\/signals\/config\/[\'"]\+([\w]{1,2})\+[\'"]\?v=[\'"]\+([\w]{1,2}),([\w]{1,2})=([\w]{1,2})\.createElement\([\'"]script[\'"]\);[\w]{1,2}.src=[\w]{1,2};/';
+  preg_match($pattern, $response->data, $matches);
+  // Bail out if not matched.
+  if (empty($matches[0])) {
+    return;
+  }
+  // Transform
+  // var P=O.baseURL+"/signals/config/"+M+"?v="+N,Q=b.createElement("script");Q.src=P;
+  // to
+  // var P=O.baseURL+"/signals/config/"+M+"?v="+N,Q=b.createElement("script");if(O.localCopies&&O.localCopies["config"+M]){P=O.localCopies["config"+M];}Q.src=P;.
+  $response->data = str_replace($matches[0], "var {$matches[1]}={$matches[2]}.baseURL+\"/signals/config/\"+{$matches[3]}+\"?v=\"+{$matches[4]},{$matches[5]}={$matches[6]}.createElement(\"script\");if({$matches[2]}.localCopies&&{$matches[2]}.localCopies[\"config\"+{$matches[3]}]){{$matches[1]}={$matches[2]}.localCopies[\"config\"+{$matches[3]}];}{$matches[5]}.src={$matches[1]};", $response->data);
+
+  // Change logic so it'll use the local copy if it exists.
+  $matches = array();
+  $pattern = '/if\s*\(([\w]{1,2})\.baseURL\s*\&\&\s*([\w]{1,2})\.scriptElement\)\s*\{\s*var\s+([\w]{1,2})\s*\=\s*([\w]{1,2})\.baseURL\s*\+\s*[\'"]\/signals\/plugins\/[\'"]\s*\+\s*([\w]{1,2})\s*\+\s*[\'"]\.js\?v\=[\'"]\s*\+\s*([\w]{1,2})\.version;/';
+  preg_match($pattern, $response->data, $matches);
+  // Bail out if not matched.
+  if (empty($matches[0])) {
+    return;
+  }
+  // Transform
+  // if(C.baseURL&&C.scriptElement){var D=C.baseURL+"/signals/plugins/"+A+".js?v="+g.version;
+  // to
+  // if(C.baseURL&&C.scriptElement){var D=C.baseURL+"/signals/plugins/"+A+".js?v="+g.version;if(C.localCopies&&C.localCopies["plugins"+A]){D=C.localCopies["plugins"+A];}.
+  $response->data = str_replace($matches[0], "if({$matches[1]}.baseURL&&{$matches[2]}.scriptElement){var {$matches[3]}={$matches[4]}.baseURL+\"/signals/plugins/\"+{$matches[5]}+\".js?v=\"+{$matches[6]}.version;if({$matches[1]}.localCopies&&{$matches[1]}.localCopies[\"plugins\"+{$matches[5]}]){{$matches[3]}={$matches[1]}.localCopies[\"plugins\"+{$matches[5]}];}", $response->data);
 }
 
 /**
@@ -433,14 +525,27 @@ function advagg_relocate_advagg_relocate_process_http_request_alter(&$response, 
  *   Array of font data.
  */
 function advagg_relocate_get_remote_font_data($url, array $aggregate_settings) {
-  // Set settings if needed.
+  // Set default settings if needed.
+  $font_type_defaults = array(
+    'woff2' => 'woff2',
+    'woff' => 'woff',
+    'ttf' => 'ttf',
+  );
   if (!isset($aggregate_settings['variables']['advagg_relocate_css_inline_import_browsers'])) {
-    $defaults = array(
-      'woff2' => 'woff2',
-      'woff' => 'woff',
-      'ttf' => 'ttf',
-    );
-    $aggregate_settings['variables']['advagg_relocate_css_inline_import_browsers'] = variable_get('advagg_relocate_css_inline_import_browsers', $defaults);
+    $aggregate_settings['variables']['advagg_relocate_css_inline_import_browsers'] = variable_get('advagg_relocate_css_inline_import_browsers', $font_type_defaults);
+  }
+  // Make sure advagg_relocate_css_inline_import_browsers is an array.
+  if (!is_array($aggregate_settings['variables']['advagg_relocate_css_inline_import_browsers'])) {
+    $aggregate_settings['variables']['advagg_relocate_css_inline_import_browsers'] = array($aggregate_settings['variables']['advagg_relocate_css_inline_import_browsers'] => $aggregate_settings['variables']['advagg_relocate_css_inline_import_browsers']);
+  }
+  // Use defaults if no matches for known font types.
+  if (!isset($aggregate_settings['variables']['advagg_relocate_css_inline_import_browsers']['woff2'])
+    && !isset($aggregate_settings['variables']['advagg_relocate_css_inline_import_browsers']['woff'])
+    && !isset($aggregate_settings['variables']['advagg_relocate_css_inline_import_browsers']['ttf'])
+    && !isset($aggregate_settings['variables']['advagg_relocate_css_inline_import_browsers']['eot'])
+    && !isset($aggregate_settings['variables']['advagg_relocate_css_inline_import_browsers']['svg'])
+  ) {
+    $aggregate_settings['variables']['advagg_relocate_css_inline_import_browsers'] += $font_type_defaults;
   }
 
   // Set arguments for drupal_http_request().
@@ -455,6 +560,11 @@ function advagg_relocate_get_remote_font_data($url, array $aggregate_settings) {
   );
   if (function_exists('brotli_uncompress')) {
     $options['headers']['Accept-Encoding'] .= ', br';
+  }
+
+  // If protocol relative, force https.
+  if (strpos($url, '//') === 0) {
+    $url = advagg_force_https_path($url);
   }
 
   // Build CID.
@@ -514,7 +624,7 @@ function advagg_relocate_get_remote_font_data($url, array $aggregate_settings) {
 
     $responses = httprl_send_request();
   }
-  else {
+  if (empty($responses)) {
     // Get ttf.
     if (!empty($aggregate_settings['variables']['advagg_relocate_css_inline_import_browsers']['ttf'])) {
       $options['#font-type'] = 'ttf';
@@ -552,8 +662,14 @@ function advagg_relocate_get_remote_font_data($url, array $aggregate_settings) {
 
   // Try failures again.
   foreach ($responses as $key => $response) {
-    if ($response->code == 0) {
+    if (empty($response->code)) {
       $responses[$key] = drupal_http_request($response->url, $response->options);
+    }
+  }
+  // Try failures again, but force http.
+  foreach ($responses as $key => $response) {
+    if (empty($response->code)) {
+      $responses[$key] = drupal_http_request(advagg_force_http_path($response->url), $response->options);
     }
   }
 

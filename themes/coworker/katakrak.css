@@ -42,14 +42,16 @@
   font-size: 1.2em;
 }
 #content h2.block,
-#content h3.block {
+#content h3.block,
+#content h2.pane-title {
   color: black;
   border-bottom: 1px dashed black;
   padding: 0 0 5px;
   margin-top: 50px;
   font-weight: bold;
 }
-#content h2.block {
+#content h2.block,
+#content h2.pane-title {
   text-transform: uppercase;
 }
 /* ----------------------------------------------------------------

@@ -11,6 +11,7 @@ Features
 
   - Flush all image styles
   - Flush each individual image style
+  - Integrates with the admin_menu module
 
 
 Dependencies
@@ -29,12 +30,16 @@ Install
 2) In your Drupal site, enable the module under Administration -> Modules
    (/admin/modules).
 
+3) Visit the Administration -> People -> Permissions page to give the
+   appropriate roles access to flush image styles.
 
 Usage
 -----
 
 You can flush image styles under Administration -> Configuration -> Media
 -> Image styles
+
+Note that this module only flushes images. It does not rebuild them.
 
 
 Known problems

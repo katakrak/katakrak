@@ -16,11 +16,11 @@ function template_preprocess_katakrak_grid_plugin_style(&$vars) {
   $vars['columns_xs'] = 12 / $options['columns_xs'];
   
   if (!$horizontal) {
-    $vars['items_lg'] = _views_bootstrap_split_rows($vars, $options['columns_lg'], $horizontal);
-    $vars['items_md'] = _views_bootstrap_split_rows($vars, $options['columns_md'], $horizontal);
-    $vars['items_sm'] = _views_bootstrap_split_rows($vars, $options['columns_sm'], $horizontal);
-    $vars['items_xs'] = _views_bootstrap_split_rows($vars, $options['columns_xs'], $horizontal);
-  }
+    $vars['items_lg'] = _views_bootstrap_split_rows_vertical($vars['rows'], $options['columns_lg']);
+    $vars['items_md'] = _views_bootstrap_split_rows_vertical($vars['rows'], $options['columns_md']);
+    $vars['items_sm'] = _views_bootstrap_split_rows_vertical($vars['rows'], $options['columns_sm']);
+    $vars['items_xs'] = _views_bootstrap_split_rows_vertical($vars['rows'], $options['columns_xs']);
+  } 
 }
 
 

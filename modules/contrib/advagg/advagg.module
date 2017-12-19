@@ -112,9 +112,9 @@ define('ADVAGG_CLEAR_SCRIPTS', TRUE);
 define('ADVAGG_NEEDS_UPDATE', FALSE);
 
 /**
- * How long to wait until advagg cron will run again. Default is 24 hours.
+ * How long to wait until advagg cron will run again. Default is 23 hours.
  */
-define('ADVAGG_CRON_FREQUENCY', 86400);
+define('ADVAGG_CRON_FREQUENCY', 82800);
 
 /**
  * How long to wait until unaccessed aggregates are removed from the database.
@@ -167,6 +167,11 @@ define('ADVAGG_CONVERT_ABSOLUTE_TO_PROTOCOL_RELATIVE_PATH', TRUE);
  * Convert absolute path CSS/JS src/url() to be https.
  */
 define('ADVAGG_FORCE_HTTPS_PATH', FALSE);
+
+/**
+ * Convert relative path CSS inside src() to be absolute.
+ */
+define('ADVAGG_CSS_ABSOLUTE_PATH', FALSE);
 
 /**
  * If TRUE then the css is being rendered via javascript.
@@ -319,6 +324,16 @@ define('ADVAGG_JS_REMOVE_EMPTY_FILES', FALSE);
 define('ADVAGG_DISABLE_ON_ADMIN', FALSE);
 
 /**
+ * Default is 200; 203 has been requested in the past.
+ */
+define('ADVAGG_HTTP_200_CODE', 200);
+
+/**
+ * Verify all 3 hashes from the filename, if TRUE only verify 1st hash.
+ */
+define('ADVAGG_WEAK_FILE_VERIFICATION', FALSE);
+
+/**
  * @} End of "defgroup default_variables".
  */
 
@@ -340,7 +355,7 @@ function advagg_block_view_alter(&$data, $block) {
     return;
   }
 
-  if (empty($data) || !isset($data['content'])) {
+  if (empty($data) || empty($data['content'])) {
     return;
   }
 
@@ -511,7 +526,6 @@ function advagg_hook_info() {
     'advagg_get_info_on_files_alter',
     'advagg_context_alter',
     'advagg_missing_root_file',
-    'advagg_update_github_versions_alter',
   );
   $hooks = array();
   foreach ($advagg_hooks as $hook) {
@@ -752,7 +766,7 @@ function advagg_menu() {
   $file_path = drupal_get_path('module', 'advagg');
   $config_path = advagg_admin_config_root_path();
 
-  if (module_exists('s3fs')) {
+  if (module_exists('s3fs') && is_callable('_s3fs_get_config')) {
     $s3fs_config = _s3fs_get_config();
     if (empty($s3fs_config['no_rewrite_cssjs'])) {
       $external_css = str_replace('/test.css', '/%', ltrim(str_replace($GLOBALS['base_url'], '', file_create_url($css_path[0] . '/test.css')), '/'));
@@ -864,9 +878,6 @@ function advagg_cron($bypass_time_check = FALSE) {
   }
   variable_set('advagg_cron_timestamp', REQUEST_TIME);
 
-  // Update 3rd party version information.
-  advagg_update_github_versions();
-
   // Flush the cache_advagg_info cache bin.
   cache_clear_all(NULL, 'cache_advagg_info');
 
@@ -895,6 +906,9 @@ function advagg_cron($bypass_time_check = FALSE) {
 
   // Refresh all locale files.
   $return[] = advagg_refresh_all_locale_files();
+
+  // Update libraries data.
+  advagg_get_remote_libraries_versions(TRUE);
 
   return $return;
 }
@@ -1172,6 +1186,24 @@ function advagg_js_alter(&$js) {
  * @{
  * Hooks that are not apart of core or AdvAgg.
  */
+
+/**
+ * Implements hook_cron_alter().
+ */
+function advagg_cron_alter(&$data) {
+  // Run this cron job every 2 minutes.
+  if (isset($data['advagg_js_compress_cron'])) {
+    $data['advagg_js_compress_cron']['rule'] = '*/2 * * * *';
+  }
+  // Run this cron job every 5 minutes.
+  if (isset($data['advagg_relocate_cron'])) {
+    $data['advagg_relocate_cron']['rule'] = '*/5 * * * *';
+  }
+  // Run this cron job every day.
+  if (isset($data['advagg_cron'])) {
+    $data['advagg_cron']['rule'] = '0 0 * * *';
+  }
+}
 
 /**
  * Implements hook_password_policy_force_change_allowed_paths_alter().
@@ -2268,6 +2300,16 @@ function advagg_replace_drupal_settings_string($subject, $replace) {
   $settings_substring = substr($subject, $start, $script_end - $start);
   $json_end = strripos($settings_substring, '});');
 
+  // Check if LABjs has added an additional wrapper around Drupal settings.
+  $script_tag_start = strripos(substr($subject, 0, $start), '<script');
+  if (strpos(substr($subject, $script_tag_start, $start), '$L.wait(') !== FALSE) {
+    // Refine JSON end position.
+    $_json_end = strripos(substr($settings_substring, 0, $json_end), '});');
+    if ($_json_end !== FALSE) {
+      $json_end = $_json_end;
+    }
+  }
+
   // Replace Drupal.settings json.
   $subject = substr($subject, 0, $start + 30) . $replace . substr($subject, $json_end + $start + 1);
   return $subject;
@@ -3202,11 +3244,19 @@ function advagg_enabled() {
       $GLOBALS['conf']['preprocess_js'] = FALSE;
     }
 
+    // Check if the advagg cookie is set.
+    $cookie_name = 'AdvAggDisabled';
+    $bypass_cookie = FALSE;
+    $key = drupal_hmac_base64('advagg_cookie', drupal_get_private_key() . drupal_get_hash_salt() . variable_get('cron_key', 'drupal'));
+    if (!empty($_COOKIE[$cookie_name]) && $_COOKIE[$cookie_name] == $key) {
+      $bypass_cookie = TRUE;
+    }
+
     // Allow for AdvAgg to be enabled per request.
     if (isset($_GET['advagg'])
       && $_GET['advagg'] == 1
       && !defined('MAINTENANCE_MODE')
-      && user_access('bypass advanced aggregation')
+      && (user_access('bypass advanced aggregation') || $bypass_cookie)
     ) {
       $GLOBALS['conf']['advagg_enabled'] = TRUE;
       $GLOBALS['conf']['preprocess_css'] = TRUE;
@@ -3221,12 +3271,11 @@ function advagg_enabled() {
     if (variable_get('advagg_enabled', ADVAGG_ENABLED)) {
       // Do not use AdvAgg or preprocessing functions if the disable cookie is
       // set.
-      $cookie_name = 'AdvAggDisabled';
-      $key = drupal_hash_base64(drupal_get_private_key());
-      if (!empty($_COOKIE[$cookie_name]) && $_COOKIE[$cookie_name] == $key) {
+      if ($bypass_cookie && !isset($_GET['advagg'])) {
         $GLOBALS['conf']['advagg_enabled'] = FALSE;
         $GLOBALS['conf']['preprocess_css'] = FALSE;
         $GLOBALS['conf']['preprocess_js'] = FALSE;
+        $bypass_cookie = TRUE;
 
         // Let the user know that the AdvAgg bypass cookie is currently set.
         static $msg_set;
@@ -3248,7 +3297,7 @@ function advagg_enabled() {
       // Disable advagg if requested.
       if (isset($_GET['advagg'])
         && $_GET['advagg'] == -1
-        && user_access('bypass advanced aggregation')
+        && (user_access('bypass advanced aggregation') || $bypass_cookie)
       ) {
         $GLOBALS['conf']['advagg_enabled'] = FALSE;
         $GLOBALS['conf']['preprocess_css'] = FALSE;
@@ -3257,7 +3306,7 @@ function advagg_enabled() {
       // Disable core preprocessing if requested.
       if (isset($_GET['advagg-core'])
         && $_GET['advagg-core'] == 0
-        && user_access('bypass advanced aggregation')
+        && (user_access('bypass advanced aggregation') || $bypass_cookie)
       ) {
         $GLOBALS['conf']['preprocess_css'] = FALSE;
         $GLOBALS['conf']['preprocess_js'] = FALSE;
@@ -3265,17 +3314,17 @@ function advagg_enabled() {
       // Enable core preprocessing if requested.
       if (isset($_GET['advagg-core'])
         && $_GET['advagg-core'] == 1
-        && user_access('bypass advanced aggregation')
+        && (user_access('bypass advanced aggregation') || $bypass_cookie)
       ) {
         $GLOBALS['conf']['preprocess_css'] = TRUE;
         $GLOBALS['conf']['preprocess_js'] = TRUE;
       }
       // Enable debugging if requested.
       if (isset($_GET['advagg-debug'])
-        && $_GET['advagg-debug'] == 1
-        && user_access('bypass advanced aggregation')
+        && (user_access('bypass advanced aggregation') || $bypass_cookie)
       ) {
-        $GLOBALS['conf']['advagg_debug'] = TRUE;
+        // Cast to an int.
+        $GLOBALS['conf']['advagg_debug'] = (int) $_GET['advagg-debug'];
       }
     }
   }
@@ -3301,7 +3350,7 @@ function advagg_admin_config_root_path() {
  */
 function advagg_current_hooks_hash_array() {
   $aggregate_settings = &drupal_static(__FUNCTION__);
-  if (isset($aggregate_settings)) {
+  if (!empty($aggregate_settings)) {
     return $aggregate_settings;
   }
   list($css_path, $js_path) = advagg_get_root_files_dir();
@@ -3321,6 +3370,7 @@ function advagg_current_hooks_hash_array() {
       'advagg_devel' => variable_get('advagg_cache_level', ADVAGG_CACHE_LEVEL) < 0 ? TRUE : FALSE,
       'advagg_convert_absolute_to_relative_path' => variable_get('advagg_convert_absolute_to_relative_path', ADVAGG_CONVERT_ABSOLUTE_TO_RELATIVE_PATH),
       'advagg_convert_absolute_to_protocol_relative_path' => variable_get('advagg_convert_absolute_to_protocol_relative_path', ADVAGG_CONVERT_ABSOLUTE_TO_PROTOCOL_RELATIVE_PATH),
+      'advagg_css_absolute_path' => variable_get('advagg_css_absolute_path', ADVAGG_CSS_ABSOLUTE_PATH),
       'advagg_force_https_path' => variable_get('advagg_force_https_path', ADVAGG_FORCE_HTTPS_PATH),
       'advagg_css_dir' => $css_path[0],
       'advagg_js_dir' => $js_path[0],
@@ -3366,7 +3416,7 @@ function advagg_current_hooks_hash_array() {
 function advagg_get_current_hooks_hash() {
   $current_hash = &drupal_static(__FUNCTION__);
 
-  if (!isset($current_hash)) {
+  if (empty($current_hash)) {
     // Get all advagg hooks and variables in use.
     $aggregate_settings = advagg_current_hooks_hash_array();
 
@@ -3535,8 +3585,16 @@ function advagg_get_root_files_dir($reset = FALSE) {
     file_prepare_directory($js_paths[0], FILE_CREATE_DIRECTORY);
 
     // Set the URI of the directory.
-    $css_paths[1] = advagg_get_relative_path($css_paths[0]);
-    $js_paths[1] = advagg_get_relative_path($js_paths[0]);
+    $css_paths[1] = advagg_get_relative_path($css_paths[0], 'css');
+    $js_paths[1] = advagg_get_relative_path($js_paths[0], 'js');
+
+    // If the css or js got a path, use it for the other missing one.
+    if (empty($css_paths[1]) && !empty($js_paths[1])) {
+      $css_paths[1] = str_replace('/advagg_js', '/advagg_css', $js_paths[1]);
+    }
+    elseif (empty($js_paths[1]) && !empty($css_paths[1])) {
+      $js_paths[1] = str_replace('/advagg_css', '/advagg_js', $css_paths[1]);
+    }
 
     // Fix if empty.
     if (empty($css_paths[1])) {
@@ -3559,19 +3617,29 @@ function advagg_get_root_files_dir($reset = FALSE) {
  *
  * @param string $uri
  *   The uri for the stream wrapper.
+ * @param string $type
+ *   (Optional) String: css or js.
  *
  * @return string
  *   The relative path of the uri.
  *
  * @see https://www.drupal.org/node/837794#comment-9124435
  */
-function advagg_get_relative_path($uri) {
+function advagg_get_relative_path($uri, $type = '') {
   $wrapper = file_stream_wrapper_get_instance_by_uri($uri);
   if ($wrapper instanceof DrupalLocalStreamWrapper) {
     $relative_path = $wrapper->getDirectoryPath() . '/' . file_uri_target($uri);
   }
   else {
     $relative_path = parse_url(file_create_url($uri), PHP_URL_PATH);
+    if (empty($relative_path) && !empty($uri)) {
+      $filename = advagg_generate_advagg_filename_from_db($type);
+      $relative_path = parse_url(file_create_url("{$uri}/{$filename}"), PHP_URL_PATH);
+      $end = strpos($relative_path, "/{$filename}");
+      if ($end !== FALSE) {
+        $relative_path = substr($relative_path, 0, $end);
+      }
+    }
     if (substr($relative_path, 0, strlen($GLOBALS['base_path'])) == $GLOBALS['base_path']) {
       $relative_path = substr($relative_path, strlen($GLOBALS['base_path']));
     }
@@ -4676,7 +4744,7 @@ function advagg_scan_filesystem_for_changes_live() {
 
   $bypass_cookie = FALSE;
   $cookie_name = 'AdvAggDisabled';
-  $key = drupal_hash_base64(drupal_get_private_key());
+  $key = drupal_hmac_base64('advagg_cookie', drupal_get_private_key() . drupal_get_hash_salt() . variable_get('cron_key', 'drupal'));
   if (!empty($_COOKIE[$cookie_name]) && $_COOKIE[$cookie_name] == $key) {
     $bypass_cookie = TRUE;
   }
@@ -4732,21 +4800,29 @@ function advagg_match_file_pattern($filename) {
  *
  * @param string $path
  *   Path to check.
+ * @param bool $strip_base_path
+ *   Do no add the base path to the given path if TRUE.
  *
  * @return string
  *   The path.
  */
-function advagg_convert_abs_to_rel($path) {
+function advagg_convert_abs_to_rel($path, $strip_base_path = FALSE) {
   $base_url = $GLOBALS['base_url'];
   // Add a slash to end if none is found.
   if (strpos(strrev($base_url), '/') !== 0) {
     $base_url .= '/';
   }
+  // Set base path.
+  $base_path = $GLOBALS['base_path'];
+  if ($strip_base_path) {
+    $base_path = '';
+  }
+
   // Do conversion of https and http to self references.
   $base_url_https = advagg_force_https_path($base_url);
-  $path = str_replace($base_url_https, $GLOBALS['base_path'], $path);
+  $path = str_replace($base_url_https, $base_path, $path);
   $base_url_http = advagg_force_http_path($base_url);
-  $path = str_replace($base_url_http, $GLOBALS['base_path'], $path);
+  $path = str_replace($base_url_http, $base_path, $path);
 
   $base_url = advagg_convert_abs_to_protocol($GLOBALS['base_url']);
   // Add a slash to end if none is found.
@@ -4754,7 +4830,7 @@ function advagg_convert_abs_to_rel($path) {
     $base_url .= '/';
   }
   // Do conversion of protocol relative to self references.
-  $path = str_replace($base_url, $GLOBALS['base_path'], $path);
+  $path = str_replace($base_url, $base_path, $path);
 
   return $path;
 }
@@ -4819,11 +4895,13 @@ function advagg_force_http_path($path) {
  *   Array of settings used.
  * @param bool $run_file_create_url
  *   If TRUE then run the given path through file_create_url().
+ * @param string $source_type
+ *   CSS or JS; if empty url in not embedded in another file.
  *
  * @return string
  *   The file uri.
  */
-function advagg_file_create_url($path, array $aggregate_settings = array(), $run_file_create_url = TRUE) {
+function advagg_file_create_url($path, array $aggregate_settings = array(), $run_file_create_url = TRUE, $source_type = '') {
   $file_uri = $path;
   if ($run_file_create_url) {
     $file_uri = file_create_url($path);
@@ -4846,6 +4924,43 @@ function advagg_file_create_url($path, array $aggregate_settings = array(), $run
     && variable_get('advagg_convert_absolute_to_protocol_relative_path', ADVAGG_CONVERT_ABSOLUTE_TO_PROTOCOL_RELATIVE_PATH))
   ) {
     $file_uri = advagg_convert_abs_to_protocol($file_uri);
+  }
+  if ($source_type === 'css'
+    && !advagg_is_external($file_uri)
+    && ((isset($aggregate_settings['variables']['advagg_css_absolute_path'])
+    && $aggregate_settings['variables']['advagg_css_absolute_path'])
+    || (!isset($aggregate_settings['variables']['advagg_css_absolute_path'])
+    && variable_get('advagg_css_absolute_path', ADVAGG_CSS_ABSOLUTE_PATH)))
+  ) {
+    // Get public dir.
+    list($css_path) = advagg_get_root_files_dir();
+    $parsed = parse_url($css_path[0]);
+    $new_parsed = array();
+    if (!empty($parsed['host'])) {
+      $new_parsed['host'] = $parsed['host'];
+    }
+    if (!empty($parsed['path'])) {
+      $new_parsed['path'] = $parsed['path'];
+    }
+    $css_path_0 = advagg_glue_url($new_parsed);
+    $parsed = parse_url($css_path[1]);
+    $new_parsed = array();
+    if (!empty($parsed['host'])) {
+      $new_parsed['host'] = $parsed['host'];
+    }
+    if (!empty($parsed['path'])) {
+      $new_parsed['path'] = $parsed['path'];
+    }
+    $css_path_1 = advagg_glue_url($new_parsed);
+    $pos = strpos($css_path_1, $css_path_0);
+    if (!empty($pos)) {
+      $public_dir = substr($css_path_1, 0, $pos);
+
+      // If public dir is not in the file uri, use absolute URL.
+      if (strpos($file_uri, $public_dir) === FALSE) {
+        $file_uri = url($path, array('absolute' => TRUE));
+      }
+    }
   }
   // Finally force https.
   if ((isset($aggregate_settings['variables']['advagg_force_https_path'])
@@ -5078,7 +5193,21 @@ function _advagg_load_stylesheet(array $matches) {
   $file = advagg_load_stylesheet($filename, NULL, FALSE);
 
   if (empty($file)) {
-    return $matches[0];
+    if (strpos($matches[0], 'http://') === 0
+      || strpos($matches[0], 'https://') === 0
+      || strpos($matches[0], '//') === 0
+    ) {
+      return $matches[0];
+    }
+    if (variable_get('advagg_debug', ADVAGG_DEBUG) >= 2) {
+      watchdog('advagg-debug', 'Trying to load @file via @import statement but it was not found.', array('@file' => $filename), WATCHDOG_DEBUG);
+    }
+    if (variable_get('advagg_cache_level', ADVAGG_CACHE_LEVEL) <= 1) {
+      return $matches[0];
+    }
+    else {
+      return '';
+    }
   }
 
   // Determine the file's directory.
@@ -5368,75 +5497,264 @@ function advagg_htaccess_rewritebase($location = DRUPAL_ROOT) {
 }
 
 /**
- * See if the .htaccess file uses the RewriteBase directive.
+ * Get the latest version number for the remote version.
  *
+ * @param array $library
+ *   An associative array containing all information about the library.
+ * @param array $options
+ *   An associative array containing options for the verson parser.
  * @param string $url
- *   The location of package.json file.
+ *   URL for the remote version to lookup.
  *
  * @return string
  *   The latest version number as a string or 0 on failure.
  */
-function advagg_get_github_version($url) {
-  $package = drupal_http_request($url, array('timeout' => 7));
+function advagg_get_github_version_json(array $library, array $options, $url) {
+  $http_options = array('timeout' => 2);
+  $package = drupal_http_request($url, $http_options);
   if (empty($package->data)) {
     // Try again.
-    $package = drupal_http_request($url, array('timeout' => 7));
+    $package = drupal_http_request($url, array('timeout' => 5));
   }
   if (empty($package->data)) {
     // Try again but force http.
     $url = advagg_force_http_path($url);
-    $package = drupal_http_request($url, array('timeout' => 7));
+    $package = drupal_http_request($url, $http_options);
   }
   if (!empty($package->data)) {
     $package = json_decode($package->data);
-    return (string) $package->version;
+    if (isset($package->version)) {
+      return (string) $package->version;
+    }
   }
-  else {
-    return 0;
+  return 0;
+}
+
+/**
+ * Get the latest version number for the remote version.
+ *
+ * @param array $library
+ *   An associative array containing all information about the library.
+ * @param array $options
+ *   An associative array containing options for the verson parser.
+ * @param string $url
+ *   URL for the remote version to lookup.
+ *
+ * @return string
+ *   The latest version number as a string or 0 on failure.
+ */
+function advagg_get_github_version_txt(array $library, array $options, $url) {
+  $http_options = array('timeout' => 2);
+  $request = drupal_http_request($url, $http_options);
+  if (empty($request->data)) {
+    // Try again.
+    $request = drupal_http_request($url, array('timeout' => 5));
   }
+  if (empty($request->data)) {
+    // Try again but force http.
+    $url = advagg_force_http_path($url);
+    $request = drupal_http_request($url, $http_options);
+  }
+  if (!empty($request->data)) {
+    $matches = array();
+    if (preg_match($options['pattern'], $request->data, $matches)) {
+      return $matches[1];
+    }
+  }
+  return '0';
 }
 
 /**
  * Update github version numbers to the latest.
  *
- * @param string $target
- *   Set to the one library to be updated.
+ * @param bool $refresh
+ *   Set to TRUE to skip the cache and force a refresh of the data.
  *
  * @return mixed
  *   Key Value pair of the project name and remote version number. If $target is
  *   set then that version number is returned.
  */
-function advagg_update_github_versions($target = '') {
-  // Call hook_advagg_update_github_versions_alter().
-  $projects = array();
-  drupal_alter('advagg_update_github_versions', $projects);
-
-  $return = array();
-  foreach ($projects as $key => $values) {
-    // Skip if callback is not callable.
-    if (!is_callable($values['callback'])) {
-      continue;
-    }
-    // Skip if target is set and target and key do not match.
-    if (!empty($target) && $target !== $key) {
-      continue;
-    }
-    // Check variables; skip if not set or if not defined.
-    if (empty($values['variable_name']) || !defined(strtoupper($values['variable_name']))) {
-      continue;
-    }
-    $remote_version = call_user_func_array($values['callback'], array($values['url']));
-    $current_version = variable_get($values['variable_name'], constant(strtoupper($values['variable_name'])));
-    $return[$key] = $current_version;
-    if (!empty($remote_version) && is_string($remote_version) && $current_version !== $remote_version) {
-      variable_set($values['variable_name'], $remote_version);
-      $return[$key] = $remote_version;
+function advagg_get_remote_libraries_versions($refresh = FALSE) {
+  $cid = __FUNCTION__;
+  $versions = array();
+  if (!$refresh) {
+    $versions = advagg_get_remote_libraries_versions_cache($cid);
+    if (!empty($versions)) {
+      return $versions;
     }
   }
-  if (!empty($target) && isset($return[$target])) {
-    return $return[$target];
+
+  if (is_callable('libraries_info')) {
+    $libraries = libraries_info();
+    foreach ($libraries as $key => $library) {
+      // Get current version.
+      $libraries_detect = libraries_detect($key);
+      if (isset($libraries_detect['version'])) {
+        $versions[$key]['local'] = $libraries_detect['version'];
+      }
+      elseif (!empty($libraries_detect['local version'])) {
+        $versions[$key]['local'] = $libraries_detect['local version'];
+      }
+
+      // Check if callback is live.
+      $remote = advagg_get_remote_libraries_version($key, $library, FALSE);
+      if (!empty($remote)) {
+        $versions[$key]['remote'] = $remote;
+      }
+    }
+  }
+
+  if (!empty($versions)) {
+    cache_set($cid, $versions, 'cache_advagg_info');
+  }
+  return $versions;
+}
+
+/**
+ * Get the remote and local versions cache of the available libraries.
+ *
+ * @param string $cid
+ *   Cache ID.
+ *
+ * @return array
+ *   Library name => (local, remote).
+ */
+function advagg_get_remote_libraries_versions_cache($cid = '') {
+  if (empty($cid)) {
+    $cid = 'advagg_get_remote_libraries_versions';
+  }
+  $versions = &drupal_static($cid, array());
+  if (empty($versions)) {
+    $cache = cache_get($cid, 'cache_advagg_info');
+    if (!empty($cache) && !empty($cache->data)) {
+      $versions = $cache->data;
+    }
+  }
+  return $versions;
+}
+
+/**
+ * Get the latest version number for the remote version.
+ *
+ * @param string $name
+ *   Name of the library.
+ * @param array $library
+ *   An associative array containing all information about the library.
+ * @param bool $use_cache
+ *   TRUE try the cache first.
+ *
+ * @return string
+ *   The latest version number as a string or 0 on failure.
+ */
+function advagg_get_remote_libraries_version($name, array $library, $use_cache = TRUE) {
+  if ($use_cache) {
+    $cid = 'advagg_get_remote_libraries_versions';
+    $versions = advagg_get_remote_libraries_versions_cache($cid);
+    if (isset($versions[$name]['remote'])) {
+      return $versions[$name]['remote'];
+    }
+  }
+
+  // Remote url is not set, see if we can generate it given the current data.
+  if (empty($library['remote']['url'])
+    && !empty($library['version arguments'])
+  ) {
+    if (!isset($library['version arguments']['file'])
+      && isset($library['version arguments']['variants'])
+    ) {
+      // Use the first variant.
+      $file = reset($library['version arguments']['variants']);
+      $library['version arguments']['file'] = $file['file'];
+      $library['version arguments']['pattern'] = $file['pattern'];
+    }
+
+    if (!empty($library['version arguments']['file'])) {
+      if (!empty($library['vendor url'])) {
+        // Use vendor url if it's a github one.
+        if (strpos($library['vendor url'], 'https://github.com/') === 0) {
+          $parsed_vendor = @parse_url($library['vendor url']);
+          $library['remote']['url'] = "https://rawgit.com{$parsed_vendor['path']}/master/{$library['version arguments']['file']}";
+        }
+      }
+      if (empty($library['remote']['url']) && !empty($library['download url'])) {
+        // Use download url if it's a github one.
+        if (strpos($library['download url'], 'https://github.com/') === 0) {
+          $parsed_download = @parse_url($library['download url']);
+          $paths = explode('/', $parsed_download['path']);
+          $parsed_download['path'] = "/{$paths[1]}/{$paths[2]}";
+          $library['remote']['url'] = "https://rawgit.com{$parsed_download['path']}/master/{$library['version arguments']['file']}";
+        }
+      }
+    }
+  }
+
+  // Remote callback is not set, try to generate it given the current data.
+  if (empty($library['remote']['callback'])
+    && isset($library['version arguments']['file'])
+  ) {
+    if (!empty($library['version callback'])) {
+      // Use defined parser.
+      $library['remote']['callback'] = $library['version callback'];
+    }
+    else {
+      if ($library['version arguments']['file'] === 'package.json') {
+        // JSON parser.
+        $library['remote']['callback'] = 'advagg_get_github_version_json';
+      }
+      else {
+        // Text parser.
+        $library['remote']['callback'] = 'advagg_get_github_version_txt';
+      }
+    }
+  }
+
+  // Get remote version.
+  $return = 0;
+  if (!empty($library['remote'])
+    && !empty($library['remote']['callback'])
+    && !empty($library['remote']['url'])
+    && isset($library['version arguments'])
+    && is_callable($library['remote']['callback'])
+  ) {
+    $return = $library['remote']['callback']($library, $library['version arguments'], $library['remote']['url']);
+
+    // Try package.json on failure.
+    if (empty($return) && $library['version arguments']['file'] !== 'package.json') {
+      $pos = strrpos($library['remote']['url'], $library['version arguments']['file']);
+      $library['remote']['url'] = substr($library['remote']['url'], 0, $pos) . 'package.json';
+      $library['remote']['callback'] = 'advagg_get_github_version_json';
+      $return = $library['remote']['callback']($library, $library['version arguments'], $library['remote']['url']);
+    }
   }
   return $return;
+}
+
+/**
+ * Get the latest version number for the remote version.
+ *
+ * @param string $name
+ *   Name of the library.
+ * @param string $module_name
+ *   Name of the module where the library is registered.
+ *
+ * @return array
+ *   The library array.
+ */
+function advagg_library($name, $module_name) {
+  $library = cache_get($name, 'cache_libraries');
+  if ($library) {
+    $library = $library->data;
+  }
+  else {
+    if (is_callable('libraries_detect')) {
+      $library = libraries_detect($name);
+    }
+    elseif (is_callable("{$module_name}_libraries_info")) {
+      $library = call_user_func("{$module_name}_libraries_info");
+      $library = $library[$name];
+    }
+  }
+  return $library;
 }
 
 /**
@@ -5792,4 +6110,128 @@ function advagg_file_get_contents() {
   }
 
   return $file_contents;
+}
+
+/**
+ * Get the description text based off the library version.
+ *
+ * @param string $library_name
+ *   Name of the library.
+ * @param string $module_name
+ *   Name of the module that contains hook_libraries_info for this library.
+ *
+ * @return array
+ *   Description text and info array.
+ */
+function advagg_get_version_description($library_name, $module_name, $only_remote_ok = FALSE) {
+  $t = get_t();
+
+  // Get local and external library version numbers.
+  $versions = &drupal_static(__FUNCTION__);
+  if (!isset($versions)) {
+    $versions = advagg_get_remote_libraries_versions(TRUE);
+  }
+
+  $description = '';
+  if (!empty($versions[$library_name]['remote'])
+    && (empty($versions[$library_name]['local'])
+    || $versions[$library_name]['local'] !== $versions[$library_name]['remote']
+  )) {
+    $library = advagg_library($library_name, $module_name);
+    if (empty($versions[$library_name]['local'])) {
+      $versions[$library_name]['local'] = 'NULL';
+    }
+    if (!empty($library['installed'])) {
+      $description = $t('Go to the <a href="@url-page">@name</a> page and <a href="@url-zip">download</a> the latest version (@remote) into the @lib_path folder. An example valid filename is %version_file. Current Version: %version.', array(
+        '@name' => $library['name'],
+        '@lib_path' => $library['library path'],
+        '@url-page' => $library['vendor url'],
+        '@url-zip' => $library['download url'],
+        '@remote' => $versions[$library_name]['remote'],
+        '%version' => $versions[$library_name]['local'],
+        '%version_file' => $library['library path'] . '/' . $library['version arguments']['file'],
+      ));
+    }
+    elseif (!$only_remote_ok && is_callable('libraries_load')) {
+      $description = $t('Go to the <a href="@url-page">@name</a> page and <a href="@url-zip">download</a> the latest version (@remote) into the libraries folder (usually sites/all/libraries). An example valid filename is %version_file.', array(
+        '@name' => $library['name'],
+        '@url-page' => $library['vendor url'],
+        '@url-zip' => $library['download url'],
+        '@remote' => $versions[$library_name]['remote'],
+        '%version_file' => "sites/all/libraries/$library_name/{$library['version arguments']['file']}",
+      ));
+    }
+    elseif (!$only_remote_ok) {
+      $description = $t('Install the <a href="@url-lib-api">Libraries API</a> module and then go to the <a href="@url-page">@name</a> page and <a href="@url-zip">download</a> the latest version (@remote) into the libraries folder (usually sites/all/libraries). An example valid filename is %version_file.', array(
+        '@name' => $library['name'],
+        '@url-page' => $library['vendor url'],
+        '@url-zip' => $library['download url'],
+        '@remote' => $versions[$library_name]['remote'],
+        '%version_file' => "sites/all/libraries/$library_name/{$library['version arguments']['file']}",
+        '@url-lib-api' => 'https://www.drupal.org/project/libraries',
+      ));
+    }
+  }
+  $path = drupal_get_path('module', $module_name);
+  $info = drupal_parse_info_file("{$path}/{$module_name}.info");
+
+  // Check if library was unzipped with -master.
+  if (!empty($description) && is_callable('libraries_get_libraries')) {
+    $libraries_paths = libraries_get_libraries();
+    if (!empty($libraries_paths["{$library_name}-master"])) {
+      $description = $t('Rename @lib_dir_master to @lib_dir at this location: @lib_path_master.', array(
+        '@lib_dir_master' => "{$library_name}-master",
+        '@lib_path_master' => $libraries_paths["{$library_name}-master"],
+        '@lib_dir' => $library_name,
+      ));
+    }
+  }
+
+  return array($description, $info);
+}
+
+/**
+ * Given a advagg type this will return the most recent aggregate from the db.
+ *
+ * @param string $type
+ *   String: css or js.
+ *
+ * @return string
+ *   Returns advagg filename or an empty string on failure.
+ */
+function advagg_generate_advagg_filename_from_db($type) {
+  // Get the most recently accessed file from the database.
+  $query = db_select('advagg_aggregates_versions', 'aav');
+  $query->join('advagg_aggregates', 'aa', 'aa.aggregate_filenames_hash =
+    aav.aggregate_filenames_hash');
+  $query->join('advagg_files', 'af', 'af.filename_hash = aa.filename_hash AND
+    af.filetype = :type', array(':type' => $type));
+  $query = $query->fields('aav', array('aggregate_filenames_hash', 'aggregate_contents_hash'))
+    ->orderBy('atime', 'DESC')
+    ->range(0, 1);
+  $results = $query->execute();
+  if (empty($results)) {
+    return '';
+  }
+  $hooks_hash = advagg_get_current_hooks_hash();
+  foreach ($results as $row) {
+    return $type . ADVAGG_SPACE . $row->aggregate_filenames_hash . ADVAGG_SPACE . $row->aggregate_contents_hash . ADVAGG_SPACE . $hooks_hash . '.' . $type;
+  }
+}
+
+/**
+ * Display a message if there are requirement issues with AdvAgg.
+ */
+function advagg_display_message_if_requirements_not_met() {
+  module_load_include('install', 'advagg');
+  $requirements = advagg_install_fast_checks();
+  if (!empty($requirements)) {
+    module_load_include('admin.inc', 'system');
+    usort($requirements, '_system_sort_requirements');
+    $report = theme('status_report', array('requirements' => $requirements));
+    drupal_set_message(t('Go to the <a href="@url">status report page</a> and fix the issues that AdvAgg lists there. Sneak peak: !report', array(
+      '@url' => url('admin/reports/status'),
+      '!report' => $report,
+    )));
+  }
 }

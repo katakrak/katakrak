@@ -41,16 +41,16 @@ function katakrak_editorial_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '4',
+          'weight' => '6',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '1',
+          'weight' => '3',
         ),
         'language' => array(
-          'weight' => '0',
+          'weight' => '2',
         ),
       ),
       'display' => array(
@@ -129,6 +129,13 @@ function katakrak_editorial_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_default_language_for_autor_ed';
+  $strongarm->value = '-- current --';
+  $export['i18n_node_default_language_for_autor_ed'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'i18n_node_default_language_for_libro_ed';
   $strongarm->value = '-- current --';
   $export['i18n_node_default_language_for_libro_ed'] = $strongarm;
@@ -166,8 +173,12 @@ function katakrak_editorial_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'i18n_sync_node_type_autor_ed';
   $strongarm->value = array(
-    0 => 'field_imagen',
-    1 => 'field_libro_autores',
+    0 => 'field_autor_nacimiento',
+    1 => 'field_imagen',
+    2 => 'field_libro_autores',
+    3 => 'field_autor_apellido',
+    4 => 'status',
+    5 => 'created',
   );
   $export['i18n_sync_node_type_autor_ed'] = $strongarm;
 

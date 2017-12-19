@@ -14,6 +14,9 @@ function katakrak_editorial_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
   }
+  if ($module == "page_manager" && $api == "pages_default") {
+    return array("version" => "1");
+  }
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -31,6 +34,54 @@ function katakrak_editorial_views_api($module = NULL, $api = NULL) {
  */
 function katakrak_editorial_fe_nodequeue_export_fields() {
   $nodequeues = array();
+
+  // Exported nodequeues: autore_editorial_eus
+  $nodequeues['autore_editorial_eus'] = array(
+    'name' => 'autore_editorial_eus',
+    'title' => 'Autores editorial EUS',
+    'subqueue_title' => '',
+    'size' => 6,
+    'link' => '',
+    'link_remove' => '',
+    'owner' => 'nodequeue',
+    'show_in_ui' => 1,
+    'show_in_tab' => 1,
+    'show_in_links' => 0,
+    'reference' => 0,
+    'reverse' => 0,
+    'i18n' => 1,
+    'insert_at_front' => 0,
+    'subqueues' => 1,
+    'types' => array(
+      0 => 'autor_ed',
+    ),
+    'roles' => array(),
+    'count' => 0,
+  );
+
+  // Exported nodequeues: autores_editorial
+  $nodequeues['autores_editorial'] = array(
+    'name' => 'autores_editorial',
+    'title' => 'Autores editorial CAS',
+    'subqueue_title' => '',
+    'size' => 6,
+    'link' => '',
+    'link_remove' => '',
+    'owner' => 'nodequeue',
+    'show_in_ui' => 1,
+    'show_in_tab' => 1,
+    'show_in_links' => 0,
+    'reference' => 0,
+    'reverse' => 0,
+    'i18n' => 1,
+    'insert_at_front' => 0,
+    'subqueues' => 1,
+    'types' => array(
+      0 => 'autor_ed',
+    ),
+    'roles' => array(),
+    'count' => 0,
+  );
 
   // Exported nodequeues: libros_editorial
   $nodequeues['libros_editorial'] = array(

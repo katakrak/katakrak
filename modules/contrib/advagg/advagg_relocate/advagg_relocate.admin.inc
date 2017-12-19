@@ -14,6 +14,8 @@
  */
 function advagg_relocate_admin_settings_form() {
   drupal_set_title(t('AdvAgg: Relocate'));
+  advagg_display_message_if_requirements_not_met();
+
   $form = array();
   $times[0] = 'No Limit';
   // @codingStandardsIgnoreStart
@@ -103,7 +105,7 @@ function advagg_relocate_admin_settings_form() {
     ),
   );
   $advagg_relocate_js_files_blacklist = variable_get('advagg_relocate_js_files_blacklist', ADVAGG_RELOCATE_JS_FILES_BLACKLIST);
-  $form['js']['per_file_settings']['advagg_relocate_js_files_blacklist'] = array(
+  $form['js']['advagg_relocate_js_files_blacklist'] = array(
     '#type' => 'textarea',
     '#title' => t('External JS files blacklist'),
     '#default_value' => $advagg_relocate_js_files_blacklist,
@@ -115,7 +117,7 @@ function advagg_relocate_admin_settings_form() {
     ),
   );
   $advagg_relocate_js_domains_blacklist = variable_get('advagg_relocate_js_domains_blacklist', ADVAGG_RELOCATE_JS_DOMAINS_BLACKLIST);
-  $form['js']['per_file_settings']['advagg_relocate_css_domains_blacklist'] = array(
+  $form['js']['advagg_relocate_js_domains_blacklist'] = array(
     '#type' => 'textarea',
     '#title' => t('External JS domains blacklist'),
     '#default_value' => $advagg_relocate_js_domains_blacklist,
@@ -146,7 +148,7 @@ function advagg_relocate_admin_settings_form() {
     '#description' => t('As an example the Minimum needed to not get penalized by Google PageSpeed Insights is <a href="@url">1 week</a>.', array('@url' => 'https://developers.google.com/speed/docs/insights/LeverageBrowserCaching')),
   );
   $advagg_relocate_css_files_blacklist = variable_get('advagg_relocate_css_files_blacklist', ADVAGG_RELOCATE_CSS_FILES_BLACKLIST);
-  $form['css']['per_file_settings']['advagg_relocate_css_files_blacklist'] = array(
+  $form['css']['advagg_relocate_css_files_blacklist'] = array(
     '#type' => 'textarea',
     '#title' => t('External CSS files blacklist'),
     '#default_value' => $advagg_relocate_css_files_blacklist,
@@ -158,7 +160,7 @@ function advagg_relocate_admin_settings_form() {
     ),
   );
   $advagg_relocate_css_domains_blacklist = variable_get('advagg_relocate_css_domains_blacklist', ADVAGG_RELOCATE_CSS_DOMAINS_BLACKLIST);
-  $form['css']['per_file_settings']['advagg_relocate_css_domains_blacklist'] = array(
+  $form['css']['advagg_relocate_css_domains_blacklist'] = array(
     '#type' => 'textarea',
     '#title' => t('External CSS domains blacklist'),
     '#default_value' => $advagg_relocate_css_domains_blacklist,
