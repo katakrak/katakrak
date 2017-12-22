@@ -253,7 +253,7 @@ function katakrak_blog_field_default_field_instances() {
     'bundle' => 'blog',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Para que aparezca en la ficha del libro de la editorial. Usar siempre comillas latinas, si no Dios mata un gatito',
+    'description' => 'Para que aparezca en la ficha del libro de la editorial. Usar siempre comillas latinas, si no Dios mata un gatito « »',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -687,7 +687,7 @@ function katakrak_blog_field_default_field_instances() {
   t('Imagen');
   t('Libro(s)');
   t('Media');
-  t('Para que aparezca en la ficha del libro de la editorial. Usar siempre comillas latinas, si no Dios mata un gatito');
+  t('Para que aparezca en la ficha del libro de la editorial. Usar siempre comillas latinas, si no Dios mata un gatito « »');
   t('Por ejemplo: Aritz Gorostiaga, Berria');
 
   return $field_instances;

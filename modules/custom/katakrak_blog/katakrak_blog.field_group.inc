@@ -37,7 +37,7 @@ function katakrak_blog_field_group_info() {
       ),
     ),
   );
-  $field_groups[''] = $field_group;
+  $field_groups['group_resenas_prensa|node|blog|form'] = $field_group;
 
   // Translatables
   // Included for use with string extractors like potx.

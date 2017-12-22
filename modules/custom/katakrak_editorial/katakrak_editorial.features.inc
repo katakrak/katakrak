@@ -107,6 +107,54 @@ function katakrak_editorial_fe_nodequeue_export_fields() {
     'count' => 0,
   );
 
+  // Exported nodequeues: traductores_cas
+  $nodequeues['traductores_cas'] = array(
+    'name' => 'traductores_cas',
+    'title' => 'Traductores CAS',
+    'subqueue_title' => '',
+    'size' => 6,
+    'link' => '',
+    'link_remove' => '',
+    'owner' => 'nodequeue',
+    'show_in_ui' => 1,
+    'show_in_tab' => 1,
+    'show_in_links' => 0,
+    'reference' => 0,
+    'reverse' => 0,
+    'i18n' => 1,
+    'insert_at_front' => 0,
+    'subqueues' => 1,
+    'types' => array(
+      0 => 'autor_ed',
+    ),
+    'roles' => array(),
+    'count' => 0,
+  );
+
+  // Exported nodequeues: traductores_eus
+  $nodequeues['traductores_eus'] = array(
+    'name' => 'traductores_eus',
+    'title' => 'Traductores EUS',
+    'subqueue_title' => '',
+    'size' => 6,
+    'link' => '',
+    'link_remove' => '',
+    'owner' => 'nodequeue',
+    'show_in_ui' => 1,
+    'show_in_tab' => 1,
+    'show_in_links' => 0,
+    'reference' => 0,
+    'reverse' => 0,
+    'i18n' => 1,
+    'insert_at_front' => 0,
+    'subqueues' => 1,
+    'types' => array(
+      0 => 'autor_ed',
+    ),
+    'roles' => array(),
+    'count' => 0,
+  );
+
   return $nodequeues;
 }
 

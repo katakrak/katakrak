@@ -47,7 +47,7 @@ function libro_menu() {
 function libro_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'libro_node_form') {
     //dpm($form);
-    $form['field_libro_autores']['#access'] = FALSE;
+    //$form['field_libro_autores']['#access'] = FALSE;
     $form['field_libro_categoria']['#access'] = FALSE;
     $form['field_libro_editorial']['#access'] = FALSE;
   }

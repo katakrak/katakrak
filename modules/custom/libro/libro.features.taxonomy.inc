@@ -18,6 +18,8 @@ function libro_taxonomy_default_vocabularies() {
       'weight' => 0,
       'language' => 'und',
       'i18n_mode' => 0,
+      'base_i18n_mode' => 0,
+      'base_language' => 'und',
     ),
     'editoriales' => array(
       'name' => 'Editorial',
@@ -28,6 +30,8 @@ function libro_taxonomy_default_vocabularies() {
       'weight' => 0,
       'language' => 'und',
       'i18n_mode' => 0,
+      'base_i18n_mode' => 0,
+      'base_language' => 'und',
     ),
     'materias' => array(
       'name' => 'Sección',
@@ -38,6 +42,8 @@ function libro_taxonomy_default_vocabularies() {
       'weight' => 0,
       'language' => 'und',
       'i18n_mode' => 1,
+      'base_i18n_mode' => 1,
+      'base_language' => 'und',
     ),
     'urtea' => array(
       'name' => 'Año',
@@ -48,6 +54,8 @@ function libro_taxonomy_default_vocabularies() {
       'weight' => 0,
       'language' => 'und',
       'i18n_mode' => 0,
+      'base_i18n_mode' => 0,
+      'base_language' => 'und',
     ),
   );
 }

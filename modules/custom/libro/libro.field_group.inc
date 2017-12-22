@@ -47,7 +47,7 @@ function libro_field_group_info() {
       ),
     ),
   );
-  $field_groups[''] = $field_group;
+  $field_groups['group_libro_geslib|node|libro|form'] = $field_group;
 
   // Translatables
   // Included for use with string extractors like potx.

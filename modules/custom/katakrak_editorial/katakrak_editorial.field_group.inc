@@ -42,7 +42,7 @@ function katakrak_editorial_field_group_info() {
       ),
     ),
   );
-  $field_groups[''] = $field_group;
+  $field_groups['group_libro_ed_ficha|node|libro_ed|form'] = $field_group;
 
   // Translatables
   // Included for use with string extractors like potx.

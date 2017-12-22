@@ -199,6 +199,25 @@ layouts[blog][regions][] = "footer_second"
 layouts[blog][regions][] = "footer_third"
 layouts[blog][regions][] = "footer_fourth"
 
+layouts[editorial][name] = "Editorial"
+layouts[editorial][description] = "Layout for blog content."
+layouts[editorial][template] = "templates/layout-editorial"
+layouts[editorial][regions][] = "top_right"
+layouts[editorial][regions][] = "menu_lateral"
+layouts[editorial][regions][] = "content_top"
+layouts[editorial][regions][] = "content"
+layouts[editorial][regions][] = "sidebar_second"
+layouts[editorial][regions][] = "sidebar_first"
+layouts[editorial][regions][] = "content_bottom"
+layouts[editorial][regions][] = "post_content_bottom_right"
+layouts[editorial][regions][] = "header"
+layouts[editorial][regions][] = "header_right"
+layouts[editorial][regions][] = "footer"
+layouts[editorial][regions][] = "footer_first"
+layouts[editorial][regions][] = "footer_second"
+layouts[editorial][regions][] = "footer_third"
+layouts[editorial][regions][] = "footer_fourth"
+
 features[] = logo
 ;features[] = name
 ;features[] = slogan
