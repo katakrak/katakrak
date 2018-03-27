@@ -41,7 +41,7 @@ function katakrak_sukaldea_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Campo: Content: Title */
+  /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -50,7 +50,7 @@ function katakrak_sukaldea_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Campo: Content: Unitatea */
+  /* Campo: Contenido: Unitatea */
   $handler->display->display_options['fields']['field_produktua_kopurua']['id'] = 'field_produktua_kopurua';
   $handler->display->display_options['fields']['field_produktua_kopurua']['table'] = 'field_data_field_produktua_kopurua';
   $handler->display->display_options['fields']['field_produktua_kopurua']['field'] = 'field_produktua_kopurua';
@@ -58,23 +58,24 @@ function katakrak_sukaldea_views_default_views() {
   $handler->display->display_options['fields']['field_produktua_kopurua']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_produktua_kopurua']['alter']['text'] = '([field_produktua_kopurua-value])';
   $handler->display->display_options['fields']['field_produktua_kopurua']['element_label_colon'] = FALSE;
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Contenido: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Contenido: Publicado */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Contenido: Tipo */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
+    'sukalde_errezeta' => 'sukalde_errezeta',
     'sukalde_produktua' => 'sukalde_produktua',
   );
 
@@ -156,41 +157,31 @@ function katakrak_sukaldea_views_default_views() {
   $handler->display->display_options['header']['area']['content'] = '<a href="node/add/sukalde-produktua">Produktua gehitu</a>
 <a href="node/add/sukalde-errezeta">Errezeta gehitu</a>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
-  /* Campo: Content: Title */
+  /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Content: Prezioa */
-  $handler->display->display_options['fields']['field_errezeta_prezioa']['id'] = 'field_errezeta_prezioa';
-  $handler->display->display_options['fields']['field_errezeta_prezioa']['table'] = 'field_data_field_errezeta_prezioa';
-  $handler->display->display_options['fields']['field_errezeta_prezioa']['field'] = 'field_errezeta_prezioa';
-  $handler->display->display_options['fields']['field_errezeta_prezioa']['settings'] = array(
-    'thousand_separator' => ' ',
-    'decimal_separator' => '.',
-    'scale' => '2',
-    'prefix_suffix' => 1,
-  );
-  /* Campo: Content: Edit link */
+  /* Campo: Contenido: Enlace de edición */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['label'] = '';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Contenido: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Contenido: Publicado */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Contenido: Tipo */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -200,7 +191,37 @@ function katakrak_sukaldea_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'sukaldea';
+  $handler->display->display_options['path'] = 'admin/content/sukaldea';
+  $handler->display->display_options['menu']['type'] = 'tab';
+  $handler->display->display_options['menu']['title'] = 'Sukaldea:  Recetas';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Productos */
+  $handler = $view->new_display('page', 'Productos', 'page_1');
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Contenido: Publicado */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Contenido: Tipo */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'sukalde_produktua' => 'sukalde_produktua',
+  );
+  $handler->display->display_options['path'] = 'admin/content/produktuak';
+  $handler->display->display_options['menu']['type'] = 'tab';
+  $handler->display->display_options['menu']['title'] = 'Sukaldea:  Productos';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
   $translatables['sukaldea'] = array(
     t('Master'),
     t('Sukaldea'),
@@ -219,10 +240,10 @@ function katakrak_sukaldea_views_default_views() {
     t('última »'),
     t('<a href="node/add/sukalde-produktua">Produktua gehitu</a>
 <a href="node/add/sukalde-errezeta">Errezeta gehitu</a>'),
-    t('Title'),
-    t('Prezioa'),
+    t('Título'),
     t('Page'),
     t('more'),
+    t('Productos'),
   );
   $export['sukaldea'] = $view;
 
