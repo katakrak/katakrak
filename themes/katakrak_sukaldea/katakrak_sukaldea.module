@@ -1,0 +1,167 @@
+<?php
+/**
+ * @file
+ * Code for the Katakrak Sukaldea feature.
+ */
+
+include_once 'katakrak_sukaldea.features.inc';
+
+function katakrak_sukaldea_menu() {
+  $items = array();
+  $items['admin/config/sukaldea'] = array(
+    'title' => 'Import products',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('sukaldea_data_import_form'),
+    'access callback' => 'user_access',
+    'access arguments' => array('geslib_content import'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+function katakrak_sukaldea_theme() {
+  $path = drupal_get_path('module', 'katakrak_sukaldea');
+  return array(
+    'katakrak_sukaldea_ikusi_taula' => array(
+      'template' => 'katakrak-sukaldea-ikusi-taula',
+      'arguments' => array(
+        'node' => NULL
+      ),
+      'path' => $path . '/templates',
+    ),
+  );
+}
+
+function katakrak_sukaldea_node_view($node, $view_mode, $langcode) {
+  if ($node->type == 'sukalde_errezeta') {
+    if (!user_access('create sukalde_errezeta content')) {
+      drupal_not_found();
+    }
+    $header = array(
+      'produktua',
+      'prezioa',
+      'kopurua',
+      'totala',
+    );
+    $table = array();
+    $totala = 0;
+    foreach($node->field_errezeta_osagai['und'] as $i => $osagai) {
+      $osagai = field_collection_item_load($osagai['value']);
+      $produktua = node_load($osagai->field_errezeta_produktua['und'][0]['target_id']);
+      $table[$i][] = $produktua->title;
+      $table[$i][] = $produktua->field_produktua_prezioa['und'][0]['value'];
+      $table[$i][] = $osagai->field_errezeta_kopurua['und'][0]['value'];
+      $linearen_totala = $osagai->field_errezeta_kopurua['und'][0]['value'] * $produktua->field_produktua_prezioa['und'][0]['value'];
+      $table[$i][] = $linearen_totala;
+      $totala += $linearen_totala;
+    }
+    $table[] = array(
+        0 => 'Total',
+        1 => '',
+        2 => '',
+        3 => $totala,
+    );
+    $node->produktu_taula = array('header' => $header, 'rows' => $table, 'attributes' => array('class' => array('table')));
+
+    $node->prezio_gomendatua = ($totala / .3) / $node->field_errezeta_porzio_kopurua['und'][0]['value'] * 1.1;
+    $node->razio_gomendatua = ($totala / .3) / ($node->field_produktua_prezioa['und'][0]['value'] / 1.1);
+    $markup = theme('katakrak_sukaldea_ikusi_taula', array('node' => $node));
+    $node->content = array(
+      'sukaldea' => array(
+        '#weight' => 0,
+        '#markup' => $markup,
+      )
+    );
+  }
+}
+
+function sukaldea_data_import_form($form, &$form_state) {
+  $form['file'] = array(
+    '#name' => 'files[]',
+    '#type' => 'file',
+    '#title' => t('Choose a file'),
+    '#title_display' => 'invisible',
+    '#size' => 22,
+    '#theme_wrappers' => array(),
+    '#weight' => -10,
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Submit',  
+  );
+  return $form;
+}
+
+function sukaldea_data_import_form_validate($form, &$form_state) {
+  $file = file_save_upload(0, array('file_validate_extensions' => array('csv')));
+  if ($file) {
+    $form_state['values']['file']['file'] = $file;
+  }
+  else {
+    form_set_error('file', t('No file was uploaded.'));
+  }
+}
+
+
+function sukaldea_data_import_form_submit($form, &$form_state) {
+  $file_path = '/tmp/'.file_uri_target($form_state['values']['file']['file']->uri);
+  $file = fopen($file_path, 'r');
+  $items = array();
+  $i = 0;
+  $header_tmp = fgetcsv($file, 0, ',', '"');
+  foreach ($header_tmp as $k =>$v) {
+      $header[$k] = strtolower(str_replace(' ', '_', $v));
+  }
+  while ($line = fgetcsv($file, 0, ',', '"')) {
+    foreach ($line as $k => $v) {
+      $items[$i][$header[$k]] = $v;
+    }
+    $i++;
+  }
+  $batch = array(
+    'title' => t('Cargando información de CSV'),
+    'operations' => array(
+      array('sukaldea_process_csv', array($items)),
+    ),
+    'finished' => 'sukaldea_import_process_finish',
+  );
+  
+  batch_set($batch);
+}
+
+function sukaldea_process_csv($items, &$context) {
+  if (!isset($context['sandbox']['progress'])) {
+    $context['sandbox']['items'] = $items;
+    $context['sandbox']['progress'] = 0;
+    $context['sandbox']['max'] = count($items);
+  }
+  $limit = 100;
+  $i = 0;
+  while($i < $limit) {
+    $produktua = array_shift($context['sandbox']['items']);
+    sukaldea_process_produktua($produktua);
+    $i++;
+  }
+  
+  $context['sandbox']['progress'] += $limit;  
+  if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
+    $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
+  }
+}
+
+function sukaldea_process_produktua($produktua) {
+  include_once   '../geslib/lib/Encoding.php';
+  $nid = db_select('node', 'n')->condition('n.title', $produktua['articulo'])
+    ->fields('n')->execute()->fetchObject();  
+  if ($nid) {
+    $node = node_load($nid->nid);
+    $node->field_produktua_prezioa['und'][0]['value'] = $produktua['precio'];
+  }
+  else {
+    $node->title = geslib_utf8_encode($produktua['articulo']);
+    $node->type = 'sukalde_produktua';
+    $node->uid = 1;
+    $node->field_produktua_prezioa['und'][0]['value'] = $produktua['precio'];
+  }
+  node_save($node);
+}

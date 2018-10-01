@@ -47,7 +47,7 @@
   <head profile="<?php print $grddl_profile; ?>">
     <?php print $head ?>
     <title><?php print $head_title; ?></title>
-    <link href='http://fonts.googleapis.com/css?family=Ropa+Sans:400,400italic|Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Ropa+Sans:400,400italic|Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <?php print $styles; ?>
     <?php $theme_custom_css = theme_get_setting('theme_custom_css', 'coworker'); ?>
