@@ -279,6 +279,7 @@ function dilve_node_info_form_submit($form, &$form_state) {
     $node->field_libro_paginas['und'][0]['value'] = $values['pages'];
   
   if ($values['image']) {
+      
     $file = create_cover($values['image'], $node->field_libro_ean['und'][0]['value']);
     
     if (!empty($file)) {
@@ -309,24 +310,15 @@ function katakrak_dilve_batch_ftp_process($max, $limit, $recheck, &$context) {
   ftp_login($ftp, "katakrak", "kraskao22");
   $chdir = ftp_chdir($ftp, '/www/sites/test.katakrak.net/files');
   if ($chdir)
-    dpm("change dir");
   ftp_pasv($ftp, TRUE);
-  dpm(ftp_pwd($ftp));
   foreach ($fids as $fid) {
     $file = file_load($fid->fid);
     $file_path = drupal_realpath($file->uri);
     if (!file_exists($file_path)) {
       $handle = fopen($local_file, 'w');
       $remote_path = file_uri_target($file->uri);
-      dpm("remote path".$remote_path);
-      dpm("file path" . $file_path);
       $success = ftp_get($ftp, $file_path, $remote_path, FTP_BINARY);
-      if ($success) {
-        dpm("archivo transferido");
-      }
-      else {
-        dpm("archivo no transferido");
-      }
+     
     }
   }
   ftp_close($ftp);
@@ -363,6 +355,7 @@ function katakrak_dilve_batch_process($max, $limit, $recheck, &$context){
   $nids = $nodes->range(0, $limit)->execute()->fetchAll();
   
   foreach ($nids as $nid) {
+      watchdog("dilve", $nid->nid);
     $node = node_load($nid->nid);
     $book = $dilve->search($node->field_libro_ean['und'][0]['value']);
     if (is_string($book)) {

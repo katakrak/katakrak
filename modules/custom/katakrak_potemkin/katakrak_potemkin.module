@@ -46,7 +46,7 @@ function potemkin_first_import_form($form, &$form_state) {
 //  
 //  
 //  $pelis = $pelis_db->fields('p')->range(100,100)->execute()->fetchAll();
-//  dpm($pelis);
+
   return $form;
 }
 
@@ -222,7 +222,6 @@ function potemkin_process_dvd($dvd) {
     $node->field_dvd_caratula['und'][0]['title'] = $node->title;
     $node->field_dvd_caratula['und'][0]['alt'] = $node->title;
   }
-  //dpm($node);
   
   node_save($node);
   

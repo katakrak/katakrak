@@ -751,11 +751,9 @@ function katakrak_editorial_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'file_entity',
-        'settings' => array(
-          'text' => 'descargar',
-        ),
-        'type' => 'file_download_link',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
         'weight' => 17,
       ),
       'teaser' => array(
@@ -770,7 +768,7 @@ function katakrak_editorial_field_default_field_instances() {
     'label' => 'Nota editorial',
     'required' => 0,
     'settings' => array(
-      'description_field' => 0,
+      'description_field' => 1,
       'file_directory' => 'editorial',
       'file_extensions' => 'pdf',
       'max_filesize' => '',

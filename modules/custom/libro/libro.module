@@ -46,8 +46,7 @@ function libro_menu() {
 
 function libro_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'libro_node_form') {
-    //dpm($form);
-    //$form['field_libro_autores']['#access'] = FALSE;
+    $form['field_libro_autores']['#access'] = FALSE;
     $form['field_libro_categoria']['#access'] = FALSE;
     $form['field_libro_editorial']['#access'] = FALSE;
   }
@@ -448,6 +447,7 @@ function libro_node_presave($node) {
  */
 function libro_node_load($nodes, $types) {
   if (count(array_intersect(array('libro'), $types))) {
+      watchdog("libro", "aqui");
     foreach($nodes as $node) {
       $ubicacion = taxonomy_get_parents($node->field_libro_categoria['und'][0]['tid']);
       if ($ubicacion) {
@@ -527,31 +527,31 @@ function libro_search_home_form_submit($form, &$form_state) {
 function create_cover($url, $isbn, $force = FALSE) {
   global $user;
   $cover_request = drupal_http_request($url);
+ 
   if ($cover_request->code != 200) {
     return FALSE;
   }
-  $ext = substr($cover_request->headers['content-type'], strrpos($cover_request->headers['content-type'], '/') + 1);
+  $ext = substr($cover_request->headers['content-disposition'], strrpos($cover_request->headers['content-disposition'], '.') + 1);
   $filename = $isbn.".".$ext;
   $fid = db_select('file_managed', 'f')->condition('filename', $filename)->fields('f', array('fid'))
     ->execute()->fetchAll();
   $filepath = sprintf("%s/%s/portadas/%s",DRUPAL_ROOT, variable_get('file_public_path', 'sites/default/files'), $filename);
+  
   if ($fid) {
     $file = file_load($fid[0]->fid);
     
     if ((!file_exists($filepath) || $force) && $cover_request->code == 200) {
-    
+   
       file_put_contents($filepath, $cover_request->data);
     }
   }
   else {
-  
     $filepath = sprintf("%s/%s/portadas/%s",DRUPAL_ROOT, variable_get('file_public_path', 'default'), $filename);
-    $file = new stdClass();
+    
     if ($cover_request->code == 200) {
       file_put_contents($filepath, $cover_request->data);
       $file = new stdClass();
       $file->uri = "public://portadas/".$filename;
-      
       $image = image_load($file->uri);
 //      $width = variable_get('dilve_max_image_width', 500);
 //      if ($image->info['width'] > $width) {
@@ -567,6 +567,7 @@ function create_cover($url, $isbn, $force = FALSE) {
       $file->status = 1;
       $file->timestamp = REQUEST_TIME;
       file_save($file);
+     
     }
   }
   return (array)$file;

@@ -29,12 +29,18 @@ function katakrak_editorial_context_default_contexts() {
   );
   $context->reactions = array(
     'block' => array(
-      'blocks' => array(),
+      'blocks' => array(
+        'paypal_donations-paypal_donations_single' => array(
+          'module' => 'paypal_donations',
+          'delta' => 'paypal_donations_single',
+          'region' => 'content_bottom',
+          'weight' => '-10',
+        ),
+      ),
       'layout' => 'book',
     ),
     'menu' => array(
       0 => 'main-menu:editorial',
-      1 => 'main-menu:editorial',
     ),
   );
   $context->condition_mode = 0;

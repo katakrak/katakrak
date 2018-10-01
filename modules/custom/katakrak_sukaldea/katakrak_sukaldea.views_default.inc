@@ -154,8 +154,8 @@ function katakrak_sukaldea_views_default_views() {
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['empty'] = TRUE;
-  $handler->display->display_options['header']['area']['content'] = '<a href="node/add/sukalde-produktua">Produktua gehitu</a>
-<a href="node/add/sukalde-errezeta">Errezeta gehitu</a>';
+  $handler->display->display_options['header']['area']['content'] = '<a href="/node/add/sukalde-produktua">Produktua gehitu</a>
+<a href="/node/add/sukalde-errezeta">Errezeta gehitu</a>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -238,8 +238,8 @@ function katakrak_sukaldea_views_default_views() {
     t('‹ anterior'),
     t('siguiente ›'),
     t('última »'),
-    t('<a href="node/add/sukalde-produktua">Produktua gehitu</a>
-<a href="node/add/sukalde-errezeta">Errezeta gehitu</a>'),
+    t('<a href="/node/add/sukalde-produktua">Produktua gehitu</a>
+<a href="/node/add/sukalde-errezeta">Errezeta gehitu</a>'),
     t('Título'),
     t('Page'),
     t('more'),
