@@ -26,29 +26,29 @@ function katakrak_home_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'views-editorial-block_4' => array(
+          'module' => 'views',
+          'delta' => 'editorial-block_4',
+          'region' => 'content',
+          'weight' => '-10',
+        ),
+        'katakrak_home-katakrak_home_promo' => array(
+          'module' => 'katakrak_home',
+          'delta' => 'katakrak_home_promo',
+          'region' => 'content',
+          'weight' => '-9',
+        ),
         'system-main' => array(
           'module' => 'system',
           'delta' => 'main',
           'region' => 'content',
-          'weight' => '-10',
+          'weight' => '-8',
         ),
         'mailchimp_signup-recibe_nuestro_boletin_semanal' => array(
           'module' => 'mailchimp_signup',
           'delta' => 'recibe_nuestro_boletin_semanal',
           'region' => 'content_bottom_first',
           'weight' => '-10',
-        ),
-        'views-editorial-block_4' => array(
-          'module' => 'views',
-          'delta' => 'editorial-block_4',
-          'region' => 'content_bottom_second',
-          'weight' => '-10',
-        ),
-        'katakrak_home-katakrak_home_promo' => array(
-          'module' => 'katakrak_home',
-          'delta' => 'katakrak_home_promo',
-          'region' => 'content_bottom_second',
-          'weight' => '-9',
         ),
         'views-blog-block' => array(
           'module' => 'views',
