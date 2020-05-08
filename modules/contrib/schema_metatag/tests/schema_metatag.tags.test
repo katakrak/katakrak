@@ -68,6 +68,11 @@ class SchemaMetatagTagsTest extends SchemaMetatagTagsTestBase {
     'schema_metatag_test.trueFalse' => 'SchemaTrueFalseBase',
     'schema_metatag_test.monetaryAmount' => 'SchemaMonetaryAmountBase',
     'schema_metatag_test.contactPoint' => 'SchemaContactPointBase',
+    'schema_metatag_test.speakable' => 'SchemaSpeakableBase',
+    'schema_metatag_test.idReference' => 'SchemaIdReferenceBase',
+    'schema_metatag_test.step' => 'SchemaHowToStepBase',
+    'schema_metatag_test.question' => 'SchemaQuestionBase',
+    'schema_metatag_test.answer' => 'SchemaAnswerBase',
   ];
 
 }

@@ -355,7 +355,8 @@ function katakrak_dilve_batch_process($max, $limit, $recheck, &$context){
   $nids = $nodes->range(0, $limit)->execute()->fetchAll();
   
   foreach ($nids as $nid) {
-      watchdog("dilve", $nid->nid);
+    watchdog("dilve", $nid->nid);
+    watchdog("dilve", $nid->nid);
     $node = node_load($nid->nid);
     $book = $dilve->search($node->field_libro_ean['und'][0]['value']);
     if (is_string($book)) {

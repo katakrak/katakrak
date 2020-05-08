@@ -31,6 +31,7 @@ function commerce_shipping_weight_tariff_block_view($delta = '') {
         '#theme' => 'commerce_shipping_weight_tariff_shipping_table',
         '#services' => commerce_shipping_services('weight_tariff_shipping'),
         '#weight_unit' => variable_get('commerce_shipping_weight_tariff_block_weight_unit', 'kg'),
+        '#order_total_weight' => NULL,
       );
     break;
   }
@@ -72,6 +73,7 @@ function commerce_shipping_weight_tariff_theme($existing, $type, $theme, $path) 
       'variables' => array(
         'services' => array(),
         'weight_unit' => 'kg',
+        'order_total_weight' => NULL,
       ),
     ),
   );
@@ -105,6 +107,18 @@ function theme_commerce_shipping_weight_tariff_shipping_table($variables) {
     'header' => array('shipping service'),
   );
 
+  $order_weight = array('0', 'kg');
+  if (arg(0) === 'checkout' && arg(2) !== 'complete') {
+    global $user;
+    $order = commerce_cart_order_load($user->uid);
+    // Get the weight from the order.
+    $order_weight = commerce_physical_order_weight($order, 'kg');
+  }
+  $table['header'][] = 'Σ';
+  foreach($table['rows'] as $skey => &$row) {
+    $row[] = implode(' ', $order_weight) . '.';
+  }
+
   foreach($weights as $weight) {
     $table['header'][] = '< ' . number_format($weight, 3) . " {$variables['weight_unit']}";
     foreach($table['rows'] as $skey => &$row) {
@@ -134,18 +148,6 @@ function commerce_shipping_weight_tariff_menu() {
     'context' => MENU_CONTEXT_INLINE,
     'file' => 'commerce_shipping_weight_tariff.admin.inc',
     'weight' => 8,
-  );
-
-  $items['admin/commerce/config/shipping/services/weight-tariff-shipping/add'] = array(
-    'title' => 'Add a weight tariff service',
-    'description' => 'Create a new weight tariff shipping service.',
-    'page callback' => 'drupal_get_form',
-    'page arguments' => array('commerce_shipping_weight_tariff_service_form', commerce_shipping_weight_tariff_service_new()),
-    'access callback' => 'commerce_shipping_weight_tariff_service_access',
-    'access arguments' => array('create'),
-    'type' => MENU_LOCAL_ACTION,
-    'context' => MENU_CONTEXT_PAGE,
-    'file' => 'commerce_shipping_weight_tariff.admin.inc',
   );
 
   $items['admin/commerce/config/shipping/services/weight-tariff-shipping/add'] = array(

@@ -78,17 +78,13 @@
   }
 }
 
-#content{
-  h2.block, h3.block, h2.pane-title {
-    color: black;
-    border-bottom: 1px dashed black;
-    padding: 0 0 5px;
-    margin-top: 50px;
-    font-weight: bold;
-  }
-  h2.block, h2.pane-title {
-    text-transform: uppercase;
-  }
+#content h2.block {
+  color: black;
+  border-bottom: 1px dashed black;
+  padding: 0 0 5px;
+  margin-top: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 /* ----------------------------------------------------------------
@@ -844,7 +840,7 @@ ul#user-sticky {
   }
 }
 
-#block-views-secciones-secciones-block, #block-katakrak-home-katakrak-home-promo, .view-display-id-blogs_baldosas {
+#block-views-secciones-secciones-block, #block-katakrak-home-katakrak-home-promo {
   a {
     position: absolute;
     top: 0;
@@ -1105,16 +1101,7 @@ view-id-libros .book-author {
       padding: 10px;
     }
   }
-  .autores-libro {
-    padding: 0.9em 0 1.3em 0;
-  }
-  .resena-fuente {
-    font-weight: bold;
-  }
-  .resena-cita {
-    color: #656060;
-  }
-  .ficha-editorial-info {
+  .ficha-	rial-info {
     margin-top: 30px;
     background: @background_gray;
     .ficha-tecnica {
@@ -1653,7 +1640,7 @@ Responsiveness
   #bottom-social {
     max-width: 90%;
   }
-  #block-views-secciones-secciones-block, #block-katakrak-home-katakrak-home-promo,.view-display-id-blogs_baldosas {
+  #block-views-secciones-secciones-block, #block-katakrak-home-katakrak-home-promo {
     .col {
       padding: 0 !important;
       text-align: center;
@@ -1697,7 +1684,7 @@ Responsiveness
         float: left;
         position: relative;
         a {
-          font-size: 22px;
+          font-size: 24px;
         }
       }
       ul{ /** Nested menu */ 
@@ -1924,4 +1911,10 @@ Responsiveness
   width: 360px;
 }
 
+}
+
+.select-or-other {
+	.controls {
+		padding-left: 21px;
+	}
 }

@@ -46,7 +46,7 @@ function libro_menu() {
 
 function libro_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'libro_node_form') {
-    $form['field_libro_autores']['#access'] = FALSE;
+    //$form['field_libro_autores']['#access'] = FALSE;
     $form['field_libro_categoria']['#access'] = FALSE;
     $form['field_libro_editorial']['#access'] = FALSE;
   }
@@ -151,6 +151,7 @@ function libro_portada_process($limit, $max, $skip, &$context) {
   $nids = $nodes->range(0, $limit)->execute()->fetchAll();
   
   foreach ($nids as $nid) {
+    watchdog("libro", $nid->nid);
     $node = node_load($nid->nid);
     $download_cover = FALSE;
     if ($node->field_libro_portada['und'][0]['uri']) {
@@ -447,7 +448,6 @@ function libro_node_presave($node) {
  */
 function libro_node_load($nodes, $types) {
   if (count(array_intersect(array('libro'), $types))) {
-      watchdog("libro", "aqui");
     foreach($nodes as $node) {
       $ubicacion = taxonomy_get_parents($node->field_libro_categoria['und'][0]['tid']);
       if ($ubicacion) {
@@ -605,7 +605,7 @@ function libro_generar_boton_compra($nid) {
   $default_quantity = 1;
   $product_ids = array($product->product_id);
 
-  // Build the line item we'll pass to the Add to Cart form.
+  // Build the line item we'll pass to the Add to form.
   $line_item = commerce_product_line_item_new($product, $default_quantity, 0, array(), 0);
   $line_item->data['context']['product_ids'] = $product_ids;
   $line_item->data['context']['add_to_cart_combine'] = 1;

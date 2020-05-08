@@ -18,6 +18,13 @@ function coworker_button($variables) {
     $element['#attributes']['class'][] = 'btn-primary';
     $label = '<i class="icon-shopping-cart"></i>' . ' '.$label;
   }
+  if ($label == t('Donar')) {
+    $element['#attributes']['data-title'] = t('+To Cart');
+    $element['#attributes']['data-placement'] = 'top';
+    $element['#attributes']['data-toggle'] = 'tooltip';
+    $element['#attributes']['class'][] = 'btn-primary';
+    $label = '<i class="icon-hand-right"></i>' . ' '.$label;
+  }
 
   $element['#attributes']['class'][] = 'form-' . $element['#button_type'];
   if (!empty($element['#attributes']['disabled'])) {

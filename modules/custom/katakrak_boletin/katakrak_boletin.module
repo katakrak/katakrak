@@ -66,9 +66,9 @@ function katakrak_boletin_menu() {
 
 
 function katakrak_boletin_access_node_info($perm, $node) {
-  if (user_access($perm) && $node->type == 'boletin')
+if (user_access($perm) && ($node->type == 'boletin' || $node->type == 'boletin_bibliotecas'))
     return TRUE;
-  return FALSE;
+  return FALSE;	
 }
 
 function katakrak_boletin_theme() {  
@@ -84,16 +84,35 @@ function katakrak_boletin_theme() {
       'arguments' => array('node' => NULL),
       'path' => $path . '/templates',
     ),
+	'boletin_bib_codigo' => array(
+      'template' => 'boletin_bib-inline',
+      'arguments' => array('node' => NULL),
+      'path' => $path . '/templates',
+    ),
+    'boletin_bib_preview' => array(
+      'template' => 'boletin_bib-preview',
+      'arguments' => array('node' => NULL),
+      'path' => $path . '/templates',
+    ),
   );
 }
 
 function katakrak_boletin_codigo($node) {
-  return check_plain(theme('boletin_codigo', array('node' => $node)));
+  if ($node->type == 'boletin')
+    return check_plain(theme('boletin_codigo', array('node' => $node)));
+  else
+	return check_plain(theme('boletin_bib_preview', array('node' => $node)));  
 }
 
 function katakrak_boletin_preview($node) {
-  print theme('boletin_preview', array('node' => $node));
-  exit();
+  if ($node->type == 'boletin') {
+    print theme('boletin_preview', array('node' => $node));
+    exit();
+  }
+  else {
+	print theme('boletin_bib_preview', array('node' => $node));
+    exit();
+  }
 }
 
 

@@ -8,9 +8,8 @@ dependencies[] = options
 dependencies[] = physical
 core = 7.x
 
-; Information added by Drupal.org packaging script on 2014-02-13
-version = "7.x-1.0-beta3"
+; Information added by Drupal.org packaging script on 2019-09-26
+version = "7.x-1.0-beta4"
 core = "7.x"
 project = "commerce_shipping_weight_tariff"
-datestamp = "1392283114"
-
+datestamp = "1569484996"

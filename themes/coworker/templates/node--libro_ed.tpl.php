@@ -111,7 +111,7 @@ global $user;
             <?php print render($content['field_libro_portada']) ?>
 					</div>
 					<div class="col-sm-8 col-md-8">
-						<div class="hidden-xs">
+						<div class="">
 							<div class="row">
 								<div class="col-xs-12">
 									<h1>
@@ -140,6 +140,13 @@ global $user;
 									<?php print render($content['sharethis']) ?>
                   <?php if ($node->field_editorial_libro['und'][0]['nid']): ?>
                     <?php print libro_generar_boton_compra($node->field_editorial_libro['und'][0]['nid']) ?>
+                  <?php endif; ?>  
+                    
+                  <?php if ($node->field_donacion['und'][0]['product_id']): ?>
+                    <div class="btn">
+                      <i class="icon-download"></i>
+                      <?php print l(t("Descargar"), "donate/".$node->nid) ?>
+                    </div>
                   <?php endif; ?>
 								</div>
 							</div>
@@ -157,19 +164,19 @@ global $user;
 		<div class="row">
 			<div class="col-md-8 col-md-offset-4">
 				<?php if ($node->resenas): ?>
-								        <div class="row ">
-								        	<div class="col-md-8 ">
-								        		<h3 class="block"><?php print t("En la prensa")?> </h3>
-								        		<?php foreach ($node->resenas as $resena): ?>
-								        			<div class="resena">
-								        			<p class="resena-cita"><?php print $resena->cita ?></p>
-								        			<p class="resena-fuente"><?php print l($resena->fuente, "node/".$resena->nid); ?></p>
-								        		</div>
-								        		<?php endforeach; ?>
-								        	</div>
-								        	
-								        </div>
-								      <?php endif;?>
+          <div class="row ">
+            <div class="col-md-8 ">
+              <h3 class="block"><?php print t("En la prensa")?> </h3>
+              <?php foreach ($node->resenas as $resena): ?>
+                <div class="resena">
+                <p class="resena-cita"><?php print $resena->cita ?></p>
+                <p class="resena-fuente"><?php print l($resena->fuente, "node/".$resena->nid); ?></p>
+              </div>
+              <?php endforeach; ?>
+            </div>
+            
+          </div>
+				<?php endif;?>
 			</div>
 		</div>
       
@@ -221,7 +228,7 @@ global $user;
 				<?php if ($content['field_libro_editorial_nota']): ?>
                 <div class="book-info-entry">
 					<span class="col-2 book-info-label">
-						<?php print t('Nota editorial') ?>
+						<?php  print t($content['field_libro_editorial_nota']['#items'][0]['description'])  ?>
 					</span>
 					<span class="col-2 book-info-data">
 						<?php print render($content['field_libro_editorial_nota']) ?>

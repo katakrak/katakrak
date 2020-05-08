@@ -87,6 +87,7 @@ function schema_web_page_metatag_info() {
     'class' => 'SchemaHasPartBase',
     'label' => t('hasPart'),
     'description' => t('RECOMMENDED BY GOOGLE. Use for <a href="!url">Paywalled content</a>', ['!url' => 'https://developers.google.com/search/docs/data-types/paywalled-content']),
+    'multiple' => TRUE,
     'weight' => ++$weight,
   ) + $defaults;
 
@@ -94,6 +95,34 @@ function schema_web_page_metatag_info() {
     'class' => 'SchemaIsAccessibleForFreeBase',
     'label' => t('isAccessibleForFree'),
     'description' => t('RECOMMENDED BY GOOGLE. Use for <a href="!url">Paywalled content</a>', ['!url' => 'https://developers.google.com/search/docs/data-types/paywalled-content']),
+    'weight' => ++$weight,
+  ) + $defaults;
+
+  $info['tags']['schema_web_page.speakable'] = array(
+    'class' => 'SchemaSpeakableBase',
+    'label' => t('speakable'),
+    'description' => t('Speakable property.'),
+    'weight' => ++$weight,
+  ) + $defaults;
+
+  $info['tags']['schema_web_page.inLanguage'] = array(
+    'label' => t('inLanguage'),
+    'description' => t('The language of the content.'),
+    'weight' => ++$weight,
+  ) + $defaults;
+
+  $info['tags']['schema_web_page.translationOfWork'] = array(
+    'class' => 'SchemaIdReferenceBase',
+    'label' => t('translationOfWork'),
+    'description' => t('The website id that this is a direct translation of.'),
+    'weight' => ++$weight,
+  ) + $defaults;
+
+  $info['tags']['schema_web_page.workTranslation'] = array(
+    'class' => 'SchemaIdReferenceBase',
+    'label' => t('workTranslation'),
+    'description' => t('Translation(s) of this work'),
+    'multiple' => TRUE,
     'weight' => ++$weight,
   ) + $defaults;
 

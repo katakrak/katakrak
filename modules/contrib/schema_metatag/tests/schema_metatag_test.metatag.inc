@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * Metatag integration for the tests.
+ */
+
+/**
  * Implements hook_metatag_info().
  */
 function schema_metatag_test_metatag_info() {
@@ -211,6 +216,41 @@ function schema_metatag_test_metatag_info() {
   $info['tags']['schema_metatag_test.contactPoint'] = array(
     'class' => 'SchemaContactPointBase',
     'label' => t('contactPoint'),
+    'description' => '',
+    'weight' => ++$weight,
+  ) + $defaults;
+
+  $info['tags']['schema_metatag_test.speakable'] = array(
+    'class' => 'SchemaSpeakableBase',
+    'label' => t('speakable'),
+    'description' => '',
+    'weight' => ++$weight,
+  ) + $defaults;
+
+  $info['tags']['schema_metatag_test.idReference'] = array(
+    'class' => 'SchemaIdReferenceBase',
+    'label' => t('idReference'),
+    'description' => '',
+    'weight' => ++$weight,
+  ) + $defaults;
+
+  $info['tags']['schema_metatag_test.step'] = array(
+    'class' => 'SchemaHowToStepBase',
+    'label' => t('step'),
+    'description' => '',
+    'weight' => ++$weight,
+  ) + $defaults;
+
+  $info['tags']['schema_metatag_test.question'] = array(
+    'class' => 'SchemaQuestionBase',
+    'label' => t('question'),
+    'description' => '',
+    'weight' => ++$weight,
+  ) + $defaults;
+
+  $info['tags']['schema_metatag_test.answer'] = array(
+    'class' => 'SchemaAnswerBase',
+    'label' => t('answer'),
     'description' => '',
     'weight' => ++$weight,
   ) + $defaults;
