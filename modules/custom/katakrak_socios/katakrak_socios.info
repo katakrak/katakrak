@@ -1,0 +1,9 @@
+name = katakrak_socios
+description = Modulo para la campaña de socios
+core = 7.x
+package = Katakrak
+dependencies[] = context
+dependencies[] = ctools
+features[context][] = campana-socios
+features[ctools][] = context:context:3
+features[features_api][] = api:2
