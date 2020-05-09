@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_itinerarios.views_default.inc
@@ -35,19 +36,19 @@ function katakrak_itinerarios_views_default_views() {
   $handler->display->display_options['style_options']['columns_lg'] = '4';
   $handler->display->display_options['style_options']['columns_md'] = '4';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Campo: Content: Nid */
+  /* Campo: Contenido: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  /* Campo: Content: Color */
+  /* Campo: Contenido: Color */
   $handler->display->display_options['fields']['field_itinerario_color']['id'] = 'field_itinerario_color';
   $handler->display->display_options['fields']['field_itinerario_color']['table'] = 'field_data_field_itinerario_color';
   $handler->display->display_options['fields']['field_itinerario_color']['field'] = 'field_itinerario_color';
   $handler->display->display_options['fields']['field_itinerario_color']['label'] = '';
   $handler->display->display_options['fields']['field_itinerario_color']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_itinerario_color']['element_label_colon'] = FALSE;
-  /* Campo: Content: Número */
+  /* Campo: Contenido: Número */
   $handler->display->display_options['fields']['field_itinerario_linea']['id'] = 'field_itinerario_linea';
   $handler->display->display_options['fields']['field_itinerario_linea']['table'] = 'field_data_field_itinerario_linea';
   $handler->display->display_options['fields']['field_itinerario_linea']['field'] = 'field_itinerario_linea';
@@ -66,7 +67,7 @@ function katakrak_itinerarios_views_default_views() {
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
-  /* Campo: Content: Title */
+  /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -75,26 +76,26 @@ function katakrak_itinerarios_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Contenido: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Contenido: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Language */
+  /* Filter criterion: Contenido: Idioma */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
   $handler->display->display_options['filters']['language']['field'] = 'language';
   $handler->display->display_options['filters']['language']['value'] = array(
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Contenido: Tipo */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -223,22 +224,22 @@ function katakrak_itinerarios_views_default_views() {
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = '<a href="/node/add/event">Crear evento</a>';
   $handler->display->display_options['header']['area']['format'] = 'sinopsis';
-  /* Campo: Content: Title */
+  /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Content: Language */
+  /* Campo: Contenido: Idioma */
   $handler->display->display_options['fields']['language']['id'] = 'language';
   $handler->display->display_options['fields']['language']['table'] = 'node';
   $handler->display->display_options['fields']['language']['field'] = 'language';
-  /* Campo: Content: Edit link */
+  /* Campo: Contenido: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['label'] = 'Editar';
-  /* Campo: Content: Número */
+  /* Campo: Contenido: Número */
   $handler->display->display_options['fields']['field_itinerario_linea']['id'] = 'field_itinerario_linea';
   $handler->display->display_options['fields']['field_itinerario_linea']['table'] = 'field_data_field_itinerario_linea';
   $handler->display->display_options['fields']['field_itinerario_linea']['field'] = 'field_itinerario_linea';
@@ -248,7 +249,7 @@ function katakrak_itinerarios_views_default_views() {
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
-  /* Campo: Content: Color */
+  /* Campo: Contenido: Color */
   $handler->display->display_options['fields']['field_itinerario_color']['id'] = 'field_itinerario_color';
   $handler->display->display_options['fields']['field_itinerario_color']['table'] = 'field_data_field_itinerario_color';
   $handler->display->display_options['fields']['field_itinerario_color']['field'] = 'field_itinerario_color';
@@ -258,16 +259,16 @@ function katakrak_itinerarios_views_default_views() {
     'width' => '30',
     'height' => '30',
   );
-  /* Sort criterion: Content: Updated date */
+  /* Sort criterion: Contenido: Fecha de modificación */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
   $handler->display->display_options['sorts']['changed']['field'] = 'changed';
   $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
-  /* Sort criterion: Content: Páginas (field_libro_paginas) */
+  /* Sort criterion: Contenido: Páginas (field_libro_paginas) */
   $handler->display->display_options['sorts']['field_libro_paginas_value']['id'] = 'field_libro_paginas_value';
   $handler->display->display_options['sorts']['field_libro_paginas_value']['table'] = 'field_data_field_libro_paginas';
   $handler->display->display_options['sorts']['field_libro_paginas_value']['field'] = 'field_libro_paginas_value';
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Contenido: Tipo */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -301,8 +302,8 @@ function katakrak_itinerarios_views_default_views() {
     t('siguiente ›'),
     t('última »'),
     t('<a href="/node/add/event">Crear evento</a>'),
-    t('Title'),
-    t('Language'),
+    t('Título'),
+    t('Idioma'),
     t('Editar'),
     t('Línea'),
     t('Color'),

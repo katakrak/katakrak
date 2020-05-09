@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_kantina.features.field_base.inc
@@ -10,7 +11,7 @@
 function katakrak_kantina_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_media'
+  // Exported field_base: 'field_media'.
   $field_bases['field_media'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -33,7 +34,7 @@ function katakrak_kantina_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_menu_azkenburukoak'
+  // Exported field_base: 'field_menu_azkenburukoak'.
   $field_bases['field_menu_azkenburukoak'] = array(
     'active' => 1,
     'cardinality' => 5,
@@ -54,7 +55,7 @@ function katakrak_kantina_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_menu_beroak'
+  // Exported field_base: 'field_menu_beroak'.
   $field_bases['field_menu_beroak'] = array(
     'active' => 1,
     'cardinality' => 5,
@@ -75,7 +76,7 @@ function katakrak_kantina_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_menu_gosariak'
+  // Exported field_base: 'field_menu_gosariak'.
   $field_bases['field_menu_gosariak'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -94,7 +95,7 @@ function katakrak_kantina_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_menu_hotzak'
+  // Exported field_base: 'field_menu_hotzak'.
   $field_bases['field_menu_hotzak'] = array(
     'active' => 1,
     'cardinality' => 5,
@@ -115,7 +116,7 @@ function katakrak_kantina_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_menu_oharrak'
+  // Exported field_base: 'field_menu_oharrak'.
   $field_bases['field_menu_oharrak'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -134,7 +135,7 @@ function katakrak_kantina_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_receta_cuerpo'
+  // Exported field_base: 'field_receta_cuerpo'.
   $field_bases['field_receta_cuerpo'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -153,7 +154,7 @@ function katakrak_kantina_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'field_receta_imagen'
+  // Exported field_base: 'field_receta_imagen'.
   $field_bases['field_receta_imagen'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -175,7 +176,7 @@ function katakrak_kantina_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_receta_ingredientes'
+  // Exported field_base: 'field_receta_ingredientes'.
   $field_bases['field_receta_ingredientes'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -196,7 +197,7 @@ function katakrak_kantina_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_receta_tipo'
+  // Exported field_base: 'field_receta_tipo'.
   $field_bases['field_receta_tipo'] = array(
     'active' => 1,
     'cardinality' => 1,

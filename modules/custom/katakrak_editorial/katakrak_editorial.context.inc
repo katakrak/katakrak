@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_editorial.context.inc
@@ -29,14 +30,7 @@ function katakrak_editorial_context_default_contexts() {
   );
   $context->reactions = array(
     'block' => array(
-      'blocks' => array(
-        'paypal_donations-paypal_donations_single' => array(
-          'module' => 'paypal_donations',
-          'delta' => 'paypal_donations_single',
-          'region' => 'content_bottom',
-          'weight' => '-10',
-        ),
-      ),
+      'blocks' => array(),
       'layout' => 'book',
     ),
     'menu' => array(

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_blog.views_default.inc
@@ -123,7 +124,7 @@ function katakrak_blog_views_default_views() {
     1 => 'AND',
     2 => 'OR',
   );
-  /* Filter criterion: Contenido: Publicado */
+  /* Filter criterion: Contenido: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -262,7 +263,7 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['fields']['field_blog_cuerpo']['settings'] = array(
     'trim_length' => '400',
   );
-  /* Campo: Contenido: Enlace */
+  /* Campo: Contenido: Link to content */
   $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
@@ -316,7 +317,7 @@ function katakrak_blog_views_default_views() {
     2 => 'OR',
   );
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Contenido: Publicado */
+  /* Filter criterion: Contenido: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -530,7 +531,7 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['fields']['nodequeue_links']['table'] = 'node';
   $handler->display->display_options['fields']['nodequeue_links']['field'] = 'nodequeue_links';
   $handler->display->display_options['fields']['nodequeue_links']['label'] = 'Promocionar';
-  /* Campo: Contenido: Enlace de edición */
+  /* Campo: Contenido: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';

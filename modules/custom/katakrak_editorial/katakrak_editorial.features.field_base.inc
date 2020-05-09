@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_editorial.features.field_base.inc
@@ -54,6 +55,27 @@ function katakrak_editorial_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'list_boolean',
+  );
+
+  // Exported field_base: 'field_donacion'.
+  $field_bases['field_donacion'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_donacion',
+    'indexes' => array(
+      'product_id' => array(
+        0 => 'product_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'commerce_product_reference',
+    'settings' => array(
+      'options_list_limit' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'commerce_product_reference',
   );
 
   // Exported field_base: 'field_editorial_libro'.
@@ -207,6 +229,29 @@ function katakrak_editorial_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'text',
+  );
+
+  // Exported field_base: 'field_libro_ed_pdf_descarga'.
+  $field_bases['field_libro_ed_pdf_descarga'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_libro_ed_pdf_descarga',
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'file',
+    'settings' => array(
+      'display_default' => 0,
+      'display_field' => 0,
+      'uri_scheme' => 'public',
+    ),
+    'translatable' => 0,
+    'type' => 'file',
   );
 
   // Exported field_base: 'field_libro_ed_precio'.
@@ -399,7 +444,7 @@ function katakrak_editorial_field_default_field_bases() {
     'module' => 'file',
     'settings' => array(
       'display_default' => 1,
-      'display_field' => 0,
+      'display_field' => 1,
       'uri_scheme' => 'public',
     ),
     'translatable' => 0,

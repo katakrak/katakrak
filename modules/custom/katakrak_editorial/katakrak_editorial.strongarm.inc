@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_editorial.strongarm.inc
@@ -163,6 +164,30 @@ function katakrak_editorial_strongarm() {
             'visible' => TRUE,
           ),
         ),
+        'product:sku' => array(
+          'default' => array(
+            'weight' => '-10',
+            'visible' => FALSE,
+          ),
+        ),
+        'product:title' => array(
+          'default' => array(
+            'weight' => '-5',
+            'visible' => FALSE,
+          ),
+        ),
+        'product:status' => array(
+          'default' => array(
+            'weight' => '5',
+            'visible' => FALSE,
+          ),
+        ),
+        'product:commerce_price' => array(
+          'default' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+        ),
       ),
     ),
   );
@@ -246,7 +271,9 @@ function katakrak_editorial_strongarm() {
     14 => 'field_libro_editorial_nota',
     15 => 'field_editorial_prologuista',
     16 => 'field_libro_ed_resenas',
-    17 => 'status',
+    17 => 'field_donacion',
+    18 => 'field_libro_ed_pdf_descarga',
+    19 => 'status',
   );
   $export['i18n_sync_node_type_libro_ed'] = $strongarm;
 

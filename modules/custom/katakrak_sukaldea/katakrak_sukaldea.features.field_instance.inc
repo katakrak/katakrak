@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_sukaldea.features.field_instance.inc
@@ -193,6 +194,7 @@ menú del día',
           'delete' => 'Eliminar',
           'description' => TRUE,
           'edit' => 'Editar',
+          'translate' => 'Traducir',
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',

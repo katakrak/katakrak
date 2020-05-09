@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_boletin.context.inc

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_agenda.views_default.inc
@@ -156,7 +157,7 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Todo(s)';
   $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
-  /* Filter criterion: Contenido: Publicado */
+  /* Filter criterion: Contenido: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -342,7 +343,7 @@ function katakrak_agenda_views_default_views() {
     2 => 'OR',
   );
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Contenido: Publicado */
+  /* Filter criterion: Contenido: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -381,7 +382,7 @@ function katakrak_agenda_views_default_views() {
     'und' => 'und',
   );
   $handler->display->display_options['filters']['language_1']['group'] = 2;
-  /* Filter criterion: Contenido: Promovido a la portada */
+  /* Filter criterion: Contenido: Promoted to front page status */
   $handler->display->display_options['filters']['promote']['id'] = 'promote';
   $handler->display->display_options['filters']['promote']['table'] = 'node';
   $handler->display->display_options['filters']['promote']['field'] = 'promote';
@@ -442,7 +443,7 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Contenido: Publicado */
+  /* Filter criterion: Contenido: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -606,7 +607,7 @@ function katakrak_agenda_views_default_views() {
     2 => 'OR',
   );
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Contenido: Publicado */
+  /* Filter criterion: Contenido: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -745,7 +746,7 @@ function katakrak_agenda_views_default_views() {
   );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Contenido: Publicado */
+  /* Filter criterion: Contenido: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -847,7 +848,7 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['arguments']['nid']['not'] = TRUE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Contenido: Publicado */
+  /* Filter criterion: Contenido: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -949,7 +950,7 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Contenido: Publicado */
+  /* Filter criterion: Contenido: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -1020,7 +1021,7 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['fields']['field_event_type']['type'] = 'i18n_taxonomy_term_reference_plain';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Contenido: Publicado */
+  /* Filter criterion: Contenido: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -1081,6 +1082,7 @@ function katakrak_agenda_views_default_views() {
     t('Leer más'),
     t('Todo(s)'),
     t('Filter Bloque'),
+    t('more'),
     t('term'),
     t('Home block'),
     t('Inicio'),
@@ -1241,7 +1243,7 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['fields']['nodequeue_links']['table'] = 'node';
   $handler->display->display_options['fields']['nodequeue_links']['field'] = 'nodequeue_links';
   $handler->display->display_options['fields']['nodequeue_links']['label'] = 'Promocionar';
-  /* Campo: Contenido: Enlace de edición */
+  /* Campo: Contenido: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
@@ -1439,6 +1441,7 @@ function katakrak_agenda_views_default_views() {
     t('Promocionar'),
     t('Editar'),
     t('Page'),
+    t('more'),
     t('References'),
     t('Agenda reference'),
     t('Agenda actos pasados'),
@@ -1527,7 +1530,7 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['fields']['language']['id'] = 'language';
   $handler->display->display_options['fields']['language']['table'] = 'node';
   $handler->display->display_options['fields']['language']['field'] = 'language';
-  /* Campo: Contenido: Enlace de edición */
+  /* Campo: Contenido: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
@@ -1714,6 +1717,7 @@ function katakrak_agenda_views_default_views() {
     t('Título'),
     t('Idioma'),
     t('Page'),
+    t('more'),
     t('References'),
     t('Agenda reference'),
     t('Agenda actos pasados'),
@@ -1906,7 +1910,7 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Todo(s)';
   $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
-  /* Filter criterion: Contenido: Publicado */
+  /* Filter criterion: Contenido: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -1967,6 +1971,7 @@ function katakrak_agenda_views_default_views() {
     t('event_tid'),
     t('Todo(s)'),
     t('Services'),
+    t('more'),
   );
   $export['service_agenda'] = $view;
 

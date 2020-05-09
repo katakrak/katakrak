@@ -7,18 +7,18 @@
 
 include_once 'katakrak_socios.features.inc';
 
-//function katakrak_socios_menu() {
-//    $items['hazte-socio']  = array(
-//    'title' => 'Hazte socio',
-//    'page callback' => 'katakrak_socios_hazte',
-//     'access callback' => 'user_access',
-//    'access arguments' => array('access content'),
-//    'type' => MENU_LOCAL_TASK,
-//    'weight' => 100,
-//  );
-//  return $items;
-//}
-//
-//function katakrak_socios_hazte() {
-//    return '';
-//}
+function katakrak_socios_menu() {
+    $items['hazte-socio/alta']  = array(
+    'title' => 'Hazte socio',
+    'page callback' => 'katakrak_socios_hazte',
+     'access callback' => 'user_access',
+    'access arguments' => array('access content'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 100,
+  );
+  return $items;
+}
+
+function katakrak_socios_hazte() {
+    return '';
+}

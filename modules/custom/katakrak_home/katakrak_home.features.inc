@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_home.features.inc
@@ -41,10 +42,9 @@ function katakrak_home_fe_nodequeue_export_fields() {
     'reverse' => 0,
     'i18n' => 0,
     'insert_at_front' => 0,
+    'unique_entries' => 0,
     'subqueues' => 1,
-    'types' => array(
-      0 => 'event',
-    ),
+    'types' => array(),
     'roles' => array(),
     'count' => 0,
   );

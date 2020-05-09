@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_itinerarios.features.field_base.inc
@@ -10,7 +11,7 @@
 function katakrak_itinerarios_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_itinerario_color'
+  // Exported field_base: 'field_itinerario_color'.
   $field_bases['field_itinerario_color'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -32,7 +33,7 @@ function katakrak_itinerarios_field_default_field_bases() {
     'type' => 'color_field_rgb',
   );
 
-  // Exported field_base: 'field_itinerario_descripcion'
+  // Exported field_base: 'field_itinerario_descripcion'.
   $field_bases['field_itinerario_descripcion'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -51,7 +52,7 @@ function katakrak_itinerarios_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_itinerario_imagen'
+  // Exported field_base: 'field_itinerario_imagen'.
   $field_bases['field_itinerario_imagen'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -73,7 +74,7 @@ function katakrak_itinerarios_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_itinerario_linea'
+  // Exported field_base: 'field_itinerario_linea'.
   $field_bases['field_itinerario_linea'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -88,7 +89,7 @@ function katakrak_itinerarios_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_itinerario_parada_libros'
+  // Exported field_base: 'field_itinerario_parada_libros'.
   $field_bases['field_itinerario_parada_libros'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -99,18 +100,22 @@ function katakrak_itinerarios_field_default_field_bases() {
       'revision_id' => array(
         0 => 'revision_id',
       ),
+      'value' => array(
+        0 => 'value',
+      ),
     ),
     'locked' => 0,
     'module' => 'field_collection',
     'settings' => array(
       'hide_blank_items' => 1,
+      'hide_initial_item' => FALSE,
       'path' => '',
     ),
     'translatable' => 0,
     'type' => 'field_collection',
   );
 
-  // Exported field_base: 'field_itinerario_paradas'
+  // Exported field_base: 'field_itinerario_paradas'.
   $field_bases['field_itinerario_paradas'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -121,18 +126,22 @@ function katakrak_itinerarios_field_default_field_bases() {
       'revision_id' => array(
         0 => 'revision_id',
       ),
+      'value' => array(
+        0 => 'value',
+      ),
     ),
     'locked' => 0,
     'module' => 'field_collection',
     'settings' => array(
       'hide_blank_items' => 1,
+      'hide_initial_item' => FALSE,
       'path' => '',
     ),
     'translatable' => 0,
     'type' => 'field_collection',
   );
 
-  // Exported field_base: 'field_itineraro_tipo'
+  // Exported field_base: 'field_itineraro_tipo'.
   $field_bases['field_itineraro_tipo'] = array(
     'active' => 1,
     'cardinality' => 2,
@@ -160,7 +169,7 @@ function katakrak_itinerarios_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_parada_libro'
+  // Exported field_base: 'field_parada_libro'.
   $field_bases['field_parada_libro'] = array(
     'active' => 1,
     'cardinality' => 2,
@@ -201,7 +210,7 @@ function katakrak_itinerarios_field_default_field_bases() {
     'type' => 'node_reference',
   );
 
-  // Exported field_base: 'title_field'
+  // Exported field_base: 'title_field'.
   $field_bases['title_field'] = array(
     'active' => 1,
     'cardinality' => 1,

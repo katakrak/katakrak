@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_editorial.pages_default.inc
@@ -16,7 +17,10 @@ function katakrak_editorial_default_page_manager_pages() {
   $page->admin_title = 'Editorial';
   $page->admin_description = '';
   $page->path = 'editorial';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array(
     'type' => 'normal',
     'title' => 'Editorial',

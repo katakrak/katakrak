@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_itinerarios.field_group.inc
@@ -8,7 +9,7 @@
  * Implements hook_field_group_info().
  */
 function katakrak_itinerarios_field_group_info() {
-  $export = array();
+  $field_groups = array();
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -41,7 +42,7 @@ function katakrak_itinerarios_field_group_info() {
       'formatter' => 'collapsible',
     ),
   );
-  $export['group_itinerario_info|node|itinerario|form'] = $field_group;
+  $field_groups['group_itinerario_info|node|itinerario|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -69,7 +70,12 @@ function katakrak_itinerarios_field_group_info() {
       'formatter' => 'collapsed',
     ),
   );
-  $export['group_itinerario_paradas|node|itinerario|form'] = $field_group;
+  $field_groups['group_itinerario_paradas|node|itinerario|form'] = $field_group;
 
-  return $export;
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Itinerario');
+  t('Paradas');
+
+  return $field_groups;
 }

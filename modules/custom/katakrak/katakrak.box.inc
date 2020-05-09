@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak.box.inc

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_kantina.features.inc
@@ -51,10 +52,9 @@ function katakrak_kantina_fe_nodequeue_export_fields() {
     'reverse' => 0,
     'i18n' => NULL,
     'insert_at_front' => 0,
+    'unique_entries' => 0,
     'subqueues' => 1,
-    'types' => array(
-      0 => 'portfolio',
-    ),
+    'types' => array(),
     'roles' => array(),
     'count' => 0,
   );

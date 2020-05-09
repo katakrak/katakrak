@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_boletin.features.field_base.inc
@@ -10,7 +11,7 @@
 function katakrak_boletin_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_boletin_body'
+  // Exported field_base: 'field_boletin_body'.
   $field_bases['field_boletin_body'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -21,18 +22,22 @@ function katakrak_boletin_field_default_field_bases() {
       'revision_id' => array(
         0 => 'revision_id',
       ),
+      'value' => array(
+        0 => 'value',
+      ),
     ),
     'locked' => 0,
     'module' => 'field_collection',
     'settings' => array(
       'hide_blank_items' => 1,
+      'hide_initial_item' => FALSE,
       'path' => '',
     ),
     'translatable' => 0,
     'type' => 'field_collection',
   );
 
-  // Exported field_base: 'field_boletin_body_seccion'
+  // Exported field_base: 'field_boletin_body_seccion'.
   $field_bases['field_boletin_body_seccion'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -59,7 +64,7 @@ function katakrak_boletin_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_boletin_body_subtitulo'
+  // Exported field_base: 'field_boletin_body_subtitulo'.
   $field_bases['field_boletin_body_subtitulo'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -80,7 +85,7 @@ function katakrak_boletin_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_boletin_body_texto'
+  // Exported field_base: 'field_boletin_body_texto'.
   $field_bases['field_boletin_body_texto'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -99,7 +104,7 @@ function katakrak_boletin_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_boletin_eventos'
+  // Exported field_base: 'field_boletin_eventos'.
   $field_bases['field_boletin_eventos'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -137,7 +142,7 @@ function katakrak_boletin_field_default_field_bases() {
     'type' => 'node_reference',
   );
 
-  // Exported field_base: 'field_boletin_imagen'
+  // Exported field_base: 'field_boletin_imagen'.
   $field_bases['field_boletin_imagen'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -159,10 +164,10 @@ function katakrak_boletin_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_boletin_libros'
+  // Exported field_base: 'field_boletin_libros'.
   $field_bases['field_boletin_libros'] = array(
     'active' => 1,
-    'cardinality' => -1,
+    'cardinality' => 10,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_boletin_libros',
@@ -176,13 +181,23 @@ function katakrak_boletin_field_default_field_bases() {
     'settings' => array(
       'referenceable_types' => array(
         'article' => 0,
+        'autor_ed' => 0,
         'blog' => 0,
         'boletin' => 0,
+        'boletin_bibliotecas' => 0,
+        'ciclo' => 0,
+        'eguneko_menua' => 0,
         'event' => 0,
+        'imagen' => 0,
         'itinerario' => 0,
         'libro' => 'libro',
+        'libro_ed' => 0,
         'page' => 0,
         'portfolio' => 0,
+        'receta' => 0,
+        'simplenews' => 0,
+        'sukalde_errezeta' => 0,
+        'sukalde_produktua' => 0,
       ),
       'view' => array(
         'args' => array(),
@@ -194,7 +209,7 @@ function katakrak_boletin_field_default_field_bases() {
     'type' => 'node_reference',
   );
 
-  // Exported field_base: 'field_link_imagen'
+  // Exported field_base: 'field_link_imagen'.
   $field_bases['field_link_imagen'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -215,7 +230,7 @@ function katakrak_boletin_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_simplenews_boletin'
+  // Exported field_base: 'field_simplenews_boletin'.
   $field_bases['field_simplenews_boletin'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -253,7 +268,7 @@ function katakrak_boletin_field_default_field_bases() {
     'type' => 'node_reference',
   );
 
-  // Exported field_base: 'field_simplenews_term'
+  // Exported field_base: 'field_simplenews_term'.
   $field_bases['field_simplenews_term'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -280,7 +295,7 @@ function katakrak_boletin_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_tags'
+  // Exported field_base: 'field_tags'.
   $field_bases['field_tags'] = array(
     'active' => 1,
     'cardinality' => -1,

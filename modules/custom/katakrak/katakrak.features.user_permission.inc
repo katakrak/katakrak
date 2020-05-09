@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak.features.user_permission.inc

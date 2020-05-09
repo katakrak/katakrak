@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_editorial.features.field_instance.inc
@@ -268,6 +269,61 @@ function katakrak_editorial_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-libro_ed-field_donacion'.
+  $field_instances['node-libro_ed-field_donacion'] = array(
+    'bundle' => 'libro_ed',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'commerce_cart',
+        'settings' => array(
+          'button_text' => 'Comprar',
+          'combine' => 1,
+          'default_quantity' => 1,
+          'line_item_type' => 'commerce_donate',
+          'show_quantity' => 0,
+          'show_single_product_attributes' => 0,
+        ),
+        'type' => 'commerce_cart_add_to_cart_form',
+        'weight' => 20,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_donacion',
+    'label' => 'Donación',
+    'required' => 0,
+    'settings' => array(
+      'field_injection' => 1,
+      'referenceable_types' => array(
+        'donation' => 'donation',
+        'libro' => 0,
+        'product' => 0,
+        'shipping_tariff' => 0,
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'commerce_product_reference',
+      'settings' => array(
+        'autocomplete_match' => 'contains',
+        'autocomplete_path' => 'commerce_product/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'commerce_product_reference_autocomplete',
+      'weight' => 19,
+    ),
+  );
+
   // Exported field_instance: 'node-libro_ed-field_editorial_libro'.
   $field_instances['node-libro_ed-field_editorial_libro'] = array(
     'bundle' => 'libro_ed',
@@ -432,7 +488,11 @@ function katakrak_editorial_field_default_field_instances() {
   // Exported field_instance: 'node-libro_ed-field_libro_ed_encuadernacion'.
   $field_instances['node-libro_ed-field_libro_ed_encuadernacion'] = array(
     'bundle' => 'libro_ed',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'Rústica con solapas',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -453,18 +513,61 @@ function katakrak_editorial_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_libro_ed_encuadernacion',
     'label' => 'Encuadernación',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
         'size' => 60,
       ),
       'type' => 'text_textfield',
       'weight' => 14,
+    ),
+  );
+
+  // Exported field_instance: 'node-libro_ed-field_libro_ed_pdf_descarga'.
+  $field_instances['node-libro_ed-field_libro_ed_pdf_descarga'] = array(
+    'bundle' => 'libro_ed',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 21,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_libro_ed_pdf_descarga',
+    'label' => 'Pdf para descarga',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'pdf',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'bar',
+      ),
+      'type' => 'file_generic',
+      'weight' => 18,
     ),
   );
 
@@ -644,7 +747,7 @@ function katakrak_editorial_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
-      'weight' => 18,
+      'weight' => 14,
     ),
   );
 
@@ -751,9 +854,11 @@ function katakrak_editorial_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'file',
-        'settings' => array(),
-        'type' => 'file_default',
+        'module' => 'file_entity',
+        'settings' => array(
+          'text' => '[file:name]',
+        ),
+        'type' => 'file_download_link',
         'weight' => 17,
       ),
       'teaser' => array(
@@ -765,7 +870,7 @@ function katakrak_editorial_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_libro_editorial_nota',
-    'label' => 'Nota editorial',
+    'label' => 'Adjunto',
     'required' => 0,
     'settings' => array(
       'description_field' => 1,
@@ -781,7 +886,7 @@ function katakrak_editorial_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 17,
+      'weight' => 15,
     ),
   );
 
@@ -1118,9 +1223,11 @@ function katakrak_editorial_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Adjunto');
   t('Autor');
   t('Autor Geslib');
   t('Biografía');
+  t('Donación');
   t('En formato Fillat, Nerea. Para ordenar en la página de autores');
   t('Encuadernación');
   t('Esto es para que en la ficha del autor aparezcan libros que están en la librería pero no hemos publicado');
@@ -1130,7 +1237,7 @@ function katakrak_editorial_field_default_field_instances() {
   t('Indicar si el autor es traductor');
   t('Isbn');
   t('Nombre y apellido');
-  t('Nota editorial');
+  t('Pdf para descarga');
   t('Portada');
   t('Precio');
   t('Prologuista');

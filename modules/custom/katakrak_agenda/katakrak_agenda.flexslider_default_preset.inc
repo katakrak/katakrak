@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_agenda.flexslider_default_preset.inc

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_agenda.features.user_permission.inc

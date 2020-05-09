@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_kantina.features.user_permission.inc

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_boletin.features.field_instance.inc
@@ -11,7 +12,7 @@ function katakrak_boletin_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance:
-  // 'field_collection_item-field_boletin_body-field_boletin_body_seccion'
+  // 'field_collection_item-field_boletin_body-field_boletin_body_seccion'.
   $field_instances['field_collection_item-field_boletin_body-field_boletin_body_seccion'] = array(
     'bundle' => 'field_boletin_body',
     'default_value' => NULL,
@@ -43,7 +44,7 @@ function katakrak_boletin_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_boletin_body-field_boletin_body_subtitulo'
+  // 'field_collection_item-field_boletin_body-field_boletin_body_subtitulo'.
   $field_instances['field_collection_item-field_boletin_body-field_boletin_body_subtitulo'] = array(
     'bundle' => 'field_boletin_body',
     'default_value' => NULL,
@@ -78,7 +79,7 @@ function katakrak_boletin_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_boletin_body-field_boletin_body_texto'
+  // 'field_collection_item-field_boletin_body-field_boletin_body_texto'.
   $field_instances['field_collection_item-field_boletin_body-field_boletin_body_texto'] = array(
     'bundle' => 'field_boletin_body',
     'default_value' => NULL,
@@ -112,7 +113,7 @@ function katakrak_boletin_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-boletin-body'
+  // Exported field_instance: 'node-boletin-body'.
   $field_instances['node-boletin-body'] = array(
     'bundle' => 'boletin',
     'default_value' => NULL,
@@ -157,7 +158,7 @@ function katakrak_boletin_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-boletin-field_blog_adjunto'
+  // Exported field_instance: 'node-boletin-field_blog_adjunto'.
   $field_instances['node-boletin-field_blog_adjunto'] = array(
     'bundle' => 'boletin',
     'deleted' => 0,
@@ -210,7 +211,7 @@ function katakrak_boletin_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-boletin-field_blog_tipo'
+  // Exported field_instance: 'node-boletin-field_blog_tipo'.
   $field_instances['node-boletin-field_blog_tipo'] = array(
     'bundle' => 'boletin',
     'default_value' => array(
@@ -251,7 +252,7 @@ function katakrak_boletin_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-boletin-field_boletin_body'
+  // Exported field_instance: 'node-boletin-field_boletin_body'.
   $field_instances['node-boletin-field_boletin_body'] = array(
     'bundle' => 'boletin',
     'default_value' => NULL,
@@ -266,6 +267,7 @@ function katakrak_boletin_field_default_field_instances() {
           'delete' => 'Eliminar',
           'description' => TRUE,
           'edit' => 'Editar',
+          'translate' => 'Traducir',
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
@@ -294,7 +296,7 @@ function katakrak_boletin_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-boletin-field_boletin_eventos'
+  // Exported field_instance: 'node-boletin-field_boletin_eventos'.
   $field_instances['node-boletin-field_boletin_eventos'] = array(
     'bundle' => 'boletin',
     'default_value' => NULL,
@@ -316,6 +318,16 @@ function katakrak_boletin_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
+    'entityconnect' => array(
+      'button' => array(
+        'unload_add_button' => NULL,
+        'unload_edit_button' => NULL,
+      ),
+      'icon' => array(
+        'show_add_icon' => NULL,
+        'show_edit_icon' => NULL,
+      ),
+    ),
     'field_name' => 'field_boletin_eventos',
     'label' => 'Eventos',
     'required' => 0,
@@ -335,7 +347,7 @@ function katakrak_boletin_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-boletin-field_boletin_imagen'
+  // Exported field_instance: 'node-boletin-field_boletin_imagen'.
   $field_instances['node-boletin-field_boletin_imagen'] = array(
     'bundle' => 'boletin',
     'deleted' => 0,
@@ -402,7 +414,7 @@ function katakrak_boletin_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-boletin-field_boletin_libros'
+  // Exported field_instance: 'node-boletin-field_boletin_libros'.
   $field_instances['node-boletin-field_boletin_libros'] = array(
     'bundle' => 'boletin',
     'default_value' => NULL,
@@ -424,6 +436,16 @@ function katakrak_boletin_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
+    'entityconnect' => array(
+      'button' => array(
+        'unload_add_button' => NULL,
+        'unload_edit_button' => NULL,
+      ),
+      'icon' => array(
+        'show_add_icon' => NULL,
+        'show_edit_icon' => NULL,
+      ),
+    ),
     'field_name' => 'field_boletin_libros',
     'label' => 'Libros',
     'required' => 0,
@@ -443,7 +465,7 @@ function katakrak_boletin_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-boletin-field_image'
+  // Exported field_instance: 'node-boletin-field_image'.
   $field_instances['node-boletin-field_image'] = array(
     'bundle' => 'boletin',
     'deleted' => 0,
@@ -510,7 +532,7 @@ function katakrak_boletin_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-boletin-field_link_imagen'
+  // Exported field_instance: 'node-boletin-field_link_imagen'.
   $field_instances['node-boletin-field_link_imagen'] = array(
     'bundle' => 'boletin',
     'default_value' => NULL,
@@ -550,7 +572,7 @@ function katakrak_boletin_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-boletin-field_simplenews_term'
+  // Exported field_instance: 'node-boletin-field_simplenews_term'.
   $field_instances['node-boletin-field_simplenews_term'] = array(
     'bundle' => 'boletin',
     'default_value' => NULL,
@@ -604,7 +626,7 @@ function katakrak_boletin_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-boletin-field_tags'
+  // Exported field_instance: 'node-boletin-field_tags'.
   $field_instances['node-boletin-field_tags'] = array(
     'bundle' => 'boletin',
     'default_value' => NULL,
@@ -644,7 +666,7 @@ function katakrak_boletin_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-simplenews-field_simplenews_boletin'
+  // Exported field_instance: 'node-simplenews-field_simplenews_boletin'.
   $field_instances['node-simplenews-field_simplenews_boletin'] = array(
     'bundle' => 'simplenews',
     'default_value' => NULL,
@@ -666,6 +688,16 @@ function katakrak_boletin_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
+    'entityconnect' => array(
+      'button' => array(
+        'unload_add_button' => 0,
+        'unload_edit_button' => 0,
+      ),
+      'icon' => array(
+        'show_add_icon' => NULL,
+        'show_edit_icon' => NULL,
+      ),
+    ),
     'entityconnect_unload_add' => 0,
     'entityconnect_unload_edit' => 0,
     'field_name' => 'field_simplenews_boletin',

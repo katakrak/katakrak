@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_agenda.features.field_instance.inc
@@ -793,9 +794,11 @@ function katakrak_agenda_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'title',
         'settings' => array(
+          'enable_trim' => FALSE,
           'title_class' => '',
           'title_link' => 'content',
           'title_style' => 'h3',
+          'trim_length' => 50,
         ),
         'type' => 'title_linked',
         'weight' => 3,

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_kantina.flexslider_default_preset.inc

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_kantina.features.field_instance.inc
@@ -10,7 +11,7 @@
 function katakrak_kantina_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-eguneko_menua-field_menu_azkenburukoak'
+  // Exported field_instance: 'node-eguneko_menua-field_menu_azkenburukoak'.
   $field_instances['node-eguneko_menua-field_menu_azkenburukoak'] = array(
     'bundle' => 'eguneko_menua',
     'default_value' => NULL,
@@ -50,7 +51,7 @@ function katakrak_kantina_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-eguneko_menua-field_menu_beroak'
+  // Exported field_instance: 'node-eguneko_menua-field_menu_beroak'.
   $field_instances['node-eguneko_menua-field_menu_beroak'] = array(
     'bundle' => 'eguneko_menua',
     'default_value' => NULL,
@@ -90,7 +91,7 @@ function katakrak_kantina_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-eguneko_menua-field_menu_gosariak'
+  // Exported field_instance: 'node-eguneko_menua-field_menu_gosariak'.
   $field_instances['node-eguneko_menua-field_menu_gosariak'] = array(
     'bundle' => 'eguneko_menua',
     'default_value' => NULL,
@@ -130,7 +131,7 @@ function katakrak_kantina_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-eguneko_menua-field_menu_hotzak'
+  // Exported field_instance: 'node-eguneko_menua-field_menu_hotzak'.
   $field_instances['node-eguneko_menua-field_menu_hotzak'] = array(
     'bundle' => 'eguneko_menua',
     'default_value' => NULL,
@@ -170,7 +171,7 @@ function katakrak_kantina_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-eguneko_menua-field_menu_oharrak'
+  // Exported field_instance: 'node-eguneko_menua-field_menu_oharrak'.
   $field_instances['node-eguneko_menua-field_menu_oharrak'] = array(
     'bundle' => 'eguneko_menua',
     'default_value' => NULL,
@@ -210,7 +211,7 @@ function katakrak_kantina_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-receta-field_media'
+  // Exported field_instance: 'node-receta-field_media'.
   $field_instances['node-receta-field_media'] = array(
     'bundle' => 'receta',
     'default_value' => NULL,
@@ -255,7 +256,7 @@ function katakrak_kantina_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-receta-field_receta_cuerpo'
+  // Exported field_instance: 'node-receta-field_receta_cuerpo'.
   $field_instances['node-receta-field_receta_cuerpo'] = array(
     'bundle' => 'receta',
     'default_value' => NULL,
@@ -297,7 +298,7 @@ function katakrak_kantina_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-receta-field_receta_imagen'
+  // Exported field_instance: 'node-receta-field_receta_imagen'.
   $field_instances['node-receta-field_receta_imagen'] = array(
     'bundle' => 'receta',
     'deleted' => 0,
@@ -364,7 +365,7 @@ function katakrak_kantina_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-receta-field_receta_ingredientes'
+  // Exported field_instance: 'node-receta-field_receta_ingredientes'.
   $field_instances['node-receta-field_receta_ingredientes'] = array(
     'bundle' => 'receta',
     'default_value' => NULL,
@@ -404,7 +405,7 @@ function katakrak_kantina_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-receta-field_receta_tipo'
+  // Exported field_instance: 'node-receta-field_receta_tipo'.
   $field_instances['node-receta-field_receta_tipo'] = array(
     'bundle' => 'receta',
     'default_value' => NULL,

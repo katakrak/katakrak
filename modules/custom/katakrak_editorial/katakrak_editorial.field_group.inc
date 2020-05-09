@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_editorial.field_group.inc
@@ -9,6 +10,35 @@
  */
 function katakrak_editorial_field_group_info() {
   $field_groups = array();
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_descarga|node|libro_ed|form';
+  $field_group->group_name = 'group_descarga';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'libro_ed';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Descarga/Donacion',
+    'weight' => '16',
+    'children' => array(
+      0 => 'field_donacion',
+      1 => 'field_libro_ed_pdf_descarga',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-descarga field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_descarga|node|libro_ed|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -29,7 +59,6 @@ function katakrak_editorial_field_group_info() {
       3 => 'field_libro_idioma',
       4 => 'field_libro_isbn',
       5 => 'field_libro_paginas',
-      6 => 'field_libro_editorial_nota',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -46,6 +75,7 @@ function katakrak_editorial_field_group_info() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Descarga/Donacion');
   t('Ficha técnica');
 
   return $field_groups;

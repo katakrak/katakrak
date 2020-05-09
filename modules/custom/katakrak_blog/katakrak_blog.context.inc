@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_blog.context.inc

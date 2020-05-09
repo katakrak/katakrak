@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_editorial.features.inc
@@ -51,10 +52,9 @@ function katakrak_editorial_fe_nodequeue_export_fields() {
     'reverse' => 0,
     'i18n' => 1,
     'insert_at_front' => 0,
+    'unique_entries' => 0,
     'subqueues' => 1,
-    'types' => array(
-      0 => 'autor_ed',
-    ),
+    'types' => array(),
     'roles' => array(),
     'count' => 0,
   );
@@ -75,10 +75,9 @@ function katakrak_editorial_fe_nodequeue_export_fields() {
     'reverse' => 0,
     'i18n' => 1,
     'insert_at_front' => 0,
+    'unique_entries' => 0,
     'subqueues' => 1,
-    'types' => array(
-      0 => 'autor_ed',
-    ),
+    'types' => array(),
     'roles' => array(),
     'count' => 0,
   );
@@ -99,6 +98,7 @@ function katakrak_editorial_fe_nodequeue_export_fields() {
     'reverse' => 0,
     'i18n' => 1,
     'insert_at_front' => 0,
+    'unique_entries' => 0,
     'subqueues' => 1,
     'types' => array(
       0 => 'libro_ed',
@@ -123,10 +123,9 @@ function katakrak_editorial_fe_nodequeue_export_fields() {
     'reverse' => 0,
     'i18n' => 1,
     'insert_at_front' => 0,
+    'unique_entries' => 0,
     'subqueues' => 1,
-    'types' => array(
-      0 => 'autor_ed',
-    ),
+    'types' => array(),
     'roles' => array(),
     'count' => 0,
   );
@@ -147,10 +146,9 @@ function katakrak_editorial_fe_nodequeue_export_fields() {
     'reverse' => 0,
     'i18n' => 1,
     'insert_at_front' => 0,
+    'unique_entries' => 0,
     'subqueues' => 1,
-    'types' => array(
-      0 => 'autor_ed',
-    ),
+    'types' => array(),
     'roles' => array(),
     'count' => 0,
   );

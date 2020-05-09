@@ -71,6 +71,7 @@ features[variable][] = pathauto_node_boletin_es_pattern
 features[variable][] = pathauto_node_boletin_eu_pattern
 features[variable][] = pathauto_node_boletin_pattern
 features[variable][] = pathauto_node_boletin_und_pattern
+features[variable][] = pathauto_taxonomy_term_newsletter_pattern
 features[variable][] = simplenews_content_type_boletin
 features[variable][] = simplenews_debug
 features[variable][] = simplenews_format

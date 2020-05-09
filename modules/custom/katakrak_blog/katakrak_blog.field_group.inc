@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_blog.field_group.inc

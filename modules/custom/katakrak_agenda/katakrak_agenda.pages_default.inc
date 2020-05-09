@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_agenda.pages_default.inc
