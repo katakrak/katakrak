@@ -8,7 +8,7 @@
 include_once 'katakrak_socios.features.inc';
 
 function katakrak_socios_menu() {
-    $items['hazte-socio/alta']  = array(
+  $items['hazte-socio/alta']  = array(
     'title' => 'Hazte socio',
     'page callback' => 'katakrak_socios_hazte',
      'access callback' => 'user_access',
@@ -19,6 +19,72 @@ function katakrak_socios_menu() {
   return $items;
 }
 
-function katakrak_socios_hazte() {
-    return '';
+function katakrak_socios_theme() {
+  $path = drupal_get_path('module', 'katakrak_socios');
+  return array(
+    'katakrak_socios_alta_page' => array(
+      'template' => 'katakrak-socios-alta-page',
+      'path' => $path . '/templates',
+      'arguments' => array(
+          'form_signup' => NULL, 
+          'form_aportacion' => NULL,
+      )
+    )
+  );
 }
+
+function katakrak_socios_hazte() {
+  $args = array(
+    'form_signup' => drupal_get_form('katakrak_socios_signup_form'),
+    'form_aportacion' => drupal_get_form('katakrak_socios_aportacion_form'),
+  );
+  return theme('katakrak_socios_alta_page', $args);
+}
+
+function katakrak_socios_signup_form($form, &$form_state) {
+  $form['signup'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Quiero hacerme socio de Katakrak'),
+    '#collapsed' => TRUE,
+    '#collapsible' => TRUE, 
+  );
+  $form['signup']['random'] = array(
+    '#type' => 'item',
+    '#markup' => '<h2>garbage</h2>',
+  );
+  
+  $form['signup']['name'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Nombre'),
+    '#required' => TRUE,
+    '#size' => 20,
+  );
+  
+  return $form;
+}
+
+function katakrak_socios_aportacion_form($form, &$form_state) {
+  $form['signup'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Quiero hacer una aportación puntual a Katakrak'),
+    '#collapsed' => TRUE,
+    '#collapsible' => TRUE, 
+  );
+   $form['signup']['name'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Nombre'),
+    '#required' => TRUE,
+    '#size' => 20,
+  );
+  return $form;
+}
+
+
+// if ($form_id == 'commerce_cart_add_to_cart_form_76546') {
+//    $form['line_item_fields']['commerce_donate_amount']['und']['#options'] = array(
+//        100 => "100.00",
+//        200 => "200.00",
+//        500 => "500.00",
+//        900 => "900.00",
+//    );
+//  }
