@@ -34,9 +34,10 @@ function katakrak_socios_theme() {
 }
 
 function katakrak_socios_hazte() {
+  $donation_form = drupal_render(donacion_generar_form('DONACION', $node->nid));
   $args = array(
     'form_signup' => drupal_get_form('katakrak_socios_signup_form'),
-    'form_aportacion' => drupal_get_form('katakrak_socios_aportacion_form'),
+    'form_aportacion' => $donation_form,
   );
   return theme('katakrak_socios_alta_page', $args);
 }
@@ -46,11 +47,35 @@ function katakrak_socios_signup_form($form, &$form_state) {
     '#type' => 'fieldset',
     '#title' => t('Quiero hacerme socio de Katakrak'),
     '#collapsed' => TRUE,
-    '#collapsible' => TRUE, 
+    '#collapsible' => TRUE,
+    '#attributes' => array('class'=>array('hacerme_socix')),
   );
-  $form['signup']['random'] = array(
+  $form['signup']['titulo_aportacion'] = array(
     '#type' => 'item',
-    '#markup' => '<h2>garbage</h2>',
+    '#markup' => '<h3>Mi Aportación</h3><br />',
+  );
+  
+  
+  $form['signup']['cuota'] = array(
+  '#type' => 'select_or_other',
+  '#title' => t('Aportación inicial COVID19'),
+  '#default_value' => array('500'),
+  '#options' => array(
+    '100' => t('100€'),
+    '200' => t('200€'),
+    '500' => t('500€'),
+    '1000' => t('1000€'),
+  ),
+  '#other' => t('Otra cantidad'),   // Text to show as 'other' option
+  '#required' => TRUE,
+  '#multiple' => TRUE,
+  '#other_unknown_defaults' => '200', // If the #default_value is not a valid choice in #options, what should we do? Possible values 'append', 'ignore', 'other'  (if 'other' specified you can also override #other_delimiter).
+  '#other_delimiter' => ', ', // Delimiter string to delimit multiple 'other' values into the 'other' textfield.  If this is FALSE only the last value will be used.
+  '#select_type' => 'radios', // Defaults to 'select'.  Can also be 'radios' or 'checkboxes'.
+);
+  $form['signup']['datos_personales'] = array(
+    '#type' => 'item',
+    '#markup' => '<br /><br /><h3>'.t('Datos Personales').'</h3><br />',
   );
   
   $form['signup']['name'] = array(
@@ -59,23 +84,107 @@ function katakrak_socios_signup_form($form, &$form_state) {
     '#required' => TRUE,
     '#size' => 20,
   );
+  $form['signup']['surname'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Apellidos'),
+    '#required' => TRUE,
+    '#size' => 60,
+  );
+  $form['signup']['email'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Dirección de Email'),
+    '#required' => TRUE,
+    '#size' => 60,
+  );
+  $form['signup']['IBAN'] = array(
+    '#type' => 'textfield',
+    '#title' => t('IBAN'),
+    '#required' => TRUE,
+    '#size' => 60,
+  );
+  $form['signup']['submit'] = array(
+    '#type' => 'button',
+    '#title' => t('ENVIAR'),
+    '#value' => t('ENVIAR'),
+    '#required' => TRUE,
+    '#size' => 60,
+  );
   
   return $form;
 }
 
-function katakrak_socios_aportacion_form($form, &$form_state) {
-  $form['signup'] = array(
+function katakrak_socios_signup_form_validate($form, &$form_state) {
+  dpm ($form_state);
+  if (!valid_email_address($form_state['values']['email']))
+    form_set_error('email', "capullo");
+}
+
+function katakrak_socios_aportacion_form($form, &$form_state, $donation_form) {
+  $form['aportacion'] = array(
     '#type' => 'fieldset',
     '#title' => t('Quiero hacer una aportación puntual a Katakrak'),
     '#collapsed' => TRUE,
     '#collapsible' => TRUE, 
   );
-   $form['signup']['name'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Nombre'),
-    '#required' => TRUE,
-    '#size' => 20,
+  $form['aportacion']['titulo_aportacion'] = array(
+    '#type' => 'item',
+    '#markup' => $donation_form,
   );
+  
+//  $form['aportacion']['aportacion-covid19'] = array(
+//    '#type' => 'select',
+//    '#title' => t('Aportación inicial COVID19'),
+//    '#required' => TRUE,
+//    '#options' => array(
+//       '60 €' => t('60 €'),
+//      '250 €' => t('250 €'),
+//      '500 €' => t('500 €'),
+//    ),
+//    '#default_value' => t('500 €'),
+//  );
+//  $form['aportacion']['otra-aportacion-covid19'] = array(
+//    '#type' => 'textfield',
+//    '#title' => t('Deseo realizar otra aportacion inicial COVID 19'),
+//    '#required' => TRUE,
+//    '#size' => 5,
+//    '#attributes' => array(
+//      'min' => '60',
+//      'class' => array(
+//          'numeric' => TRUE,
+//        ),
+//      ),
+//  );
+//   $form['aportacion']['name'] = array(
+//    '#type' => 'textfield',
+//    '#title' => t('Nombre'),
+//    '#required' => TRUE,
+//    '#size' => 20,
+//  );
+//   $form['aportacion']['surname'] = array(
+//    '#type' => 'textfield',
+//    '#title' => t('Apellidos'),
+//    '#required' => TRUE,
+//    '#size' => 60,
+//  );
+//  $form['aportacion']['email'] = array(
+//    '#type' => 'textfield',
+//    '#title' => t('Dirección de Email'),
+//    '#required' => TRUE,
+//    '#size' => 60,
+//  );
+//  $form['aportacion']['IBAN'] = array(
+//    '#type' => 'textfield',
+//    '#title' => t('IBAN'),
+//    '#required' => TRUE,
+//    '#size' => 60,
+//  );
+//  $form['aportacion']['submit'] = array(
+//    '#type' => 'button',
+//    '#title' => t('ENVIAR'),
+//    '#value' => t('ENVIAR'),
+//    '#required' => TRUE,
+//    '#size' => 60,
+//  );
   return $form;
 }
 

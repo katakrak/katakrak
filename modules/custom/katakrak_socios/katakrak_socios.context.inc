@@ -20,22 +20,17 @@ function katakrak_socios_context_default_contexts() {
   $context->conditions = array(
     'path' => array(
       'values' => array(
-        'hazte-socio' => 'hazte-socio',
+        'hazte-socio*' => 'hazte-socio*',
+        'egin-zaitez-bazkide*' => 'egin-zaitez-bazkide*',
       ),
     ),
   );
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'boxes-coming_soon' => array(
-          'module' => 'boxes',
-          'delta' => 'coming_soon',
-          'region' => 'content',
-          'weight' => '-10',
-        ),
-        'boxes-como_hacer_crack' => array(
-          'module' => 'boxes',
-          'delta' => 'como_hacer_crack',
+        'views-agenda-como_hacer_krak' => array(
+          'module' => 'views',
+          'delta' => 'agenda-como_hacer_krak',
           'region' => 'content_campana_right',
           'weight' => '-10',
         ),

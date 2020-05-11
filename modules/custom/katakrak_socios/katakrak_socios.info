@@ -5,6 +5,7 @@ package = Katakrak
 dependencies[] = boxes
 dependencies[] = context
 dependencies[] = ctools
+dependencies[] = views
 features[box][] = coming_soon
 features[box][] = como_hacer_crack
 features[context][] = campana-socios
