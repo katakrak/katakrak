@@ -34,19 +34,24 @@ function katakrak_socios_theme() {
 }
 
 function katakrak_socios_hazte() {
-  $donation_form = drupal_render(donacion_generar_form('DONACION', $node->nid));
   $args = array(
     'form_signup' => drupal_get_form('katakrak_socios_signup_form'),
-    'form_aportacion' => $donation_form,
+    'form_aportacion' => drupal_get_form('katakrak_socios_aportacion_form'),
   );
   return theme('katakrak_socios_alta_page', $args);
 }
 
 function katakrak_socios_signup_form($form, &$form_state) {
+  dpm($form_state);
+  if ($form_state['input']['form_id'] == 'katakrak_socios_signup_form')
+    $collapsed = FALSE;
+  else 
+    $collapsed = TRUE;
+  
   $form['signup'] = array(
     '#type' => 'fieldset',
     '#title' => t('Quiero hacerme socio de Katakrak'),
-    '#collapsed' => TRUE,
+    '#collapsed' => $collapsed,
     '#collapsible' => TRUE,
     '#attributes' => array('class'=>array('hacerme_socix')),
   );
@@ -96,27 +101,31 @@ function katakrak_socios_signup_form($form, &$form_state) {
     '#required' => TRUE,
     '#size' => 60,
   );
-  $form['signup']['IBAN'] = array(
+  $form['signup']['iban'] = array(
     '#type' => 'textfield',
     '#title' => t('IBAN'),
     '#required' => TRUE,
     '#size' => 60,
   );
   $form['signup']['submit'] = array(
-    '#type' => 'button',
-    '#title' => t('ENVIAR'),
+    '#type' => 'submit',
     '#value' => t('ENVIAR'),
-    '#required' => TRUE,
-    '#size' => 60,
   );
   
   return $form;
 }
 
 function katakrak_socios_signup_form_validate($form, &$form_state) {
-  dpm ($form_state);
   if (!valid_email_address($form_state['values']['email']))
-    form_set_error('email', "capullo");
+    form_set_error('email', t("El email introducido es incorrecto"));
+  if (!check_iban($form_state['values']['iban']))
+    form_set_error('iban', t("El número IBAN es incorrecto, por favor corríjalo"));
+}
+
+function katakrak_socios_signup_form_submit($form, &$form_state) {
+  dpm("enviado");
+  watchdog('socios', "enviado");
+  rules_invoke_component('rules_email_alta_socios', $form_state['input']['name'], $form_state['input']['surname'], $form_state['input']['surname'], $form_state['input']['surname'], $form_state['input']['surname']);
 }
 
 function katakrak_socios_aportacion_form($form, &$form_state, $donation_form) {
@@ -126,11 +135,110 @@ function katakrak_socios_aportacion_form($form, &$form_state, $donation_form) {
     '#collapsed' => TRUE,
     '#collapsible' => TRUE, 
   );
-  $form['aportacion']['titulo_aportacion'] = array(
-    '#type' => 'item',
-    '#markup' => $donation_form,
+  $form['aportacion']['cuota'] = array(
+    '#type' => 'select_or_other',
+    '#title' => t('Aportación  COVID19'),
+    '#default_value' => array('500'),
+    '#options' => array(
+      '100' => t('100€'),
+      '200' => t('200€'),
+      '500' => t('500€'),
+      '1000' => t('1000€'),
+    ),
+    '#other' => t('Otra cantidad'),   // Text to show as 'other' option
+    '#required' => TRUE,
+    '#multiple' => TRUE,
+    '#other_unknown_defaults' => '200', // If the #default_value is not a valid choice in #options, what should we do? Possible values 'append', 'ignore', 'other'  (if 'other' specified you can also override #other_delimiter).
+    '#other_delimiter' => ', ', // Delimiter string to delimit multiple 'other' values into the 'other' textfield.  If this is FALSE only the last value will be used.
+    '#select_type' => 'radios', // Defaults to 'select'.  Can also be 'radios' or 'checkboxes'.
   );
+  $form['aportacion']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('DONAR'),
+  );
+  return $form;
+}
+
+function katakrak_socios_aportacion_form_submit($form, &$form_state) {
   
+  
+  global $user;
+  $uid = ($user->uid) ? $user->uid : 0;
+  $order = commerce_order_new($uid, 'checkout_checkout');
+
+  // Save the order to get its ID.
+  commerce_order_save($order);
+  commerce_cart_order_session_save($order->order_id);
+  // Load whatever product represents the item the customer will be
+  // paying for and create a line item for it.
+  $product = commerce_product_load_by_sku('DON');
+  dpm($product);
+  watchdog("socios", print_r($product, 1));
+  
+  $product->commerce_price['und'][0]['amount'] = $form_state['input']['cuota']['select'] * 100;
+   dpm($product);
+  $line_item = commerce_product_line_item_new($product, 1, $order->order_id, array(), 'commerce_donate');
+  //$line_item = commerce_product_line_item_new($product, $default_quantity, 0, array(), "commerce_donate");
+  // Save the line item to get its ID.
+  commerce_line_item_save($line_item);
+
+  $line_item->commerce_donate_amount['und'][0]['value'] = $form_state['input']['cuota']['select'];
+    dpm($line_item);
+  // Add the line item to the order using fago's rockin' wrapper.
+  $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
+  $order_wrapper->commerce_line_items[] = $line_item;
+
+  // Save the order again to update its line item reference field.
+  commerce_order_save($order);
+  dpm($order);
+    //commerce_cart_order_refresh($order);
+//    ym(commerce_cart_order_id($uid));
+    //commerce_cart_commerce_order_load($order);
+    //ym(commerce_cart_order_is_cart($order));
+    //commerce_cart_product_add($uid, $line_item);
+    //commerce_cart_product_add_by_id($product_id);
+    //$form_state['redirect'] = 'cart';
+    //drupal_goto('cart');
+}
+
+  function check_iban($iban) {
+    $iban = strtolower(str_replace(' ','',$iban));
+
+    $countries = array('al'=>28,'ad'=>24,'at'=>20,'az'=>28,'bh'=>22,'be'=>16,'ba'=>20,'br'=>29,'bg'=>22,'cr'=>21,'hr'=>21,'cy'=>28,'cz'=>24,'dk'=>18,'do'=>28,'ee'=>20,'fo'=>18,'fi'=>18,'fr'=>27,'ge'=>22,'de'=>22,'gi'=>23,'gr'=>27,'gl'=>18,'gt'=>28,'hu'=>28,'is'=>26,'ie'=>22,'il'=>23,'it'=>27,'jo'=>30,'kz'=>20,'kw'=>30,'lv'=>21,'lb'=>28,'li'=>21,'lt'=>20,'lu'=>20,'mk'=>19,'mt'=>31,'mr'=>27,'mu'=>30,'mc'=>27,'md'=>24,'me'=>22,'nl'=>18,'no'=>15,'pk'=>24,'ps'=>29,'pl'=>28,'pt'=>25,'qa'=>29,'ro'=>24,'sm'=>27,'sa'=>24,'rs'=>22,'sk'=>24,'si'=>19,'es'=>24,'se'=>24,'ch'=>21,'tn'=>24,'tr'=>26,'ae'=>23,'gb'=>22,'vg'=>24);
+    $chars = array('a'=>10,'b'=>11,'c'=>12,'d'=>13,'e'=>14,'f'=>15,'g'=>16,'h'=>17,'i'=>18,'j'=>19,'k'=>20,'l'=>21,'m'=>22,'n'=>23,'o'=>24,'p'=>25,'q'=>26,'r'=>27,'s'=>28,'t'=>29,'u'=>30,'v'=>31,'w'=>32,'x'=>33,'y'=>34,'z'=>35);
+
+    if(strlen($iban) == $countries[substr($iban,0,2)]){
+      $moved_char = substr($iban, 4).substr($iban,0,4);
+      $moved_char_array = str_split($moved_char);
+      $new_string = "";
+      foreach($moved_char_array AS $key => $value){
+        if(!is_numeric($moved_char_array[$key]))
+          $moved_char_array[$key] = $chars[$moved_char_array[$key]];
+        
+        $new_string .= $moved_char_array[$key];
+    }
+    if(my_bcmod($new_string, '97') == 1)
+      return true;
+    }
+    return false;
+}
+
+function my_bcmod( $x, $y ) 
+{ 
+    // how many numbers to take at once? carefull not to exceed (int) 
+    $take = 5;     
+    $mod = ''; 
+
+    do 
+    { 
+        $a = (int)$mod.substr( $x, 0, $take ); 
+        $x = substr( $x, $take ); 
+        $mod = $a % $y;    
+    } 
+    while ( strlen($x) ); 
+
+    return (int)$mod; 
+} 
 //  $form['aportacion']['aportacion-covid19'] = array(
 //    '#type' => 'select',
 //    '#title' => t('Aportación inicial COVID19'),
@@ -185,8 +293,7 @@ function katakrak_socios_aportacion_form($form, &$form_state, $donation_form) {
 //    '#required' => TRUE,
 //    '#size' => 60,
 //  );
-  return $form;
-}
+
 
 
 // if ($form_id == 'commerce_cart_add_to_cart_form_76546') {

@@ -9,7 +9,7 @@
 	<h1><?php print katakrak_editorial_donacion_title($node) ?></h1>
 	  <p><strong><?php print t("Tras el PDF que te descargarás hay mucho trabajo. Haz tu aportación según consideres."); ?></strong>
 	  </p>
-      <?php print $form_donate ?>
+      <?php print drupal_render($form_donate) ?>
       <?php print $form_download ?>
     </div>
 

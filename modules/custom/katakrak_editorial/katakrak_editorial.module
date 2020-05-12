@@ -63,7 +63,7 @@ function katakrak_editorial_download($commerce_order){
 
 function katakrak_editorial_donation($node) {
 	
-	$form_donate = donacion_generar_form($node->field_donacion['und'][0]['product_id'], $node->nid);
+	$form_donate = donacion_generar_form('DON', $node->nid);
   $form_download = drupal_render(drupal_get_form('katakrak_editorial_form_download', array($node), TRUE, 'Pulsa aquí para descargar'));
 
 	return theme('katakrak_editorial_download_page', array('form_donate' => $form_donate, 'form_download' => $form_download, 'node' => $node));
@@ -104,9 +104,9 @@ function katakrak_editorial_theme() {
 }
 
 
-function  donacion_generar_form($product_id, $nid) {
+function  donacion_generar_form($sku, $nid = NULL ) {
   
-  $product = commerce_product_load($product_id);
+  $product = commerce_product_load_by_sku($sku);
   $default_quantity = 1;
   $product_ids = array($product->product_id);
 
@@ -126,7 +126,7 @@ function  donacion_generar_form($product_id, $nid) {
 
   // Build the Add to Cart form using the prepared values.
   $form = drupal_get_form($form_id, $line_item, 0, array());
-  return drupal_render($form);
+  return $form;
 }
 
 /*function katakrak_editorial_init() {
