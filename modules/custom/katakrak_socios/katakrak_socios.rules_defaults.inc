@@ -20,18 +20,19 @@ function katakrak_socios_default_rules_configuration() {
         "apellidos" : { "label" : "Apellidos", "type" : "text" },
         "email" : { "label" : "Email", "type" : "text" },
         "iban" : { "label" : "Iban", "type" : "text" },
-        "cantidad" : { "label" : "Cantidad", "type" : "integer" }
+        "cantidad" : { "label" : "Cantidad", "type" : "integer" },
+        "direccion" : { "label" : "Direcci\\u00f3n", "type" : "text" }
       },
       "ACTION SET" : [
-        { "drupal_message" : { "message" : "Hola rules [nombre:value]" } },
+        { "drupal_message" : { "message" : "Gracias por tu aportacionkdfladj\\u00f1sfkl\\u00f1a" } },
         { "mimemail" : {
             "USING" : {
               "key" : "socios_email_alta",
-              "to" : "socios@katakrak.net",
+              "to" : "socixs@katakrak.net",
               "from_name" : "Katakrak",
               "from_mail" : "info@katakrak.net",
               "subject" : "Nuevo socixs",
-              "body" : "Nombre: [nombre:value]\\r\\nApellidos: [apellidos:value]\\r\\nE-mail: [email:value]\\r\\nIban: [iban:value]\\r\\nCantidad: [cantidad:value]",
+              "body" : "Nombre: [nombre:value]\\r\\nApellidos: [apellidos:value]\\r\\nE-mail: [email:value]\\r\\nIban: [iban:value]\\r\\nCantidad: [cantidad:value]\\r\\nDireccion: [direccion:value]",
               "language" : [ "" ]
             },
             "PROVIDE" : { "send_status" : { "send_status" : "Send status" } }

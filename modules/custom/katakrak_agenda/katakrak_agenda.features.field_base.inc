@@ -26,6 +26,7 @@ function katakrak_agenda_field_default_field_bases() {
     'locked' => 0,
     'module' => 'node_reference',
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'referenceable_types' => array(
         'article' => 0,
         'blog' => 0,
@@ -68,7 +69,9 @@ function katakrak_agenda_field_default_field_bases() {
     ),
     'locked' => 0,
     'module' => 'text',
-    'settings' => array(),
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'text_with_summary',
   );
@@ -89,6 +92,9 @@ function katakrak_agenda_field_default_field_bases() {
     'module' => 'image',
     'settings' => array(
       'default_image' => 0,
+      'entity_translation_sync' => array(
+        0 => 'fid',
+      ),
       'uri_scheme' => 'public',
     ),
     'translatable' => 0,
@@ -110,6 +116,7 @@ function katakrak_agenda_field_default_field_bases() {
     'locked' => 0,
     'module' => 'node_reference',
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'referenceable_types' => array(
         'article' => 0,
         'blog' => 0,
@@ -156,6 +163,7 @@ function katakrak_agenda_field_default_field_bases() {
         'jornadas' => 'Jornadas',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',
@@ -182,6 +190,7 @@ function katakrak_agenda_field_default_field_bases() {
           'parent' => 0,
         ),
       ),
+      'entity_translation_sync' => FALSE,
       'options_list_callback' => 'i18n_taxonomy_allowed_values',
     ),
     'translatable' => 0,
@@ -201,6 +210,7 @@ function katakrak_agenda_field_default_field_bases() {
     'settings' => array(
       'cache_count' => 4,
       'cache_enabled' => 0,
+      'entity_translation_sync' => FALSE,
       'granularity' => array(
         'day' => 'day',
         'hour' => 'hour',
@@ -232,7 +242,9 @@ function katakrak_agenda_field_default_field_bases() {
     ),
     'locked' => 0,
     'module' => 'text',
-    'settings' => array(),
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'text_with_summary',
   );
@@ -251,7 +263,9 @@ function katakrak_agenda_field_default_field_bases() {
     ),
     'locked' => 0,
     'module' => 'text',
-    'settings' => array(),
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'text_long',
   );
@@ -276,6 +290,7 @@ function katakrak_agenda_field_default_field_bases() {
         'eu' => 'Vascuence',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',
@@ -297,6 +312,9 @@ function katakrak_agenda_field_default_field_bases() {
     'module' => 'image',
     'settings' => array(
       'default_image' => 0,
+      'entity_translation_sync' => array(
+        0 => 'fid',
+      ),
       'uri_scheme' => 'public',
     ),
     'translatable' => 0,
@@ -318,6 +336,7 @@ function katakrak_agenda_field_default_field_bases() {
     'locked' => 0,
     'module' => 'node_reference',
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'referenceable_types' => array(
         'article' => 0,
         'blog' => 0,
@@ -364,9 +383,32 @@ function katakrak_agenda_field_default_field_bases() {
         'reuniones' => 'Sala de reuniones',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_event_streaming'.
+  $field_bases['field_event_streaming'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_event_streaming',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max_length' => 1024,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
   );
 
   // Exported field_base: 'field_event_type'.
@@ -390,6 +432,7 @@ function katakrak_agenda_field_default_field_bases() {
           'parent' => 0,
         ),
       ),
+      'entity_translation_sync' => FALSE,
       'options_list_callback' => 'i18n_taxonomy_allowed_values',
     ),
     'translatable' => 0,
@@ -410,7 +453,9 @@ function katakrak_agenda_field_default_field_bases() {
     ),
     'locked' => 0,
     'module' => 'color_field',
-    'settings' => array(),
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'color_field_rgb',
   );

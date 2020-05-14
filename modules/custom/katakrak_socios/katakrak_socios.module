@@ -8,7 +8,7 @@
 include_once 'katakrak_socios.features.inc';
 
 function katakrak_socios_menu() {
-  $items['hazte-socio/alta']  = array(
+  $items['hazte-socix/alta']  = array(
     'title' => 'Hazte socio',
     'page callback' => 'katakrak_socios_hazte',
      'access callback' => 'user_access',
@@ -29,8 +29,51 @@ function katakrak_socios_theme() {
           'form_signup' => NULL, 
           'form_aportacion' => NULL,
       )
+    ),
+    'katakrak_en_datos' => array(
+      'template' => 'katakrak-en-datos',
+      'path' => $path . '/templates',
+      'arguments' => array(
+      )
+    ),
+    'banner_socios' => array(
+      'template' => 'banner-socios',
+      'path' => $path . '/templates',
+      'arguments' => array(
+      )
     )
   );
+}
+
+function katakrak_socios_block_info() {    
+  $blocks['katakrak_en_datos'] = array(
+    // info: The name of the block.
+    'info' => t('Katakrak en datos'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['banner_socios'] = array(
+    // info: The name of the block.
+    'info' => t('Banner campaña socios'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  return $blocks;
+}
+
+function katakrak_socios_block_view($delta = '') {
+  // The $delta parameter tells us which block is being requested.
+  switch ($delta) {
+    case 'katakrak_en_datos':
+      // Create your block content here
+      $block['subject'] = t('Katakrak en datos');
+      $block['content'] = theme('katakrak_en_datos');
+      break;
+    case 'banner_socios':
+      
+      $block['content'] = theme('banner_socios');
+     break;
+   }
+
+  return $block;
 }
 
 function katakrak_socios_hazte() {
@@ -42,7 +85,6 @@ function katakrak_socios_hazte() {
 }
 
 function katakrak_socios_signup_form($form, &$form_state) {
-  dpm($form_state);
   if ($form_state['input']['form_id'] == 'katakrak_socios_signup_form')
     $collapsed = FALSE;
   else 
@@ -50,26 +92,40 @@ function katakrak_socios_signup_form($form, &$form_state) {
   
   $form['signup'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Quiero hacerme socio de Katakrak'),
+    '#title' => '<i class="fa fa-angle-right"></i> '.t('Quiero hacerme socix de Katakrak'),
     '#collapsed' => $collapsed,
     '#collapsible' => TRUE,
     '#attributes' => array('class'=>array('hacerme_socix')),
   );
-  $form['signup']['titulo_aportacion'] = array(
+  
+  $form['signup']['info_socixs'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('¿Qué ofrecemos? | Para todas todo, sin graduación'),
+  );
+  $form['signup']['info_socixs']['info'] = array(
     '#type' => 'item',
-    '#markup' => '<h3>Mi Aportación</h3><br />',
+    '#markup' => '<ul>'.
+      '<li>'.t('Participación en una asamblea semestral/anual').'</li>'.
+      '<li>'.t('Acceso preferente a eventos de la sala de arriba (filas reservadas a socixs)').'</li>'.
+      '<li>'.t('Descuentos en cursos de Nociones Comunes organizados por Katakrak').'</li>'.
+      '<li>'.t('Un libro de la editorial').'</li>'.
+      '<li>'.t('Fiestaca mítica de agradecimiento, sea cuando sea.').'</li>'.
+      '</ul>',
+  );
+  $form['signup']['titulo_aportacion'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Mi aportación'),
   );
   
   
-  $form['signup']['cuota'] = array(
+  $form['signup']['titulo_aportacion']['cuota'] = array(
   '#type' => 'select_or_other',
-  '#title' => t('Aportación inicial COVID19'),
+  '#title' => t('Cuota'),
   '#default_value' => array('500'),
   '#options' => array(
-    '100' => t('100€'),
-    '200' => t('200€'),
+    '60' => t('60€'),
+    '120' => t('120€'),
     '500' => t('500€'),
-    '1000' => t('1000€'),
   ),
   '#other' => t('Otra cantidad'),   // Text to show as 'other' option
   '#required' => TRUE,
@@ -77,39 +133,54 @@ function katakrak_socios_signup_form($form, &$form_state) {
   '#other_unknown_defaults' => '200', // If the #default_value is not a valid choice in #options, what should we do? Possible values 'append', 'ignore', 'other'  (if 'other' specified you can also override #other_delimiter).
   '#other_delimiter' => ', ', // Delimiter string to delimit multiple 'other' values into the 'other' textfield.  If this is FALSE only the last value will be used.
   '#select_type' => 'radios', // Defaults to 'select'.  Can also be 'radios' or 'checkboxes'.
+  
 );
   $form['signup']['datos_personales'] = array(
-    '#type' => 'item',
-    '#markup' => '<br /><br /><h3>'.t('Datos Personales').'</h3><br />',
+    '#type' => 'fieldset',
+    '#title' => t('Datos Personales'),
+    '#collapsible' => FALSE,
   );
   
-  $form['signup']['name'] = array(
+  $form['signup']['datos_personales']['name'] = array(
     '#type' => 'textfield',
     '#title' => t('Nombre'),
     '#required' => TRUE,
     '#size' => 20,
   );
-  $form['signup']['surname'] = array(
+  $form['signup']['datos_personales']['surname'] = array(
     '#type' => 'textfield',
     '#title' => t('Apellidos'),
     '#required' => TRUE,
     '#size' => 60,
   );
-  $form['signup']['email'] = array(
+  $form['signup']['datos_personales']['direccion'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Dirección'),
+    '#required' => TRUE,
+    '#size' => 60,
+  );
+  $form['signup']['datos_personales']['email'] = array(
     '#type' => 'textfield',
     '#title' => t('Dirección de Email'),
     '#required' => TRUE,
     '#size' => 60,
   );
-  $form['signup']['iban'] = array(
+  $form['signup']['datos_personales']['iban'] = array(
     '#type' => 'textfield',
     '#title' => t('IBAN'),
     '#required' => TRUE,
     '#size' => 60,
   );
-  $form['signup']['submit'] = array(
+  $form['signup']['datos_personales']['lopd_check'] = array(
+    '#type' => 'checkbox',
+    '#title' => t("Al hacer click aquí aceptas las ").l(t('condiciones del sitio'), 'lopd'),  
+    '#required' => TRUE,
+  );
+  
+  
+  $form['signup']['datos_personales']['submit'] = array(
     '#type' => 'submit',
-    '#value' => t('ENVIAR'),
+    '#value' => t('Enviar'),
   );
   
   return $form;
@@ -123,25 +194,28 @@ function katakrak_socios_signup_form_validate($form, &$form_state) {
 }
 
 function katakrak_socios_signup_form_submit($form, &$form_state) {
-  dpm("enviado");
-  watchdog('socios', "enviado");
+  //llamamos al action set de rules que hará toda la acción.
   rules_invoke_component('rules_email_alta_socios', $form_state['input']['name'], $form_state['input']['surname'], $form_state['input']['surname'], $form_state['input']['surname'], $form_state['input']['surname']);
 }
 
 function katakrak_socios_aportacion_form($form, &$form_state, $donation_form) {
   $form['aportacion'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Quiero hacer una aportación puntual a Katakrak'),
+    '#title' => '<i class="fa fa-angle-right"></i> '.t('Quiero hacer una aportación puntual a Katakrak'),
     '#collapsed' => TRUE,
     '#collapsible' => TRUE, 
+    '#attributes' => array('class'=>array('hacer_aportacion')),
   );
+//  $form['aportacion']['donacion'] = array(
+//    '#markup' => drupal_render(donacion_generar_form('DONACION')),
+//  );
   $form['aportacion']['cuota'] = array(
     '#type' => 'select_or_other',
     '#title' => t('Aportación  COVID19'),
     '#default_value' => array('500'),
     '#options' => array(
       '100' => t('100€'),
-      '200' => t('200€'),
+      '300' => t('300€'),
       '500' => t('500€'),
       '1000' => t('1000€'),
     ),
@@ -154,14 +228,22 @@ function katakrak_socios_aportacion_form($form, &$form_state, $donation_form) {
   );
   $form['aportacion']['submit'] = array(
     '#type' => 'submit',
-    '#value' => t('DONAR'),
+    '#value' => t('Donar'),
   );
   return $form;
 }
 
+function katakrak_socios_aportacion_form_validate ($form, &$form_state) {
+  if ($form_state['input']['cuota']['select'] == 'select_or_other' && !is_numeric($form_state['input']['cuota']['other']))
+    form_set_error('cuota', t('El valor de la aportación tiene que ser un número'));
+}
+
 function katakrak_socios_aportacion_form_submit($form, &$form_state) {
   
-  
+  if ($form_state['input']['cuota']['select'] == 'select_or_other')
+    $cuota = $form_state['input']['cuota']['other'];
+  else
+    $cuota = $form_state['input']['cuota']['select'];
   global $user;
   $uid = ($user->uid) ? $user->uid : 0;
   $order = commerce_order_new($uid, 'checkout_checkout');
@@ -169,36 +251,14 @@ function katakrak_socios_aportacion_form_submit($form, &$form_state) {
   // Save the order to get its ID.
   commerce_order_save($order);
   commerce_cart_order_session_save($order->order_id);
-  // Load whatever product represents the item the customer will be
-  // paying for and create a line item for it.
   $product = commerce_product_load_by_sku('DON');
-  dpm($product);
-  watchdog("socios", print_r($product, 1));
-  
-  $product->commerce_price['und'][0]['amount'] = $form_state['input']['cuota']['select'] * 100;
-   dpm($product);
+  $product->commerce_price['und'][0]['amount'] = $cuota;
   $line_item = commerce_product_line_item_new($product, 1, $order->order_id, array(), 'commerce_donate');
-  //$line_item = commerce_product_line_item_new($product, $default_quantity, 0, array(), "commerce_donate");
-  // Save the line item to get its ID.
   commerce_line_item_save($line_item);
-
   $line_item->commerce_donate_amount['und'][0]['value'] = $form_state['input']['cuota']['select'];
-    dpm($line_item);
-  // Add the line item to the order using fago's rockin' wrapper.
-  $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
-  $order_wrapper->commerce_line_items[] = $line_item;
-
-  // Save the order again to update its line item reference field.
+  commerce_cart_product_add($uid, $line_item);
   commerce_order_save($order);
-  dpm($order);
-    //commerce_cart_order_refresh($order);
-//    ym(commerce_cart_order_id($uid));
-    //commerce_cart_commerce_order_load($order);
-    //ym(commerce_cart_order_is_cart($order));
-    //commerce_cart_product_add($uid, $line_item);
-    //commerce_cart_product_add_by_id($product_id);
-    //$form_state['redirect'] = 'cart';
-    //drupal_goto('cart');
+  drupal_goto('cart');
 }
 
   function check_iban($iban) {

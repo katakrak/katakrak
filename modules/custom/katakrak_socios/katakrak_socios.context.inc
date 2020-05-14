@@ -20,7 +20,7 @@ function katakrak_socios_context_default_contexts() {
   $context->conditions = array(
     'path' => array(
       'values' => array(
-        'hazte-socio*' => 'hazte-socio*',
+        'hazte-socix*' => 'hazte-socix*',
         'egin-zaitez-bazkide*' => 'egin-zaitez-bazkide*',
       ),
     ),
@@ -28,11 +28,29 @@ function katakrak_socios_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'katakrak_socios-banner_socios' => array(
+          'module' => 'katakrak_socios',
+          'delta' => 'banner_socios',
+          'region' => 'content_top',
+          'weight' => '-10',
+        ),
+        'katakrak_socios-katakrak_en_datos' => array(
+          'module' => 'katakrak_socios',
+          'delta' => 'katakrak_en_datos',
+          'region' => 'content_campana_left',
+          'weight' => '-10',
+        ),
+        'views-agenda-radical_may' => array(
+          'module' => 'views',
+          'delta' => 'agenda-radical_may',
+          'region' => 'content_campana_right',
+          'weight' => '-10',
+        ),
         'views-agenda-como_hacer_krak' => array(
           'module' => 'views',
           'delta' => 'agenda-como_hacer_krak',
           'region' => 'content_campana_right',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
       ),
       'layout' => 'campana',

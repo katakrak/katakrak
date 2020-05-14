@@ -39,6 +39,7 @@ function katakrak_agenda_field_default_field_instances() {
     'label' => 'Actos',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -81,6 +82,7 @@ function katakrak_agenda_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'display_summary' => 1,
+      'entity_translation_sync' => FALSE,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
@@ -126,6 +128,7 @@ function katakrak_agenda_field_default_field_instances() {
     'label' => 'Libros',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -167,6 +170,7 @@ function katakrak_agenda_field_default_field_instances() {
     'label' => 'Tipo',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -214,6 +218,7 @@ function katakrak_agenda_field_default_field_instances() {
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
+      'entity_translation_sync' => FALSE,
       'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
@@ -253,11 +258,11 @@ function katakrak_agenda_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
         'type' => 'i18n_taxonomy_term_reference_link',
-        'weight' => 7,
+        'weight' => 10,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -271,17 +276,19 @@ function katakrak_agenda_field_default_field_instances() {
     'label' => 'Ciclo',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'entity_translation_taxonomy_autocomplete_translate' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 0,
-      'module' => 'options',
+      'module' => 'taxonomy',
       'settings' => array(
         'autocomplete_path' => 'taxonomy/autocomplete',
         'size' => 60,
       ),
-      'type' => 'options_buttons',
-      'weight' => 37,
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 45,
     ),
   );
 
@@ -338,6 +345,7 @@ function katakrak_agenda_field_default_field_instances() {
       'default_value2' => 'same',
       'default_value_code' => '',
       'default_value_code2' => '',
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -385,6 +393,7 @@ function katakrak_agenda_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'display_summary' => 1,
+      'entity_translation_sync' => FALSE,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
@@ -434,6 +443,7 @@ function katakrak_agenda_field_default_field_instances() {
     'label' => 'Description',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
@@ -478,6 +488,7 @@ function katakrak_agenda_field_default_field_instances() {
     'label' => 'Idioma del acto',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -545,6 +556,7 @@ function katakrak_agenda_field_default_field_instances() {
     'settings' => array(
       'alt_field' => 1,
       'default_image' => 0,
+      'entity_translation_sync' => FALSE,
       'file_directory' => 'events',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '2 MB',
@@ -675,6 +687,7 @@ function katakrak_agenda_field_default_field_instances() {
     'label' => 'Libro',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -720,6 +733,7 @@ function katakrak_agenda_field_default_field_instances() {
     'label' => 'Lugar',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -728,6 +742,47 @@ function katakrak_agenda_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_select',
       'weight' => 43,
+    ),
+  );
+
+  // Exported field_instance: 'node-event-field_event_streaming'.
+  $field_instances['node-event-field_event_streaming'] = array(
+    'bundle' => 'event',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Si está asociado a un evento de streaming',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 9,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_event_streaming',
+    'label' => 'Streaming',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 44,
     ),
   );
 
@@ -763,6 +818,7 @@ function katakrak_agenda_field_default_field_instances() {
     'label' => 'Event type',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -815,6 +871,7 @@ function katakrak_agenda_field_default_field_instances() {
     'label' => 'Title',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'hide_label' => array(
         'entity' => FALSE,
         'page' => FALSE,
@@ -852,6 +909,7 @@ function katakrak_agenda_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
+      'entity_translation_sync' => FALSE,
       'file_directory' => '',
       'file_extensions' => 'pdf odt txt',
       'max_filesize' => '',
@@ -903,6 +961,7 @@ function katakrak_agenda_field_default_field_instances() {
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
+      'entity_translation_sync' => FALSE,
       'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
@@ -956,6 +1015,7 @@ function katakrak_agenda_field_default_field_instances() {
     'label' => 'Libros',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -991,6 +1051,7 @@ function katakrak_agenda_field_default_field_instances() {
     'label' => 'Color',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1018,6 +1079,8 @@ function katakrak_agenda_field_default_field_instances() {
   t('Libro');
   t('Libros');
   t('Lugar');
+  t('Si está asociado a un evento de streaming');
+  t('Streaming');
   t('Tipo');
   t('Title');
 

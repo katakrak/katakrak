@@ -63,6 +63,27 @@ function katakrak_agenda_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'diff_enable_revisions_page_node_event';
+  $strongarm->value = 1;
+  $export['diff_enable_revisions_page_node_event'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_show_preview_changes_node_event';
+  $strongarm->value = 1;
+  $export['diff_show_preview_changes_node_event'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_view_mode_preview_node_event';
+  $strongarm->value = 'full';
+  $export['diff_view_mode_preview_node_event'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__ciclo';
   $strongarm->value = array(
     'view_modes' => array(
@@ -202,6 +223,13 @@ function katakrak_agenda_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_default_language_for_event';
+  $strongarm->value = '-- current --';
+  $export['i18n_node_default_language_for_event'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'i18n_node_extended_ciclo';
   $strongarm->value = '1';
   $export['i18n_node_extended_ciclo'] = $strongarm;
@@ -249,6 +277,7 @@ function katakrak_agenda_strongarm() {
     1 => 'field_event_image',
     2 => 'field_event_libro',
     3 => 'field_event_type',
+    4 => 'field_event_ciclo',
   );
   $export['i18n_sync_node_type_event'] = $strongarm;
 
