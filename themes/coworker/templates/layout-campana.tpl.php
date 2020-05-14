@@ -39,46 +39,18 @@
           
   <br /><br />
            <div class="row">
-             <?php if ($page['content']): ?>
                <!-- Vinculo para la página de altas -->
-            <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+            <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12 bloque-campana">
               <?php print render($page['content']); ?>
-                <br /><br />
-                <h3 class="katakrakendatos">KATAKRAK EN DATOS</h3>
-                <br /><br />
-                <div class="row">
-                    <div class="col-md-4">
-                      <div class="figura figura2">150</div>
-                      <div class="subfigura subfigura2">actos en 2020</div><br />
-                    </div>
-                    <div class="col-md-4">
-                      <div class="figura figura2">1000</div>
-                      <div class="subfigura subfigura2">actos en nuestra historia</div><br />
-                    </div>
-                    <div class="col-md-4">
-                      <div class="figura figura2">600</div>
-                       <div class="subfigura subfigura2">audios</div><br />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">               
-                      <div class="figura figura2">120</div>
-                      <div class="subfigura subfigura2">colectivos/usuarixs</div><br />
-                    </div>
-                    <div class="col-md-4">  
-                      <div class="figura figura2">12.000</div>
-                      <div class="subfigura subfigura2">seguidorxs en RRSS</div><br />
-                    </div>
-                </div>
+                <?php print render($page['content_campana_left']); ?>
             </div>
-            <?php endif; ?>
                
-            <?php if ($page['content_campana_right']): ?>
+               
+               
             <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12"> 
               <?php print render($page['content_campana_right']) ?>
             </div>
-            <?php endif; ?>
-          </div>
+   
             
 		  <!-- Fin de editar-->
           

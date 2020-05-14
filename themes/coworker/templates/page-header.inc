@@ -55,11 +55,7 @@
 <div class="row">
 <div class="col-md-12">
 <div class="panel-pane pane-header"></div>
-<div class="panel-content">
-<a href="/hazte-socio">
-<img src="http://katakrak.taz/sites/all/themes/coworker/images/bansocix.gif" alt="" />
-</a>
-</div>
+
 </div>
 </div>
 
