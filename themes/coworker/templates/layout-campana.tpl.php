@@ -16,7 +16,7 @@
     
       <div class="container clearfix">
         <!-- content region -->
-        <div class="<?php print $content_class; ?> nobottommargin clearfix">
+        <div class="nobottommargin clearfix">
           <?php if ($breadcrumb): ?>
             <div id="breadcrumb"><?php //print $breadcrumb; ?></div>
           <?php endif; ?>

@@ -45,6 +45,12 @@ function katakrak_context_default_contexts() {
           'region' => 'menu_lateral',
           'weight' => '-9',
         ),
+        'katakrak_socios-banner_socios' => array(
+          'module' => 'katakrak_socios',
+          'delta' => 'banner_socios',
+          'region' => 'content_top',
+          'weight' => '-9',
+        ),
         'katakrak-katakrak_social' => array(
           'module' => 'katakrak',
           'delta' => 'katakrak_social',

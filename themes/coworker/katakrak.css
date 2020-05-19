@@ -1944,7 +1944,7 @@ h3.katakrakendatos {
 #edit-datos-personales legend, #edit-titulo-aportacion legend, #edit-info-socixs legend {
     background: none;
     border: none;
-    
+    margin-bottom: 0;
 }
 #edit-datos-personales legend span, #edit-titulo-aportacion legend span, #edit-info-socixs legend span{
     font-size: 25px;
@@ -2022,4 +2022,9 @@ h3.katakrakendatos {
 .form-item-lopd-check .controls {
     float: left;
     padding-right: 10px;
+}
+
+
+.page-editorial-catalogo .views-field-field-donacion {
+    margin-bottom: 15px;
 }

@@ -27,23 +27,14 @@ function katakrak_agenda_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-ciclos-block' => array(
-          'module' => 'views',
-          'delta' => 'ciclos-block',
-          'region' => 'content_bottom_first',
-          'weight' => '-10',
-        ),
         'views-agenda-isotope_filter' => array(
           'module' => 'views',
           'delta' => 'agenda-isotope_filter',
-          'region' => 'content_top',
+          'region' => 'content',
           'weight' => '-10',
         ),
       ),
       'layout' => 'agenda',
-    ),
-    'menu' => array(
-      0 => 'main-menu:agenda',
     ),
     'theme' => array(
       'title' => 'Agenda',

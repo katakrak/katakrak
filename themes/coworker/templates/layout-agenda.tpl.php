@@ -1,15 +1,14 @@
 <?php include 'page-header.inc' ?>
 <div id="content" class="agenda-page">
-    <?php if ($page['contact_map']): ?>
-      <div id="google-map" class="contact-map">
-        <div style="display: block !important;" class="slider-line"></div>
-        <?php print render($page['contact_map']); ?>
-      </div>
-    <?php endif; ?>
 
+    
     <div class="content-wrap">
       <div class="container clearfix">
-
+<div class="row">
+            <div class="col-lg-12">
+              <?php print render($page['content_top']); ?>
+            </div>
+          </div>
         <?php
         $content_class = 'content-main-column';
         $content_rows = "col-md-12 col-lg-12 col-sd-12";
@@ -41,11 +40,7 @@
           <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
 
           
-          <div class="row">
-            <div class="col-lg-12">
-              <?php print render($page['content_top']); ?>
-            </div>
-          </div>
+          
           
           <div class="<?php print $content_rows?>">
             <?php print render($page['content']); ?>
