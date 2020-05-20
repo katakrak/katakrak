@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * libro.context.inc
@@ -171,6 +172,18 @@ function libro_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'boxes-bizikrak' => array(
+          'module' => 'boxes',
+          'delta' => 'bizikrak',
+          'region' => 'sidebar_second',
+          'weight' => '-9',
+        ),
+        'views-secciones-secciones_lateral' => array(
+          'module' => 'views',
+          'delta' => 'secciones-secciones_lateral',
+          'region' => 'sidebar_second',
+          'weight' => '-8',
+        ),
         'views-secciones-secciones_block' => array(
           'module' => 'views',
           'delta' => 'secciones-secciones_block',
@@ -201,11 +214,17 @@ function libro_context_default_contexts() {
           'region' => 'content_bottom_fourth',
           'weight' => '-10',
         ),
+        'katakrak_socios-banner_socios' => array(
+          'module' => 'katakrak_socios',
+          'delta' => 'banner_socios',
+          'region' => 'content_top',
+          'weight' => '-10',
+        ),
         'libro-libreria_home_search' => array(
           'module' => 'libro',
           'delta' => 'libreria_home_search',
           'region' => 'content_top',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
       ),
       'layout' => 'book',

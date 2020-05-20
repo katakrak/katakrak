@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * libro.strongarm.inc

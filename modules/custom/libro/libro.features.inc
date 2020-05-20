@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * libro.features.inc
@@ -8,6 +9,9 @@
  * Implements hook_ctools_plugin_api().
  */
 function libro_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "boxes" && $api == "box") {
+    return array("version" => "1");
+  }
   if ($module == "context" && $api == "context") {
     return array("version" => "3");
   }
@@ -51,6 +55,7 @@ function libro_fe_nodequeue_export_fields() {
     'reverse' => 0,
     'i18n' => 0,
     'insert_at_front' => 0,
+    'unique_entries' => 0,
     'subqueues' => 1,
     'types' => array(
       0 => 'libro',

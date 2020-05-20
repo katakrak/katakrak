@@ -45,7 +45,7 @@
   color: black;
   border-bottom: 1px dashed black;
   padding: 0 0 5px;
-  margin-top: 50px;
+  margin-top: 10px;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -661,6 +661,7 @@ ul#user-sticky li {
 /* ESTILOS PARA LIBRERIA */
 .book-recomendados-view {
   margin-bottom: 20px;
+  
 }
 .book-recomendados-view div.field-content {
   position: relative;
@@ -805,6 +806,10 @@ ul#user-sticky li {
     display: block;
   }
 }
+#block-libro-libreria-home-search {
+    margin-top: 35px;
+}
+
 #block-libro-libreria-home-search .content .pane-apachesolr-search-sort {
   background: #E6E6E6;
   display: inline-block;

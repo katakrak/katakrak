@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * libro.features.field_base.inc
@@ -598,6 +599,31 @@ function libro_field_default_field_bases() {
     'settings' => array(),
     'translatable' => 0,
     'type' => 'physical_weight',
+  );
+
+  // Exported field_base: 'field_seccion_mostrar'.
+  $field_bases['field_seccion_mostrar'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_seccion_mostrar',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => 0,
+        1 => 'Mostrar',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
   );
 
   return $field_bases;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * libro.features.field_instance.inc
@@ -330,9 +331,12 @@ function libro_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
       'weight' => 10,
     ),
   );
@@ -971,6 +975,7 @@ function libro_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Comprar',
           'combine' => TRUE,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -996,6 +1001,7 @@ function libro_field_default_field_instances() {
         'label' => 'above',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Comprar',
           'combine' => 1,
           'default_quantity' => 1,
           'line_item_type' => 0,
@@ -1009,6 +1015,7 @@ function libro_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Comprar',
           'combine' => TRUE,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -1114,9 +1121,11 @@ function libro_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'title',
         'settings' => array(
+          'enable_trim' => FALSE,
           'title_class' => '',
           'title_link' => '',
           'title_style' => 'h3',
+          'trim_length' => 50,
         ),
         'type' => 'title_linked',
         'weight' => 6,
@@ -1532,6 +1541,43 @@ function libro_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'taxonomy_term-materias-field_seccion_mostrar'.
+  $field_instances['taxonomy_term-materias-field_seccion_mostrar'] = array(
+    'bundle' => 'materias',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_seccion_mostrar',
+    'label' => 'Mostrar',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 0,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 43,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Apellido');
@@ -1546,6 +1592,7 @@ function libro_field_default_field_instances() {
   t('Idioma');
   t('Imagen');
   t('Isbn');
+  t('Mostrar');
   t('Nombre');
   t('Nombre euskera');
   t('Peso');
