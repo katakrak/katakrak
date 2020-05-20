@@ -34,9 +34,9 @@ function katakrak_socios_context_default_contexts() {
           'region' => 'content_top',
           'weight' => '-10',
         ),
-        'katakrak_socios-katakrak_en_datos' => array(
+        'katakrak_socios-alta_socios' => array(
           'module' => 'katakrak_socios',
-          'delta' => 'katakrak_en_datos',
+          'delta' => 'alta_socios',
           'region' => 'content_campana_left',
           'weight' => '-10',
         ),
@@ -51,6 +51,12 @@ function katakrak_socios_context_default_contexts() {
           'delta' => 'agenda-radical_may',
           'region' => 'content_campana_right',
           'weight' => '-56',
+        ),
+        'katakrak_socios-katakrak_en_datos' => array(
+          'module' => 'katakrak_socios',
+          'delta' => 'katakrak_en_datos',
+          'region' => 'content_campana_right',
+          'weight' => '-10',
         ),
       ),
       'layout' => 'campana',

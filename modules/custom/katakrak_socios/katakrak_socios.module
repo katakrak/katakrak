@@ -56,6 +56,11 @@ function katakrak_socios_block_info() {
     'info' => t('Banner campaña socios'),
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['alta_socios'] = array(
+    // info: The name of the block.
+    'info' => t('Bloque para alta de socixs'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
   return $blocks;
 }
 
@@ -68,8 +73,10 @@ function katakrak_socios_block_view($delta = '') {
       $block['content'] = theme('katakrak_en_datos');
       break;
     case 'banner_socios':
-      
       $block['content'] = theme('banner_socios');
+     break;
+   case 'alta_socios':
+      $block['content'] = katakrak_socios_hazte();
      break;
    }
 
@@ -92,7 +99,7 @@ function katakrak_socios_signup_form($form, &$form_state) {
   
   $form['signup'] = array(
     '#type' => 'fieldset',
-    '#title' => '<i class="fa fa-angle-right"></i> '.t('Quiero hacerme socix de Katakrak'),
+    '#title' => '<i class="fa fa-angle-right"></i> '.t('Quiero hacerme socix'),
     '#collapsed' => $collapsed,
     '#collapsible' => TRUE,
     '#attributes' => array('class'=>array('hacerme_socix')),
@@ -100,7 +107,7 @@ function katakrak_socios_signup_form($form, &$form_state) {
   
   $form['signup']['info_socixs'] = array(
     '#type' => 'fieldset',
-    '#title' => t('¿Qué ofrecemos? | Para todas todo, sin graduación'),
+    '#title' => t('¿Qué ofrecemos? | Para todas todo, sin importar la cuota'),
   );
   $form['signup']['info_socixs']['info'] = array(
     '#type' => 'item',
@@ -119,22 +126,26 @@ function katakrak_socios_signup_form($form, &$form_state) {
   
   
   $form['signup']['titulo_aportacion']['cuota'] = array(
-  '#type' => 'select_or_other',
-  '#title' => t('Cuota'),
-  '#default_value' => array('500'),
-  '#options' => array(
-    '60' => t('60€ al año'),
-    '120' => t('120€ al año'),
-    '500' => t('500€ al año'),
-  ),
-  '#other' => t('Otra cuota anual'),   // Text to show as 'other' option
-  '#required' => TRUE,
-  '#multiple' => TRUE,
-  '#other_unknown_defaults' => '200', // If the #default_value is not a valid choice in #options, what should we do? Possible values 'append', 'ignore', 'other'  (if 'other' specified you can also override #other_delimiter).
-  '#other_delimiter' => ', ', // Delimiter string to delimit multiple 'other' values into the 'other' textfield.  If this is FALSE only the last value will be used.
-  '#select_type' => 'radios', // Defaults to 'select'.  Can also be 'radios' or 'checkboxes'.
-  
-);
+    '#type' => 'select_or_other',
+    '#title' => t('Cuota'),
+    '#default_value' => array('500'),
+    '#options' => array(
+      '60' => t('60€ al año'),
+      '120' => t('120€ al año'),
+      '500' => t('500€ al año'),
+    ),
+    '#other' => t('Otra cuota anual'),   // Text to show as 'other' option
+    '#required' => TRUE,
+    '#multiple' => TRUE,
+    '#other_unknown_defaults' => '200', // If the #default_value is not a valid choice in #options, what should we do? Possible values 'append', 'ignore', 'other'  (if 'other' specified you can also override #other_delimiter).
+    '#other_delimiter' => ', ', // Delimiter string to delimit multiple 'other' values into the 'other' textfield.  If this is FALSE only the last value will be used.
+    '#select_type' => 'radios', // Defaults to 'select'.  Can also be 'radios' or 'checkboxes'.
+  );
+//  $form['signup']['titulo_aportacion']['fraccionado'] = array(
+//    '#type' => 'checkbox',
+//    '#title' => t("Fraccionar la cuota en dos pagos"),  
+//    //'#required' => TRUE,
+//  );
   $form['signup']['datos_personales'] = array(
     '#type' => 'fieldset',
     '#title' => t('Datos Personales'),
@@ -187,6 +198,7 @@ function katakrak_socios_signup_form($form, &$form_state) {
 }
 
 function katakrak_socios_signup_form_validate($form, &$form_state) {
+  
   if (!valid_email_address($form_state['values']['email']))
     form_set_error('email', t("El email introducido es incorrecto"));
   if (!check_iban($form_state['values']['iban']))
@@ -198,6 +210,9 @@ function katakrak_socios_signup_form_submit($form, &$form_state) {
     $cuota = $form_state['input']['cuota']['other'];
   else
     $cuota = $form_state['input']['cuota']['select'];
+  
+  //$fraccionado = $form_state['input']['cuota']['fraccionado'] ? "fraccionado": "no fraccionado";
+    
   //llamamos al action set de rules que hará toda la acción.
   rules_invoke_component('rules_email_alta_socios', $form_state['input']['name'], $form_state['input']['surname'], $form_state['input']['email'], $form_state['input']['iban'], $cuota, $form_state['input']['direccion']);
 }
@@ -205,7 +220,7 @@ function katakrak_socios_signup_form_submit($form, &$form_state) {
 function katakrak_socios_aportacion_form($form, &$form_state, $donation_form) {
   $form['aportacion'] = array(
     '#type' => 'fieldset',
-    '#title' => '<i class="fa fa-angle-right"></i> '.t('Quiero hacer una aportación puntual a Katakrak'),
+    '#title' => '<i class="fa fa-angle-right"></i> '.t('Quiero hacer una aportación puntual'),
     '#collapsed' => TRUE,
     '#collapsible' => TRUE, 
     '#attributes' => array('class'=>array('hacer_aportacion')),

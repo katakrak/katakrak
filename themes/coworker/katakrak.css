@@ -1567,6 +1567,13 @@ Responsiveness
     left: 0;
     background: none;
   }
+  .region-content-campana-right {
+      margin-top: 75px;
+  }
+  #edit-signup legend a, .hacer_aportacion legend a {
+    color: white;
+    font-size: 24px !important;
+}
 }
 @media (min-width: 768px) {
   .content-wrap {
@@ -1778,6 +1785,8 @@ Responsiveness
   #block-katakrak-home-katakrak-home-promo .portfolio_shader {
     width: 220px;
   }
+  
+  
 }
 @media only screen and (min-width: 992px) {
   .home-events-title-main .event_info {
@@ -1789,12 +1798,17 @@ Responsiveness
   #block-katakrak-home-katakrak-home-promo .portfolio_shader {
     width: 360px;
   }
+  
 }
 .select-or-other .controls {
   padding-left: 21px;
 }
 
 /** CSS de xare */
+
+.campana-page .bloque-campana{
+      margin-bottom: 50px;
+  }
 .figura {
   background-color: black;
   padding: 5px;
@@ -1895,6 +1909,10 @@ h3.katakrakendatos {
   font-size: 1.2em;
 }
 
+
+#katakrak-socios-signup-form {
+    margin: 20px 0 75px 0;
+}
 #edit-signup{
     margin-bottom:40px;
 }
@@ -1904,21 +1922,24 @@ h3.katakrakendatos {
 
 #edit-signup.collapsed legend, .hacer_aportacion.collapsed legend {
     border-bottom:none;
-    background:#ccc;
+    background:#E6057D;
     margin-bottom:10px;
-    color: #337ab7;
+    color: #F8EB14;
 }
 
 #edit-signup legend, .hacer_aportacion legend {
-    background:#337ab7; 
+    background:#E6057D;
+   font-family: "Ropa Sans";
+   
 }
 
 #edit-signup legend a, .hacer_aportacion legend a {
     color:white;
+    font-size: 35px;
 }
 
 #edit-signup.collapsed legend a, .hacer_aportacion.collapsed legend a{
-    color:#337ab7 !important;
+    color:#F8EB14; !important;
 }
 
 #edit-signup .fieldset-legend, .hacer_aportacion .fieldset-legend {
@@ -1928,12 +1949,12 @@ h3.katakrakendatos {
 #edit-signup .fieldset-legend a, #edit-signup .fieldset-legend a {
     text-decoration:none;
     /*color: #337ab7 !important;*/
-    background:
+    /**background:*/
 }
 
 #edit-signup.collapsed legend:hover, #edit-signup.collapsed legend:hover {
     border-bottom:none;
-    background:#aaa;
+    
     margin-bottom:10px; 
 }
 
@@ -1957,7 +1978,7 @@ h3.katakrakendatos {
 }
 
 .figura {
-  background-color: black;
+  background-color: #444;
   padding: 5px;
   color: yellow;
   font-family: "Ropa Sans";
@@ -2019,7 +2040,7 @@ h3.katakrakendatos {
 .form-item-lopd-check{
     padding-bottom: 15px;
 }
-.form-item-lopd-check .controls {
+.form-item-lopd-check .controls, .form-item-fraccionado .controls {
     float: left;
     padding-right: 10px;
 }

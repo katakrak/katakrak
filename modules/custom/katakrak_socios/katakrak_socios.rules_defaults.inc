@@ -21,14 +21,15 @@ function katakrak_socios_default_rules_configuration() {
         "email" : { "label" : "Email", "type" : "text" },
         "iban" : { "label" : "Iban", "type" : "text" },
         "cantidad" : { "label" : "Cantidad", "type" : "integer" },
-        "direccion" : { "label" : "Direcci\\u00f3n", "type" : "text" }
+        "direccion" : { "label" : "Direcci\\u00f3n", "type" : "text" },
+        "fraccionado" : { "label" : "Fraccionado", "type" : "text" }
       },
       "ACTION SET" : [
         { "drupal_message" : { "message" : "Mila esker zure ekarpenagatik. Laster jasoko duzu email bat.\\r\\nMuchas gracias por tu aportaci\\u00f3n. Recibir\\u00e1s un email con m\\u00e1s informaci\\u00f3n." } },
         { "mimemail" : {
             "USING" : {
               "key" : "socios_email_alta",
-              "to" : "socios@katakrak.net",
+              "to" : "socixs@katakrak.net",
               "from_name" : "Katakrak",
               "from_mail" : "info@katakrak.net",
               "subject" : "Nuevo socixs",
