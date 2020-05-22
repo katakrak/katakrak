@@ -26,3 +26,148 @@ function katakrak_commerce_commerce_price_formatted_components_alter(&$component
     $components['flat_rate_recogida_en_la_tienda']['title'] = t($components['flat_rate_recogida_en_la_tienda']['title']);
   $components['commerce_price_formatted_amount']['title'] = t('Order total');
 }
+
+function katakrak_commerce_menu() {
+  if (module_exists('devel')) {
+  $items['admin/commerce/orders/%commerce_order/devel']  = array(
+    'title' => 'Devel',
+    'page callback' => 'katakrak_commerce_order_devel_page',
+    'page arguments' => array(3),
+	  'access callback' => 'commerce_order_admin_order_view_access',
+    'access arguments' => array(3),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => -5,
+    'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
+  );
+  return $items;
+  }
+}
+
+function katakrak_commerce_order_devel_page($order) {
+  dpm($order);      
+  return '';
+}
+
+function katakrak_commerce_form_download($form, &$form_state, $nodes, $collapsed, $text) {
+  $form['download']  = array(
+    '#type' => 'fieldset',
+    '#title' => t($text),
+    '#collapsed' => $collapsed,
+    '#collapsible' => TRUE, 
+  );
+  foreach ($nodes as $node) {
+    $node->content = node_view($node);
+    $form['download']['link'.$node->nid]  = array(
+      '#prefix' => '<div>',
+      '#suffix' => '</div>',
+      '#markup' => render($node->content['field_libro_ed_pdf_descarga']),
+    );
+  }
+  
+  return $form;
+}
+
+function  donacion_generar_form($sku, $nid = NULL ) {
+  
+  $product = commerce_product_load_by_sku($sku);
+  $default_quantity = 1;
+  $product_ids = array($product->product_id);
+
+  // Build the line item we'll pass to the Add to form.
+  $line_item = commerce_product_line_item_new($product, $default_quantity, 0, array(), "commerce_donate");
+  
+ 
+  //commerce_line_item_save($line_item);
+  $line_item->data['context']['product_ids'] = $product_ids;
+  $line_item->data['context']['add_to_cart_combine'] = 1;
+
+  // Generate a form ID for this add to cart form.
+  $form_id = commerce_cart_add_to_cart_form_id($product_ids);
+  $line_item->data['context']['display_path'] = current_path();
+  $line_item->data['context']['nid'] = $nid;
+
+  // Build the Add to Cart form using the prepared values.
+  $form = drupal_get_form($form_id, $line_item, 0, array());
+  return $form;
+}
+
+/*function katakrak_editorial_init() {
+  if (current_path() == 'cart'){
+   
+    global $user;
+    $order = commerce_cart_order_load($user->uid);
+    if (!katakrak_editorial_cart_is_donation($order)) {
+      if ($language->language == 'es')
+        drupal_set_message("Queremos agradecerte que confíes en nosotrxs en una situación así.</br>Debido a la crisis del coronavirus no nos es posible realizar los envíos a domicilio.</br>Sin embargo, te animamos a que completes la compra y, cuando se reanude la actividad, prepararemos y enviaremos tu paquete.</br>Si seleccionas la recogida en tienda, estarás invitadx a la fiesta de recogida tras la cuarentena.</br>Cualquiera ayuda es poca en estos momentos.</br>Un saludo fraternal con sororidad.");
+      else
+        drupal_set_message("Mila esker halako egoera makurrean guregan konfiantza izateagatik.</br>Koronabirusaren krisia dela eta etxez etxeko banaketa eten dugu.</br>Baina erosketa buka dezazun nahi genuke, berrogeialdia bukatzean egingo dugu zure paketetxoa eta bidaliko dizugu.</br>Dendan jasotzeko aukera hautatuz gero, jasotze festara gonbidatzen zaitugu, noski.</br>Une honetan laguntza oro da ongi etorria.</br>Aizpatasunez betetako anaitasun agur bat.</br></br>");
+    }
+  }
+}*/
+
+/**
+ * Comprueba si un pedido de comercio es una donación o no.
+ * El criterio es que solamente haya un producto de tipo donacion
+ * @param type $order
+ * @return boolean
+ */
+function katakrak_commerce_cart_is_donation($order) {
+  $is_donation = FALSE;
+  $has_product = FALSE;
+  foreach ($order->commerce_line_items['und'] as $line_item) {
+    $line = commerce_line_item_load($line_item['line_item_id']);
+    
+    if ($line->type == 'commerce_donate' && !$has_product)
+      $is_donation = TRUE;
+    if ($line->type == 'product') {
+      $is_donation = FALSE;
+      $has_product = TRUE;
+    }
+  }
+  return $is_donation;
+}
+
+function katakrak_commerce_cart_is_recogida($order) {
+  foreach ($order->commerce_line_items['und'] as $line_item) {
+    $line = commerce_line_item_load($line_item['line_item_id']);
+    if ($line->data['shipping_service']['name'] == 'recogida_en_la_tienda')
+      return TRUE;
+  }
+  return FALSE;
+}
+
+function katakrak_commerce_form_alter(&$form, &$form_state, $form_id) {
+	if ($form_id == "commerce_cart_add_to_cart_form_76452") {
+	  $form['submit']['#value'] = t('Donar');
+	}
+  if ($form_id == 'commerce_checkout_form_checkout'){
+    //dpm($form);
+  } 
+}
+
+function katakrak_commerce_form_commerce_checkout_form_alter(&$form, &$form_state, $form_id) {
+  $order = $form_state['order'];
+  
+  if ($form_id == 'commerce_checkout_form_checkout' && katakrak_commerce_cart_is_donation($order)){
+      foreach ($order->commerce_line_items['und'] as $line_item) {
+        $line = commerce_line_item_load($line_item['line_item_id']);
+        
+        if ($line->type == "commerce_donate") {
+          $line->field_donation_libro['und'][0] =  array('nid' => $line->data['context']['nid']);
+          commerce_line_item_save($line);
+        }
+        
+      }
+      $form['commerce_shipping'] = NULL;
+  }    
+  if ($form_id == 'commerce_checkout_form_review') {
+    if (katakrak_commerce_cart_is_donation($order)) {
+      $form['customer_profile_billing']['#access'] = FALSE;
+      $form['customer_profile_shipping']['#access'] = FALSE;
+    }
+    if  (katakrak_commerce_cart_is_recogida($order)) {
+      $form['customer_profile_billing']['#access'] = FALSE;
+      $form['customer_profile_shipping']['#access'] = FALSE;
+    }
+  }
+}
