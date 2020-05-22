@@ -141,11 +141,11 @@ function katakrak_socios_signup_form($form, &$form_state) {
     '#other_delimiter' => ', ', // Delimiter string to delimit multiple 'other' values into the 'other' textfield.  If this is FALSE only the last value will be used.
     '#select_type' => 'radios', // Defaults to 'select'.  Can also be 'radios' or 'checkboxes'.
   );
-//  $form['signup']['titulo_aportacion']['fraccionado'] = array(
-//    '#type' => 'checkbox',
-//    '#title' => t("Fraccionar la cuota en dos pagos"),  
-//    //'#required' => TRUE,
-//  );
+  $form['signup']['titulo_aportacion']['fraccionado'] = array(
+    '#type' => 'checkbox',
+    '#title' => t("Fraccionar la cuota en dos pagos"),  
+    //'#required' => TRUE,
+  );
   $form['signup']['datos_personales'] = array(
     '#type' => 'fieldset',
     '#title' => t('Datos Personales'),
@@ -167,6 +167,18 @@ function katakrak_socios_signup_form($form, &$form_state) {
   $form['signup']['datos_personales']['direccion'] = array(
     '#type' => 'textfield',
     '#title' => t('Dirección'),
+    '#required' => TRUE,
+    '#size' => 60,
+  );
+  $form['signup']['datos_personales']['cp'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Código postal'),
+    '#required' => TRUE,
+    '#size' => 60,
+  );
+  $form['signup']['datos_personales']['ciudad'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Ciudad'),
     '#required' => TRUE,
     '#size' => 60,
   );
@@ -210,11 +222,12 @@ function katakrak_socios_signup_form_submit($form, &$form_state) {
     $cuota = $form_state['input']['cuota']['other'];
   else
     $cuota = $form_state['input']['cuota']['select'];
-  
-  //$fraccionado = $form_state['input']['cuota']['fraccionado'] ? "fraccionado": "no fraccionado";
+
+  $fraccionado = $form_state['input']['fraccionado'] == 1 ?  "fraccionado" : "no fraccionado";
+
     
   //llamamos al action set de rules que hará toda la acción.
-  rules_invoke_component('rules_email_alta_socios', $form_state['input']['name'], $form_state['input']['surname'], $form_state['input']['email'], $form_state['input']['iban'], $cuota, $form_state['input']['direccion']);
+  rules_invoke_component('rules_email_alta_socios', $form_state['input']['name'], $form_state['input']['surname'], $form_state['input']['email'], $form_state['input']['iban'], $cuota, $form_state['input']['direccion'].' '.$form_state['input']['cp'], $fraccionado, $form_state['input']['ciudad']);
 }
 
 function katakrak_socios_aportacion_form($form, &$form_state, $donation_form) {
@@ -258,18 +271,24 @@ function katakrak_socios_aportacion_form_validate ($form, &$form_state) {
 }
 
 function katakrak_socios_aportacion_form_submit($form, &$form_state) {
-  dpm($form_state);
+  //dpm($form_state);
   if ($form_state['input']['cuota']['select'] == 'select_or_other')
     $cuota = (int)$form_state['input']['cuota']['other'];
   else
     $cuota = $form_state['input']['cuota']['select'];
   global $user;
   $uid = ($user->uid) ? $user->uid : 0;
-  $order = commerce_order_new($uid, 'checkout_checkout');
-
-  // Save the order to get its ID.
+  
+  //Intentamos recuperar el pedido del usuario.
+  $order = commerce_cart_order_load($uid);
+  if (!$order) //Si no existe el pedido lo creamos
+    $order = commerce_order_new($uid, 'checkout_checkout');
+    
+//
+//  // Save the order to get its ID.
   commerce_order_save($order);
   commerce_cart_order_session_save($order->order_id);
+  
   $product = commerce_product_load_by_sku('DON');
   $product->commerce_price['und'][0]['amount'] = $cuota;
   $line_item = commerce_product_line_item_new($product, 1, $order->order_id, array(), 'commerce_donate');
