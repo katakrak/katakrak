@@ -222,7 +222,7 @@ function libro_block_info() {
   );
   $blocks['libreria_home_search'] = array(
     'info' => t('Bloque busqueda home libros'),
-    'cache' => DRUPAL_CACHE_GLOBAL,
+    'cache' => DRUPAL_NO_CACHE,
   );
   return $blocks;
 }

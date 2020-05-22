@@ -289,7 +289,7 @@ function katakrak_socios_aportacion_form_submit($form, &$form_state) {
   commerce_order_save($order);
   commerce_cart_order_session_save($order->order_id);
   
-  $product = commerce_product_load_by_sku('DON');
+  $product = commerce_product_load_by_sku('DONCOVID19');
   $product->commerce_price['und'][0]['amount'] = $cuota;
   $line_item = commerce_product_line_item_new($product, 1, $order->order_id, array(), 'commerce_donate');
   commerce_line_item_save($line_item);
