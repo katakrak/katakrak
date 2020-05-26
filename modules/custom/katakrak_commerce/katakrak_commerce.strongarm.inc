@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_commerce.strongarm.inc

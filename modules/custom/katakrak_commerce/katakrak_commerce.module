@@ -136,6 +136,15 @@ function katakrak_commerce_cart_is_recogida($order) {
   return FALSE;
 }
 
+function katakrak_commerce_cart_is_bizikrak($order) {
+  foreach ($order->commerce_line_items['und'] as $line_item) {
+    $line = commerce_line_item_load($line_item['line_item_id']);
+    if ($line->data['shipping_service']['name'] == 'bizikrak')
+      return TRUE;
+  }
+  return FALSE;
+}
+
 function katakrak_commerce_form_alter(&$form, &$form_state, $form_id) {
 	if ($form_id == "commerce_cart_add_to_cart_form_76452") {
 	  $form['submit']['#value'] = t('Donar');
@@ -147,7 +156,9 @@ function katakrak_commerce_form_alter(&$form, &$form_state, $form_id) {
 
 function katakrak_commerce_form_commerce_checkout_form_alter(&$form, &$form_state, $form_id) {
   $order = $form_state['order'];
-  
+  dpm($form_id);
+       dpm($form);
+       dpm($form_state);
   if ($form_id == 'commerce_checkout_form_checkout' && katakrak_commerce_cart_is_donation($order)){
       foreach ($order->commerce_line_items['und'] as $line_item) {
         $line = commerce_line_item_load($line_item['line_item_id']);
@@ -160,14 +171,42 @@ function katakrak_commerce_form_commerce_checkout_form_alter(&$form, &$form_stat
       }
       $form['commerce_shipping'] = NULL;
   }    
-  if ($form_id == 'commerce_checkout_form_review') {
+  if ($form_id == 'commerce_checkout_form_shipping') {
+    $form['buttons']['continue']['#submit'][] = 'katakrak_commerce_checkout_form_submit';
     if (katakrak_commerce_cart_is_donation($order)) {
       $form['customer_profile_billing']['#access'] = FALSE;
       $form['customer_profile_shipping']['#access'] = FALSE;
     }
     if  (katakrak_commerce_cart_is_recogida($order)) {
+      $form['nombre_recogida'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Nombre'),
+        '#description' => t('Tu nombre para cuando vengas a recoger el pedido'),
+        '#weight' => -1,
+      );
+      $form['customer_profile_billing']['#access'] = FALSE;
+      $form['customer_profile_shipping']['#access'] = FALSE;
+      $form['buttons']['continue']['#submit'][] = 'katakrak_commerce_checkout_form_submit';
+    }
+    if (katakrak_commerce_cart_is_bizikrak($order)) {
+      $form['nombre_recogida'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Nombre'),
+        '#description' => t('Tu nombre para cuando vengas a recoger el pedido'),
+        '#weight' => -1,
+      );
+      $form['telefono_recogida'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Teléfono'),
+        '#description' => t('Tu nombre para cuando vengas a recoger el pedido'),
+        '#weight' => -1,
+      );
       $form['customer_profile_billing']['#access'] = FALSE;
       $form['customer_profile_shipping']['#access'] = FALSE;
     }
   }
+}
+
+function katakrak_commerce_checkout_form_submit($form, &$form_state, $form_id) {
+  dpm($form_state);
 }
