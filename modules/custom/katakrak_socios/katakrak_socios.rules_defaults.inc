@@ -95,7 +95,7 @@ function katakrak_socios_default_rules_configuration() {
               "to" : "socixs@katakrak.net",
               "from_name" : "Katakrak",
               "from_mail" : "info@katakrak.net",
-              "subject" : "Nuevo socixs",
+              "subject" : "Nuevo socixs [nombre:value]  [apellidos:value]",
               "body" : "Nombre: [nombre:value]\\r\\nApellidos: [apellidos:value]\\r\\nE-mail: [email:value]\\r\\nIban: [iban:value]\\r\\nCantidad: [cantidad:value]\\r\\nDireccion: [direccion:value]\\r\\nCiudad: [ciudad:value]\\r\\nFraccionar el pago: [fraccionado:value]",
               "language" : [ "" ]
             },

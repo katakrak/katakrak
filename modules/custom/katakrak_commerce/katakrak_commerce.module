@@ -156,9 +156,6 @@ function katakrak_commerce_form_alter(&$form, &$form_state, $form_id) {
 
 function katakrak_commerce_form_commerce_checkout_form_alter(&$form, &$form_state, $form_id) {
   $order = $form_state['order'];
-  dpm($form_id);
-       dpm($form);
-       dpm($form_state);
   if ($form_id == 'commerce_checkout_form_checkout' && katakrak_commerce_cart_is_donation($order)){
       foreach ($order->commerce_line_items['und'] as $line_item) {
         $line = commerce_line_item_load($line_item['line_item_id']);
@@ -177,36 +174,52 @@ function katakrak_commerce_form_commerce_checkout_form_alter(&$form, &$form_stat
       $form['customer_profile_billing']['#access'] = FALSE;
       $form['customer_profile_shipping']['#access'] = FALSE;
     }
-    if  (katakrak_commerce_cart_is_recogida($order)) {
+    if  (katakrak_commerce_cart_is_recogida($order) || katakrak_commerce_cart_is_bizikrak($order)) {
       $form['nombre_recogida'] = array(
         '#type' => 'textfield',
         '#title' => t('Nombre'),
         '#description' => t('Tu nombre para cuando vengas a recoger el pedido'),
         '#weight' => -1,
+        '#required' => TRUE,
       );
+      if (katakrak_commerce_cart_is_bizikrak($order)) {
+        $form['telefono_recogida'] = array(
+          '#type' => 'textfield',
+          '#title' => t('Teléfono'),
+          '#description' => t('Un número de teléfono para que te contactemos'),
+          '#required' => TRUE,
+          '#weight' => -1,
+        );
+        $form['buttons']['continue']['#validate'][] = 'katakrak_commerce_checkout_form_validate';
+      }
       $form['customer_profile_billing']['#access'] = FALSE;
       $form['customer_profile_shipping']['#access'] = FALSE;
       $form['buttons']['continue']['#submit'][] = 'katakrak_commerce_checkout_form_submit';
     }
-    if (katakrak_commerce_cart_is_bizikrak($order)) {
-      $form['nombre_recogida'] = array(
-        '#type' => 'textfield',
-        '#title' => t('Nombre'),
-        '#description' => t('Tu nombre para cuando vengas a recoger el pedido'),
-        '#weight' => -1,
-      );
-      $form['telefono_recogida'] = array(
-        '#type' => 'textfield',
-        '#title' => t('Teléfono'),
-        '#description' => t('Tu nombre para cuando vengas a recoger el pedido'),
-        '#weight' => -1,
-      );
-      $form['customer_profile_billing']['#access'] = FALSE;
-      $form['customer_profile_shipping']['#access'] = FALSE;
-    }
+  }
+}
+
+function katakrak_commerce_checkout_form_validate($form, &$form_state, $form_id) {
+  //Validamos que el número esté bien
+  if (!is_numeric($form_state['input']['telefono_recogida']) || strlen($form_state['input']['telefono_recogida']) != 9) {
+    form_set_error('telefono_recogida', t("Por favor, introduce un número de teléfono válido"));
   }
 }
 
 function katakrak_commerce_checkout_form_submit($form, &$form_state, $form_id) {
-  dpm($form_state);
+  $order = $form_state['order'];
+  //Cargamos el perfil presente
+  $profile = commerce_customer_profile_load($order->commerce_customer_billing['und'][0]['profile_id']);
+  //Añadimos los campos necesarios
+  $profile->commerce_customer_address['und'][0]['first_name'] = $form_state['input']['nombre_recogida'];
+  $profile->commerce_customer_address['und'][0]['name_line'] = $form_state['input']['nombre_recogida'];
+  if (isset($form_state['input']['telefono_recogida'])) {
+    $profile->field_customer_telefono['und'][0]['value'] = $form_state['input']['telefono_recogida'];
+  }
+  //Guardamos el perfil
+  commerce_customer_profile_save($profile);
+  //Asignamos el perfil
+  $order->commerce_customer_billing['und'][0]['profile_id'] = $profile->profile_id;
+  //Guardamos el pedido.
+  commerce_order_save($order);
 }
