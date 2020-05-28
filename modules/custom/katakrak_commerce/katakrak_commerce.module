@@ -29,23 +29,62 @@ function katakrak_commerce_commerce_price_formatted_components_alter(&$component
 
 function katakrak_commerce_menu() {
   if (module_exists('devel')) {
-  $items['admin/commerce/orders/%commerce_order/devel']  = array(
-    'title' => 'Devel',
-    'page callback' => 'katakrak_commerce_order_devel_page',
-    'page arguments' => array(3),
-	  'access callback' => 'commerce_order_admin_order_view_access',
-    'access arguments' => array(3),
-    'type' => MENU_LOCAL_TASK,
-    'weight' => -5,
-    'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
+    $items['admin/commerce/orders/%commerce_order/devel']  = array(
+      'title' => 'Devel',
+      'page callback' => 'katakrak_commerce_order_devel_page',
+      'page arguments' => array(3),
+      'access callback' => 'commerce_order_admin_order_view_access',
+      'access arguments' => array(3),
+      'type' => MENU_LOCAL_TASK,
+      'weight' => -5,
+      'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
+    );
+  }
+  $items['admin/commerce/config/clean_carts'] = array(
+    'title' => 'Limpiar carritos viejos',
+    'description' => 'Limpiar carritos',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('katakrak_commerce_clean_carts_form'),
+    'access arguments' => array('administer site'),
   );
   return $items;
-  }
 }
 
 function katakrak_commerce_order_devel_page($order) {
   dpm($order);      
   return '';
+}
+
+function katakrak_commerce_clean_carts_form($form, &$form_state) {
+  $one_week_ago = time() - 640800;
+  $or = db_or()->condition('status', 'cart')->condition('status', 'checkout_checkout')->condition('status', 'checkout_payment')->condition('status', 'checkout_shipping')
+->condition('status','checkout_review');
+  $rows = db_select('commerce_order', 'o')->fields('o', array('order_id'))->condition($or)->condition('o.changed', $one_week_ago, '<')->execute()->rowCount();
+  
+  drupal_set_message(t('Quedan @count carritos de hace más de una semana', array('@count' => $rows)));
+  $form['limite'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Número máximos de carritos a eliminar',
+    '#default_value' => 500,
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'enviar'
+  );
+  return $form;
+}
+
+function katakrak_commerce_clean_carts_form_submit($form, &$form_state) {
+  $one_week_ago = time() - 640800;
+  $or = db_or()->condition('status', 'cart')->condition('status', 'checkout_checkout')->condition('status', 'checkout_payment')->condition('status', 'checkout_shipping')
+->condition('status','checkout_review');
+  $rows = db_select('commerce_order', 'o')->fields('o', array('order_id'))->condition($or)->condition('o.changed', $one_week_ago, '<')->range(0, $form_state['input']['limite'])->execute()->fetchAll();
+  
+  
+  foreach ($rows as $row){
+    commerce_order_delete ($row->order_id);
+  }
+
 }
 
 function katakrak_commerce_form_download($form, &$form_state, $nodes, $collapsed, $text) {
@@ -157,19 +196,19 @@ function katakrak_commerce_form_alter(&$form, &$form_state, $form_id) {
 function katakrak_commerce_form_commerce_checkout_form_alter(&$form, &$form_state, $form_id) {
   $order = $form_state['order'];
   if ($form_id == 'commerce_checkout_form_checkout' && katakrak_commerce_cart_is_donation($order)){
-      foreach ($order->commerce_line_items['und'] as $line_item) {
-        $line = commerce_line_item_load($line_item['line_item_id']);
-        
-        if ($line->type == "commerce_donate") {
-          $line->field_donation_libro['und'][0] =  array('nid' => $line->data['context']['nid']);
-          commerce_line_item_save($line);
-        }
-        
+    foreach ($order->commerce_line_items['und'] as $line_item) {
+      $line = commerce_line_item_load($line_item['line_item_id']);
+
+      if ($line->type == "commerce_donate") {
+        $line->field_donation_libro['und'][0] =  array('nid' => $line->data['context']['nid']);
+        commerce_line_item_save($line);
       }
-      $form['commerce_shipping'] = NULL;
+
+    }
+    $form['commerce_shipping'] = NULL;
   }    
   if ($form_id == 'commerce_checkout_form_shipping') {
-    $form['buttons']['continue']['#submit'][] = 'katakrak_commerce_checkout_form_submit';
+    
     if (katakrak_commerce_cart_is_donation($order)) {
       $form['customer_profile_billing']['#access'] = FALSE;
       $form['customer_profile_shipping']['#access'] = FALSE;
