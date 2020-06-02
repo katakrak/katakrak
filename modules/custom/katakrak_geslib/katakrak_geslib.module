@@ -90,7 +90,7 @@ function katakrak_geslib_geslib_author($op, $author) {
 function katakrak_geslib_geslib_product($op, $product) {
   $commerce_product = commerce_product_load_by_sku($product['geslib_id']);
   
-  if ($commerce_product) {
+  if ($commerce_product) { //Averiguamos el nodo que contiene el producto
     $nid = db_select('field_data_field_libro_producto', 'p')->fields('p', array('entity_id'))
         ->condition('field_libro_producto_product_id', $commerce_product->product_id)
         ->execute()->fetchField();
@@ -199,6 +199,7 @@ function katakrak_geslib_geslib_product($op, $product) {
 
     if (isset($product['authors'])) {
       $i = 0;
+      $node->field_libro_autores['und'] = array();
       foreach ($product['authors'] as $author) {
         if ($author['author_type'] == 'A') {
           $autor_tid = get_tid_by_geslib_id($author['author_id'], 'author');

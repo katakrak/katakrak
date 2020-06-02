@@ -29,11 +29,7 @@ function libro_views_default_views() {
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'más';
   $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'time';
-  $handler->display->display_options['cache']['results_lifespan'] = '3600';
-  $handler->display->display_options['cache']['results_lifespan_custom'] = '0';
-  $handler->display->display_options['cache']['output_lifespan'] = '3600';
-  $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
+  $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['disable_sql_rewrite'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -93,7 +89,7 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_class'] = 'book-title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Campo: Nodo: Autor */
+  /* Campo: Nodo: Autor Geslib */
   $handler->display->display_options['fields']['field_libro_autores']['id'] = 'field_libro_autores';
   $handler->display->display_options['fields']['field_libro_autores']['table'] = 'field_data_field_libro_autores';
   $handler->display->display_options['fields']['field_libro_autores']['field'] = 'field_libro_autores';
@@ -379,7 +375,7 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['title']['element_class'] = 'book-title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Campo: Nodo: Autor */
+  /* Campo: Nodo: Autor Geslib */
   $handler->display->display_options['fields']['field_libro_autores']['id'] = 'field_libro_autores';
   $handler->display->display_options['fields']['field_libro_autores']['table'] = 'field_data_field_libro_autores';
   $handler->display->display_options['fields']['field_libro_autores']['field'] = 'field_libro_autores';
@@ -641,7 +637,7 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_class'] = 'book-title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Campo: Nodo: Autor */
+  /* Campo: Nodo: Autor Geslib */
   $handler->display->display_options['fields']['field_libro_autores']['id'] = 'field_libro_autores';
   $handler->display->display_options['fields']['field_libro_autores']['table'] = 'field_data_field_libro_autores';
   $handler->display->display_options['fields']['field_libro_autores']['field'] = 'field_libro_autores';
@@ -669,7 +665,7 @@ function libro_views_default_views() {
   $handler->display->display_options['sorts']['random']['table'] = 'views';
   $handler->display->display_options['sorts']['random']['field'] = 'random';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Nodo: Autor (field_libro_autores) */
+  /* Contextual filter: Nodo: Autor Geslib (field_libro_autores) */
   $handler->display->display_options['arguments']['field_libro_autores_tid']['id'] = 'field_libro_autores_tid';
   $handler->display->display_options['arguments']['field_libro_autores_tid']['table'] = 'field_data_field_libro_autores';
   $handler->display->display_options['arguments']['field_libro_autores_tid']['field'] = 'field_libro_autores_tid';
@@ -740,7 +736,7 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_class'] = 'book-title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Campo: Nodo: Autor */
+  /* Campo: Nodo: Autor Geslib */
   $handler->display->display_options['fields']['field_libro_autores']['id'] = 'field_libro_autores';
   $handler->display->display_options['fields']['field_libro_autores']['table'] = 'field_data_field_libro_autores';
   $handler->display->display_options['fields']['field_libro_autores']['field'] = 'field_libro_autores';
@@ -1033,7 +1029,7 @@ function libro_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => '',
   );
-  /* Campo: Nodo: Autor */
+  /* Campo: Nodo: Autor Geslib */
   $handler->display->display_options['fields']['field_libro_autores']['id'] = 'field_libro_autores';
   $handler->display->display_options['fields']['field_libro_autores']['table'] = 'field_data_field_libro_autores';
   $handler->display->display_options['fields']['field_libro_autores']['field'] = 'field_libro_autores';
@@ -1303,7 +1299,7 @@ function libro_views_default_views() {
     t('Ean'),
     t('Egoera'),
     t('Portada'),
-    t('Autor'),
+    t('Autor Geslib'),
     t('Urtea'),
     t('Editorial'),
     t('Editar producto'),

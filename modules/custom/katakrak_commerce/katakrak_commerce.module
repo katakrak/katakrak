@@ -218,7 +218,7 @@ function katakrak_commerce_form_commerce_checkout_form_alter(&$form, &$form_stat
         '#type' => 'textfield',
         '#title' => t('Nombre'),
         '#description' => t('Tu nombre para cuando vengas a recoger el pedido'),
-        '#weight' => -1,
+        '#weight' => -100,
         '#required' => TRUE,
       );
       if (katakrak_commerce_cart_is_bizikrak($order)) {
@@ -227,8 +227,47 @@ function katakrak_commerce_form_commerce_checkout_form_alter(&$form, &$form_stat
           '#title' => t('Teléfono'),
           '#description' => t('Un número de teléfono para que te contactemos'),
           '#required' => TRUE,
-          '#weight' => -1,
+          '#weight' => -60,
         );
+        $form['direccion'] = array(
+          '#type' => 'textfield',
+          '#title' => t('Dirección'),
+          '#description' => t('La dirección para la entrega'),
+          '#required' => TRUE,
+          '#weight' => -90,
+        );
+        
+        $form['poblacion'] = array(
+          '#type' => 'select',
+          '#title' => t('Poblacion'),
+          '#options' => array(
+            'Ansoain' => t('Ansoain'),
+            'Barañain' => t('Barañain'),
+            'Berriozar' => t('Berriozar'),
+            'Burlada' => t('Burlada'),
+            'Cordovilla' => t('Cordovilla'),
+            'Huarte' => t('Huarte'),
+            'Olatz' => t('Olatz'),
+            'Orcoien' => t('Orcoien'),
+            'Pamplona' => t('Pamplona'),
+            'Sarriguren' => t('Sarriguren'),
+            'Villava' => t('Villava'),
+            'Zizur' => t('Zizur'),
+          ),
+          '#required' => TRUE,
+          '#weight' => -80,
+        );
+        $form['horario'] = array(
+          '#type' => 'select',
+          '#title' => t('Horario de entrega'),
+          '#options' => array(
+            'Por la mañana' => t('Mañana'),
+            'Por la tarde' => t('Tarde'),
+          ),
+          '#required' => TRUE,
+          '#weight' => -80,
+        );
+        
         $form['buttons']['continue']['#validate'][] = 'katakrak_commerce_checkout_form_validate';
       }
       $form['customer_profile_billing']['#access'] = FALSE;
@@ -240,7 +279,8 @@ function katakrak_commerce_form_commerce_checkout_form_alter(&$form, &$form_stat
 
 function katakrak_commerce_checkout_form_validate($form, &$form_state, $form_id) {
   //Validamos que el número esté bien
-  if (!is_numeric($form_state['input']['telefono_recogida']) || strlen($form_state['input']['telefono_recogida']) != 9) {
+  $telefono = str_replace(' ', '', $form_state['input']['telefono_recogida']);
+  if (!is_numeric($telefono) || strlen($telefono) != 9) {
     form_set_error('telefono_recogida', t("Por favor, introduce un número de teléfono válido"));
   }
 }
@@ -248,10 +288,14 @@ function katakrak_commerce_checkout_form_validate($form, &$form_state, $form_id)
 function katakrak_commerce_checkout_form_submit($form, &$form_state, $form_id) {
   $order = $form_state['order'];
   //Cargamos el perfil presente
-  $profile = commerce_customer_profile_load($order->commerce_customer_billing['und'][0]['profile_id']);
+  $profile = commerce_customer_profile_load($order->commerce_customer_shipping['und'][0]['profile_id']);
+  
   //Añadimos los campos necesarios
   $profile->commerce_customer_address['und'][0]['first_name'] = $form_state['input']['nombre_recogida'];
   $profile->commerce_customer_address['und'][0]['name_line'] = $form_state['input']['nombre_recogida'];
+  $profile->commerce_customer_address['und'][0]['thoroughfare'] = $form_state['input']['direccion'];
+  $profile->commerce_customer_address['und'][0]['locality'] = $form_state['input']['poblacion'];
+  $profile->commerce_customer_address['und'][0]['premise'] = $form_state['input']['horario'];
   if (isset($form_state['input']['telefono_recogida'])) {
     $profile->field_customer_telefono['und'][0]['value'] = $form_state['input']['telefono_recogida'];
   }
