@@ -490,10 +490,90 @@ WHERE  `field_parada_libro_nid` = :nid AND n.status = 1", array(':nid' => $node-
 function libro_por_isbn() {
   if ($_GET['isbn']) {
     $result = views_get_view_result('libros_admin', 'libro_por_isbn', $_GET['isbn']);
+    
     if ($result)
       drupal_goto('node/'.$result[0]->nid);
-    else 
-      drupal_not_found ();
+    else {
+      $dilve = new DilveSearch(variable_get('dilve_user', ''), variable_get('dilve_pass', ''));
+      $book = $dilve->search($_GET['isbn']);
+      if (is_string($book)) {
+        drupal_not_found();
+      }
+      else {
+        $node = new stdClass();
+        $node->type = 'libro';
+        $commerce_product = new stdClass();
+        $commerce_product->type = 'libro';
+        
+        if ($book['title']) {
+          $commerce_product->title = $book['title'];
+          $node->title = $book['title'];
+          $node->title_field['und'][0]['value'] = $book['title'];
+        }
+        $node->field_libro_isbn['und'][0]['value'] = $book['isbn'];
+        
+        
+        if (isset($book['pages']))
+         $node->field_libro_paginas['und'][0]['value'] = $book['pages'];
+        if (isset($book['date'])) {
+          $year_number = substr($book['date'], 0, 4);
+          $year_terms = taxonomy_get_term_by_name($year_number, 'urtea');
+          if ($year_terms) {
+            $year = array_pop($year_terms);
+          }
+          else {
+            $year = new stdClass();
+            foreach (taxonomy_get_vocabularies() as $vid => $vocab){
+              if ($vocab->name == 'Año') {
+                $year->vid = $vid ;
+              }
+            }
+            $year->name = $year_number;
+            taxonomy_term_save($year);
+          }
+          $node->field_libro_year['und'][0]['tid'] = $year->tid;
+        }
+        
+        if (isset($book['description'])) {
+          $node->field_libro_sinopsis['und'][0]['value'] = $book['description'];                $node->field_libro_sinopsis['und'][0]['format'] = 'sinopsis';
+        }
+        if (isset($book["subtitle"]))
+          $node->field_libro_subtitulo['und'][0]['value'] = $book['subtitle'];
+        
+        
+        $commerce_product->sku = $book['isbn'];
+        $commerce_product->title = $book['title'];
+        $commerce_product->commerce_price['und'][0] = array(
+          'amount' => str_replace('.', '', number_format($book['price'], 2)),
+          'currency_code' => 'EUR',
+          'data' => array(
+            'include_tax' =>  'iva_libros'
+          ),
+        );
+        if (isset($book['weight'])) {
+          $commerce_product->field_product_peso['und'][0] = array(
+            'weight' => $book['weight']['value'],
+            'unit' => 'g',
+          );
+        }
+        
+        
+        $node->field_libro_producto['und'][0]['product_id'] = $commerce_product->product_id;
+        if ($book['cover_url']) {
+          $file = create_cover($book['cover_url'], $book['isbn']);
+          if (!empty($file)){
+            $node->field_libro_portada['und'][0] = $file;
+            $node->field_libro_portada['und'][0]['title'] = $node->title;
+            $node->field_libro_portada['und'][0]['alt'] = $node->title;
+          }
+        }
+        commerce_product_save($commerce_product);
+        node_save($node);
+        
+        drupal_goto('node/'.$node->nid);
+      }
+    }
+      
   }
   else {
     drupal_not_found();
