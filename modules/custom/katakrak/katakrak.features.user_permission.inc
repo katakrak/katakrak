@@ -452,7 +452,9 @@ function katakrak_user_default_permissions() {
   // Exported permission: 'create commerce_customer_profile entities of bundle shipping'.
   $permissions['create commerce_customer_profile entities of bundle shipping'] = array(
     'name' => 'create commerce_customer_profile entities of bundle shipping',
-    'roles' => array(),
+    'roles' => array(
+      'Tester' => 'Tester',
+    ),
     'module' => 'commerce_customer',
   );
 
@@ -1091,6 +1093,7 @@ function katakrak_user_default_permissions() {
   $permissions['edit own commerce_customer_profile entities of bundle billing'] = array(
     'name' => 'edit own commerce_customer_profile entities of bundle billing',
     'roles' => array(
+      'Tester' => 'Tester',
       'administrator' => 'administrator',
     ),
     'module' => 'commerce_customer',
@@ -1590,6 +1593,7 @@ function katakrak_user_default_permissions() {
     'name' => 'view own commerce_customer_profile entities of bundle shipping',
     'roles' => array(
       'Librero' => 'Librero',
+      'Tester' => 'Tester',
     ),
     'module' => 'commerce_customer',
   );

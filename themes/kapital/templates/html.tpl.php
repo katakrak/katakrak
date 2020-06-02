@@ -50,7 +50,7 @@
       <?php print $styles; ?>
     <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/74A9127E-FC4F-B74A-901A-7E3CCC4613E8/main.js" charset="UTF-8"></script><script src="https://kit.fontawesome.com/10471300b3.js" crossorigin="anonymous"></script>
     <!-- Google fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700?family=Playfair+Display:wght@400;500;600&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700?family=Playfair+Display:wght@400;500;600&family=Work+Sans:wght@300;400;600&display=swap;" rel="stylesheet">
     <!-- Main Custom CSS -->
     <title><?php print $head_title; ?></title>
     

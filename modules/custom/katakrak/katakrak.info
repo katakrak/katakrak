@@ -26,6 +26,7 @@ dependencies[] = i18n_taxonomy
 dependencies[] = image
 dependencies[] = katakrak_geslib
 dependencies[] = katakrak_socios
+dependencies[] = mailchimp_signup
 dependencies[] = menu
 dependencies[] = node
 dependencies[] = path

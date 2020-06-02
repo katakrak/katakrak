@@ -130,6 +130,7 @@ function katakrak_block_view($delta) {
     $links = language_negotiation_get_switch_links('language', $path);
     if (isset($links->links)) {
       drupal_add_css(drupal_get_path('module', 'locale') . '/locale.css');
+      dpm ($links);
       foreach ($links->links as $id => &$link) {
         $link['title'] = t($link['language']->prefix);
       }
@@ -468,10 +469,14 @@ function katakrak_preprocess_image(&$variables) {
   }
 }
 
+      
+
+
 /**
  * Implements hook_form_alter
  */
 function katakrak_form_alter(&$form, &$form_state, $form_id) {
+  
   if ($form_id == 'user_login_block') {
     $form['name']['#title_display'] = 'invisible';
     $form['name']['#attributes'] = array(

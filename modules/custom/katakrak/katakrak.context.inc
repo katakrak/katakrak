@@ -27,52 +27,28 @@ function katakrak_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'katakrak-language_switcher' => array(
-          'module' => 'katakrak',
-          'delta' => 'language_switcher',
-          'region' => 'top_right',
-          'weight' => '-10',
-        ),
-        'katakrak-katakrak_cart' => array(
-          'module' => 'katakrak',
-          'delta' => 'katakrak_cart',
-          'region' => 'menu_lateral',
-          'weight' => '-10',
-        ),
-        'katakrak-katakrak_user_top' => array(
-          'module' => 'katakrak',
-          'delta' => 'katakrak_user_top',
-          'region' => 'menu_lateral',
-          'weight' => '-9',
-        ),
-        'katakrak_socios-banner_socios' => array(
-          'module' => 'katakrak_socios',
-          'delta' => 'banner_socios',
-          'region' => 'content_top',
-          'weight' => '-9',
-        ),
-        'katakrak-katakrak_social' => array(
-          'module' => 'katakrak',
-          'delta' => 'katakrak_social',
-          'region' => 'post_content_bottom_right',
-          'weight' => '-9',
-        ),
         'katakrak-footer_first' => array(
           'module' => 'katakrak',
           'delta' => 'footer_first',
           'region' => 'footer_first',
           'weight' => '-10',
         ),
-        'menu-menu-enlaces' => array(
-          'module' => 'menu',
-          'delta' => 'menu-enlaces',
+        'katakrak-footer_second' => array(
+          'module' => 'katakrak',
+          'delta' => 'footer_second',
           'region' => 'footer_second',
           'weight' => '-10',
         ),
-        'katakrak-katakrak_horarios' => array(
+        'katakrak-footer_third' => array(
           'module' => 'katakrak',
-          'delta' => 'katakrak_horarios',
+          'delta' => 'footer_third',
           'region' => 'footer_third',
+          'weight' => '-10',
+        ),
+        'mailchimp_signup-recibe_nuestro_boletin_semanal' => array(
+          'module' => 'mailchimp_signup',
+          'delta' => 'recibe_nuestro_boletin_semanal',
+          'region' => 'footer_fourth',
           'weight' => '-10',
         ),
       ),
