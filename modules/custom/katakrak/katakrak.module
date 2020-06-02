@@ -51,8 +51,8 @@ function katakrak_theme() {
       'template' => 'katakrak-footer-first',
       'path' => $path . '/templates',
     ),
-    'katakrak_horarios' => array(
-      'template' => 'katakrak-horarios',
+    'katakrak_footer_second' => array(
+      'template' => 'katakrak-footer-second',
       'path' => $path . '/templates',
     ),
   );
@@ -116,11 +116,6 @@ function katakrak_block_info() {
     'info' => t('Katakrak social'),
     // Not worth caching.
     'cache' => DRUPAL_NO_CACHE,
-  );
-  $blocks['katakrak_horarios'] = array(
-    'info' => t('Katakrak horarios'),
-    // Not worth caching.
-    'cache' => DRUPAL_CACHE_GLOBAL,
   );
   return $blocks;
 }
@@ -188,9 +183,12 @@ function katakrak_block_view($delta) {
     $block['content'] = theme('katakrak_footer_first');
     return $block;
   }
-  if ($delta == 'katakrak_horarios') {
-    $block['title'] = t('Horarios');
-    $block['content'] = theme('katakrak_horarios');
+  if ($delta == 'footer_second') {
+    $block['content'] = theme('katakrak_footer_second');
+    return $block;
+  }
+  if ($delta == 'footer_third') {
+    $block['content'] = theme('katakrak_social_block');
     return $block;
   }
 }
