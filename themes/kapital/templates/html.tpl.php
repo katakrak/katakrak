@@ -41,34 +41,26 @@
  *
  * @ingroup themeable
  */
-?><!DOCTYPE html> 
+?>
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://xabiangos.com/katakrak-bs/index.html -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $language->language; ?>" version="XHTML+RDFa 1.0" dir="<?php print $language->dir; ?>"<?php print $rdf_namespaces; ?>>
-
   <head profile="<?php print $grddl_profile; ?>">
     <?php print $head ?>
+      <?php print $styles; ?>
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/74A9127E-FC4F-B74A-901A-7E3CCC4613E8/main.js" charset="UTF-8"></script><script src="https://kit.fontawesome.com/10471300b3.js" crossorigin="anonymous"></script>
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700?family=Playfair+Display:wght@400;500;600&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Main Custom CSS -->
     <title><?php print $head_title; ?></title>
-    <link href='https://fonts.googleapis.com/css?family=Ropa+Sans:400,400italic|Open+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <?php print $styles; ?>
-    <?php $theme_custom_css = theme_get_setting('theme_custom_css', 'coworker'); ?>
-    <?php if (!empty($theme_custom_css)): ?>
-      <?php print '<style type="text/css">' . $theme_custom_css . '</style>'; ?>
-    <?php endif; ?>
     
-
     <!--[if lt IE 9]>
         <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
       <![endif]-->
     <?php print $scripts; ?>
     
   </head>
-  
-    <?php $theme_layout = theme_get_setting('theme_layout', 'coworker'); ?>
-  <body class="<?php print $theme_layout; ?> <?php print $classes; ?>" <?php print $attributes; ?>>
-    <div id="skip-link">
-      <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
-    </div>
-    <?php print $page_top; ?>
+  <body class="<?php print $classes; ?>" <?php print $attributes; ?>>
     <?php print $page; ?>
     <?php print $page_bottom; ?>
   </body>

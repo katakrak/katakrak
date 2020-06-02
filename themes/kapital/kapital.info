@@ -7,9 +7,17 @@ regions[header] = Header
 regions[sidebar_first] = Right sidebar
 regions[content] = Content
 regions[footer] = Footer
+regions[footer_first] = Footer first
+regions[footer_second] = Footer second column
+regions[footer_third] = Footer third column
+regions[footer_fourth] = Footer fourth column
 
-stylesheets[all][] = css/style.css
-stylesheets[print][] = css/print.css
+stylesheets[all][] = css/main.css
+stylesheets[all][] = css/bootstrap.min.css
+
+;scripts[] = js/10471300b3.js.download
 
 features[] = name
 features[] = main_menu
+
+settings[logo] = /sites/all/themes/kapital/images/katakrak-logo.svg
