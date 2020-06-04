@@ -95,6 +95,18 @@ function katakrak_geslib_geslib_product($op, $product) {
         ->condition('field_libro_producto_product_id', $commerce_product->product_id)
         ->execute()->fetchField();
   }
+  else {//Si no hay un código de geslib, intentamos con el ean. Cuando se crean libros sin id de geslib en ocasiones ocurre esto.
+    $commerce_product = commerce_product_load_by_sku($product['ean']);
+    if ($commerce_product) {
+      $nid = db_select('field_data_field_libro_producto', 'p')->fields('p', array('entity_id'))
+          ->condition('field_libro_producto_product_id', $commerce_product->product_id)
+          ->execute()->fetchField();
+      $commerce_product->sku = $product['geslib_id'];
+      //asignamos al producto el id de geslib.
+      commerce_product_save($commerce_product);
+    }
+  }
+  
   if ($nid) {
     $node = node_load($nid);
   }
