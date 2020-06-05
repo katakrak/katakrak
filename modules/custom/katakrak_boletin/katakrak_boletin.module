@@ -122,7 +122,7 @@ function katakrak_boletin_form_alter(&$form, &$form_state, $form_id) {
     $form['actions']['submit']['#attributes'] = array('class' => array('btn btn-primary'));
     foreach (array('EMAIL', 'FNAME', 'LNAME') as $value) {
       $form['mergevars'][$value]['#attributes']['placeholder'] = t($form['mergevars'][$value]['#title']);
-      $form['mergevars'][$value]['#attributes']['class'] = array('form-control form-control-sm');
+      //$form['mergevars'][$value]['#attributes']['class'] = array('form-control form-control-sm');
       unset($form['mergevars'][$value]['#title']);
     }
   }

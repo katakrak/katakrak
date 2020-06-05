@@ -456,9 +456,11 @@ function libro_node_load($nodes, $types) {
         $ubicacion = array_pop($ubicacion);
         $node->ubicacion = $ubicacion->name;
       }
-      foreach ($node->field_libro_autores['und'] as $autores) {
-        $term = taxonomy_term_load($autores['tid']);
-        $node->autores[] = $term->name;
+      if (isset($node->field_libro_autores['und'])) {
+        foreach ($node->field_libro_autores['und'] as $autores) {
+          $term = taxonomy_term_load($autores['tid']);
+          $node->autores[] = $term->name;
+        }
       }
       if (isset($node->field_libro_categoria['und'])) {
         $ubicacion = taxonomy_get_parents($node->field_libro_categoria['und'][0]['tid']);

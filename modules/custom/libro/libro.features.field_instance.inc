@@ -583,7 +583,7 @@ function libro_field_default_field_instances() {
     'bundle' => 'libro',
     'default_value' => array(
       0 => array(
-        'value' => 0,
+        'value' => '0Disponible',
       ),
     ),
     'deleted' => 0,
