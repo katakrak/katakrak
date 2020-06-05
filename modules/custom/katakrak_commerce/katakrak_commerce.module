@@ -10,6 +10,19 @@ function katakrak_commerce_init() {
   drupal_add_js(drupal_get_path('module', 'katakrak_commerce').'/katakrak_commerce.js');
 }
 
+function katakrak_commerce_theme() {
+  $path = drupal_get_path('module', 'katakrak_commerce');
+  return array(
+    'katakrak_commerce_boton_compra' => array(
+      'template' => 'katakrak-commerce-boton-compra',
+      'path' => $path . '/templates',
+      'arguments' => array(
+        'node' => NULL,
+      )
+    ),
+  );
+}
+
 function katakrak_commerce_commerce_checkout_pane_info_alter(&$panes) {
   foreach($panes as $key => $pane) {
     $panes[$key]['title'] = t($panes[$key]['title']);
@@ -106,6 +119,12 @@ function katakrak_commerce_form_download($form, &$form_state, $nodes, $collapsed
   return $form;
 }
 
+/**
+ * 
+ * @param type $sku
+ * @param type $nid
+ * @return type
+ */
 function  donacion_generar_form($sku, $nid = NULL ) {
   
   $product = commerce_product_load_by_sku($sku);
@@ -128,6 +147,11 @@ function  donacion_generar_form($sku, $nid = NULL ) {
   // Build the Add to Cart form using the prepared values.
   $form = drupal_get_form($form_id, $line_item, 0, array());
   return $form;
+}
+
+function katakrak_commerce_generar_boton_compra($nid) {
+  $node = node_load($nid);
+  $product = commerce_product_load($node->nid);
 }
 
 /*function katakrak_editorial_init() {
