@@ -172,7 +172,7 @@ global $language;
                   <?php print t('Estado') ?>
                 </span>
                 <span class="col-2 book-info-data">
-                  <?php print isset($content['estado']) ? $content['estado'] :  t($content['field_libro_estado'][0]['#markup']) ?>
+                  <?php print t($content['field_libro_estado'][0]['#markup']) ?>
                 </span>
               </div>
               <div class="book-info-entry">
@@ -185,7 +185,7 @@ global $language;
               </div>
             </div>
 
-              <div class="col-sm-4">
+              <div class="col-sm-3">
                 <?php if ($node->itinerarios): ?>
                 <div class="itinerarios">
                   <?php foreach($node->itinerarios[$language->language] as $itinerario): ?>
@@ -201,11 +201,17 @@ global $language;
                   </div>
                 <?php endif; ?>
               </div>
-              <div class="col-sm-2">
+              <div class="col-sm-3">
+                <?php if ($content['mostrar_carrito']): ?>
+                
                 <div class="book-buy">
                   <div class="book-price"><?php print $content['product:commerce_price'][0]['#markup'] ?></div>
                   <?php print render($content['field_libro_producto']) ?>
+                  <?php if ($content['disponible_bajo_pedido']): ?>
+                  <div class="alert alert-block alert-warning fade in"><strong><?php print t('Sin stock en tienda. Se puede adquirir igualmente pero tardará entre 3 y 4 días más el envío.') ?></strong></div>
+                  <?php endif; ?>
                 </div>
+                  <?php endif; ?>
               </div>
               <div class="row">
                 <div class="col-sm-12 col-md-12">
