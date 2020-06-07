@@ -29,5 +29,5 @@ $add_to_cart = libro_generar_boton_compra($row->nid);
     <?php print l($row->node_title, 'node/'.$row->nid); ?>
   </h3>
  <span class="price"><?php print $row->field_commerce_price[0]['rendered']['#markup'] ?></span>
- 
+ <?php print $add_to_cart ?>
 </div>
