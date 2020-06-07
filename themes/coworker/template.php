@@ -102,6 +102,7 @@ function coworker_preprocess_search_result(&$vars) {
       else {
         $vars['image'] = '<i class="fa fa-book fa-10x"></i>';
       }
+<<<<<<< HEAD
       $vars['price'] = commerce_currency_format($product->commerce_price['und'][0]['amount'], 'EUR', $product);
 
 //      $default_quantity = 1;
@@ -127,6 +128,11 @@ function coworker_preprocess_search_result(&$vars) {
 //      // Build the Add to Cart form using the prepared values.
 //      $form = drupal_get_form($form_id, $line_item, 0, array());
 //      $vars['add_to_cart'] = drupal_render($form);
+=======
+      $product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
+      $vars['price'] = commerce_currency_format($product->commerce_price['und'][0]['amount'], 'EUR', $product);
+      $vars['add_to_cart'] = libro_generar_boton_compra($node->nid);
+>>>>>>> master
     }
     elseif ($node->field_event_image) {
       $vars['image'] = l(theme('image_style', array(

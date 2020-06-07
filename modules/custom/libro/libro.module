@@ -507,7 +507,7 @@ WHERE  `field_parada_libro_nid` = :nid AND n.status = 1", array(':nid' => $node-
 function libro_por_isbn() {
   if ($_GET['isbn']) {
     $isbn = $_GET['isbn'];
-    $result = views_get_view_result('libros_admin', 'libro_por_isbn', $sisbn);
+    $result = views_get_view_result('libros_admin', 'libro_por_isbn', $isbn);
     
     if ($result)
       drupal_goto('node/'.$result[0]->nid);
@@ -612,8 +612,9 @@ function libro_search_home_form($form, &$form_state, $total = NULL) {
 
 function libro_generar_boton_compra($nid) {
   $node = node_load($nid);
-  
   $product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
+  
+  
   $default_quantity = 1;
   $product_ids = array($product->product_id);
 
@@ -626,12 +627,28 @@ function libro_generar_boton_compra($nid) {
   $form_id = commerce_cart_add_to_cart_form_id($product_ids);
   $line_item->data['context']['display_path'] = current_path();
 
+   $mostrar_carrito = FALSE;
+  if ($product->commerce_stock['und'][0]['value'] > 0) {
+    $mostrar_carrito = TRUE;
+  }
+  else {
+    $cegal = new CegalSearch(variable_get('cegal_user', ''), variable_get('cegal_clave', ''));
+    $distribuidores = variable_get('distribuidores_confianza', array());
+    $disponibilidad = $cegal->disponibilidad($node->field_libro_isbn['und'][0]['value']);
 
-
+    foreach($disponibilidad as $distribuidor) {
+      if (array_key_exists($distribuidor, $distribuidores))  {
+        $mostrar_carrito = TRUE;
+      }
+    }
+  }
   // Build the Add to Cart form using the prepared values.
   $form = drupal_get_form($form_id, $line_item, 0, array());
   //dpm($form);
-  return drupal_render($form);
+  if ($mostrar_carrito)
+    return drupal_render($form);
+  else 
+    return '';
 }
 
 /**
