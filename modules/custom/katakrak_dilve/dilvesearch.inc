@@ -47,13 +47,15 @@ class DilveSearch {
       $book = array();
     //drupal_set_message(dprint_r($xml_book, 1));
     
-      $book['isbn'] = (string)$xml_book->RecordReference;
-      
+      $book['isbn'] = $isbn;//(string)$xml_book->RecordReference;
+      $book['ean'] = (string)$xml_book->RecordReference;
       $book['date'] = (int)$xml_book->PublicationDate;
+      $book['year'] = substr($book['date'],0, 4);
       
       #Get Price
       foreach($xml_book->SupplyDetail->Price as $price) {
         $book['price'] = (float)$price->PriceAmount;
+        $book['price'] = str_replace('.', '', number_format($book['price'], 2));
       }
       # Get title
       foreach($xml_book->Title as $title) {

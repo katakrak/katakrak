@@ -122,8 +122,8 @@ function katakrak_dilve_batch_process_form($form, &$form_state) {
     
   );
   $form['limit'] = array(
-    '#title' => t('Limit'),
-    '#description' => t('If no value all items will be processed'),
+    '#title' => t('libros por iteracións'),
+    '#description' => t('Cantidad de libros que se procesan en cada vuelta del batch'),
     '#type' => 'textfield',
     '#size' => 10,
     '#default_value' => 10,
@@ -183,6 +183,7 @@ function katakrak_dilve_info($node) {
     drupal_set_message($book, 'error');
     $book = array();
   }
+    
   return drupal_get_form('dilve_node_info_form', $node, $book);
 }
 
@@ -209,7 +210,7 @@ function dilve_node_info_form($form, &$form_state, $node, $book) {
     '#title' => t('Año'),
     '#type' => 'textfield',
     '#size' => 20,
-    '#default_value' => isset($book['date']) ? substr($book['date'], 0, 4) : '',
+    '#default_value' => isset($book['year']) ? substr($book['year'], 0, 4) : '',
   );
   $form['pages'] = array(
     '#title' => t('Páginas'),
@@ -225,7 +226,6 @@ function dilve_node_info_form($form, &$form_state, $node, $book) {
       '#value' => isset($book['weight']['value']) ? $book['weight']['value'] : '',
     );
   }
-  
   $form['image'] = array(
     '#type' => 'hidden',
     '#value' => isset($book['cover_url']) ? $book['cover_url'] : '',
@@ -279,13 +279,17 @@ function dilve_node_info_form_submit($form, &$form_state) {
     $node->field_libro_paginas['und'][0]['value'] = $values['pages'];
   
   if ($values['image']) {
-      
-    $file = create_cover($values['image'], $node->field_libro_ean['und'][0]['value']);
-    
-    if (!empty($file)) {
-      $node->field_libro_portada['und'][0] = $file;
-      $node->field_libro_portada['und'][0]['title'] = $node->title;
-      $node->field_libro_portada['und'][0]['alt'] = $node->title;
+    $request = drupal_http_request($values['image']);
+    if ($request->code == 200) {
+      $ext = substr($values['image'], strrpos($values['image'], '.') + 1);  
+      $filename = $node->field_libro_ean['und'][0]['value'].'.'.$ext;
+      $file = create_cover($request->data, $filename);
+
+      if (!empty($file)) {
+        $node->field_libro_portada['und'][0] = $file;
+        $node->field_libro_portada['und'][0]['title'] = $node->title;
+        $node->field_libro_portada['und'][0]['alt'] = $node->title;
+      }
     }
   }
   
@@ -384,8 +388,8 @@ function katakrak_dilve_batch_process($max, $limit, $recheck, &$context){
       if (isset($book['description'])) {
         $node->field_libro_sinopsis['und'][0]['value'] = $book['description'];                $node->field_libro_sinopsis['und'][0]['format'] = 'sinopsis';
       }
-      if (isset($book['date'])) {
-        $year_number = substr($book['date'], 0, 4);
+      if (isset($book['year'])) {
+        $year_number = $book['year'];
         $year_terms = taxonomy_get_term_by_name($year_number, 'urtea');
         if ($year_terms) {
           $year = array_pop($year_terms);
@@ -407,11 +411,17 @@ function katakrak_dilve_batch_process($max, $limit, $recheck, &$context){
       if (isset($book["subtitle"]))
         $node->field_libro_subtitulo['und'][0]['value'] = $book['subtitle'];
       if ($book['cover_url']) {
-        $file = create_cover($book['cover_url'], $node->field_libro_ean['und'][0]['value']);
-        if (!empty($file)){
-          $node->field_libro_portada['und'][0] = $file;
-          $node->field_libro_portada['und'][0]['title'] = $node->title;
-          $node->field_libro_portada['und'][0]['alt'] = $node->title;
+        $request = drupal_http_request($book['cover_url']);
+        if ($request->code == 200) {
+          $ext = substr($book['cover_url'], strrpos($book['cover_url'], '.') + 1);  
+          $filename = $node->field_libro_ean['und'][0]['value'].'.'.$ext;
+          $file = create_cover($request->data, $filename);
+
+          if (!empty($file)) {
+            $node->field_libro_portada['und'][0] = $file;
+            $node->field_libro_portada['und'][0]['title'] = $node->title;
+            $node->field_libro_portada['und'][0]['alt'] = $node->title;
+          }
         }
       }
 
@@ -476,8 +486,8 @@ function katakrak_dilve_process_item($nid) {
         $node->field_libro_sinopsis['und'][0]['value'] = $book['description'];
         $node->field_libro_sinopsis['und'][0]['format'] = 'sinopsis';
       }
-      if (isset($book['date'])) {
-        $year_number = substr($book['date'], 0, 4);
+      if (isset($book['year'])) {
+        $year_number = $book['year'];
         $year_terms = taxonomy_get_term_by_name($year_number, 'urtea');
         if ($year_terms) {
           $year = array_pop($year_terms);
