@@ -407,14 +407,25 @@ function libro_node_view($node, $view_mode, $langcode) {
       $autores[] =  $node->content['field_libro_autores'][$key]['#markup'];
     }
     $node->content['autores'] = join(', ', $autores);
+    
     $product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
+    
     if ($product->commerce_stock['und'][0]['value'] > 0) {
       $node->content['mostrar_carrito'] = TRUE;
     }
-    elseif ($node->field_libro_estado['und'][0]['value'] == 0) {
-      $node->content['mostrar_carrito'] = TRUE;
-           
-      $node->content['disponible_bajo_pedido'] = TRUE;
+    else {
+      $cegal = new CegalSearch(variable_get('cegal_user', ''), variable_get('cegal_clave', ''));
+      $distribuidores = variable_get('distribuidores_confianza', array());
+      $disponibilidad = $cegal->disponibilidad($node->field_libro_isbn['und'][0]['value']);
+      
+      foreach($disponibilidad as $distribuidor) {
+        if (array_key_exists($distribuidor, $distribuidores))  {
+          $node->content['mostrar_carrito'] = TRUE;
+          $node->content['disponible_bajo_pedido'] = TRUE;
+          $node->content['plazo'] = $distribuidores[$distribuidor]['plazo'];
+        }
+      }
+      
     }
   }
 }
@@ -505,13 +516,16 @@ function libro_por_isbn() {
         $node = new stdClass();
         $node->type = 'libro';
         $node->uid = 1;
-        $commerce_product = new stdClass();
-        $commerce_product->type = 'libro';
         
+        $commerce_product = commerce_product_load_by_sku($book['isbn']);
+        if (!$commerce_product)
+          $commerce_product = new stdClass();
+        $commerce_product->type = 'libro';
+        $title = truncate_utf8($book['title'],200, TRUE, TRUE);
         if ($book['title']) {
-          $commerce_product->title = $book['title'];
-          $node->title = $book['title'];
-          $node->title_field['und'][0]['value'] = $book['title'];
+          $commerce_product->title = $title;
+          $node->title = $title;
+          $node->title_field['und'][0]['value'] = $title;
         }
         $node->field_libro_isbn['und'][0]['value'] = $_GET['isbn'];
         $node->field_libro_ean['und'][0]['value'] = $book['isbn'];
@@ -547,7 +561,7 @@ function libro_por_isbn() {
         
         
         $commerce_product->sku = $book['isbn'];
-        $commerce_product->title = $book['title'];
+        
         
         $commerce_product->commerce_price['und'][0] = array(
           'amount' => str_replace('.', '', number_format($book['price'], 2)),
@@ -576,7 +590,7 @@ function libro_por_isbn() {
         commerce_product_save($commerce_product);
         $node->field_libro_producto['und'][0]['product_id'] = $commerce_product->product_id;
         node_save($node);
-        
+      
         drupal_goto('node/'.$node->nid);
       }
     }

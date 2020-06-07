@@ -16,8 +16,6 @@ function katakrak_cegal_menu() {
 }
 
 function katakrak_cegal_settings_form($form, &$form_state) {
-  $cegal = new CegalSearch(variable_get('cegal_user', ''), variable_get('cegal_clave', ''));
-  dpm($cegal->disponibilidad(9788416946402));
    $form['cegal_user'] = array(
     '#type' => 'textfield',
     '#title' => t('Nombre de usuario de Cegal'),
@@ -36,6 +34,8 @@ function katakrak_cegal_settings_form($form, &$form_state) {
     $form['distri_'.$key] = array(
       '#type' => 'fieldset',
       '#title' => $value['name'],
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
     );
     $form['distri_'.$key][$key.'_sinli_id'] = array(
       '#type' => 'textfield',

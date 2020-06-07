@@ -207,8 +207,8 @@ global $language;
                 <div class="book-buy">
                   <div class="book-price"><?php print $content['product:commerce_price'][0]['#markup'] ?></div>
                   <?php print render($content['field_libro_producto']) ?>
-                  <?php if ($content['disponible_bajo_pedido']): ?>
-                  <div class="alert alert-block alert-warning fade in"><strong><?php print t('Sin stock en tienda. Se puede adquirir igualmente pero tardará entre 3 y 4 días más el envío.') ?></strong></div>
+                  <?php if ($content['disponible_bajo_pedido'] && $content['plazo'] > 0): ?>
+                    <div class="alert alert-block alert-warning fade in"><strong><?php print t('Sin stock en tienda. Se puede adquirir igualmente pero tardará entre 3 y 4 días más el envío.') ?></strong></div>
                   <?php endif; ?>
                 </div>
                   <?php endif; ?>
