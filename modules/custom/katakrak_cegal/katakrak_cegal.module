@@ -1,0 +1,286 @@
+<?php
+
+/**
+ * Implementation of hook_menu().
+ */
+function katakrak_cegal_menu() {
+  $items = array();
+  
+  $items['admin/commerce/config/cegal'] = array(
+    'title' => 'Cegal',
+    'description' => 'Cegal',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('katakrak_cegal_batch_process_form'),
+    'access arguments' => array('administer site'),
+  );
+  $items['admin/commerce/config/cegal/process'] = array(
+    'title' => 'Procesar portadas',
+    'description' => 'Dilve',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+  $items['admin/commerce/config/cegal/settings'] = array(
+    'title' => 'Opciones',
+    'description' => 'Configuración de módulo cegal',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('katakrak_cegal_settings_form'),
+    'access arguments' => array('administer site'),
+    'type' => MENU_LOCAL_TASK,
+  );
+   $items['node/%node/cegal'] = array(
+    'title' => 'Cegal',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('katakrak_cegal_portada_form', 1),
+    'access callback' => 'katakrak_dilve_access_node_info',
+    'access arguments' => array('access dilve information', 1),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 100,
+  );
+  return $items;
+}
+
+function katakrak_cegal_settings_form($form, &$form_state) {
+   $form['cegal_user'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Nombre de usuario de Cegal'),
+    '#description' => t('Nombre de usuario en Cegal'),
+    '#size' => 30,
+    '#default_value' => variable_get('cegal_user', ''),
+  );
+  $form['cegal_clave'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Contraseña'),
+    '#description' => t('Contraseña en Cegal'),
+    '#size' => 30,
+    '#default_value' => variable_get('cegal_clave', ''),
+  );
+  foreach (variable_get('distribuidores_confianza', array()) as $key => $value) {
+    $form['distri_'.$key] = array(
+      '#type' => 'fieldset',
+      '#title' => $value['name'],
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+    );
+    $form['distri_'.$key][$key.'_sinli_id'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Id de sinli'),
+      '#description' => 'Deja este campo vacio para eliminar el distribuidor',
+      '#default_value' => $key,
+    );
+    $form['distri_'.$key][$key.'_name'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Nombre del distribuidor'),
+      '#default_value' => $value['name'],
+    );
+    $form['distri_'.$key][$key.'_plazo'] = array(
+      '#type' => 'select',
+      '#title' => t('Plazo estimado'),
+      '#options' => array(
+        '0' => '2-3 días',
+        '1' => '3-4 días',
+        '2' => '7 días'
+      ),
+      '#default_value' => $value['plazo']
+    );
+  }
+  $form['distri_new'] = array(
+      '#type' => 'fieldset',
+      '#title' => "Nuevo distribuidor",
+    );
+    $form['distri_new']['sinli_id'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Id de sinli'),
+      '#default_value' => '',
+    );
+    $form['distri_new']['name'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Nombre del distribuidor'),
+      '#default_value' => '',
+    );
+    $form['distri_new']['plazo'] = array(
+      '#type' => 'select',
+      '#title' => t('Plazo estimado'),
+      '#options' => array(
+        '0' => '2-3 días',
+        '1' => '3-4 días',
+        '2' => '7 días'
+      ),
+      '#default_value' => 0
+    );
+    
+    $form['submit'] = array(
+      '#type' => 'submit',
+      '#value' => 'enviar'
+     );
+  return $form;
+}
+
+function katakrak_cegal_settings_form_submit($form, &$form_state) {
+  variable_set('cegal_user', $form_state['input']['cegal_user']);variable_set('cegal_clave', $form_state['input']['cegal_clave']);
+  $distribuidores = variable_get('distribuidores_confianza', array());
+  
+  foreach($distribuidores as $key => $distri) {
+    if (empty($form_state['values'][$key.'_sinli_id'])) {//Si vacias el id se borra el distribuidor
+      unset($distribuidores[$key]);
+    }
+    elseif ($form_state['values'][$key.'_sinli_id'] != $key) {//Si ha cambiado el id de sinli
+      unset($distribuidores[$key]);
+      $distribuidores[$form_state['values'][$key.'_sinli_id']] = array(
+        'sinli_id' => $form_state['values'][$key.'sinli_id'],
+        'name' => $form_state['values'][$key.'_name'],
+        'plazo' => $form_state['values'][$key.'_plazo'],
+      );
+    }
+    else {//Si es igual lo actualizas
+      $distribuidores[$form_state['values'][$key.'_sinli_id']] = array(
+        'sinli_id' => $form_state['values'][$key.'sinli_id'],
+        'name' => $form_state['values'][$key.'_name'],
+        'plazo' => $form_state['values'][$key.'_plazo'],
+      );
+    }
+      
+  }
+  
+  if (!empty($form_state['input']['sinli_id'])) {
+    $distribuidores[$form_state['values']['sinli_id']] = array(
+      'sinli_id' => $form_state['values']['sinli_id'],
+      'name' => $form_state['values']['name'],
+      'plazo' => $form_state['values']['plazo'],
+    );
+  }
+  variable_set('distribuidores_confianza', $distribuidores);
+}
+
+
+function katakrak_cegal_batch_process_form($form, &$form_state) {
+  $form['sin_portada'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Sin portadas'),
+    '#description' => t('Solo comprobar los items que no tengas portada'),
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'enviar'
+  );
+  return $form;
+}
+
+function katakrak_cegal_batch_process_form_submit($form, &$form_state) {
+  
+  $sin_portada = $form_state['values']['sin_portada'];
+  if ($form_state['clicked_button']['#value'] == 'enviar'){
+    $batch = array(
+      'title' => t('Consultando a Cegal'),
+      'operations' => array(
+        array('katakrak_cegal_batch_process', array($sin_portada)),
+      ),
+      'finished' => 'katakrak_cegal_batch_process_finish',
+    );
+    batch_set($batch);
+  }
+}
+
+/**
+ * Batch function to process all the items
+ * 
+ * @param type $context
+ */
+function katakrak_cegal_batch_process($sin_portada, &$context){
+//  $nodes = db_select('node', 'n');
+//  $nodes->addJoin('LEFT', 'field_data_field_libro_dilve', 'd', 'n.nid = d.entity_id');
+//  $or = db_or()->isNull('d.field_libro_dilve_value')->condition('d.field_libro_dilve_value', 0);
+  $result = views_get_view_result('libros_admin', 'libros_sin_portada');
+//  if ($recheck) {
+//    $or->condition('d.field_libro_dilve_value', 2);
+//  }
+//  $nodes->fields('n', array('nid'))->fields('d', array('field_libro_dilve_value'))
+//    ->condition('type', 'libro')->condition($or);
+  if (!isset($context['sandbox']['progress'])) {
+    $context['sandbox']['progress'] = 0;
+    $context['sandbox']['max'] = count($result);
+    $context['results']['si_portada'] = 0;
+    $context['results']['no_portada'] = 0;
+  }
+  
+  $cegal = new CegalSearch(variable_get('cegal_user', ''), variable_get('cegal_clave', ''));
+  $i = 0;
+  while ($i < 10) {
+    $nid = $result[$context['sandbox']['progress']]->nid;
+    
+    $node = node_load($nid);
+    $image = $cegal->cover($node->field_libro_isbn['und'][0]['value']);
+    
+    if ($image) {
+      $file = create_cover($image['data'], $node->field_libro_isbn['und'][0]['value'].'.'.$image['format']);
+      if (!empty($file)) {
+        $node->field_libro_portada['und'][0] = $file;
+        $node->field_libro_portada['und'][0]['title'] = $node->title;
+        $node->field_libro_portada['und'][0]['alt'] = $node->title;
+        node_save($node);
+        watchdog('cegal', $nid);
+      }
+      $context['results']['si_portada']++;
+    }
+    else
+      $context['results']['no_portada']++;
+    
+    $i++;
+    $context['sandbox']['progress'] += 1;
+  }
+  
+  $context['message'] = t("Processed @progress of @max books", array('@progress' => $context['sandbox']['progress'], '@max' => $context['sandbox']['max']));
+  if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
+    $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
+  }
+}
+
+
+function katakrak_cegal_batch_process_finish($success, $results, $operations) {
+  if ($success) {
+     drupal_set_message(t("@count portadas encontradas en cegal", array('@count' => $results['si_portada'])));
+    drupal_set_message(t("@count portadas no encontradas", array('@count' => $results['no_portada'])));
+  }
+  else {
+    // An error occurred.
+    // $operations contains the operations that remained unprocessed.
+    $error_operation = reset($operations);
+    $message = t('An error occurred while processing %error_operation with arguments: @arguments', array('%error_operation' => $error_operation[0], '@arguments' => print_r($error_operation[1], TRUE)));
+    drupal_set_message($message, 'error');
+  }
+}
+
+function katakrak_cegal_portada_form ($form, &$form_state, $node) {
+  $isbn = $node->field_libro_isbn['und'][0]['value'];
+  $cegal = new CegalSearch(variable_get('cegal_user', ''), variable_get('cegal_clave', ''));
+  $image = $cegal->cover($isbn);
+  $ficha = $cegal->ficha($isbn);
+  
+  $form['imagen'] = array(
+    '#type' => 'item',
+    '#markup' => '<img src="data:image/jpg;base64, '.$image['image'].'" alt="Red dot" />'
+  );
+  $form['image_data'] = array(
+    '#type' => 'hidden',
+    '#value' => $image['data']
+  );
+  $form['filename'] = array(
+    '#type' => 'hidden',
+    '#value' => $node->field_libro_ean['und'][0]['value'].'.'.$image['format']
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'enviar',
+  );
+  return $form;
+}
+
+function katakrak_cegal_portada_form_submit ($form, &$form_state) {
+  
+  $node = $form_state['build_info']['args'][0];
+  $file = create_cover($form_state['values']['image_data'], $form_state['values']['filename']);
+  if (!empty($file)) {
+    $node->field_libro_portada['und'][0] = $file;
+    $node->field_libro_portada['und'][0]['title'] = $node->title;
+    $node->field_libro_portada['und'][0]['alt'] = $node->title;
+    node_save($node);
+  }
+}
