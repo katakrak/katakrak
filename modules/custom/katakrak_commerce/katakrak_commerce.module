@@ -312,7 +312,7 @@ function katakrak_commerce_checkout_form_validate($form, &$form_state, $form_id)
 function katakrak_commerce_checkout_form_submit($form, &$form_state, $form_id) {
   $order = $form_state['order'];
   //Cargamos el perfil presente
-  $profile = commerce_customer_profile_load($order->commerce_customer_shipping['und'][0]['profile_id']);
+  $profile = commerce_customer_profile_load($order->commerce_customer_billing['und'][0]['profile_id']);
   
   //Añadimos los campos necesarios
   $profile->commerce_customer_address['und'][0]['first_name'] = $form_state['input']['nombre_recogida'];
