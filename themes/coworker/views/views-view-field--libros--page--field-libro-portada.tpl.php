@@ -21,7 +21,7 @@
  * regardless of any changes in the aliasing that might happen if
  * the view is modified.
  */
-//$add_to_cart = libro_generar_boton_compra($row->nid);
+$add_to_cart = libro_generar_boton_compra($row->nid);
 ?>
 <?php print $output; ?>
 <div class="prod-info">
