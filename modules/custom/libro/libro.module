@@ -639,14 +639,19 @@ function libro_generar_boton_compra($nid) {
     foreach($disponibilidad as $distribuidor) {
       if (array_key_exists($distribuidor, $distribuidores))  {
         $mostrar_carrito = TRUE;
+        $plazo = $distribuidores[$distribuidor]['plazo'];
+        
       }
     }
   }
   // Build the Add to Cart form using the prepared values.
   $form = drupal_get_form($form_id, $line_item, 0, array());
+  //dpm(distribuidores_plazo($plazo));
   //dpm($form);
-  if ($mostrar_carrito)
-    return drupal_render($form);
+  if ($mostrar_carrito){
+    $message = '<div>'.distribuidores_plazo($plazo).'</div>';
+    return drupal_render($form).$message;
+  }
   else 
     return '';
 }
@@ -710,7 +715,7 @@ function libro_crear_ficha($book) {
     $node->field_libro_subtitulo['und'][0]['value'] = $book['subtitle'];
 
 
-  $commerce_product->sku = $book['isbn'];
+  $commerce_product->sku = $book['ean'];
 
 
   $commerce_product->commerce_price['und'][0] = array(
