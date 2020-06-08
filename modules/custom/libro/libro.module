@@ -415,7 +415,7 @@ function libro_node_view($node, $view_mode, $langcode) {
     if ($product->commerce_stock['und'][0]['value'] > 0) {
       $node->content['mostrar_carrito'] = TRUE;
     }
-    else {
+    elseif ($node-fiel_libro_estado['und'][0]['value'] == 0) {
       $cegal = new CegalSearch(variable_get('cegal_user', ''), variable_get('cegal_clave', ''));
       $distribuidores = variable_get('distribuidores_confianza', array());
       $disponibilidad = $cegal->disponibilidad($node->field_libro_isbn['und'][0]['value']);
@@ -631,7 +631,7 @@ function libro_generar_boton_compra($nid) {
   if ($product->commerce_stock['und'][0]['value'] > 0) {
     $mostrar_carrito = TRUE;
   }
-  else {
+  elseif ($node->field_libro_estado['und'][0]['value'] == 0) {
     $cegal = new CegalSearch(variable_get('cegal_user', ''), variable_get('cegal_clave', ''));
     $distribuidores = variable_get('distribuidores_confianza', array());
     $disponibilidad = $cegal->disponibilidad($node->field_libro_isbn['und'][0]['value']);
