@@ -1,0 +1,95 @@
+body{
+    font-family:$font-base;
+    color: $color-dark;
+    font-size: 16px;
+}
+
+a{
+    color: $color-primary;
+    &:hover, &:visited{
+        text-decoration: none;
+        color:$color-primary-dark;
+    }
+    &:visited{
+        color:$color-primary-dark;
+    }
+}
+
+.small, small{
+    font-size: 14px;
+}
+
+
+
+
+h1,h2,h3{
+    font-family: $font-title;
+    font-weight: $font-title-bold;
+    &.title-light{
+        font-weight: $font-title-light;
+    }
+}
+
+h1{
+    font-size: 26px;
+    &.h1-lg{
+        font-size: 30px;
+    }
+}
+
+h2{
+    font-size: 22px;
+}
+
+h3{
+    font-size: 20px;
+}
+
+.strong, strong{
+    font-weight: $font-base-bold;
+}
+
+.quote, .cita{
+    font-family: $font-title;
+    font-size: 16px;
+}
+
+.text-gray{
+    color: $color-gray-2;
+}
+
+.text-color-light{
+    color: $color-light;
+}
+
+.text-intro{
+    font-family: $font-title;
+    text-align: center;
+    @include sm{
+        font-size: 38px;
+        line-height: 2.6rem;
+    }
+}
+
+
+
+//Lists
+
+.list-social{
+    .list-item{
+        margin-bottom: 1rem;
+    }
+    .d-flex{
+      align-items: center;
+    }
+    i{
+      font-size:15px;
+      width: 30px;
+      height: 30px;
+      padding: 7px 3px 3px 3px;
+      text-align: center;
+      border:1px solid $color-light;
+      border-radius: 200px;
+      margin-right: .5rem;
+    }
+  }

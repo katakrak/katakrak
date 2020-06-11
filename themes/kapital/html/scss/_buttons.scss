@@ -1,0 +1,65 @@
+.btn{
+    &.btn-primary{
+        background-color: $color-primary;
+        border-color: $color-primary;
+        color: $color-light;
+        &:hover, &:focus, &:active, &:active:focus{
+            background-color: $color-primary-dark;
+            box-shadow: none;
+            border-color: $color-primary-dark;
+            color: $color-light;
+        }
+    }
+    &.btn-secondary{
+        background-color: transparent;
+        border-color: $color-primary;
+        color: $color-primary;
+        &:hover, &:focus, &:active, &:active:focus{
+            background-color: transparent;
+            box-shadow: none;
+            border-color: $color-primary-dark;
+            color: $color-primary-dark;
+        }
+    }
+    &.btn-dark{
+        background-color:$color-dark;
+        border-color: $color-dark;
+        color: $color-light;
+        &:hover, &:focus, &:active, &:active:focus{
+            background-color: $color-dark;
+            box-shadow: none;
+            border-color: $color-dark;
+            color: $color-light;
+        }
+    }
+    &.btn-light{
+        background-color:$color-light;
+        border-color: $color-light;
+        color: $color-dark;
+        &:hover, &:focus, &:active, &:active:focus{
+            background-color: $color-gray-3;
+            box-shadow: none;
+            border-color: $color-gray-3;
+            color: $color-dark;
+        }
+    }
+    &.btn-transparent{
+        background-color: transparent;
+        &:hover{
+            background-color: transparent;
+        }
+    }
+    &.btn-icon{
+        font-size: 1.2rem;
+        .badge{
+            font-size: 60%;
+            top:-10px
+        }
+    }
+}
+
+
+.dropdown-item.active, .dropdown-item:active{
+    background-color: $color-primary;
+    color: $color-light !important;
+}

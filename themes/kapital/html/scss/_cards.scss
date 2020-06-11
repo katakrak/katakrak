@@ -1,0 +1,17 @@
+
+// posts
+.post{
+    .post-image{
+        overflow: hidden;
+        max-height: 200px;
+        margin-bottom: 1rem;
+        background-color: $color-gray-4;
+        text-align: center;
+        img{
+            margin: 0 auto;
+        }
+    }
+    a{
+        color: $color-dark;
+    }
+}

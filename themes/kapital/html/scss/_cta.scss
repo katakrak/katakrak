@@ -1,0 +1,142 @@
+.cta{
+    margin: .5rem;
+    display: flex;
+    overflow: hidden;
+   
+    .cta-text{
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        @include sm{
+            padding: 3rem;
+        }
+        h1{
+            margin: 0 0 1rem 0;
+        }
+        .btn{
+           width: fit-content;
+        }
+    }
+    &.bg{
+        background: $color-gray-4;
+        padding: 1rem;
+        @include md{
+            padding: 2rem;
+        }
+    }
+    &.cta-tienda{
+        background: $color-pink-p;
+        overflow: hidden;
+        position: relative;
+        .cta-text{
+            max-width: 50%;
+        }
+        @include sm{
+            height: 320px;
+        }
+        .books{
+            position: absolute;
+            bottom: -90px;
+            right: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .books-col{
+                display: flex;
+                flex-direction: column;
+                .books-col-item{
+                    width: 90px;
+                    height: auto;
+                    margin: 2px;
+                }
+            }
+        }
+    }
+    &.cta-espacio{
+        background: $color-blue-p;
+        .cta-text{
+            max-width: 50%;
+        }
+        .img-plano{
+            max-width: 400px;
+        }
+        @include sm{
+            height: 320px;
+        }
+     }
+
+     &.cta-secondary{
+        @include sm{
+            height: 280px;
+        }
+        &.cta-katering{
+            background:$color-dark url(../images/cta-katering.jpg) center center no-repeat;
+            background-size: cover;
+        }
+        &.cta-editorial{
+            background:$color-yellow-p url(../images/cta-editorial.jpg) center center no-repeat;
+            background-size: cover;
+            .cta-text{
+                max-width: 50%;
+            }
+        }
+     }
+}
+
+
+//agenda modules
+
+.agenda-module{
+    @include sm{
+        height: 280px;
+    }
+    margin: .5rem;
+    border:1px solid $color-gray-3;
+    .agenda-item{
+        display: flex;
+        justify-content: space-between;
+        overflow: hidden;
+        .agenda-item-text{
+            padding: 2rem 2rem 2rem 4rem;
+
+        }
+        .agenda-item-photo{
+            width: 200px;
+            height: 280px;
+            background-color: $color-gray-4;
+            img{
+                object-fit: cover;
+                object-position: 50% 50%;
+                object-position: 0 0; 
+                height: 280px;
+            }
+            
+        }
+    }
+}
+
+
+//books-grid
+
+// .books-grid{
+//  position: absolute;
+//  bottom: .5rem;
+//  right: .5rem;
+//   display: grid;
+//   grid-template-columns: 70px 70px 70px;
+//   grid-gap: .5rem;
+//   .books-grid-item{
+//       background-color: red;
+//       height: 100px;
+//       &:nth-child(even) {
+//         background-color: #ccc;
+//         color: #000;
+//       }
+//   }
+// }
+
+
+
+

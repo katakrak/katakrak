@@ -77,4 +77,4 @@ stylesheets[all][] = css/main.css
 ; Uncomment if using Sass or Less source files. This disables the CDN provider
 ; so compiled source files can be used instead.
 ;settings[bootstrap_cdn_provider] = ''
-settings[logo] = /sites/all/themes/kapital/images/katakrak-logo.svg
+

@@ -1,0 +1,107 @@
+.navbar-custom{
+    background-color: $color-light;
+    border-bottom: 1px solid $color-gray-3;
+    // position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border-radius: 0;
+    margin-bottom: 0;
+    
+    .navbar-centered{
+        @include lg{
+            float: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    .navbar-nav {
+        margin: 0;
+        padding: 0;
+        .nav-item{
+            list-style: none;
+            .nav-link{
+                color: $color-dark;
+               @include sm{
+                padding:  0 1rem;
+               }
+                &:hover,{
+                    color: $color-primary;
+                }
+                &:visited,{
+                    color: $color-primary-dark;
+                }
+            }
+        }
+    }
+
+    .navbar-toggler{
+        border:transparent;
+        color: $color-dark;
+        &:hover, &:visited{
+            color: $color-primary;
+        }
+    }
+
+    .navbar-brand{
+        padding: 0;
+        .logo-main{
+            padding:1rem;
+            height: 50px;
+            @include sm{
+                height: 50px;
+                padding:0 1rem;
+            }
+         }
+    }
+   
+}
+
+
+
+.navbar-secondary{
+    background-color: $color-light;
+    padding: .5rem 1rem;
+    font-size: 13px;
+    color: $color-gray-1;
+    @include md{
+        text-align: right;
+    }
+    a, a:visited{
+        color: $color-gray-1;
+        &:hover{
+            color: $color-dark;
+        }
+    }
+    i{
+        font-size: 18px;
+        @include sm{
+            font-size: 12px;
+        }
+    }
+    .list-inline{
+        margin-bottom: 0;
+        padding: .5rem 0;
+        @media (max-width: 575.98px) { 
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+         }
+    }
+}
+
+
+
+.navbar-xs-items{
+    position: absolute;
+    right: 60px;
+    top:10px;
+    @include sm{
+        top:8px
+    }
+    @include lg{
+        right: 1rem;
+    }
+}

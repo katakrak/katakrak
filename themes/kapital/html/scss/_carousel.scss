@@ -1,0 +1,13 @@
+.carousel-control{
+    position: absolute;
+    top: 40%;
+    &.right{
+        background-image:none;
+        right: 0rem;
+    }
+    &.left{
+        background-image:none;
+        left: 0rem;
+    }
+    
+}

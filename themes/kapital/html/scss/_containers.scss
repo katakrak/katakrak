@@ -1,0 +1,94 @@
+// mixins
+
+@mixin box-shadow{
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.2);
+-moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.2);
+box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.2);
+}
+
+
+// styles
+
+main.main{
+  padding: .5rem;
+}
+
+footer{
+  background:$color-dark url(../images/footer.jpg) no-repeat fixed;
+  background-position: left top;
+  background-size: cover;
+  color: $color-light;
+  font-size: 1.4rem;
+  padding: 2rem 0;
+  h2{
+    font-size: 18px;
+    padding-top: 1rem;
+    border-top: 1px solid $color-light;
+    @include lg{
+      border: none;
+      padding-top: 0;
+     
+    }
+  }
+  a{
+    color: $color-light;
+    &:visited{
+      color: $color-light;
+    }
+    &:hover{
+      color: $color-light;
+      
+    }
+  }
+  // @include sm{
+  //   background:$color-dark url(../images/footer.jpg) no-repeat top center fixed;
+  // }
+}
+
+.box{
+  margin: .5rem;
+  &.bg{
+    background: $color-gray-4;
+    padding: 1rem;
+    @include md{
+      padding: 2rem;
+    }
+  }
+}
+
+
+.d-flex{
+  display: flex;
+
+}
+
+
+.wrapper-banner{
+  background: rgba($color-magenta, 1);
+  padding: 2rem;
+  margin: .5rem;
+}
+
+
+.wrapper-posts{
+  border-top:1px solid $color-dark;
+  border-bottom:1px solid $color-dark;
+  padding: 2rem 0;
+}
+
+
+//Home
+
+.home-modules{
+  @include sm{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .module{
+    padding: 2rem;
+    background-color: red;
+    width: 50%;
+
+  }
+}
