@@ -14,7 +14,7 @@ function katakrak_commerce_default_rules_configuration() {
       "LABEL" : "El pedido ha sido enviado",
       "PLUGIN" : "reaction rule",
       "OWNER" : "rules",
-      "REQUIRES" : [ "rules", "commerce_shipping", "rules_i18n", "mimemail", "entity" ],
+      "REQUIRES" : [ "rules", "commerce_shipping", "mimemail", "entity" ],
       "ON" : { "commerce_order_update" : [] },
       "IF" : [
         { "NOT data_is" : { "data" : [ "commerce-order-unchanged:status" ], "value" : "completed" } },
@@ -104,7 +104,7 @@ function katakrak_commerce_default_rules_configuration() {
     }
   }');
   $items['rules_assign_shipping_cloned_'] = entity_import('rules_config', '{ "rules_assign_shipping_cloned_" : {
-      "LABEL" : "Assign_shipping (cloned)",
+      "LABEL" : "Asignar envio por defecto",
       "PLUGIN" : "reaction rule",
       "OWNER" : "rules",
       "REQUIRES" : [ "commerce_order", "commerce_shipping" ],
@@ -121,7 +121,7 @@ function katakrak_commerce_default_rules_configuration() {
       "DO" : [
         { "commerce_shipping_rate_apply" : {
             "commerce_order" : [ "commerce-line-item:order" ],
-            "shipping_service_name" : "correo_ordinario"
+            "shipping_service_name" : "mensajeria_48_h"
           }
         }
       ]
@@ -132,14 +132,7 @@ function katakrak_commerce_default_rules_configuration() {
       "PLUGIN" : "reaction rule",
       "ACTIVE" : false,
       "OWNER" : "rules",
-      "REQUIRES" : [
-        "rules",
-        "commerce_shipping",
-        "commerce_order",
-        "rules_i18n",
-        "mimemail",
-        "entity"
-      ],
+      "REQUIRES" : [ "rules", "commerce_shipping", "commerce_order", "mimemail", "entity" ],
       "ON" : { "commerce_order_update" : [] },
       "IF" : [
         { "NOT data_is" : { "data" : [ "commerce-order-unchanged:status" ], "value" : "completed" } },
@@ -178,13 +171,7 @@ function katakrak_commerce_default_rules_configuration() {
       "LABEL" : "Send download link after donation",
       "PLUGIN" : "reaction rule",
       "OWNER" : "rules",
-      "REQUIRES" : [
-        "commerce_order",
-        "rules",
-        "rules_i18n",
-        "mimemail",
-        "commerce_checkout"
-      ],
+      "REQUIRES" : [ "commerce_order", "rules", "mimemail", "commerce_checkout" ],
       "ON" : { "commerce_checkout_complete" : [] },
       "IF" : [
         { "commerce_order_contains_product" : {
