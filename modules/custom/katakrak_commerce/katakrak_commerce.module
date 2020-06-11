@@ -20,7 +20,14 @@ function katakrak_commerce_theme() {
         'node' => NULL,
       )
     ),
-  );
+    'katakrak_commerce_informacion_envio' => array(
+      'template' => 'katakrak-commerce-informacion-envio',
+      'path' => $path . '/templates',
+      'arguments' => array(
+        'shipping_methods' => NULL,
+      )
+    )
+  );  
 }
 
 function katakrak_commerce_commerce_checkout_pane_info_alter(&$panes) {
@@ -67,6 +74,32 @@ function katakrak_commerce_order_devel_page($order) {
   dpm($order);      
   return '';
 }
+
+
+
+/**
+ * Implements hook_commerce_checkout_pane_info().
+ */
+function katakrak_commerce_commerce_checkout_pane_info() {
+  $checkout_panes = array();
+
+  $checkout_panes['informacion_envio'] = array(
+    'title' => t('Información adicional sobre métodos de envío'),
+    'base' => 'katakrak_commerce_informacion_envio',
+    'page' => 'checkout',
+  );
+
+  return $checkout_panes;
+}
+
+function katakrak_commerce_informacion_envio_checkout_form ($form, &$form_state, $checkout_pane, $order) {
+  $pane_form = array();
+  $pane_form['confirmation_text'] = array(
+     '#markup' => theme('katakrak_commerce_informacion_envio', array('shipping_methods' => $order->shipping_rates)),
+   );
+  return $pane_form;
+}
+
 
 function katakrak_commerce_clean_carts_form($form, &$form_state) {
   $one_week_ago = time() - 640800;
@@ -230,6 +263,7 @@ function katakrak_commerce_form_commerce_checkout_form_alter(&$form, &$form_stat
 
     }
     $form['commerce_shipping'] = NULL;
+    $form['informacion_envio'] = NULL;
   }    
   if ($form_id == 'commerce_checkout_form_shipping') {
     
