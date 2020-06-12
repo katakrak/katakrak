@@ -222,6 +222,10 @@ function libro_block_info() {
     'info' => t('Navegador por secciones'),
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['katakrak_libreria_home'] = array(
+    'info' => t('Libros para la portada'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   $blocks['libreria_home_search'] = array(
     'info' => t('Bloque busqueda home libros'),
     'cache' => DRUPAL_NO_CACHE,
@@ -271,6 +275,10 @@ function libro_block_view($delta) {
     $block['content'] = theme('libreria_home_search', array('form' => $form));
     return $block;
   }
+  if ($delta == 'katakrak_libreria_home') {
+    $block['content'] = theme('katakrak_libreria_home');
+    return $block;
+  }
 }
 
 function libro_theme() {
@@ -288,6 +296,13 @@ function libro_theme() {
       'path' => $path . '/templates',
       'arguments' => array(
         'form' => NULL,
+      )
+    ),
+    'katakrak_libreria_home' => array(
+      'template' => 'katakrak-libreria-home',
+      'path' => $path . '/templates',
+      'arguments' => array(
+        'books' => NULL,
       )
     ),
   );

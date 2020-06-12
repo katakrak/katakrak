@@ -39,7 +39,7 @@
       <ul class="navbar-nav navbar-centered">
         <?php foreach ($main_menu as $menu_item): ?>
           <li class="nav-item">
-            <?php print l($menu_item['title'], $menu_item['href'], array('attributes' => array('class' => 'nav-link'))) ?>
+            <?php print l($menu_item['title'], $menu_item['href'], array('attributes' => array('class' => array('nav-link')))) ?>
           </li>
         <?php endforeach; ?>
         <li role="separator" class="divider visible-xs-block"></li>
