@@ -368,7 +368,7 @@ display: none;
   drupal_add_css($css, array('type' => 'inline'));
   
   if (variable_get('dev_site') == TRUE)
-    drupal_set_message('Estás en la versión de desarrollo', 'error');
+    drupal_set_message('Estás en la versión de desarrollo', 'warning');
   else
     drupal_set_message('Estás en la versión live', 'warning');
 }
