@@ -9,25 +9,26 @@ php = 5.3.0
 ;; Regions
 ;;;;;;;;;;;;;;;;;;;;;
 
-regions[navigation]     = 'Navigation'
-regions[header]         = 'Top Bar'
-regions[highlighted]    = 'Highlighted'
-regions[help]           = 'Help'
-regions[content]        = 'Content'
-regions[content_top_left] = 'Content top left'
-regions[content_top_right] = 'Content top right'
-regions[content_middle_first] = 'Content middle first'
+regions[navigation]            = 'Navigation'
+regions[header]                = 'Top Bar'
+regions[highlighted]           = 'Highlighted'
+regions[help]                  = 'Help'
+regions[content]               = 'Content'
+regions[header_right]          = 'Bloque del carrito y boton de cuenta de usuario'
+regions[content_top_left]      = 'Content top left'
+regions[content_top_right]     = 'Content top right'
+regions[content_middle_first]  = 'Content middle first'
 regions[content_middle_second] = 'Content middle second'
-regions[content_middle_third] = 'Content middle third'
-regions[sidebar_first]  = 'Primary'
-regions[sidebar_second] = 'Secondary'
-regions[footer]         = 'Footer'
-regions[page_top]       = 'Page top'
-regions[page_bottom]    = 'Page bottom'
-regions[footer_first] = Footer first
-regions[footer_second] = Footer second column
-regions[footer_third] = Footer third column
-regions[footer_fourth] = Footer fourth column
+regions[content_middle_third]  = 'Content middle third'
+regions[sidebar_first]         = 'Primary'
+regions[sidebar_second]        = 'Secondary'
+regions[footer]                = 'Footer'
+regions[page_top]              = 'Page top'
+regions[page_bottom]           = 'Page bottom'
+regions[footer_first]          = Footer first
+regions[footer_second]         = Footer second column
+regions[footer_third]          = Footer third column
+regions[footer_fourth]         = Footer fourth column
 
 
 ;;;;;;;;;;;;;;;;;;;;;

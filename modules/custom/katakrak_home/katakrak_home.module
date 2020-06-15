@@ -10,10 +10,25 @@ include_once 'katakrak_home.features.inc';
  * Implements hook_block_info().
  */
 function katakrak_home_block_info() {
-  $blocks = array();
-  $blocks['katakrak_home_promo'] = array(
-    'info' => t('Home Promo'),
-    // Not worth caching.
+  $blocks = array();  
+  $blocks['katakrak_home_libreria'] = array(
+    'info' => t('Bloque de librería en la portada'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['katakrak_home_espacio'] = array(
+    'info' => t('Bloque "Ven a Katakrak" de la home'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['katakrak_home_editorial'] = array(
+    'info' => t('Bloque "Editorial" de la home'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['katakrak_home_kantina'] = array(
+    'info' => t('Bloque "Kantina" de la home'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['katakrak_home_agenda'] = array(
+    'info' => t('Bloque "Agenda" de la home'),
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
   return $blocks;
@@ -24,20 +39,24 @@ function katakrak_home_block_info() {
  * Implements hook_block_view().
  */
 function katakrak_home_block_view($delta) {
-  global $language;
-  if ($delta == 'katakrak_home_promo') {
-    if ($language->language == 'es') {
-      $nid = 49320;
-    }
-    else {
-      $nid = 49321;
-    }
-    $block['title'] = t('Conoce Katakrak');
-     $block['content'] = array(
-      '#theme' => 'katakrak_home_promo',
-       '#nid' => $nid,
-    );
-    //$block['content']['#markup'] = theme('');
+  if ($delta == 'katakrak_home_libreria') {
+    $block['content'] = theme('katakrak_home_libreria');
+    return $block;
+  }
+  if ($delta == 'katakrak_home_espacio') {
+    $block['content'] = theme('katakrak_home_espacio');
+    return $block;
+  }
+  if ($delta == 'katakrak_home_editorial') {
+    $block['content'] = theme('katakrak_home_editorial');
+    return $block;
+  }
+  if ($delta == 'katakrak_home_kantina') {
+    $block['content'] = theme('katakrak_home_kantina');
+    return $block;
+  }
+  if ($delta == 'katakrak_home_agenda') {
+    $block['content'] = theme('katakrak_home_agenda');
     return $block;
   }
 }
@@ -48,62 +67,28 @@ function katakrak_home_block_view($delta) {
 function katakrak_home_theme() {
   $path = drupal_get_path('module', 'katakrak_home');
   return array(
-    'katakrak_home_promo' => array(
-      'template' => 'katakrak-home-promo',
-      'variables' => array('nid' => NULL),
+    'katakrak_home_libreria' => array(
+      'template' => 'katakrak-home-libreria',
+      'path' => $path . '/templates',
+      'arguments' => array(
+        'books' => NULL,
+      )
+    ),
+    'katakrak_home_espacio' => array(
+      'template' => 'katakrak-home-espacio',
       'path' => $path . '/templates',
     ),
-  );
-}
-
-function katakrak_home_preprocess_katakrak_home_promo_right(&$vars) {
-  $vars['link_agenda_icon'] = l(
-    '<span class="glyphicon glyphicon-calendar fa-5x" aria-hidden="true"></span>',
-    'agenda',
-    array(
-      'html' => TRUE,
-    )
-  );
-  
-  $vars['link_tienda_icon'] = l(
-    '<span class="glyphicon glyphicon-shopping-cart fa-5x" aria-hidden="true"></span>',
-    'tienda',
-    array(
-      'html' => TRUE,
-    )
-  );
-  
-  $vars['link_blog_icon'] = l(
-    '<span class="glyphicon glyphicon-comment fa-5x" aria-hidden="true"></span>',
-    'blog',
-    array(
-      'html' => TRUE,
-    )
-  );
-}
-
-function katakrak_home_preprocess_katakrak_home_promo_bottom(&$vars) {
-  $vars['link_kantina_icon'] = l(
-    '<span class="glyphicon glyphicon-cutlery fa-5x" aria-hidden="true"></span>',
-    'cantina',
-    array(
-      'html' => TRUE,
-    )
-  );
-  
-  $vars['link_libreria_icon'] = l(
-    '<span class="glyphicon glyphicon-book fa-5x" aria-hidden="true"></span>',
-    'libreria',
-    array(
-      'html' => TRUE,
-    )
-  );
-  
-  $vars['link_vinoteca_icon'] = l(
-    '<span class="glyphicon glyphicon-glass fa-5x" aria-hidden="true"></span>',
-    'vinoteca',
-    array(
-      'html' => TRUE,
-    )
+    'katakrak_home_editorial' => array(
+      'template' => 'katakrak-home-editorial',
+      'path' => $path . '/templates',
+    ),
+    'katakrak_home_agenda' => array(
+      'template' => 'katakrak-home-agenda',
+      'path' => $path . '/templates',
+    ),
+    'katakrak_home_kantina' => array(
+      'template' => 'katakrak-home-kantina',
+      'path' => $path . '/templates',
+    ),
   );
 }

@@ -22,19 +22,11 @@ function katakrak_admin_paths() {
 }
 
 /**
- * 
+ * Implementation of hook_theme
  */
 function katakrak_theme() {
   $path = drupal_get_path('module', 'katakrak');
   return array(
-    'katakrak_suscribe_block' => array(
-      'template' => 'katakrak-suscribe-block',
-      'arguments' => array(
-        'form' => NULL
-      ),
-      'render element' => 'form',
-      'path' => $path . '/templates',
-    ),
     'katakrak_cart_block' => array(
       'template' => 'katakrak-cart-block',
       'variables' => array(
@@ -72,16 +64,7 @@ function katakrak_theme() {
  */
 function katakrak_block_info() {
   $blocks = array();
-  $blocks['language_switcher'] = array(
-    'info' => t('Language switcher small'),
-    // Not worth caching.
-    'cache' => DRUPAL_NO_CACHE,
-  );
-  $blocks['newsletter_suscribe'] = array(
-    'info' => t('Katakrak suscribe block'),
-    // Not worth caching.
-    'cache' => DRUPAL_NO_CACHE,
-  );
+  
   $blocks['footer_first'] = array(
     'info' => t('Katakrak first footer'),
     // Not worth caching.
@@ -97,25 +80,10 @@ function katakrak_block_info() {
     // Not worth caching.
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
-  $blocks['footer_fourth'] = array(
-    'info' => t('Katakrak fourth footer'),
-    // Not worth caching.
-    'cache' => DRUPAL_CACHE_GLOBAL,
-  );
-  $blocks['katakrak_user_top'] = array(
-    'info' => t('Katakrak user top'),
-    // Not worth caching.
-    'cache' => DRUPAL_NO_CACHE,
-  );
-  $blocks['katakrak_cart'] = array(
-    'info' => t('Katakrak cart'),
-    // Not worth caching.
-    'cache' => DRUPAL_NO_CACHE,
-  );
   $blocks['katakrak_social'] = array(
     'info' => t('Katakrak social'),
     // Not worth caching.
-    'cache' => DRUPAL_NO_CACHE,
+    'cache' => DRUPAL_CACHE_GLOBAL,
   );
   return $blocks;
 }
@@ -124,56 +92,6 @@ function katakrak_block_info() {
  * Implements hook_block_view().
  */
 function katakrak_block_view($delta) {
-  global $user;
-  if ($delta == 'language_switcher' && drupal_multilingual()) {
-    $path = drupal_is_front_page() ? '<front>' : $_GET['q'];
-    $links = language_negotiation_get_switch_links('language', $path);
-    if (isset($links->links)) {
-      drupal_add_css(drupal_get_path('module', 'locale') . '/locale.css');
-      foreach ($links->links as $id => &$link) {
-        $link['title'] = t($link['language']->prefix);
-      }
-      $class = "language-switcher-{$links->provider}";
-      $variables = array('links' => $links->links, 'attributes' => array('class' => array($class)));
-      $block['content'] = theme('links__locale_block', $variables);
-      return $block;
-    }
-  }
-  if ($delta == 'newsletter_suscribe') {
-    $block['content'] = drupal_get_form('katakrak_newsletter_suscribe_form');
-    return $block;
-  }
-  if ($delta == 'katakrak_user_top') {
-    $block['content'] = '<ul id="user-sticky"><li><div class="tab read"><i class="fa fa-user fa-2x"></i></div>';
-    if (user_is_anonymous()) {  
-     $block['content'] .= '<div class="text">'.l(t('Acceder'), 'user', array('query' => array('destination' => $_GET['q']))).'</div>';
-    }
-    else {
-      $block['content'] .=  '<div class="text">'.l(truncate_utf8($user->name, 12, TRUE, TRUE, 1), 'user').' / '.l(t('Log out'), 'user/logout').'</div>';
-    }
-    $block['content'] .= '</li></ul>';
-    return $block;
-  }
-  if ($delta == 'katakrak_cart') {
-    if ($order = commerce_cart_order_load($user->uid)) {
-      $wrapper = entity_metadata_wrapper('commerce_order', $order);
-      // If there are one or more products in the cart...
-      $num_items = commerce_line_items_quantity($wrapper->commerce_line_items, commerce_product_line_item_types());
-      if ($num_items) {
-        $class = 'cart';
-      }
-      else {
-        $class = 'cart-empty';
-      }
-    }
-    else {
-      $num_items = 0;
-      $class = 'cart-empty';
-    }
-    $content = theme('katakrak_cart_block', array('num_items' => $num_items, 'class' => $class));
-    $block['content'] = $content;
-    return $block;
-  }
   if ($delta == 'katakrak_social') {
     $block['content'] = theme('katakrak_social_block');
     return $block;
@@ -191,6 +109,7 @@ function katakrak_block_view($delta) {
     $block['content'] = theme('katakrak_social_block');
     return $block;
   }
+  
 }
 
 /**

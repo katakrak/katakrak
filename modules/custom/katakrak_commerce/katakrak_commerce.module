@@ -26,8 +26,70 @@ function katakrak_commerce_theme() {
       'arguments' => array(
         'shipping_methods' => NULL,
       )
-    )
+    ),
+    'katakrak_commerce_cart' => array(
+      'template' => 'katakrak-commerce-cart',
+      'path' => $path . '/templates',
+      'arguments' => array(
+        'count' => NULL,
+        'order' => NULL,
+      )
+    ),
   );  
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function katakrak_commerce_block_info() {
+  $blocks = array();
+  $blocks['katakrak_commerce_cart'] = array(
+    'info' => t('Dropdown con contenido del carrito'),
+    // Not worth caching.
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+
+
+/**
+ * Implements hook_block_view().
+ */
+function katakrak_commerce_block_view($delta) {
+  // The $delta parameter tells us which block is being requested.
+  switch ($delta) {
+    case 'katakrak_commerce_cart':
+      // Create your block content here
+      global $user;
+      $product_count = 0;
+      $product_quantity_count = 0;
+
+      // Load cart order
+      if ($order = commerce_cart_order_load($user->uid)) {
+        // Let's use the wrapper because it rocks
+        $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
+
+        // Loop over line items and increment product counter
+        foreach ($order_wrapper->commerce_line_items as $delta => $line_item_wrapper) {
+          // If line item is a commerce product type
+          if (in_array($line_item_wrapper->type->value(), commerce_product_line_item_types())) {
+            // Increment counters
+            // Individual product line item
+            $product_count++;
+            // Number of items of product line item (quantity)
+            $product_quantity_count += $line_item_wrapper->quantity->value();    
+          }
+        }
+      }
+      $variables = array(
+          'order' => $order,
+          'contents_view' => commerce_embed_view('commerce_cart_block', 'default', array($order->order_id), $_GET['q']),
+        );
+           
+      $block['content'] = theme('katakrak_commerce_cart', array('order' => $content, 'count' =>$product_quantity_count));
+      break;
+  }
+  return $block;
 }
 
 function katakrak_commerce_commerce_checkout_pane_info_alter(&$panes) {

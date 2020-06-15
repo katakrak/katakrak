@@ -53,19 +53,12 @@
     </div><!-- /.navbar-collapse -->
 
     <div class="navbar-xs-items d-flex">
-      <button class="btn btn-transparent">
-        <i class="fas fa-user-circle" aria-hidden="true"></i> <span class="hidden-xs">Mi cuenta</span>
-      </button>
-      <div class="dropdown">
-        <button class="btn btn-transparent" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-pill badge-custom">1</span> <span class="sr-only">Items en tu cesta</span>
-        </button>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
-          <div class="dropdown-item">
-            bla bla bla
-          </div>
-        </div>
-      </div> 
+      <a class="btn btn-transparent" href="<?php print $user_url ?>">
+        <i class="fas fa-user-circle" aria-hidden="true"></i> <span class="hidden-xs"><?php print t('Mi cuenta') ?></span>
+      </a>
+      <?php print render($page['header_right']) ?>
+      
+    
     </div>
   </div><!-- /.container-fluid -->
 </nav>

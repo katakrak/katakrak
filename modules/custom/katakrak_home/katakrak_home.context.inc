@@ -33,6 +33,36 @@ function katakrak_home_context_default_contexts() {
           'region' => 'content',
           'weight' => '-8',
         ),
+        'katakrak_home-katakrak_home_libreria' => array(
+          'module' => 'katakrak_home',
+          'delta' => 'katakrak_home_libreria',
+          'region' => 'content_top_left',
+          'weight' => '-10',
+        ),
+        'katakrak_home-katakrak_home_espacio' => array(
+          'module' => 'katakrak_home',
+          'delta' => 'katakrak_home_espacio',
+          'region' => 'content_top_right',
+          'weight' => '-10',
+        ),
+        'katakrak_home-katakrak_home_kantina' => array(
+          'module' => 'katakrak_home',
+          'delta' => 'katakrak_home_kantina',
+          'region' => 'content_middle_first',
+          'weight' => '-10',
+        ),
+        'katakrak_home-katakrak_home_editorial' => array(
+          'module' => 'katakrak_home',
+          'delta' => 'katakrak_home_editorial',
+          'region' => 'content_middle_second',
+          'weight' => '-10',
+        ),
+        'katakrak_home-katakrak_home_agenda' => array(
+          'module' => 'katakrak_home',
+          'delta' => 'katakrak_home_agenda',
+          'region' => 'content_middle_third',
+          'weight' => '-10',
+        ),
       ),
     ),
   );

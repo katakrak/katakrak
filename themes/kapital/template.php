@@ -7,7 +7,7 @@
  * Place your custom PHP code in this file.
  */
 function kapital_preprocess_page(&$vars) {
-  
+  global $user;
   //Añadimos fontawesom
   drupal_add_js('https://kit.fontawesome.com/10471300b3.js', 'external');
   
@@ -46,5 +46,11 @@ function kapital_preprocess_page(&$vars) {
   }
   $vars['href_cas'] = url($links->links['es']['href'], array('language' => $links->links['es']['language']));
   $vars['href_eus'] = url($links->links['eu']['href'], array('language' => $links->links['eu']['language']));
+  
+  if (user_is_anonymous())
+    $vars['user_url'] = url('user');
+  else 
+    $vars['user_url'] = url('user/'.$user->uid);
+  
   dpm($vars);
 }
