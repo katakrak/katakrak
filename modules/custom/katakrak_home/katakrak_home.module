@@ -56,7 +56,7 @@ function katakrak_home_block_view($delta) {
     return $block;
   }
   if ($delta == 'katakrak_home_agenda') {
-    $block['content'] = theme('katakrak_home_agenda');
+    $block['content'] = '';//theme('katakrak_home_agenda');
     return $block;
   }
 }

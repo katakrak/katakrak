@@ -38,10 +38,10 @@
           <div class="agenda-item-photo">
             <img src="images/agenda-photo.jpg">
           </div><!-- agenda-item-photo -->
-        </div><!-- agenda-item-->
+        </div><!-- agenda-item-->W
       </div><!-- /item-->
     </div><!-- carousel-inner-->
-
+    
     <!-- Controls -->
     <a class="left carousel-control" href="#carousel-agenda" role="button" data-slide="prev">
       <img src="images/angle-left.svg" width="30" height="30" alt="Anterior">

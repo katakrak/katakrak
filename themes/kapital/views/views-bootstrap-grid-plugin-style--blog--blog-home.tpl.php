@@ -11,7 +11,7 @@
  * - $class_prefix defines the default prefix to use for column classes.
  *
  * @ingroup views_templates
- */ dpm ($items);
+ */ //dpm ($items);
 ?>
 <div class="wrapper-posts">
   <div class="container">
