@@ -170,65 +170,6 @@ function libro_context_default_contexts() {
     ),
   );
   $context->reactions = array(
-    'block' => array(
-      'blocks' => array(
-        'boxes-bizikrak' => array(
-          'module' => 'boxes',
-          'delta' => 'bizikrak',
-          'region' => 'sidebar_second',
-          'weight' => '-9',
-        ),
-        'views-secciones-secciones_lateral' => array(
-          'module' => 'views',
-          'delta' => 'secciones-secciones_lateral',
-          'region' => 'sidebar_second',
-          'weight' => '-8',
-        ),
-        'views-secciones-secciones_block' => array(
-          'module' => 'views',
-          'delta' => 'secciones-secciones_block',
-          'region' => 'content_bottom_first',
-          'weight' => '-10',
-        ),
-        'views-secciones-secciones_block_m' => array(
-          'module' => 'views',
-          'delta' => 'secciones-secciones_block_m',
-          'region' => 'content_bottom_first',
-          'weight' => '-9',
-        ),
-        'views-itinerarios-block' => array(
-          'module' => 'views',
-          'delta' => 'itinerarios-block',
-          'region' => 'content_bottom_second',
-          'weight' => '-10',
-        ),
-        'views-libros_blog-block_1' => array(
-          'module' => 'views',
-          'delta' => 'libros_blog-block_1',
-          'region' => 'content_bottom_third',
-          'weight' => '-10',
-        ),
-        'views-agenda-eventos_libreria' => array(
-          'module' => 'views',
-          'delta' => 'agenda-eventos_libreria',
-          'region' => 'content_bottom_fourth',
-          'weight' => '-10',
-        ),
-        'katakrak_socios-banner_socios' => array(
-          'module' => 'katakrak_socios',
-          'delta' => 'banner_socios',
-          'region' => 'content_top',
-          'weight' => '-10',
-        ),
-        'libro-libreria_home_search' => array(
-          'module' => 'libro',
-          'delta' => 'libreria_home_search',
-          'region' => 'content_top',
-          'weight' => '-9',
-        ),
-      ),
-      'layout' => 'book',
-    ),
     'theme_html' => array(
       'class' => 'block-book-search',
     ),
