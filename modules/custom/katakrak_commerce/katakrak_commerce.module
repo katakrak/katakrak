@@ -10,6 +10,10 @@ function katakrak_commerce_init() {
   drupal_add_js(drupal_get_path('module', 'katakrak_commerce').'/katakrak_commerce.js');
 }
 
+/**
+ * Implementation of hook_theme
+ * @return type
+ */
 function katakrak_commerce_theme() {
   $path = drupal_get_path('module', 'katakrak_commerce');
   return array(
@@ -33,6 +37,7 @@ function katakrak_commerce_theme() {
       'arguments' => array(
         'count' => NULL,
         'order' => NULL,
+        'is_empty' => NULL,
       )
     ),
   );  
@@ -57,8 +62,7 @@ function katakrak_commerce_block_info() {
  */
 function katakrak_commerce_block_view($delta) {
   // The $delta parameter tells us which block is being requested.
-  switch ($delta) {
-    case 'katakrak_commerce_cart':
+  if ($delta == 'katakrak_commerce_cart') {
       // Create your block content here
       global $user;
       $product_count = 0;
@@ -87,7 +91,6 @@ function katakrak_commerce_block_view($delta) {
         );
            
       $block['content'] = theme('katakrak_commerce_cart', array('order' => $content, 'count' =>$product_quantity_count));
-      break;
   }
   return $block;
 }

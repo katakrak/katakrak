@@ -77,54 +77,51 @@
 <?php include 'page-header.inc' ?>
 
 <main class="main">
-<div class="row">
-  <section<?php print $content_column_class; ?>>
-    <?php if (!empty($page['highlighted'])): ?>
-      <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
-    <?php endif; ?>
-    <?php if (!empty($breadcrumb)): print $breadcrumb;
-    endif;?>
-    <a id="main-content"></a>
-    <?php print render($title_prefix); ?>
-    <?php if (!empty($title)): ?>
-      <h1 class="page-header"><?php print $title; ?></h1>
-    <?php endif; ?>
-    <?php print render($title_suffix); ?>
-    <?php print $messages; ?>
-    <?php if (!empty($tabs)): ?>
-      <?php print render($tabs); ?>
-    <?php endif; ?>
-    <?php if (!empty($page['help'])): ?>
-      <?php print render($page['help']); ?>
-    <?php endif; ?>
-    <?php if (!empty($action_links)): ?>
-      <ul class="action-links"><?php print render($action_links); ?></ul>
-    <?php endif; ?>
+  <div class="row">
+    <section<?php print $content_column_class; ?>>
+      <?php if (!empty($page['highlighted'])): ?>
+        <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
+      <?php endif; ?>
+      <?php if (!empty($breadcrumb)): print $breadcrumb;
+      endif;?>
+      <a id="main-content"></a>
+      <?php print render($title_prefix); ?>
+      <?php if (!empty($title)): ?>
+        <h1 class="page-header"><?php print $title; ?></h1>
+      <?php endif; ?>
+      <?php print render($title_suffix); ?>
+      <?php print $messages; ?>
+      <?php if (!empty($tabs)): ?>
+        <?php print render($tabs); ?>
+      <?php endif; ?>
+      <?php if (!empty($page['help'])): ?>
+        <?php print render($page['help']); ?>
+      <?php endif; ?>
+      <?php if (!empty($action_links)): ?>
+        <ul class="action-links"><?php print render($action_links); ?></ul>
+      <?php endif; ?>
 
-  </section>
-</div>
+    </section>
+  </div>
 
-<div class="row row-no-gutters">    
-  <div class="col-sm-12 col-md-6">
-    <?php print render($page['content_top_left']) ?>
-  </div>
-  <div class="col-sm-12 col-md-6">
-    <?php print render($page['content_top_right']) ?>
-  </div>
-  <div class="clearfix"></div>
-  <div class="col-sm-4">
-    <?php print render($page['content_middle_first']) ?>  
-  </div><!--/.col -->
+  <div class="row row-no-gutters">    
+    <div class="col-sm-12 col-md-6">
+      <?php print render($page['content_top_left']) ?>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <?php print render($page['content_top_right']) ?>
+    </div>
+    <div class="clearfix"></div>
     <div class="col-sm-4">
-      <?php print render($page['content_middle_second']) ?>  
+      <?php print render($page['content_middle_first']) ?>  
     </div><!--/.col -->
-    <div class="col-sm-4">
-      <?php print render($page['content_middle_third']) ?>  
-    </div><!--/.col -->
-</div><!--/.row row-no-gutters -->
-    
-    
-<?php print render($page['content']); ?>
-  
+      <div class="col-sm-4">
+        <?php print render($page['content_middle_second']) ?>  
+      </div><!--/.col -->
+      <div class="col-sm-4">
+        <?php print render($page['content_middle_third']) ?>  
+      </div><!--/.col -->
+  </div><!--/.row row-no-gutters -->  
 </main>
+<?php print render($page['content']); ?>
 <?php include 'page-footer.inc'; ?>

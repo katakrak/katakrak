@@ -52,5 +52,5 @@ function kapital_preprocess_page(&$vars) {
   else 
     $vars['user_url'] = url('user/'.$user->uid);
   
-  //dpm($vars);
+ // dpm($vars);
 }
