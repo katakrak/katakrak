@@ -1161,6 +1161,8 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['fields']['field_event_type']['table'] = 'field_data_field_event_type';
   $handler->display->display_options['fields']['field_event_type']['field'] = 'field_event_type';
   $handler->display->display_options['fields']['field_event_type']['label'] = '';
+  $handler->display->display_options['fields']['field_event_type']['element_type'] = 'p';
+  $handler->display->display_options['fields']['field_event_type']['element_class'] = 'small';
   $handler->display->display_options['fields']['field_event_type']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_event_type']['type'] = 'i18n_taxonomy_term_reference_plain';
   /* Campo: Nodo: Description */

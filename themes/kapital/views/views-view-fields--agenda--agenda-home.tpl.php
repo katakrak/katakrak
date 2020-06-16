@@ -24,14 +24,16 @@
  * @ingroup views_templates
  */
 $timestamp = $row->field_field_event_date[0]['raw']['value'];
+dpm($fields);
+dpm($row);
 ?>
 
 <div class="agenda-item d-flex">
   <div class="agenda-item-text">
-    <p> <span class="strong"><?php print format_date($timestamp, 'custom', "l j \d\\e F") ?></span>
-      <br>17:00 - 18:00</p>
+    <p> <span class="strong"><?php print format_date($timestamp, 'media') ?></span>
+      <br><?php print format_date($timestamp, 'custom','H:i') ?></p>
     <?php print $fields['title']->content ?>
-    <p class="small">Charla online</p>
+    <?php print $fields['field_event_type']->content ?>
   </div><!-- agenda-item-text -->
   <div class="agenda-item-photo">
     <?php print $fields['field_event_image']->content ?>
