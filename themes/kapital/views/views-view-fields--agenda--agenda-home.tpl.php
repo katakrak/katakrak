@@ -24,8 +24,6 @@
  * @ingroup views_templates
  */
 $timestamp = $row->field_field_event_date[0]['raw']['value'];
-dpm($fields);
-dpm($row);
 ?>
 
 <div class="agenda-item d-flex">
