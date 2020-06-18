@@ -169,14 +169,6 @@ global $language;
               </div>
               <div class="book-info-entry">
                 <span class="col-2 book-info-label">
-                  <?php print t('Estado') ?>
-                </span>
-                <span class="col-2 book-info-data">
-                  <?php print t($content['field_libro_estado'][0]['#markup']) ?>
-                </span>
-              </div>
-              <div class="book-info-entry">
-                <span class="col-2 book-info-label">
                   <?php print t('Sección') ?>
                 </span>
                 <span class="col-2 book-info-data">
