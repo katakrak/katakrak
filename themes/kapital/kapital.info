@@ -31,6 +31,32 @@ regions[footer_third]          = Footer third column
 regions[footer_fourth]         = Footer fourth column
 
 
+layouts[home][name] = "Home"
+layouts[home][description] = "Home layout."
+layouts[home][template] = "templates/layout-home"
+layouts[home][regions][] = "navigation"
+layouts[home][regions][] = "header"
+layouts[home][regions][] = "highlighted"
+layouts[home][regions][] = "help"
+layouts[home][regions][] = "content"
+layouts[home][regions][] = "header_right"
+layouts[home][regions][] = "content_top_left"
+layouts[home][regions][] = "content_top_right"
+layouts[home][regions][] = "content_middle_first"
+layouts[home][regions][] = "content_middle_second"
+layouts[home][regions][] = "content_middle_third"
+layouts[home][regions][] = "sidebar_first"
+layouts[home][regions][] = "sidebar_second"
+layouts[home][regions][] = "footer"
+layouts[home][regions][] = "footer"
+layouts[home][regions][] = "footer_first"
+layouts[home][regions][] = "footer_second"
+layouts[home][regions][] = "footer_third"
+layouts[home][regions][] = "footer_fourth"
+
+
+
+
 ;;;;;;;;;;;;;;;;;;;;;
 ;; Stylesheets
 ;;;;;;;;;;;;;;;;;;;;;

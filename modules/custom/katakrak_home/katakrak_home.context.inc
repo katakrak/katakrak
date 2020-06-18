@@ -70,6 +70,7 @@ function katakrak_home_context_default_contexts() {
           'weight' => '-8',
         ),
       ),
+      'layout' => 'home',
     ),
   );
   $context->condition_mode = 0;
