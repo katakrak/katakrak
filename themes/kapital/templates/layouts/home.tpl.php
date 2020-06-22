@@ -122,7 +122,6 @@
         <?php print render($page['content_middle_third']) ?>  
       </div><!--/.col -->
   </div><!--/.row row-no-gutters -->  
-
-  <?php print render($page['content']); ?>
 </main>
+<?php print render($page['content']); ?>
 <?php include 'page-footer.inc'; ?>

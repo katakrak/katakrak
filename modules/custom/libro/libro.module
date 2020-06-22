@@ -49,12 +49,32 @@ function libro_menu() {
   return $items;
 }
 
+/**
+ * Implements hook_form_alter
+ * @param type $form
+ * @param type $form_state
+ * @param type $form_id
+ */
 function libro_form_alter(&$form, &$form_state, $form_id) {
+  if (strpos($form_id, 'commerce_cart_add_to_cart_form_') !== FALSE){
+    if (strpos($form_id, 'anadir')) {
+      $form['submit']['#attributes']['class'] = array('btn btn-secondary btn-block');
+      $form['submit']['#value'] = t('Añadir a la cesta');
+    }
+    else {
+      $form['submit']['#attributes']['class'] = array('btn btn-primary btn-block');
+      $form['#submit'][] = 'libro_add_to_cart_submit';
+    }
+  }
   if ($form_id == 'libro_node_form') {
     //$form['field_libro_autores']['#access'] = FALSE;
     $form['field_libro_categoria']['#access'] = FALSE;
     $form['field_libro_editorial']['#access'] = FALSE;
   }
+}
+
+function libro_add_to_cart_submit($form, &$form_state) {
+  $form_state['redirect'] = 'cart';
 }
 
 function libro_portada_form($form, $form_state, $node) {
@@ -432,7 +452,7 @@ function libro_node_view($node, $view_mode, $langcode) {
       foreach($disponibilidad as $distribuidor) {
         if (array_key_exists($distribuidor, $distribuidores))  {
           $node->disponibilidad = DISPONIBLE_DISTRIBUIDOR;
-          $node->content['plazo'] = $distribuidores[$distribuidor]['plazo'];
+          $node->plazo = $distribuidores[$distribuidor]['plazo'];
         }
       }
     }
@@ -630,7 +650,7 @@ function libro_search_home_form_submit($form, &$form_state) {
   $form_state['redirect'] = 'buscar/libros/'.$form_state['values']['search_term'];
 }
 
-function libro_generar_boton_compra($nid) {
+function libro_generar_boton_anadir($nid) {
   $node = node_load($nid);
   $product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
   
@@ -644,36 +664,13 @@ function libro_generar_boton_compra($nid) {
   $line_item->data['context']['add_to_cart_combine'] = 1;
 
   // Generate a form ID for this add to cart form.
-  $form_id = commerce_cart_add_to_cart_form_id($product_ids);
+  $form_id = commerce_cart_add_to_cart_form_id($product_ids).'_anadir';
   $line_item->data['context']['display_path'] = current_path();
 
-   $mostrar_carrito = FALSE;
-  if ($product->commerce_stock['und'][0]['value'] > 0) {
-    $mostrar_carrito = TRUE;
-  }
-  elseif ($node->field_libro_estado['und'][0]['value'] == 0) {
-    $cegal = new CegalSearch(variable_get('cegal_user', ''), variable_get('cegal_clave', ''));
-    $distribuidores = variable_get('distribuidores_confianza', array());
-    $disponibilidad = $cegal->disponibilidad($node->field_libro_isbn['und'][0]['value']);
-
-    foreach($disponibilidad as $distribuidor) {
-      if (array_key_exists($distribuidor, $distribuidores))  {
-        $mostrar_carrito = TRUE;
-        $plazo = $distribuidores[$distribuidor]['plazo'];
-        
-      }
-    }
-  }
   // Build the Add to Cart form using the prepared values.
   $form = drupal_get_form($form_id, $line_item, 0, array());
-  //dpm(distribuidores_plazo($plazo));
-  //dpm($form);
-  if ($mostrar_carrito){
-    $message = '<div>'.distribuidores_plazo($plazo).'</div>';
-    return drupal_render($form).$message;
-  }
-  else 
-    return '';
+
+  return drupal_render($form);
 }
 
 /**

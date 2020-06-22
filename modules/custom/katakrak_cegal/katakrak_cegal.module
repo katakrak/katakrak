@@ -288,13 +288,13 @@ function katakrak_cegal_portada_form_submit ($form, &$form_state) {
 function distribuidores_plazo($plazo) {
   switch ($plazo) {
     case 1:
-      return t("Disponible en 2-3 días");
+      return t("2-3");
       break;
     case 2: 
-      return t("Disponible en 4-5 días");
+      return t("4-5");
       break;
     case 3: 
-      return t("Disponible en 7 días");
+      return t("7");
       break;
   }
 }
