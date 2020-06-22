@@ -439,6 +439,12 @@ function libro_node_view($node, $view_mode, $langcode) {
     if (!isset($node->disponibilidad)) {
       $node->disponibilidad = NO_DISPONIBLE;
     }
+    $node->sinopsis = truncate_utf8($node->field_libro_sinopsis['und'][0]['value'], 650, TRUE, TRUE);
+    if ( strlen($node->field_libro_sinopsis['und'][0]['value']) > 650) {
+      $node->leer_mas = substr($node->field_libro_sinopsis['und'][0]['value'], strlen($node->sinopsis) -3);
+    }
+    
+    
   }
 }
 

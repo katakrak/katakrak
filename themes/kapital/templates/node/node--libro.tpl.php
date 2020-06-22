@@ -58,15 +58,15 @@
         </table>
     </div>
     <p>
-         <?php print render($content['field_libro_sinopsis']) ?>
+         <?php print $node->sinopsis ?>
     </p>
-    <?php if ($leer_mas): ?>
+    <?php if ($node->leer_mas): ?>
     <p>
       <a data-toggle="collapse" href="#collapse-sinopsis">Leer más</a>
     </p>
     <div class="collapse" id="collapse-sinopsis">
       <p>
-         Después de la utopía estudia el desarrollo de la filosofía política a partir de la Ilustración y hasta las manifestaciones más relevantes del liberalismo conservador y la socialdemocracia. Shklar considera que la distancia entre la realidad y las teorías, el totalitarismo y el fatalismo han terminado con el radicalismo y la utopía, sin la cual parece imposible alcanzar un cambio político profundo. Su estudio se apoya en el análisis de los autores clásicos y su conclusión le conduce a proyectar el perfil de un liberalismo que poco tiene que ver ya con el tradicional, una filosofía política que, desde el punto de vista de los ciudadanos, atienda al poder y la justicia.
+        <?php print $node->leer_mas ?>
       </p>
     </div><!-- /posible collapse-->
     <?php endif; ?>
