@@ -829,18 +829,12 @@ function libro_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'colorbox',
+        'module' => 'image',
         'settings' => array(
-          'colorbox_caption' => 'auto',
-          'colorbox_caption_custom' => '',
-          'colorbox_gallery' => 'post',
-          'colorbox_gallery_custom' => '',
-          'colorbox_image_style' => '',
-          'colorbox_multivalue_index' => NULL,
-          'colorbox_node_style' => 'book_cover',
-          'colorbox_node_style_first' => 'extra_large',
+          'image_link' => '',
+          'image_style' => 'book_cover',
         ),
-        'type' => 'colorbox',
+        'type' => 'image',
         'weight' => 10,
       ),
       'home_event' => array(

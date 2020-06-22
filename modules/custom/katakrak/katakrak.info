@@ -24,6 +24,7 @@ dependencies[] = filter
 dependencies[] = i18n_node
 dependencies[] = i18n_taxonomy
 dependencies[] = image
+dependencies[] = katakrak_commerce
 dependencies[] = katakrak_geslib
 dependencies[] = katakrak_socios
 dependencies[] = mailchimp_signup

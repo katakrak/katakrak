@@ -6,6 +6,11 @@
 
 include_once 'libro.features.inc';
 
+define('DISPONIBLE_LIBRERIA', 1);
+define('DISPONIBLE_DISTRIBUIDOR', 2);
+define('NO_DISPONIBLE', 3);
+
+
 /**
  * Implementation of hook_menu().
  */
@@ -263,11 +268,7 @@ function libro_block_view($delta) {
     return $block;
   }
   if ($delta == 'libreria_home_search') {
-    $book_count_db = db_query("SELECT COUNT(*) as total FROM  {node} WHERE type = 'libro'");
-    foreach ($book_count_db as $count) {
-      $total_count = number_format($count->total, 0, ',', '.');
-    }
-    $form = drupal_get_form('libro_search_home_form', $total_count);
+    $form = drupal_get_form('libro_search_home_form');
     $block['content'] = theme('libreria_home_search', array('form' => $form));
     return $block;
   }
@@ -291,7 +292,12 @@ function libro_theme() {
         'form' => NULL,
       )
     ),
-    
+    'libro_search_home_form' => array(
+      'template' => 'libro-search-home-form',
+      'arguments' => array('form' => NULL),
+      'render element' => 'form',
+      'path' => $path . '/templates',
+    ),
   );
 }
 
@@ -406,17 +412,18 @@ function libro_peso_batch_process_finish($success, $results, $operations) {
  */
 function libro_node_view($node, $view_mode, $langcode) {
   if ($node->type == 'libro' && $view_mode == 'full') {
+    //Generamos a los autores separados por coma
     $autores = array();
     foreach (element_children($node->content['field_libro_autores']) as $key) {
-      $autores[] =  $node->content['field_libro_autores'][$key]['#markup'];
+      $autores[] =  l($node->field_libro_autores['und'][$key]['taxonomy_term']->name, 'taxonomy/term/'.$node->field_libro_autores['und'][$key]['tid']);
     }
     $node->content['autores'] = join(', ', $autores);
     
     $product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
-    
     if ($product->commerce_stock['und'][0]['value'] > 0) {
-      $node->content['mostrar_carrito'] = TRUE;
+      $node->disponibilidad = DISPONIBLE_LIBRERIA;
     }
+    //Si no tenemos stock, solo vamos a mostrar boton de compra cuando el libro tenga estado "disponible" y esté en algún distribuidor
     elseif ($node->fiel_libro_estado['und'][0]['value'] == 0) {
       $cegal = new CegalSearch(variable_get('cegal_user', ''), variable_get('cegal_clave', ''));
       $distribuidores = variable_get('distribuidores_confianza', array());
@@ -424,12 +431,13 @@ function libro_node_view($node, $view_mode, $langcode) {
       
       foreach($disponibilidad as $distribuidor) {
         if (array_key_exists($distribuidor, $distribuidores))  {
-          $node->content['mostrar_carrito'] = TRUE;
-          $node->content['disponible_bajo_pedido'] = TRUE;
+          $node->disponibilidad = DISPONIBLE_DISTRIBUIDOR;
           $node->content['plazo'] = $distribuidores[$distribuidor]['plazo'];
         }
       }
-      
+    }
+    if (!isset($node->disponibilidad)) {
+      $node->disponibilidad = NO_DISPONIBLE;
     }
   }
 }
@@ -474,7 +482,7 @@ function libro_node_load($nodes, $types) {
       if (isset($node->field_libro_autores['und'])) {
         foreach ($node->field_libro_autores['und'] as $autores) {
           $term = taxonomy_term_load($autores['tid']);
-          $node->autores[] = $term->name;
+          $node->autores[] = l($term->name, 'taxonomy/term/'.$autores['tid']);
         }
       }
       if (isset($node->field_libro_categoria['und'])) {
@@ -534,11 +542,6 @@ function libro_por_isbn() {
   }
 }
 
-
-function libro_search_home_form_submit($form, &$form_state) {
-  $form_state['redirect'] = 'buscar/libros/'.$form_state['values']['search_term'];
-}
-
 /**
  * Checks if the cover exists and if it does returns the file object. 
  * It it doesn't exists downloads it and creates the object
@@ -591,25 +594,34 @@ function create_cover($data, $filename, $mimetype = 'image/jpeg', $force = FALSE
  * 
  * @param type $form
  * @param type $form_state
- * @param type $total
  * @return 
  */
-function libro_search_home_form($form, &$form_state, $total = NULL) {
-  $placeholder = t('@count libros a tu alcance', array('@count' => $total));
+function libro_search_home_form($form, &$form_state) {
+  
   $form['search_term'] = array(
     '#type' => 'textfield',
     '#title' => t('Nombre'),
     '#title_display' => 'invisible',
     '#required' => TRUE,
     '#attributes' => array(
-      'placeholder' => $placeholder
-      )
+      'placeholder' => t('Título, autor o ISBN'),
+      'class' => array('mr-1'),
+    ),
+    '#theme_wrappers' => array(),
   );
   $form['submit'] = array(
     '#type' => 'submit',
-    '#value' => '<i class="fa fa-3x fa-search"></i>',
+    '#value' => '<i class="fas fa-search"></i> '.t('Buscar'),
+    '#attributes' => array(
+      'class' => array('btn btn-secondary'),
+    )
   );
+  $form['#theme'] = 'libro_search_home_form';
   return $form; 
+}
+
+function libro_search_home_form_submit($form, &$form_state) {
+  $form_state['redirect'] = 'buscar/libros/'.$form_state['values']['search_term'];
 }
 
 function libro_generar_boton_compra($nid) {

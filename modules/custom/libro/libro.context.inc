@@ -134,7 +134,7 @@ function libro_context_default_contexts() {
           'module' => 'system',
           'delta' => 'main',
           'region' => 'content',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
         'libro-libreria_home_search' => array(
           'module' => 'libro',
@@ -143,7 +143,6 @@ function libro_context_default_contexts() {
           'weight' => '-10',
         ),
       ),
-      'layout' => 'book',
     ),
     'menu' => array(
       0 => 'main-menu:libreria',

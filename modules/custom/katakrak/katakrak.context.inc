@@ -27,6 +27,12 @@ function katakrak_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'katakrak_commerce-katakrak_commerce_cart' => array(
+          'module' => 'katakrak_commerce',
+          'delta' => 'katakrak_commerce_cart',
+          'region' => 'header_right',
+          'weight' => '-10',
+        ),
         'katakrak-footer_first' => array(
           'module' => 'katakrak',
           'delta' => 'footer_first',
