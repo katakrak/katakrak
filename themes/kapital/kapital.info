@@ -34,7 +34,7 @@ regions[footer_fourth]         = Footer fourth column
 
 layouts[home][name] = "Home"
 layouts[home][description] = "Home layout."
-layouts[home][template] = "templates/layouts/home"
+layouts[home][template] = "templates/system/layout-home"
 layouts[home][regions][] = "navigation"
 layouts[home][regions][] = "header"
 layouts[home][regions][] = "highlighted"
