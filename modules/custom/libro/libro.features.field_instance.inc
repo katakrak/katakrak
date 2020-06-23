@@ -288,6 +288,13 @@ function libro_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'hidden',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'taxonomy',
@@ -348,6 +355,12 @@ function libro_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'inline',
         'module' => 'i18n_taxonomy',
@@ -406,6 +419,12 @@ function libro_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'settings' => array(),
@@ -467,6 +486,12 @@ function libro_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'text',
@@ -527,6 +552,12 @@ function libro_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'inline',
         'module' => 'taxonomy',
@@ -589,6 +620,12 @@ function libro_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'inline',
         'module' => 'list',
@@ -650,6 +687,12 @@ function libro_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'list',
@@ -706,6 +749,12 @@ function libro_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'inline',
         'module' => 'text',
@@ -767,6 +816,12 @@ function libro_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'inline',
         'module' => 'text',
@@ -827,6 +882,16 @@ function libro_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'book_thumbnail',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'image',
@@ -916,6 +981,12 @@ function libro_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'list',
@@ -965,6 +1036,12 @@ function libro_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'commerce_cart',
@@ -1048,6 +1125,12 @@ function libro_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -1111,6 +1194,12 @@ function libro_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'title',
@@ -1177,6 +1266,12 @@ function libro_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'taxonomy',
