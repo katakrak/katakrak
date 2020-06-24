@@ -76,11 +76,12 @@
           <a href="<?php print $url; ?>"><?php print $title; ?></a>
         </h3>
         <p>
+          <?php if(is_string($node->autores[0])): ?>
           <?php print t("Autores"); ?>: 
           <?php foreach($node->autores as $i => $autor): ?>
             <?php print $autor; print $i+1 == count($node->autores) ? '' : ','; ?>
           <?php endforeach; ?>
-            
+            <?php endif; ?>
         </p>
         <?php if ($snippet): ?>
           <p class="search-snippet"<?php print $content_attributes; ?>><?php print $snippet; ?></p>

@@ -1,0 +1,14 @@
+name = Google Analytics Push: Log
+description = Google Analytics module that push log exceptions (example).
+core = 7.x
+package = Statistics
+dependencies[] = ga_push
+dependencies[] = rules
+configure = admin/config/workflow/rules/reaction/manage/ga_push_log_exception
+
+; Information added by Drupal.org packaging script on 2016-04-18
+version = "7.x-1.1"
+core = "7.x"
+project = "ga_push"
+datestamp = "1460971181"
+
