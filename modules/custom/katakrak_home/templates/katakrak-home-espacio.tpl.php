@@ -15,10 +15,10 @@
             </ul>
           </div>
          <button class="btn btn-dark">
-           <img src="images/covid-19.svg" width="20px" height="20px"> Medidas Covid-19
+           <img src="/sites/all/themes/kapital/images/covid-19.svg" width="20px" height="20px"> Medidas Covid-19
          </button>
         </div><!--/.cta-text -->
         <div class="cta-image">
-          <img src="images/plano.png" alt="Katakrak Liburuak plano" class="img-responsive img-plano">
+          <img src="/sites/all/themes/kapital/images/plano.png" alt="Katakrak Liburuak plano" class="img-responsive img-plano">
         </div><!--/.cta-image -->
       </div><!--/.cta-espacio -->

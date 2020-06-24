@@ -40,7 +40,9 @@ function katakrak_home_block_info() {
  */
 function katakrak_home_block_view($delta) {
   if ($delta == 'katakrak_home_libreria') {
-    $block['content'] = theme('katakrak_home_libreria');
+    $books = views_get_view_result('libros', 'libros_portada');
+ 
+    $block['content'] = theme('katakrak_home_libreria', array('books' => $books));
     return $block;
   }
   if ($delta == 'katakrak_home_espacio') {
