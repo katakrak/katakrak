@@ -117,6 +117,18 @@ function libro_views_default_views() {
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Librería';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
+  $handler->display->display_options['style_options']['columns_horizontal'] = '-1';
+  $handler->display->display_options['style_options']['columns_vertical'] = '4';
+  $handler->display->display_options['style_options']['columns_xs'] = '12';
+  $handler->display->display_options['style_options']['columns_sm'] = '6';
+  $handler->display->display_options['style_options']['columns_md'] = '4';
+  $handler->display->display_options['style_options']['columns_lg'] = '3';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
   /* Encabezado: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
@@ -162,21 +174,19 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['field_libro_portada']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_libro_portada']['settings'] = array(
     'image_style' => 'cover_home',
-    'image_link' => '',
+    'image_link' => 'content',
   );
   /* Campo: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['path'] = 'node/[nid]?utm_source=tienda&utm_medium=web&utm_content=titulo&utm_campaign=libros';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_class'] = 'book-title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Campo: Producto de Comercio: Price */
   $handler->display->display_options['fields']['commerce_price']['id'] = 'commerce_price';
   $handler->display->display_options['fields']['commerce_price']['table'] = 'field_data_commerce_price';
