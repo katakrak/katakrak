@@ -55,7 +55,23 @@ layouts[home][regions][] = "footer_second"
 layouts[home][regions][] = "footer_third"
 layouts[home][regions][] = "footer_fourth"
 
-
+layouts[checkout][name] = "Checkout"
+layouts[checkout][description] = "Chechout layout."
+layouts[checkout][template] = "templates/system/layout-checkout"
+layouts[checkout][regions][] = "navigation"
+layouts[checkout][regions][] = "header"
+layouts[checkout][regions][] = "highlighted"
+layouts[checkout][regions][] = "help"
+layouts[checkout][regions][] = "content"
+layouts[checkout][regions][] = "header_right"
+layouts[checkout][regions][] = "sidebar_first"
+layouts[checkout][regions][] = "sidebar_second"
+layouts[checkout][regions][] = "footer"
+layouts[checkout][regions][] = "footer"
+layouts[checkout][regions][] = "footer_first"
+layouts[checkout][regions][] = "footer_second"
+layouts[checkout][regions][] = "footer_third"
+layouts[checkout][regions][] = "footer_fourth"
 
 
 ;;;;;;;;;;;;;;;;;;;;;

@@ -135,12 +135,44 @@ function katakrak_commerce_menu() {
   return $items;
 }
 
+/**
+ * Implements hook_menu_alter
+ */
+function katakrak_commerce_menu_alter(&$items) {
+  $items['cart']['title'] = t('Mi compra');
+  //Como la vista esta harcoded, hackeamos la callback para pasar la nuestra
+  $items['cart']['page callback'] = 'katakrak_commerce_cart_view';
+}
+
 function katakrak_commerce_order_devel_page($order) {
   dpm($order);      
   return '';
 }
 
+/**
+ * 
+ */
+function katakrak_commerce_cart_view() {
+  global $user;
+  // First check to make sure we have a valid order.
+  if ($order = commerce_cart_order_load($user->uid)) {
+    $wrapper = entity_metadata_wrapper('commerce_order', $order);
 
+    // Only show the cart form if we found product line items.
+    if (commerce_line_items_quantity($wrapper->commerce_line_items, commerce_product_line_item_types()) > 0) {
+
+      // Add the form for editing the cart contents.
+      $content = commerce_embed_view('commerce_cart_form_katakrak', 'default', array($order->order_id), 'cart');
+    }
+  }
+
+  if (empty($content)) {
+    // Default to displaying an empty message.
+    $content = theme('commerce_cart_empty_page');
+  }
+
+  return $content;
+}
 
 /**
  * Implements hook_commerce_checkout_pane_info().
@@ -314,8 +346,8 @@ function katakrak_commerce_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'commerce_checkout_form_checkout'){
     //Modificamos el tema para poder poner nuestros estilos
     $form['#theme'][] = 'katakrak_commerce_checkout_form';
-    $form['commerce_shipping']['shipping_service']['#type'] = 'checkboxes';
-    dpm($form);
+    //$form['commerce_shipping']['shipping_service']['#type'] = 'checkboxes';
+    //dpm($form);
 
   } 
 }
