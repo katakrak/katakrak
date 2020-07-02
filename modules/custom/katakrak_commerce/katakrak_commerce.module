@@ -150,7 +150,7 @@ function katakrak_commerce_order_devel_page($order) {
 }
 
 /**
- * 
+ * Usurpamos la función de la url /cart
  */
 function katakrak_commerce_cart_view() {
   global $user;
@@ -339,18 +339,42 @@ function katakrak_commerce_cart_is_bizikrak($order) {
 }
 
 function katakrak_commerce_form_alter(&$form, &$form_state, $form_id) {
-
+  if ($form_id == 'views_form_commerce_cart_form_katakrak_default') {
+    
+    // Only add the Checkout button if the cart form View shows line items.
+    $view = reset($form_state['build_info']['args']);
+    if (!empty($view->result)) {
+      $form['actions']['seguir_comprando'] = array(
+        '#type' => 'submit',
+        '#value' => t('Seguir comprando'),
+        '#weight' => -10,
+        '#attributes' => array('class' => array('btn-secondary')),
+        '#access' => user_access('access checkout'),
+        '#submit' => array_merge($form['#submit'], array('katakrak_commerce_cart_form_seguir_comprando_submit')),
+      );
+    }
+    $form['actions']['submit']['#attributes']['class'] = array('btn btn-secondary');
+    $form['actions']['checkout']['#attributes']['class'] = array('btn btn-primary');
+    $form['actions']['checkout']['#value'] = t('Hacer el pedido');
+    
+    dpm($form);
+  }
 	if ($form_id == "commerce_cart_add_to_cart_form_76452") {
 	  $form['submit']['#value'] = t('Donar');
 	}
   if ($form_id == 'commerce_checkout_form_checkout'){
     //Modificamos el tema para poder poner nuestros estilos
     $form['#theme'][] = 'katakrak_commerce_checkout_form';
-    //$form['commerce_shipping']['shipping_service']['#type'] = 'checkboxes';
-    //dpm($form);
 
   } 
 }
+
+function katakrak_commerce_cart_form_seguir_comprando_submit($form, &$form_state) {
+  if ($form_state['triggering_element']['#value'] === $form['actions']['seguir_comprando']['#value']) {
+      $form_state['redirect'] = 'libreria';
+  }
+}
+
 
 function katakrak_commerce_form_commerce_checkout_form_alter(&$form, &$form_state, $form_id) {
   $order = $form_state['order'];

@@ -124,36 +124,36 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['header']['result']['id'] = 'result';
   $handler->display->display_options['header']['result']['table'] = 'views';
   $handler->display->display_options['header']['result']['field'] = 'result';
-  /* No results behavior: Pedido de Comercio: Texto vacío */
+  /* No results behavior: Commerce Order: Empty text */
   $handler->display->display_options['empty']['empty_text']['id'] = 'empty_text';
   $handler->display->display_options['empty']['empty_text']['table'] = 'commerce_order';
   $handler->display->display_options['empty']['empty_text']['field'] = 'empty_text';
   $handler->display->display_options['empty']['empty_text']['add_path'] = 'admin/commerce/orders/add';
-  /* Relationship: Pedido de Comercio: Propietario */
+  /* Relationship: Commerce Order: Owner */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'commerce_order';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Relationship: Pedido de Commerce: Referenced customer profile */
+  /* Relationship: Commerce Order: Referenced customer profile */
   $handler->display->display_options['relationships']['commerce_customer_billing_profile_id']['id'] = 'commerce_customer_billing_profile_id';
   $handler->display->display_options['relationships']['commerce_customer_billing_profile_id']['table'] = 'field_data_commerce_customer_billing';
   $handler->display->display_options['relationships']['commerce_customer_billing_profile_id']['field'] = 'commerce_customer_billing_profile_id';
-  /* Relationship: Pedido de Comercio: Representative shipping line item */
+  /* Relationship: Commerce Order: Representative shipping line item */
   $handler->display->display_options['relationships']['shipping_line_item_representative']['id'] = 'shipping_line_item_representative';
   $handler->display->display_options['relationships']['shipping_line_item_representative']['table'] = 'commerce_order';
   $handler->display->display_options['relationships']['shipping_line_item_representative']['field'] = 'shipping_line_item_representative';
-  /* Campo: Pedido de Comercio: Número de pedido */
+  /* Campo: Commerce Order: Order number */
   $handler->display->display_options['fields']['order_number']['id'] = 'order_number';
   $handler->display->display_options['fields']['order_number']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['order_number']['field'] = 'order_number';
   $handler->display->display_options['fields']['order_number']['link_to_order'] = 'admin';
-  /* Campo: Pedido de Comercio: Placed date */
+  /* Campo: Commerce Order: Placed date */
   $handler->display->display_options['fields']['placed']['id'] = 'placed';
   $handler->display->display_options['fields']['placed']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['placed']['field'] = 'placed';
   $handler->display->display_options['fields']['placed']['label'] = 'Placed';
   $handler->display->display_options['fields']['placed']['empty'] = '-';
   $handler->display->display_options['fields']['placed']['date_format'] = 'medium';
-  /* Campo: Pedido de Comercio: Fecha de modificación */
+  /* Campo: Commerce Order: Updated date */
   $handler->display->display_options['fields']['changed']['id'] = 'changed';
   $handler->display->display_options['fields']['changed']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
@@ -174,13 +174,13 @@ function katakrak_commerce_views_default_views() {
       'name-oneline' => 'name-oneline',
     ),
   );
-  /* Campo: Usuario: Nombre */
+  /* Campo: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'uid';
   $handler->display->display_options['fields']['name']['label'] = 'Usuario';
-  /* Campo: Pedido de Commerce: Order total */
+  /* Campo: Commerce Order: Order total */
   $handler->display->display_options['fields']['commerce_order_total']['id'] = 'commerce_order_total';
   $handler->display->display_options['fields']['commerce_order_total']['table'] = 'field_data_commerce_order_total';
   $handler->display->display_options['fields']['commerce_order_total']['field'] = 'commerce_order_total';
@@ -189,22 +189,22 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['fields']['commerce_order_total']['settings'] = array(
     'calculation' => FALSE,
   );
-  /* Campo: Pedido de Comercio: Estado del pedido */
+  /* Campo: Commerce Order: Order status */
   $handler->display->display_options['fields']['status']['id'] = 'status';
   $handler->display->display_options['fields']['status']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['status']['field'] = 'status';
-  /* Campo: Pedido de Comercio: Enlaces de operación */
+  /* Campo: Commerce Order: Operations links */
   $handler->display->display_options['fields']['operations']['id'] = 'operations';
   $handler->display->display_options['fields']['operations']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['operations']['field'] = 'operations';
   $handler->display->display_options['fields']['operations']['label'] = 'Operaciones';
-  /* Campo: Pedido de Comercio: Correo electrónico */
+  /* Campo: Commerce Order: E-mail */
   $handler->display->display_options['fields']['mail']['id'] = 'mail';
   $handler->display->display_options['fields']['mail']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['mail']['field'] = 'mail';
   $handler->display->display_options['fields']['mail']['exclude'] = TRUE;
   $handler->display->display_options['fields']['mail']['render_as_link'] = 0;
-  /* Filter criterion: Pedido de Comercio: Estado de pedido */
+  /* Filter criterion: Commerce Order: Order state */
   $handler->display->display_options['filters']['state']['id'] = 'state';
   $handler->display->display_options['filters']['state']['table'] = 'commerce_order';
   $handler->display->display_options['filters']['state']['field'] = 'state';
@@ -313,32 +313,32 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Pedido de Comercio: Propietario */
+  /* Relationship: Commerce Order: Owner */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'commerce_order';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Relationship: Pedido de Commerce: Referenced customer profile */
+  /* Relationship: Commerce Order: Referenced customer profile */
   $handler->display->display_options['relationships']['commerce_customer_billing_profile_id']['id'] = 'commerce_customer_billing_profile_id';
   $handler->display->display_options['relationships']['commerce_customer_billing_profile_id']['table'] = 'field_data_commerce_customer_billing';
   $handler->display->display_options['relationships']['commerce_customer_billing_profile_id']['field'] = 'commerce_customer_billing_profile_id';
-  /* Relationship: Pedido de Comercio: Representative shipping line item */
+  /* Relationship: Commerce Order: Representative shipping line item */
   $handler->display->display_options['relationships']['shipping_line_item_representative']['id'] = 'shipping_line_item_representative';
   $handler->display->display_options['relationships']['shipping_line_item_representative']['table'] = 'commerce_order';
   $handler->display->display_options['relationships']['shipping_line_item_representative']['field'] = 'shipping_line_item_representative';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Pedido de Comercio: Número de pedido */
+  /* Campo: Commerce Order: Order number */
   $handler->display->display_options['fields']['order_number']['id'] = 'order_number';
   $handler->display->display_options['fields']['order_number']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['order_number']['field'] = 'order_number';
   $handler->display->display_options['fields']['order_number']['link_to_order'] = 'admin';
-  /* Campo: Pedido de Comercio: Placed date */
+  /* Campo: Commerce Order: Placed date */
   $handler->display->display_options['fields']['placed']['id'] = 'placed';
   $handler->display->display_options['fields']['placed']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['placed']['field'] = 'placed';
   $handler->display->display_options['fields']['placed']['label'] = 'Placed';
   $handler->display->display_options['fields']['placed']['empty'] = '-';
   $handler->display->display_options['fields']['placed']['date_format'] = 'medium';
-  /* Campo: Pedido de Comercio: Fecha de modificación */
+  /* Campo: Commerce Order: Updated date */
   $handler->display->display_options['fields']['changed']['id'] = 'changed';
   $handler->display->display_options['fields']['changed']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
@@ -359,13 +359,13 @@ function katakrak_commerce_views_default_views() {
       'name-oneline' => 'name-oneline',
     ),
   );
-  /* Campo: Usuario: Nombre */
+  /* Campo: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'uid';
   $handler->display->display_options['fields']['name']['label'] = 'Usuario';
-  /* Campo: Pedido de Commerce: Order total */
+  /* Campo: Commerce Order: Order total */
   $handler->display->display_options['fields']['commerce_order_total']['id'] = 'commerce_order_total';
   $handler->display->display_options['fields']['commerce_order_total']['table'] = 'field_data_commerce_order_total';
   $handler->display->display_options['fields']['commerce_order_total']['field'] = 'commerce_order_total';
@@ -374,11 +374,11 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['fields']['commerce_order_total']['settings'] = array(
     'calculation' => FALSE,
   );
-  /* Campo: Pedido de Comercio: Estado del pedido */
+  /* Campo: Commerce Order: Order status */
   $handler->display->display_options['fields']['status']['id'] = 'status';
   $handler->display->display_options['fields']['status']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['status']['field'] = 'status';
-  /* Campo: Pedido de Comercio: Enlaces de operación */
+  /* Campo: Commerce Order: Operations links */
   $handler->display->display_options['fields']['operations']['id'] = 'operations';
   $handler->display->display_options['fields']['operations']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['operations']['field'] = 'operations';
@@ -389,13 +389,13 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['fields']['commerce_shipping_service']['field'] = 'commerce_shipping_service';
   $handler->display->display_options['fields']['commerce_shipping_service']['relationship'] = 'shipping_line_item_representative';
   $handler->display->display_options['fields']['commerce_shipping_service']['label'] = 'Forma de envío';
-  /* Campo: Commerce Order revision: Mensaje de registro */
+  /* Campo: Commerce Order revision: Log message */
   $handler->display->display_options['fields']['log']['id'] = 'log';
   $handler->display->display_options['fields']['log']['table'] = 'commerce_order_revision';
   $handler->display->display_options['fields']['log']['field'] = 'log';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Pedido de Comercio: Estado de pedido */
+  /* Filter criterion: Commerce Order: Order state */
   $handler->display->display_options['filters']['state']['id'] = 'state';
   $handler->display->display_options['filters']['state']['table'] = 'commerce_order';
   $handler->display->display_options['filters']['state']['field'] = 'state';
@@ -409,7 +409,7 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['filters']['state']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['state']['expose']['operator'] = 'state_op';
   $handler->display->display_options['filters']['state']['expose']['identifier'] = 'state';
-  /* Filter criterion: Commerce Customer profile: Address - Nombre completo */
+  /* Filter criterion: Commerce Customer profile: Address - Full name */
   $handler->display->display_options['filters']['commerce_customer_address_name_line']['id'] = 'commerce_customer_address_name_line';
   $handler->display->display_options['filters']['commerce_customer_address_name_line']['table'] = 'field_data_commerce_customer_address';
   $handler->display->display_options['filters']['commerce_customer_address_name_line']['field'] = 'commerce_customer_address_name_line';
@@ -423,7 +423,7 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['filters']['commerce_customer_address_name_line']['expose']['remember_roles'] = array(
     2 => '2',
   );
-  /* Filter criterion: Pedido de Comercio: Correo electrónico */
+  /* Filter criterion: Commerce Order: E-mail */
   $handler->display->display_options['filters']['mail']['id'] = 'mail';
   $handler->display->display_options['filters']['mail']['table'] = 'commerce_order';
   $handler->display->display_options['filters']['mail']['field'] = 'mail';
@@ -436,7 +436,7 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['filters']['mail']['expose']['remember_roles'] = array(
     2 => '2',
   );
-  /* Filter criterion: Commerce Order revision: Estado del pedido */
+  /* Filter criterion: Commerce Order revision: Order status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'commerce_order_revision';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -464,7 +464,7 @@ function katakrak_commerce_views_default_views() {
     2 => array(),
     3 => array(),
   );
-  /* Filter criterion: Pedido de Comercio: Estado de pedido */
+  /* Filter criterion: Commerce Order: Order state */
   $handler->display->display_options['filters']['state_1']['id'] = 'state_1';
   $handler->display->display_options['filters']['state_1']['table'] = 'commerce_order';
   $handler->display->display_options['filters']['state_1']['field'] = 'state';
@@ -501,12 +501,12 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['empty']['text']['content'] = 'There are currently no shopping cart orders.';
   $handler->display->display_options['empty']['text']['format'] = 'plain_text';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Pedido de Comercio: Número de pedido */
+  /* Campo: Commerce Order: Order number */
   $handler->display->display_options['fields']['order_number']['id'] = 'order_number';
   $handler->display->display_options['fields']['order_number']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['order_number']['field'] = 'order_number';
   $handler->display->display_options['fields']['order_number']['link_to_order'] = 'admin';
-  /* Campo: Pedido de Comercio: Fecha de modificación */
+  /* Campo: Commerce Order: Updated date */
   $handler->display->display_options['fields']['changed']['id'] = 'changed';
   $handler->display->display_options['fields']['changed']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
@@ -527,13 +527,13 @@ function katakrak_commerce_views_default_views() {
       'name-oneline' => 'name-oneline',
     ),
   );
-  /* Campo: Usuario: Nombre */
+  /* Campo: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'uid';
   $handler->display->display_options['fields']['name']['label'] = 'Usuario';
-  /* Campo: Pedido de Commerce: Order total */
+  /* Campo: Commerce Order: Order total */
   $handler->display->display_options['fields']['commerce_order_total']['id'] = 'commerce_order_total';
   $handler->display->display_options['fields']['commerce_order_total']['table'] = 'field_data_commerce_order_total';
   $handler->display->display_options['fields']['commerce_order_total']['field'] = 'commerce_order_total';
@@ -542,18 +542,18 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['fields']['commerce_order_total']['settings'] = array(
     'calculation' => FALSE,
   );
-  /* Campo: Pedido de Comercio: Estado del pedido */
+  /* Campo: Commerce Order: Order status */
   $handler->display->display_options['fields']['status']['id'] = 'status';
   $handler->display->display_options['fields']['status']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['status']['field'] = 'status';
-  /* Campo: Pedido de Comercio: Enlaces de operación */
+  /* Campo: Commerce Order: Operations links */
   $handler->display->display_options['fields']['operations']['id'] = 'operations';
   $handler->display->display_options['fields']['operations']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['operations']['field'] = 'operations';
   $handler->display->display_options['fields']['operations']['label'] = 'Operaciones';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Pedido de Comercio: Estado de pedido */
+  /* Filter criterion: Commerce Order: Order state */
   $handler->display->display_options['filters']['state']['id'] = 'state';
   $handler->display->display_options['filters']['state']['table'] = 'commerce_order';
   $handler->display->display_options['filters']['state']['field'] = 'state';
@@ -576,7 +576,7 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Pedido de Comercio: Placed date */
+  /* Campo: Commerce Order: Placed date */
   $handler->display->display_options['fields']['placed']['id'] = 'placed';
   $handler->display->display_options['fields']['placed']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['placed']['field'] = 'placed';
@@ -600,7 +600,7 @@ function katakrak_commerce_views_default_views() {
       'name-oneline' => 'name-oneline',
     ),
   );
-  /* Campo: Pedido de Commerce: Order total */
+  /* Campo: Commerce Order: Order total */
   $handler->display->display_options['fields']['commerce_order_total']['id'] = 'commerce_order_total';
   $handler->display->display_options['fields']['commerce_order_total']['table'] = 'field_data_commerce_order_total';
   $handler->display->display_options['fields']['commerce_order_total']['field'] = 'commerce_order_total';
@@ -610,7 +610,7 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['fields']['commerce_order_total']['settings'] = array(
     'calculation' => FALSE,
   );
-  /* Campo: Pedido de Comercio: Estado del pedido */
+  /* Campo: Commerce Order: Order status */
   $handler->display->display_options['fields']['status']['id'] = 'status';
   $handler->display->display_options['fields']['status']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['status']['field'] = 'status';
@@ -622,7 +622,7 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['fields']['commerce_shipping_service']['label'] = 'Forma de envío';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Pedido de Comercio: Estado de pedido */
+  /* Filter criterion: Commerce Order: Order state */
   $handler->display->display_options['filters']['state']['id'] = 'state';
   $handler->display->display_options['filters']['state']['table'] = 'commerce_order';
   $handler->display->display_options['filters']['state']['field'] = 'state';
@@ -636,14 +636,14 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['filters']['state']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['state']['expose']['operator'] = 'state_op';
   $handler->display->display_options['filters']['state']['expose']['identifier'] = 'state';
-  /* Filter criterion: Pedido de Comercio: Estado de pedido */
+  /* Filter criterion: Commerce Order: Order state */
   $handler->display->display_options['filters']['state_1']['id'] = 'state_1';
   $handler->display->display_options['filters']['state_1']['table'] = 'commerce_order';
   $handler->display->display_options['filters']['state_1']['field'] = 'state';
   $handler->display->display_options['filters']['state_1']['value'] = array(
     'pending' => 'pending',
   );
-  /* Filter criterion: Commerce Order revision: Estado del pedido */
+  /* Filter criterion: Commerce Order revision: Order status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'commerce_order_revision';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -668,29 +668,226 @@ function katakrak_commerce_views_default_views() {
     t('siguiente ›'),
     t('última »'),
     t('Displaying @start - @end of @total'),
-    t('Propietario del pedido'),
+    t('Order owner'),
     t('Customer profile referenced by commerce_customer_billing'),
     t('Representative shipping line item'),
-    t('Número de pedido'),
+    t('Order number'),
     t('Placed'),
     t('-'),
     t('Actualizado'),
     t('Nombre'),
     t('Usuario'),
     t('Total'),
-    t('Estado del pedido'),
+    t('Order status'),
     t('Operaciones'),
-    t('Correo electrónico'),
+    t('E-mail'),
     t('Estado de pedido'),
     t('Admin page'),
+    t('more'),
     t('Forma de envío'),
-    t('Mensaje de registro'),
+    t('Log message'),
     t('Address - Nombre completo'),
+    t('Correo electrónico'),
+    t('Estado del pedido'),
     t('Shopping carts'),
     t('There are currently no shopping cart orders.'),
     t('Data export'),
   );
   $export['admin_orders'] = $view;
+
+  $view = new view();
+  $view->name = 'commerce_cart_form_katakrak';
+  $view->description = 'Display a shopping cart update form.';
+  $view->tag = 'commerce';
+  $view->base_table = 'commerce_order';
+  $view->human_name = 'Katakrak commerce cart form';
+  $view->core = 0;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Defaults */
+  $handler = $view->new_display('default', 'Defaults', 'default');
+  $handler->display->display_options['title'] = 'Shopping cart';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['style_plugin'] = 'views_bootstrap_table_plugin_style';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'commerce_display_path' => 'commerce_display_path',
+    'line_item_title' => 'line_item_title',
+    'commerce_unit_price' => 'commerce_unit_price',
+    'edit_quantity' => 'edit_quantity',
+    'edit_delete' => 'edit_delete',
+    'commerce_total' => 'commerce_total',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'commerce_display_path' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'line_item_title' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'commerce_unit_price' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'edit_quantity' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'edit_delete' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'commerce_total' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['bootstrap_styles'] = array(
+    'striped' => 0,
+    'bordered' => 0,
+    'hover' => 0,
+    'condensed' => 0,
+  );
+  /* Pie de página: Commerce Line Item: Line item summary */
+  $handler->display->display_options['footer']['line_item_summary']['id'] = 'line_item_summary';
+  $handler->display->display_options['footer']['line_item_summary']['table'] = 'commerce_line_item';
+  $handler->display->display_options['footer']['line_item_summary']['field'] = 'line_item_summary';
+  $handler->display->display_options['footer']['line_item_summary']['label'] = 'Cart summary';
+  $handler->display->display_options['footer']['line_item_summary']['info'] = array(
+    'quantity' => 'quantity',
+    'total' => 'total',
+  );
+  /* Relationship: Commerce Order: Referenced line items */
+  $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['id'] = 'commerce_line_items_line_item_id';
+  $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['table'] = 'field_data_commerce_line_items';
+  $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['field'] = 'commerce_line_items_line_item_id';
+  $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['required'] = TRUE;
+  /* Relationship: Commerce Line item: Referenced products */
+  $handler->display->display_options['relationships']['commerce_product_product_id']['id'] = 'commerce_product_product_id';
+  $handler->display->display_options['relationships']['commerce_product_product_id']['table'] = 'field_data_commerce_product';
+  $handler->display->display_options['relationships']['commerce_product_product_id']['field'] = 'commerce_product_product_id';
+  $handler->display->display_options['relationships']['commerce_product_product_id']['relationship'] = 'commerce_line_items_line_item_id';
+  /* Relationship: Commerce Product: Referencing Node */
+  $handler->display->display_options['relationships']['field_libro_producto']['id'] = 'field_libro_producto';
+  $handler->display->display_options['relationships']['field_libro_producto']['table'] = 'commerce_product';
+  $handler->display->display_options['relationships']['field_libro_producto']['field'] = 'field_libro_producto';
+  $handler->display->display_options['relationships']['field_libro_producto']['relationship'] = 'commerce_product_product_id';
+  $handler->display->display_options['relationships']['field_libro_producto']['label'] = 'Nodo referencing products from field_libro_producto';
+  /* Campo: Content: Portada */
+  $handler->display->display_options['fields']['field_libro_portada']['id'] = 'field_libro_portada';
+  $handler->display->display_options['fields']['field_libro_portada']['table'] = 'field_data_field_libro_portada';
+  $handler->display->display_options['fields']['field_libro_portada']['field'] = 'field_libro_portada';
+  $handler->display->display_options['fields']['field_libro_portada']['relationship'] = 'field_libro_producto';
+  $handler->display->display_options['fields']['field_libro_portada']['label'] = 'Artículo';
+  $handler->display->display_options['fields']['field_libro_portada']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_libro_portada']['settings'] = array(
+    'image_style' => 'thumbnail',
+    'image_link' => '',
+  );
+  /* Campo: Commerce Line item: Display path */
+  $handler->display->display_options['fields']['commerce_display_path']['id'] = 'commerce_display_path';
+  $handler->display->display_options['fields']['commerce_display_path']['table'] = 'field_data_commerce_display_path';
+  $handler->display->display_options['fields']['commerce_display_path']['field'] = 'commerce_display_path';
+  $handler->display->display_options['fields']['commerce_display_path']['relationship'] = 'commerce_line_items_line_item_id';
+  $handler->display->display_options['fields']['commerce_display_path']['label'] = '';
+  $handler->display->display_options['fields']['commerce_display_path']['exclude'] = TRUE;
+  /* Campo: Commerce Line Item: Title */
+  $handler->display->display_options['fields']['line_item_title']['id'] = 'line_item_title';
+  $handler->display->display_options['fields']['line_item_title']['table'] = 'commerce_line_item';
+  $handler->display->display_options['fields']['line_item_title']['field'] = 'line_item_title';
+  $handler->display->display_options['fields']['line_item_title']['relationship'] = 'commerce_line_items_line_item_id';
+  $handler->display->display_options['fields']['line_item_title']['label'] = '';
+  $handler->display->display_options['fields']['line_item_title']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['line_item_title']['alter']['path'] = '[commerce_display_path]';
+  $handler->display->display_options['fields']['line_item_title']['element_label_colon'] = FALSE;
+  /* Campo: Commerce Line Item: Quantity text field */
+  $handler->display->display_options['fields']['edit_quantity']['id'] = 'edit_quantity';
+  $handler->display->display_options['fields']['edit_quantity']['table'] = 'commerce_line_item';
+  $handler->display->display_options['fields']['edit_quantity']['field'] = 'edit_quantity';
+  $handler->display->display_options['fields']['edit_quantity']['relationship'] = 'commerce_line_items_line_item_id';
+  $handler->display->display_options['fields']['edit_quantity']['label'] = 'Cantidad';
+  $handler->display->display_options['fields']['edit_quantity']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['edit_quantity']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['edit_quantity']['element_label_colon'] = FALSE;
+  /* Campo: Commerce Line Item: Delete button */
+  $handler->display->display_options['fields']['edit_delete']['id'] = 'edit_delete';
+  $handler->display->display_options['fields']['edit_delete']['table'] = 'commerce_line_item';
+  $handler->display->display_options['fields']['edit_delete']['field'] = 'edit_delete';
+  $handler->display->display_options['fields']['edit_delete']['relationship'] = 'commerce_line_items_line_item_id';
+  $handler->display->display_options['fields']['edit_delete']['label'] = '';
+  $handler->display->display_options['fields']['edit_delete']['element_label_colon'] = FALSE;
+  /* Campo: Commerce Line item: Total */
+  $handler->display->display_options['fields']['commerce_total']['id'] = 'commerce_total';
+  $handler->display->display_options['fields']['commerce_total']['table'] = 'field_data_commerce_total';
+  $handler->display->display_options['fields']['commerce_total']['field'] = 'commerce_total';
+  $handler->display->display_options['fields']['commerce_total']['relationship'] = 'commerce_line_items_line_item_id';
+  $handler->display->display_options['fields']['commerce_total']['label'] = 'Precio';
+  $handler->display->display_options['fields']['commerce_total']['element_class'] = 'price';
+  $handler->display->display_options['fields']['commerce_total']['click_sort_column'] = 'amount';
+  $handler->display->display_options['fields']['commerce_total']['settings'] = array(
+    'calculation' => FALSE,
+  );
+  /* Sort criterion: Commerce Line Item: Line item ID */
+  $handler->display->display_options['sorts']['line_item_id']['id'] = 'line_item_id';
+  $handler->display->display_options['sorts']['line_item_id']['table'] = 'commerce_line_item';
+  $handler->display->display_options['sorts']['line_item_id']['field'] = 'line_item_id';
+  $handler->display->display_options['sorts']['line_item_id']['relationship'] = 'commerce_line_items_line_item_id';
+  /* Contextual filter: Commerce Order: Order ID */
+  $handler->display->display_options['arguments']['order_id']['id'] = 'order_id';
+  $handler->display->display_options['arguments']['order_id']['table'] = 'commerce_order';
+  $handler->display->display_options['arguments']['order_id']['field'] = 'order_id';
+  $handler->display->display_options['arguments']['order_id']['default_action'] = 'empty';
+  $handler->display->display_options['arguments']['order_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['order_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['order_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['order_id']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Commerce Line Item: Line item is of a product line item type */
+  $handler->display->display_options['filters']['product_line_item_type']['id'] = 'product_line_item_type';
+  $handler->display->display_options['filters']['product_line_item_type']['table'] = 'commerce_line_item';
+  $handler->display->display_options['filters']['product_line_item_type']['field'] = 'product_line_item_type';
+  $handler->display->display_options['filters']['product_line_item_type']['relationship'] = 'commerce_line_items_line_item_id';
+  $handler->display->display_options['filters']['product_line_item_type']['value'] = '1';
+  $handler->display->display_options['filters']['product_line_item_type']['group'] = 0;
+  $translatables['commerce_cart_form_katakrak'] = array(
+    t('Defaults'),
+    t('Shopping cart'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Cart summary'),
+    t('Line items referenced by commerce_line_items'),
+    t('Products referenced by commerce_product'),
+    t('Nodo referencing products from field_libro_producto'),
+    t('Artículo'),
+    t('Cantidad'),
+    t('Precio'),
+    t('All'),
+  );
+  $export['commerce_cart_form_katakrak'] = $view;
 
   $view = new view();
   $view->name = 'donaciones';
@@ -758,12 +955,12 @@ function katakrak_commerce_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Relationship: Commerce Line Item: ID del pedido */
+  /* Relationship: Commerce Line Item: Order ID */
   $handler->display->display_options['relationships']['order_id']['id'] = 'order_id';
   $handler->display->display_options['relationships']['order_id']['table'] = 'commerce_line_item';
   $handler->display->display_options['relationships']['order_id']['field'] = 'order_id';
   $handler->display->display_options['relationships']['order_id']['required'] = TRUE;
-  /* Campo: Pedido de Comercio: Placed date */
+  /* Campo: Commerce Order: Placed date */
   $handler->display->display_options['fields']['placed']['id'] = 'placed';
   $handler->display->display_options['fields']['placed']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['placed']['field'] = 'placed';
@@ -774,7 +971,7 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['fields']['field_donation_libro']['id'] = 'field_donation_libro';
   $handler->display->display_options['fields']['field_donation_libro']['table'] = 'field_data_field_donation_libro';
   $handler->display->display_options['fields']['field_donation_libro']['field'] = 'field_donation_libro';
-  /* Campo: Pedido de Commerce: Order total */
+  /* Campo: Commerce Order: Order total */
   $handler->display->display_options['fields']['commerce_order_total']['id'] = 'commerce_order_total';
   $handler->display->display_options['fields']['commerce_order_total']['table'] = 'field_data_commerce_order_total';
   $handler->display->display_options['fields']['commerce_order_total']['field'] = 'commerce_order_total';
@@ -793,25 +990,25 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['fields']['commerce_total']['settings'] = array(
     'calculation' => FALSE,
   );
-  /* Campo: Pedido de Comercio: Enlace de edición */
+  /* Campo: Commerce Order: Edit link */
   $handler->display->display_options['fields']['edit_order']['id'] = 'edit_order';
   $handler->display->display_options['fields']['edit_order']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['edit_order']['field'] = 'edit_order';
   $handler->display->display_options['fields']['edit_order']['relationship'] = 'order_id';
-  /* Campo: Pedido de Commerce: Billing information */
+  /* Campo: Commerce Order: Billing information */
   $handler->display->display_options['fields']['commerce_customer_billing']['id'] = 'commerce_customer_billing';
   $handler->display->display_options['fields']['commerce_customer_billing']['table'] = 'field_data_commerce_customer_billing';
   $handler->display->display_options['fields']['commerce_customer_billing']['field'] = 'commerce_customer_billing';
   $handler->display->display_options['fields']['commerce_customer_billing']['relationship'] = 'order_id';
   $handler->display->display_options['fields']['commerce_customer_billing']['label'] = 'Datos de facturación';
-  /* Filter criterion: Commerce Line Item: Tipo */
+  /* Filter criterion: Commerce Line Item: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'commerce_line_item';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'commerce_donate' => 'commerce_donate',
   );
-  /* Filter criterion: Pedido de Comercio: Estado de pedido */
+  /* Filter criterion: Commerce Order: Order state */
   $handler->display->display_options['filters']['state']['id'] = 'state';
   $handler->display->display_options['filters']['state']['table'] = 'commerce_order';
   $handler->display->display_options['filters']['state']['field'] = 'state';
@@ -863,7 +1060,7 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['fields']['commerce_total']['settings'] = array(
     'calculation' => FALSE,
   );
-  /* Campo: Pedido de Comercio: Placed date */
+  /* Campo: Commerce Order: Placed date */
   $handler->display->display_options['fields']['placed']['id'] = 'placed';
   $handler->display->display_options['fields']['placed']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['placed']['field'] = 'placed';
@@ -872,14 +1069,14 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['fields']['placed']['second_date_format'] = 'long';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Commerce Line Item: Tipo */
+  /* Filter criterion: Commerce Line Item: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'commerce_line_item';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'commerce_donate' => 'commerce_donate',
   );
-  /* Filter criterion: Pedido de Comercio: Estado de pedido */
+  /* Filter criterion: Commerce Order: Order state */
   $handler->display->display_options['filters']['state']['id'] = 'state';
   $handler->display->display_options['filters']['state']['table'] = 'commerce_order';
   $handler->display->display_options['filters']['state']['field'] = 'state';
@@ -897,15 +1094,16 @@ function katakrak_commerce_views_default_views() {
     t('Ordenar por'),
     t('Asc'),
     t('Desc'),
-    t('Pedido'),
+    t('Order'),
     t('Placed date'),
     t('Libro'),
     t('Pedido Total'),
     t('Cantidad donación'),
-    t('Enlace de edición'),
+    t('Edit link'),
     t('Datos de facturación'),
     t('Estado de pedido'),
     t('Page'),
+    t('more'),
     t('Data export'),
   );
   $export['donaciones'] = $view;
@@ -935,16 +1133,15 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'table';
-  /* Relationship: Commerce Line Item: ID del pedido */
+  /* Relationship: Commerce Line Item: Order ID */
   $handler->display->display_options['relationships']['order_id']['id'] = 'order_id';
   $handler->display->display_options['relationships']['order_id']['table'] = 'commerce_line_item';
   $handler->display->display_options['relationships']['order_id']['field'] = 'order_id';
   $handler->display->display_options['relationships']['order_id']['required'] = TRUE;
-  /* Campo: Commerce Line item: Product */
+  /* Campo: Commerce Line item: Producto */
   $handler->display->display_options['fields']['commerce_product']['id'] = 'commerce_product';
   $handler->display->display_options['fields']['commerce_product']['table'] = 'field_data_commerce_product';
   $handler->display->display_options['fields']['commerce_product']['field'] = 'commerce_product';
-  $handler->display->display_options['fields']['commerce_product']['label'] = 'Producto';
   $handler->display->display_options['fields']['commerce_product']['type'] = 'commerce_product_reference_title_plain';
   $handler->display->display_options['fields']['commerce_product']['settings'] = array(
     'button_text' => 'Comprar',
@@ -969,14 +1166,14 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['fields']['commerce_total']['settings'] = array(
     'calculation' => FALSE,
   );
-  /* Campo: Pedido de Comercio: Placed date */
+  /* Campo: Commerce Order: Placed date */
   $handler->display->display_options['fields']['placed']['id'] = 'placed';
   $handler->display->display_options['fields']['placed']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['placed']['field'] = 'placed';
   $handler->display->display_options['fields']['placed']['relationship'] = 'order_id';
   $handler->display->display_options['fields']['placed']['date_format'] = 'long';
   $handler->display->display_options['fields']['placed']['second_date_format'] = 'long';
-  /* Contextual filter: Pedido de Comercio: Placed year + month */
+  /* Contextual filter: Commerce Order: Placed year + month */
   $handler->display->display_options['arguments']['placed_year_month']['id'] = 'placed_year_month';
   $handler->display->display_options['arguments']['placed_year_month']['table'] = 'commerce_order';
   $handler->display->display_options['arguments']['placed_year_month']['field'] = 'placed_year_month';
@@ -984,14 +1181,14 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['arguments']['placed_year_month']['exception']['title'] = 'Todo(s)';
   $handler->display->display_options['arguments']['placed_year_month']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['placed_year_month']['summary']['format'] = 'default_summary';
-  /* Filter criterion: Commerce Line Item: Tipo */
+  /* Filter criterion: Commerce Line Item: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'commerce_line_item';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'product' => 'product',
   );
-  /* Filter criterion: Pedido de Comercio: Estado de pedido */
+  /* Filter criterion: Commerce Order: Order state */
   $handler->display->display_options['filters']['state']['id'] = 'state';
   $handler->display->display_options['filters']['state']['table'] = 'commerce_order';
   $handler->display->display_options['filters']['state']['field'] = 'state';
@@ -1037,13 +1234,14 @@ function katakrak_commerce_views_default_views() {
     t('Ordenar por'),
     t('Asc'),
     t('Desc'),
-    t('Pedido'),
+    t('Order'),
     t('Producto'),
     t('Forma de envío'),
     t('Total'),
     t('Placed date'),
     t('Todo(s)'),
     t('Page'),
+    t('more'),
     t('Data export'),
   );
   $export['historico_pedidos'] = $view;

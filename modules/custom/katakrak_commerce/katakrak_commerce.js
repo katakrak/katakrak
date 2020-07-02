@@ -15,6 +15,11 @@
         }
         }
       );
+      //Borramos el check 
+      $('#views-form-commerce-cart-form-katakrak-default .btn.btn-secondary span').each(function(index) {
+        $(this).removeClass('glyphicon-ok');  
+        }
+      );
     }
   };
 })(jQuery);

@@ -86,6 +86,7 @@ stylesheets[all][] = css/main.css
 ;;;;;;;;;;;;;;;;;;;;;
 
 ; Uncomment the following scripts if using Less source JavaScript files.
+scripts[] = 'js/kapital.js'
 ;scripts[] = 'bootstrap/js/affix.js'
 ;scripts[] = 'bootstrap/js/alert.js'
 ;scripts[] = 'bootstrap/js/button.js'
