@@ -940,11 +940,10 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['relationships']['order_id']['table'] = 'commerce_line_item';
   $handler->display->display_options['relationships']['order_id']['field'] = 'order_id';
   $handler->display->display_options['relationships']['order_id']['required'] = TRUE;
-  /* Campo: Commerce Line item: Product */
+  /* Campo: Commerce Line item: Producto */
   $handler->display->display_options['fields']['commerce_product']['id'] = 'commerce_product';
   $handler->display->display_options['fields']['commerce_product']['table'] = 'field_data_commerce_product';
   $handler->display->display_options['fields']['commerce_product']['field'] = 'commerce_product';
-  $handler->display->display_options['fields']['commerce_product']['label'] = 'Producto';
   $handler->display->display_options['fields']['commerce_product']['type'] = 'commerce_product_reference_title_plain';
   $handler->display->display_options['fields']['commerce_product']['settings'] = array(
     'button_text' => 'Comprar',
