@@ -20,6 +20,10 @@
         $(this).removeClass('glyphicon-ok');  
         }
       );
+      $('#views-form-commerce-cart-form-katakrak-default .btn-danger span').each(function(index) {
+        $(this).removeClass('glyphicon-trash');  
+        }
+      );
     }
   };
 })(jQuery);

@@ -340,10 +340,16 @@ function katakrak_commerce_cart_is_bizikrak($order) {
 
 function katakrak_commerce_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'views_form_commerce_cart_form_katakrak_default') {
-    
+    foreach (element_children($form['edit_delete']) as $key) {
+      $form['edit_delete'][$key]['#attributes']['class'] = array('btn btn-secondary');
+    }
     // Only add the Checkout button if the cart form View shows line items.
     $view = reset($form_state['build_info']['args']);
     if (!empty($view->result)) {
+      $form['actions']['submit']['#attributes']['class'] = array('btn btn-secondary');
+      $form['actions']['checkout']['#attributes']['class'] = array('btn btn-primary');
+      $form['actions']['checkout']['#value'] = t('Hacer el pedido');
+      
       $form['actions']['seguir_comprando'] = array(
         '#type' => 'submit',
         '#value' => t('Seguir comprando'),
@@ -352,12 +358,26 @@ function katakrak_commerce_form_alter(&$form, &$form_state, $form_id) {
         '#access' => user_access('access checkout'),
         '#submit' => array_merge($form['#submit'], array('katakrak_commerce_cart_form_seguir_comprando_submit')),
       );
+      //Campo de regalo
+      $form['regalo'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Este pedido es un regalo').' <a data-toggle="collapse" href="#collapseRegalo">'.t('Saber más').'</a>',
+        '#weight' => 50,
+        '#default_value' => $form_state['order']->field_regalo['und'][0]['value'],
+        '#prefix' => '<hr class="hr-dark">',
+        '#suffix' => '<div class="collapse mt-2" id="collapseRegalo">'.
+             '<div class="row">'.
+               '<div class="col-sm-5">'.
+                '<h3 class="mt-0">'.t('Regala Katakrak').'</h3>'.
+                '<p>'.t('Si tu pedido es un regalo, lo envolveremos con cariño en papel de estraza. Tanto si se envía a un domicilio como si seleccionas la opción de recoger en Katakrak.').'</p>'.
+               '</div>'.
+             '</div>'.
+          '</div>',
+      );    
+      //Nos aseguramos de guardar la opción de es regalo cuando lo marquen
+      $form['actions']['checkout']['#submit'][] = 'katakrak_commerce_cart_form_submit';
+      $form['actions']['submit']['#submit'][] = 'katakrak_commerce_cart_form_submit';
     }
-    $form['actions']['submit']['#attributes']['class'] = array('btn btn-secondary');
-    $form['actions']['checkout']['#attributes']['class'] = array('btn btn-primary');
-    $form['actions']['checkout']['#value'] = t('Hacer el pedido');
-    
-    dpm($form);
   }
 	if ($form_id == "commerce_cart_add_to_cart_form_76452") {
 	  $form['submit']['#value'] = t('Donar');
@@ -367,6 +387,26 @@ function katakrak_commerce_form_alter(&$form, &$form_state, $form_id) {
     $form['#theme'][] = 'katakrak_commerce_checkout_form';
 
   } 
+}
+
+/**
+ * Funcion submit para asegurarse de que guardamos si el pedido es regalo o no
+ * @param type $form
+ * @param array $form_state
+ */
+function katakrak_commerce_cart_form_submit($form, &$form_state) {
+ 
+  $order = $form_state['order'];
+  if ($form_state['input']['regalo']) {
+    //Metemos la opcion
+    $order->field_regalo['und'][0]['value'] = 1;
+  }
+  else {
+    $order->field_regalo['und'][0]['value'] = 0;
+  }
+  
+  commerce_order_save($order);
+  $form_state['order'] = $order;
 }
 
 function katakrak_commerce_cart_form_seguir_comprando_submit($form, &$form_state) {
