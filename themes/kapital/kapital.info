@@ -73,6 +73,23 @@ layouts[checkout][regions][] = "footer_second"
 layouts[checkout][regions][] = "footer_third"
 layouts[checkout][regions][] = "footer_fourth"
 
+layouts[user][name] = "User login and register"
+layouts[user][description] = "User layout."
+layouts[user][template] = "templates/system/layout-user"
+layouts[user][regions][] = "navigation"
+layouts[user][regions][] = "header"
+layouts[user][regions][] = "highlighted"
+layouts[user][regions][] = "help"
+layouts[user][regions][] = "content"
+layouts[user][regions][] = "header_right"
+layouts[user][regions][] = "sidebar_first"
+layouts[user][regions][] = "sidebar_second"
+layouts[user][regions][] = "footer"
+layouts[user][regions][] = "footer"
+layouts[user][regions][] = "footer_first"
+layouts[user][regions][] = "footer_second"
+layouts[user][regions][] = "footer_third"
+layouts[user][regions][] = "footer_fourth"
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; Stylesheets
