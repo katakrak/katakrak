@@ -1,0 +1,13 @@
+name = "Super Login Page"
+description = "Improves the Drupal login page."
+
+core = 7.x
+package  = User interface
+
+configure = admin/config/user-interface/super-login
+
+; Information added by Drupal.org packaging script on 2019-08-13
+version = "7.x-1.4"
+core = "7.x"
+project = "super_login"
+datestamp = "1565714896"
