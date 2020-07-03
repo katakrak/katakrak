@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Code for the Katakrak User feature.
+ */
+
+include_once 'katakrak_user.features.inc';
+
+/**
+ * Implements hook_theme
+ */
+function katakrak_user_theme() {
+  $path = drupal_get_path('module', 'katakrak_user');
+  return array(
+    'katakrak_user_login_form' => array(
+      'template' => 'katakrak-user-login-form',
+      'path' => $path . '/templates',
+      'arguments' => array('form' => NULL),
+      'render element' => 'form',
+    ),
+  );
+}
+
+/**
+ * 
+ */
+function katakrak_user_menu_alter(&$items) {
+  $items['user/login']['title callback'] = 'katakrak_user_login_title_callback';
+}
+
+/**
+ * 
+ * @return type
+ */
+function katakrak_user_form_alter(&$form, &$form_state, $form_id) {
+  //drupal_set_message($form_id);
+  if ($form_id == 'user_login'){
+    $form['#theme'] = 'katakrak_user_login_form';
+  }
+}
+
+
+
+function katakrak_user_login_title_callback() {
+  return t('Mi cuenta');
+}
