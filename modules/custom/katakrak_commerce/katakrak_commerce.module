@@ -44,7 +44,14 @@ function katakrak_commerce_theme() {
       'path' => $path . '/templates',
       'arguments' => array('form' => NULL),
       'render element' => 'form',
-    )
+    ),
+    'katakrak_commerce_checkout_breadcrumb' => array(
+      'template' => 'katakrak-commerce-checkout-breadcrumb',
+      'path' => $path . '/templates',
+      'arguments' => array(
+        'steps' => NULL,
+      )
+    ),
   );  
 }
 
@@ -57,6 +64,11 @@ function katakrak_commerce_block_info() {
     'info' => t('Dropdown con contenido del carrito'),
     // Not worth caching.
     'cache' => DRUPAL_NO_CACHE,
+  );
+  $blocks['checkout_breadcrumb'] = array(
+    'info' => t('Un breadcrumb para el proceso de compra'),
+    // Not worth caching.
+    'cache' => DRUPAL_CACHE_GLOBAL,
   );
   return $blocks;
 }
@@ -91,6 +103,39 @@ function katakrak_commerce_block_view($delta) {
         }
       }
       $block['content'] = theme('katakrak_commerce_cart', array('count' =>$product_quantity_count));
+  }
+  if ($delta == 'checkout_breadcrumb') {
+    //TODO: Definir el contenido del bloque
+    $steps  = array();
+    $steps[] = array(
+      'title' => t('Mi compra'),
+      'class' => $_GET['q'] == 'cart'? 'active': 'done',
+    );
+    $steps[] = array(
+      'title' => t('Forma de envio'),
+    );
+    $steps[] = array(
+      'title' => t('Datos personales'),
+    );
+    $steps[] = array(
+      'title' => t('Pago del pedido'),
+    );
+    
+    //Generamos las clases según en qué punto del breadcrumb estemos
+    if (drupal_match_path($_GET['q'], 'checkout/*/review')){
+      $steps[3]['class'] = 'active';
+      $steps[2]['class'] = 'done';
+      $steps[1]['class'] = 'done';
+    }
+    elseif(drupal_match_path($_GET['q'], 'checkout/*/shipping')){
+      $steps[2]['class'] = 'active';
+      $steps[1]['class'] = 'done';
+    }
+    else {
+      $steps[1]['class'] = 'active';
+    }
+    
+    $block['content'] = theme('katakrak_commerce_checkout_breadcrumb', array('steps' => $steps));
   }
   return $block;
 }
@@ -385,8 +430,21 @@ function katakrak_commerce_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'commerce_checkout_form_checkout'){
     //Modificamos el tema para poder poner nuestros estilos
     $form['#theme'][] = 'katakrak_commerce_checkout_form';
-
+    drupal_set_title(t('Selecciona forma de envío o recogida'));
   } 
+  if ($form_id == 'commerce_checkout_form_shipping') {
+    $order = $form_state['order'];
+    list($view_id, $display_id) = explode('|', variable_get('commerce_cart_contents_pane_view', 'commerce_cart_summary|default'));
+    $form['cart_contents'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Cart contents'),
+      '#collapsible' => 0,
+      '#collapsed' => 0,
+      'cart_content_view' => array('#markup' => commerce_embed_view($view_id, $display_id, array($order->order_id))),
+    );
+    $form['#theme'][] = 'katakrak_commerce_checkout_form';
+  }
+  
 }
 
 /**
@@ -438,7 +496,14 @@ function katakrak_commerce_form_commerce_checkout_form_alter(&$form, &$form_stat
       $form['customer_profile_shipping']['#access'] = FALSE;
     }
     if  (katakrak_commerce_cart_is_recogida($order) || katakrak_commerce_cart_is_bizikrak($order)) {
-      $form['nombre_recogida'] = array(
+      $form['recogida'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Datos'),
+        
+        '#weight' => -100,
+        '#required' => TRUE,
+      );
+      $form['recogida']['nombre_recogida'] = array(
         '#type' => 'textfield',
         '#title' => t('Nombre'),
         '#description' => t('Tu nombre para cuando vengas a recoger el pedido'),
@@ -446,14 +511,14 @@ function katakrak_commerce_form_commerce_checkout_form_alter(&$form, &$form_stat
         '#required' => TRUE,
       );
       if (katakrak_commerce_cart_is_bizikrak($order)) {
-        $form['telefono_recogida'] = array(
+        $form['recogida']['telefono_recogida'] = array(
           '#type' => 'textfield',
           '#title' => t('Teléfono'),
           '#description' => t('Un número de teléfono para que te contactemos'),
           '#required' => TRUE,
           '#weight' => -60,
         );
-        $form['direccion'] = array(
+        $form['recogida']['direccion'] = array(
           '#type' => 'textfield',
           '#title' => t('Dirección'),
           '#description' => t('La dirección para la entrega'),
@@ -461,7 +526,7 @@ function katakrak_commerce_form_commerce_checkout_form_alter(&$form, &$form_stat
           '#weight' => -90,
         );
         
-        $form['poblacion'] = array(
+        $form['recogida']['poblacion'] = array(
           '#type' => 'select',
           '#title' => t('Poblacion'),
           '#options' => array(
@@ -481,7 +546,7 @@ function katakrak_commerce_form_commerce_checkout_form_alter(&$form, &$form_stat
           '#required' => TRUE,
           '#weight' => -80,
         );
-        $form['horario'] = array(
+        $form['recogida']['horario'] = array(
           '#type' => 'select',
           '#title' => t('Horario de entrega'),
           '#options' => array(

@@ -79,6 +79,7 @@
 <main class="main">
   <?php print $messages; ?>
   <div class="container">
+    <?php print render($page['content_top']); ?>
     <h1 class="text-center"><?php print $title; ?></h1>
     <?php print render($page['content']); ?>
 </div>

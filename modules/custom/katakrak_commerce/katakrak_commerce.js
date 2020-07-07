@@ -1,13 +1,19 @@
 (function ($) {
   Drupal.behaviors.katakrakCommerce = {
     attach: function (context, settings) {
-      $('#commerce-shipping-service-ajax-wrapper .fieldset-wrapper input.form-radio').each(function(index) {
-        $(this).parent('label').removeClass('btn-active');
+      $('#commerce-shipping-service-ajax-wrapper .form-wrapper input.form-radio').each(function(index) {
+        $(this).parent('label').removeClass('active');
         if ($(this).is(":checked")) {
-         $(this).parent('label').addClass('btn-active');
+         $(this).parent('label').addClass('active');
+         $(this).parent('label').addClass($(this).attr('value'));
+         $('#edit-informacion-envio .tipo-envio').each(function(index) {
+           $(this).addClass('text-gray');  
+         });
+         $('#edit-informacion-envio .'+$(this).attr('value')).removeClass('text-gray');
         }
         }
       );
+      
       $('#commerce-checkout-form-review .fieldset-wrapper input.form-radio').each(function(index) {
         $(this).parent('label').removeClass('btn-active');
         if ($(this).is(":checked")) {
