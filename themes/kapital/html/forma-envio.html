@@ -111,40 +111,77 @@
 
 <main class="main">
     <div class="container">
+      <ul class="steps">
+        <li class="steps-item done">
+          <span class="number">1</span>  Mi compra
+        </li>
+        <li class="steps-item item-arrow hidden-xs">
+          <i class="fas fa-chevron-right"></i>
+        </li>
+        <li class="steps-item active">
+          <span class="number">2</span>  Forma de envío 
+        </li>
+        <li class="steps-item item-arrow hidden-xs">
+          <i class="fas fa-chevron-right"></i>
+        </li>
+        <li class="steps-item ">
+          <span class="number">3</span> Datos personales
+        </li>
+        <li class="steps-item item-arrow hidden-xs">
+          <i class="fas fa-chevron-right"></i>
+        </li>
+        <li class="steps-item">
+          <span class="number">4</span> Pago del pedido
+       </li>
+      </ul>
         <h1 class="text-center">Selecciona forma de envío o recogida</h1>
         <div class="row mt-3">
             <div class="col-md-8">
+            
+
                 <nav class="nav-select">
-                    <div class="nav-select-item active">
-                        
-                        <p class="icon"><i class="fas fa-truck"></i></p>
-                            <p class="strong">Mensajería 48h</p>
-                            <p class="price">6,00 €</p>
-                      
-                    </div><!-- .nav-select-item -->
-                    <div class="nav-select-item">
-                       
+                  <fieldset class="commerce_shipping panel panel-default form-wrapper" id="edit-commerce-shipping">
+                  <div class="panel-body" id="edit-commerce-shipping-body">
+                  <div id="edit-commerce-shipping-shipping-service" class="form-radios">
+                    <div class="form-item form-item-commerce-shipping-shipping-service form-type-radio radio active">
+                      <label title="" data-toggle="tooltip" class="control-label" for="edit-commerce-shipping-shipping-service-bizikrak" data-original-title="algo">
+                        <input type="radio" id="edit-commerce-shipping-shipping-service-bizikrak" name="commerce_shipping[shipping_service]" value="bizikrak" checked="checked" class="form-radio ajax-processed">
                         <p class="icon"><i class="fas fa-bicycle"></i></p>
-                            <p class="strong">Bizikrak</p>
+                            <p class="strong">Bizikrak (Sólo Iruñerría)</p>
                             <p class="price">3,00 €</p>
-                       
-                    </div><!-- .nav-select-item -->
-                    <div class="nav-select-item">
-                       
-                        <p class="icon"><i class="fas fa-mail-bulk"></i></p>
-                        <p class="strong">Correos</p>
-                        <p class="price">3,00 €</p>
-                   
-                </div><!-- .nav-select-item -->
-                    <div class="nav-select-item">
-                       
-                            <p class="icon"><i class="fas fa-store-alt"></i></p>
+                      </label>
+                  </div>
+          <div class="form-item form-item-commerce-shipping-shipping-service form-type-radio radio">
+            <label class="control-label" for="edit-commerce-shipping-shipping-service-recogida-en-la-tienda">
+              <input type="radio" id="edit-commerce-shipping-shipping-service-recogida-en-la-tienda" name="commerce_shipping[shipping_service]" value="recogida_en_la_tienda" class="form-radio ajax-processed">
+              <p class="icon"><i class="fas fa-store-alt"></i></p>
                             <p class="strong">Recoger en Katakrak</p>
                             <p class="price">0,00 €</p>
-                      
-                    </div><!-- .nav-select-item -->
-                    
-                </nav><!-- .nav-sending -->
+            </label>
+          </div>
+          <div class="form-item form-item-commerce-shipping-shipping-service form-type-radio radio">
+            <label class="control-label" for="edit-commerce-shipping-shipping-service-correo-ordinario">
+              <input type="radio" id="edit-commerce-shipping-shipping-service-correo-ordinario" name="commerce_shipping[shipping_service]" value="correo_ordinario" class="form-radio ajax-processed">
+              <p class="icon"><i class="fas fa-mail-bulk"></i></p>
+                        <p class="strong">Correo ordinario</p>
+                        <p class="price">3,00 €</p>
+            </label>
+          </div>
+          <div class="form-item form-item-commerce-shipping-shipping-service form-type-radio radio">
+            <label class="control-label" for="edit-commerce-shipping-shipping-service-mensajeria">
+              <input type="radio" id="edit-commerce-shipping-shipping-service-mensajeria" name="commerce_shipping[shipping_service]" value="mensajeria" class="form-radio ajax-processed">
+              <p class="icon"><i class="fas fa-truck"></i></p>
+                          <p class="strong">Mensajería 48h</p>
+                          <p class="price">6,00 €</p>
+            </label>
+          </div>
+        </div>
+        <div id="commerce-shipping-service-details">
+          <div id="edit-commerce-shipping-service-details" class="form-wrapper form-group"></div>
+        </div>
+      </div>
+          </fieldset>
+                </nav>
 
                 <hr>
                 <div class="small">
@@ -348,17 +385,20 @@
         <p>Prometemos no darte la chapa más de lo necesario</p>
         <form>
           <div class="form-group">
-            <input type="text" class="form-control form-control-sm" id="formGroupExampleInput" placeholder="Nombre" focus>
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control form-control-sm" id="formGroupExampleInput" placeholder="Apellidos">
+            <input type="text" class="form-control form-control-sm" id="formGroupExampleInput" placeholder="Nombre y apellidos" focus>
           </div>
           <div class="form-group">
             <input type="mail" class="form-control form-control-sm" id="formGroupExampleInput" placeholder="Email">
           </div>
+          <div class="form-group">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"> <span class="small">Acepto las <a href="#">condiciones legales</a></span>
+              </label>
+            </div>
+          </div>
           <button class="btn btn-primary d-block">Suscribirme</button>
         </form>
-        
       </div><!-- /.col -->
 
     </div><!-- /.row -->
