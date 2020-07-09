@@ -504,11 +504,15 @@ WHERE  `field_parada_libro_nid` = :nid AND n.status = 1", array(':nid' => $node-
  */
 function libro_por_isbn() {
   if ($_GET['isbn']) {
+    $options = array('query' => array(
+      'utm_source'=>'todostuslibros',
+      'utm_medium'=>'todostuslibros',
+      ));
     $isbn = $_GET['isbn'];
     $result = views_get_view_result('libros_admin', 'libro_por_isbn', $isbn);
     
     if ($result)
-      drupal_goto('node/'.$result[0]->nid);
+      drupal_goto('node/'.$result[0]->nid, $options);
     else {//Primero intentamos cargar la info de dilve
       $dilve = new DilveSearch(variable_get('dilve_user', ''), variable_get('dilve_pass', ''));
       $book = $dilve->search($_GET['isbn']);
@@ -522,7 +526,7 @@ function libro_por_isbn() {
           $node = libro_crear_ficha($book);
       }
       if ($node)
-        drupal_goto('node/'.$node->nid);
+        drupal_goto('node/'.$node->nid, $options);
     }   
   }
   else {
