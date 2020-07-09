@@ -97,6 +97,7 @@ layouts[user][regions][] = "footer_fourth"
 ;;;;;;;;;;;;;;;;;;;;;
 
 stylesheets[all][] = css/main.css
+stylesheets[all][] = css/style.css
 
 
 ;;;;;;;;;;;;;;;;;;;;;

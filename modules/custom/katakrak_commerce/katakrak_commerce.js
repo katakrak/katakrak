@@ -2,9 +2,9 @@
   Drupal.behaviors.katakrakCommerce = {
     attach: function (context, settings) {
       $('#commerce-shipping-service-ajax-wrapper .form-wrapper input.form-radio').each(function(index) {
-        $(this).parent('label').removeClass('active');
+        $(this).parent('label').parent('div').removeClass('active');
         if ($(this).is(":checked")) {
-         $(this).parent('label').addClass('active');
+         $(this).parent('label').parent('div').addClass('active');
          $(this).parent('label').addClass($(this).attr('value'));
          $('#edit-informacion-envio .tipo-envio').each(function(index) {
            $(this).addClass('text-gray');  

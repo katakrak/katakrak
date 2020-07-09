@@ -68,7 +68,7 @@ function katakrak_commerce_block_info() {
   $blocks['checkout_breadcrumb'] = array(
     'info' => t('Un breadcrumb para el proceso de compra'),
     // Not worth caching.
-    'cache' => DRUPAL_CACHE_GLOBAL,
+    'cache' => DRUPAL_CACHE_PER_PAGE,
   );
   return $blocks;
 }
@@ -103,6 +103,7 @@ function katakrak_commerce_block_view($delta) {
         }
       }
       $block['content'] = theme('katakrak_commerce_cart', array('count' =>$product_quantity_count));
+      return $block;
   }
   if ($delta == 'checkout_breadcrumb') {
     //TODO: Definir el contenido del bloque
@@ -131,13 +132,14 @@ function katakrak_commerce_block_view($delta) {
       $steps[2]['class'] = 'active';
       $steps[1]['class'] = 'done';
     }
-    else {
+    elseif(!drupal_match_path($_GET['q'], 'cart')) {
       $steps[1]['class'] = 'active';
     }
     
     $block['content'] = theme('katakrak_commerce_checkout_breadcrumb', array('steps' => $steps));
+    return $block;
   }
-  return $block;
+  
 }
 
 function katakrak_commerce_commerce_checkout_pane_info_alter(&$panes) {
@@ -424,25 +426,54 @@ function katakrak_commerce_form_alter(&$form, &$form_state, $form_id) {
       $form['actions']['submit']['#submit'][] = 'katakrak_commerce_cart_form_submit';
     }
   }
+  
+  if (strpos($form_id, 'commerce_checkout') === 0) {
+    list($view_id, $display_id) = explode('|', variable_get('commerce_cart_contents_pane_view', 'commerce_cart_summary|default'));
+    $order = $form_state['order'];
+    $cart_contents = array(
+      '#type' => 'item',
+      '#title' => t('Resumen de compra'),
+      '#markup' => commerce_embed_view($view_id, $display_id, array($order->order_id)),
+      '#prefix' => '<div class="well well-custom">',
+      '#suffix' => '</div>',
+    );
+    
+    $form['cart_contents'] = $cart_contents;
+    
+    //Modificamos el tema para poder poner nuestros estilos
+    $form['#theme'][] = 'katakrak_commerce_checkout_form';
+    
+    
+  }
+  
+  
+  
+  
+  
 	if ($form_id == "commerce_cart_add_to_cart_form_76452") {
 	  $form['submit']['#value'] = t('Donar');
 	}
+  
   if ($form_id == 'commerce_checkout_form_checkout'){
-    //Modificamos el tema para poder poner nuestros estilos
-    $form['#theme'][] = 'katakrak_commerce_checkout_form';
-    drupal_set_title(t('Selecciona forma de envío o recogida'));
-  } 
-  if ($form_id == 'commerce_checkout_form_shipping') {
-    $order = $form_state['order'];
-    list($view_id, $display_id) = explode('|', variable_get('commerce_cart_contents_pane_view', 'commerce_cart_summary|default'));
-    $form['cart_contents'] = array(
-      '#type' => 'fieldset',
-      '#title' => t('Cart contents'),
-      '#collapsible' => 0,
-      '#collapsed' => 0,
-      'cart_content_view' => array('#markup' => commerce_embed_view($view_id, $display_id, array($order->order_id))),
+    
+    $form['informacion_envio']['#type'] = 'item';
+    $form['informacion_envio']['#prefix'] = '<hr>';
+    //cambiamos el texto que presenta cada radio button
+    $options = array(
+      'bizikrak' => 'fa-bicycle',
+      'recogida_en_la_tienda' => 'fa-store-alt',
+      'correo_ordinario' => 'fa-mail-bulk',
+      'mensajeria' => 'fa-truck',
     );
-    $form['#theme'][] = 'katakrak_commerce_checkout_form';
+    foreach ($form['commerce_shipping']['shipping_service']['#options'] as $service => $label) {
+      list($label, $precio) = explode(':',$label);
+      $form['commerce_shipping']['shipping_service']['#options'][$service] = 
+        '<p class="icon"><i class="fas '.$options[$service].'"></i></p>' 
+        . '<p class="strong">'.$label.'</p>'
+        . '<p class="price">'.$precio.'</p>';
+    }
+    
+    drupal_set_title(t('Selecciona forma de envío o recogida'));
   }
   
 }

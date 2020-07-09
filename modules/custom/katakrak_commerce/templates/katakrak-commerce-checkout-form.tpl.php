@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row mt-3">
     <div class="col-md-8">
-      <?php print render($form['commerce_shipping']) ?>
+      <nav class="nav-select"><?php print render($form['commerce_shipping']) ?></nav>
       <?php print render($form['informacion_envio']) ?>
       <?php print render($form['customer_profile_billing']) ?>
       <?php print render($form['customer_profile_shipping']) ?>
