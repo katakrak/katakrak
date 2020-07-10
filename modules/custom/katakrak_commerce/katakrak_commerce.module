@@ -52,6 +52,14 @@ function katakrak_commerce_theme() {
         'steps' => NULL,
       )
     ),
+    'katakrak_commerce_checkout_review' => array(
+      'template' => 'katakrak-commerce-checkout-review',
+      'path' => $path . '/templates',
+      'arguments' => array(
+        'shipping' => NULL,
+        'billing' => NULL,
+      ),
+    ),
   );  
 }
 
@@ -171,6 +179,15 @@ function katakrak_commerce_menu() {
       'weight' => -5,
       'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
     );
+    $items['admin/commerce/products/%commerce_product/devel'] = array(
+      'title' => 'Devel',
+      'page callback' => 'katakrak_commerce_product_devel_page',
+      'page arguments' => array(3),
+      'access arguments' => array('administer site'),
+      'type' => MENU_LOCAL_TASK,
+      'weight' => -5,
+      'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
+    );
   }
   $items['admin/commerce/config/clean_carts'] = array(
     'title' => 'Limpiar carritos viejos',
@@ -193,6 +210,11 @@ function katakrak_commerce_menu_alter(&$items) {
 
 function katakrak_commerce_order_devel_page($order) {
   dpm($order);      
+  return '';
+}
+
+function katakrak_commerce_product_devel_page($commerce_product) {
+  dpm($commerce_product);      
   return '';
 }
 
@@ -428,11 +450,12 @@ function katakrak_commerce_form_alter(&$form, &$form_state, $form_id) {
   }
   
   if (strpos($form_id, 'commerce_checkout') === 0) {
+    
     list($view_id, $display_id) = explode('|', variable_get('commerce_cart_contents_pane_view', 'commerce_cart_summary|default'));
     $order = $form_state['order'];
     $cart_contents = array(
       '#type' => 'item',
-      '#title' => t('Resumen de compra'),
+      '#title' => '',
       '#markup' => commerce_embed_view($view_id, $display_id, array($order->order_id)),
       '#prefix' => '<div class="well well-custom">',
       '#suffix' => '</div>',
@@ -440,22 +463,31 @@ function katakrak_commerce_form_alter(&$form, &$form_state, $form_id) {
     
     $form['cart_contents'] = $cart_contents;
     
-    //Modificamos el tema para poder poner nuestros estilos
-    $form['#theme'][] = 'katakrak_commerce_checkout_form';
+    //Uniformizamos toda la parte de los botones
+    $form['buttons']['continue']['#value'] = t("Siguiente paso");
+    $form['buttons']['continue']['#attributes']['class'][] = 'btn-primary';
+    $form['buttons']['continue']['#weight'] = 100;
+    $form['buttons']['cancel']['#prefix'] = NULL;
+    $form['buttons']['cancel']['#attributes']['class'] = array('btn-secondary');
+    $form['buttons']['cancel']['#value'] = t("Volver");
+    $form['buttons']['back']['#value'] = t("Volver");
+    $form['buttons']['back']['#attributes']['class'] = array('btn-secondary');
+    $form['buttons']['back']['#prefix'] = NULL;
     
+    //Modificamos el tema para poder poner nuestros estilos
+    $form['#theme'][] = 'katakrak_commerce_checkout_form'; 
     
   }
-  
-  
-  
-  
   
 	if ($form_id == "commerce_cart_add_to_cart_form_76452") {
 	  $form['submit']['#value'] = t('Donar');
 	}
   
   if ($form_id == 'commerce_checkout_form_checkout'){
-    
+    //Borramos la información que se muestra en popup
+    foreach(element_children($form['commerce_shipping']['shipping_service']) as $el) {
+      $form['commerce_shipping']['shipping_service'][$el]['#description'] = '';
+    }
     $form['informacion_envio']['#type'] = 'item';
     $form['informacion_envio']['#prefix'] = '<hr>';
     //cambiamos el texto que presenta cada radio button
@@ -476,6 +508,24 @@ function katakrak_commerce_form_alter(&$form, &$form_state, $form_id) {
     drupal_set_title(t('Selecciona forma de envío o recogida'));
   }
   
+  if ($form_id == 'commerce_checkout_form_shipping'){
+    drupal_set_title(t('Datos personales'));
+  }
+  if ($form_id == 'commerce_checkout_form_review'){
+    
+    $variables = array(
+      'billing' => commerce_customer_profile_load($order->commerce_customer_billing['und'][0]['profile_id']),
+      'shipping' => commerce_customer_profile_load($order->commerce_customer_shipping['und'][0]['profile_id']),
+    );
+    
+    unset($form['checkout_review']);
+    $form['checkout_review'] = array(
+      '#type' => 'item',
+      '#markup' => theme('katakrak_commerce_checkout_review', $variables),
+    );
+    $form['buttons']['continue']['#value'] = t("Ir al pago");
+    drupal_set_title(t('Forma de pago'));
+  }
 }
 
 /**

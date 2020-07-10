@@ -11,3 +11,7 @@
      display: none;
  }
  
+ fieldset.checkout-buttons {
+     border: none;
+ }
+ 

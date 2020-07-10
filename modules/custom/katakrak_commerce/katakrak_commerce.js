@@ -30,6 +30,10 @@
         $(this).removeClass('glyphicon-trash');  
         }
       );
+      $('#edit-cancel span').each(function(index) {
+        $(this).removeClass('glyphicon-remove');  
+        }
+      );
     }
   };
 })(jQuery);
