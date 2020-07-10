@@ -16,6 +16,7 @@ function katakrak_user_ctools_plugin_api($module = NULL, $api = NULL) {
     return array("version" => "1");
   }
 }
+
 /**
  * Implements hook_views_api().
  */
