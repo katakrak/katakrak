@@ -14,6 +14,7 @@ function katakrak_user_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+
   $strongarm->name = 'super_login_autofill';
   $strongarm->value = 1;
   $export['super_login_autofill'] = $strongarm;
@@ -25,9 +26,15 @@ function katakrak_user_strongarm() {
   $strongarm->value = 0;
   $export['super_login_autofocus'] = $strongarm;
 
+  $strongarm->name = 'logintoboggan_confirm_email_at_registration';
+  $strongarm->value = '1';
+  $export['logintoboggan_confirm_email_at_registration'] = $strongarm;
+
+
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+
   $strongarm->name = 'super_login_back_link';
   $strongarm->value = 'Go back to the login page.';
   $export['super_login_back_link'] = $strongarm;
@@ -39,12 +46,20 @@ function katakrak_user_strongarm() {
   $strongarm->value = 1;
   $export['super_login_button_image'] = $strongarm;
 
+  $strongarm->name = 'logintoboggan_immediate_login_on_register';
+  $strongarm->value = 1;
+  $export['logintoboggan_immediate_login_on_register'] = $strongarm;
+
+
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'super_login_capslock_msg';
   $strongarm->value = 'Caps Lock On';
   $export['super_login_capslock_msg'] = $strongarm;
+  $strongarm->name = 'logintoboggan_login_successful_message';
+  $strongarm->value = '0';
+  $export['logintoboggan_login_successful_message'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -53,12 +68,20 @@ function katakrak_user_strongarm() {
   $strongarm->value = 0;
   $export['super_login_css'] = $strongarm;
 
+  $strongarm->name = 'logintoboggan_login_with_email';
+  $strongarm->value = '1';
+  $export['logintoboggan_login_with_email'] = $strongarm;
+
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'super_login_forgot_pw_text';
   $strongarm->value = 'Forgot Password?';
   $export['super_login_forgot_pw_text'] = $strongarm;
+
+  $strongarm->name = 'logintoboggan_minimum_password_length';
+  $strongarm->value = '0';
+  $export['logintoboggan_minimum_password_length'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -95,23 +118,41 @@ function katakrak_user_strongarm() {
   $strongarm->value = 1;
   $export['super_login_placeholder'] = $strongarm;
 
+  $strongarm->name = 'logintoboggan_override_destination_parameter';
+  $strongarm->value = 1;
+  $export['logintoboggan_override_destination_parameter'] = $strongarm;
+
+
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+
   $strongarm->name = 'super_login_submit_text';
   $strongarm->value = 'Log in';
   $export['super_login_submit_text'] = $strongarm;
 
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'user_cancel_method';
-  $strongarm->value = 'user_cancel_delete';
-  $export['user_cancel_method'] = $strongarm;
+  $strongarm->name = 'logintoboggan_pre_auth_role';
+  $strongarm->value = '2';
+  $export['logintoboggan_pre_auth_role'] = $strongarm;
+
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+
+  $strongarm->name = 'user_cancel_method';
+  $strongarm->value = 'user_cancel_delete';
+  $export['user_cancel_method'] = $strongarm;
+
+  $strongarm->name = 'logintoboggan_purge_unvalidated_user_interval';
+  $strongarm->value = '604800';
+  $export['logintoboggan_purge_unvalidated_user_interval'] = $strongarm;
+
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+
   $strongarm->name = 'user_email_verification';
   $strongarm->value = 1;
   $export['user_email_verification'] = $strongarm;
@@ -1056,16 +1097,28 @@ Your account on [site:name] has been canceled.
   $strongarm->value = '';
   $export['user_picture_default'] = $strongarm;
 
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'user_picture_guidelines';
+  $strongarm->name = 'logintoboggan_redirect_on_confirm';
   $strongarm->value = '';
-  $export['user_picture_guidelines'] = $strongarm;
+  $export['logintoboggan_redirect_on_confirm'] = $strongarm;
+
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+
+  $strongarm->name = 'user_picture_guidelines';
+  $strongarm->value = '';
+  $export['user_picture_guidelines'] = $strongarm;
+
+  $strongarm->name = 'logintoboggan_redirect_on_register';
+  $strongarm->value = '';
+  $export['logintoboggan_redirect_on_register'] = $strongarm;
+
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+
   $strongarm->name = 'user_picture_path';
   $strongarm->value = 'pictures';
   $export['user_picture_path'] = $strongarm;
@@ -1076,6 +1129,11 @@ Your account on [site:name] has been canceled.
   $strongarm->name = 'user_signatures';
   $strongarm->value = 0;
   $export['user_signatures'] = $strongarm;
+
+  $strongarm->name = 'logintoboggan_unified_login';
+  $strongarm->value = 1;
+  $export['logintoboggan_unified_login'] = $strongarm;
+
 
   return $export;
 }
