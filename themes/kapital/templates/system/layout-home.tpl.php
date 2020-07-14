@@ -103,6 +103,7 @@
 
     </section>
   </div>
+  <?php print render($page['content_top']) ?>
 
   <div class="row row-no-gutters">    
     <div class="col-sm-12 col-md-6">

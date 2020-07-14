@@ -31,6 +31,10 @@ function katakrak_home_block_info() {
     'info' => t('Bloque "Agenda" de la home'),
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['katakrak_home_banner'] = array(
+    'info' => t('Bloque "Banner" de la home'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   return $blocks;
 }
 
@@ -59,6 +63,10 @@ function katakrak_home_block_view($delta) {
   }
   if ($delta == 'katakrak_home_agenda') {
     $block['content'] = '';//theme('katakrak_home_agenda');
+    return $block;
+  }
+  if ($delta == 'katakrak_home_banner') {
+    $block['content'] = theme('katakrak_home_banner');//theme('katakrak_home_agenda');
     return $block;
   }
 }
@@ -90,6 +98,10 @@ function katakrak_home_theme() {
     ),
     'katakrak_home_kantina' => array(
       'template' => 'katakrak-home-kantina',
+      'path' => $path . '/templates',
+    ),
+    'katakrak_home_banner' => array(
+      'template' => 'katakrak-home-banner',
       'path' => $path . '/templates',
     ),
   );

@@ -33,6 +33,12 @@ function katakrak_home_context_default_contexts() {
           'region' => 'content',
           'weight' => '-8',
         ),
+        'katakrak_home-katakrak_home_banner' => array(
+          'module' => 'katakrak_home',
+          'delta' => 'katakrak_home_banner',
+          'region' => 'content_top',
+          'weight' => '-10',
+        ),
         'katakrak_home-katakrak_home_libreria' => array(
           'module' => 'katakrak_home',
           'delta' => 'katakrak_home_libreria',
