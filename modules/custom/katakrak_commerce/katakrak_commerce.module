@@ -58,6 +58,7 @@ function katakrak_commerce_theme() {
       'arguments' => array(
         'shipping' => NULL,
         'billing' => NULL,
+        'shipping_method' => NULL,
       ),
     ),
   );  
@@ -279,6 +280,11 @@ function katakrak_commerce_clean_carts_form($form, &$form_state) {
     '#title' => 'Número máximos de carritos a eliminar',
     '#default_value' => 500,
   );
+  $form['todos'] = array(
+    '#type' => 'checkbox',
+    '#title' => 'Eliminar todos los carritos',
+    '#default_value' => 0,
+  );
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => 'enviar'
@@ -290,7 +296,11 @@ function katakrak_commerce_clean_carts_form_submit($form, &$form_state) {
   $one_week_ago = time() - 640800;
   $or = db_or()->condition('status', 'cart')->condition('status', 'checkout_checkout')->condition('status', 'checkout_payment')->condition('status', 'checkout_shipping')
 ->condition('status','checkout_review');
-  $rows = db_select('commerce_order', 'o')->fields('o', array('order_id'))->condition($or)->condition('o.changed', $one_week_ago, '<')->range(0, $form_state['input']['limite'])->execute()->fetchAll();
+  $query = db_select('commerce_order', 'o')->fields('o', array('order_id'))->condition($or);
+  
+  if (!$form_state['input']['todos'])
+    $query->condition('o.changed', $one_week_ago, '<');
+  $rows = $query->range(0, $form_state['input']['limite'])->execute()->fetchAll();
   
   
   foreach ($rows as $row){
@@ -516,6 +526,7 @@ function katakrak_commerce_form_alter(&$form, &$form_state, $form_id) {
     $variables = array(
       'billing' => commerce_customer_profile_load($order->commerce_customer_billing['und'][0]['profile_id']),
       'shipping' => commerce_customer_profile_load($order->commerce_customer_shipping['und'][0]['profile_id']),
+      'shipping_method' => katakrak_commerce_cart_is_recogida($order)? 'recogida': 'envio',
     );
     
     unset($form['checkout_review']);
@@ -584,11 +595,14 @@ function katakrak_commerce_form_commerce_checkout_form_alter(&$form, &$form_stat
         '#weight' => -100,
         '#required' => TRUE,
       );
+      $billing_profile = commerce_customer_profile_load($order->commerce_customer_billing['und'][0]['profile_id']);
+      
       $form['recogida']['nombre_recogida'] = array(
         '#type' => 'textfield',
         '#title' => t('Nombre'),
         '#description' => t('Tu nombre para cuando vengas a recoger el pedido'),
         '#weight' => -100,
+        '#default_value' => $billing_profile->commerce_customer_address['und'][0]['name_line'],
         '#required' => TRUE,
       );
       if (katakrak_commerce_cart_is_bizikrak($order)) {
@@ -674,5 +688,23 @@ function katakrak_commerce_checkout_form_submit($form, &$form_state, $form_id) {
   //Asignamos el perfil
   $order->commerce_customer_billing['und'][0]['profile_id'] = $profile->profile_id;
   //Guardamos el pedido.
+  
+  $profile = commerce_customer_profile_load($order->commerce_customer_shipping['und'][0]['profile_id']);
+  
+  //Añadimos los campos necesarios
+  $profile->commerce_customer_address['und'][0]['first_name'] = $form_state['input']['nombre_recogida'];
+  $profile->commerce_customer_address['und'][0]['name_line'] = $form_state['input']['nombre_recogida'];
+  $profile->commerce_customer_address['und'][0]['thoroughfare'] = $form_state['input']['direccion'];
+  $profile->commerce_customer_address['und'][0]['locality'] = $form_state['input']['poblacion'];
+  $profile->commerce_customer_address['und'][0]['premise'] = $form_state['input']['horario'];
+  if (isset($form_state['input']['telefono_recogida'])) {
+    $profile->field_customer_telefono['und'][0]['value'] = $form_state['input']['telefono_recogida'];
+  }
+  //Guardamos el perfil
+  commerce_customer_profile_save($profile);
+  //Asignamos el perfil
+  $order->commerce_customer_shipping['und'][0]['profile_id'] = $profile->profile_id;
+  //Guardamos el pedido.
+  
   commerce_order_save($order);
 }
