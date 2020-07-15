@@ -66,17 +66,30 @@ function libro_form_alter(&$form, &$form_state, $form_id) {
       $form['#submit'][] = 'libro_add_to_cart_submit';
     }
   }
+  //Ocultamos los campos de editorial y autor para que la página de editar el libro vaya más rápida
   if ($form_id == 'libro_node_form') {
-    //$form['field_libro_autores']['#access'] = FALSE;
+    $form['field_libro_autores']['#access'] = FALSE;
     $form['field_libro_categoria']['#access'] = FALSE;
     $form['field_libro_editorial']['#access'] = FALSE;
   }
 }
 
+/**
+ * Redirige al carrito cuando el botón pulsado es el de comprar
+ * @param type $form
+ * @param array $form_state
+ */
 function libro_add_to_cart_submit($form, &$form_state) {
   $form_state['redirect'] = 'cart';
 }
 
+/**
+ * 
+ * @param type $form
+ * @param type $form_state
+ * @param type $node
+ * @return string
+ */
 function libro_portada_form($form, $form_state, $node) {
   $ean = $node->field_libro_ean['und'][0]['value'];
   
@@ -248,8 +261,20 @@ function libro_block_info() {
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
   $blocks['libreria_home_search'] = array(
-    'info' => t('Bloque busqueda home libros'),
+    'info' => t('Home tienda online. Bloque búsqueda'),
     'cache' => DRUPAL_NO_CACHE,
+  );
+  $blocks['libreria_home_bizikrak'] = array(
+    'info' => t('Home tienda online. Bloque Bizikrak'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['libreria_home_bono_regalo'] = array(
+    'info' => t('Home tienda online. Bono regalo'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['libreria_home_destacado'] = array(
+    'info' => t('Home tienda online. Descripción de la venta online'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
   );
   return $blocks;
 }
@@ -292,6 +317,18 @@ function libro_block_view($delta) {
     $block['content'] = theme('libreria_home_search', array('form' => $form));
     return $block;
   }
+  if ($delta == 'libreria_home_bizikrak') {
+    $block['content'] = theme('libreria_home_bizikrak');
+    return $block;
+  }
+  if ($delta == 'libreria_home_bono_regalo') {
+    $block['content'] = theme('libreria_home_bono_regalo');
+    return $block;
+  }
+  if ($delta == 'libreria_home_destacado') {
+    $block['content'] = theme('libreria_home_destacado');
+    return $block;
+  }
   
 }
 
@@ -318,9 +355,30 @@ function libro_theme() {
       'render element' => 'form',
       'path' => $path . '/templates',
     ),
+    'libreria_home_bizikrak' => array(
+      'template' => 'libreria-home-bizikrak',
+      'path' => $path . '/templates',
+    ),
+    'libreria_home_bono_regalo' => array(
+      'template' => 'libreria-home-bono-regalo',
+      'path' => $path . '/templates',
+    ),
+    'libreria_home_destacado' => array(
+      'template' => 'libreria-home-destacado',
+      'path' => $path . '/templates',
+    ),
   );
 }
 
+/**
+ * Implements hook_entity_info_alter().
+ */
+function libro_entity_info_alter(&$entity_info) {
+  $entity_info['node']['view modes']['card_book'] = array(
+    'label' => t('Card Book'),
+    'custom settings' => TRUE,
+  );
+}
 function libro_peso_moda_form($form, &$form_state) {
   
   $form['valor_peso'] = array(
@@ -431,13 +489,24 @@ function libro_peso_batch_process_finish($success, $results, $operations) {
  * Implementation of hook_node_view
  */
 function libro_node_view($node, $view_mode, $langcode) {
-  if ($node->type == 'libro' && $view_mode == 'full') {
-    //Generamos a los autores separados por coma
-    $autores = array();
-    foreach (element_children($node->content['field_libro_autores']) as $key) {
-      $autores[] =  l($node->field_libro_autores['und'][$key]['taxonomy_term']->name, 'taxonomy/term/'.$node->field_libro_autores['und'][$key]['tid']);
+  if ($node->type == 'libro') {
+    if ($view_mode == 'full') {
+      //Generamos a los autores separados por coma
+      $autores = array();
+      foreach (element_children($node->content['field_libro_autores']) as $key) {
+        $autores[] =  l($node->field_libro_autores['und'][$key]['taxonomy_term']->name, 'taxonomy/term/'.$node->field_libro_autores['und'][$key]['tid']);
+      }
+      $node->content['autores'] = join(', ', $autores);
+      $node->sinopsis = truncate_utf8($node->field_libro_sinopsis['und'][0]['value'], 650, TRUE, TRUE);
+      if ( strlen($node->field_libro_sinopsis['und'][0]['value']) > 650) {
+        $node->leer_mas = substr($node->field_libro_sinopsis['und'][0]['value'], strlen($node->sinopsis) -3);
+      } 
     }
-    $node->content['autores'] = join(', ', $autores);
+    
+    if ($node->field_libro_portada['und'][0]['filename'] == 'nocover.png')
+      $node->content['cover_class'] = 'nocover';
+    else
+      $node->content['cover_class'] = 'cover';
     
     $product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
     if ($product->commerce_stock['und'][0]['value'] > 0) {
@@ -448,7 +517,7 @@ function libro_node_view($node, $view_mode, $langcode) {
       $cegal = new CegalSearch(variable_get('cegal_user', ''), variable_get('cegal_clave', ''));
       $distribuidores = variable_get('distribuidores_confianza', array());
       $disponibilidad = $cegal->disponibilidad($node->field_libro_isbn['und'][0]['value']);
-      
+
       foreach($disponibilidad as $distribuidor) {
         if (array_key_exists($distribuidor, $distribuidores))  {
           $node->disponibilidad = DISPONIBLE_DISTRIBUIDOR;
@@ -459,12 +528,6 @@ function libro_node_view($node, $view_mode, $langcode) {
     if (!isset($node->disponibilidad)) {
       $node->disponibilidad = NO_DISPONIBLE;
     }
-    $node->sinopsis = truncate_utf8($node->field_libro_sinopsis['und'][0]['value'], 650, TRUE, TRUE);
-    if ( strlen($node->field_libro_sinopsis['und'][0]['value']) > 650) {
-      $node->leer_mas = substr($node->field_libro_sinopsis['und'][0]['value'], strlen($node->sinopsis) -3);
-    }
-    
-    
   }
 }
 

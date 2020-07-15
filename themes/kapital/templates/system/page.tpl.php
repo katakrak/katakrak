@@ -75,7 +75,7 @@
  */
 ?>
 <?php include 'page-header.inc' ?>
-
+<?php print render($page['banners']) ?>
 <main class="main">
   <div class="row">
     <section<?php print $content_column_class; ?>>
@@ -122,6 +122,10 @@
     <?php print render($page['content_top']) ?>
     <?php print render($page['content']); ?>
   </div>
+  <?php print render($page['content_middle']) ?>
   
+  <div class="container">
+    <?php print render($page['content_bottom']) ?>
+  </div>
 </main>
 <?php include 'page-footer.inc'; ?>

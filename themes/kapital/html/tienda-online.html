@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Katakrak Liburuak: espacio librería, cantina, tienda online y eventos en Pamplona-Iruña">
+    <meta name="author" content="Katakrak">
+    <title>Katakrak Liburuak</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Font awesome kit -->
+    <script src="https://kit.fontawesome.com/10471300b3.js" crossorigin="anonymous"></script>
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Main Custom CSS -->
+    <link href="css/main.css" rel="stylesheet">
+  </head>
+  <body>
+    
+    <nav class="navbar-secondary">
+      <ul class="list-inline mb-0">
+        <li class="list-inline-item">
+          <a href="mailto:info@katakrak.net" target="_blank"> <i class="far fa-envelope "></i> <span class="hidden-xs">info@katakrak.net</span></a>
+        </li>
+        <li class="list-inline-item">
+          <a href="tel:+34948225520" target="_blank"><i class="fas fa-phone"></i> <span class="hidden-xs">948 225 520</span></a> 
+        </li>
+        <li class="list-inline-item">
+          <a href="#" target="_blank"><i class="fas fa-location-arrow"></i> <span class="hidden-xs">¿Dónde estamos?</span></a> 
+        </li>
+        <li class="list-inline-item hidden-xs">
+          <div class="dropdown ">
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownIdioma" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-globe-africa small hidden-xs"></i> Cas
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownIdioma">
+              <a class="dropdown-item active" href="#">Cas</a>
+              <a class="dropdown-item" href="#">Eus</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+
+    <nav class="navbar navbar-default navbar-custom">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="btn btn-transparent navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+          </button>
+          <a class="navbar-brand" href="#">
+            <img src="images/katakrak-icon.svg" alt="Katakrak Liburuak" class="logo-main visible-xs-block">
+            <img src="images/katakrak-logo.svg" alt="Katakrak Liburuak" class="logo-main visible-sm" >
+            <img src="images/katakrak-logo-h.svg" alt="Katakrak Liburuak" class="logo-main visible-md visible-lg" >
+          </a>
+        </div>
+    
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="navbar-nav navbar-centered">
+            <li class="nav-item active">
+              <a class="nav-link" href=tienda.html>Tienda online</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cantina.html">Cantina</a> 
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="editorial.html">Editorial</a> 
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="agenda.html">Agenda</a> 
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Blog</a> 
+            </li>
+            <li role="separator" class="divider visible-xs-block"></li>
+            <li class="nav-item visible-xs-block">
+              <a class="nav-link" href="#">Castellano</a> 
+            </li>
+            <li class="nav-item visible-xs-block">
+              <a class="nav-link" href="#">Euskera</a> 
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+
+        <div class="navbar-xs-items d-flex">
+          <button class="btn btn-transparent">
+            <i class="fas fa-user-circle"></i> <span class="hidden-xs">Mi cuenta</span>
+          </button>
+          <button class="btn btn-transparent">
+            <i class="fas fa-shopping-cart"></i> <span class="badge badge-pill badge-custom">1</span> <span class="sr-only">Items en tu cesta</span>
+          </button>
+        </div>
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="banner-regalo">
+      <a href="#">
+        <i class="fa fa-gift" aria-hidden="true"></i>  <strong>Tarjeta regalo Katakrak.</strong> Tú eliges el importe y dónde la enviamos
+      </a>
+    </div>
+    <div class="banner-bizikrak">
+      <a href="#">
+        <i class="fa fa-bicycle" aria-hidden="true"></i> <strong>Bizikrak.</strong> Te llevamos tus libro de forma sostenible en 48h
+      </a>
+    </div>
+
+   
+
+<main class="main">
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="d-flex">
+                    <input type="text" class="form-control mr-1" id="" placeholder="Título, autor o ISBN" autofocus>
+                    <button type="submit" class="btn btn-secondary">
+                        <i class="fas fa-search"></i> Buscar
+                    </button>
+                </div><!-- /.d-flex -->
+                <!-- <p class="text-center mt-1">
+                  <a  class="btn btn-transparent" data-toggle="collapse" href="#secciones">
+                    Mostrar secciones
+                  </a> 
+                </p> -->
+                <div id="secciones" class="collapse">
+                  <div class="row">
+                    <div class="col-sm-6 col-md-3">
+                      <ul class="list-unstyled list-secciones">
+                        <li class="list-item">
+                          <a href="#">Anarquismo</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Antropología</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Arquitectura y diseño</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Arte</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Ciencia</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Cómic / Komikiak</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Crítica Literaria</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Derecho(S)</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Ecología</a>
+                        </li>
+                      </ul>
+                    </div><!-- /.col-->
+                    <div class="col-sm-6 col-md-3">
+                      <ul class="list-unstyled list-secciones">
+                        
+                        <li class="list-item">
+                          <a href="#">Economía</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Feminismo(S)</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Filosofía</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Geografía Crítica / Ciudad</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Geopolítica</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Crítica Literaria</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Historia</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Hizkuntzak</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Infantil</a>
+                        </li>
+                      </ul>
+                    </div><!-- /.col-->
+                    <div class="col-sm-6 col-md-3">
+                      <ul class="list-unstyled list-secciones">
+                       
+                        <li class="list-item">
+                          <a href="#">Marxismo</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Música / Contracultura</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Novela Gráfica</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Geopolítica</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Organización / Desobediencia</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Pedagogía / Educación</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Poesía</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Psicología</a>
+                        </li>
+                      </ul>
+                    </div><!-- /.col-->
+                    <div class="col-sm-6 col-md-3">
+                      <ul class="list-unstyled list-secciones">
+                        
+                        <li class="list-item">
+                          <a href="#">Religiones</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Sociología</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Teatro</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Teoría Política</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Trabajo</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Vigilar Y Castigar</a>
+                        </li>
+                        <li class="list-item">
+                          <a href="#">Zona Especial Norte (Zen)</a>
+                        </li>
+                      </ul>
+                    </div><!-- /.col-->
+                  </div><!-- /.row-->
+
+                </div><!-- /.collapse -->
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+        <hr>
+        <h1 class="text-center mt-1">Recomendamos</h1>
+
+        <div class="scrolling-wrapper mt-2">
+
+     
+             <!--CARD BOOK sm-->
+             <div class="card-book-sm">
+              <div class="cover">
+                <a href="#">
+                  <img src="images/book-lg.jpg" alt="Título del libro" class="img-responsive">
+                </a>
+              </div><!-- /cover -->
+              <div class="description">
+                  <h3 class="book-title-sm">
+                      <a href="#">
+                          Después de la utopía. El declive de la fe política
+                      </a>
+                  </h3>
+                  <p>Judith Shklar</p>
+                  <p class="price">22,00€</p>
+                  <p class="small success">Disponible</p>
+              </div><!-- /description -->
+          </div><!-- /.card-book-sm-->
+       
+          <!--CARD BOOK sm-->
+          <div class="card-book-sm">
+           <div class="cover">
+            <a href="#">
+               <img src="https://www.viena.es/wp-content/uploads/2017/01/viena-viatgem-elpetitprincep-portada-esp-768.jpg" alt="Título del libro" class="img-responsive">
+            </a>
+              </div><!-- /cover -->
+           <div class="description">
+               <h3 class="book-title-sm">
+                   <a href="#">
+                       El Principito
+                   </a>
+               </h3>
+               <p>Judith Shklar</p>
+               <p class="price">18,00€</p>
+               <p class="small success">Disponible</p>
+           </div><!-- /description -->
+       </div><!-- /.card-book-sm-->
+    
+      <!--CARD BOOK sm-->
+      <div class="card-book-sm">
+       <div class="cover">
+        <a href="#">
+           <img src="images/book-lg.jpg" alt="Título del libro" class="img-responsive">
+        </a>
+       </div><!-- /cover -->
+       <div class="description">
+           <h3 class="book-title-sm">
+               <a href="#">
+                   Después de la utopía. El declive de la fe política
+               </a>
+           </h3>
+           <p>Judith Shklar</p>
+           <p class="price">22,00€</p>
+           <p class="small success">Disponible</p>
+       </div><!-- /description -->
+   </div><!-- /.card-book-sm-->
+
+   <!--CARD BOOK sm-->
+   <div class="card-book-sm">
+    <div class="cover">
+      <a href="#">
+        <img src="https://katakrak.net/sites/default/files/styles/cover_home/public/portadas/9788469602638.jpg?itok=xstozxxU" alt="Título del libro" class="img-responsive">
+      </a>
+      </div><!-- /cover -->
+    <div class="description">
+        <h3 class="book-title-sm">
+            <a href="#">
+                Astérix en Helvecia
+            </a>
+        </h3>
+        <p>Judith Shklar</p>
+        <p class="price">22,00€</p>
+        <p class="small success">Disponible</p>
+    </div><!-- /description -->
+</div><!-- /.card-book-sm-->
+
+  <!--CARD BOOK sm-->
+  <div class="card-book-sm">
+   <div class="cover">
+     <a href="#">
+       <img src="https://katakrak.net/sites/default/files/styles/cover_home/public/portadas/portada_sotanosdelmundo_katakrak.jpg?itok=fYdHl78A" alt="Título del libro" class="img-responsive">
+      </a>
+    </div><!-- /cover -->
+   <div class="description">
+       <h3 class="book-title-sm">
+           <a href="#">
+               Los sótanos del mundo
+           </a>
+       </h3>
+       <p>Judith Shklar</p>
+       <p class="price">12,00€</p>
+       <p class="small success">Disponible</p>
+   </div><!-- /description -->
+</div><!-- /.card-book-sm-->
+
+ <!--CARD BOOK sm-->
+<div class="card-book-sm">
+<div class="cover">
+  <a href="#">
+    <img src="https://katakrak.net/sites/default/files/styles/cover_home/public/portadas/978-84-9027-980-9.jpg?itok=d0S5jnJL" alt="Título del libro" class="img-responsive">
+    </a>
+  </div><!-- /cover -->
+<div class="description">
+    <h3 class="book-title-sm">
+        <a href="#">
+            Después de la utopía. El declive de la fe política
+        </a>
+    </h3>
+    <p>Judith Shklar</p>
+    <p class="price">22,00€</p>
+    <p class="small success">Disponible</p>
+</div><!-- /description -->
+</div><!-- /.card-book-sm-->
+
+  <!--CARD BOOK sm-->
+  <div class="card-book-sm">
+  <div class="cover">
+    <a href="#" class="nocover">
+      <img src="images/nocover.png" alt="Portada no disponible" class="img-responsive">
+      </a>
+    </div><!-- /cover -->
+  <div class="description">
+      <h3 class="book-title-sm">
+          <a href="#">
+              Después de la utopía. El declive de la fe política
+          </a>
+      </h3>
+      <p>Judith Shklar</p>
+      <p class="price">22,00€</p>
+      <p class="small success">Disponible</p>
+  </div><!-- /description -->
+  </div><!-- /.card-book-sm-->
+
+</div><!-- /.scrolling-wrapper-->
+ 
+    </div><!-- /.container -->
+
+    <div class="modulo-destacado">
+      <h2 class="text-center">¿Cómo es la compra online en Katakrak?</h2>
+<p class="text-center">Trabajamos por una compra cercana y sostenible</p>
+<p>ilustraciones: pago seguro, entrega bizikrak, trato cercano</p>
+    </div>
+
+    <hr class="hr-dark">
+ 
+    <h1 class="text-center mt-1">Los más vendidos</h1>
+    (listado similar)
+</main><!-- /.main -->
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-md-3">
+        <h2>Katakrak Liburuak</h2>
+        <p class="quote">Libros, cafés y algo más.<br>Debates y pensamiento.<br>Un espacio para el común.</p>
+        <ul class="list-unstyled">
+            <li class="list-item">
+                <a class="" href="que-es-katakrak.html" >¿Qué es Katakrak?</a>
+              </li>
+              <li class="list-item">
+                <a class="" href="tienda.html">Tienda online</a>
+              </li>
+              <li class="list-item">
+                <a class="" href="el-espacio.html">Espacio</a>
+              </li>
+              <li class="list-item">
+                <a class="" href="la-editorial.html">Editorial</a>
+              </li>
+              <li class="list-item">
+                <a class="" href="agenda.html">Agenda</a>
+              </li>
+              <li class="list-item">
+                <a class="" href="blog.html">Blog</a>
+              </li>
+        </ul>
+      </div><!-- /.col -->
+      <div class="col-sm-6 col-md-3">
+        <h2>Ven a Katakrak</h2>
+        <ul class="list-unstyled">
+          <li class="list-item">C/ Mayor 54, Pamplona-Iruñea</li>
+          <li class="list-item">31001 Navarra-Nafarroa</li>
+          <li class="list-item">
+            <a class="" href="#">Localízanos</a>
+          </li>
+        </ul>
+
+        <ul class="list-unstyled">
+          <li class="list-style">Abierto de lunes a sábado:</li>
+          <li class="list-item"> <span class="strong">Librería: </span> 10:00-20:30</li>
+          <li class="list-item"><span class="strong">Cantina: </span>  L,M,M 10:00-22:00 | J,V,S 10:00-01:00</li>
+        </ul>
+
+       
+        <ul class="list-unstyled">
+          <li class="list-item">Escríbenos a:  <a href="mailto:info@katakrak.net">info@katakrak.net</a></li>
+          <li class="list-item">O llámanos al <a href="tel:+34948225520">948225520</a> </li>
+          
+        </ul>
+
+      </div><!-- /.col -->
+        <!-- Add the extra clearfix for only the required viewport -->
+  <div class="clearfix visible-sm-block"></div>
+      <div class="col-sm-6 col-md-3">
+        <h2>Social</h2>
+        <ul class="list-unstyled list-social mt-3">
+          <li class="list-item">
+            <a class="d-flex" href="https://www.facebook.com/katakrak54" target="_blank" title="Facebook">
+              <i class="fab fa-facebook-f"></i>
+              <span>Facebook</span>
+            </a>
+          </li>
+          <li class="list-item">
+            <a class="d-flex" href="http://twitter.com/katakrak54" target="_blank" title="Twitter">
+              <i class="fab fa-twitter"></i>
+              <span>Twitter</span>
+            </a>
+          </li>
+          <li class="list-item">
+            <a class="d-flex" href="https://www.instagram.com/katakrak54/" target="_blank" title="Instagram">
+              <i class="fab fa-instagram"></i>
+              <span>Instagram</span>
+            </a>
+          </li>
+          <li class="list-item">
+            <a class="d-flex" href="http://soundcloud.com/katakrak54" target="_blank" title="Soundcloud">
+              <i class="fab fa-soundcloud"></i>
+              <span>Soundcloud</span>
+            </a>
+          </li>
+          <li class="list-item">
+            <a class="d-flex" href="https://katakrak.net/cas/events/feed" target="_blank" title="Feed">
+              <i class="fas fa-rss"></i>
+              <span>RSS eventos feed</span>
+            </a>
+          </li>
+        </ul>
+        
+          
+      </div><!-- /.col -->
+      <div class="col-sm-6 col-md-3">
+        <h2>Suscríbete a la Newsletter</h2>
+        <p>Prometemos no darte la chapa más de lo necesario</p>
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control form-control-sm" id="formGroupExampleInput" placeholder="Nombre y apellidos" focus>
+          </div>
+          <div class="form-group">
+            <input type="mail" class="form-control form-control-sm" id="formGroupExampleInput" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"> <span class="small">Acepto las <a href="#">condiciones legales</a></span>
+              </label>
+            </div>
+          </div>
+          <button class="btn btn-primary d-block">Suscribirme</button>
+        </form>
+        
+      </div><!-- /.col -->
+
+    </div><!-- /.row -->
+  </div>
+</footer>
+
+ <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+ <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+ <!-- Include all compiled plugins (below), or include individual files as needed -->
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+  </body>
+</html>

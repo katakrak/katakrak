@@ -167,8 +167,9 @@
 
 <?php if ($view_mode == 'card_book'): ?>
 <div class="card-book-sm">
-  <div class="cover">
-    <?php print render($content['field_libro_portada']) ?>
+  <div class="<?php print $content['cover_class'] ?>">
+      <?php print render($content['field_libro_portada']) ?>
+
   </div><!-- /cover -->
   <div class="description">
     <h3 class="book-title-sm">

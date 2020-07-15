@@ -26,7 +26,6 @@ dependencies[] = number
 dependencies[] = options
 dependencies[] = page_manager
 dependencies[] = physical
-dependencies[] = portfolio
 dependencies[] = services_views
 dependencies[] = strongarm
 dependencies[] = taxonomy
