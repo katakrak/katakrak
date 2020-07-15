@@ -77,7 +77,7 @@ function libro_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'libros_secciones';
   $context->description = 'Libros secciones';
-  $context->tag = 'Libro';
+  $context->tag = 'Tienda online';
   $context->conditions = array(
     'taxonomy_term' => array(
       'values' => array(
@@ -107,8 +107,8 @@ function libro_context_default_contexts() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Libro');
   t('Libros secciones');
+  t('Tienda online');
   $export['libros_secciones'] = $context;
 
   $context = new stdClass();
@@ -116,7 +116,7 @@ function libro_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'node_book';
   $context->description = '';
-  $context->tag = 'Libro';
+  $context->tag = 'Tienda online';
   $context->conditions = array(
     'node' => array(
       'values' => array(
@@ -144,15 +144,12 @@ function libro_context_default_contexts() {
         ),
       ),
     ),
-    'menu' => array(
-      0 => 'main-menu:libreria',
-    ),
   );
   $context->condition_mode = 0;
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Libro');
+  t('Tienda online');
   $export['node_book'] = $context;
 
   $context = new stdClass();
@@ -160,7 +157,7 @@ function libro_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'pagina_libreria';
   $context->description = 'Página principal librería';
-  $context->tag = 'Libro';
+  $context->tag = 'Tienda online';
   $context->conditions = array(
     'views' => array(
       'values' => array(
@@ -169,16 +166,47 @@ function libro_context_default_contexts() {
     ),
   );
   $context->reactions = array(
-    'theme_html' => array(
-      'class' => 'block-book-search',
+    'block' => array(
+      'blocks' => array(
+        'libro-libreria_home_search' => array(
+          'module' => 'libro',
+          'delta' => 'libreria_home_search',
+          'region' => 'content',
+          'weight' => '-10',
+        ),
+        'libro-libreria_home_bono_regalo' => array(
+          'module' => 'libro',
+          'delta' => 'libreria_home_bono_regalo',
+          'region' => 'banners',
+          'weight' => '-10',
+        ),
+        'libro-libreria_home_bizikrak' => array(
+          'module' => 'libro',
+          'delta' => 'libreria_home_bizikrak',
+          'region' => 'banners',
+          'weight' => '-9',
+        ),
+        'libro-libreria_home_destacado' => array(
+          'module' => 'libro',
+          'delta' => 'libreria_home_destacado',
+          'region' => 'content_middle',
+          'weight' => '-10',
+        ),
+        'views-libros-libros_mas_vendidos' => array(
+          'module' => 'views',
+          'delta' => 'libros-libros_mas_vendidos',
+          'region' => 'content_bottom',
+          'weight' => '-10',
+        ),
+      ),
     ),
   );
   $context->condition_mode = 0;
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Libro');
   t('Página principal librería');
+  t('Tienda online');
   $export['pagina_libreria'] = $context;
 
   return $export;

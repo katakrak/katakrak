@@ -292,7 +292,7 @@ function libro_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'taxonomy_term_reference_plain',
         'weight' => 0,
       ),
       'default' => array(
@@ -955,17 +955,6 @@ function libro_field_default_field_instances() {
       'active' => 1,
       'module' => 'image',
       'settings' => array(
-        'imce_filefield_on' => 1,
-        'insert' => 0,
-        'insert_absolute' => FALSE,
-        'insert_class' => '',
-        'insert_default' => array(
-          0 => 'auto',
-        ),
-        'insert_styles' => array(
-          0 => 'auto',
-        ),
-        'insert_width' => '',
         'preview_image_style' => 'thumbnail',
         'progress_indicator' => 'throbber',
       ),
