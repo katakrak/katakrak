@@ -18,6 +18,12 @@ function katakrak_agenda_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'node_reference',
@@ -61,6 +67,12 @@ function katakrak_agenda_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -103,6 +115,12 @@ function katakrak_agenda_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'node_reference',
@@ -148,6 +166,12 @@ function katakrak_agenda_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'list',
@@ -184,6 +208,12 @@ function katakrak_agenda_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'colorbox',
@@ -252,6 +282,12 @@ function katakrak_agenda_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'i18n_taxonomy',
@@ -294,6 +330,12 @@ function katakrak_agenda_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'date',
@@ -368,6 +410,12 @@ function katakrak_agenda_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -411,6 +459,12 @@ function katakrak_agenda_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -464,6 +518,12 @@ function katakrak_agenda_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'list',
@@ -501,6 +561,12 @@ function katakrak_agenda_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'colorbox',
@@ -663,6 +729,12 @@ function katakrak_agenda_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'node_reference',
@@ -709,6 +781,12 @@ function katakrak_agenda_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'list',
@@ -747,6 +825,12 @@ function katakrak_agenda_field_default_field_instances() {
     'deleted' => 0,
     'description' => 'Si está asociado a un evento de streaming',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'text',
@@ -788,6 +872,12 @@ function katakrak_agenda_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'i18n_taxonomy',
@@ -835,6 +925,12 @@ function katakrak_agenda_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'settings' => array(),

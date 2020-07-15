@@ -18,6 +18,12 @@ function katakrak_kantina_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'text',
@@ -58,6 +64,12 @@ function katakrak_kantina_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'text',
@@ -98,6 +110,12 @@ function katakrak_kantina_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'text',
@@ -138,6 +156,12 @@ function katakrak_kantina_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'text',
@@ -178,6 +202,12 @@ function katakrak_kantina_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'text',
@@ -218,6 +248,12 @@ function katakrak_kantina_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'file_entity',
@@ -263,6 +299,12 @@ function katakrak_kantina_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -304,6 +346,12 @@ function katakrak_kantina_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'colorbox',
@@ -372,6 +420,12 @@ function katakrak_kantina_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -412,6 +466,12 @@ function katakrak_kantina_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'list',

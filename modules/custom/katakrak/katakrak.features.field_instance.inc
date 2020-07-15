@@ -17,6 +17,12 @@ function katakrak_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'image',
@@ -144,6 +150,12 @@ function katakrak_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'i18n_taxonomy',
@@ -184,6 +196,12 @@ function katakrak_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -228,6 +246,12 @@ function katakrak_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'file',
@@ -281,6 +305,12 @@ function katakrak_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'settings' => array(),

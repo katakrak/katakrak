@@ -566,16 +566,6 @@ function katakrak_user_default_permissions() {
     'module' => 'commerce_payment',
   );
 
-  // Exported permission: 'create portfolio content'.
-  $permissions['create portfolio content'] = array(
-    'name' => 'create portfolio content',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'create simplenews content'.
   $permissions['create simplenews content'] = array(
     'name' => 'create simplenews content',
@@ -665,16 +655,6 @@ function katakrak_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete any portfolio content'.
-  $permissions['delete any portfolio content'] = array(
-    'name' => 'delete any portfolio content',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete any simplenews content'.
   $permissions['delete any simplenews content'] = array(
     'name' => 'delete any simplenews content',
@@ -754,16 +734,6 @@ function katakrak_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete own portfolio content'.
-  $permissions['delete own portfolio content'] = array(
-    'name' => 'delete own portfolio content',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete own simplenews content'.
   $permissions['delete own simplenews content'] = array(
     'name' => 'delete own simplenews content',
@@ -831,15 +801,6 @@ function katakrak_user_default_permissions() {
   // Exported permission: 'delete terms in newsletter'.
   $permissions['delete terms in newsletter'] = array(
     'name' => 'delete terms in newsletter',
-    'roles' => array(
-      'Editor' => 'Editor',
-    ),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'delete terms in portfolio_categories'.
-  $permissions['delete terms in portfolio_categories'] = array(
-    'name' => 'delete terms in portfolio_categories',
     'roles' => array(
       'Editor' => 'Editor',
     ),
@@ -1012,16 +973,6 @@ function katakrak_user_default_permissions() {
   // Exported permission: 'edit any page content'.
   $permissions['edit any page content'] = array(
     'name' => 'edit any page content',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit any portfolio content'.
-  $permissions['edit any portfolio content'] = array(
-    'name' => 'edit any portfolio content',
     'roles' => array(
       'Editor' => 'Editor',
       'administrator' => 'administrator',
@@ -1202,16 +1153,6 @@ function katakrak_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit own portfolio content'.
-  $permissions['edit own portfolio content'] = array(
-    'name' => 'edit own portfolio content',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'edit own simplenews content'.
   $permissions['edit own simplenews content'] = array(
     'name' => 'edit own simplenews content',
@@ -1260,15 +1201,6 @@ function katakrak_user_default_permissions() {
   // Exported permission: 'edit terms in newsletter'.
   $permissions['edit terms in newsletter'] = array(
     'name' => 'edit terms in newsletter',
-    'roles' => array(
-      'Editor' => 'Editor',
-    ),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'edit terms in portfolio_categories'.
-  $permissions['edit terms in portfolio_categories'] = array(
-    'name' => 'edit terms in portfolio_categories',
     'roles' => array(
       'Editor' => 'Editor',
     ),

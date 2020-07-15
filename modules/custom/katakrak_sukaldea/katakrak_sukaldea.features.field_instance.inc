@@ -146,6 +146,12 @@ reposteria
 cenas
 menú del día',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'i18n_taxonomy',
@@ -186,6 +192,12 @@ menú del día',
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'field_collection',
@@ -237,6 +249,12 @@ menú del día',
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'number',
@@ -289,6 +307,12 @@ menú del día',
     'deleted' => 0,
     'description' => 'Solo para recetas que no se venden directamente',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'number',
@@ -339,6 +363,12 @@ menú del día',
     'deleted' => 0,
     'description' => 'Marca esta casilla si la receta es para venta directa al público',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'list',
@@ -378,6 +408,12 @@ menú del día',
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'text',
@@ -418,6 +454,12 @@ menú del día',
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'number',
@@ -464,6 +506,12 @@ menú del día',
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'text',
@@ -510,6 +558,12 @@ menú del día',
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'number',

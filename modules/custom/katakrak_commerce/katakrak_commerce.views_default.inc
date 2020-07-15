@@ -683,6 +683,7 @@ function katakrak_commerce_views_default_views() {
     t('Correo electrónico'),
     t('Estado de pedido'),
     t('Admin page'),
+    t('more'),
     t('Forma de envío'),
     t('Mensaje de registro'),
     t('Address - Nombre completo'),
@@ -1104,6 +1105,7 @@ function katakrak_commerce_views_default_views() {
     t('Datos de facturación'),
     t('Estado de pedido'),
     t('Page'),
+    t('more'),
     t('Data export'),
   );
   $export['donaciones'] = $view;
@@ -1241,6 +1243,7 @@ function katakrak_commerce_views_default_views() {
     t('Placed date'),
     t('Todo(s)'),
     t('Page'),
+    t('more'),
     t('Data export'),
   );
   $export['historico_pedidos'] = $view;
@@ -1257,17 +1260,13 @@ function katakrak_commerce_views_default_views() {
 
   /* Display: Defaults */
   $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->display->display_options['title'] = 'Cesta de la compra';
+  $handler->display->display_options['title'] = 'Shopping cart';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'más';
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Aplicar';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordenar por';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'views_bootstrap_table_plugin_style';
   $handler->display->display_options['style_options']['columns'] = array(
@@ -1379,7 +1378,6 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['arguments']['order_id']['table'] = 'commerce_order';
   $handler->display->display_options['arguments']['order_id']['field'] = 'order_id';
   $handler->display->display_options['arguments']['order_id']['default_action'] = 'not found';
-  $handler->display->display_options['arguments']['order_id']['exception']['title'] = 'Todo(s)';
   $handler->display->display_options['arguments']['order_id']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['order_id']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['order_id']['summary']['format'] = 'default_summary';
@@ -1393,21 +1391,22 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['filters']['product_line_item_type']['group'] = 0;
   $translatables['katakrak_commerce_cart_summary'] = array(
     t('Defaults'),
-    t('Cesta de la compra'),
-    t('más'),
-    t('Aplicar'),
-    t('Reiniciar'),
-    t('Ordenar por'),
+    t('Shopping cart'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Total'),
+    t('Order total'),
     t('Line items referenced by commerce_line_items'),
     t('Products referenced by commerce_product'),
     t('Nodo referencing products from field_libro_producto'),
     t('Artículo'),
     t('Cnt.'),
     t('.'),
-    t('Todo(s)'),
+    t('Total'),
+    t('All'),
   );
   $export['katakrak_commerce_cart_summary'] = $view;
 
