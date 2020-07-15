@@ -15,6 +15,32 @@ function katakrak_search_form_alter(&$form, &$form_state, $form_id){
       apachesolr_autocomplete_do_alter($element);
     }
   }
+  //En los filtros facetados los convertimos en selects normales
+  if (strpos($form_id, 'facetapi_multiselect_form') === 0){
+    $exclude = array('q', 'page');
+  $query = drupal_get_query_parameters(NULL, $exclude);
+  dpm($query);
+    $form['facets']['#multiple'] = FALSE;
+    $form['#submit'] = array('katakrak_search_facet_select_submit');
+  }
+}
+
+function katakrak_search_facet_select_submit($form, &$form_state) {
+  // Remove all the select element's #options from the current list of facets,
+  // and add back only the ones that were submitted with the form.
+  $exclude = array('q', 'page');
+  $query = drupal_get_query_parameters(NULL, $exclude);
+  $original_f = isset($query['f']) ? $query['f'] : array();
+  $query['f'] = array_diff($original_f, facetapi_multiple_get_options($form['facets']['#options']));
+  dpm($form_state);
+    if ($form_state['values']['facets']) {
+      $query['f'][] = $form_state['values']['facets'];
+    }
+  
+  $query['f'] = array_values($query['f']);
+
+  // Redirect to the new URL, with the new set of active facets.
+  $form_state['redirect'] = array(current_path(), array('query' => $query));
 }
 
 function katakrak_search_form_apachesolr_search_custom_page_search_form_alter(&$form, $form_state) {
