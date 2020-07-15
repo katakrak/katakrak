@@ -1,0 +1,181 @@
+<?php
+
+/**
+ * @file
+ * Displays search facets as a multiselect widget.
+ */
+
+/**
+ * Implements hook_facetapi_widgets().
+ */
+function facetapi_multiselect_facetapi_widgets() {
+  return array(
+    'facetapi_multiselect' => array(
+      'handler' => array(
+        'label' => t('Multiselect element'),
+        'class' => 'FacetapiMultiSelectWidget',
+        'query types' => array('term', 'date'),
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_forms().
+ */
+function facetapi_multiselect_forms($form_id) {
+  // Build all multiselect facet forms on the page using the same form
+  // callback.
+  $forms = array();
+  if (strpos($form_id, 'facetapi_multiselect_form_') === 0) {
+    $forms[$form_id]['callback'] = 'facetapi_multiselect_form';
+  }
+  return $forms;
+}
+
+/**
+ * Form which displays facets as a multiselect element.
+ *
+ * @param $widget
+ *   The widget object (e.g. of class FacetapiMultiSelectWidget) used to build
+ *   the facet.
+ * @param $element
+ *   The facet element, containing information about each available facet in
+ *   the group.
+ */
+function facetapi_multiselect_form($form, &$form_state, $widget, $element) {
+  // Record the widget and facet name in an easy-to-access part of the
+  // $form_state array. Also record a class that can be used to access the
+  // widget in front-end code.
+  $facet_name = $widget->getKey();
+  $form_state['facetapi_multiselect'] = array(
+    'widget' => $widget,
+    'facet_name' => $facet_name,
+    'facet_class' => drupal_html_class("facetapi-multiselect-{$facet_name}"),
+  );
+  // Record this in the form too, in case someone needs to access it there.
+  $form['#facetapi_multiselect'] = $form_state['facetapi_multiselect'];
+
+  // Get an array of the facet options
+  $options = $widget->buildOptions($element);
+
+  // Because of an issue with iOS and multiselect fields, we need to add an
+  // empty option. This option must have the `disabled` attribute, so  we'll
+  // handle that in preprocess.
+  // @see http://stackoverflow.com/questions/34985606/ios-9-2-select-list-multiple-incorrectly-firing-change-event-and-setting-valu
+  $options = array('disabled' => '') + $options;
+
+  // Build the form.
+  $form['facets'] = array(
+    '#type' => 'select',
+    '#multiple' => TRUE,
+    '#options' => $options,
+    '#default_value' => $widget->buildDefaultValue($element),
+    '#attributes' => array('class' => array('facetapi-multiselect', $form_state['facetapi_multiselect']['facet_class'])),
+    '#post_render' => array('_facetapi_multiselect_disable_options'),
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Submit'),
+  );
+
+  $build = $widget->getBuild();
+  $settings = $build['#settings']->settings;
+
+  if ($settings['auto_submit']) {
+    $form['#attached']['js'][] = drupal_get_path('module', 'facetapi_multiselect') . '/js/facetapi_multiselect_autosubmit.js';
+  }
+
+  if ($settings['placeholder_label']) {
+    $form['facets']['#attributes']['data-placeholder'] = t($settings['placeholder_label']);
+  }
+
+  return $form;
+}
+
+/**
+ * Set any option items that have a "disabled" value to be disabled
+ * @param  string $content The rendered HTML for the select item
+ * @param  array $element The Drupal FAPI item
+ * @return string          The updated markeup
+ */
+function _facetapi_multiselect_disable_options($content, $element) {
+  // Check PHP and libxml version.
+  static $new_libxml;
+  if (!isset($new_libxml)) {
+    $new_libxml = version_compare(PHP_VERSION, '5.4', '>=') && defined('LIBXML_HTML_NOIMPLIED') && defined('LIBXML_HTML_NODEFDTD');
+  }
+
+  // Create a new DOMDocument object with our rendered HTML.
+  $select = new DOMDocument;
+  $select->encoding = 'utf-8';
+  if ($new_libxml) {
+    $select->loadHTML(utf8_decode($content), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+  }
+  else {
+    $select->loadHTML(utf8_decode($content));
+  }
+
+  // Loop over our options list
+  foreach ($select->getElementsByTagName('option') as $option) {
+    if ($option->hasAttribute('value')) {
+      // Get the value and see if it's set to 'disabled'. If not, skip
+      $value = $option->getAttribute('value');
+      if ($value == 'disabled' || strpos($value, ':disabled') !== FALSE) {
+        // Set the disabled attribute, remove the value attribute.
+        $option->setAttribute('disabled', 'disabled');
+        $option->removeAttribute('value');
+      }
+    }
+  }
+
+  return $select->saveHTML();
+}
+
+/**
+ * Submit handler for facetapi_multiselect_form().
+ */
+function facetapi_multiselect_form_submit($form, &$form_state) {
+  // Remove all the select element's #options from the current list of facets,
+  // and add back only the ones that were submitted with the form.
+  $exclude = array('q', 'page');
+  $query = drupal_get_query_parameters(NULL, $exclude);
+  $original_f = isset($query['f']) ? $query['f'] : array();
+  $query['f'] = array_diff($original_f, facetapi_multiple_get_options($form['facets']['#options']));
+  foreach ($form_state['values']['facets'] as $facet) {
+    if ($facet) {
+      $query['f'][] = $facet;
+    }
+  }
+  $query['f'] = array_values($query['f']);
+
+  // Redirect to the new URL, with the new set of active facets.
+  $form_state['redirect'] = array(current_path(), array('query' => $query));
+}
+
+/**
+ * Returns an array of all available options from an #options element.
+ *
+ * This function takes into account optgroups, if they are present (the options
+ * contained within those will be merged into the returned array).
+ *
+ * @param $options
+ *   An #options array from a form element.
+ *
+ * @return
+ *   An array containing all options stored within the array. For a flat
+ *   #options array (without optgroups), calling this function is equivalent to
+ *   calling array_keys().
+ */
+function facetapi_multiple_get_options($options) {
+  $all_options = array();
+  foreach ($options as $key => $option) {
+    if (is_array($option)) {
+      $all_options = array_merge($all_options, facetapi_multiple_get_options($option));
+    }
+    else {
+      $all_options[] = $key;
+    }
+  }
+  return $all_options;
+}
