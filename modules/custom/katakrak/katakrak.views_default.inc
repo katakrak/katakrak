@@ -210,7 +210,6 @@ function katakrak_views_default_views() {
     t('Queue'),
     t('Etiqueta'),
     t('Page'),
-    t('more'),
   );
   $export['imagenes_admin'] = $view;
 
