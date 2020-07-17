@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_search.features.inc

@@ -17,9 +17,6 @@ function katakrak_search_form_alter(&$form, &$form_state, $form_id){
   }
   //En los filtros facetados los convertimos en selects normales
   if (strpos($form_id, 'facetapi_multiselect_form') === 0){
-    $exclude = array('q', 'page');
-  $query = drupal_get_query_parameters(NULL, $exclude);
-  dpm($query);
     $form['facets']['#multiple'] = FALSE;
     $form['#submit'] = array('katakrak_search_facet_select_submit');
   }
@@ -77,6 +74,14 @@ function katakrak_search_theme() {
       ),
       'path' => $path . '/templates',
     ),
+    'katakrak_search_facetapi_badges' => array(
+      'template' =>  'katakrak-search-facetapi-badges',
+      'arguments' => array(
+        'num_results' => NULL,
+        'facets' => NULL,
+      ),
+      'path' => $path . '/templates',
+    ),
   );
 }
 
@@ -95,6 +100,11 @@ function katakrak_search_block_info() {
     // Not worth caching.
     'cache' => DRUPAL_NO_CACHE,
   );
+  $blocks['katakrak_search_facetapi_badges'] = array(
+    'info' => t('Katakrak facetapi contextual badges'),
+    // Not worth caching.
+    'cache' => DRUPAL_NO_CACHE,
+  );
   return $blocks;
 }
 
@@ -105,11 +115,29 @@ function katakrak_search_block_view($delta) {
   if ($delta == 'katakrak_books_search_block') {
     $form = drupal_get_form('katakrak_books_search_form');
     $block['content'] = theme('katakrak_search_books_search_block', array('form' => $form));
+    return $block;
   }
   if ($delta == 'katakrak_search_block') {
    $block['content'] = drupal_get_form('katakrak_search_form');
+   return $block;
   }
-  return $block;
+  if ($delta == 'katakrak_search_facetapi_badges') {
+    $exclude = array('q', 'page');
+    $query = drupal_get_query_parameters(NULL, $exclude);
+    dpm($query['f']);
+    
+    $query = apachesolr_current_query(variable_get('apachesolr_default_environment', 'default'));
+    if ($query) {
+      $searcher = $query->getSearcher();
+      $response = apachesolr_static_response_cache($searcher);
+    }
+    $args = array(
+      'num_results' => $response->response->numFound,
+    );
+    
+    $block['content'] = theme('katakrak_search_facetapi_badges', $args);
+    return $block;
+  }
 } 
 
 function katakrak_books_search_form($form, &$form_state) {

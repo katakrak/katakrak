@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_search.context.inc
@@ -15,7 +16,7 @@ function katakrak_search_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'search';
   $context->description = '';
-  $context->tag = 'Search';
+  $context->tag = 'Tienda online';
   $context->conditions = array(
     'path' => array(
       'values' => array(
@@ -25,15 +26,27 @@ function katakrak_search_context_default_contexts() {
   );
   $context->reactions = array(
     'block' => array(
-      'blocks' => array(),
-      'layout' => 'search',
+      'blocks' => array(
+        'libro-libreria_home_bono_regalo' => array(
+          'module' => 'libro',
+          'delta' => 'libreria_home_bono_regalo',
+          'region' => 'banners',
+          'weight' => '-10',
+        ),
+        'libro-libreria_home_bizikrak' => array(
+          'module' => 'libro',
+          'delta' => 'libreria_home_bizikrak',
+          'region' => 'banners',
+          'weight' => '-9',
+        ),
+      ),
     ),
   );
   $context->condition_mode = 0;
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Search');
+  t('Tienda online');
   $export['search'] = $context;
 
   return $export;

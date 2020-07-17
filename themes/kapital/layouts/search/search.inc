@@ -11,5 +11,7 @@ $plugin = array(
     'facet_middle' => t('Facet middle'),
     'content' => t('Content'),
     'content_top' => t('Content top'),
+    'facetapi_badge' => t('Facetapi Badges'),
+    'search_sort' => t('Search sort'),
   ),
 );

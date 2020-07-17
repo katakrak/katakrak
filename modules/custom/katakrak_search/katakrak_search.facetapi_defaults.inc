@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_search.facetapi_defaults.inc
@@ -18,6 +19,7 @@ function katakrak_search_facetapi_default_facet_settings() {
   $facet->realm = 'block';
   $facet->facet = 'im_field_libro_autores';
   $facet->enabled = TRUE;
+  $facet->hash = '0';
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_links',
@@ -60,6 +62,7 @@ function katakrak_search_facetapi_default_facet_settings() {
   $facet->realm = 'block';
   $facet->facet = 'im_field_libro_categoria';
   $facet->enabled = TRUE;
+  $facet->hash = '0';
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_links',
@@ -102,6 +105,7 @@ function katakrak_search_facetapi_default_facet_settings() {
   $facet->realm = 'block';
   $facet->facet = 'im_field_libro_editorial';
   $facet->enabled = TRUE;
+  $facet->hash = '0';
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_links',
@@ -144,6 +148,7 @@ function katakrak_search_facetapi_default_facet_settings() {
   $facet->realm = 'block';
   $facet->facet = 'im_field_libro_year';
   $facet->enabled = TRUE;
+  $facet->hash = '0';
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_links',

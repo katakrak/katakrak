@@ -15,5 +15,10 @@
     </div>
   </div>
 </div>
+<hr>
+<div class="d-flex space-between">
+  <?php print $content['facetapi_badge'] ?>
+  <?php print $content['search_sort'] ?>
+</div>
 
 <?php print $content['content'] ?>
