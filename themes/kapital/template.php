@@ -54,3 +54,11 @@ function kapital_preprocess_page(&$vars) {
   
  // dpm($vars);
 }
+
+function kapital_preprocess_search_result(&$vars) {
+  global $user;
+  if ($vars['result']['entity_type'] == 'node') {
+    $node = node_load($vars['result']['node']->entity_id);
+    
+  }
+}

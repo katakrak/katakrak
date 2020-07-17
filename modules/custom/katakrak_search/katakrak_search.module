@@ -122,10 +122,15 @@ function katakrak_search_block_view($delta) {
    return $block;
   }
   if ($delta == 'katakrak_search_facetapi_badges') {
+    //Cogemos de la url los parametros de búsqueda para generar las badges
+    //TODO: Generar los enlaces
     $exclude = array('q', 'page');
     $query = drupal_get_query_parameters(NULL, $exclude);
-    dpm($query['f']);
-    
+    $badges = array();
+    foreach ($query['f'] as $filter) {
+      $term = taxonomy_term_load(substr($filter, strpos($filter, ':')+1));
+      $badges[$term->tid] = array('term' => $term);
+    }
     $query = apachesolr_current_query(variable_get('apachesolr_default_environment', 'default'));
     if ($query) {
       $searcher = $query->getSearcher();
@@ -133,6 +138,7 @@ function katakrak_search_block_view($delta) {
     }
     $args = array(
       'num_results' => $response->response->numFound,
+      'badges' => $badges,
     );
     
     $block['content'] = theme('katakrak_search_facetapi_badges', $args);
