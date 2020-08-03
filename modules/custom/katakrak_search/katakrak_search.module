@@ -139,8 +139,7 @@ function katakrak_search_block_view($delta) {
       else {
         //extraemos  todos los demás filtros menos el actual para generar el link de la "x"
         $query_remove['f'] = array_diff($query['f'], array($filter));
-        $badges[$term->tid]['link'] = l('x', current_path(), array('query' => $query_remove));
-        
+        $badges[$term->tid]['link'] = l('x', current_path(), array('query' => $query_remove)); 
       }
     }
     $query = apachesolr_current_query(variable_get('apachesolr_default_environment', 'default'));

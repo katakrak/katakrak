@@ -378,6 +378,10 @@ function libro_entity_info_alter(&$entity_info) {
     'label' => t('Card Book'),
     'custom settings' => TRUE,
   );
+  $entity_info['node']['view modes']['card_book_md'] = array(
+    'label' => t('Card Book MD'),
+    'custom settings' => TRUE,
+  );
 }
 function libro_peso_moda_form($form, &$form_state) {
   
