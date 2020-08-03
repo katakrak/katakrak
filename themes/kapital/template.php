@@ -66,3 +66,16 @@ function kapital_preprocess_search_result(&$vars) {
 function kapital_facetapi_title($vars) {
    return t('@title:', array('@title' => t($vars['title'])));
 }
+
+function kapital_preprocess_search_results(&$vars) {
+ 
+  foreach ($vars['results'] as $result) {
+    $nids[] = $result['node']->entity_id;
+  }
+  $nodes = node_load_multiple($nids);
+  foreach ($nodes as $node) {
+    $node_view = node_view($node, 'card_book_md');
+    $output .= drupal_render($node_view);
+  }
+  $vars['search_results'] = $output;
+}

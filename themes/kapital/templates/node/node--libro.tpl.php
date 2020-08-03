@@ -186,4 +186,26 @@
     <?php endif; ?>
   </div><!-- /description -->
 </div><!-- /.card-book-sm-->
+<?php elseif($view_mode == 'card_book_md'): ?>
+<div class="card-book-md">
+    <div class="cover">
+     <?php print render($content['field_libro_portada']) ?>
+      </div><!-- /cover -->
+    <div class="description">
+        <h3 class="mt-0">
+            <?php print l($node->title, 'node/'.$node->nid) ?>
+        </h3>
+        <p><?php print render($content['field_libro_autores']) ?></p>
+        <p class="small text-gray mb-0"><?php print $content['field_libro_year'][0]['#markup'] ?>, <?php print l($content['field_libro_editorial'][0]['#title'], $content['field_libro_editorial'][0]['#href']) ?></p>
+        <p class="small"><?php $node->ubicacion ? print $node->ubicacion . ' / ': ''?><?php print l($content['field_libro_categoria']['#items'][0]['taxonomy_term']->name, 'taxonomy/term/'.$content['field_libro_categoria']['#items'][0]['tid']); ?></p>
+        <p class="price"><?php print $content['product:commerce_price'][0]['#markup'] ?></p>
+        <?php if ($node->disponibilidad == DISPONIBLE_LIBRERIA): ?>
+          <p class="small success"><?php print t('Disponible') ?></p>
+        <?php elseif( $node->disponibilidad == DISPONIBLE_DISTRIBUIDOR): ?>
+          <p class="small text-warning"><?php print t('Disponible en @count días', array('@count' => distribuidores_plazo($node->plazo))) ?></p>
+        <?php elseif($node->disponibilidad == NO_DISPONIBLE): ?>
+          <p class="small text-danger"><?php print t('No disponible') ?></p>
+        <?php endif; ?>
+    </div><!-- /description -->
+    </div><!-- /.card-book-md-->
 <?php endif; ?>
