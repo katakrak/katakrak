@@ -17,6 +17,10 @@ function katakrak_search_form_alter(&$form, &$form_state, $form_id){
   }
   //En los filtros facetados los convertimos en selects normales
   if (strpos($form_id, 'facetapi_multiselect_form') === 0){
+    
+    unset($form['facets']['#options']['disabled']);
+    array_unshift($form['facets']['#options'], t('Elige una opción'));
+    $form['facets']['#options']['#default_value'] = '';
     $form['facets']['#multiple'] = FALSE;
     $form['#submit'] = array('katakrak_search_facet_select_submit');
   }
@@ -29,7 +33,6 @@ function katakrak_search_facet_select_submit($form, &$form_state) {
   $query = drupal_get_query_parameters(NULL, $exclude);
   $original_f = isset($query['f']) ? $query['f'] : array();
   $query['f'] = array_diff($original_f, facetapi_multiple_get_options($form['facets']['#options']));
-  dpm($form_state);
     if ($form_state['values']['facets']) {
       $query['f'][] = $form_state['values']['facets'];
     }
@@ -127,9 +130,18 @@ function katakrak_search_block_view($delta) {
     $exclude = array('q', 'page');
     $query = drupal_get_query_parameters(NULL, $exclude);
     $badges = array();
-    foreach ($query['f'] as $filter) {
+    foreach ($query['f'] as $id => $filter) {
       $term = taxonomy_term_load(substr($filter, strpos($filter, ':')+1));
       $badges[$term->tid] = array('term' => $term);
+      if (count($query['f']) == 1){
+        $badges[$term->tid]['link']  = l('x', current_path());
+      }
+      else {
+        //extraemos  todos los demás filtros menos el actual para generar el link de la "x"
+        $query_remove['f'] = array_diff($query['f'], array($filter));
+        $badges[$term->tid]['link'] = l('x', current_path(), array('query' => $query_remove));
+        
+      }
     }
     $query = apachesolr_current_query(variable_get('apachesolr_default_environment', 'default'));
     if ($query) {
@@ -140,7 +152,6 @@ function katakrak_search_block_view($delta) {
       'num_results' => $response->response->numFound,
       'badges' => $badges,
     );
-    
     $block['content'] = theme('katakrak_search_facetapi_badges', $args);
     return $block;
   }

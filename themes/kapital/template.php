@@ -62,3 +62,7 @@ function kapital_preprocess_search_result(&$vars) {
     
   }
 }
+
+function kapital_facetapi_title($vars) {
+   return t('@title:', array('@title' => t($vars['title'])));
+}

@@ -241,5 +241,5 @@ function coworker_breadcrumb($variables) {
 
 
 function coworker_facetapi_title($variables) {
-  return t('Filter by @title:', array('@title' => drupal_strtolower(t($variables['title']))));
+  return t($variables['title']);
 }
