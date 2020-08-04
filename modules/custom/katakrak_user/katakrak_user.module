@@ -45,3 +45,31 @@ function katakrak_user_form_alter(&$form, &$form_state, $form_id) {
 function katakrak_user_login_title_callback() {
   return t('Mi cuenta');
 }
+
+/**
+ * Implements hook_block_info().
+ */
+function katakrak_user_block_info() {
+  $blocks = array();
+  
+  $blocks['katakrak_user_login_help'] = array(
+    'info' => t('Katakrak user login help'),
+    // Not worth caching.
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function katakrak_user_block_view($delta) {
+  if ($delta == 'katakrak_user_login_help') {
+  $block['content'] = '<div class="banner-help">'.
+                        '<i class="far fa-question-circle"></i> '.
+                        t('Necesitas tu <strong>cuenta Katakrak</strong> para hacer compras, seguir tus pedidos, etc...').
+                        '</div>';
+    return $block;  
+  }
+  }

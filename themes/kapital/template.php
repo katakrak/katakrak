@@ -47,10 +47,10 @@ function kapital_preprocess_page(&$vars) {
   $vars['href_cas'] = url($links->links['es']['href'], array('language' => $links->links['es']['language']));
   $vars['href_eus'] = url($links->links['eu']['href'], array('language' => $links->links['eu']['language']));
   
-  if (user_is_anonymous())
-    $vars['user_url'] = url('user');
-  else 
-    $vars['user_url'] = url('user/'.$user->uid);
+  if (!user_is_anonymous()){
+    $vars['user_name'] = $user->name;
+    $vars['uid'] = $user->uid;
+  }
   
  // dpm($vars);
 }
@@ -78,4 +78,36 @@ function kapital_preprocess_search_results(&$vars) {
     $output .= drupal_render($node_view);
   }
   $vars['search_results'] = $output;
+}
+
+
+/**
+ * Theme function for unified login page.
+ *
+ * @ingroup themable
+ */
+function kapital_lt_unified_login_page($variables) {
+
+  $login_form = $variables['login_form'];
+  $register_form = $variables['register_form'];
+  $active_form = $variables['active_form'];
+  $output = '<div class="row">
+        <div class="col-md-6 col-md-offset-3">';
+
+  $output .= '<div class="toboggan-unified ' . $active_form . '">';
+  $output .= '<h1 class="text-center">'.t('Mi cuenta').'</h1>';
+
+  // Create the initial message and links that people can click on.
+  $output .= '<ul class="nav nav-tabs nav-justified mt-2">';
+  $output .= '<li class="active"><a href="#login" aria-controls="home" role="tab" data-toggle="tab">'.t('Ya tengo una cuenta').'</a></li>';
+  $output .= '<li><a href="#signup" aria-controls="home" role="tab" data-toggle="tab">'.t('Crear nueva cuenta').'</a></li></ul>';
+          
+  $output .= '<div class="tab-content">';
+  // Add the login and registration forms in.
+  $output .= '<div role="tabpanel" class="tab-pane active" id="login">' . $login_form . '</div>';
+  $output .= '<div role="tabpanel" class="tab-pane" id="signup">' . $register_form . '</div>';
+
+  $output .= '</div></div>';
+
+  return $output;
 }

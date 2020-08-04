@@ -76,7 +76,7 @@
 ?>
 <?php include 'page-header.inc' ?>
 <?php print render($page['banners']) ?>
-<main class="main">
+<main class="main <?php print $section_title ?>">
   <div class="row">
     <section<?php print $content_column_class; ?>>
       <a id="main-content"></a>

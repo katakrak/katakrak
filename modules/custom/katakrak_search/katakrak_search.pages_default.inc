@@ -225,7 +225,7 @@ function katakrak_search_default_page_manager_pages() {
   $pane->panel = 'content';
   $pane->type = 'search_title';
   $pane->subtype = 'search_title';
-  $pane->shown = FALSE;
+  $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array();
   $pane->cache = array();
@@ -401,7 +401,7 @@ function katakrak_search_default_page_manager_pages() {
   $display->content['new-3f31ef65-2e1f-41f0-8651-33e5d34c0cdd'] = $pane;
   $display->panels['search_sort'][0] = 'new-3f31ef65-2e1f-41f0-8651-33e5d34c0cdd';
   $display->hide_title = PANELS_TITLE_PANE;
-  $display->title_pane = 'new-17ceb96f-8dc5-4cf7-b598-a300f730cb7b';
+  $display->title_pane = 'new-730ebbae-acdf-4c8b-a3ba-bdd8e6a17744';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $handler = new stdClass();

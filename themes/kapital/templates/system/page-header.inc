@@ -53,9 +53,21 @@
     </div><!-- /.navbar-collapse -->
 
     <div class="navbar-xs-items d-flex">
-      <a class="btn btn-transparent" href="<?php print $user_url ?>">
-        <i class="fas fa-user-circle" aria-hidden="true"></i> <span class="hidden-xs"><?php print t('Mi cuenta') ?></span>
-      </a>
+      <?php if (!user_is_logged_in()): ?>
+        <a class="btn btn-transparent" href="<?php print url('user') ?>">
+          <i class="fas fa-user-circle" aria-hidden="true"></i> <span class="hidden-xs"><?php print t('Mi cuenta') ?></span>
+        </a>
+      <?php else: ?>
+      <button class="btn btn-transparent dropdown-toggle" data-toggle="dropdown" aria-expanded-true>
+        <i class="fas fa-user-circle " aria-hidden="true"></i> <span class="hidden-xs"><?php print $user_name ?></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><?php print l(t('Mi cuenta'), 'user') ?></li>
+        <li><?php print l(t('Mis pedidos'), "user/$uid/orders") ?></li>
+        <li role="separator" class="divider"></li>
+        <li><?php print l(t('Cerrar sesión'), 'user/logout') ?></li>
+      </ul>
+      <?php endif; ?>
       <?php print render($page['header_right']) ?>
       
     
