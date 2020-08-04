@@ -1,15 +1,11 @@
 <?php global $language ?>
-
-<div class="entry_date">
+<div class="date date-title">
   <?php if ($language->language == 'eu'): ?>
-    <div class="month"><?php print format_date($time, 'custom', 'F'); ?></div>
+    <div class="mb-05"><?php print format_date($time, 'custom', 'F'); ?>k</div>
   <?php endif; ?>
-    
-  <div class="day"><?php print format_date($time, 'custom', 'd'); ?></div>
-  
+  <p class="day"><?php print format_date($time, 'custom', 'd'); ?></p>
   <?php if ($language->language == 'es'): ?>
-    <div class="month"><?php print format_date($time, 'custom', 'F'); ?></div>
+    <div class="mb-05"><?php print format_date($time, 'custom', 'F'); ?></div>
   <?php endif; ?>
-    
-  <div class="hour"><?php print format_date($time, 'custom', 'G:i'); ?></div>
+  <p class="strong"><?php print format_date($time, 'custom', 'G:i'); ?></p>
 </div>

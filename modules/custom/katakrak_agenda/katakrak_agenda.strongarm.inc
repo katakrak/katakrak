@@ -184,6 +184,12 @@ function katakrak_agenda_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'card_book' => array(
+        'custom_settings' => TRUE,
+      ),
+      'card_book_md' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -212,6 +218,12 @@ function katakrak_agenda_strongarm() {
           ),
           'home_event' => array(
             'weight' => '1',
+            'visible' => TRUE,
+          ),
+        ),
+        'sharethis' => array(
+          'default' => array(
+            'weight' => '10',
             'visible' => TRUE,
           ),
         ),
@@ -278,6 +290,7 @@ function katakrak_agenda_strongarm() {
     2 => 'field_event_libro',
     3 => 'field_event_type',
     4 => 'field_event_ciclo',
+    5 => 'field_event_soundcloud',
   );
   $export['i18n_sync_node_type_event'] = $strongarm;
 
