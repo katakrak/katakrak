@@ -24,6 +24,12 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'node_reference',
@@ -73,6 +79,12 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -116,6 +128,12 @@ function katakrak_agenda_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -172,6 +190,12 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'list',
@@ -209,6 +233,12 @@ function katakrak_agenda_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -288,6 +318,12 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'i18n_taxonomy',
@@ -331,6 +367,12 @@ function katakrak_agenda_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -416,6 +458,12 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -460,6 +508,12 @@ function katakrak_agenda_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -524,6 +578,12 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'list',
@@ -562,6 +622,12 @@ function katakrak_agenda_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -735,6 +801,12 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'node_reference',
@@ -787,6 +859,12 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'list',
@@ -826,6 +904,12 @@ function katakrak_agenda_field_default_field_instances() {
     'description' => 'Si está asociado a un evento de streaming',
     'display' => array(
       'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -873,6 +957,12 @@ function katakrak_agenda_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -926,6 +1016,12 @@ function katakrak_agenda_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',

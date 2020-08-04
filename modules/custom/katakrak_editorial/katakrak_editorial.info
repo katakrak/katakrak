@@ -6,6 +6,7 @@ dependencies[] = field_group
 dependencies[] = file_entity
 dependencies[] = libro
 dependencies[] = node_reference
+dependencies[] = portfolio
 features[context][] = nodo_editorial
 features[context][] = pagina_editorial
 features[ctools][] = context:context:3

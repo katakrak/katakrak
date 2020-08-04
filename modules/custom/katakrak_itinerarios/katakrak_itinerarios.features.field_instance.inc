@@ -147,6 +147,12 @@ function katakrak_itinerarios_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'color_field',
@@ -185,6 +191,12 @@ function katakrak_itinerarios_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -236,6 +248,12 @@ function katakrak_itinerarios_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -309,6 +327,12 @@ function katakrak_itinerarios_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'number',
@@ -361,6 +385,12 @@ function katakrak_itinerarios_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'field_collection',
@@ -406,6 +436,12 @@ function katakrak_itinerarios_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',

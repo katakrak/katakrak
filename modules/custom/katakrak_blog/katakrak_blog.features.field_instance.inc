@@ -23,6 +23,12 @@ function katakrak_blog_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'file',
@@ -83,6 +89,12 @@ function katakrak_blog_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -126,6 +138,12 @@ function katakrak_blog_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -183,6 +201,12 @@ function katakrak_blog_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -249,6 +273,12 @@ function katakrak_blog_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'i18n_taxonomy',
@@ -287,6 +317,12 @@ function katakrak_blog_field_default_field_instances() {
     'description' => 'Para que aparezca en la ficha del libro de la editorial. Usar siempre comillas latinas, si no Dios mata un gatito « »',
     'display' => array(
       'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -338,6 +374,12 @@ function katakrak_blog_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'text',
@@ -378,6 +420,12 @@ function katakrak_blog_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -530,6 +578,12 @@ function katakrak_blog_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'file_entity',
@@ -576,6 +630,12 @@ function katakrak_blog_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',

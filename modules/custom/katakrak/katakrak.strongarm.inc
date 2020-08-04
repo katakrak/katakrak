@@ -485,7 +485,7 @@ function katakrak_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'mail_system';
   $strongarm->value = array(
-    'default-system' => 'MimeMailSystem__SmtpMailSystem',
+    'default-system' => 'DefaultMailSystem',
   );
   $export['mail_system'] = $strongarm;
 

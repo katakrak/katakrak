@@ -152,6 +152,12 @@ menú del día',
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'i18n_taxonomy',
@@ -193,6 +199,12 @@ menú del día',
     'description' => '',
     'display' => array(
       'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -250,6 +262,12 @@ menú del día',
     'description' => '',
     'display' => array(
       'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -313,6 +331,12 @@ menú del día',
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'number',
@@ -369,6 +393,12 @@ menú del día',
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'list',
@@ -409,6 +439,12 @@ menú del día',
     'description' => '',
     'display' => array(
       'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -455,6 +491,12 @@ menú del día',
     'description' => '',
     'display' => array(
       'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -512,6 +554,12 @@ menú del día',
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'text',
@@ -559,6 +607,12 @@ menú del día',
     'description' => '',
     'display' => array(
       'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
