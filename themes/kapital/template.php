@@ -51,8 +51,9 @@ function kapital_preprocess_page(&$vars) {
     $vars['user_name'] = $user->name;
     $vars['uid'] = $user->uid;
   }
-  
- // dpm($vars);
+  if (!user_access('administer site')) 
+    unset($vars['tabs']);
+  //dpm($vars);
 }
 
 function kapital_preprocess_search_result(&$vars) {
