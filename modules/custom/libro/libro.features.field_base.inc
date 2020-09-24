@@ -217,10 +217,9 @@ function libro_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        0 => 'En cola',
-        1 => 'No',
-        2 => 'Sí',
-        3 => 'checked',
+        0 => 'Sin consultar',
+        1 => 'Metadatos bajados',
+        2 => 'Ningun metadato encontrado',
       ),
       'allowed_values_function' => '',
     ),

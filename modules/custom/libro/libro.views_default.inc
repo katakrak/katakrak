@@ -89,7 +89,9 @@ function libro_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_class'] = 'book-title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+
   /* Campo: Nodo: Autor Geslib */
+
   $handler->display->display_options['fields']['field_libro_autores']['id'] = 'field_libro_autores';
   $handler->display->display_options['fields']['field_libro_autores']['table'] = 'field_data_field_libro_autores';
   $handler->display->display_options['fields']['field_libro_autores']['field'] = 'field_libro_autores';
@@ -1235,6 +1237,61 @@ function libro_views_default_views() {
   $handler->display->display_options['arguments']['field_libro_isbn_value']['limit'] = '0';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
+
+
+  /* Display: Libros sin portada */
+  $handler = $view->new_display('block', 'Libros sin portada', 'libros_sin_portada');
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Campo: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Portada (field_libro_portada:fid) */
+  $handler->display->display_options['filters']['field_libro_portada_fid']['id'] = 'field_libro_portada_fid';
+  $handler->display->display_options['filters']['field_libro_portada_fid']['table'] = 'field_data_field_libro_portada';
+  $handler->display->display_options['filters']['field_libro_portada_fid']['field'] = 'field_libro_portada_fid';
+  $handler->display->display_options['filters']['field_libro_portada_fid']['operator'] = 'empty';
+  $handler->display->display_options['filters']['field_libro_portada_fid']['value']['value'] = '1';
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'libro' => 'libro',
+  );
+
+  /* Display: Libros por isbn */
+  $handler = $view->new_display('block', 'Libros por isbn', 'libros_por_ean');
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Campo: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Ean (field_libro_ean) */
+  $handler->display->display_options['arguments']['field_libro_ean_value']['id'] = 'field_libro_ean_value';
+  $handler->display->display_options['arguments']['field_libro_ean_value']['table'] = 'field_data_field_libro_ean';
+  $handler->display->display_options['arguments']['field_libro_ean_value']['field'] = 'field_libro_ean_value';
+  $handler->display->display_options['arguments']['field_libro_ean_value']['default_action'] = 'empty';
+  $handler->display->display_options['arguments']['field_libro_ean_value']['exception']['title'] = 'Todo(s)';
+  $handler->display->display_options['arguments']['field_libro_ean_value']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_libro_ean_value']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_libro_ean_value']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_libro_ean_value']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_libro_ean_value']['limit'] = '0';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+
   $translatables['libros_admin'] = array(
     t('Master'),
     t('Liburuak'),
@@ -1260,7 +1317,7 @@ function libro_views_default_views() {
     t('Ean'),
     t('Egoera'),
     t('Portada'),
-    t('Autor Geslib'),
+    t('Autor'),
     t('Urtea'),
     t('Editorial'),
     t('Editar producto'),
