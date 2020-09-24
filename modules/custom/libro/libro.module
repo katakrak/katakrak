@@ -19,11 +19,11 @@ function libro_menu() {
     'access arguments' => array('administer site settings'),
     'type' => MENU_NORMAL_ITEM,
   );
-   $items['admin/commerce/config/portadas'] = array(
-    'title' => 'Portadas',
-    'description' => 'Dilve options',
+   $items['admin/commerce/config/book_metainfo'] = array(
+    'title' => 'Descargar metadatos de los libros',
+    'description' => 'Batch process',
     'page callback' => 'drupal_get_form',
-    'page arguments' => array('libro_portadas_form'),
+    'page arguments' => array('libro_metainfo_form'),
     'access arguments' => array('access dilve information'),
   );
    $items['node/%node/portada'] = array(
@@ -94,27 +94,25 @@ function libro_portada_form_submit($form, &$form_state) {
   $form_state['redirect'] = 'node/'.$node->nid;
 }
 
-function libro_portadas_form($form, &$form_state) {
+function libro_metainfo_form($form, &$form_state) {
    $form['limit'] = array(
-    '#title' => t('libros por iteración'),
-    '#description' => t('If no value all items will be processed'),
+    '#title' => t('Libros por iteración'),
+    '#description' => t('Catidad de libros a tratar en cada iteración de un batch'),
     '#type' => 'textfield',
     '#size' => 10,
-    '#default_value' => 10,
+    '#default_value' => 1,
   );
   $form['max'] = array(
     '#title' => t('Máximo número de items'),
-    '#description' => t('If no value all items will be processed'),
+    '#description' => t('Cantidad de libros a procesar en un batch'),
     '#type' => 'textfield',
     '#size' => 10,
-    '#default_value' => 10,
+    '#default_value' => 1,
   );
-  $form['skip'] = array(
-    '#title' => t('Skip items'),
-    '#description' => t('If no value all items will be processed'),
-    '#type' => 'textfield',
-    '#size' => 10,
-    '#default_value' => 0,
+  $form['recheck'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Recheck'),
+    '#description' => t('Volver a procesar los items para los que no se ha encontrado metadatos'),
   );
    $form['enviar'] = array(
     '#type' => 'submit',
@@ -123,68 +121,107 @@ function libro_portadas_form($form, &$form_state) {
   return $form;
 }
 
-function libro_portadas_form_submit($form, &$form_state){
+function libro_metainfo_form_submit($form, &$form_state){
   $limit = $form_state['values']['limit'];
   $max = $form_state['values']['max'];
-  $skip = $form_state['values']['skip'];
+  $recheck = $form_state['values']['recheck'];
   $batch = array(
     'title' => t('Recuperando portadas'),
     'operations' => array(
-      array('libro_portada_process', array($limit, $max, $skip)),
+      array('libro_metainfo_process', array($limit, $max, $recheck)),
     ),
-    'finished' => 'libro_portadas_finish',
+    'finished' => 'libro_metainfo_finish',
   );
   batch_set($batch);  
 }
 
-function libro_portada_process($limit, $max, $skip, &$context) {
+function libro_metainfo_process($limit, $max, $recheck, &$context) {
   $nodes = db_select('node', 'n');
-  $nodes->addJoin('LEFT', 'field_data_field_libro_portada_checked', 'p', 'p.entity_id = n.nid');
-  $or = db_or()->isNull('p.field_libro_portada_checked_value')->condition('p.field_libro_portada_checked_value', 0);
-  $nodes->condition('n.type', 'libro')->condition($or)->fields('n', array('nid'));
-  if (!isset($context['sandbox']['progress'])) {
-    $context['sandbox']['progress'] = $skip;
-    $context['sandbox']['max'] = $max ? $max + $skip : $nodes->execute()->rowCount();
-    $context['results']['conseguidas'] = 0;
-    $context['results']['no_conseguidas'] = 0;
-    $context['results']['imagenes_existentes'] = 0;
+  $nodes->addJoin('LEFT', 'field_data_field_libro_dilve', 'd', 'n.nid = d.entity_id');
+  $or = db_or()->isNull('d.field_libro_dilve_value');
+  if ($recheck) {
+    $or->condition('d.field_libro_dilve_value', 2);
   }
-  
+  else {
+    $or->condition('d.field_libro_dilve_value', 0);
+  }
+  $nodes->fields('n', array('nid'))->fields('d', array('field_libro_dilve_value'))
+    ->condition('type', 'libro')->condition($or);
+  if (!isset($context['sandbox']['progress'])) {
+    $context['sandbox']['progress'] = 0;
+    $context['sandbox']['max'] = $max ? $max : $nodes->execute()->rowCount();
+    $context['results']['in_dilve'] = 0;
+    $context['results']['portadas'] = 0;
+  }
   $nids = $nodes->range(0, $limit)->execute()->fetchAll();
   
+  $dilve  = new DilveSearch(variable_get('dilve_user', ''), variable_get('dilve_pass', ''));
+  $cegal = new CegalSearch(variable_get('cegal_user', ''), variable_get('cegal_clave', ''));
+  
   foreach ($nids as $nid) {
-    watchdog("libro", $nid->nid);
+    watchdog('libro', $nid->nid);
+    $meta = FALSE;
+    $tiene_portada = FALSE;
     $node = node_load($nid->nid);
-    $download_cover = FALSE;
-    if ($node->field_libro_portada['und'][0]['uri']) {
-      if (!file_exists($node->field_libro_portada['und'][0]['uri'])) {
-        $download_cover = TRUE;
-      }
-      else {
-        $node->field_libro_portada_checked['und'][0]['value'] = 1;
-        $context['results']['imagenes_existentes']++;
-      }
+    //Primero comprobamos si el libro está en dilve
+    $book = $dilve->search($node->field_libro_ean['und'][0]['value']);
+    
+    //Si el resultado es string, significa que el libro no está en dilve
+    if (is_string($book)) {
+      $node->field_libro_dilve['und'][0]['value'] = 2;
+      $node->title_field['und'][0]['value'] = $node->title;
     }
     else {
-      $download_cover = TRUE;
+      try {
+        $node = libro_crear_ficha($book, TRUE, $node);
+      }
+      catch (PDOException $e){
+        watchdog('libro', $e->getMessage());
+      }
+      
+      $meta = TRUE;
+      $context['results']['in_dilve']++;
+      if(file_exists($node->field_libro_portada['und'][0]['uri'])){
+        $tiene_portada = TRUE;
+      }
+      $node->field_libro_dilve['und'][0]['value'] = 1;
     }
-    
-    if ($download_cover) {
+    //Si no está en dilve o no ha bajado la portado probamos casadellibro
+    if (!$tiene_portada) {
       $ean = $node->field_libro_ean['und'][0]['value'];
       $url = sprintf("http://image.casadellibro.com/a/l/t0/%s/%s.jpg", substr($ean, 11, 2), $ean);
-      $file = create_cover($url, $ean);
-      if (!empty($file)) {
-        $node->field_libro_portada['und'][0] = $file;
-        $node->field_libro_portada['und'][0]['title'] = $node->title;
-        $node->field_libro_portada['und'][0]['alt'] = $node->title;
-        $node->field_libro_portada_checked['und'][0]['value'] = 1;
-        $context['results']['conseguidas'] ++;
-      }
-      else {
-        $context['results']['no_conseguidas'] ++;
-        $node->field_libro_portada_checked['und'][0]['value'] = 2;
+      $request = drupal_http_request($url);
+      
+      if ($request->code == 200) {
+        $ext = substr($request->headers['content-type'], strrpos($request->headers['content-type'], '/') + 1);  
+        $filename = $node->field_libro_ean['und'][0]['value'].'.'.$ext;
+        $file = create_cover($request->data, $filename);
+        if (!empty($file)) {
+          $node->field_libro_portada['und'][0] = $file;
+          $node->field_libro_portada['und'][0]['title'] = $node->title;
+          $node->field_libro_portada['und'][0]['alt'] = $node->title;
+          $tiene_portada = TRUE;
+        }
       }
     }
+    //Por último checkeamos en CEGAL
+    if (!$tiene_portada) {
+      if ($image) {
+        $image = $cegal->cover($node->field_libro_isbn['und'][0]['value']);
+        $file = create_cover($image['data'], $node->field_libro_isbn['und'][0]['value'].'.'.$image['format']);
+        if (!empty($file)) {
+          $node->field_libro_portada['und'][0] = $file;
+          $node->field_libro_portada['und'][0]['title'] = $node->title;
+          $node->field_libro_portada['und'][0]['alt'] = $node->title;
+          $tiene_portada = TRUE;
+        }
+        
+      }
+    }
+    
+    if ($tiene_portada)
+      $context['results']['portadas']++;
+    
     node_save($node);
     $context['sandbox']['progress'] += 1;
   }
@@ -196,11 +233,11 @@ function libro_portada_process($limit, $max, $skip, &$context) {
   }
 }
 
-function libro_portadas_finish($success, $results, $operations) {
+function libro_metainfo_finish($success, $results, $operations) {
   if ($success) {
-    drupal_set_message(t("@count book convers found", array('@count' => $results['conseguidas'])));
-    drupal_set_message(t("@count book covers not found", array('@count' => $results['no_conseguidas'])));
-    drupal_set_message(t("@count book covers already there", array('@count' => $results['imagenes_existentes'])));
+    drupal_set_message(t("@count book found in dilve", array('@count' => $results['in_dilve'])));
+    drupal_set_message(t("@count book covers downloaded", array('@count' => $results['portadas'])));
+    
   }
   else {
     // An error occurred.
@@ -499,6 +536,11 @@ WHERE  `field_parada_libro_nid` = :nid AND n.status = 1", array(':nid' => $node-
   }
 }
 
+
+function _get_book_by_ean($ean) {
+  $result = views_get_view_result('libros_admin', 'libro_por_ean', $ean);
+  return node_load($result[0]->nid);
+}
 /**
  * 
  */
@@ -549,10 +591,11 @@ function libro_search_home_form_submit($form, &$form_state) {
  */
 function create_cover($data, $filename, $mimetype = 'image/jpeg', $force = FALSE) {
   global $user;
-  
+  //Primero intentamos cargar la imagen de la base de datos
   $fid = db_select('file_managed', 'f')->condition('filename', $filename)->fields('f', array('fid'))
     ->execute()->fetchAll();
   $filepath = sprintf("%s/%s/portadas/%s",DRUPAL_ROOT, variable_get('file_public_path', 'sites/default/files'), $filename);
+  //Si existe comprobamos que efectivamente el archivo está. Si no lo creamos
   if ($fid) {
     $file = file_load($fid[0]->fid);
     
@@ -561,6 +604,7 @@ function create_cover($data, $filename, $mimetype = 'image/jpeg', $force = FALSE
       file_put_contents($filepath, $data);
     }
   }
+  //Si no existe esa imagen generamos la imagen en el directorio y el objeto en la base de datos
   else {
     $filepath = sprintf("%s/%s/portadas/%s",DRUPAL_ROOT, variable_get('file_public_path', 'sites/default/files'), $filename);
     file_put_contents($filepath, $data);
@@ -648,8 +692,7 @@ function libro_generar_boton_compra($nid) {
   }
   // Build the Add to Cart form using the prepared values.
   $form = drupal_get_form($form_id, $line_item, 0, array());
-  //dpm(distribuidores_plazo($plazo));
-  //dpm($form);
+  
   if ($mostrar_carrito){
     $message = '<div>'.distribuidores_plazo($plazo).'</div>';
     return drupal_render($form).$message;
@@ -662,18 +705,28 @@ function libro_generar_boton_compra($nid) {
  * A partir de un array con información de un isbn crea un libro y su 
  * producto de commerce asociado
  * @param type $book
+ * @param $update Si hay que actualizar un nodo exitente o no
+ * @param $node Solo si la anterior es true
  * @return $node
  */
-function libro_crear_ficha($book) {
-  $node = new stdClass();
-  $node->type = 'libro';
-  $node->uid = 1;
+function libro_crear_ficha($book, $update = FALSE, $node = NULL) {
+  //Si metemos la opción update cargamos la info de la base de datos
+  if ($update) {
+    $commerce_product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
+  }
+  //Si no declaramos el nodo y el producto
+  else {
+    $node = new stdClass();
+    $node->type = 'libro';
+    $node->uid = 1;
 
-  $commerce_product = commerce_product_load_by_sku($book['isbn']);
-  if (!$commerce_product)
-    $commerce_product = new stdClass();
-  
-  $commerce_product->type = 'libro';
+    $commerce_product = commerce_product_load_by_sku($book['isbn']);
+    if (!$commerce_product)
+      $commerce_product = new stdClass();
+
+    $commerce_product->type = 'libro';
+    $commerce_product->sku = $book['ean'];
+  }
   
   $title = truncate_utf8($book['title'],128, TRUE, TRUE);
   if ($book['title']) {
@@ -687,8 +740,9 @@ function libro_crear_ficha($book) {
   $node->field_libro_ean['und'][0]['value'] = $book['ean'];
 
 
-  if (isset($book['pages']))
+  if (isset($book['pages'])) {
    $node->field_libro_paginas['und'][0]['value'] = $book['pages'];
+  }
 
   if (isset($book['year'])) {
     $year_number = $book['year'];
@@ -713,20 +767,21 @@ function libro_crear_ficha($book) {
     $node->field_libro_sinopsis['und'][0]['value'] = $book['description'];                
     $node->field_libro_sinopsis['und'][0]['format'] = 'sinopsis';
   }
-  if (isset($book["subtitle"]))
+  
+  if (isset($book["subtitle"])) {
     $node->field_libro_subtitulo['und'][0]['value'] = $book['subtitle'];
+  }
 
 
-  $commerce_product->sku = $book['ean'];
-
-
-  $commerce_product->commerce_price['und'][0] = array(
-    'amount' => $book['price'],
-    'currency_code' => 'EUR',
-    'data' => array(
-      'include_tax' =>  'iva_libros'
-    ),
-  );
+  if ($book['price']) {
+    $commerce_product->commerce_price['und'][0] = array(
+      'amount' => $book['price'],
+      'currency_code' => 'EUR',
+      'data' => array(
+        'include_tax' =>  'iva_libros'
+      ),
+    );
+  }
   if (isset($book['weight'])) {
     $commerce_product->field_product_peso['und'][0] = array(
       'weight' => $book['weight']['value'],
@@ -739,11 +794,9 @@ function libro_crear_ficha($book) {
   if ($book['cover_url']) {
     $request = drupal_http_request($book['cover_url']);
     if ($request->code == 200) {
-      $ext = substr($book['cover_url'], strrpos($book['cover_url'], '.') + 1);  
+      $ext = substr($request->headers['content-type'], strrpos($request->headers['content-type'], '/') + 1); 
       $filename = $node->field_libro_ean['und'][0]['value'].'.'.$ext;
       $file = create_cover($request->data, $filename);
-
-      
     }
   }
   

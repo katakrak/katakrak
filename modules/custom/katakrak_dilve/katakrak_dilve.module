@@ -115,11 +115,10 @@ function katakrak_dilve_settings_form($form, &$form_state) {
  */
 function katakrak_dilve_batch_process_form($form, &$form_state) {
   $form['max'] = array(
-    '#title' => t('Number of items to process'),
-    '#description' => t('If no value all items will be processed'),
+    '#title' => t('Número de elementos a procesar'),
+    '#description' => t('Si se deja vacío procesamos todos en un batch'),
     '#type' => 'textfield',
     '#size' => 10,
-    
   );
   $form['limit'] = array(
     '#title' => t('libros por iteracións'),
@@ -136,10 +135,6 @@ function katakrak_dilve_batch_process_form($form, &$form_state) {
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => t('Procesar'),
-  );
-  $form['enviar'] = array(
-    '#type' => 'submit',
-    '#value' => t('Rescatar FTP'),
   );
   return $form;
 }
@@ -158,16 +153,6 @@ function katakrak_dilve_batch_process_form_submit($form, &$form_state) {
     );
     batch_set($batch);
   }
-  elseif ($form_state['clicked_button']['#value'] == 'Rescatar FTP') {
-    $batch = array(
-      'title' => t('Rescatando archivos de ftp viejo'),
-      'operations' => array(
-        array('katakrak_dilve_batch_ftp_process', array($max, $limit, $recheck)),
-      ),
-      'finished' => 'katakrak_dilve_batch_ftp_process_finish',
-    );
-    batch_set($batch);
-  }
 }
 
 
@@ -183,7 +168,6 @@ function katakrak_dilve_info($node) {
     drupal_set_message($book, 'error');
     $book = array();
   }
-    
   return drupal_get_form('dilve_node_info_form', $node, $book);
 }
 
@@ -300,39 +284,6 @@ function dilve_node_info_form_submit($form, &$form_state) {
   $form_state['redirect'] = 'node/'.$node->nid;
 }
 
-function katakrak_dilve_batch_ftp_process($max, $limit, $recheck, &$context) {
-  $files_db = db_select('file_managed' ,'f')->fields('f');
-  if (!isset($context['sandbox']['progress'])) {
-    $context['sandbox']['progress'] = 0;
-    $context['sandbox']['max'] = $max ? $max : $files_db->execute()->rowCount();
-    $context['results']['in_dilve'] = 0;
-    $context['results']['no_dilve'] = 0;
-  }
-  $fids = $files_db->range($context['sandbox']['progress'], $limit)->execute()->fetchAll();
-  
-  $ftp = ftp_connect('ftp.cluster013.ovh.net');
-  ftp_login($ftp, "katakrak", "kraskao22");
-  $chdir = ftp_chdir($ftp, '/www/sites/test.katakrak.net/files');
-  if ($chdir)
-  ftp_pasv($ftp, TRUE);
-  foreach ($fids as $fid) {
-    $file = file_load($fid->fid);
-    $file_path = drupal_realpath($file->uri);
-    if (!file_exists($file_path)) {
-      $handle = fopen($local_file, 'w');
-      $remote_path = file_uri_target($file->uri);
-      $success = ftp_get($ftp, $file_path, $remote_path, FTP_BINARY);
-     
-    }
-  }
-  ftp_close($ftp);
-
-  $context['sandbox']['progress'] += $limit; 
-  if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
-    $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
-  }
-}
-
 /**
  * Batch function to process all the items
  * 
@@ -359,7 +310,6 @@ function katakrak_dilve_batch_process($max, $limit, $recheck, &$context){
   $nids = $nodes->range(0, $limit)->execute()->fetchAll();
   
   foreach ($nids as $nid) {
-    watchdog("dilve", $nid->nid);
     watchdog("dilve", $nid->nid);
     $node = node_load($nid->nid);
     $book = $dilve->search($node->field_libro_ean['und'][0]['value']);
@@ -410,6 +360,7 @@ function katakrak_dilve_batch_process($max, $limit, $recheck, &$context){
         $node->field_libro_paginas['und'][0]['value'] = $book['pages'];
       if (isset($book["subtitle"]))
         $node->field_libro_subtitulo['und'][0]['value'] = $book['subtitle'];
+      
       if ($book['cover_url']) {
         $request = drupal_http_request($book['cover_url']);
         if ($request->code == 200) {
@@ -426,9 +377,6 @@ function katakrak_dilve_batch_process($max, $limit, $recheck, &$context){
       }
 
       $node->field_libro_dilve['und'][0]['value'] = 2;
-      if ($recheck) {
-        $node->field_libro_dilve['und'][0]['value'] = 3;
-      }
       commerce_product_save($product);
       $context['results']['in_dilve']++;
     }
