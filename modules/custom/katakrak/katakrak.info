@@ -31,7 +31,6 @@ dependencies[] = mailchimp_signup
 dependencies[] = menu
 dependencies[] = node
 dependencies[] = path
-dependencies[] = portfolio
 dependencies[] = search
 dependencies[] = strongarm
 dependencies[] = system

@@ -1,13 +1,13 @@
 name = Katakrak User
 core = 7.x
 package = Katakrak
-<<<<<<< HEAD
-=======
-dependencies[] = ctools
->>>>>>> master
+dependencies[] = devel
 dependencies[] = features
 dependencies[] = strongarm
 dependencies[] = views
+<<<<<<< HEAD = ======
+>>>>>>> master
+dependencies[] = features
 features[captcha_points][] = contact_personal_form
 features[captcha_points][] = contact_site_form
 features[captcha_points][] = user_login
@@ -18,8 +18,8 @@ features[ctools][] = captcha:captcha:1
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
-features[user_role][] = administrator
 features[user_permission][] = access devel information
+features[user_role][] = administrator
 features[variable][] = logintoboggan_confirm_email_at_registration
 features[variable][] = logintoboggan_immediate_login_on_register
 features[variable][] = logintoboggan_login_successful_message

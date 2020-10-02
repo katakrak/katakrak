@@ -506,7 +506,6 @@ function katakrak_agenda_views_default_views() {
   );
   $handler->display->display_options['filters']['language']['group'] = 2;
   $handler->display->display_options['path'] = 'agenda';
-  $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Agenda';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
