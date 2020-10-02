@@ -42,7 +42,7 @@ function libro_menu() {
   );
   $items['libro'] = array(
     'title' => 'Portada',
-    'page callback' => 'libro_por_isbn',
+    'page callback' => 'todostuslibros_ficha',
     'access arguments' => array('access content'),
     'type' => MENU_CALLBACK,
   );
@@ -643,20 +643,21 @@ WHERE  `field_parada_libro_nid` = :nid AND n.status = 1", array(':nid' => $node-
 
 
 function _get_book_by_ean($ean) {
-  $result = views_get_view_result('libros_admin', 'libro_por_ean', $ean);
+  $result = views_get_view_result('libros_admin', 'libros_por_ean', $ean);
   return node_load($result[0]->nid);
 }
 /**
  * 
  */
-function libro_por_isbn() {
+function todostuslibros_ficha() {
   if ($_GET['isbn']) {
     $options = array('query' => array(
       'utm_source'=>'todostuslibros',
-      'utm_medium'=>'todostuslibros',
+      'utm_medium'=>'todostuslibros',   
       ));
     $isbn = $_GET['isbn'];
-    $result = views_get_view_result('libros_admin', 'libro_por_isbn', $isbn);
+    $ean = preg_replace("/[^a-zA-Z0-9]/", "", $isbn);
+    $result = views_get_view_result('libros_admin', 'libros_por_ean', $ean);
     
     if ($result)
       drupal_goto('node/'.$result[0]->nid, $options);
