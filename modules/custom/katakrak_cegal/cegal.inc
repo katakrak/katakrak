@@ -34,7 +34,7 @@ class CegalSearch {
   public function disponibilidad($isbn) {
     $query  = $this->query('disponibilidad.xml.php', $isbn);
     
-     $request = drupal_http_request($query);
+    $request = drupal_http_request($query, array('timeout' => 1));
     if ($request->code == 200) {
       $xml = simplexml_load_string($request->data);
     }
@@ -57,8 +57,8 @@ class CegalSearch {
   public function cover($isbn) {
     $query  = $this->query('fichalibro.xml.php', $isbn).'&TIPOFICHA=C';
     
-    $request = drupal_http_request($query);
-     if ($request->code == 200) {
+    //set_time_limit(1);
+    $request = drupal_http_request($query, array('timeout' => 2));     if ($request->code == 200) {
       $xml = simplexml_load_string($request->data);
     }
     else 
@@ -79,7 +79,7 @@ class CegalSearch {
   
   public function ficha($isbn) {
     $query  = $this->query('fichalibro.xml.php', $isbn).'&formato=XML';
-      $request = drupal_http_request($query);
+    $request = drupal_http_request($query, array('timeout' => 2));
      if ($request->code == 200) {
       $xml = simplexml_load_string($request->data);
     }
@@ -104,7 +104,7 @@ class CegalSearch {
   
   public function sinopsis($isbn) {
     $query  = $this->query('fichalibro.xml.php', $isbn).'&TIPOFICHA=C';
-      $request = drupal_http_request($query);
+    $request = drupal_http_request($query, array('timeout' => 2));
      if ($request->code == 200) {
       $xml = simplexml_load_string($request->data);
     }
