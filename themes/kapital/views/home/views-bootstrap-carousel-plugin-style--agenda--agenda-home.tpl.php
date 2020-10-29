@@ -2,7 +2,7 @@
   <h3><?php print $title ?></h3>
 <?php endif ?>
 
-<div id="carousel-agenda" class="carousel slide data-ride="carousel" <?php print $classes ?>" <?php print $attributes ?>>
+<div id="carousel-agenda" class="carousel slide" data-ride="carousel" <?php print $classes ?>" <?php print $attributes ?>>
   <?php if ($indicators): ?>
     <!-- Carousel indicators -->
     <ol class="carousel-indicators">

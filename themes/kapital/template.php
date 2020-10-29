@@ -7,7 +7,7 @@
  * Place your custom PHP code in this file.
  */
 function kapital_preprocess_page(&$vars) {
-  dpm(menu_tree_all_data('menu-menu-nagusia'));
+  //dpm(menu_tree_all_data('menu-menu-nagusia'));
   $vars['main_menu'] = menu_build_tree('menu-menu-nagusia');
   global $user;
   //Añadimos fontawesom

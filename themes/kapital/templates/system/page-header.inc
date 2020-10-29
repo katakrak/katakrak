@@ -39,7 +39,7 @@
       <ul class="navbar-nav navbar-centered">
         
         <?php foreach ($main_menu as $menu_item): ?>
-          <?php dpm($menu_item) ?>
+          <?php //dpm($menu_item) ?>
           <li class="<?php print $menu_item['below'] ? 'dropdown' : '' ?> nav-item">
             <?php if (empty($menu_item['below'])): ?>
               <?php print l($menu_item['link']['title'], $menu_item['link']['href'], array('attributes' => array('class' => array('nav-link')))) ?>

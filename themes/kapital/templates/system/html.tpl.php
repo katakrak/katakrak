@@ -66,6 +66,7 @@
   <!--[if lt IE 9]>
     <script src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <?php print $scripts; ?>
 </head>
 <body<?php print $body_attributes; ?>>
@@ -75,5 +76,9 @@
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
+     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+     <script>
+   AOS.init();
+ </script>
 </body>
 </html>
