@@ -76,7 +76,14 @@
 ?>
 <?php include 'page-header.inc' ?>
 <?php print render($page['banners']) ?>
+
+<!-- Debajo de los banners usamos estas dos regiones sin row -->
+
+
 <main class="main <?php print $section_title ?>">
+    
+  <?php print render($page['hero']) ?>
+
   <div class="row">
     <section<?php print $content_column_class; ?>>
       <a id="main-content"></a>
@@ -98,26 +105,7 @@
 
     </section>
   </div>
-
-  <div class="row row-no-gutters">    
-    <div class="col-sm-12 col-md-6">
-      <?php print render($page['content_top_left']) ?>
-    </div>
-    <div class="col-sm-12 col-md-6">
-      <?php print render($page['content_top_right']) ?>
-    </div>
-    <div class="clearfix"></div>
-    <div class="col-sm-4">
-      <?php print render($page['content_middle_first']) ?>  
-    </div><!--/.col -->
-      <div class="col-sm-4">
-        <?php print render($page['content_middle_second']) ?>  
-      </div><!--/.col -->
-      <div class="col-sm-4">
-        <?php print render($page['content_middle_third']) ?>  
-      </div><!--/.col -->
-  </div><!--/.row row-no-gutters -->  
-
+    
   <div class="container">
     <?php print render($page['content_top']) ?>
     <?php print render($page['content']); ?>

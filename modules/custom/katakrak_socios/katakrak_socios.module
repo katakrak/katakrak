@@ -35,14 +35,18 @@ function katakrak_socios_theme() {
       'path' => $path . '/templates',
       'arguments' => array(
       )
-    )
+    ),
+    'katakrak_socixs_campana' => array(
+      'template' => 'katakrak-socixs-campana',
+      'path' => $path.'/templates',
+    ),
   );
 }
 
 function katakrak_socios_block_info() {    
-  $blocks['katakrak_en_datos'] = array(
+  $blocks['katakrak_socixs_campana'] = array(
     // info: The name of the block.
-    'info' => t('Katakrak en datos'),
+    'info' => t('Socixs campaña'),
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
   $blocks['banner_socios'] = array(
@@ -61,10 +65,9 @@ function katakrak_socios_block_info() {
 function katakrak_socios_block_view($delta = '') {
   // The $delta parameter tells us which block is being requested.
   switch ($delta) {
-    case 'katakrak_en_datos':
+    case 'katakrak_socixs_campana':
       // Create your block content here
-      $block['subject'] = t('Katakrak en datos');
-      $block['content'] = theme('katakrak_en_datos');
+      $block['content'] = theme('katakrak_socixs_campana');
       break;
     case 'banner_socios':
       $block['content'] = theme('banner_socios');

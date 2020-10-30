@@ -16,11 +16,12 @@ regions[help]                  = 'Help'
 regions[content]               = 'Content'
 regions[header_right]          = 'Bloque del carrito y boton de cuenta de usuario'
 regions[banners]               = 'Banner'
+regions[hero]                  = 'Hero'
 regions[content_top]           = 'Content top'
 regions[content_middle]        = 'Content middle'
 regions[content_bottom]        = 'Content bottom'
-regions[content_top_left]      = 'Home top left'
-regions[content_top_right]     = 'Home top right'
+regions[content_top_left]      = 'Content top left'
+regions[content_top_right]     = 'Content top right'
 regions[content_middle_first]  = 'Home middle first'
 regions[content_middle_second] = 'Home middle second'
 regions[content_middle_third]  = 'Home middle third'
@@ -94,6 +95,8 @@ layouts[user][regions][] = "footer_first"
 layouts[user][regions][] = "footer_second"
 layouts[user][regions][] = "footer_third"
 layouts[user][regions][] = "footer_fourth"
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; Stylesheets
