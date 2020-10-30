@@ -64,7 +64,11 @@ function katakrak_theme() {
  */
 function katakrak_block_info() {
   $blocks = array();
-  
+  $blocks['breadcrumb_home'] = array(
+    'info' => t('Breadcrumb para volver al inicio'),
+    // Not worth caching.
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   $blocks['footer_first'] = array(
     'info' => t('Katakrak first footer'),
     // Not worth caching.
@@ -92,24 +96,28 @@ function katakrak_block_info() {
  * Implements hook_block_view().
  */
 function katakrak_block_view($delta) {
-  if ($delta == 'katakrak_social') {
-    $block['content'] = theme('katakrak_social_block');
-    return $block;
-  }
-  if ($delta == 'footer_first') {
-    $block['title'] = 'Katakrak Liburuak';
-    $block['content'] = theme('katakrak_footer_first');
-    return $block;
-  }
-  if ($delta == 'footer_second') {
-    $block['content'] = theme('katakrak_footer_second');
-    return $block;
-  }
-  if ($delta == 'footer_third') {
-    $block['content'] = theme('katakrak_social_block');
-    return $block;
-  }
-  
+  switch ($delta) {
+    case 'katakrak_social':
+      $block['content'] = theme('katakrak_social_block');
+      break;
+    case 'footer_first':
+      $block['title'] = 'Katakrak Liburuak';
+      $block['content'] = theme('katakrak_footer_first');
+      break;
+    case 'footer_second':
+      $block['content'] = theme('katakrak_footer_second');
+      break;
+    case 'footer_third':
+      $block['content'] = theme('katakrak_social_block');
+      break;
+    case 'breadcrumb_home':
+      $block['content'] = '<p>
+        <a href="'.url('<front>').'" class="btn btn-transparent"> <i class="fas fa-arrow-left small"></i> '.t('Volver al inicio').'</a>
+        </p>';
+      break;
+   }
+
+  return $block;
 }
 
 /**

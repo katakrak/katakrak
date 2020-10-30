@@ -26,14 +26,8 @@ function katakrak_socios_theme() {
       'template' => 'katakrak-socios-alta-page',
       'path' => $path . '/templates',
       'arguments' => array(
-          'form_signup' => NULL, 
-          'form_aportacion' => NULL,
-      )
-    ),
-    'katakrak_en_datos' => array(
-      'template' => 'katakrak-en-datos',
-      'path' => $path . '/templates',
-      'arguments' => array(
+        'form_signup' => NULL, 
+        'form_aportacion' => NULL,
       )
     ),
     'banner_socios' => array(
