@@ -81,9 +81,6 @@
 
 
 <main class="main <?php print $section_title ?>">
-    
-  <?php print render($page['hero']) ?>
-
   <div class="row">
     <section<?php print $content_column_class; ?>>
       <a id="main-content"></a>
@@ -103,9 +100,9 @@
         <ul class="action-links"><?php print render($action_links); ?></ul>
       <?php endif; ?>
 
-    </section>
+  </section>
   </div>
-    
+  <?php print render($page['hero']) ?>  
   <div class="container">
     <?php print render($page['content_top']) ?>
     <?php print render($page['content']); ?>
