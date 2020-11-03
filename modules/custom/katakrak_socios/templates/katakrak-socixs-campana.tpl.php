@@ -31,17 +31,18 @@
       </li>
     </ul>
       
-    <ul class="nav nav-tabs nav-secondary mt-2 visible-xs">  
+    <ul class="nav nav-tabs nav-secondary mt-2 visible-xs" id="socixs-menu">  
       <li role="presentation" class="drowpdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <a class="dropdown-toggle selector-label" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" >
+            <?php print t("hacerme socix") ?>
           <span class="caret"></span>
         </a>
           <ul class="dropdown-menu">
             <li>
-              <a href="#socix" aria-controls="home" role="tab" data-toggle="tab"><?php print t("hacerme socix") ?></a>
+                <a href="#socix" aria-controls="home" role="tab" data-toggle="tab" class="selector"><?php print t("hacerme socix") ?></a>
             </li>
             <li>
-              <a href="#aportacion" aria-controls="home" role="tab" data-toggle="tab"><?php print t("hacer una aportación puntual") ?></a>
+              <a href="#aportacion" aria-controls="home" role="tab" data-toggle="tab" class="selector" ><?php print t("hacer una aportación puntual") ?></a>
             </li>
           </ul>
       </li>  

@@ -7,6 +7,10 @@
 
 include_once 'katakrak_socios.features.inc';
 
+function katakrak_socios_init() {
+  drupal_add_js(drupal_get_path('module', 'katakrak_socios').'/katakrak_socios.js');
+}
+
 function katakrak_socios_menu() {
   $items['hazte-socix/alta']  = array(
     'title' => 'Hazte socio',
@@ -88,6 +92,10 @@ function katakrak_socios_signup_form($form, &$form_state) {
   else 
     $collapsed = TRUE;
   
+  $form['title'] = array(
+    '#type' => 'item',
+    '#markup' => '<h3 class="mb-2">'.t('Aportación anual como socix').'</h3>'
+  );
   $form['cuota'] = array(
     '#type' => 'select_or_other',
     '#title' => t('Cuota'),
@@ -109,7 +117,10 @@ function katakrak_socios_signup_form($form, &$form_state) {
     '#title' => t("Fraccionar la cuota en dos pagos"),  
     //'#required' => TRUE,
   );
-  
+  $form['datos'] = array(
+    '#type' => 'item',
+    '#markup' => '<h3 class="mb-2">'.t('Datos personales').'</h3>'
+  );
   $form['name'] = array(
     '#type' => 'textfield',
     '#title' => t('Nombre'),
@@ -154,7 +165,7 @@ function katakrak_socios_signup_form($form, &$form_state) {
   );
   $form['lopd_check'] = array(
     '#type' => 'checkbox',
-    '#title' => t("Al hacer click aquí aceptas las ").l(t('condiciones del sitio'), 'lopd'),  
+    '#title' => t("Acepto las ").l(t('condiciones legales'), 'lopd'),  
     '#required' => TRUE,
   );
   
