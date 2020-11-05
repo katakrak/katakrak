@@ -80,7 +80,7 @@
 <!-- Debajo de los banners usamos estas dos regiones sin row -->
 
 
-<main class="main <?php print $section_title ?>">
+<main class="main">
   <div class="row">
     <section<?php print $content_column_class; ?>>
       <a id="main-content"></a>
@@ -103,9 +103,11 @@
   </section>
   </div>
   <?php print render($page['hero']) ?>  
-  <div class="container">
-    <?php print render($page['content_top']) ?>
-    <?php print render($page['content']); ?>
+  <div    class="<?php print $section_title ?>">
+    <div class="container">
+      <?php print render($page['content_top']) ?>
+      <?php print render($page['content']); ?>
+    </div>
   </div>
   <?php print render($page['content_middle']) ?>
   
