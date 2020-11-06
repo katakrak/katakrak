@@ -464,7 +464,6 @@ function libro_node_view($node, $view_mode, $langcode) {
           $node->content['plazo'] = $distribuidores[$distribuidor]['plazo'];
         }
       }
-      
     }
   }
 }

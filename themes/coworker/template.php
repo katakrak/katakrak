@@ -104,7 +104,7 @@ function coworker_preprocess_search_result(&$vars) {
       }
       $product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
       $vars['price'] = commerce_currency_format($product->commerce_price['und'][0]['amount'], 'EUR', $product);
-      $vars['add_to_cart'] = libro_generar_boton_compra($node->nid);
+      //$vars['add_to_cart'] = libro_generar_boton_compra($node->nid);
     }
     elseif ($node->field_event_image) {
       $vars['image'] = l(theme('image_style', array(

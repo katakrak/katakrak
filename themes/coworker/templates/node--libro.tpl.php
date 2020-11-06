@@ -203,7 +203,10 @@ global $language;
                   <div class="alert alert-block alert-warning fade in"><strong><?php print distribuidores_plazo($content['plazo']) ?></strong></div>
                   <?php endif; ?>
                 </div>
+                  <?php else: ?>
+                    <div class="alert alert-block alert-error fade in"><strong><?php print t('No disponible') ?></strong></div>
                   <?php endif; ?>
+                  
               </div>
               <div class="row">
                 <div class="col-sm-12 col-md-12">
