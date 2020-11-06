@@ -10,7 +10,9 @@
     <h2 class="mt-0"><?php print render($content['field_libro_subtitulo']) ?></h2>
     <p>
       <h4><?php print render($content['field_libro_autores'])  ?></h4>
-      <?php print t('Traducción de !name', array('!name' => $node->traductores)) ?>
+      <?php if (!empty($node->traductores)): ?>
+        <?php print t('Traducción de !name', array('!name' => $node->traductores)) ?>
+      <?php endif; ?>
     </p>
   </div>
 
@@ -34,7 +36,9 @@
     <h2 class="hidden-xs mt-0"><?php print render($content['field_libro_subtitulo']) ?></h2>
     <p class="hidden-xs">
       <h4><?php print render($content['field_libro_ed_autor']) ?></h4>
-      <?php print t('Traducción de !name', array('!name' => $node->traductores)) ?>
+      <?php if (!empty($node->traductores)): ?>
+        <?php print t('Traducción de !name', array('!name' => $node->traductores)) ?>
+      <?php endif; ?>
     </p>
     <div class="mt-2">
       <table class="table table-condensed table-book">
