@@ -105,7 +105,7 @@
     <?php if ($node->disponibilidad == DISPONIBLE_LIBRERIA || $node->disponibilidad == DISPONIBLE_DISTRIBUIDOR): ?>
       <div class="mt-2">
         <?php print render($content['field_libro_producto']) ?>
-        <?php print libro_generar_boton_anadir($node->nid) ?>
+        <?php print libro_generar_boton_product($node->nid, TRUE) ?>
       </div>
     <?php endif; ?>
       

@@ -1,4 +1,3 @@
-<?php dpm($node) ?>
 <!-- Ficha libro -->
 <div class="book">
   <div class="cover">
@@ -23,12 +22,15 @@
     
     <?php //TODO ?>
     <div class="mt-2">
-        <button class="btn btn-primary btn-block">Comprar</button>
-        <button class="btn btn-secondary btn-block">Añadir a la cesta</button>
+        <?php print libro_generar_boton_product($node->field_editorial_libro['und'][0]['nid']) ?>
+        <?php print libro_generar_boton_product($node->field_editorial_libro['und'][0]['nid'], TRUE) ?>
     </div>
+    <?php if ($node->field_donacion['und'][0]['product_id']): ?>
     <div class="mt-2">
-      <button class="btn btn-dark btn-block">Descargar</button>
+      <button class="btn btn-dark btn-block"><?php print l(t("Descargar"), "donate/".$node->nid) ?></button>
     </div>
+      <?php endif; ?>
+    
     <?php //ENDTODO ?>
   </div><!-- /buy -->
   <div class="description">
@@ -67,6 +69,12 @@
             <th><?php print t('Precio') ?></th>
             <td><?php print t($content['field_libro_ed_precio'][0]['#markup']) ?></td>
           </tr>
+          <?php if ($content['field_libro_editorial_nota']): ?>
+          <tr>
+            <th>	<?php  print t($content['field_libro_editorial_nota']['#items'][0]['description'])  ?></th>
+            <td><?php print render($content['field_libro_editorial_nota']) ?></td>
+          </tr>
+			<?php endif; ?>
         </tbody>
       </table>
     </div>
@@ -78,21 +86,27 @@
 </div>
 <div class="row">
   <div class="col-sm-6">
-   <hr class="hr-dark">
-   <h2 class="text-center"><?php print t("En la prensa")?></h2>
-   <?php foreach ($node->resenas as $resena): ?>
-    <div class="resena">
-    <p class="resena-cita"><?php print $resena->cita ?></p>
-    <p class="resena-fuente"><?php print l($resena->fuente, "node/".$resena->nid); ?></p>
-  </div>
+  <hr class="hr-dark">
+  <h2 class="text-center"><?php print t("En la prensa")?></h2>
+  <div class="scroll-v h500">
+  <?php foreach ($node->resenas as $resena): ?>
+  
+    <a class="post-prensa" href="<?php print url("node/".$resena->nid) ?>">
+    <p class="quote"><?php print $resena->cita ?></p>
+    <p class="mb-0"><?php print $resena->fuente ?></p>
+    </a>
   <?php endforeach; ?>
+      </div>
   </div>
   <div class="col-sm-6">
-   <hr class="hr-dark">
-   <h2 class="text-center">Acerca de Silvia Federici</h2>
-   <p>Texto</p>
-   <p>
-     <a class="btn btn-secondary">Saber más</a>
-   </p>
+    <hr class="hr-dark">
+    <?php foreach($node->autores as $autor): ?>
+      <h2 class="text-center"><?php print t('Acerca de !autor', array('!autor' => $autor->title)) ?></h2>
+      <?php print theme('image_style', array('style_name' => 'autor_editorial_ficha_libro', 'path' => $autor->field_imagen['und'][0]['uri'], 'attributes' => array('class' => array('img-shadow book-author')))) ?>
+      <p><?php print $autor->field_autor_nacimiento['und'][0]['value'] ?></p>
+      <p><?php print truncate_utf8($autor->body['und'][0]['value'], 640, TRUE, TRUE) ?></p>
+      <p><?php print l(t('Saber más'), 'node/'.$autor->nid, array('attributes' => array('class' => array('btn btn-secondary')))) ?></p>
+  <?php endforeach; ?>
+   
   </div>
 </div>

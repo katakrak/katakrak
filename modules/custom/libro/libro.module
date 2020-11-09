@@ -766,7 +766,7 @@ function libro_search_home_form_submit($form, &$form_state) {
   $form_state['redirect'] = 'buscar/libros/'.$form_state['values']['search_term'];
 }
 
-function libro_generar_boton_anadir($nid) {
+function libro_generar_boton_product($nid, $anadir = FALSE) {
   $node = node_load($nid);
   $product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
   
@@ -780,19 +780,16 @@ function libro_generar_boton_anadir($nid) {
   $line_item->data['context']['add_to_cart_combine'] = 1;
 
   // Generate a form ID for this add to cart form.
-  $form_id = commerce_cart_add_to_cart_form_id($product_ids).'_anadir';
+  $form_id = commerce_cart_add_to_cart_form_id($product_ids);
+  if ($anadir)
+    $form_id .= '_anadir';
   $line_item->data['context']['display_path'] = current_path();
 
   // Build the Add to Cart form using the prepared values.
   $form = drupal_get_form($form_id, $line_item, 0, array());
 
-  
-  if ($mostrar_carrito){
-    $message = '<div>'.distribuidores_plazo($plazo).'</div>';
-    return drupal_render($form).$message;
-  }
-  else 
-    return '';
+  return drupal_render($form);
+
 }
 
 /**
