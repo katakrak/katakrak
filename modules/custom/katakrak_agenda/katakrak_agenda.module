@@ -6,6 +6,37 @@
 
 include_once 'katakrak_agenda.features.inc';
 
+/**
+ * Implements hook_block_info().
+ */
+function katakrak_agenda_block_info() {
+  $blocks = array();  
+  $blocks['katakrak_agenda_banner_organiza'] = array(
+    'info' => t('Bloque "Banner" de organizar un evento'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['katakrak_agenda_nav_secundary'] = array(
+    'info' => t('Bloque de navegación secundario de agenda'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function katakrak_agenda_block_view($delta) {
+  switch($delta) {
+    case 'katakrak_agenda_banner_organiza':
+      $block['content'] = theme('katakrak_agenda_banner_organiza');
+      break;
+    case 'katakrak_agenda_nav_secundary':
+      $block['content'] = theme('katakrak_agenda_nav_secundary');
+      break;
+  }
+  return $block;
+}
+
 function katakrak_agenda_theme() {
   $path = drupal_get_path('module', 'katakrak_agenda');
   return array(
@@ -22,7 +53,15 @@ function katakrak_agenda_theme() {
       'arguments' => array(
         'actos' => NULL,
       ),
-    )
+    ),
+    'katakrak_agenda_banner_organiza' => array(
+      'template' => 'katakrak-agenda-banner-organiza',
+      'path' => $path . '/templates',
+    ),
+    'katakrak_agenda_nav_secundary' => array(
+      'template' => 'katakrak-agenda-nav-secundary',
+      'path' => $path . '/templates',
+    ),
   );
 }
 

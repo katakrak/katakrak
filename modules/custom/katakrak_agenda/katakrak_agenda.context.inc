@@ -27,10 +27,16 @@ function katakrak_agenda_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-agenda-isotope_filter' => array(
-          'module' => 'views',
-          'delta' => 'agenda-isotope_filter',
-          'region' => 'content',
+        'katakrak_agenda-katakrak_agenda_banner_organiza' => array(
+          'module' => 'katakrak_agenda',
+          'delta' => 'katakrak_agenda_banner_organiza',
+          'region' => 'banners',
+          'weight' => '-10',
+        ),
+        'katakrak_agenda-katakrak_agenda_nav_secundary' => array(
+          'module' => 'katakrak_agenda',
+          'delta' => 'katakrak_agenda_nav_secundary',
+          'region' => 'content_top',
           'weight' => '-10',
         ),
       ),
