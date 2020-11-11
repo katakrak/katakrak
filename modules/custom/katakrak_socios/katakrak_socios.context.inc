@@ -28,38 +28,19 @@ function katakrak_socios_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'katakrak_socios-banner_socios' => array(
-          'module' => 'katakrak_socios',
-          'delta' => 'banner_socios',
-          'region' => 'content_top',
+        'katakrak-breadcrumb_home' => array(
+          'module' => 'katakrak',
+          'delta' => 'breadcrumb_home',
+          'region' => 'banners',
           'weight' => '-10',
         ),
-        'katakrak_socios-alta_socios' => array(
+        'katakrak_socios-katakrak_socixs_campana' => array(
           'module' => 'katakrak_socios',
-          'delta' => 'alta_socios',
-          'region' => 'content_campana_left',
-          'weight' => '-10',
-        ),
-        'views-agenda-como_hacer_krak' => array(
-          'module' => 'views',
-          'delta' => 'agenda-como_hacer_krak',
-          'region' => 'content_campana_right',
-          'weight' => '-57',
-        ),
-        'views-agenda-radical_may' => array(
-          'module' => 'views',
-          'delta' => 'agenda-radical_may',
-          'region' => 'content_campana_right',
-          'weight' => '-56',
-        ),
-        'katakrak_socios-katakrak_en_datos' => array(
-          'module' => 'katakrak_socios',
-          'delta' => 'katakrak_en_datos',
-          'region' => 'content_campana_right',
+          'delta' => 'katakrak_socixs_campana',
+          'region' => 'hero',
           'weight' => '-10',
         ),
       ),
-      'layout' => 'campana',
     ),
   );
   $context->condition_mode = 0;
