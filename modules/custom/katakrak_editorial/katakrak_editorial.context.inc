@@ -30,11 +30,21 @@ function katakrak_editorial_context_default_contexts() {
   );
   $context->reactions = array(
     'block' => array(
-      'blocks' => array(),
-      'layout' => 'book',
+      'blocks' => array(
+        'libro-libreria_home_search' => array(
+          'module' => 'libro',
+          'delta' => 'libreria_home_search',
+          'region' => 'content_top',
+          'weight' => '-10',
+        ),
+      ),
     ),
     'menu' => array(
       0 => 'main-menu:editorial',
+    ),
+    'theme' => array(
+      'title' => 'bg-orange-p',
+      'subtitle' => '',
     ),
   );
   $context->condition_mode = 0;

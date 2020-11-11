@@ -738,8 +738,8 @@ function katakrak_editorial_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'number',
         'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
+          'decimal_separator' => ',',
+          'prefix_suffix' => 1,
           'scale' => 2,
           'thousand_separator' => '',
         ),
