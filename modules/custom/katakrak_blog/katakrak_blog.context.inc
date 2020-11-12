@@ -58,6 +58,33 @@ function katakrak_blog_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'blog_home';
+  $context->description = 'Blog home';
+  $context->tag = 'Blog';
+  $context->conditions = array(
+    'views' => array(
+      'values' => array(
+        'blogs_landing:page' => 'blogs_landing:page',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(),
+      'layout' => 'agenda',
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Blog');
+  t('Blog home');
+  $export['blog_home'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'blog_page';
   $context->description = 'Blog page';
   $context->tag = 'blog';

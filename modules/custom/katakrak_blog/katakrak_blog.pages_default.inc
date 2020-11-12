@@ -217,37 +217,6 @@ function katakrak_blog_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
   $pane = new stdClass();
-  $pane->pid = 'new-85fa99a1-8b0d-4d03-82b0-61beaecdb464';
-  $pane->panel = 'header';
-  $pane->type = 'header';
-  $pane->subtype = 'header';
-  $pane->shown = TRUE;
-  $pane->access = array();
-  $pane->configuration = array(
-    'link' => 1,
-    'markup' => 'h1',
-    'id' => '',
-    'class' => 'panel-term-name',
-    'context' => 'argument_term_1',
-    'override_title' => 1,
-    'override_title_text' => '',
-    'override_title_heading' => 'h2',
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array(
-    'css_id' => '',
-    'css_class' => '',
-  );
-  $pane->extras = array();
-  $pane->position = 0;
-  $pane->locks = array();
-  $pane->uuid = '85fa99a1-8b0d-4d03-82b0-61beaecdb464';
-  $display->content['new-85fa99a1-8b0d-4d03-82b0-61beaecdb464'] = $pane;
-  $display->panels['header'][0] = 'new-85fa99a1-8b0d-4d03-82b0-61beaecdb464';
-  $pane = new stdClass();
   $pane->pid = 'new-76683b64-bc0c-4822-939a-f2e56959616e';
   $pane->panel = 'left';
   $pane->type = 'block';

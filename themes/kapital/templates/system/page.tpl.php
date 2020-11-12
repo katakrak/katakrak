@@ -76,7 +76,7 @@
 ?>
 <?php include 'page-header.inc' ?>
 <?php print render($page['banners']) ?>
-<main class="main">
+<main class="main <?php print $section_title ?>">
   <div class="row">
     <section<?php print $content_column_class; ?>>
       <a id="main-content"></a>
@@ -99,7 +99,7 @@
   </section>
   </div>
   <?php print render($page['hero']) ?>  
-  <div    class="<?php print $section_title ?>">
+  <div class="<?php print $section_title ?>">
     <div class="container">
       <?php print render($page['content_top']) ?>
       <?php print render($page['content']); ?>

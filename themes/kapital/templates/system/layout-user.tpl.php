@@ -76,7 +76,7 @@
 ?>
 <?php include 'page-header.inc' ?>
 
-<main class="main login">
+<main class="main laogin">
   <?php print $messages; ?>
   <div class="container">
     <h1 class="text-center"><?php print $title; ?></h1>
