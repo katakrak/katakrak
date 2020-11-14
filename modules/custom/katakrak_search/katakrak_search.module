@@ -77,6 +77,14 @@ function katakrak_search_theme() {
       ),
       'path' => $path . '/templates',
     ),
+    'katakrak_search_results_libros' => array(
+      'template' =>  'katakrak-search-results-libros',
+      'arguments' => array(
+        'results' => NULL,
+        'columns' => NULL,
+      ),
+      'path' => $path . '/templates',
+    ),
     'katakrak_search_facetapi_badges' => array(
       'template' =>  'katakrak-search-facetapi-badges',
       'arguments' => array(
@@ -337,7 +345,7 @@ function katakrak_search_search_execute($search) {
     apachesolr_failure(t('Solr search'), $search['keys']);
   }
   if (is_array($results) && count($results)) {
-    return theme('katakrak_search_results', array('results' => $results, 'columns' => $search['columns']));
+    return theme('katakrak_search_results_'.$search['tipo'], array('results' => $results, 'columns' => $search['columns']));
   }
 }
 

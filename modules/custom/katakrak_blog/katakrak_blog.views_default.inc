@@ -369,6 +369,7 @@ function katakrak_blog_views_default_views() {
     t('Nid'),
     t('Bide-izena'),
     t('Blog articles for category'),
+    t('more'),
     t('Leer más [+]'),
     t('Todo(s)'),
     t('Related blog posts'),
@@ -552,6 +553,7 @@ function katakrak_blog_views_default_views() {
     t('Promocionar'),
     t('Editar'),
     t('Page'),
+    t('more'),
   );
   $export['blog_admin'] = $view;
 
@@ -569,14 +571,10 @@ function katakrak_blog_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Blog';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'más';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Aplicar';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordenar por';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '12';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -630,6 +628,7 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'blog' => 'blog',
+    'boletin' => 'boletin',
   );
 
   /* Display: Page */
@@ -638,10 +637,10 @@ function katakrak_blog_views_default_views() {
   $translatables['blogs_landing'] = array(
     t('Master'),
     t('Blog'),
-    t('más'),
-    t('Aplicar'),
-    t('Reiniciar'),
-    t('Ordenar por'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Elementos por página'),

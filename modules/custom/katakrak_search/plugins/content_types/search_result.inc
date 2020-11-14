@@ -19,6 +19,7 @@ if (module_exists('apachesolr_search')) {
       'filters' => '',
       'rows' => 10,
       'env_id' => '',
+      'tipo' => '',
       'sort_action' => 'none',
       'sort' => '',
       'breadcrumb' => TRUE,
@@ -80,6 +81,7 @@ function katakrak_search_search_results_content_type_render($subtype, $conf, $ar
   $search['rows'] = isset($conf['rows']) ? $conf['rows'] : 10;
   $search['columns'] = isset($conf['columns']) ? $conf['columns'] : 3;
   $search['env_id'] = isset($conf['env_id']) ? $conf['env_id'] : '';
+  $search['tipo'] = isset($conf['tipo']) ? $conf['tipo'] : '';
 
   if (!empty($conf['log'])) {
     watchdog('search', '%keys (@type).', array('%keys' => $search['keys'], '@type' => t('Search')), WATCHDOG_NOTICE, l(t('results'), $_GET['q']));
@@ -97,11 +99,11 @@ function katakrak_search_search_results_content_type_render($subtype, $conf, $ar
 
     try {
       $results = katakrak_search_search_execute($search);
-$query = apachesolr_current_query(variable_get('apachesolr_default_environment', 'default'));
-  if ($query) {
-    $searcher = $query->getSearcher();
-    $response = apachesolr_static_response_cache($searcher);
-  }
+      $query = apachesolr_current_query(variable_get('apachesolr_default_environment', 'default'));
+      if ($query) {
+        $searcher = $query->getSearcher();
+        $response = apachesolr_static_response_cache($searcher);
+      }
       // Don't render suggestions. Use spellchecker pane instead.
       if (isset($results['suggestions'])) {
         unset($results['suggestions']);
@@ -111,7 +113,8 @@ $query = apachesolr_current_query(variable_get('apachesolr_default_environment',
       if (empty($conf['breadcrumb'])) {
         drupal_set_breadcrumb($breadcrumb);
       }
-    } catch (Exception $e) {
+    }
+    catch (Exception $e) {
       watchdog('Apache Solr', nl2br(check_plain($e->getMessage())), NULL, WATCHDOG_ERROR);
     }
   }
@@ -285,7 +288,19 @@ function katakrak_search_search_results_content_type_edit_form($form, &$form_sta
     '#type' => 'checkbox',
     '#default_value' => $conf['log'],
   );
-   $form['columns'] = array(
+  
+  $form['tipo'] = array(
+    '#title' => t('Tipo de búsqueda'),
+    '#type' => 'select',
+    '#options' => array(
+      'blogs' => 'blogs',
+      'eventos' => 'eventos',
+      'libros' => 'libros',
+    ),
+    '#default_value' => $conf['tipo'],
+  );
+  
+  $form['columns'] = array(
     '#title' => t('Number of columns'),
     '#type' => 'textfield',
     '#default_value' => $conf['columns'],

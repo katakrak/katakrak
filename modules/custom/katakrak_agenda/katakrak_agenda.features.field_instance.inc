@@ -634,18 +634,12 @@ function katakrak_agenda_field_default_field_instances() {
       ),
       'default' => array(
         'label' => 'hidden',
-        'module' => 'colorbox',
+        'module' => 'image',
         'settings' => array(
-          'colorbox_caption' => 'auto',
-          'colorbox_caption_custom' => '',
-          'colorbox_gallery' => 'post',
-          'colorbox_gallery_custom' => '',
-          'colorbox_image_style' => 'extra_large',
-          'colorbox_multivalue_index' => NULL,
-          'colorbox_node_style' => 'event_node_view',
-          'colorbox_node_style_first' => '',
+          'image_link' => 'file',
+          'image_style' => 'event_node_view',
         ),
-        'type' => 'colorbox',
+        'type' => 'image',
         'weight' => 4,
       ),
       'home_event' => array(
@@ -809,8 +803,10 @@ function katakrak_agenda_field_default_field_instances() {
       'default' => array(
         'label' => 'hidden',
         'module' => 'node_reference',
-        'settings' => array(),
-        'type' => 'node_reference_default',
+        'settings' => array(
+          'node_reference_view_mode' => 'card_book_md',
+        ),
+        'type' => 'node_reference_node',
         'weight' => 6,
       ),
       'teaser' => array(
@@ -931,12 +927,13 @@ function katakrak_agenda_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_event_soundcloud',
     'label' => 'Soundcloud',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
         'size' => 60,
