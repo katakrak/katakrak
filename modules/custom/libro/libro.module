@@ -191,6 +191,7 @@ function libro_metainfo_process($limit, $max, $recheck, &$context) {
     $context['results']['in_dilve'] = 0;
     $context['results']['portadas'] = 0;
   }
+  $nodes->orderBy('n.nid', 'DESC');
   $nids = $nodes->range(0, $limit)->execute()->fetchAll();
   
   $dilve  = new DilveSearch(variable_get('dilve_user', ''), variable_get('dilve_pass', ''));
