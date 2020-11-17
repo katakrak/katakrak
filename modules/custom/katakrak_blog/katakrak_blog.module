@@ -14,3 +14,77 @@ function katakrak_blog_ctools_plugin_directory($module, $plugin) {
     return "plugins/$plugin";
   }
 }
+
+/**
+ * Implements hook_block_info().
+ */
+function katakrak_blog_block_info() {
+  $blocks = array();
+  $blocks['katakrak_blog_search'] = array(
+    'info' => t('Bloque búsqueda blogs'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  $blocks['katakrak_blog_texto_home'] = array(
+    'info' => t('Bloque texto home blogs'),
+    'cache' => DRUPAL_NO_CACHE,
+  );  
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function katakrak_blog_block_view($delta) {
+  switch($delta) {
+    case 'katakrak_blog_search':
+      $form = drupal_get_form('katakrak_blog_search_form');
+      $block['content'] = theme('katakrak_search_block', array('form' => $form));
+      break;
+    case 'katakrak_blog_texto_home':
+      $options = array(
+        '!libros' => l(t('libros'), ''),
+        '!cultura' => l(t('cultura'), ''),
+        '!cocina' => l(t('cocina'), ''),
+      );
+      $block['content'] = '<p class="text-center">';
+      $block['content']  .= t('Nos gusta hablar de !libros, reflexionar acerca de !cultura y meternos en la !cocina', $options);
+      $block['content'] .= '</p>';
+      break;
+  }
+  return $block;
+}
+ 
+
+/**
+ * 
+ * @param type $form
+ * @param type $form_state
+ * @return 
+ */
+function katakrak_blog_search_form($form, &$form_state) {
+  
+  $form['search_term'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Nombre'),
+    '#title_display' => 'invisible',
+    '#required' => TRUE,
+    '#attributes' => array(
+      'placeholder' => t('Buscar artículos'),
+      'class' => array('mr-1'),
+    ),
+    '#theme_wrappers' => array(),
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => '<i class="fas fa-search"></i> '.t('Buscar'),
+    '#attributes' => array(
+      'class' => array('btn btn-secondary'),
+    )
+  );
+  $form['#theme'] = 'libro_search_home_form';
+  return $form; 
+}
+
+function katakrak_blog_search_form_submit($form, &$form_state) {
+  $form_state['redirect'] = 'buscar/blog/'.$form_state['values']['search_term'];
+}

@@ -12,7 +12,7 @@ function katakrak_blog_default_page_manager_handlers() {
   $export = array();
 
   $handler = new stdClass();
-  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->disabled = TRUE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
   $handler->name = 'node_view__panel_context_d6324ce4-104a-43b9-b09d-03ecb602f114';
   $handler->task = 'node_view';

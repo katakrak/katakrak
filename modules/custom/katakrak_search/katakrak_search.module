@@ -50,14 +50,8 @@ function katakrak_search_form_apachesolr_search_custom_page_search_form_alter(&$
 function katakrak_search_theme() {
   $path = drupal_get_path('module', 'katakrak_search');
   return array(
-    'katakrak_search_book_search_form' => array(
-      'template' => 'katakrak-search-book-search-form',
-      'arguments' => array('form' => NULL),
-      'render element' => 'form',
-      'path' => $path . '/templates',
-    ),
-    'katakrak_search_books_search_block' => array(
-      'template' => 'katakrak-search-book-search-block',
+    'katakrak_search_block' => array(
+      'template' => 'katakrak-search-block',
       'arguments' => array('form' => NULL),
       'path' => $path . '/templates',
     ),

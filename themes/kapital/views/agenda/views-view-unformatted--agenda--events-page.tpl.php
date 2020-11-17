@@ -3,6 +3,7 @@ $rows = array();
 foreach($view->result as $result) {
   $rows[format_date($result->field_data_field_event_date_field_event_date_value, 'custom', 'F')][] = $result;
 }
+
 /**
  * @file
  * Default simple view template to display a list of rows.

@@ -64,13 +64,27 @@ function katakrak_blog_context_default_contexts() {
   $context->conditions = array(
     'views' => array(
       'values' => array(
+        'blogs_landing' => 'blogs_landing',
         'blogs_landing:page' => 'blogs_landing:page',
       ),
     ),
   );
   $context->reactions = array(
     'block' => array(
-      'blocks' => array(),
+      'blocks' => array(
+        'katakrak_blog-katakrak_blog_texto_home' => array(
+          'module' => 'katakrak_blog',
+          'delta' => 'katakrak_blog_texto_home',
+          'region' => 'content',
+          'weight' => '-10',
+        ),
+        'katakrak_blog-katakrak_blog_search' => array(
+          'module' => 'katakrak_blog',
+          'delta' => 'katakrak_blog_search',
+          'region' => 'content',
+          'weight' => '-9',
+        ),
+      ),
       'layout' => 'agenda',
     ),
   );

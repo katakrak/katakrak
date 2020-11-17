@@ -352,7 +352,7 @@ function libro_block_view($delta) {
   }
   if ($delta == 'libreria_home_search') {
     $form = drupal_get_form('libro_search_home_form');
-    $block['content'] = theme('libreria_home_search', array('form' => $form));
+    $block['content'] = theme('katakrak_search_block', array('form' => $form));
     return $block;
   }
   if ($delta == 'libreria_home_bizikrak') {
@@ -378,13 +378,6 @@ function libro_theme() {
       'path' => $path . '/templates',
       'arguments' => array(
         'link' => NULL,
-      )
-    ),
-    'libreria_home_search' => array(
-      'template' => 'libreria-home-search',
-      'path' => $path . '/templates',
-      'arguments' => array(
-        'form' => NULL,
       )
     ),
     'libro_search_home_form' => array(

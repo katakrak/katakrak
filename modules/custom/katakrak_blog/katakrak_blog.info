@@ -44,6 +44,7 @@ features[field_base][] = field_blog_tipo
 features[field_base][] = field_blog_type
 features[field_base][] = field_cita
 features[field_base][] = field_fuente_cita
+features[field_base][] = field_tags
 features[field_group][] = group_resenas_prensa|node|blog|form
 features[field_instance][] = node-blog-field_blog_adjunto
 features[field_instance][] = node-blog-field_blog_cuerpo
