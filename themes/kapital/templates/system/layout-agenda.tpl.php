@@ -97,7 +97,7 @@
   </section>
   </div>
   <?php print render($page['hero']) ?>  
-  <div    class="<?php print $section_title ?>">
+  <div class="<?php print $section_title ?>">
     <div class="container">
       <?php if (!empty($title)): ?>
         <h1 class="text-center"><?php print $title; ?></h1>
