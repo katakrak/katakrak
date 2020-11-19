@@ -19,6 +19,10 @@ function katakrak_agenda_block_info() {
     'info' => t('Bloque de navegación secundario de agenda'),
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['katakrak_agenda_search'] = array(
+    'info' => t('Bloque búsqueda agenda'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
   return $blocks;
 }
 
@@ -32,6 +36,10 @@ function katakrak_agenda_block_view($delta) {
       break;
     case 'katakrak_agenda_nav_secundary':
       $block['content'] = theme('katakrak_agenda_nav_secundary');
+      break;
+    case 'katakrak_agenda_search':
+      $form = drupal_get_form('katakrak_blog_search_form');
+      $block['content'] = theme('katakrak_search_block', array('form' => $form));
       break;
   }
   return $block;

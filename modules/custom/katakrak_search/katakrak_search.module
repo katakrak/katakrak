@@ -6,6 +6,13 @@
 
 include_once 'katakrak_search.features.inc';
 
+
+/**
+ * 
+ * @param type $form
+ * @param type $form_state
+ * @param type $form_id
+ */
 function katakrak_search_form_alter(&$form, &$form_state, $form_id){
   if ($form_id == 'apachesolr_panels_search_form') {
     $form['#theme'] = 'katakrak_search_book_search_form';
@@ -26,6 +33,11 @@ function katakrak_search_form_alter(&$form, &$form_state, $form_id){
   }
 }
 
+/**
+ * 
+ * @param type $form
+ * @param type $form_state
+ */
 function katakrak_search_facet_select_submit($form, &$form_state) {
   // Remove all the select element's #options from the current list of facets,
   // and add back only the ones that were submitted with the form.
@@ -73,6 +85,22 @@ function katakrak_search_theme() {
     ),
     'katakrak_search_results_libros' => array(
       'template' =>  'katakrak-search-results-libros',
+      'arguments' => array(
+        'results' => NULL,
+        'columns' => NULL,
+      ),
+      'path' => $path . '/templates',
+    ),
+    'katakrak_search_results_blogs' => array(
+      'template' =>  'katakrak-search-results-blogs',
+      'arguments' => array(
+        'results' => NULL,
+        'columns' => NULL,
+      ),
+      'path' => $path . '/templates',
+    ),
+    'katakrak_search_results_agenda' => array(
+      'template' =>  'katakrak-search-results-agenda',
       'arguments' => array(
         'results' => NULL,
         'columns' => NULL,

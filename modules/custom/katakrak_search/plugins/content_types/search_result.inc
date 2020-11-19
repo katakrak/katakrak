@@ -294,7 +294,7 @@ function katakrak_search_search_results_content_type_edit_form($form, &$form_sta
     '#type' => 'select',
     '#options' => array(
       'blogs' => 'blogs',
-      'eventos' => 'eventos',
+      'agenda' => 'agenda',
       'libros' => 'libros',
     ),
     '#default_value' => $conf['tipo'],

@@ -26,7 +26,7 @@ function katakrak_blog_block_info() {
   );
   $blocks['katakrak_blog_texto_home'] = array(
     'info' => t('Bloque texto home blogs'),
-    'cache' => DRUPAL_NO_CACHE,
+    'cache' => DRUPAL_CACHE_GLOBAL
   );  
   return $blocks;
 }
@@ -86,5 +86,5 @@ function katakrak_blog_search_form($form, &$form_state) {
 }
 
 function katakrak_blog_search_form_submit($form, &$form_state) {
-  $form_state['redirect'] = 'buscar/blog/'.$form_state['values']['search_term'];
+  $form_state['redirect'] = 'buscar/blogs/'.$form_state['values']['search_term'];
 }
