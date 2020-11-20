@@ -57,7 +57,9 @@ function libro_fe_nodequeue_export_fields() {
     'insert_at_front' => 0,
     'unique_entries' => 0,
     'subqueues' => 1,
-    'types' => array(),
+    'types' => array(
+      0 => 'libro',
+    ),
     'roles' => array(),
     'count' => 0,
   );

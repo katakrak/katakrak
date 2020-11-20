@@ -384,7 +384,7 @@ function katakrak_search_default_page_manager_pages() {
   $pane->panel = 'search_sort';
   $pane->type = 'block';
   $pane->subtype = 'apachesolr_search-sort';
-  $pane->shown = TRUE;
+  $pane->shown = FALSE;
   $pane->access = array();
   $pane->configuration = array(
     'override_title' => 0,
@@ -479,7 +479,7 @@ function katakrak_search_default_page_manager_pages() {
     'filters' => 'bundle:event',
     'rows' => '10',
     'env_id' => '',
-    'tipo' => 'eventos',
+    'tipo' => 'agenda',
     'sort_action' => 'none',
     'sort' => '',
     'breadcrumb' => 1,
@@ -840,7 +840,7 @@ function katakrak_search_default_page_manager_pages() {
     'keys' => '',
     'keys_required' => 1,
     'filters_action' => 'override',
-    'filters' => 'bundle:event',
+    'filters' => 'bundle:blog',
     'rows' => '10',
     'env_id' => '',
     'sort_action' => 'none',

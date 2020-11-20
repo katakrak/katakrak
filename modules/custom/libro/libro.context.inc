@@ -144,6 +144,9 @@ function libro_context_default_contexts() {
         ),
       ),
     ),
+    'menu' => array(
+      0 => 'menu-menu-nagusia:tienda',
+    ),
   );
   $context->condition_mode = 0;
 

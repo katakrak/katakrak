@@ -115,6 +115,9 @@ function katakrak_agenda_context_default_contexts() {
         ),
       ),
     ),
+    'menu' => array(
+      0 => 'menu-menu-nagusia:agenda',
+    ),
   );
   $context->condition_mode = 0;
 

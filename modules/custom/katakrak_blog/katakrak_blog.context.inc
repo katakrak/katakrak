@@ -64,8 +64,7 @@ function katakrak_blog_context_default_contexts() {
   $context->conditions = array(
     'views' => array(
       'values' => array(
-        'blogs_landing' => 'blogs_landing',
-        'blogs_landing:page' => 'blogs_landing:page',
+        'blog:blogs_landing' => 'blog:blogs_landing',
       ),
     ),
   );
@@ -99,33 +98,30 @@ function katakrak_blog_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
-  $context->name = 'blog_page';
-  $context->description = 'Blog page';
-  $context->tag = 'blog';
+  $context->name = 'blog_post';
+  $context->description = '';
+  $context->tag = 'Blog';
   $context->conditions = array(
-    'views' => array(
+    'node' => array(
       'values' => array(
-        'blog:page' => 'blog:page',
+        'blog' => 'blog',
+      ),
+      'options' => array(
+        'node_form' => '1',
       ),
     ),
   );
   $context->reactions = array(
-    'block' => array(
-      'blocks' => array(),
-      'layout' => 'blog',
-    ),
-    'theme' => array(
-      'title' => 'Blog',
-      'subtitle' => '',
+    'menu' => array(
+      0 => 'menu-menu-nagusia:blogs',
     ),
   );
   $context->condition_mode = 0;
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Blog page');
-  t('blog');
-  $export['blog_page'] = $context;
+  t('Blog');
+  $export['blog_post'] = $context;
 
   return $export;
 }
