@@ -6,6 +6,18 @@
 
 include_once 'katakrak_editorial.features.inc';
 
+
+/**
+ * Implements hook_init
+ */
+function katakrak_editorial_init() {
+  drupal_add_js(drupal_get_path('module', 'katakrak_editorial').'/katakrak_editorial.js');
+}
+
+
+/**
+ * Implements hook_menu
+ */
 function katakrak_editorial_menu() {
   $items['donate/%node'] = array(
     'title callback' => 'katakrak_editorial_donacion_title',

@@ -110,3 +110,5 @@
    
   </div>
 </div>
+
+<div class="hidden color-fondo"><?php print $node->field_libro_ed_color['und'][0]['value'] ?></div>

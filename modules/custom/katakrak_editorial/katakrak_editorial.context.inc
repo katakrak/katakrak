@@ -15,7 +15,7 @@ function katakrak_editorial_context_default_contexts() {
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'nodo_editorial';
-  $context->description = 'Nodos editorial';
+  $context->description = 'Libro editorial';
   $context->tag = 'Editorial';
   $context->conditions = array(
     'node' => array(
@@ -43,7 +43,7 @@ function katakrak_editorial_context_default_contexts() {
       0 => 'main-menu:editorial',
     ),
     'theme' => array(
-      'title' => 'bg-orange-p',
+      'title' => '',
       'subtitle' => '',
     ),
   );
@@ -52,7 +52,7 @@ function katakrak_editorial_context_default_contexts() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Editorial');
-  t('Nodos editorial');
+  t('Libro editorial');
   $export['nodo_editorial'] = $context;
 
   $context = new stdClass();

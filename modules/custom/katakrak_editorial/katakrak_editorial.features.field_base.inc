@@ -210,6 +210,27 @@ function katakrak_editorial_field_default_field_bases() {
     'type' => 'node_reference',
   );
 
+  // Exported field_base: 'field_libro_ed_color'.
+  $field_bases['field_libro_ed_color'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_libro_ed_color',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
   // Exported field_base: 'field_libro_ed_encuadernacion'.
   $field_bases['field_libro_ed_encuadernacion'] = array(
     'active' => 1,
