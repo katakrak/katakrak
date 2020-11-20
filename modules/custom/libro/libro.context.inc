@@ -177,6 +177,12 @@ function libro_context_default_contexts() {
           'region' => 'content',
           'weight' => '-10',
         ),
+        'libro-libreria_categorias' => array(
+          'module' => 'libro',
+          'delta' => 'libreria_categorias',
+          'region' => 'content',
+          'weight' => '-9',
+        ),
         'libro-libreria_home_bono_regalo' => array(
           'module' => 'libro',
           'delta' => 'libreria_home_bono_regalo',

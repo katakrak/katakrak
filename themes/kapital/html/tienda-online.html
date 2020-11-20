@@ -69,8 +69,13 @@
             <li class="nav-item active">
               <a class="nav-link" href=tienda.html>Tienda online</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="cantina.html">Cantina</a> 
+           <li class="dropdown nav-item">
+              <a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Espacios <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Cantina</a></li>
+                <li><a href="#">Biblioteca</a></li>
+                <li><a href="#">Sala de actos</a></li>
+              </ul>
             </li> 
             <li class="nav-item">
               <a class="nav-link" href="editorial.html">Editorial</a> 
@@ -126,11 +131,11 @@
                         <i class="fas fa-search"></i> Buscar
                     </button>
                 </div><!-- /.d-flex -->
-                <!-- <p class="text-center mt-1">
+                 <p class="text-center mt-1">
                   <a  class="btn btn-transparent" data-toggle="collapse" href="#secciones">
-                    Mostrar secciones
+                    Mostrar secciones (ver solución)
                   </a> 
-                </p> -->
+                </p> 
                 <div id="secciones" class="collapse">
                   <div class="row">
                     <div class="col-sm-6 col-md-3">
@@ -323,7 +328,7 @@
    <div class="card-book-sm">
     <div class="cover">
       <a href="#">
-        <img src="https://katakrak.net/sites/default/files/styles/cover_home/public/portadas/9788469602638.jpg?itok=xstozxxU" alt="Título del libro" class="img-responsive">
+        <img src="images/asterix.jpg" alt="Título del libro" class="img-responsive">
       </a>
       </div><!-- /cover -->
     <div class="description">
@@ -342,7 +347,7 @@
   <div class="card-book-sm">
    <div class="cover">
      <a href="#">
-       <img src="https://katakrak.net/sites/default/files/styles/cover_home/public/portadas/portada_sotanosdelmundo_katakrak.jpg?itok=fYdHl78A" alt="Título del libro" class="img-responsive">
+       <img src="images/sotanos.jpg" alt="Título del libro" class="img-responsive">
       </a>
     </div><!-- /cover -->
    <div class="description">
@@ -361,7 +366,7 @@
 <div class="card-book-sm">
 <div class="cover">
   <a href="#">
-    <img src="https://katakrak.net/sites/default/files/styles/cover_home/public/portadas/978-84-9027-980-9.jpg?itok=d0S5jnJL" alt="Título del libro" class="img-responsive">
+    <img src="images/book-lg.jpg" alt="Título del libro" class="img-responsive">
     </a>
   </div><!-- /cover -->
 <div class="description">
@@ -402,7 +407,31 @@
     <div class="modulo-destacado">
       <h2 class="text-center">¿Cómo es la compra online en Katakrak?</h2>
 <p class="text-center">Trabajamos por una compra cercana y sostenible</p>
-<p>ilustraciones: pago seguro, entrega bizikrak, trato cercano</p>
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+          <div class="row">
+            <div class="col-sm-4">
+              <img src="images/pago-seguro.png" class="img-responsive" alt="Compra segura">
+              <p class="text-center mt-2">
+                <strong>Compra segura</strong><br>Desarrollar
+              </p>
+              
+            </div><!-- /.col -->
+            <div class="col-sm-4">
+              <img src="images/bizikrak.png" class="img-responsive" alt="Bizikrak">
+              <p class="text-center mt-2">
+                <strong>Entrega sostenible</strong><br>Desarrollar
+              </p>
+            </div><!-- /.col -->
+            <div class="col-sm-4">
+              <img src="images/trato-cercano.png" class="img-responsive" alt="Trato cercano">
+              <p class="text-center mt-2">
+                <strong>Trato cercano</strong><br>Desarrollar
+              </p>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div>
+      </div>
     </div>
 
     <hr class="hr-dark">
@@ -467,14 +496,14 @@
   <div class="clearfix visible-sm-block"></div>
       <div class="col-sm-6 col-md-3">
         <h2>Social</h2>
-        <ul class="list-unstyled list-social mt-3">
-          <li class="list-item">
+       <ul class="list-unstyled list-social mt-3">
+          <li class="list-item ">
             <a class="d-flex" href="https://www.facebook.com/katakrak54" target="_blank" title="Facebook">
               <i class="fab fa-facebook-f"></i>
               <span>Facebook</span>
             </a>
           </li>
-          <li class="list-item">
+          <li class="list-item ">
             <a class="d-flex" href="http://twitter.com/katakrak54" target="_blank" title="Twitter">
               <i class="fab fa-twitter"></i>
               <span>Twitter</span>
@@ -487,6 +516,12 @@
             </a>
           </li>
           <li class="list-item">
+            <a class="d-flex" href="https://t.me/katakrak54" target="_blank" title="Telegram">
+              <i class="fab fa-telegram-plane"></i>
+              <span>Telegram</span>
+            </a>
+          </li>
+          <li class="list-item ">
             <a class="d-flex" href="http://soundcloud.com/katakrak54" target="_blank" title="Soundcloud">
               <i class="fab fa-soundcloud"></i>
               <span>Soundcloud</span>

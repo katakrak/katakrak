@@ -314,6 +314,10 @@ function libro_block_info() {
     'info' => t('Home tienda online. Descripción de la venta online'),
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['libreria_categorias'] = array(
+    'info' => t('Listado de categorías primarias en la landing de librería'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   return $blocks;
 }
 
@@ -322,52 +326,55 @@ function libro_block_info() {
  */
 function libro_block_view($delta) {
   global $language;
-  if ($delta == 'katakrak_libro_estilo') {
-    if ($language->language == 'es') {
-      $link = l("Consulta el<br>libro de estilo", 'libro-de-estilo', array('html' => 1));
-    }
-    else {
-      $link = l("Ikusi gure<br>estilo liburua", 'estilo-liburua', array('html' => 1));
-    }
-    $block['content'] = theme('katakrak_libro_estilo', array('link' => $link));
-    return $block;
-  }
-  if ($delta == 'katakrak_secciones') {
-    if ($voc = taxonomy_vocabulary_machine_name_load('materias')) {
-      $block['subject'] = t('Por secciones');
-      $tags = tagclouds_get_tags(array($voc->vid), variable_get('tagclouds_levels', 6), variable_get('tagclouds_block_tags_' . $voc->vid, 12));
-
-      //$tags = tagclouds_sort_tags($tags, "hook_block_view");;
-      $tags = tagclouds_sort_tags($tags);
-
-      $block['content'] = theme('tagclouds_weighted', array('terms' => $tags)); //return a chunk of 12 tags
+  switch ($delta) {
+    case 'katakrak_libro_estilo':
       if ($language->language == 'es') {
-        $block['content'] .= views_embed_view('secciones', 'secciones_es');
+        $link = l("Consulta el<br>libro de estilo", 'libro-de-estilo', array('html' => 1));
       }
       else {
-        $block['content'] .= views_embed_view('secciones', 'secciones_eu');
+        $link = l("Ikusi gure<br>estilo liburua", 'estilo-liburua', array('html' => 1));
       }
-    }
-    return $block;
+      $block['content'] = theme('katakrak_libro_estilo', array('link' => $link));
+      break;
+    case 'katakrak_secciones':
+      if ($voc = taxonomy_vocabulary_machine_name_load('materias')) {
+        $block['subject'] = t('Por secciones');
+        $tags = tagclouds_get_tags(array($voc->vid), variable_get('tagclouds_levels', 6), variable_get('tagclouds_block_tags_' . $voc->vid, 12));
+
+        //$tags = tagclouds_sort_tags($tags, "hook_block_view");;
+        $tags = tagclouds_sort_tags($tags);
+
+        $block['content'] = theme('tagclouds_weighted', array('terms' => $tags)); //return a chunk of 12 tags
+        if ($language->language == 'es') {
+          $block['content'] .= views_embed_view('secciones', 'secciones_es');
+        }
+        else {
+          $block['content'] .= views_embed_view('secciones', 'secciones_eu');
+        }
+      }
+      break;
+    case 'libreria_home_search':
+      $form = drupal_get_form('libro_search_home_form');
+      $block['content'] = theme('katakrak_search_block', array('form' => $form));
+      break;
+    case 'libreria_home_bizikrak':
+      $block['content'] = theme('libreria_home_bizikrak');
+      break;
+    case 'libreria_home_bono_regalo':
+      $block['content'] = theme('libreria_home_bono_regalo');
+      break;
+    case 'libreria_home_destacado':
+      $block['content'] = theme('libreria_home_destacado');
+      break;
+    case 'libreria_categorias':
+      if ($language->language == 'es') {
+          $block['content'] .= views_embed_view('secciones', 'secciones_block');
+        }
+        else {
+          $block['content'] .= views_embed_view('secciones', 'secciones_eu');
+        }
   }
-  if ($delta == 'libreria_home_search') {
-    $form = drupal_get_form('libro_search_home_form');
-    $block['content'] = theme('katakrak_search_block', array('form' => $form));
-    return $block;
-  }
-  if ($delta == 'libreria_home_bizikrak') {
-    $block['content'] = theme('libreria_home_bizikrak');
-    return $block;
-  }
-  if ($delta == 'libreria_home_bono_regalo') {
-    $block['content'] = theme('libreria_home_bono_regalo');
-    return $block;
-  }
-  if ($delta == 'libreria_home_destacado') {
-    $block['content'] = theme('libreria_home_destacado');
-    return $block;
-  }
-  
+  return $block;
 }
 
 function libro_theme() {
@@ -901,4 +908,12 @@ function libro_crear_ficha($book, $update = FALSE, $node = NULL) {
   $node->field_libro_producto['und'][0]['product_id'] = $commerce_product->product_id;
   node_save($node);
   return $node;
+}
+
+/**
+ * Mostramos las secciones que están marcadas como "mostrar"
+ */
+function libro_secciones() {
+  $result = views_get_view_result('secciones', 'secciones_block');
+  dpm($result);
 }
