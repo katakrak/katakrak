@@ -13,4 +13,5 @@ foreach ($results as $result) {
   }
   print $output;
 
-
+?>
+  <?php print theme('pager') ?>

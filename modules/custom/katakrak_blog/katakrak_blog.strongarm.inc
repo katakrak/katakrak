@@ -96,12 +96,6 @@ function katakrak_blog_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
-      'card_book' => array(
-        'custom_settings' => TRUE,
-      ),
-      'card_book_md' => array(
-        'custom_settings' => TRUE,
-      ),
     ),
     'extra_fields' => array(
       'form' => array(

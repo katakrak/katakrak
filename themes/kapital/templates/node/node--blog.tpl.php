@@ -20,6 +20,7 @@
   <h3 class="mb-2"><?php print t('Libro recomendado') ?>:</h3>
   <?php print render($content['field_blog_libro']) ?>
 <?php endif; ?>
+  
   <hr class="hr-dark">
 <?php $related_blogs = views_get_view_result('blog', 'related_blog_posts', $node->field_blog_type['und'][0]['tid'], $node->nid); ?>
 <?php if ($related_blogs): ?>

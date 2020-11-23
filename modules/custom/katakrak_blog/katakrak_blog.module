@@ -42,9 +42,9 @@ function katakrak_blog_block_view($delta) {
       break;
     case 'katakrak_blog_texto_home':
       $options = array(
-        '!libros' => l(t('libros'), ''),
-        '!cultura' => l(t('cultura'), ''),
-        '!cocina' => l(t('cocina'), ''),
+        '!libros' => l(t('libros'), 'taxonomy/term/40849'),
+        '!cultura' => l(t('cultura'), 'taxonomy/term/42225'),
+        '!cocina' => l(t('cocina'), 'taxonomy/term/40727'),
       );
       $block['content'] = '<p class="text-center">';
       $block['content']  .= t('Nos gusta hablar de !libros, reflexionar acerca de !cultura y meternos en la !cocina', $options);
@@ -63,17 +63,24 @@ function katakrak_blog_block_view($delta) {
  */
 function katakrak_blog_search_form($form, &$form_state) {
   
+  $query = explode('/', current_path());
+  
   $form['search_term'] = array(
     '#type' => 'textfield',
     '#title' => t('Nombre'),
     '#title_display' => 'invisible',
     '#required' => TRUE,
     '#attributes' => array(
-      //'placeholder' => t('Buscar artículos'),
+      'placeholder' => t('Buscar artículos'),
       'class' => array('mr-1'),
     ),
     '#theme_wrappers' => array(),
   );
+  if (count($query) == 3 AND $query[0] != 'buscar')
+    $form['search_term']['#attributes']['placeholder'] = t('Buscar artículos');
+  else
+    $form['search_term']['#attributes']['value'] = $query[2];
+  
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => '<i class="fas fa-search"></i> '.t('Buscar'),

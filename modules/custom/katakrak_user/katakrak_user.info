@@ -48,9 +48,6 @@ dependencies[] = strongarm
 dependencies[] = system
 dependencies[] = taxonomy
 dependencies[] = views
-<<<<<<< HEAD = ======
->>>>>>> master
-dependencies[] = features
 features[captcha_points][] = contact_personal_form
 features[captcha_points][] = contact_site_form
 features[captcha_points][] = user_login
