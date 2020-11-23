@@ -24,8 +24,8 @@ function katakrak_agenda_field_group_info() {
     'label' => 'Info',
     'weight' => '2',
     'children' => array(
-      0 => 'field_ciclo_descripci_n',
-      1 => 'field_image',
+      0 => 'field_image',
+      1 => 'field_ciclo_descripci_n',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

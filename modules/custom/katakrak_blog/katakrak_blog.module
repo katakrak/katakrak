@@ -69,7 +69,7 @@ function katakrak_blog_search_form($form, &$form_state) {
     '#title_display' => 'invisible',
     '#required' => TRUE,
     '#attributes' => array(
-      'placeholder' => t('Buscar artículos'),
+      //'placeholder' => t('Buscar artículos'),
       'class' => array('mr-1'),
     ),
     '#theme_wrappers' => array(),

@@ -7,6 +7,7 @@ dpm($results);
 foreach ($results as $result) {
     $nids[] = node_load($result['node']->entity_id);
   }
+  dpm($nids);
 ?>
 
   

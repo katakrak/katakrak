@@ -63,6 +63,13 @@ function katakrak_agenda_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'diff_enable_revisions_page_node_ciclo';
+  $strongarm->value = 1;
+  $export['diff_enable_revisions_page_node_ciclo'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'diff_enable_revisions_page_node_event';
   $strongarm->value = 1;
   $export['diff_enable_revisions_page_node_event'] = $strongarm;
@@ -70,9 +77,23 @@ function katakrak_agenda_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'diff_show_preview_changes_node_ciclo';
+  $strongarm->value = 1;
+  $export['diff_show_preview_changes_node_ciclo'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'diff_show_preview_changes_node_event';
   $strongarm->value = 1;
   $export['diff_show_preview_changes_node_event'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_view_mode_preview_node_ciclo';
+  $strongarm->value = 'full';
+  $export['diff_view_mode_preview_node_ciclo'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -235,6 +256,13 @@ function katakrak_agenda_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_default_language_for_ciclo';
+  $strongarm->value = '-- current --';
+  $export['i18n_node_default_language_for_ciclo'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'i18n_node_default_language_for_event';
   $strongarm->value = '-- current --';
   $export['i18n_node_default_language_for_event'] = $strongarm;
@@ -275,8 +303,9 @@ function katakrak_agenda_strongarm() {
   $strongarm->name = 'i18n_sync_node_type_ciclo';
   $strongarm->value = array(
     0 => 'field_ciclo_libros',
-    1 => 'field_ciclo_tipo',
-    2 => 'field_image',
+    1 => 'field_image',
+    2 => 'field_ciclo_tipo',
+    3 => 'field_ciclo_curso',
   );
   $export['i18n_sync_node_type_ciclo'] = $strongarm;
 

@@ -1,9 +1,9 @@
 <?php
+
 $rows = array();
 foreach($view->result as $result) {
-  $rows[format_date($result->field_data_field_event_date_field_event_date_value, 'custom', 'F')][] = $result;
+  $rows[format_date($result->field_field_event_date[0]['raw']['value'] , 'custom', 'F')][] = $result;
 }
-
 /**
  * @file
  * Default simple view template to display a list of rows.
@@ -20,9 +20,9 @@ foreach($view->result as $result) {
           <div class="post-image">
             <a href="<?php print url("node/".$event->nid) ?>">
               <div class="date">
-                <p class="day"><?php print format_date($event->field_data_field_event_date_field_event_date_value, 'custom', 'd') ?></p>
-                <p class="small"><?php print format_date($event->field_data_field_event_date_field_event_date_value, 'custom', 'F') ?></p>
-                <p class="time"><?php print format_date($event->field_data_field_event_date_field_event_date_value, 'custom', 'H:i') ?></p>
+                <p class="day"><?php print format_date($event->field_field_event_date[0]['raw']['value'], 'custom', 'd') ?></p>
+                <p class="small"><?php print format_date($event->field_field_event_date[0]['raw']['value'], 'custom', 'F') ?></p>
+                <p class="time"><?php print format_date($event->field_field_event_date[0]['raw']['value'], 'custom', 'H:i') ?></p>
               </div>
               <?php print drupal_render($event->field_field_event_image[0]['rendered']) ?>
             </a>

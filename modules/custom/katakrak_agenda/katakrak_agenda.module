@@ -38,7 +38,7 @@ function katakrak_agenda_block_view($delta) {
       $block['content'] = theme('katakrak_agenda_nav_secundary');
       break;
     case 'katakrak_agenda_search':
-      $form = drupal_get_form('katakrak_blog_search_form');
+      $form = drupal_get_form('katakrak_agenda_search_form');
       $block['content'] = theme('katakrak_search_block', array('form' => $form));
       break;
   }
@@ -129,4 +129,46 @@ function katakrak_agenda_node_load($nodes, $types) {
       }
     }
   }
+}
+
+
+/**
+ * 
+ * @param type $form
+ * @param type $form_state
+ * @return 
+ */
+function katakrak_agenda_search_form($form, &$form_state) {
+ 
+  $query = explode('/', current_path());
+  
+  $form['search_term'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Nombre'),
+    '#title_display' => 'invisible',
+    '#required' => TRUE,
+    '#attributes' => array(    
+      'class' => array('mr-1'),
+    ),
+    '#theme_wrappers' => array(),
+  );
+  
+  if (count($query) < 3)
+    $form['search_term']['#attributes']['placeholder'] = t('Buscar eventos');
+  else
+    $form['search_term']['#attributes']['value'] = $query[2];
+  
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => '<i class="fas fa-search"></i> '.t('Buscar'),
+    '#attributes' => array(
+      'class' => array('btn btn-secondary'),
+    )
+  );
+  $form['#theme'] = 'libro_search_home_form';
+  return $form; 
+}
+
+function katakrak_agenda_search_form_submit($form, &$form_state) {
+  $form_state['redirect'] = 'buscar/agenda/'.$form_state['values']['search_term'];
 }

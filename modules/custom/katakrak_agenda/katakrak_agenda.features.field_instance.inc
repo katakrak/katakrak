@@ -66,6 +66,55 @@ function katakrak_agenda_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-ciclo-field_ciclo_curso'.
+  $field_instances['node-ciclo-field_ciclo_curso'] = array(
+    'bundle' => 'ciclo',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_ciclo_curso',
+    'label' => 'curso',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 10,
+    ),
+  );
+
   // Exported field_instance: 'node-ciclo-field_ciclo_descripci_n'.
   $field_instances['node-ciclo-field_ciclo_descripci_n'] = array(
     'bundle' => 'ciclo',
@@ -379,7 +428,7 @@ function katakrak_agenda_field_default_field_instances() {
         'weight' => 0,
       ),
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'date',
         'settings' => array(
           'format_type' => 'long',
@@ -1314,6 +1363,7 @@ function katakrak_agenda_field_default_field_instances() {
   t('Streaming');
   t('Tipo');
   t('Title');
+  t('curso');
 
   return $field_instances;
 }

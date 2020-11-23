@@ -55,6 +55,33 @@ function katakrak_agenda_field_default_field_bases() {
     'type' => 'node_reference',
   );
 
+  // Exported field_base: 'field_ciclo_curso'.
+  $field_bases['field_ciclo_curso'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_ciclo_curso',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        '2020-2021' => '2020-2021',
+        '2021-2022' => '2021-2022',
+        '2022-2023' => '2022-2023',
+        '2023-2024' => '2023-2024',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_ciclo_descripci_n'.
   $field_bases['field_ciclo_descripci_n'] = array(
     'active' => 1,

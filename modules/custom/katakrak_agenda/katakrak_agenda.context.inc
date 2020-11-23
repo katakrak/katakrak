@@ -18,15 +18,28 @@ function katakrak_agenda_context_default_contexts() {
   $context->description = 'Agenda';
   $context->tag = 'Agenda';
   $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'buscar/agenda*' => 'buscar/agenda*',
+      ),
+    ),
     'views' => array(
       'values' => array(
+        'agenda:eventos_pasados' => 'agenda:eventos_pasados',
         'agenda:events_page' => 'agenda:events_page',
+        'agenda:grupos_de_lectura' => 'agenda:grupos_de_lectura',
       ),
     ),
   );
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'katakrak_agenda-katakrak_agenda_search' => array(
+          'module' => 'katakrak_agenda',
+          'delta' => 'katakrak_agenda_search',
+          'region' => 'content',
+          'weight' => '-10',
+        ),
         'katakrak_agenda-katakrak_agenda_banner_organiza' => array(
           'module' => 'katakrak_agenda',
           'delta' => 'katakrak_agenda_banner_organiza',
@@ -41,6 +54,9 @@ function katakrak_agenda_context_default_contexts() {
         ),
       ),
       'layout' => 'agenda',
+    ),
+    'menu' => array(
+      0 => 'menu-menu-nagusia:agenda',
     ),
     'theme' => array(
       'title' => 'Agenda',
@@ -57,46 +73,13 @@ function katakrak_agenda_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
-  $context->name = 'calendario';
-  $context->description = 'Calendario view';
-  $context->tag = 'Agenda';
-  $context->conditions = array(
-    'views' => array(
-      'values' => array(
-        'agenda:calendario' => 'agenda:calendario',
-      ),
-    ),
-  );
-  $context->reactions = array(
-    'block' => array(
-      'blocks' => array(),
-      'layout' => 'agenda',
-    ),
-    'menu' => array(
-      0 => 'main-menu:agenda',
-    ),
-    'theme' => array(
-      'title' => 'Agenda',
-      'subtitle' => '',
-    ),
-  );
-  $context->condition_mode = 0;
-
-  // Translatables
-  // Included for use with string extractors like potx.
-  t('Agenda');
-  t('Calendario view');
-  $export['calendario'] = $context;
-
-  $context = new stdClass();
-  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
-  $context->api_version = 3;
   $context->name = 'node_event';
   $context->description = '';
   $context->tag = 'Agenda';
   $context->conditions = array(
     'node' => array(
       'values' => array(
+        'ciclo' => 'ciclo',
         'event' => 'event',
       ),
       'options' => array(
@@ -105,16 +88,6 @@ function katakrak_agenda_context_default_contexts() {
     ),
   );
   $context->reactions = array(
-    'block' => array(
-      'blocks' => array(
-        'views-agenda-next_events_node_block' => array(
-          'module' => 'views',
-          'delta' => 'agenda-next_events_node_block',
-          'region' => 'sidebar_second',
-          'weight' => '-10',
-        ),
-      ),
-    ),
     'menu' => array(
       0 => 'menu-menu-nagusia:agenda',
     ),
