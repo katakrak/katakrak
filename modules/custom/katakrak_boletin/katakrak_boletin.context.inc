@@ -27,18 +27,7 @@ function katakrak_boletin_context_default_contexts() {
       ),
     ),
   );
-  $context->reactions = array(
-    'block' => array(
-      'blocks' => array(
-        'mailchimp_signup-recibe_nuestro_boletin_semanal' => array(
-          'module' => 'mailchimp_signup',
-          'delta' => 'recibe_nuestro_boletin_semanal',
-          'region' => 'content_bottom',
-          'weight' => '-10',
-        ),
-      ),
-    ),
-  );
+  $context->reactions = array();
   $context->condition_mode = 0;
 
   // Translatables

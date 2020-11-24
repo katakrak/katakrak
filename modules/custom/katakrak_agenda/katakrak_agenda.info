@@ -10,6 +10,7 @@ dependencies[] = field_group
 dependencies[] = flexslider
 dependencies[] = katakrak_itinerarios
 dependencies[] = page_manager
+dependencies[] = portfolio
 dependencies[] = services_views
 dependencies[] = title
 dependencies[] = views_content_cache

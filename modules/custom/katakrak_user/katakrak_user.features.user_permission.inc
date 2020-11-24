@@ -22,6 +22,7 @@ function katakrak_user_user_default_permissions() {
     ),
     'module' => 'admin_menu',
   );
+
   // Exported permission: 'access administration pages'.
   $permissions['access administration pages'] = array(
     'name' => 'access administration pages',

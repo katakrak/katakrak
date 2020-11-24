@@ -506,10 +506,12 @@ function katakrak_boletin_field_default_field_instances() {
         'weight' => 0,
       ),
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'node_reference',
-        'settings' => array(),
-        'type' => 'node_reference_default',
+        'settings' => array(
+          'node_reference_view_mode' => 'card_book_md',
+        ),
+        'type' => 'node_reference_node',
         'weight' => 2,
       ),
       'teaser' => array(

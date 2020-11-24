@@ -42,6 +42,9 @@ function katakrak_blog_context_default_contexts() {
       ),
       'layout' => 'agenda',
     ),
+    'menu' => array(
+      0 => 'menu-menu-nagusia:Blog',
+    ),
   );
   $context->condition_mode = 0;
 
@@ -61,15 +64,24 @@ function katakrak_blog_context_default_contexts() {
     'node' => array(
       'values' => array(
         'blog' => 'blog',
+        'boletin' => 'boletin',
       ),
       'options' => array(
         'node_form' => '1',
       ),
     ),
+    'taxonomy_term' => array(
+      'values' => array(
+        'blog_type' => 'blog_type',
+      ),
+      'options' => array(
+        'term_form' => '1',
+      ),
+    ),
   );
   $context->reactions = array(
     'menu' => array(
-      0 => 'menu-menu-nagusia:blogs',
+      0 => 'menu-menu-nagusia:blog',
     ),
   );
   $context->condition_mode = 0;

@@ -187,21 +187,19 @@ function katakrak_blog_views_default_views() {
   $handler = $view->new_display('block', 'Blog articles for category', 'blogs_by_cat');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '9';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elementos por página';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Todos -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Desplazamiento';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« primera';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Contenido: Nid */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'node';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  /* Campo: Contenido: Ruta */
-  $handler->display->display_options['fields']['path']['id'] = 'path';
-  $handler->display->display_options['fields']['path']['table'] = 'node';
-  $handler->display->display_options['fields']['path']['field'] = 'path';
-  $handler->display->display_options['fields']['path']['label'] = 'Bide-izena';
-  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   /* Campo: Campo: Imagen */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
@@ -213,16 +211,11 @@ function katakrak_blog_views_default_views() {
     'image_style' => 'blog_home',
     'image_link' => 'content',
   );
-  $handler->display->display_options['fields']['field_image']['delta_limit'] = '1';
-  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
   /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Campo: Contenido: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
@@ -230,25 +223,8 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['label'] = '';
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['created']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['created']['custom_date_format'] = 'd/m/Y';
-  /* Campo: Contenido: Cuerpo */
-  $handler->display->display_options['fields']['field_blog_cuerpo']['id'] = 'field_blog_cuerpo';
-  $handler->display->display_options['fields']['field_blog_cuerpo']['table'] = 'field_data_field_blog_cuerpo';
-  $handler->display->display_options['fields']['field_blog_cuerpo']['field'] = 'field_blog_cuerpo';
-  $handler->display->display_options['fields']['field_blog_cuerpo']['label'] = '';
-  $handler->display->display_options['fields']['field_blog_cuerpo']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_blog_cuerpo']['type'] = 'text_summary_or_trimmed';
-  $handler->display->display_options['fields']['field_blog_cuerpo']['settings'] = array(
-    'trim_length' => '400',
-  );
-  /* Campo: Contenido: Link to content */
-  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
-  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
-  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
-  $handler->display->display_options['fields']['view_node']['label'] = '';
-  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['view_node']['text'] = 'Leer más [+]';
+  $handler->display->display_options['fields']['created']['date_format'] = 'media';
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Contenido: Blog_type (field_blog_type) */
   $handler->display->display_options['arguments']['field_blog_type_tid']['id'] = 'field_blog_type_tid';
@@ -412,7 +388,7 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['fields']['created']['date_format'] = 'media';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'd/m/Y';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
-  $handler->display->display_options['path'] = 'blogs';
+  $handler->display->display_options['path'] = 'blog';
 
   /* Display: Reseñas de libro */
   $handler = $view->new_display('block', 'Reseñas de libro', 'resenas_libro');
@@ -442,13 +418,6 @@ function katakrak_blog_views_default_views() {
     t('Home'),
     t('Blog articles for category'),
     t('more'),
-    t('Leer más [+]'),
-    t('Todo(s)'),
-    t('Related blog posts'),
-    t('Otras entradas'),
-    t('View panes'),
-    t('Blogs landing page'),
-    t('Blog'),
     t('Elementos por página'),
     t('- Todos -'),
     t('Desplazamiento'),
@@ -456,6 +425,12 @@ function katakrak_blog_views_default_views() {
     t('‹ anterior'),
     t('siguiente ›'),
     t('última »'),
+    t('Todo(s)'),
+    t('Related blog posts'),
+    t('Otras entradas'),
+    t('View panes'),
+    t('Blogs landing page'),
+    t('Blog'),
     t('Reseñas de libro'),
   );
   $export['blog'] = $view;

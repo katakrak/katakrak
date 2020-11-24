@@ -24,5 +24,5 @@
 
     </div><!-- /.row -->
     <hr class="hr-dark">
-    <h3 class="mb-2">Eventos relacionados</h3>
+    <h3 class="mb-2"><?php print t('Eventos relacionados') ?></h3>
      <?php print views_embed_view('agenda', 'citas_ciclo', $node->nid) ?>
