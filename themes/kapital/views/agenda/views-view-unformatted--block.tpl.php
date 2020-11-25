@@ -14,11 +14,7 @@
     <div class="post">
       <div class="post-image">
         <a href="<?php print url("node/".$event->nid) ?>">
-          <div class="date">
-            <p class="day"><?php print format_date($event->field_field_event_date[0]['raw']['value'], 'custom', 'd') ?></p>
-            <p class="small"><?php print format_date($event->field_field_event_date[0]['raw']['value'], 'custom', 'F') ?></p>
-            <p class="time"><?php print format_date($event->field_field_event_date[0]['raw']['value'], 'custom', 'H:i') ?></p>
-          </div>
+          <?php print theme('agenda_date', array('time' => $event->field_field_event_date[0]['raw']['value'], 'class' => 'date')) ?>
           <?php print drupal_render($event->field_field_event_image[0]['rendered']) ?>
         </a>
       </div>

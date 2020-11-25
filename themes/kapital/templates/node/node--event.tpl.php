@@ -7,8 +7,8 @@
     <?php print render($content['field_event_image']) ?>
   </div><!-- /.col-->
   <div class="col-sm-9">
-    <div class="d-flex">
-      <?php print theme('agenda_date', array('time' => $node->field_event_date['und'][0]['value'])); ?>
+    <div class="d-flex event-title">
+      <?php print theme('agenda_date', array('time' => $node->field_event_date['und'][0]['value'], 'class' => 'date date-title')); ?>
       <div>
         <h1 class="mt-0"><?php print $node->title ?></h1>
         <!--<p class="mb-0">Chuck D</p> TODO: Tiene sentido poner aquí la persona que da la charla??-->
@@ -29,6 +29,7 @@
     <?php endif; ?>
     <hr>
      <?php print render($content['field_event_description']) ?>
+    <?php print render($content['field_event_soundcloud']) ?>
     <hr>
     <!--<ul class="list-inline list-tags">
       <li>

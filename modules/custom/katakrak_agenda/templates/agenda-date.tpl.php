@@ -1,11 +1,14 @@
 <?php global $language ?>
-<div class="date date-title">
-  <?php if ($language->language == 'eu'): ?>
-    <div class="mb-05"><?php print format_date($time, 'custom', 'F'); ?>k</div>
-  <?php endif; ?>
-  <p class="day"><?php print format_date($time, 'custom', 'd'); ?></p>
+<div class="<?php print $class?>">
   <?php if ($language->language == 'es'): ?>
-    <div class="mb-05"><?php print format_date($time, 'custom', 'F'); ?></div>
+    <p class="day"><?php print format_date($time, 'custom', 'd'); ?></p>
+    <p class="small"><?php print format_date($time, 'custom', 'F'); ?></p>
+    <p class="week-day small"><?php print format_date($time, 'custom', 'l'); ?></p>
+    <p class="time"><?php print format_date($time, 'custom', 'G:i'); ?></p>
+  <?php else: ?>
+    <p class="small"><?php print format_date($time, 'custom', 'F'); ?>k</p>
+    <p class="day"><?php print format_date($time, 'custom', 'd'); ?></p>
+    <p class="week-day small"><?php print format_date($time, 'custom', 'l'); ?></p>
+    <p class="time"><?php print format_date($time, 'custom', 'G:i'); ?>etan</p>
   <?php endif; ?>
-  <p class="strong"><?php print format_date($time, 'custom', 'G:i'); ?></p>
 </div>

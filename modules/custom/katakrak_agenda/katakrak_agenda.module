@@ -53,6 +53,7 @@ function katakrak_agenda_theme() {
       'path' => $path . '/templates',
       'arguments' => array(
         'time' => NULL,
+        'class' => NULL
       )
     ),
     'agenda_medios' => array(

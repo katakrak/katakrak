@@ -26,7 +26,6 @@
 //dpm($fields);
 ?>
 <div class="col-md-4 col-sm-6 mb-2 col-post">
-
 <div class="post">
  <div class="post-image">
   <?php print $fields['field_image']->content ?>
