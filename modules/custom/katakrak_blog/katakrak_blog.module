@@ -24,10 +24,10 @@ function katakrak_blog_block_info() {
     'info' => t('Bloque búsqueda blogs'),
     'cache' => DRUPAL_NO_CACHE,
   );
-  $blocks['katakrak_blog_texto_home'] = array(
-    'info' => t('Bloque texto home blogs'),
-    'cache' => DRUPAL_CACHE_GLOBAL
-  );  
+  $blocks['katakrak_blog_nav_secundary'] = array(
+    'info' => t('Bloque de navegación secundario de blog'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   return $blocks;
 }
 
@@ -40,15 +40,15 @@ function katakrak_blog_block_view($delta) {
       $form = drupal_get_form('katakrak_blog_search_form');
       $block['content'] = theme('katakrak_search_block', array('form' => $form));
       break;
-    case 'katakrak_blog_texto_home':
-      $options = array(
-        '!libros' => l(t('libros'), 'taxonomy/term/40849'),
-        '!cultura' => l(t('cultura'), 'taxonomy/term/42225'),
-        '!cocina' => l(t('cocina'), 'taxonomy/term/40727'),
+    case 'katakrak_blog_nav_secundary':
+      $links = array(
+        l(t('Todos los blogs'), 'blog'),
+        l(t('Cultura'),'taxonomy/term/42225'),
+        l(t('Medios'),'taxonomy/term/41179'),
+        l(t('Librería'),'taxonomy/term/40849'),
+        l(t('Cocina'), 'taxonomy/term/40727')
       );
-      $block['content'] = '<p class="text-center">';
-      $block['content']  .= t('Nos gusta hablar de !libros, reflexionar acerca de !cultura y meternos en la !cocina', $options);
-      $block['content'] .= '</p>';
+      $block['content'] = theme('katakrak_nav_secundary', array('links' => $links));
       break;
   }
   return $block;

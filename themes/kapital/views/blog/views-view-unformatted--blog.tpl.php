@@ -7,7 +7,6 @@
  * @ingroup views_templates
  */
 ?>
-  
 <div class="row mt-1 row-posts">
  <?php foreach ($rows as $id => $row): ?>
     <?php print $row; ?>

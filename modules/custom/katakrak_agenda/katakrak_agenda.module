@@ -35,7 +35,13 @@ function katakrak_agenda_block_view($delta) {
       $block['content'] = theme('katakrak_agenda_banner_organiza');
       break;
     case 'katakrak_agenda_nav_secundary':
-      $block['content'] = theme('katakrak_agenda_nav_secundary');
+      $links = array(
+        l(t('Futuros'),'agenda'),
+        l(t('Pasados'),'agenda/pasados'),
+        l(t('Audios'),'agenda/audios'),
+        l(t('Grupos de lectura'),'agenda/grupos')
+      );
+      $block['content'] = theme('katakrak_nav_secundary', array('links' => $links));
       break;
     case 'katakrak_agenda_search':
       $form = drupal_get_form('katakrak_agenda_search_form');

@@ -192,7 +192,7 @@ function katakrak_agenda_field_default_field_instances() {
         'label' => 'above',
         'module' => 'node_reference',
         'settings' => array(
-          'node_reference_view_mode' => 'teaser',
+          'node_reference_view_mode' => 'card_book_md',
         ),
         'type' => 'node_reference_node',
         'weight' => 0,

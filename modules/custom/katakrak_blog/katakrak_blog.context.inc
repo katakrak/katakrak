@@ -18,6 +18,14 @@ function katakrak_blog_context_default_contexts() {
   $context->description = 'Blog home';
   $context->tag = 'Blog';
   $context->conditions = array(
+    'taxonomy_term' => array(
+      'values' => array(
+        'blog_type' => 'blog_type',
+      ),
+      'options' => array(
+        'term_form' => '1',
+      ),
+    ),
     'views' => array(
       'values' => array(
         'blog:blogs_landing' => 'blog:blogs_landing',
@@ -27,23 +35,23 @@ function katakrak_blog_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'katakrak_blog-katakrak_blog_texto_home' => array(
-          'module' => 'katakrak_blog',
-          'delta' => 'katakrak_blog_texto_home',
-          'region' => 'content',
-          'weight' => '-10',
-        ),
         'katakrak_blog-katakrak_blog_search' => array(
           'module' => 'katakrak_blog',
           'delta' => 'katakrak_blog_search',
           'region' => 'content',
           'weight' => '-9',
         ),
+        'katakrak_blog-katakrak_blog_nav_secundary' => array(
+          'module' => 'katakrak_blog',
+          'delta' => 'katakrak_blog_nav_secundary',
+          'region' => 'content_top',
+          'weight' => '-10',
+        ),
       ),
       'layout' => 'agenda',
     ),
     'menu' => array(
-      0 => 'menu-menu-nagusia:Blog',
+      0 => 'menu-menu-nagusia:blog',
     ),
   );
   $context->condition_mode = 0;
@@ -68,14 +76,6 @@ function katakrak_blog_context_default_contexts() {
       ),
       'options' => array(
         'node_form' => '1',
-      ),
-    ),
-    'taxonomy_term' => array(
-      'values' => array(
-        'blog_type' => 'blog_type',
-      ),
-      'options' => array(
-        'term_form' => '1',
       ),
     ),
   );

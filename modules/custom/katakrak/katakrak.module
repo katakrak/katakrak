@@ -47,6 +47,13 @@ function katakrak_theme() {
       'template' => 'katakrak-footer-second',
       'path' => $path . '/templates',
     ),
+    'katakrak_nav_secundary' => array(
+      'template' => 'katakrak-nav-secundary',
+      'path' => $path . '/templates',
+      'variables' => array(
+        'links' => NULL,
+      ),
+    ),
   );
 }
 
