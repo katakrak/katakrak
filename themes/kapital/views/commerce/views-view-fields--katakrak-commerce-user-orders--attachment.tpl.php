@@ -23,7 +23,6 @@
  *
  * @ingroup views_templates
  */
-dpm($fields);
 ?>
 <div class="modal fade" id="<?php print $fields['order_number']->raw ?>" tabindex="-1" role="dialog" aria-labelledby="detallePedido">
   <div class="modal-dialog modal-lg" role="document">
