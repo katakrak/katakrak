@@ -54,6 +54,13 @@ function katakrak_theme() {
         'links' => NULL,
       ),
     ),
+    'katakrak_navbar_submenu' => array(
+      'template' => 'katakrak-navbar-submenu',
+      'path' => $path . '/templates',
+      'variables' => array(
+        'links' => NULL,
+      ),
+    ),
   );
 }
 

@@ -6,7 +6,35 @@
 
 include_once 'katakrak_editorial.features.inc';
 
+/**
+ * Implements hook_block_info().
+ */
+function katakrak_editorial_block_info() {
+  $blocks = array();
+  $blocks['katakrak_editorial_nav_secundary'] = array(
+    'info' => t('Submenu editorial'),
+    'cache' => DRUPAL_CACHE_GLOBAL
+  );  
+  return $blocks;
+}
 
+/**
+ * Implements hook_block_view().
+ */
+function katakrak_editorial_block_view($delta) {
+  switch($delta) {
+    case 'katakrak_editorial_nav_secundary':
+      $links = array(
+        l(t('Catálogo'), 'editorial'),
+        l(t('Autoras'), 'editorial'),
+        l(t('En los medios'), 'editorial'),
+        l(t('Distribución'), 'editorial'),
+      );
+      $block['content'] = theme("katakrak_navbar_submenu", array('links' => $links));
+      break;
+  }
+  return $block;
+}
 /**
  * Implements hook_init
  */
@@ -52,7 +80,7 @@ function katakrak_editorial_theme() {
         'form_download' => NULL,
 		    'node' => NULL,
       )
-    )
+    ),
   );
 }
 

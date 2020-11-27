@@ -34,18 +34,18 @@ function katakrak_menu_default_menu_links() {
     'language' => 'und',
     'menu_links_customized' => 1,
   );
-  // Exported menu link: menu-menu-nagusia_blog:blogs.
-  $menu_links['menu-menu-nagusia_blog:blogs'] = array(
+  // Exported menu link: menu-menu-nagusia_blog:blog.
+  $menu_links['menu-menu-nagusia_blog:blog'] = array(
     'menu_name' => 'menu-menu-nagusia',
-    'link_path' => 'blogs',
-    'router_path' => 'blogs',
+    'link_path' => 'blog',
+    'router_path' => 'blog',
     'link_title' => 'Blog',
     'options' => array(
       'attributes' => array(
         'title' => '',
       ),
       'alter' => TRUE,
-      'identifier' => 'menu-menu-nagusia_blog:blogs',
+      'identifier' => 'menu-menu-nagusia_blog:blog',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -121,7 +121,7 @@ function katakrak_menu_default_menu_links() {
     'hidden' => 0,
     'external' => 1,
     'has_children' => 1,
-    'expanded' => 0,
+    'expanded' => 1,
     'weight' => -49,
     'customized' => 1,
     'language' => 'und',
