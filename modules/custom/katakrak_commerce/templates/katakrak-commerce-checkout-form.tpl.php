@@ -19,4 +19,4 @@
     <?php print render ($form['buttons']) ?>
   </div>
 </div>
-<div class="hidden"><?php print drupal_render_children($form) ?> </div>
+<div class=""><?php print drupal_render_children($form) ?> </div>

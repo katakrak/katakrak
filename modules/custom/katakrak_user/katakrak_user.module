@@ -34,10 +34,7 @@ function katakrak_user_menu_alter(&$items) {
  * @return type
  */
 function katakrak_user_form_alter(&$form, &$form_state, $form_id) {
-  //drupal_set_message($form_id);
-  if ($form_id == 'user_login'){
-    $form['#theme'] = 'katakrak_user_login_form';
-  }
+
 }
 
 
@@ -57,7 +54,10 @@ function katakrak_user_block_info() {
     // Not worth caching.
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
-  
+  $blocks['katakrak_user_nav_secundary'] = array(
+    'info' => t('Submenu usuario'),
+    'cache' => DRUPAL_CACHE_GLOBAL
+  ); 
   return $blocks;
 }
 
@@ -65,11 +65,21 @@ function katakrak_user_block_info() {
  * Implements hook_block_view().
  */
 function katakrak_user_block_view($delta) {
-  if ($delta == 'katakrak_user_login_help') {
-  $block['content'] = '<div class="banner-help">'.
-                        '<i class="far fa-question-circle"></i> '.
-                        t('Necesitas tu <strong>cuenta Katakrak</strong> para hacer compras, seguir tus pedidos, etc...').
-                        '</div>';
-    return $block;  
-  }
+  switch($delta) {
+    case 'katakrak_user_login_help':
+    $block['content'] = '<div class="banner-help">'.
+      '<i class="far fa-question-circle"></i> '.
+      t('Necesitas tu <strong>cuenta Katakrak</strong> para hacer compras, seguir tus pedidos, etc...').
+      '</div>';
+      break;
+    case 'katakrak_user_nav_secundary':
+      global $user;
+      $links = array(
+        l(t('Mi cuenta'), 'user/'.$user->uid.'/edit'),
+        l(t('Mis pedidos'), 'user/'.$user->uid.'/orders'),
+      );
+      $block['content'] = theme("katakrak_navbar_submenu", array('links' => $links));
+      break;
+    }
+    return $block;
   }

@@ -85,9 +85,6 @@
       <?php endif; ?>
       <?php print render($title_suffix); ?>
       <?php print $messages; ?>
-      <?php if (!empty($tabs)): ?>
-        <?php print render($tabs); ?>
-      <?php endif; ?>
       <?php if (!empty($page['help'])): ?>
         <?php print render($page['help']); ?>
       <?php endif; ?>
@@ -102,9 +99,7 @@
   <div class="container">
     <h1 class="text-center"><?php print $title; ?></h1>
     <div class="row">
-      <div class="col-md-4 col-md-offset-4">
         <?php print render($page['content']); ?>
-      </div>
     </div>
 </div>
 </main>

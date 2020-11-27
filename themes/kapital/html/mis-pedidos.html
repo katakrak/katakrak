@@ -97,11 +97,18 @@
         </div><!-- /.navbar-collapse -->
 
         <div class="navbar-xs-items d-flex">
-          <button class="btn btn-transparent">
-            <i class="fas fa-user-circle"></i> <span class="hidden-xs">Mi cuenta</span>
+          <button class="btn btn-transparent dropdown-toggle" data-toggle="dropdown">
+            <i class="fas fa-user-circle "></i> <span class="hidden-xs">El-Hajj Malik El-Shabazz</span>
           </button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Mi cuenta</a></li>
+            <li><a href="#">Mis pedidos</a></li>
+            <li><a href="#">Newsletter</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Cerrar sesión</a></li>
+          </ul>
           
-            <button class="btn btn-transparent" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-transparent" type="button">
               <i class="fas fa-shopping-cart"></i> <span class="badge badge-pill badge-custom">1</span> <span class="sr-only">Items en tu cesta</span>
             </button>
             
@@ -109,132 +116,205 @@
       </div><!-- /.container-fluid -->
     </nav>
 
+    <nav class="navbar-submenu">
+      <ul>
+        <li>
+          <a href="#">Mi cuenta</a>
+        </li>
+        <li class="active"> 
+          <a href="#">Mis pedidos</a>
+        </li>
+        <li>
+          <a href="#">Newsletter</a>
+        </li>
+      </ul>
+    </nav>
 
-  
-    <div class="banner-help">
-      <a href="#">
-        <i class="far fa-question-circle"></i>  Necesitas tu <strong>cuenta Katakrak</strong> para hacer compras, seguir tus pedidos, etc...
-      </a>
-    </div>
-   
 
-<main class="main login">
+<main class="main">
     <div class="container">
      
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-
-        <div class="toboggan-unified login">
-          <h1 class="text-center">Mi cuenta</h1>
-          <!-- <div class="text-center " id="login-message">Introduce tus datos o crea una cuenta nueva</div> -->
-          
-        
-          <ul class="nav nav-secondary mt-2">
-            <li class="active">
-              <a href="#login" aria-controls="home" role="tab" data-toggle="tab">Ya tengo una cuenta</a>
-            </li>
-            <li>
-              <a href="#signup" aria-controls="home" role="tab" data-toggle="tab">Crear nueva cuenta</a>
-            </li>
-          </ul>
-     
-
-      <!-- Tab panes -->
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="login">
-          <form action="/cas/user" method="post" id="user-login" accept-charset="UTF-8">
-            <div class="mt-2">
-            
-              <div class="form-item form-item-name form-type-textfield form-group">
-                <label class="control-label" for="edit-name">Correo electrónico <span class="form-required" title="Este campo es obligatorio.">*</span></label>
-              <input title="Correo electrónico" placeholder="Correo electrónico" class="form-control form-text required" type="text" id="edit-name" name="name" value="" size="50" maxlength="60" />
-            </div>
-            <div class="form-item form-item-pass form-type-password form-group">
-              <label class="control-label" for="edit-pass">Contraseña <span class="form-required" title="Este campo es obligatorio.">*</span></label>
-            <input title="Contraseña" placeholder="Contraseña" class="form-control form-text required" type="password" id="edit-pass" name="pass" size="50" maxlength="128" />
-            </div>
-            <p class="login-forgot"><a href="/cas/user/password">No recuerdo mi contraseña</a></p>
-            <div id="capslockdiv"><p style="display: none;">Caps Lock On</p></div>
-          <div class="form-actions form-wrapper form-group mt-2" id="edit-actions">
-            <button type="submit" id="edit-submit" name="op" value="Iniciar sesión" class="btn btn-primary form-submit">Iniciar sesión</button>
-          </div>
-          <!-- <div class="actions-suffix">
-            <a href="/cas/user/register" class="super-login-register" title="Create a new user account">Crear nueva cuenta</a>
-          </div> -->
-          </div>
-          </form>
-        </div><!-- /login -->
-        <div role="tabpanel" class="tab-pane" id="signup">
-          <div id="register-form">
-            <form class="user-info-from-cookie" enctype="multipart/form-data" action="/cas/user" method="post" id="user-register-form" accept-charset="UTF-8">
-              <div class="mt-2"><div id="edit-account" class="form-wrapper form-group"><div class="form-item form-item-name form-type-textfield form-group">
-                <label class="control-label" for="edit-name--2">Nombre de usuario <span class="form-required" title="Este campo es obligatorio.">*</span></label>
-            <input class="username form-control form-text required" title="Se permiten espacios en blanco. No se permiten signos de puntuación excepto los puntos, guiones, comillas simples (apóstrofos) y guiones bajos," data-toggle="tooltip" type="text" id="edit-name--2" name="name" value="" size="60" maxlength="60" /></div><div class="form-item form-item-mail form-type-textfield form-group"> <label class="control-label" for="edit-mail">Dirección de correo electrónico <span class="form-required" title="Este campo es obligatorio.">*</span></label>
-            <input class="form-control form-text required" title="Una dirección de correo electrónico válida. Todos los correos del sistema se enviarán a esta dirección. La dirección de correo no es pública y solamente se usará para enviar una contraseña nueva o algunas noticias y/o avisos." data-toggle="tooltip" type="text" id="edit-mail" name="mail" value="" size="60" maxlength="254" /></div><div class="form-item form-item-conf-mail form-type-textfield form-group"> <label class="control-label" for="edit-conf-mail">Confirmar dirección de correo electrónico <span class="form-required" title="Este campo es obligatorio.">*</span></label>
-            <input class="form-control form-text required" title="Please re-type your e-mail address to confirm it is accurate." data-toggle="tooltip" type="text" id="edit-conf-mail" name="conf_mail" value="" size="60" maxlength="64" /></div><div class="form-item form-item-pass form-type-password-confirm form-group"><div class="form-item form-item-pass-pass1 form-type-password form-group"> <label class="control-label" for="edit-pass-pass1">Contraseña <span class="form-required" title="Este campo es obligatorio.">*</span></label>
-            <input class="password-field form-control form-text required" type="password" id="edit-pass-pass1" name="pass[pass1]" size="25" maxlength="128" /></div><div class="form-item form-item-pass-pass2 form-type-password form-group"> <label class="control-label" for="edit-pass-pass2">Confirmar contraseña <span class="form-required" title="Este campo es obligatorio.">*</span></label>
-            <input class="password-confirm form-control form-text required" type="password" id="edit-pass-pass2" name="pass[pass2]" size="25" maxlength="128" /></div></div><input type="hidden" name="timezone" value="Europe/Berlin" />
-            </div>
-            <div class="form-group">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox"> <span>Acepto las <a href="#">condiciones legales</a></span>
-                </label>
-              </div>
-            </div>
-            <input type="hidden" name="form_build_id" value="form-2KNy7IbQS-9sCziIWCMK5t11dtq63pv_AbqLdS8v9sc" />
-            <input type="hidden" name="form_id" value="user_register_form" />
-            <div class="form-actions form-wrapper form-group" id="edit-actions--2"><button type="submit" id="edit-submit--2" name="op" value="Crear nueva cuenta" class="btn btn-primary form-submit">Crear nueva cuenta</button>
-            </div></div>
-            </form>
-          </div>
-        </div><!-- /signup -->
+          <h1 class="text-center">Mis pedidos</h1>
+          <div class="table-responsive">
+          <table class="table table-pedidos mt-2">
+            <thead>
+                <tr>
+                  <th>Pedido</th>
+                  <th>Fecha</th>
+                    <th>Precio</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td>
+                    <p><a class="primary" href="#" data-toggle="modal" data-target="#detallePedido"><strong>XX-AA-SS-345</strong></a></p>
+                    <ul class="list-bordered small">
+                      <li>
+                        <strong>2</strong> Después de la utopía. El declive de la fe política
+                    </li>
+                    <li>
+                      <strong>1</strong> Después de la utopía. El declive de la fe política
+                  </li>
+                      
+                    </ul>
+                  <p class="small mt-1">
+                  Forma de envío: <strong>Bizikrak</strong></p>
+                  </td>
+                  <td>13/08/2020</td>
+                    
+                      <td>22€</td>
+                    <td>
+                      <strong>Pendiente</strong><br>
+                      Estamos preparando tu pedido
+                    </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p><a class="primary" href="#" data-toggle="modal" data-target="#detallePedido"><strong>XX-AA-SS-345</strong></a></p>
+                    <ul class="list-bordered small">
+                      <li>
+                        <strong>2</strong> Después de la utopía. El declive de la fe política
+                    </li>
+                    <li>
+                      <strong>1</strong> Después de la utopía. El declive de la fe política
+                  </li>
+                      
+                    </ul>
+                  <p class="small mt-1">
+                  Forma de envío: <strong>Bizikrak</strong></p>
+                  </td>
+                  <td>13/08/2020</td>
+                    <td>22€</td>
+                  <td>
+                    <strong class="ambar">Procesando</strong><br>
+                    Recibirás tu pedido en menos de 72 horas (?)
+                  </td>
+              </tr>
+              <tr>
+                <td>
+                  <p><a class="primary" href="#" data-toggle="modal" data-target="#detallePedido"><strong>XX-AA-SS-345</strong></a></p>
+                  <ul class="list-bordered small">
+                      <li>
+                        <strong>2</strong> Después de la utopía. El declive de la fe política
+                    </li>
+                    <li>
+                      <strong>1</strong> Después de la utopía. El declive de la fe política
+                  </li>
+                      
+                    </ul>
+                  <p class="small mt-1">
+                  Forma de envío: <strong>Bizikrak</strong></p>
+                  </td>
+                  <td>13/08/2020</td>
+                
+                  <td>22€</td>
+                <td>
+                  <strong class="success">Completado</strong><br>
+                  Tu pedido ya ha salido de Katakrak<br>
+                  Nº de seguimiento: xxxx-xxxx-xxxx-xxxx
+                  <p class="mt-1">
+                    <a class="btn btn-secondary btn-sm" href="#">Localizar</a>
+                  </p>
+                </td>
+            </tr>
+                
+                
+            </tbody>
+        </table>
       </div>
 
+      <p class="text-center small">
+        <a href="#">Mostrar pedidos anteriores (o paginador?)</a></p>
 
 
-        </div> <!-- /col -->
-      </div><!-- /row -->
-
-        <!-- <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <form class="mt-2 mb-4">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Email</label>
-                  <input type="email" class="form-control" placeholder="" autofocus="autofocus">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Contraseña</label>
-                  <input type="password" class="form-control"  placeholder="">
-                </div>
-
-                <p class="small">
-                    <a class="" href="#">He olvidado mi contraseña</a>
-                </p>
-                
-                 <div class="checkbox">
-                  <label>
-                    <input type="checkbox"> Recordarme
-                  </label>
-                </div> 
-                <button type="submit" class="btn btn-primary mt-1">Acceder</button>
-              </form>
-              <hr>
-              <div class="mb-3">
-                <h2>¿No tienes una cuenta?</h2>
-                <p>Regístrate en Katakrak para realizar compras y estar al día.</p>
-                <button type="submit" class="btn btn-secondary">Crear cuenta</button>
-              </div>
-           </div>
-       </div> -->
-        
-       
-
-        
 
        </div><!-- /.container -->
 
 </main><!-- /.main -->
+
+
+
+<!-- Modal detalle pedido -->
+<div class="modal fade" id="detallePedido" tabindex="-1" role="dialog" aria-labelledby="detallePedido">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <i class="far fa-times-circle"></i>
+        </button>
+        <h4 class="modal-title">Pedido XX-AA-SS-345</h4>
+      </div>
+      <div class="modal-body">
+        <table class="table table-shop mt-2">
+          <thead>
+              <tr>
+                  <th colspan="2">Artículo</th>
+                 
+                  <th class="text-right">Precio</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td class="cover">
+                      <img src="images/book-lg.jpg" alt="Título del libro" class="img-responsive">
+                  </td>
+                  <td class="title">
+                      <h3 class="book-title-sm">
+                          <a href="#">
+                              Después de la utopía. El declive de la fe política
+                          </a>
+                      </h3>
+                    </td>
+                    
+                  <td class="precio text-right">
+                      <span class="visible-xs-inline-block">Precio: </span> <strong>22,00€</strong>
+                  </td>
+              </tr>
+              <tr>
+                <td class="cover">
+                    <img src="images/book-lg.jpg" alt="Título del libro" class="img-responsive">
+                </td>
+                <td class="title">
+                    <h3 class="book-title-sm">
+                        <a href="#">
+                          Pentsamenduaren Historia Euskal Herrian
+                        </a>
+                    </h3>
+                  </td>
+                  
+                <td class="precio text-right">
+                    <span class="visible-xs-inline-block">Precio: </span> <strong>22,00€</strong>
+                </td>
+            </tr>
+            <tr class="small">
+              <td colspan="2">Precio base</td>
+              <td class="precio text-right">
+                  <span class="visible-xs-inline-block">Precio: </span> <strong>44,00€</strong>
+              </td>
+          </tr>
+          <tr class="small">
+            <td colspan="2">IVA</td>
+            <td class="precio text-right">
+                <span class="visible-xs-inline-block">Precio: </span> <strong>0,00€</strong>
+            </td>
+        </tr>
+              <tr class="small">
+                  <td colspan="2">Gastos de envío</td>
+                  <td class="precio text-right">
+                      <span class="visible-xs-inline-block">Precio: </span> <strong>6,00€</strong>
+                  </td>
+              </tr>
+              
+          </tbody>
+      </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <footer>
