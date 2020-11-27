@@ -57,6 +57,8 @@ function katakrak_user_user_default_permissions() {
     'name' => 'access mailchimp signup pages',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'mailchimp_signup',
   );
