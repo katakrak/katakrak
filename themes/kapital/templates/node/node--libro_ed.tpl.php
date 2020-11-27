@@ -15,6 +15,7 @@
     </p>
   </div>
 
+  <?php if ($node->field_editorial_libro['und'][0]['nid']): ?>
   <div class="buy">
     <p class="price"><?php print t($content['field_libro_ed_precio'][0]['#markup']) ?>€</p>
     <p class="small text-color-light"><?php print t("IVA incluido" ) ?></p>
@@ -33,6 +34,7 @@
     
     <?php //ENDTODO ?>
   </div><!-- /buy -->
+  <?php endif; ?>
   <div class="description">
     <h1 class="hidden-xs"><?php print $node->title?></h1>
     <h2 class="hidden-xs mt-0"><?php print render($content['field_libro_subtitulo']) ?></h2>
@@ -86,17 +88,18 @@
 </div>
 <div class="row">
   <div class="col-sm-6">
-  <hr class="hr-dark">
-  <h2 class="text-center"><?php print t("En la prensa")?></h2>
-  <div class="scroll-v h500">
-  <?php foreach ($node->resenas as $resena): ?>
-  
-    <a class="post-prensa" href="<?php print url("node/".$resena->nid) ?>">
-    <p class="quote"><?php print $resena->cita ?></p>
-    <p class="mb-0"><?php print $resena->fuente ?></p>
-    </a>
-  <?php endforeach; ?>
-      </div>
+    <?php if ($node->resenas): ?>
+    <hr class="hr-dark">
+    <h2 class="text-center"><?php print t("En la prensa")?></h2>
+    <div class="scroll-v h500">
+      <?php foreach ($node->resenas as $resena): ?>
+        <a class="post-prensa" href="<?php print url("node/".$resena->nid) ?>">
+          <p class="quote"><?php print $resena->cita ?></p>
+          <p class="mb-0"><?php print $resena->fuente ?></p>
+        </a>
+      <?php endforeach; ?>
+    </div>
+    <?php endif; ?>
   </div>
   <div class="col-sm-6">
     <hr class="hr-dark">
