@@ -21,8 +21,6 @@
  * regardless of any changes in the aliasing that might happen if
  * the view is modified.
  */
-dpm($row);
-
 ?>
 <a class="primary" href="#" data-toggle="modal" data-target="#<?php print $row->commerce_order_order_number ?>"><?php print $row->commerce_order_order_number ?></a>
 <?php print $row->field_commerce_line_items[0]['rendered']['#markup'] ?>
