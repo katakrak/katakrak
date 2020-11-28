@@ -117,7 +117,6 @@ function katakrak_editorial_context_default_contexts() {
       'values' => array(
         'editorial' => 'editorial',
         'editorial:page_1' => 'editorial:page_1',
-        'editorial:page_2' => 'editorial:page_2',
         'editorial:page_3' => 'editorial:page_3',
         'editorial:page_4' => 'editorial:page_4',
         'editorial:page_6' => 'editorial:page_6',
@@ -128,9 +127,9 @@ function katakrak_editorial_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'katakrak_editorial-katakrak_editorial_nav_secundary' => array(
+        'katakrak_editorial-katakrak_editorial_nav_submenu' => array(
           'module' => 'katakrak_editorial',
-          'delta' => 'katakrak_editorial_nav_secundary',
+          'delta' => 'katakrak_editorial_nav_submenu',
           'region' => 'banners',
           'weight' => '-10',
         ),

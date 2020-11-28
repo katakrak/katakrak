@@ -11,10 +11,14 @@ include_once 'katakrak_editorial.features.inc';
  */
 function katakrak_editorial_block_info() {
   $blocks = array();
-  $blocks['katakrak_editorial_nav_secundary'] = array(
+  $blocks['katakrak_editorial_nav_submenu'] = array(
     'info' => t('Submenu editorial'),
     'cache' => DRUPAL_CACHE_GLOBAL
   );  
+  $blocks['editorial_autores_nav_secunday'] = array(
+    'info' => t('Submenu editorial autoras'),
+    'cache' => DRUPAL_CACHE_GLOBAL
+  );
   return $blocks;
 }
 
@@ -23,15 +27,21 @@ function katakrak_editorial_block_info() {
  */
 function katakrak_editorial_block_view($delta) {
   switch($delta) {
-    case 'katakrak_editorial_nav_secundary':
+    case 'katakrak_editorial_nav_submenu':
       $links = array(
-        l(t('Catálogo'), 'editorial'),
-        l(t('Autoras'), 'editorial'),
+        l(t('Catálogo'), 'editorial/catalogo'),
+        l(t('Autoras'), 'editorial/autores'),
         l(t('En los medios'), 'editorial'),
         l(t('Distribución'), 'editorial'),
       );
       $block['content'] = theme("katakrak_navbar_submenu", array('links' => $links));
       break;
+    case 'editorial_autores_nav_secunday':
+      $links = array(
+        l(t('Autoras/es'),'editorial/autores'),
+        l(t('Traductoras/es'), 'editorial/traductores')
+      );
+      $block['content'] = theme('katakrak_nav_secundary', array('links' => $links));
   }
   return $block;
 }
