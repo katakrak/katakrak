@@ -1480,11 +1480,6 @@ function katakrak_agenda_views_default_views() {
     'links' => 0,
     'use_content_language' => 0,
   );
-  /* Campo: Nodo: Soundcloud */
-  $handler->display->display_options['fields']['field_event_soundcloud']['id'] = 'field_event_soundcloud';
-  $handler->display->display_options['fields']['field_event_soundcloud']['table'] = 'field_data_field_event_soundcloud';
-  $handler->display->display_options['fields']['field_event_soundcloud']['field'] = 'field_event_soundcloud';
-  $handler->display->display_options['fields']['field_event_soundcloud']['delta_offset'] = '0';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Nodo: Date (field_event_date) */
   $handler->display->display_options['sorts']['field_event_date_value']['id'] = 'field_event_date_value';
@@ -1512,14 +1507,6 @@ function katakrak_agenda_views_default_views() {
     'event' => 'event',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Nodo: Date (field_event_date) */
-  $handler->display->display_options['filters']['field_event_date_value']['id'] = 'field_event_date_value';
-  $handler->display->display_options['filters']['field_event_date_value']['table'] = 'field_data_field_event_date';
-  $handler->display->display_options['filters']['field_event_date_value']['field'] = 'field_event_date_value';
-  $handler->display->display_options['filters']['field_event_date_value']['operator'] = '<=';
-  $handler->display->display_options['filters']['field_event_date_value']['group'] = 1;
-  $handler->display->display_options['filters']['field_event_date_value']['granularity'] = 'hour';
-  $handler->display->display_options['filters']['field_event_date_value']['default_date'] = 'now';
   /* Filter criterion: Content: Language */
   $handler->display->display_options['filters']['language_1']['id'] = 'language_1';
   $handler->display->display_options['filters']['language_1']['table'] = 'node';
@@ -1536,6 +1523,11 @@ function katakrak_agenda_views_default_views() {
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
   $handler->display->display_options['filters']['language']['group'] = 2;
+  /* Filter criterion: Nodo: Soundcloud (field_soundcloud) */
+  $handler->display->display_options['filters']['field_soundcloud_value']['id'] = 'field_soundcloud_value';
+  $handler->display->display_options['filters']['field_soundcloud_value']['table'] = 'field_data_field_soundcloud';
+  $handler->display->display_options['filters']['field_soundcloud_value']['field'] = 'field_soundcloud_value';
+  $handler->display->display_options['filters']['field_soundcloud_value']['operator'] = 'not empty';
   $handler->display->display_options['path'] = 'agenda/audios';
   $handler->display->display_options['menu']['title'] = 'Agenda';
   $handler->display->display_options['menu']['weight'] = '0';
@@ -1675,7 +1667,6 @@ function katakrak_agenda_views_default_views() {
     t('Radical may block'),
     t('Radical may'),
     t('Audios'),
-    t('Soundcloud'),
     t('Citas de boletin'),
     t('field_boletin_eventos'),
   );

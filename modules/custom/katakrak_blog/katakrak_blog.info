@@ -19,7 +19,6 @@ dependencies[] = node
 dependencies[] = node_reference
 dependencies[] = options
 dependencies[] = page_manager
-dependencies[] = portfolio
 dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = text

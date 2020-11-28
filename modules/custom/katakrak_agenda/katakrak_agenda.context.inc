@@ -28,6 +28,7 @@ function katakrak_agenda_context_default_contexts() {
         'agenda:eventos_pasados' => 'agenda:eventos_pasados',
         'agenda:events_page' => 'agenda:events_page',
         'agenda:grupos_de_lectura' => 'agenda:grupos_de_lectura',
+        'agenda:page_1' => 'agenda:page_1',
       ),
     ),
   );

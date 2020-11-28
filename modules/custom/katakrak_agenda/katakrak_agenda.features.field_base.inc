@@ -416,27 +416,6 @@ function katakrak_agenda_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_event_soundcloud'.
-  $field_bases['field_event_soundcloud'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_event_soundcloud',
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'max_length' => 255,
-    ),
-    'translatable' => 0,
-    'type' => 'text',
-  );
-
   // Exported field_base: 'field_event_streaming'.
   $field_bases['field_event_streaming'] = array(
     'active' => 1,
@@ -506,6 +485,27 @@ function katakrak_agenda_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'color_field_rgb',
+  );
+
+  // Exported field_base: 'field_soundcloud'.
+  $field_bases['field_soundcloud'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_soundcloud',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 2000,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
   );
 
   return $field_bases;

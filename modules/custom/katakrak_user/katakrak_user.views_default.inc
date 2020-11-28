@@ -24,24 +24,13 @@ function katakrak_user_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'más';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['access']['perm'] = 'access user profiles';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Aplicar';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordenar por';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elementos por página';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Todos -';
-  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Desplazamiento';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« primera';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'table';
   /* Campo: Usuario: Nombre */
   $handler->display->display_options['fields']['name']['id'] = 'name';
@@ -106,19 +95,19 @@ function katakrak_user_views_default_views() {
   $handler->display->display_options['path'] = 'admin/people/all';
   $translatables['admin_users'] = array(
     t('Master'),
-    t('más'),
-    t('Aplicar'),
-    t('Reiniciar'),
-    t('Ordenar por'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Elementos por página'),
-    t('- Todos -'),
-    t('Desplazamiento'),
-    t('« primera'),
-    t('‹ anterior'),
-    t('siguiente ›'),
-    t('última »'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('Nombre'),
     t('Correo electrónico'),
     t('Roles'),

@@ -16,16 +16,9 @@
       </div>
     </div>
   
-    <?php if ($node->field_event_soundcloud['und'][0]['value']): ?>
+    <?php if ($node->field_soundcloud['und'][0]['value']): ?>
       <hr>
-      <ul class="list-inline">
-        <li><?php print t('Escúchalo:') ?></li>
-        <?php foreach ($node->field_event_soundcloud['und'] as $soundcloud): ?>
-        <li>
-          <a class="btn btn-secondary" href="<?php print $soundcloud ?>"><i class="fab fa-soundcloud mr-1" title="Soundcloud de Katakrak">Soundcloud</i></a>
-        </li>
-        <?php endforeach; ?>
-      </ul>
+      <?php print $node->field_soundcloud['und'][0]['value'] ?>
     <?php endif; ?>
     <hr>
      <?php print render($content['field_event_description']) ?>
