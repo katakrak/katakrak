@@ -6,6 +6,7 @@ dependencies[] = field_group
 dependencies[] = file_entity
 dependencies[] = libro
 dependencies[] = node_reference
+features[context][] = autores_editorial_landing
 features[context][] = editorial_landing
 features[context][] = nodo_editorial
 features[context][] = pagina_editorial

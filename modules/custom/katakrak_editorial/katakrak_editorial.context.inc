@@ -14,6 +14,40 @@ function katakrak_editorial_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'autores_editorial_landing';
+  $context->description = 'Landing de autores editorial';
+  $context->tag = 'Editorial';
+  $context->conditions = array(
+    'views' => array(
+      'values' => array(
+        'editorial:page_3' => 'editorial:page_3',
+        'editorial:page_4' => 'editorial:page_4',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'katakrak_editorial-editorial_autores_nav_secunday' => array(
+          'module' => 'katakrak_editorial',
+          'delta' => 'editorial_autores_nav_secunday',
+          'region' => 'content',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Editorial');
+  t('Landing de autores editorial');
+  $export['autores_editorial_landing'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'editorial_landing';
   $context->description = 'Landing editorial';
   $context->tag = 'Editorial';
