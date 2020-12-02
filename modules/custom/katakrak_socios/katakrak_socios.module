@@ -199,6 +199,7 @@ function katakrak_socios_signup_form_submit($form, &$form_state) {
   rules_invoke_component('rules_email_alta_socios', $form_state['input']['name'], $form_state['input']['surname'], $form_state['input']['email'], $form_state['input']['iban'], $cuota, $form_state['input']['direccion'].' '.$form_state['input']['cp'], $fraccionado, $form_state['input']['ciudad']);
 }
 
+
 function katakrak_socios_aportacion_form($form, &$form_state, $donation_form) {
 
   $form['cuota'] = array(
@@ -297,68 +298,3 @@ function my_bcmod( $x, $y )
 
     return (int)$mod; 
 } 
-//  $form['aportacion']['aportacion-covid19'] = array(
-//    '#type' => 'select',
-//    '#title' => t('Aportación inicial COVID19'),
-//    '#required' => TRUE,
-//    '#options' => array(
-//       '60 €' => t('60 €'),
-//      '250 €' => t('250 €'),
-//      '500 €' => t('500 €'),
-//    ),
-//    '#default_value' => t('500 €'),
-//  );
-//  $form['aportacion']['otra-aportacion-covid19'] = array(
-//    '#type' => 'textfield',
-//    '#title' => t('Deseo realizar otra aportacion inicial COVID 19'),
-//    '#required' => TRUE,
-//    '#size' => 5,
-//    '#attributes' => array(
-//      'min' => '60',
-//      'class' => array(
-//          'numeric' => TRUE,
-//        ),
-//      ),
-//  );
-//   $form['aportacion']['name'] = array(
-//    '#type' => 'textfield',
-//    '#title' => t('Nombre'),
-//    '#required' => TRUE,
-//    '#size' => 20,
-//  );
-//   $form['aportacion']['surname'] = array(
-//    '#type' => 'textfield',
-//    '#title' => t('Apellidos'),
-//    '#required' => TRUE,
-//    '#size' => 60,
-//  );
-//  $form['aportacion']['email'] = array(
-//    '#type' => 'textfield',
-//    '#title' => t('Dirección de Email'),
-//    '#required' => TRUE,
-//    '#size' => 60,
-//  );
-//  $form['aportacion']['IBAN'] = array(
-//    '#type' => 'textfield',
-//    '#title' => t('IBAN'),
-//    '#required' => TRUE,
-//    '#size' => 60,
-//  );
-//  $form['aportacion']['submit'] = array(
-//    '#type' => 'button',
-//    '#title' => t('ENVIAR'),
-//    '#value' => t('ENVIAR'),
-//    '#required' => TRUE,
-//    '#size' => 60,
-//  );
-
-
-
-// if ($form_id == 'commerce_cart_add_to_cart_form_76546') {
-//    $form['line_item_fields']['commerce_donate_amount']['und']['#options'] = array(
-//        100 => "100.00",
-//        200 => "200.00",
-//        500 => "500.00",
-//        900 => "900.00",
-//    );
-//  }
