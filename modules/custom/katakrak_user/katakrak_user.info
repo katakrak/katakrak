@@ -1,6 +1,7 @@
 name = Katakrak User
 core = 7.x
 package = Katakrak
+<<<<<<< HEAD
 dependencies[] = admin_menu
 dependencies[] = advagg
 dependencies[] = block
@@ -19,6 +20,10 @@ dependencies[] = elysia_cron
 dependencies[] = entityconnect
 dependencies[] = eu_cookie_compliance
 dependencies[] = facetapi
+=======
+dependencies[] = ctools
+dependencies[] = devel
+>>>>>>> master
 dependencies[] = features
 dependencies[] = field
 dependencies[] = field_collection
@@ -65,6 +70,7 @@ features[features_api][] = api:2
 features[user_permission][] = access administration menu
 features[user_permission][] = access administration pages
 features[user_permission][] = access devel information
+<<<<<<< HEAD
 features[user_permission][] = access library reports
 features[user_permission][] = access mailchimp signup pages
 features[user_permission][] = access media browser
@@ -250,6 +256,9 @@ features[user_permission][] = view own private files
 features[user_permission][] = view pane admin links
 features[user_permission][] = view private files
 features[user_role][] = administrator
+=======
+features[user_permission][] = redeem any coupon
+>>>>>>> master
 features[variable][] = logintoboggan_confirm_email_at_registration
 features[variable][] = logintoboggan_immediate_login_on_register
 features[variable][] = logintoboggan_login_successful_message
@@ -261,6 +270,7 @@ features[variable][] = logintoboggan_purge_unvalidated_user_interval
 features[variable][] = logintoboggan_redirect_on_confirm
 features[variable][] = logintoboggan_redirect_on_register
 features[variable][] = logintoboggan_unified_login
+<<<<<<< HEAD
 features[variable][] = user_cancel_method
 features[variable][] = user_email_verification
 features[variable][] = user_mail_cancel_confirm_body
@@ -289,3 +299,6 @@ features[variable][] = user_signatures
 features[views_view][] = admin_users
 features_exclude[dependencies][captcha] = captcha
 features_exclude[dependencies][ctools] = ctools
+=======
+features_exclude[dependencies][commerce_coupon] = commerce_coupon
+>>>>>>> master
