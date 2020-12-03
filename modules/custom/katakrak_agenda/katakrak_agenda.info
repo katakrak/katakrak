@@ -16,6 +16,7 @@ dependencies[] = views_content_cache
 dependencies[] = views_data_export
 dependencies[] = widget
 features[context][] = agenda
+features[context][] = agenda_landing
 features[context][] = node_event
 features[ctools][] = boxes:box:1
 features[ctools][] = context:context:3

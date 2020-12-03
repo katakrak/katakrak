@@ -74,6 +74,52 @@ function katakrak_agenda_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'agenda_landing';
+  $context->description = 'Agenda landing page';
+  $context->tag = 'Landing';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'agenda-landing' => 'agenda-landing',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'katakrak_agenda-agenda_landing_destacado' => array(
+          'module' => 'katakrak_agenda',
+          'delta' => 'agenda_landing_destacado',
+          'region' => 'banners',
+          'weight' => '-10',
+        ),
+        'katakrak_agenda-agenda_landing_baldosas' => array(
+          'module' => 'katakrak_agenda',
+          'delta' => 'agenda_landing_baldosas',
+          'region' => 'content_top',
+          'weight' => '-10',
+        ),
+        'katakrak_agenda-agenda_landing_visitado' => array(
+          'module' => 'katakrak_agenda',
+          'delta' => 'agenda_landing_visitado',
+          'region' => 'content_middle',
+          'weight' => '-10',
+        ),
+      ),
+      'layout' => 'landing',
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Agenda landing page');
+  t('Landing');
+  $export['agenda_landing'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'node_event';
   $context->description = '';
   $context->tag = 'Agenda';
