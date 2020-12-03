@@ -23,6 +23,22 @@ function katakrak_agenda_block_info() {
     'info' => t('Bloque búsqueda agenda'),
     'cache' => DRUPAL_NO_CACHE,
   );
+  $blocks['agenda_landing_destacado'] = array(
+    'info' => t('Landing agenda destacado'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['agenda_landing_visitado'] = array(
+    'info' => t('Landing agenda Nos han visitado'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['agenda_landing_baldosas'] = array(
+    'info' => t('Landing agenda Baldosas'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['agenda_landing_form'] = array(
+    'info' => t('Landing agenda Formulario'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   return $blocks;
 }
 
@@ -47,6 +63,19 @@ function katakrak_agenda_block_view($delta) {
       $form = drupal_get_form('katakrak_agenda_search_form');
       $block['content'] = theme('katakrak_search_block', array('form' => $form));
       break;
+    case 'agenda_landing_destacado':
+      $block['content'] = theme('katakrak_agenda_landing_destacado');
+      break;
+    case 'agenda_landing_visitado':
+      $block['content'] = theme('katakrak_agenda_landing_visitado');
+      break;
+    case 'agenda_landing_baldosas':
+      $block['content'] = theme('katakrak_agenda_landing_baldosas');
+      break;
+    case 'agenda_landing_form':
+      $block['content'] = theme('katakrak_agenda_landing_destacado');
+      break;
+    
   }
   return $block;
 }
@@ -73,8 +102,16 @@ function katakrak_agenda_theme() {
       'template' => 'katakrak-agenda-banner-organiza',
       'path' => $path . '/templates',
     ),
-    'katakrak_agenda_nav_secundary' => array(
-      'template' => 'katakrak-agenda-nav-secundary',
+    'katakrak_agenda_landing_destacado' => array(
+      'template' => 'katakrak-agenda-landing-destacado',
+      'path' => $path . '/templates',
+    ),
+    'katakrak_agenda_landing_visitado' => array(
+      'template' => 'katakrak-agenda-landing-visitado',
+      'path' => $path . '/templates',
+    ),
+    'katakrak_agenda_landing_baldosas' => array(
+      'template' => 'katakrak-agenda-landing-baldosas',
       'path' => $path . '/templates',
     ),
   );
