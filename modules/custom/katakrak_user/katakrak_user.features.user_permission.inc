@@ -20,5 +20,16 @@ function katakrak_user_user_default_permissions() {
     'module' => 'devel',
   );
 
+  // Exported permission: 'redeem any coupon'.
+  $permissions['redeem any coupon'] = array(
+    'name' => 'redeem any coupon',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'commerce_coupon',
+  );
+
   return $permissions;
 }
