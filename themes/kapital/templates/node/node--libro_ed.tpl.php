@@ -1,3 +1,4 @@
+<?php if ($page): ?>
 <!-- Ficha libro -->
 <div class="book">
   <div class="cover">
@@ -115,3 +116,21 @@
 </div>
 
 <div class="hidden color-fondo"><?php print $node->field_libro_ed_color['und'][0]['value'] ?></div>
+<?php endif; ?>
+<?php if ($view_mode == 'card_book'): ?>
+<div class="card-book-editorial">
+  <div class="cover">
+    <?php print render($content['field_libro_portada']) ?>
+  </div><!-- /cover -->
+    <div class="description">
+    <h3 class="book-title-sm mb-1">
+      <a href="#">
+        Erbesteko gutunak Victor Hugori
+      </a>
+      </h3>
+      <p class="mb-05">Louise Michel</p>
+      <p class="price">22,00€</p>
+      <p class="small success">Disponible</p>
+    </div><!-- /.description -->
+</div><!-- /.card-book -->
+<?php endif; ?>

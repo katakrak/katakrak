@@ -1330,9 +1330,13 @@ function katakrak_editorial_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'card_book' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'editorial_page',
+        ),
+        'type' => 'image',
         'weight' => 0,
       ),
       'card_book_md' => array(

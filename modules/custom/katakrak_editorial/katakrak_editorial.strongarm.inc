@@ -163,9 +163,17 @@ function katakrak_editorial_strongarm() {
             'weight' => '10',
             'visible' => TRUE,
           ),
+          'card_book' => array(
+            'weight' => '10',
+            'visible' => TRUE,
+          ),
         ),
         'language' => array(
           'default' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'card_book' => array(
             'weight' => '0',
             'visible' => TRUE,
           ),
@@ -175,9 +183,17 @@ function katakrak_editorial_strongarm() {
             'weight' => '-10',
             'visible' => FALSE,
           ),
+          'card_book' => array(
+            'weight' => '-10',
+            'visible' => FALSE,
+          ),
         ),
         'product:title' => array(
           'default' => array(
+            'weight' => '-5',
+            'visible' => FALSE,
+          ),
+          'card_book' => array(
             'weight' => '-5',
             'visible' => FALSE,
           ),
@@ -187,9 +203,17 @@ function katakrak_editorial_strongarm() {
             'weight' => '5',
             'visible' => FALSE,
           ),
+          'card_book' => array(
+            'weight' => '5',
+            'visible' => FALSE,
+          ),
         ),
         'product:commerce_price' => array(
           'default' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'card_book' => array(
             'weight' => '0',
             'visible' => TRUE,
           ),
