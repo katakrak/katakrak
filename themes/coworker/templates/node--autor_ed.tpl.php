@@ -115,9 +115,5 @@
           </div>
         </div>
       <?php endif; ?>
-			
-      <?php if ($page): ?>
-			
-			<?php endif; ?>
     </div>
   </div>

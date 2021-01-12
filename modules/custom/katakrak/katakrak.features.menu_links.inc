@@ -29,7 +29,7 @@ function katakrak_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 0,
+    'weight' => -47,
     'customized' => 1,
     'language' => 'und',
     'menu_links_customized' => 1,
@@ -52,7 +52,7 @@ function katakrak_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 0,
+    'weight' => -45,
     'customized' => 1,
     'language' => 'und',
     'menu_links_customized' => 1,
@@ -75,11 +75,10 @@ function katakrak_menu_default_menu_links() {
     'external' => 1,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 0,
+    'weight' => -49,
     'customized' => 1,
     'language' => 'und',
     'menu_links_customized' => 1,
-    'parent_identifier' => 'menu-menu-nagusia_espacios:<front>',
   );
   // Exported menu link: menu-menu-nagusia_editorial:editorial.
   $menu_links['menu-menu-nagusia_editorial:editorial'] = array(
@@ -103,77 +102,6 @@ function katakrak_menu_default_menu_links() {
     'customized' => 1,
     'language' => 'und',
     'menu_links_customized' => 1,
-  );
-  // Exported menu link: menu-menu-nagusia_espacios:<front>.
-  $menu_links['menu-menu-nagusia_espacios:<front>'] = array(
-    'menu_name' => 'menu-menu-nagusia',
-    'link_path' => '<front>',
-    'router_path' => '',
-    'link_title' => 'Espacios',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'alter' => TRUE,
-      'identifier' => 'menu-menu-nagusia_espacios:<front>',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 1,
-    'has_children' => 1,
-    'expanded' => 1,
-    'weight' => -49,
-    'customized' => 1,
-    'language' => 'und',
-    'menu_links_customized' => 1,
-  );
-  // Exported menu link: menu-menu-nagusia_libreria:<front>.
-  $menu_links['menu-menu-nagusia_libreria:<front>'] = array(
-    'menu_name' => 'menu-menu-nagusia',
-    'link_path' => '<front>',
-    'router_path' => '',
-    'link_title' => 'Libreria',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'alter' => TRUE,
-      'identifier' => 'menu-menu-nagusia_libreria:<front>',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 1,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 1,
-    'language' => 'und',
-    'menu_links_customized' => 1,
-    'parent_identifier' => 'menu-menu-nagusia_espacios:<front>',
-  );
-  // Exported menu link: menu-menu-nagusia_sala-de-actos:<front>.
-  $menu_links['menu-menu-nagusia_sala-de-actos:<front>'] = array(
-    'menu_name' => 'menu-menu-nagusia',
-    'link_path' => '<front>',
-    'router_path' => '',
-    'link_title' => 'Sala de actos',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'alter' => TRUE,
-      'identifier' => 'menu-menu-nagusia_sala-de-actos:<front>',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 1,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 1,
-    'language' => 'und',
-    'menu_links_customized' => 1,
-    'parent_identifier' => 'menu-menu-nagusia_espacios:<front>',
   );
   // Exported menu link: menu-menu-nagusia_tienda-online:tienda.
   $menu_links['menu-menu-nagusia_tienda-online:tienda'] = array(
@@ -205,9 +133,6 @@ function katakrak_menu_default_menu_links() {
   t('Blog');
   t('Cantina');
   t('Editorial');
-  t('Espacios');
-  t('Libreria');
-  t('Sala de actos');
   t('Tienda online');
 
   return $menu_links;

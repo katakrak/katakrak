@@ -105,7 +105,6 @@ function katakrak_editorial_context_default_contexts() {
   $context->conditions = array(
     'node' => array(
       'values' => array(
-        'autor_ed' => 'autor_ed',
         'libro_ed' => 'libro_ed',
       ),
       'options' => array(
@@ -147,6 +146,14 @@ function katakrak_editorial_context_default_contexts() {
   $context->description = 'Página Editorial';
   $context->tag = 'Editorial';
   $context->conditions = array(
+    'node' => array(
+      'values' => array(
+        'autor_ed' => 'autor_ed',
+      ),
+      'options' => array(
+        'node_form' => '1',
+      ),
+    ),
     'views' => array(
       'values' => array(
         'editorial' => 'editorial',
@@ -173,7 +180,7 @@ function katakrak_editorial_context_default_contexts() {
       0 => 'main-menu:editorial',
     ),
   );
-  $context->condition_mode = 1;
+  $context->condition_mode = 0;
 
   // Translatables
   // Included for use with string extractors like potx.

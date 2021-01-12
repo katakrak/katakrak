@@ -16,7 +16,7 @@ function katakrak_socios_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'campana-socios';
   $context->description = 'La página de la campaña de socios';
-  $context->tag = 'katakrak socios';
+  $context->tag = 'Landing';
   $context->conditions = array(
     'path' => array(
       'values' => array(
@@ -48,7 +48,7 @@ function katakrak_socios_context_default_contexts() {
   // Translatables
   // Included for use with string extractors like potx.
   t('La página de la campaña de socios');
-  t('katakrak socios');
+  t('Landing');
   $export['campana-socios'] = $context;
 
   return $export;

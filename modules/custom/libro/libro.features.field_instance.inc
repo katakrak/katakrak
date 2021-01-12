@@ -289,17 +289,15 @@ function libro_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'card_book' => array(
-        'label' => 'hidden',
-        'module' => 'taxonomy',
+        'label' => 'above',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_plain',
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'card_book_md' => array(
-        'label' => 'hidden',
-        'module' => 'taxonomy',
+        'label' => 'above',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_plain',
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'default' => array(
@@ -369,10 +367,9 @@ function libro_field_default_field_instances() {
         'weight' => 0,
       ),
       'card_book_md' => array(
-        'label' => 'hidden',
-        'module' => 'taxonomy',
+        'label' => 'above',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'default' => array(
@@ -585,10 +582,9 @@ function libro_field_default_field_instances() {
         'weight' => 0,
       ),
       'card_book_md' => array(
-        'label' => 'hidden',
-        'module' => 'taxonomy',
+        'label' => 'above',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'default' => array(
@@ -647,7 +643,7 @@ function libro_field_default_field_instances() {
     'bundle' => 'libro',
     'default_value' => array(
       0 => array(
-        'value' => '0Disponible',
+        'value' => 0,
       ),
     ),
     'deleted' => 0,
@@ -943,8 +939,8 @@ function libro_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
-          'image_link' => 'content',
-          'image_style' => 'book_thumbnail',
+          'image_link' => '',
+          'image_style' => '',
         ),
         'type' => 'image',
         'weight' => 0,
@@ -953,20 +949,26 @@ function libro_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
-          'image_link' => 'content',
-          'image_style' => 'cover_home',
+          'image_link' => '',
+          'image_style' => '',
         ),
         'type' => 'image',
         'weight' => 0,
       ),
       'default' => array(
         'label' => 'hidden',
-        'module' => 'image',
+        'module' => 'colorbox',
         'settings' => array(
-          'image_link' => '',
-          'image_style' => 'book_cover',
+          'colorbox_caption' => 'auto',
+          'colorbox_caption_custom' => '',
+          'colorbox_gallery' => 'post',
+          'colorbox_gallery_custom' => '',
+          'colorbox_image_style' => '',
+          'colorbox_multivalue_index' => NULL,
+          'colorbox_node_style' => 'book_cover',
+          'colorbox_node_style_first' => 'extra_large',
         ),
-        'type' => 'image',
+        'type' => 'colorbox',
         'weight' => 10,
       ),
       'home_event' => array(
@@ -1022,6 +1024,17 @@ function libro_field_default_field_instances() {
       'active' => 1,
       'module' => 'image',
       'settings' => array(
+        'imce_filefield_on' => 1,
+        'insert' => 0,
+        'insert_absolute' => FALSE,
+        'insert_class' => '',
+        'insert_default' => array(
+          0 => 'auto',
+        ),
+        'insert_styles' => array(
+          0 => 'auto',
+        ),
+        'insert_width' => '',
         'preview_image_style' => 'thumbnail',
         'progress_indicator' => 'throbber',
       ),
@@ -1353,10 +1366,9 @@ function libro_field_default_field_instances() {
         'weight' => 0,
       ),
       'card_book_md' => array(
-        'label' => 'hidden',
-        'module' => 'i18n_taxonomy',
+        'label' => 'above',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_plain',
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'default' => array(

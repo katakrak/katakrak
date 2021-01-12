@@ -124,13 +124,30 @@
   </div><!-- /cover -->
     <div class="description">
     <h3 class="book-title-sm mb-1">
-      <a href="#">
-        Erbesteko gutunak Victor Hugori
+      <a href="<?php print url('node/'.$node->nid) ?>">
+        <?php print $node->title?>
       </a>
       </h3>
       <p class="mb-05">Louise Michel</p>
       <p class="price">22,00€</p>
       <p class="small success">Disponible</p>
+    </div><!-- /.description -->
+</div><!-- /.card-book -->
+<?php endif; ?>
+<?php if ($view_mode == 'card_book_md'): ?>
+<div class="card-book-md">
+  <div class="cover">
+    <?php print render($content['field_libro_portada']) ?>
+  </div><!-- /cover -->
+    <div class="description">
+    <h3 class="mt-0">
+      <a href="<?php print url('node/'.$node->nid) ?>">
+        <?php print $node->title?>
+      </a>
+      </h3>
+      <p class="mb-05"><?php print render($content['field_libro_ed_autor']) ?></p>
+      <p class="price"><?php print t($content['field_libro_ed_precio'][0]['#markup']) ?>€</p>
+      <p class="small success"><?php print t("Disponible") ?></p>
     </div><!-- /.description -->
 </div><!-- /.card-book -->
 <?php endif; ?>

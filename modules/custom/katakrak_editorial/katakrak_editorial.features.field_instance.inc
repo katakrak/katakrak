@@ -143,7 +143,7 @@ function katakrak_editorial_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'text_plain',
         'weight' => 2,
       ),
       'teaser' => array(
@@ -552,9 +552,10 @@ function katakrak_editorial_field_default_field_instances() {
         'weight' => 0,
       ),
       'card_book_md' => array(
-        'label' => 'above',
+        'label' => 'hidden',
+        'module' => 'node_reference',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'node_reference_plain',
         'weight' => 0,
       ),
       'default' => array(
@@ -781,9 +782,15 @@ function katakrak_editorial_field_default_field_instances() {
         'weight' => 0,
       ),
       'card_book_md' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
+        'label' => 'hidden',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
         'weight' => 0,
       ),
       'default' => array(
@@ -1340,9 +1347,13 @@ function katakrak_editorial_field_default_field_instances() {
         'weight' => 0,
       ),
       'card_book_md' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
         'weight' => 0,
       ),
       'default' => array(

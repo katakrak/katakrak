@@ -80,6 +80,12 @@ function katakrak_editorial_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'card_book' => array(
+        'custom_settings' => TRUE,
+      ),
+      'card_book_md' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -100,6 +106,12 @@ function katakrak_editorial_strongarm() {
         'sharethis' => array(
           'default' => array(
             'weight' => '10',
+            'visible' => TRUE,
+          ),
+        ),
+        'language' => array(
+          'default' => array(
+            'weight' => '0',
             'visible' => TRUE,
           ),
         ),
@@ -167,6 +179,10 @@ function katakrak_editorial_strongarm() {
             'weight' => '10',
             'visible' => TRUE,
           ),
+          'card_book_md' => array(
+            'weight' => '10',
+            'visible' => TRUE,
+          ),
         ),
         'language' => array(
           'default' => array(
@@ -174,6 +190,10 @@ function katakrak_editorial_strongarm() {
             'visible' => TRUE,
           ),
           'card_book' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'card_book_md' => array(
             'weight' => '0',
             'visible' => TRUE,
           ),
@@ -187,6 +207,10 @@ function katakrak_editorial_strongarm() {
             'weight' => '-10',
             'visible' => FALSE,
           ),
+          'card_book_md' => array(
+            'weight' => '-10',
+            'visible' => FALSE,
+          ),
         ),
         'product:title' => array(
           'default' => array(
@@ -194,6 +218,10 @@ function katakrak_editorial_strongarm() {
             'visible' => FALSE,
           ),
           'card_book' => array(
+            'weight' => '-5',
+            'visible' => FALSE,
+          ),
+          'card_book_md' => array(
             'weight' => '-5',
             'visible' => FALSE,
           ),
@@ -207,6 +235,10 @@ function katakrak_editorial_strongarm() {
             'weight' => '5',
             'visible' => FALSE,
           ),
+          'card_book_md' => array(
+            'weight' => '5',
+            'visible' => FALSE,
+          ),
         ),
         'product:commerce_price' => array(
           'default' => array(
@@ -214,6 +246,10 @@ function katakrak_editorial_strongarm() {
             'visible' => TRUE,
           ),
           'card_book' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'card_book_md' => array(
             'weight' => '0',
             'visible' => TRUE,
           ),
