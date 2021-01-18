@@ -51,7 +51,7 @@ function katakrak_sukaldea_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Campo: Nodo: Unitatea */
+  /* Campo: Nodo: Unidad */
   $handler->display->display_options['fields']['field_produktua_kopurua']['id'] = 'field_produktua_kopurua';
   $handler->display->display_options['fields']['field_produktua_kopurua']['table'] = 'field_data_field_produktua_kopurua';
   $handler->display->display_options['fields']['field_produktua_kopurua']['field'] = 'field_produktua_kopurua';
@@ -211,6 +211,50 @@ function katakrak_sukaldea_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published status */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'sukalde_errezeta' => 'sukalde_errezeta',
+  );
+  /* Filter criterion: Content: Title */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Título';
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['remember'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    5 => '5',
+    6 => '6',
+  );
+  /* Filter criterion: Nodo: Preparacion (field_errezeta_preparacion) */
+  $handler->display->display_options['filters']['field_errezeta_preparacion_value']['id'] = 'field_errezeta_preparacion_value';
+  $handler->display->display_options['filters']['field_errezeta_preparacion_value']['table'] = 'field_data_field_errezeta_preparacion';
+  $handler->display->display_options['filters']['field_errezeta_preparacion_value']['field'] = 'field_errezeta_preparacion_value';
+  $handler->display->display_options['filters']['field_errezeta_preparacion_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_errezeta_preparacion_value']['expose']['operator_id'] = 'field_errezeta_preparacion_value_op';
+  $handler->display->display_options['filters']['field_errezeta_preparacion_value']['expose']['label'] = 'Tipo de receta';
+  $handler->display->display_options['filters']['field_errezeta_preparacion_value']['expose']['operator'] = 'field_errezeta_preparacion_value_op';
+  $handler->display->display_options['filters']['field_errezeta_preparacion_value']['expose']['identifier'] = 'field_errezeta_preparacion_value';
+  $handler->display->display_options['filters']['field_errezeta_preparacion_value']['expose']['remember_roles'] = array(
+    2 => '2',
+  );
   $handler->display->display_options['path'] = 'admin/content/sukaldea';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Sukaldea:  Recetas';
@@ -280,6 +324,7 @@ function katakrak_sukaldea_views_default_views() {
     t('Título'),
     t('Page'),
     t('more'),
+    t('Tipo de receta'),
     t('Productos'),
   );
   $export['sukaldea'] = $view;

@@ -175,7 +175,48 @@ menú del día',
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 10,
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-sukalde_errezeta-field_errezeta_nombre_carta'.
+  $field_instances['node-sukalde_errezeta-field_errezeta_nombre_carta'] = array(
+    'bundle' => 'sukalde_errezeta',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 12,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_errezeta_nombre_carta',
+    'label' => 'Nombre para carta',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 6,
     ),
   );
 
@@ -235,7 +276,7 @@ menú del día',
     'bundle' => 'sukalde_errezeta',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'En cuantas porciones se divide la receta. Se usa para calcular los precios recomendados',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -264,8 +305,8 @@ menú del día',
     ),
     'entity_type' => 'node',
     'field_name' => 'field_errezeta_porzio_kopurua',
-    'label' => 'Porzio kopurua',
-    'required' => 1,
+    'label' => 'Porciones',
+    'required' => 0,
     'settings' => array(
       'max' => '',
       'min' => '',
@@ -278,7 +319,51 @@ menú del día',
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 4,
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-sukalde_errezeta-field_errezeta_preparacion'.
+  $field_instances['node-sukalde_errezeta-field_errezeta_preparacion'] = array(
+    'bundle' => 'sukalde_errezeta',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 11,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_errezeta_preparacion',
+    'label' => 'Preparacion',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 0,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 10,
     ),
   );
 
@@ -287,7 +372,7 @@ menú del día',
     'bundle' => 'sukalde_errezeta',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Solo para recetas que no se venden directamente',
+    'description' => 'Precio por kilogramo de la preparación',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -310,7 +395,7 @@ menú del día',
     ),
     'entity_type' => 'node',
     'field_name' => 'field_errezeta_prezioa',
-    'label' => 'Precio de la receta',
+    'label' => 'Precio de la preparacion',
     'required' => 0,
     'settings' => array(
       'max' => '',
@@ -324,50 +409,7 @@ menú del día',
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 9,
-    ),
-  );
-
-  // Exported field_instance: 'node-sukalde_errezeta-field_producto_primario'.
-  $field_instances['node-sukalde_errezeta-field_producto_primario'] = array(
-    'bundle' => 'sukalde_errezeta',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => 'Marca esta casilla si la receta es para venta directa al público',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 7,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_producto_primario',
-    'label' => 'Producto primario',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 0,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 8,
+      'weight' => 12,
     ),
   );
 
@@ -376,7 +418,7 @@ menú del día',
     'bundle' => 'sukalde_errezeta',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Para una preparación. La unidad ',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -394,7 +436,7 @@ menú del día',
     ),
     'entity_type' => 'node',
     'field_name' => 'field_produktua_kopurua',
-    'label' => 'Unitatea',
+    'label' => 'Unidad',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -407,7 +449,7 @@ menú del día',
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 7,
+      'weight' => 11,
     ),
   );
 
@@ -416,7 +458,7 @@ menú del día',
     'bundle' => 'sukalde_errezeta',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Precio final de venta. Con IVA incluido',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -439,8 +481,8 @@ menú del día',
     ),
     'entity_type' => 'node',
     'field_name' => 'field_produktua_prezioa',
-    'label' => 'Prezioa',
-    'required' => 1,
+    'label' => 'PVP',
+    'required' => 0,
     'settings' => array(
       'max' => '',
       'min' => '',
@@ -453,7 +495,7 @@ menú del día',
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 3,
+      'weight' => 9,
     ),
   );
 
@@ -490,7 +532,7 @@ menú del día',
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 11,
+      'weight' => 8,
     ),
   );
 
@@ -528,7 +570,7 @@ menú del día',
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 34,
+      'weight' => 5,
     ),
   );
 
@@ -574,7 +616,53 @@ menú del día',
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 32,
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'node-sukalde_produktua-field_produktua_peso'.
+  $field_instances['node-sukalde_produktua-field_produktua_peso'] = array(
+    'bundle' => 'sukalde_produktua',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'El peso de una unidad de este producto, expresado en gramos.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 4,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_produktua_peso',
+    'label' => 'peso',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 4,
     ),
   );
 
@@ -626,30 +714,37 @@ menú del día',
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 33,
+      'weight' => 3,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
   t('Alergenos');
+  t('El peso de una unidad de este producto, expresado en gramos.');
+  t('En cuantas porciones se divide la receta. Se usa para calcular los precios recomendados');
   t('Familia');
   t('Izena');
   t('Kopurua');
-  t('Marca esta casilla si la receta es para venta directa al público');
+  t('Nombre para carta');
   t('Osagaia');
-  t('Porzio kopurua');
-  t('Precio de la receta');
+  t('PVP');
+  t('Para una preparación. La unidad ');
+  t('Porciones');
+  t('Precio de la preparacion');
+  t('Precio final de venta. Con IVA incluido');
+  t('Precio por kilogramo de la preparación');
+  t('Preparacion');
   t('Prezioa');
-  t('Producto primario');
   t('Produktua');
-  t('Solo para recetas que no se venden directamente');
   t('Una de las siguientes familias:
 reposteria
 cenas
 menú del día');
+  t('Unidad');
   t('Unitatea');
   t('Vegetariano');
+  t('peso');
 
   return $field_instances;
 }
