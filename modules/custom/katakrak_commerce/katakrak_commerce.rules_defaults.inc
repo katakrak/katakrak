@@ -19,7 +19,6 @@ function katakrak_commerce_default_rules_configuration() {
       "REQUIRES" : [
         "commerce_order",
         "commerce_shipping",
-        "rules_i18n",
         "rules",
         "mimemail",
         "commerce_checkout"
@@ -40,13 +39,6 @@ function katakrak_commerce_default_rules_configuration() {
         }
       ],
       "DO" : [
-        { "mail" : {
-            "to" : "online@katakrak.net",
-            "subject" : "Nuevo pedido de [commerce-order:owner]",
-            "message" : "Hola\\r\\n\\r\\n[commerce-order:owner] ha hecho un Pedido en katakrak.net \\r\\n\\r\\n[commerce-order:commerce_line_items]\\r\\n[commerce-order:commerce-line-items]\\t\\r\\n\\u003Cbr\\u003E\\r\\n[commerce-order:mail]\\t\\r\\n[commerce-order:commerce_customer_billing]\\t\\r\\n\\r\\n\\r\\nPara gestionar el pedido accede a [commerce-order:admin-url]\\t\\r\\n\\r\\n",
-            "from" : "[site:mail]"
-          }
-        },
         { "mimemail" : {
             "USING" : {
               "key" : "order_confirmation",
@@ -74,7 +66,6 @@ function katakrak_commerce_default_rules_configuration() {
       "REQUIRES" : [
         "commerce_order",
         "commerce_shipping",
-        "rules_i18n",
         "rules",
         "mimemail",
         "commerce_checkout"
@@ -91,13 +82,6 @@ function katakrak_commerce_default_rules_configuration() {
         { "commerce_shipping_compare_shipping_service" : { "commerce_order" : [ "commerce_order" ], "service" : "mensajeria_48_h" } }
       ],
       "DO" : [
-        { "mail" : {
-            "to" : "online@katakrak.net",
-            "subject" : "Nuevo pedido de [commerce-order:owner]",
-            "message" : "Hola\\r\\n\\r\\n[commerce-order:owner] ha hecho un Pedido en katakrak.net \\r\\n\\r\\n[commerce-order:commerce_line_items]\\r\\n[commerce-order:commerce-line-items]\\t\\r\\n\\u003Cbr\\u003E\\r\\n[commerce-order:mail]\\t\\r\\n[commerce-order:commerce_customer_billing]\\t\\r\\n\\r\\n\\r\\nPara gestionar el pedido accede a [commerce-order:admin-url]\\t\\r\\n\\r\\n",
-            "from" : "[site:mail]"
-          }
-        },
         { "mimemail" : {
             "USING" : {
               "key" : "order_confirmation",
@@ -120,7 +104,7 @@ function katakrak_commerce_default_rules_configuration() {
       "LABEL" : "El pedido ha sido enviado (Correo ordinario)",
       "PLUGIN" : "reaction rule",
       "OWNER" : "rules",
-      "REQUIRES" : [ "rules", "commerce_shipping", "rules_i18n", "mimemail", "entity" ],
+      "REQUIRES" : [ "rules", "commerce_shipping", "mimemail", "entity" ],
       "ON" : { "commerce_order_update" : [] },
       "IF" : [
         { "NOT data_is" : { "data" : [ "commerce-order-unchanged:status" ], "value" : "completed" } },
@@ -236,16 +220,8 @@ function katakrak_commerce_default_rules_configuration() {
   $items['rules_pedido_procesado'] = entity_import('rules_config', '{ "rules_pedido_procesado" : {
       "LABEL" : "El pedido ha sido procesado",
       "PLUGIN" : "reaction rule",
-      "ACTIVE" : false,
       "OWNER" : "rules",
-      "REQUIRES" : [
-        "rules",
-        "commerce_shipping",
-        "commerce_order",
-        "rules_i18n",
-        "mimemail",
-        "entity"
-      ],
+      "REQUIRES" : [ "rules", "commerce_shipping", "commerce_order", "mimemail", "entity" ],
       "ON" : { "commerce_order_update" : [] },
       "IF" : [
         { "NOT data_is" : { "data" : [ "commerce-order-unchanged:status" ], "value" : "completed" } },
@@ -284,13 +260,7 @@ function katakrak_commerce_default_rules_configuration() {
       "LABEL" : "Send download link after donation",
       "PLUGIN" : "reaction rule",
       "OWNER" : "rules",
-      "REQUIRES" : [
-        "commerce_order",
-        "rules",
-        "rules_i18n",
-        "mimemail",
-        "commerce_checkout"
-      ],
+      "REQUIRES" : [ "commerce_order", "rules", "mimemail", "commerce_checkout" ],
       "ON" : { "commerce_checkout_complete" : [] },
       "IF" : [
         { "commerce_order_contains_product" : {

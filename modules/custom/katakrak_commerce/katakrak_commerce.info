@@ -2,6 +2,7 @@ name = Katakrak commerce
 description = Stores features of commerce
 core = 7.x
 package = Katakrak
+dependencies[] = commerce_order
 dependencies[] = commerce_shipping
 dependencies[] = context
 dependencies[] = features

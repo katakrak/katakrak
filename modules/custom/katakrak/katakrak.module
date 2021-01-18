@@ -197,6 +197,15 @@ function katakrak_menu() {
   return $items;
 }
 
+function katakrak_menu_alter(&$callbacks) {
+
+  foreach ($callbacks as $key => $value) {
+    
+    if ($key == 'admin/content/sukaldea')
+      dpm($value);
+  }
+}
+
 /**
  * Creates the batch
  * 

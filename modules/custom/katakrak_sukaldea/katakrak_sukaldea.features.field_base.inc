@@ -57,6 +57,27 @@ function katakrak_sukaldea_field_default_field_bases() {
     'type' => 'number_decimal',
   );
 
+  // Exported field_base: 'field_errezeta_nombre_carta'.
+  $field_bases['field_errezeta_nombre_carta'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_errezeta_nombre_carta',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
   // Exported field_base: 'field_errezeta_osagai'.
   $field_bases['field_errezeta_osagai'] = array(
     'active' => 1,
@@ -96,6 +117,31 @@ function katakrak_sukaldea_field_default_field_bases() {
     'settings' => array(),
     'translatable' => 0,
     'type' => 'number_integer',
+  );
+
+  // Exported field_base: 'field_errezeta_preparacion'.
+  $field_bases['field_errezeta_preparacion'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_errezeta_preparacion',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => 'Producto final',
+        1 => 'Preparacion',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
   );
 
   // Exported field_base: 'field_errezeta_prezioa'.
@@ -172,13 +218,13 @@ function katakrak_sukaldea_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_producto_primario'.
-  $field_bases['field_producto_primario'] = array(
+  // Exported field_base: 'field_produktua_alergenos'.
+  $field_bases['field_produktua_alergenos'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_producto_primario',
+    'field_name' => 'field_produktua_alergenos',
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -188,13 +234,25 @@ function katakrak_sukaldea_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        0 => '',
-        1 => 'Producto final',
+        'lacteos' => 'Lacteos',
+        'glute' => 'Cereales con gluten',
+        'huevos' => 'Huevos',
+        'pescado' => 'Pescado',
+        'moluscos' => 'Moluscos',
+        'crustaceos' => 'Crustáceos',
+        'cacahuetes' => 'Cacahuetes',
+        'frutossecos' => 'Frutos secos',
+        'soja' => 'Soja',
+        'apio' => 'Apio',
+        'mostaza' => 'Mostaza',
+        'sesamo' => 'Sésamo',
+        'altramuz' => 'Altramuz',
+        'sulfitos' => 'Sulfitos',
       ),
       'allowed_values_function' => '',
     ),
     'translatable' => 0,
-    'type' => 'list_boolean',
+    'type' => 'list_text',
   );
 
   // Exported field_base: 'field_produktua_kopurua'.
@@ -218,6 +276,21 @@ function katakrak_sukaldea_field_default_field_bases() {
     'type' => 'text',
   );
 
+  // Exported field_base: 'field_produktua_peso'.
+  $field_bases['field_produktua_peso'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_produktua_peso',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'number_integer',
+  );
+
   // Exported field_base: 'field_produktua_prezioa'.
   $field_bases['field_produktua_prezioa'] = array(
     'active' => 1,
@@ -235,6 +308,31 @@ function katakrak_sukaldea_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'number_decimal',
+  );
+
+  // Exported field_base: 'field_vegetariano'.
+  $field_bases['field_vegetariano'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_vegetariano',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'vegano' => 'Vegano',
+        'vegetariano' => 'Vegetariano',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
   );
 
   return $field_bases;
