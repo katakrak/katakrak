@@ -457,6 +457,81 @@ menú del día',
     ),
   );
 
+  // Exported field_instance: 'node-sukalde_errezeta-field_vegetariano'.
+  $field_instances['node-sukalde_errezeta-field_vegetariano'] = array(
+    'bundle' => 'sukalde_errezeta',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 10,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_vegetariano',
+    'label' => 'Vegetariano',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 11,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-sukalde_produktua-field_produktua_alergenos'.
+  $field_instances['node-sukalde_produktua-field_produktua_alergenos'] = array(
+    'bundle' => 'sukalde_produktua',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_produktua_alergenos',
+    'label' => 'Alergenos',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 34,
+    ),
+  );
+
   // Exported field_instance: 'node-sukalde_produktua-field_produktua_kopurua'.
   $field_instances['node-sukalde_produktua-field_produktua_kopurua'] = array(
     'bundle' => 'sukalde_produktua',
@@ -557,6 +632,7 @@ menú del día',
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Alergenos');
   t('Familia');
   t('Izena');
   t('Kopurua');
@@ -573,6 +649,7 @@ reposteria
 cenas
 menú del día');
   t('Unitatea');
+  t('Vegetariano');
 
   return $field_instances;
 }
