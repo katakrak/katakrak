@@ -214,7 +214,7 @@ function katakrak_boletin_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'mimemail_mail';
-  $strongarm->value = 'webmaster@katakrak.net';
+  $strongarm->value = 'info@katakrak.net';
   $export['mimemail_mail'] = $strongarm;
 
   $strongarm = new stdClass();

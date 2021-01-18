@@ -220,6 +220,7 @@ function libro_field_default_field_bases() {
         0 => 'Sin consultar',
         1 => 'Metadatos bajados',
         2 => 'Ningun metadato encontrado',
+        3 => 'stuff heredada',
       ),
       'allowed_values_function' => '',
     ),

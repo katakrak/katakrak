@@ -671,7 +671,7 @@ menú del día',
     'bundle' => 'sukalde_produktua',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'El precio de la unidad del producto. Sin IVA',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -700,7 +700,7 @@ menú del día',
     ),
     'entity_type' => 'node',
     'field_name' => 'field_produktua_prezioa',
-    'label' => 'Prezioa',
+    'label' => 'Precio',
     'required' => 0,
     'settings' => array(
       'max' => '',
@@ -722,6 +722,7 @@ menú del día',
   // Included for use with string extractors like potx.
   t('Alergenos');
   t('El peso de una unidad de este producto, expresado en gramos.');
+  t('El precio de la unidad del producto. Sin IVA');
   t('En cuantas porciones se divide la receta. Se usa para calcular los precios recomendados');
   t('Familia');
   t('Izena');
@@ -731,11 +732,11 @@ menú del día',
   t('PVP');
   t('Para una preparación. La unidad ');
   t('Porciones');
+  t('Precio');
   t('Precio de la preparacion');
   t('Precio final de venta. Con IVA incluido');
   t('Precio por kilogramo de la preparación');
   t('Preparacion');
-  t('Prezioa');
   t('Produktua');
   t('Una de las siguientes familias:
 reposteria

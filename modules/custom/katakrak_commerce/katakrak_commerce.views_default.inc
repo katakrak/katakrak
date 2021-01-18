@@ -683,6 +683,7 @@ function katakrak_commerce_views_default_views() {
     t('Correo electrónico'),
     t('Estado de pedido'),
     t('Admin page'),
+    t('more'),
     t('Forma de envío'),
     t('Mensaje de registro'),
     t('Address - Nombre completo'),
@@ -906,6 +907,7 @@ function katakrak_commerce_views_default_views() {
     t('Datos de facturación'),
     t('Estado de pedido'),
     t('Page'),
+    t('more'),
     t('Data export'),
   );
   $export['donaciones'] = $view;
@@ -924,14 +926,10 @@ function katakrak_commerce_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Historico pedidos';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'más';
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Aplicar';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordenar por';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'table';
@@ -980,7 +978,6 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['arguments']['placed_year_month']['table'] = 'commerce_order';
   $handler->display->display_options['arguments']['placed_year_month']['field'] = 'placed_year_month';
   $handler->display->display_options['arguments']['placed_year_month']['relationship'] = 'order_id';
-  $handler->display->display_options['arguments']['placed_year_month']['exception']['title'] = 'Todo(s)';
   $handler->display->display_options['arguments']['placed_year_month']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['placed_year_month']['summary']['format'] = 'default_summary';
   /* Filter criterion: Commerce Line Item: Tipo */
@@ -1030,10 +1027,10 @@ function katakrak_commerce_views_default_views() {
   $translatables['historico_pedidos'] = array(
     t('Master'),
     t('Historico pedidos'),
-    t('más'),
-    t('Aplicar'),
-    t('Reiniciar'),
-    t('Ordenar por'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Pedido'),
@@ -1041,7 +1038,7 @@ function katakrak_commerce_views_default_views() {
     t('Forma de envío'),
     t('Total'),
     t('Placed date'),
-    t('Todo(s)'),
+    t('All'),
     t('Page'),
     t('Data export'),
   );
