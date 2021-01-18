@@ -97,11 +97,13 @@
   <div class="container mt-3">
       <?php print render($page['content_top']) ?>
   </div>
-  <div class="bg-gray mt-3 pb-2">
-    <div class="container">
-      <?php print render($page['content_middle']) ?>
+  <?php if ($page['content_middle']): ?>  
+    <div class="bg-gray mt-3 pb-2">
+      <div class="container">
+        <?php print render($page['content_middle']) ?>
+      </div>
     </div>
-  </div>
+  <?php endif; ?>
   
   <div class="<?php print $section_title ?>">
     <div class="container">  

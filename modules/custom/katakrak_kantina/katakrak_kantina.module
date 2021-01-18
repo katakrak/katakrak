@@ -17,38 +17,23 @@ function katakrak_kantina_query_alter($query) {
 }
 
 
-
-function katakrak_kantina_menu() {
-  $items = array();
-  $items['cantina/menu'] = array(
-    'title' => 'Menú',
-    'page callback' => 'katakrak_kantina_menu_page',
-    'access callback' => TRUE,
-  );
-  return $items;
-}
-
-function katakrak_kantina_menu_page() {
-  return theme('katakrak_kantina_menu_page');
-}
-
-
 /**
  * Implements hook_block_info().
  */
 function katakrak_kantina_block_info() {
   $blocks = array();
-  $blocks['katakrak_reserva_block'] = array(
-    'info' => t('Reserva block'),
-    // Not worth caching.
-    'cache' => DRUPAL_NO_CACHE,
+  $blocks['kantina_page_hero'] = array(
+    'info' => t('Bloque principal página kantina'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
   );
-  $blocks['katakrak_kantina_page_header'] = array(
-    'info' => t('Header cantina'),
-    // Not worth caching.
-    'cache' => DRUPAL_CACHE_PER_PAGE,
+  $blocks['kantina_page_highlight'] = array(
+    'info' => t('Bloque con cuatro items destacados kantina'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
   );
-  
+  $blocks['kantina_page_carousel'] = array(
+    'info' => t('Bloque con carrusel en katina'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   return $blocks;
 }
 
@@ -56,19 +41,18 @@ function katakrak_kantina_block_info() {
  * Implements hook_block_view().
  */
 function katakrak_kantina_block_view($delta) {
-  global $language;
-  
-  if ($delta == 'katakrak_reserva_block') {
-    $block['title'] = t('Reservas');
-    //$block['content'] = drupal_get_form('katakrak_kantina_reserva_form');
-    $block['content'] = '<span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> '.
-      t('Si quieres reservar sitio para comer o cenar llama al <a href="tel:948225520">948225520</a>');
-    return $block;
+  switch ($delta) {
+    case 'kantina_page_hero':
+      $block['content'] = theme('katakrak_kantina_page_hero');
+      break;
+    case 'kantina_page_highlight':
+      $block['content'] = theme('katakrak_kantina_page_highlight');
+      break;
+    case 'kantina_page_carousel':
+      $block['content'] = theme('katakrak_kantina_page_carousel');
+      break;
   }
-  if ($delta == 'katakrak_kantina_page_header') {
-        $block['content'] = theme('katakrak_kantina_page_header', array('lang' => $language->language));
-    return $block;
-  }
+  return $block;
 }
 
 /**
@@ -77,23 +61,16 @@ function katakrak_kantina_block_view($delta) {
 function katakrak_kantina_theme() {
   $path = drupal_get_path('module', 'katakrak_kantina');
   return array(
-    'katakrak_kantina_page_header' => array(
-      'template' => 'katakrak-kantina-page-header',
-      'arguments' => array(
-        'lang' => NULL,
-      ),
+    'katakrak_kantina_page_hero' => array(
+      'template' => 'katakrak-kantina-page-hero',
       'path' => $path . '/templates',
     ),
-    'katakrak_kantina_menu_page' => array(
-      'template' => 'katakrak-kantina-menu-page',
+    'katakrak_kantina_page_highlight' => array(
+      'template' => 'katakrak-kantina-page-highlight', 
       'path' => $path . '/templates',
     ),
-    'katakrak_reserva_block' => array(
-      'template' => 'katakrak-reserva-block',
-      'arguments' => array(
-        'form' => NULL
-      ),
-      'render element' => 'form',
+    'katakrak_kantina_page_carousel' => array(
+      'template' => 'katakrak-kantina-page-carousel', 
       'path' => $path . '/templates',
     ),
   );
