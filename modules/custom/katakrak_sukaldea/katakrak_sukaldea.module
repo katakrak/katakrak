@@ -48,7 +48,7 @@ function katakrak_sukaldea_node_view($node, $view_mode, $langcode) {
     foreach($node->field_errezeta_osagai['und'] as $i => $osagai) {
       $osagai = field_collection_item_load($osagai['value']);
       $produktua = node_load($osagai->field_errezeta_produktua['und'][0]['target_id']);
-      $table[$i][] = $produktua->title;
+      $table[$i][] = l($produktua->title, 'node/'.$produktua->nid.'/edit', array('query' => array('destination' => $_GET['q'])));
       
       if ($produktua->type == 'sukalde_errezeta')
         $prezioa = $produktua->field_errezeta_prezioa['und'][0]['value'];
