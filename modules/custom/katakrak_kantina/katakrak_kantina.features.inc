@@ -144,6 +144,14 @@ function katakrak_kantina_node_info() {
       'title_label' => t('Título'),
       'help' => '',
     ),
+    'kantina_productor' => array(
+      'name' => t('Kantina: Productor'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'receta' => array(
       'name' => t('Receta'),
       'base' => 'node_content',

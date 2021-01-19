@@ -2,9 +2,9 @@
         
       <div class="row mt-2" id="saber-mas">
         <div class="col-sm-4">
-          <h2> Somos una cooperativa de iniciativa social</h2>
-          <p class="lead">Ponemos en práctica un modelo de hostelería basado en las relaciones económicas justas, sostenibles y cercanas tanto con otras personas y colectivos como con el territorio.</p>
-          <p class="lead">Conocemos a nuestras productoras y productores. Sabemos qué te damos y cómo está hecho.</p>
+          <h2> [CAMBIAR]Somos una cooperativa de iniciativa social </h2>
+          <p class="lead">[CAMBIAR]Ponemos en práctica un modelo de hostelería basado en las relaciones económicas justas, sostenibles y cercanas tanto con otras personas y colectivos como con el territorio.</p>
+          <p class="lead">[CAMBIAR]Conocemos a nuestras productoras y productores. Sabemos qué te damos y cómo está hecho.</p>
           
         </div>
         <div class="col-sm-8">
@@ -22,19 +22,19 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
               <div class="item active">
-                <img src="images/bg-cantina.jpg" alt="Katakrak Cantina">
+                <img src="/sites/all/themes/kapital/images/bg-cantina.jpg" alt="Katakrak Cantina">
                 <div class="carousel-caption">
                   Descripción 1
                 </div>
               </div>
               <div class="item">
-                <img src="images/bg-cantina.jpg" alt="Katakrak Cantina">
+                <img src="/sites/all/themes/kapital/images/bg-cantina.jpg" alt="Katakrak Cantina">
                 <div class="carousel-caption">
                   Descripción 2
                 </div>
               </div>
               <div class="item">
-                <img src="images/bg-cantina.jpg" alt="Katakrak Cantina">
+                <img src="/sites/all/themes/kapital/images/bg-cantina.jpg" alt="Katakrak Cantina">
                 <div class="carousel-caption">
                   Descripción 3
                 </div>
@@ -44,14 +44,13 @@
           
             <!-- Controls -->
             <a class="left carousel-control" href="#carousel-cantina" role="button" data-slide="prev">
-              <img src="images/angle-left.svg" width="30" height="30" alt="Anterior">
+              <img src="/sites/all/themes/kapital/images/angle-left.svg" width="30" height="30" alt="Anterior">
             </a>
             <a class="right carousel-control" href="#carousel-cantina" role="button" data-slide="next">
-              <img src="images/angle-right.svg" width="30" height="30" alt="Siguiente">
+              <img src="/sites/all/themes/kapital/images/angle-right.svg" width="30" height="30" alt="Siguiente">
             </a>
           </div>
       
       </div>
-        </div>
-  
-       </div>
+  </div>
+</div>
