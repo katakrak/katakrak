@@ -136,6 +136,14 @@ function libro_strongarm() {
             'weight' => '-10',
             'visible' => FALSE,
           ),
+          'card_book' => array(
+            'weight' => '-10',
+            'visible' => TRUE,
+          ),
+          'card_book_md' => array(
+            'weight' => '-10',
+            'visible' => TRUE,
+          ),
         ),
         'product:title' => array(
           'default' => array(
@@ -153,6 +161,14 @@ function libro_strongarm() {
           'teaser' => array(
             'weight' => '-5',
             'visible' => FALSE,
+          ),
+          'card_book' => array(
+            'weight' => '-5',
+            'visible' => TRUE,
+          ),
+          'card_book_md' => array(
+            'weight' => '-5',
+            'visible' => TRUE,
           ),
         ),
         'product:status' => array(
@@ -172,6 +188,14 @@ function libro_strongarm() {
             'weight' => '5',
             'visible' => FALSE,
           ),
+          'card_book' => array(
+            'weight' => '5',
+            'visible' => TRUE,
+          ),
+          'card_book_md' => array(
+            'weight' => '5',
+            'visible' => TRUE,
+          ),
         ),
         'product:commerce_price' => array(
           'default' => array(
@@ -187,6 +211,14 @@ function libro_strongarm() {
             'visible' => TRUE,
           ),
           'teaser' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'card_book' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'card_book_md' => array(
             'weight' => '0',
             'visible' => TRUE,
           ),
@@ -208,6 +240,14 @@ function libro_strongarm() {
             'weight' => '0',
             'visible' => TRUE,
           ),
+          'card_book' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'card_book_md' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
         ),
         'product:commerce_product_tariff_service' => array(
           'default' => array(
@@ -223,6 +263,14 @@ function libro_strongarm() {
             'visible' => FALSE,
           ),
           'teaser' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'card_book' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'card_book_md' => array(
             'weight' => '0',
             'visible' => TRUE,
           ),
@@ -244,6 +292,14 @@ function libro_strongarm() {
             'weight' => '37',
             'visible' => TRUE,
           ),
+          'card_book' => array(
+            'weight' => '37',
+            'visible' => TRUE,
+          ),
+          'card_book_md' => array(
+            'weight' => '37',
+            'visible' => TRUE,
+          ),
         ),
         'product:field_product_peso' => array(
           'default' => array(
@@ -259,6 +315,14 @@ function libro_strongarm() {
             'visible' => FALSE,
           ),
           'teaser' => array(
+            'weight' => '36',
+            'visible' => TRUE,
+          ),
+          'card_book' => array(
+            'weight' => '36',
+            'visible' => TRUE,
+          ),
+          'card_book_md' => array(
             'weight' => '36',
             'visible' => TRUE,
           ),
@@ -280,6 +344,14 @@ function libro_strongarm() {
             'weight' => '0',
             'visible' => TRUE,
           ),
+          'card_book' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'card_book_md' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
         ),
         'product:field_peso_medio' => array(
           'search_index' => array(
@@ -298,6 +370,14 @@ function libro_strongarm() {
             'weight' => '38',
             'visible' => TRUE,
           ),
+          'card_book' => array(
+            'weight' => '38',
+            'visible' => TRUE,
+          ),
+          'card_book_md' => array(
+            'weight' => '38',
+            'visible' => TRUE,
+          ),
         ),
         'sharethis' => array(
           'default' => array(
@@ -305,6 +385,14 @@ function libro_strongarm() {
             'visible' => TRUE,
           ),
           'teaser' => array(
+            'weight' => '10',
+            'visible' => TRUE,
+          ),
+          'card_book' => array(
+            'weight' => '10',
+            'visible' => TRUE,
+          ),
+          'card_book_md' => array(
             'weight' => '10',
             'visible' => TRUE,
           ),

@@ -14,6 +14,48 @@ function katakrak_sukaldea_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'diff_enable_revisions_page_node_sukalde_errezeta';
+  $strongarm->value = 1;
+  $export['diff_enable_revisions_page_node_sukalde_errezeta'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_enable_revisions_page_node_sukalde_produktua';
+  $strongarm->value = 1;
+  $export['diff_enable_revisions_page_node_sukalde_produktua'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_show_preview_changes_node_sukalde_errezeta';
+  $strongarm->value = 1;
+  $export['diff_show_preview_changes_node_sukalde_errezeta'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_show_preview_changes_node_sukalde_produktua';
+  $strongarm->value = 1;
+  $export['diff_show_preview_changes_node_sukalde_produktua'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_view_mode_preview_node_sukalde_errezeta';
+  $strongarm->value = 'full';
+  $export['diff_view_mode_preview_node_sukalde_errezeta'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_view_mode_preview_node_sukalde_produktua';
+  $strongarm->value = 'full';
+  $export['diff_view_mode_preview_node_sukalde_produktua'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__sukalde_errezeta';
   $strongarm->value = array(
     'view_modes' => array(),
@@ -57,6 +99,20 @@ function katakrak_sukaldea_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_default_language_for_sukalde_errezeta';
+  $strongarm->value = '-- current --';
+  $export['i18n_node_default_language_for_sukalde_errezeta'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_default_language_for_sukalde_produktua';
+  $strongarm->value = '-- current --';
+  $export['i18n_node_default_language_for_sukalde_produktua'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'i18n_node_extended_sukalde_errezeta';
   $strongarm->value = 1;
   $export['i18n_node_extended_sukalde_errezeta'] = $strongarm;
@@ -64,9 +120,23 @@ function katakrak_sukaldea_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_extended_sukalde_produktua';
+  $strongarm->value = 1;
+  $export['i18n_node_extended_sukalde_produktua'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'i18n_node_options_sukalde_errezeta';
   $strongarm->value = array();
   $export['i18n_node_options_sukalde_errezeta'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_options_sukalde_produktua';
+  $strongarm->value = array();
+  $export['i18n_node_options_sukalde_produktua'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

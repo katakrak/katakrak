@@ -43,15 +43,6 @@ function katakrak_user_user_default_permissions() {
     'module' => 'devel',
   );
 
-  // Exported permission: 'access library reports'.
-  $permissions['access library reports'] = array(
-    'name' => 'access library reports',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'libraries',
-  );
-
   // Exported permission: 'access mailchimp signup pages'.
   $permissions['access mailchimp signup pages'] = array(
     'name' => 'access mailchimp signup pages',
