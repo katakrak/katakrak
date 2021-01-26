@@ -34,6 +34,10 @@ function katakrak_kantina_block_info() {
     'info' => t('Bloque con carrusel en katina'),
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['katakrak_kantina_nav_submenu'] = array(
+    'info' => t('Submenu kantina'),
+    'cache' => DRUPAL_CACHE_GLOBAL
+  );  
   return $blocks;
 }
 
@@ -50,6 +54,14 @@ function katakrak_kantina_block_view($delta) {
       break;
     case 'kantina_page_carousel':
       $block['content'] = theme('katakrak_kantina_page_carousel');
+      break;
+    case 'katakrak_kantina_nav_submenu':
+      $links = array(
+        l(t('Menú'), 'editorial/autores'),
+        l(t('Caterings'), 'editorial'),
+        l(t('Nuestros productores'), 'editorial'),
+      );
+      $block['content'] = theme("katakrak_navbar_submenu", array('links' => $links));
       break;
   }
   return $block;
