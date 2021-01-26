@@ -73,22 +73,28 @@ function katakrak_kantina_context_default_contexts() {
         'node_form' => '1',
       ),
     ),
-    'path' => array(
-      'values' => array(
-        'cantina/denoche' => 'cantina/denoche',
-      ),
-    ),
     'views' => array(
       'values' => array(
         'kantina_blog:page' => 'kantina_blog:page',
+        'kantina_productores' => 'kantina_productores',
+        'kantina_productores:page' => 'kantina_productores:page',
         'kantina_recetas:page' => 'kantina_recetas:page',
       ),
     ),
   );
   $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'katakrak_kantina-katakrak_kantina_nav_submenu' => array(
+          'module' => 'katakrak_kantina',
+          'delta' => 'katakrak_kantina_nav_submenu',
+          'region' => 'banners',
+          'weight' => '-10',
+        ),
+      ),
+    ),
     'menu' => array(
-      0 => 'main-menu:node/2134',
-      1 => 'main-menu:node/2133',
+      0 => 'main-menu:node/2133',
     ),
   );
   $context->condition_mode = 0;

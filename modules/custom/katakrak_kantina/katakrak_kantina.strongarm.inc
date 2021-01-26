@@ -72,6 +72,9 @@ function katakrak_kantina_strongarm() {
         'path' => array(
           'weight' => '30',
         ),
+        'language' => array(
+          'weight' => '0',
+        ),
       ),
       'display' => array(),
     ),
@@ -151,9 +154,23 @@ function katakrak_kantina_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_default_language_for_kantina_productor';
+  $strongarm->value = '-- current --';
+  $export['i18n_node_default_language_for_kantina_productor'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'i18n_node_extended_eguneko_menua';
   $strongarm->value = 1;
   $export['i18n_node_extended_eguneko_menua'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_extended_kantina_productor';
+  $strongarm->value = 1;
+  $export['i18n_node_extended_kantina_productor'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -172,6 +189,13 @@ function katakrak_kantina_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_options_kantina_productor';
+  $strongarm->value = array();
+  $export['i18n_node_options_kantina_productor'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'i18n_node_options_receta';
   $strongarm->value = array();
   $export['i18n_node_options_receta'] = $strongarm;
@@ -182,6 +206,13 @@ function katakrak_kantina_strongarm() {
   $strongarm->name = 'i18n_sync_node_type_eguneko_menua';
   $strongarm->value = array();
   $export['i18n_sync_node_type_eguneko_menua'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_sync_node_type_kantina_productor';
+  $strongarm->value = array();
+  $export['i18n_sync_node_type_kantina_productor'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
