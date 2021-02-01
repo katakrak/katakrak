@@ -235,7 +235,7 @@ function katakrak_socios_signup_form_submit($form, &$form_state) {
 
     
   //llamamos al action set de rules que hará toda la acción.
-  rules_invoke_component('katakrak_socios_alta_socios', $form_state['input']['name'], $form_state['input']['surname'], $form_state['input']['email'], $form_state['input']['iban'], $cuota, $form_state['input']['direccion'].' '.$form_state['input']['cp'], $fraccionado, $form_state['input']['ciudad'], $form_state['input']['dni']);
+  rules_invoke_component('katakrak_socios_email_alta_socixs', $form_state['input']['name'], $form_state['input']['surname'], $form_state['input']['email'], $form_state['input']['iban'], $cuota, $form_state['input']['direccion'].' '.$form_state['input']['cp'], $fraccionado, $form_state['input']['ciudad'], $form_state['input']['dni']);
 }
 
 function katakrak_socios_aportacion_form($form, &$form_state) {

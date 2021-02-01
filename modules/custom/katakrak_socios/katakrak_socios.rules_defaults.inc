@@ -10,11 +10,11 @@
  */
 function katakrak_socios_default_rules_configuration() {
   $items = array();
-  $items['katakrak_socios_alta_socios'] = entity_import('rules_config', '{ "katakrak_socios_alta_socios" : {
-      "LABEL" : "alta socios",
+  $items['katakrak_socios_email_alta_socixs'] = entity_import('rules_config', '{ "katakrak_socios_email_alta_socixs" : {
+      "LABEL" : "email_alta_socixs",
       "PLUGIN" : "action set",
       "OWNER" : "rules",
-      "REQUIRES" : [ "rules_i18n", "rules", "mimemail" ],
+      "REQUIRES" : [ "rules", "mimemail" ],
       "USES VARIABLES" : {
         "nombre" : { "label" : "Nombre", "type" : "text" },
         "apellidos" : { "label" : "Apellidos", "type" : "text" },
@@ -41,12 +41,12 @@ function katakrak_socios_default_rules_configuration() {
         },
         { "mimemail" : {
             "USING" : {
-              "key" : "email_alta_socios",
+              "key" : "alta_socixs_email",
               "to" : "socixs@katakrak.net",
               "from_name" : "Katakrak",
               "from_mail" : "info@katakrak.net",
               "subject" : "Nuevo socixs [nombre:value]  [apellidos:value]",
-              "plaintext" : "Nombre: [nombre:value]\\r\\nApellidos: [apellidos:value]\\r\\nE-mail: [email:value]\\r\\nIban: [iban:value]\\r\\nCantidad: [cantidad:value]\\r\\nDireccion: [direccion:value]\\r\\nCiudad: [ciudad:value]\\r\\nFraccionar el pago: [fraccionado:value]\\r\\nDNI: [dni:value]",
+              "plaintext" : "bre:value]\\r\\nApellidos: [apellidos:value]\\r\\nE-mail: [email:value]\\r\\nIban: [iban:value]\\r\\nCantidad: [cantidad:value]\\r\\nDireccion: [direccion:value]\\r\\nCiudad: [ciudad:value]\\r\\nFraccionar el pago: [fraccionado:value]\\r\\nDNI: [dni:value]",
               "language" : [ "" ]
             },
             "PROVIDE" : { "send_status" : { "send_status" : "Send status" } }
@@ -84,7 +84,7 @@ function katakrak_socios_default_rules_configuration() {
       "LABEL" : "Email agradecimiento despues de donacion",
       "PLUGIN" : "reaction rule",
       "OWNER" : "rules",
-      "REQUIRES" : [ "commerce_order", "rules", "rules_i18n", "mimemail", "entity" ],
+      "REQUIRES" : [ "commerce_order", "rules", "mimemail", "entity" ],
       "ON" : { "commerce_order_update" : [] },
       "IF" : [
         { "commerce_order_contains_product" : {
