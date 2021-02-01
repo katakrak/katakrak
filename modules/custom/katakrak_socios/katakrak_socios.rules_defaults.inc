@@ -85,7 +85,8 @@ function katakrak_socios_default_rules_configuration() {
         "cantidad" : { "label" : "Cantidad", "type" : "integer" },
         "direccion" : { "label" : "Direcci\\u00f3n", "type" : "text" },
         "fraccionado" : { "label" : "Fraccionado", "type" : "text" },
-        "ciudad" : { "label" : "Ciudad", "type" : "text" }
+        "ciudad" : { "label" : "Ciudad", "type" : "text" },
+        "dni" : { "label" : "DNI", "type" : "text" }
       },
       "ACTION SET" : [
         { "drupal_message" : { "message" : "Mila esker zure ekarpenagatik. Laster jasoko duzu email bat.\\r\\nMuchas gracias por tu aportaci\\u00f3n. Recibir\\u00e1s un email con m\\u00e1s informaci\\u00f3n." } },
@@ -96,7 +97,7 @@ function katakrak_socios_default_rules_configuration() {
               "from_name" : "Katakrak",
               "from_mail" : "info@katakrak.net",
               "subject" : "Nuevo socixs [nombre:value]  [apellidos:value]",
-              "body" : "Nombre: [nombre:value]\\r\\nApellidos: [apellidos:value]\\r\\nE-mail: [email:value]\\r\\nIban: [iban:value]\\r\\nCantidad: [cantidad:value]\\r\\nDireccion: [direccion:value]\\r\\nCiudad: [ciudad:value]\\r\\nFraccionar el pago: [fraccionado:value]",
+              "body" : "Nombre: [nombre:value]\\r\\nApellidos: [apellidos:value]\\r\\nE-mail: [email:value]\\r\\nIban: [iban:value]\\r\\nCantidad: [cantidad:value]\\r\\nDireccion: [direccion:value]\\r\\nCiudad: [ciudad:value]\\r\\nFraccionar el pago: [fraccionado:value]\\r\\nDNI: [dni:value]",
               "language" : [ "" ]
             },
             "PROVIDE" : { "send_status" : { "send_status" : "Send status" } }

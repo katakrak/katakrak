@@ -164,6 +164,12 @@ function katakrak_socios_signup_form($form, &$form_state) {
     '#required' => TRUE,
     '#size' => 60,
   );
+  $form['signup']['datos_personales']['dni'] = array(
+    '#type' => 'textfield',
+    '#title' => t('DNI'),
+    '#required' => TRUE,
+    '#size' => 60,
+  );
   $form['signup']['datos_personales']['direccion'] = array(
     '#type' => 'textfield',
     '#title' => t('Dirección'),
@@ -215,6 +221,8 @@ function katakrak_socios_signup_form_validate($form, &$form_state) {
     form_set_error('email', t("El email introducido es incorrecto"));
   if (!check_iban($form_state['values']['iban']))
     form_set_error('iban', t("El número IBAN es incorrecto, por favor corríjalo"));
+  if (!check_dni($form_state['values']['dni']))
+    form_set_error('dni', t("El número de DNI es incorrecto, por favor corríjalo"));
 }
 
 function katakrak_socios_signup_form_submit($form, &$form_state) {
@@ -227,7 +235,7 @@ function katakrak_socios_signup_form_submit($form, &$form_state) {
 
     
   //llamamos al action set de rules que hará toda la acción.
-  rules_invoke_component('rules_email_alta_socios', $form_state['input']['name'], $form_state['input']['surname'], $form_state['input']['email'], $form_state['input']['iban'], $cuota, $form_state['input']['direccion'].' '.$form_state['input']['cp'], $fraccionado, $form_state['input']['ciudad']);
+  rules_invoke_component('rules_email_alta_socios', $form_state['input']['name'], $form_state['input']['surname'], $form_state['input']['email'], $form_state['input']['iban'], $cuota, $form_state['input']['direccion'].' '.$form_state['input']['cp'], $fraccionado, $form_state['input']['ciudad'], $form_state['input']['dni']);
 }
 
 function katakrak_socios_aportacion_form($form, &$form_state) {
@@ -271,7 +279,7 @@ function katakrak_socios_aportacion_form_validate ($form, &$form_state) {
 }
 
 function katakrak_socios_aportacion_form_submit($form, &$form_state) {
-  //dpm($form_state);
+  
   if ($form_state['input']['cuota']['select'] == 'select_or_other')
     $cuota = (int)$form_state['input']['cuota']['other'];
   else
@@ -337,6 +345,20 @@ function my_bcmod( $x, $y )
 
     return (int)$mod; 
 } 
+
+function check_dni($dni){
+  $dni = strtoupper(str_replace(' ','',$dni));
+  
+  $letra = substr($dni, -1);
+  $numeros = substr($dni, 0, -1);
+  $valido;
+  if (substr("TRWAGMYFPDXBNJZSQVHLCKE", $numeros%23, 1) == $letra && strlen($letra) == 1 && strlen ($numeros) == 8 ){
+    $valido=true;
+  }else{
+    $valido=false;
+  }
+  return $valido;
+}
 //  $form['aportacion']['aportacion-covid19'] = array(
 //    '#type' => 'select',
 //    '#title' => t('Aportación inicial COVID19'),
