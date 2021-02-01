@@ -133,7 +133,13 @@ function katakrak_socios_signup_form($form, &$form_state) {
     '#required' => TRUE,
     '#size' => 60,
   );
-  $form['direccion'] = array(
+  $form['signup']['datos_personales']['dni'] = array(
+    '#type' => 'textfield',
+    '#title' => t('DNI'),
+    '#required' => TRUE,
+    '#size' => 60,
+  );
+  $form['signup']['datos_personales']['direccion'] = array(
     '#type' => 'textfield',
     '#title' => t('Dirección'),
     '#required' => TRUE,
@@ -184,6 +190,8 @@ function katakrak_socios_signup_form_validate($form, &$form_state) {
     form_set_error('email', t("El email introducido es incorrecto"));
   if (!check_iban($form_state['values']['iban']))
     form_set_error('iban', t("El número IBAN es incorrecto, por favor corríjalo"));
+  if (!check_dni($form_state['values']['dni']))
+    form_set_error('dni', t("El número de DNI es incorrecto, por favor corríjalo"));
 }
 
 function katakrak_socios_signup_form_submit($form, &$form_state) {
@@ -196,7 +204,7 @@ function katakrak_socios_signup_form_submit($form, &$form_state) {
 
     
   //llamamos al action set de rules que hará toda la acción.
-  rules_invoke_component('rules_email_alta_socios', $form_state['input']['name'], $form_state['input']['surname'], $form_state['input']['email'], $form_state['input']['iban'], $cuota, $form_state['input']['direccion'].' '.$form_state['input']['cp'], $fraccionado, $form_state['input']['ciudad']);
+  rules_invoke_component('katakrak_socios_email_alta_socixs', $form_state['input']['name'], $form_state['input']['surname'], $form_state['input']['email'], $form_state['input']['iban'], $cuota, $form_state['input']['direccion'].' '.$form_state['input']['cp'], $fraccionado, $form_state['input']['ciudad'], $form_state['input']['dni']);
 }
 
 
@@ -232,7 +240,7 @@ function katakrak_socios_aportacion_form_validate ($form, &$form_state) {
 }
 
 function katakrak_socios_aportacion_form_submit($form, &$form_state) {
-  //dpm($form_state);
+  
   if ($form_state['input']['cuota']['select'] == 'select_or_other')
     $cuota = (int)$form_state['input']['cuota']['other'];
   else
@@ -260,7 +268,7 @@ function katakrak_socios_aportacion_form_submit($form, &$form_state) {
   drupal_goto('cart');
 }
 
-  function check_iban($iban) {
+function check_iban($iban) {
     $iban = strtolower(str_replace(' ','',$iban));
 
     $countries = array('al'=>28,'ad'=>24,'at'=>20,'az'=>28,'bh'=>22,'be'=>16,'ba'=>20,'br'=>29,'bg'=>22,'cr'=>21,'hr'=>21,'cy'=>28,'cz'=>24,'dk'=>18,'do'=>28,'ee'=>20,'fo'=>18,'fi'=>18,'fr'=>27,'ge'=>22,'de'=>22,'gi'=>23,'gr'=>27,'gl'=>18,'gt'=>28,'hu'=>28,'is'=>26,'ie'=>22,'il'=>23,'it'=>27,'jo'=>30,'kz'=>20,'kw'=>30,'lv'=>21,'lb'=>28,'li'=>21,'lt'=>20,'lu'=>20,'mk'=>19,'mt'=>31,'mr'=>27,'mu'=>30,'mc'=>27,'md'=>24,'me'=>22,'nl'=>18,'no'=>15,'pk'=>24,'ps'=>29,'pl'=>28,'pt'=>25,'qa'=>29,'ro'=>24,'sm'=>27,'sa'=>24,'rs'=>22,'sk'=>24,'si'=>19,'es'=>24,'se'=>24,'ch'=>21,'tn'=>24,'tr'=>26,'ae'=>23,'gb'=>22,'vg'=>24);
@@ -298,3 +306,82 @@ function my_bcmod( $x, $y )
 
     return (int)$mod; 
 } 
+
+function check_dni($dni){
+  $dni = strtoupper(str_replace(' ','',$dni));
+  
+  $letra = substr($dni, -1);
+  $numeros = substr($dni, 0, -1);
+  $valido;
+  if (substr("TRWAGMYFPDXBNJZSQVHLCKE", $numeros%23, 1) == $letra && strlen($letra) == 1 && strlen ($numeros) == 8 ){
+    $valido=true;
+  }else{
+    $valido=false;
+  }
+  return $valido;
+}
+//  $form['aportacion']['aportacion-covid19'] = array(
+//    '#type' => 'select',
+//    '#title' => t('Aportación inicial COVID19'),
+//    '#required' => TRUE,
+//    '#options' => array(
+//       '60 €' => t('60 €'),
+//      '250 €' => t('250 €'),
+//      '500 €' => t('500 €'),
+//    ),
+//    '#default_value' => t('500 €'),
+//  );
+//  $form['aportacion']['otra-aportacion-covid19'] = array(
+//    '#type' => 'textfield',
+//    '#title' => t('Deseo realizar otra aportacion inicial COVID 19'),
+//    '#required' => TRUE,
+//    '#size' => 5,
+//    '#attributes' => array(
+//      'min' => '60',
+//      'class' => array(
+//          'numeric' => TRUE,
+//        ),
+//      ),
+//  );
+//   $form['aportacion']['name'] = array(
+//    '#type' => 'textfield',
+//    '#title' => t('Nombre'),
+//    '#required' => TRUE,
+//    '#size' => 20,
+//  );
+//   $form['aportacion']['surname'] = array(
+//    '#type' => 'textfield',
+//    '#title' => t('Apellidos'),
+//    '#required' => TRUE,
+//    '#size' => 60,
+//  );
+//  $form['aportacion']['email'] = array(
+//    '#type' => 'textfield',
+//    '#title' => t('Dirección de Email'),
+//    '#required' => TRUE,
+//    '#size' => 60,
+//  );
+//  $form['aportacion']['IBAN'] = array(
+//    '#type' => 'textfield',
+//    '#title' => t('IBAN'),
+//    '#required' => TRUE,
+//    '#size' => 60,
+//  );
+//  $form['aportacion']['submit'] = array(
+//    '#type' => 'button',
+//    '#title' => t('ENVIAR'),
+//    '#value' => t('ENVIAR'),
+//    '#required' => TRUE,
+//    '#size' => 60,
+//  );
+
+
+
+// if ($form_id == 'commerce_cart_add_to_cart_form_76546') {
+//    $form['line_item_fields']['commerce_donate_amount']['und']['#options'] = array(
+//        100 => "100.00",
+//        200 => "200.00",
+//        500 => "500.00",
+//        900 => "900.00",
+//    );
+//  }
