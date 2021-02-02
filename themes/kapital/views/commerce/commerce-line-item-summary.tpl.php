@@ -24,7 +24,6 @@
 <hr class="hr-dark">
   <div class="text-right">
     <p>Total: <strong class="text-lg"><?php print $total; ?></strong></p>
-    <p class="small text-gray"><?php print t('IVA incluido.') ?><br>
-    <?php print t('Gastos de envío por calcular.') ?></p>
+    <p class="small text-gray"><?php print t('IVA incluido.') ?><br></p>
   </div>
 <hr class="hr-dark">

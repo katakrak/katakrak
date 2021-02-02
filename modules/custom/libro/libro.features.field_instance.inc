@@ -936,7 +936,7 @@ function libro_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'card_book' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
           'image_link' => '',

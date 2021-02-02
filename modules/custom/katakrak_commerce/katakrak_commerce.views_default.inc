@@ -1924,12 +1924,32 @@ function katakrak_commerce_views_default_views() {
     'total' => 'total',
   );
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Campo: Nodo: Portada */
+  $handler->display->display_options['fields']['field_libro_portada']['id'] = 'field_libro_portada';
+  $handler->display->display_options['fields']['field_libro_portada']['table'] = 'field_data_field_libro_portada';
+  $handler->display->display_options['fields']['field_libro_portada']['field'] = 'field_libro_portada';
+  $handler->display->display_options['fields']['field_libro_portada']['relationship'] = 'field_libro_producto';
+  $handler->display->display_options['fields']['field_libro_portada']['label'] = '';
+  $handler->display->display_options['fields']['field_libro_portada']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_libro_portada']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_libro_portada']['settings'] = array(
+    'image_style' => 'thumbnail',
+    'image_link' => '',
+  );
   /* Campo: Commerce Line Item: Line item ID */
   $handler->display->display_options['fields']['line_item_id']['id'] = 'line_item_id';
   $handler->display->display_options['fields']['line_item_id']['table'] = 'commerce_line_item';
   $handler->display->display_options['fields']['line_item_id']['field'] = 'line_item_id';
   $handler->display->display_options['fields']['line_item_id']['label'] = 'ID';
   $handler->display->display_options['fields']['line_item_id']['exclude'] = TRUE;
+  /* Campo: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['relationship'] = 'field_libro_producto';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['text'] = '[quantity] [line_item_title] [commerce_total]';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Campo: Commerce Line Item: Type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'commerce_line_item';
@@ -1939,6 +1959,8 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['fields']['line_item_title']['id'] = 'line_item_title';
   $handler->display->display_options['fields']['line_item_title']['table'] = 'commerce_line_item';
   $handler->display->display_options['fields']['line_item_title']['field'] = 'line_item_title';
+  $handler->display->display_options['fields']['line_item_title']['label'] = 'Título';
+  $handler->display->display_options['fields']['line_item_title']['exclude'] = TRUE;
   /* Campo: Commerce Line Item: Quantity */
   $handler->display->display_options['fields']['quantity']['id'] = 'quantity';
   $handler->display->display_options['fields']['quantity']['table'] = 'commerce_line_item';
@@ -1959,15 +1981,6 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['fields']['commerce_total']['settings'] = array(
     'calculation' => FALSE,
   );
-  /* Campo: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['relationship'] = 'field_libro_producto';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['text'] = '[quantity] [line_item_title] [commerce_total]';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   $translatables['katakrak_line_items'] = array(
@@ -1992,6 +2005,7 @@ function katakrak_commerce_views_default_views() {
     t('Resumen'),
     t('more'),
     t('Detalle'),
+    t('Título'),
   );
   $export['katakrak_line_items'] = $view;
 
