@@ -371,7 +371,7 @@ function libro_block_view($delta) {
           $block['content'] .= views_embed_view('secciones', 'secciones_block');
         }
         else {
-          $block['content'] .= views_embed_view('secciones', 'secciones_eu');
+          $block['content'] .= views_embed_view('secciones', 'secciones_eus');
         }
   }
   return $block;

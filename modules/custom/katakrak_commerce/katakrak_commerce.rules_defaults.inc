@@ -220,6 +220,7 @@ function katakrak_commerce_default_rules_configuration() {
   $items['rules_pedido_procesado'] = entity_import('rules_config', '{ "rules_pedido_procesado" : {
       "LABEL" : "El pedido ha sido procesado",
       "PLUGIN" : "reaction rule",
+      "ACTIVE" : false,
       "OWNER" : "rules",
       "REQUIRES" : [ "rules", "commerce_shipping", "commerce_order", "mimemail", "entity" ],
       "ON" : { "commerce_order_update" : [] },

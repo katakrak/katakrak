@@ -937,8 +937,12 @@ function libro_field_default_field_instances() {
     'display' => array(
       'card_book' => array(
         'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
         'weight' => 0,
       ),
       'card_book_md' => array(
@@ -1692,7 +1696,7 @@ function libro_field_default_field_instances() {
     'bundle' => 'materias',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Solo para que ordene los listados',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1784,6 +1788,7 @@ function libro_field_default_field_instances() {
   t('Páginas');
   t('Sección');
   t('Sinopsis');
+  t('Solo para que ordene los listados');
   t('Stock');
   t('Subtitulo');
   t('geslib id');

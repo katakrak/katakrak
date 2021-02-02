@@ -34,7 +34,7 @@
         <h4 class="modal-title"><?php print t('Pedido !order', array('!order' => $fields['order_number']->raw)) ?></h4>
       </div>
       <div class="modal-body">
-        <?php print $fields['commerce_line_items']->content ?>
+        aa<?php print $fields['commerce_line_items']->content ?>aaa
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php print t('Cerrar') ?></button>
