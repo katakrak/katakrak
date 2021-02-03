@@ -1337,7 +1337,7 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['fields']['field_libro_portada']['label'] = 'Artículo';
   $handler->display->display_options['fields']['field_libro_portada']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_libro_portada']['settings'] = array(
-    'image_style' => 'thumbnail',
+    'image_style' => 'book_thumbnail',
     'image_link' => '',
   );
   /* Campo: Content: Title */
@@ -1507,7 +1507,6 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['relationships']['shipping_line_item_representative']['id'] = 'shipping_line_item_representative';
   $handler->display->display_options['relationships']['shipping_line_item_representative']['table'] = 'commerce_order';
   $handler->display->display_options['relationships']['shipping_line_item_representative']['field'] = 'shipping_line_item_representative';
-  $handler->display->display_options['relationships']['shipping_line_item_representative']['required'] = TRUE;
   /* Campo: Commerce Order: Uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'commerce_order';
@@ -1687,6 +1686,20 @@ function katakrak_commerce_views_default_views() {
     'view' => 'katakrak_line_items|block_2',
   );
   $handler->display->display_options['fields']['commerce_line_items']['delta_offset'] = '0';
+  /* Campo: Commerce Order: Order status */
+  $handler->display->display_options['fields']['status']['id'] = 'status';
+  $handler->display->display_options['fields']['status']['table'] = 'commerce_order';
+  $handler->display->display_options['fields']['status']['field'] = 'status';
+  $handler->display->display_options['fields']['status']['label'] = 'Estado del pedido';
+  /* Campo: Commerce Line item: Shipping service */
+  $handler->display->display_options['fields']['commerce_shipping_service']['id'] = 'commerce_shipping_service';
+  $handler->display->display_options['fields']['commerce_shipping_service']['table'] = 'field_data_commerce_shipping_service';
+  $handler->display->display_options['fields']['commerce_shipping_service']['field'] = 'commerce_shipping_service';
+  $handler->display->display_options['fields']['commerce_shipping_service']['relationship'] = 'shipping_line_item_representative';
+  $handler->display->display_options['fields']['commerce_shipping_service']['label'] = 'Forma de envío';
+  $handler->display->display_options['fields']['commerce_shipping_service']['element_type'] = '0';
+  $handler->display->display_options['fields']['commerce_shipping_service']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['commerce_shipping_service']['type'] = 'list_key';
   $handler->display->display_options['displays'] = array(
     'order_page' => 'order_page',
     'default' => 0,
@@ -1725,6 +1738,8 @@ function katakrak_commerce_views_default_views() {
     t('more'),
     t('Orders MODAL'),
     t('Líneas de pedido'),
+    t('Estado del pedido'),
+    t('Forma de envío'),
   );
   $export['katakrak_commerce_user_orders'] = $view;
 
@@ -1853,17 +1868,32 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'views_bootstrap_table_plugin_style';
   $handler->display->display_options['style_options']['columns'] = array(
+    'field_libro_portada' => 'field_libro_portada',
     'line_item_id' => 'line_item_id',
+    'title' => 'title',
     'type' => 'type',
     'line_item_title' => 'line_item_title',
     'quantity' => 'quantity',
     'commerce_total' => 'commerce_total',
-    'title' => 'title',
   );
-  $handler->display->display_options['style_options']['class'] = '';
+  $handler->display->display_options['style_options']['class'] = 'table table-shop mt-2';
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
+    'field_libro_portada' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'line_item_id' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'title' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -1890,13 +1920,6 @@ function katakrak_commerce_views_default_views() {
       'empty_column' => 0,
     ),
     'commerce_total' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'title' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -1933,7 +1956,7 @@ function katakrak_commerce_views_default_views() {
   $handler->display->display_options['fields']['field_libro_portada']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_libro_portada']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_libro_portada']['settings'] = array(
-    'image_style' => 'thumbnail',
+    'image_style' => 'book_medium',
     'image_link' => '',
   );
   /* Campo: Commerce Line Item: Line item ID */

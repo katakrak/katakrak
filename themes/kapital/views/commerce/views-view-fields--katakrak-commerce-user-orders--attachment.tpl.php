@@ -35,6 +35,9 @@
       </div>
       <div class="modal-body">
         <?php print $fields['commerce_line_items']->content ?>
+          <?php if ($fields['status']->raw == 'completed' && $fields['commerce_shipping_service']->content == 'mensajeria'): ?>
+          <a href="https://www.seur.com/livetracking/?segOnlineIdentificador=<?php print $fields['order_number']->raw ?>" target="_blank"><?php print t('Seguimiento de tu paquete')</a>
+          <?php endif; ?>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php print t('Cerrar') ?></button>
