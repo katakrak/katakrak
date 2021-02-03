@@ -16,6 +16,22 @@ function katakrak_kantina_query_alter($query) {
    }
 }
 
+/**
+ * Implements hook_menu
+ * @return type
+ */
+function katakrak_kantina_menu() {
+  $items['cantina']  = array(
+    'title' => 'cantina',
+    'page callback' => 'theme',
+    'page arguments' => array('katakrak_kantina_landing'),
+    'access callback' => 'user_access',
+    'access arguments' => array('access content'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 100,
+  );
+  return $items;
+}
 
 /**
  * Implements hook_block_info().
@@ -85,6 +101,10 @@ function katakrak_kantina_theme() {
       'template' => 'katakrak-kantina-page-carousel', 
       'path' => $path . '/templates',
     ),
+    'katakrak_kantina_landing' =>array(
+      'template' => 'katakrak-kantina-landing', 
+      'path' => $path . '/templates',
+    )
   );
 }
 
