@@ -46,7 +46,6 @@ function katakrak_home_block_view($delta) {
   switch($delta) {
     case 'katakrak_home_libreria':
       $books = views_get_view_result('libros', 'book_block_home');
-      dpm($books);
       $block['content'] = theme('katakrak_home_libreria', array('books' => $books));
       break;
     case 'katakrak_home_espacio':

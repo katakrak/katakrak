@@ -59,7 +59,9 @@ function libro_context_default_contexts() {
           'weight' => '-10',
         ),
       ),
-      'layout' => 'book',
+    ),
+    'menu' => array(
+      0 => 'menu-menu-nagusia:libreria',
     ),
     'theme_html' => array(
       'class' => 'block-book-search',
@@ -145,7 +147,7 @@ function libro_context_default_contexts() {
       ),
     ),
     'menu' => array(
-      0 => 'menu-menu-nagusia:tienda',
+      0 => 'menu-menu-nagusia:libreria',
     ),
   );
   $context->condition_mode = 0;
