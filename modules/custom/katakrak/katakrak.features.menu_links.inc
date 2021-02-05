@@ -57,18 +57,18 @@ function katakrak_menu_default_menu_links() {
     'language' => 'und',
     'menu_links_customized' => 1,
   );
-  // Exported menu link: menu-menu-nagusia_cantina:node/83552.
-  $menu_links['menu-menu-nagusia_cantina:node/83552'] = array(
+  // Exported menu link: menu-menu-nagusia_cantina:cantina.
+  $menu_links['menu-menu-nagusia_cantina:cantina'] = array(
     'menu_name' => 'menu-menu-nagusia',
-    'link_path' => 'node/83552',
-    'router_path' => 'node/%',
+    'link_path' => 'cantina',
+    'router_path' => 'cantina',
     'link_title' => 'Cantina',
     'options' => array(
       'attributes' => array(
         'title' => '',
       ),
       'alter' => TRUE,
-      'identifier' => 'menu-menu-nagusia_cantina:node/83552',
+      'identifier' => 'menu-menu-nagusia_cantina:cantina',
     ),
     'module' => 'menu',
     'hidden' => 0,

@@ -160,10 +160,13 @@
   </div><!-- /description -->
 </div>
 <?php print render($content['links']); ?>
-<hr class="hr-dark">
-<h2 class="text-center"><?php print t('Te puede interesar') ?></h2>
-<?php print views_embed_view('libros', 'libros_rel_cat', $node->field_libro_categoria['und'][0]['tid']) ?>
+  <?php if ($node->field_libro_categoria['und'][0]['tid']): ?>
+  <hr class="hr-dark">
+  <h2 class="text-center"><?php print t('Te puede interesar') ?></h2>
+  <?php print views_embed_view('libros', 'libros_rel_cat', $node->field_libro_categoria['und'][0]['tid']) ?>
+  <?php endif; ?>
 <?php endif; ?>
+
 
 <?php if ($view_mode == 'card_book'): ?>
 <div class="card-book-sm">
