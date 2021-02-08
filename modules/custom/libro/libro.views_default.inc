@@ -136,12 +136,6 @@ function libro_views_default_views() {
   $handler->display->display_options['row_options']['view_mode'] = 'card_book';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Encabezado: Global: Text area */
-  $handler->display->display_options['header']['area']['id'] = 'area';
-  $handler->display->display_options['header']['area']['table'] = 'views';
-  $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<h2 class="block">Recomendamos</h2>';
-  $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Nodo: Referenced products */
   $handler->display->display_options['relationships']['field_libro_producto_product_id']['id'] = 'field_libro_producto_product_id';
@@ -949,7 +943,6 @@ function libro_views_default_views() {
     t('Page'),
     t('Librería'),
     t('more'),
-    t('<h2 class="block">Recomendamos</h2>'),
     t('Precio'),
     t('Books block home'),
     t('Entra en la tienda online'),
