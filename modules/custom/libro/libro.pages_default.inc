@@ -62,15 +62,16 @@ function libro_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
   $pane = new stdClass();
-  $pane->pid = 'new-f916320a-c72d-4e65-b551-75bc25ffab07';
+  $pane->pid = 'new-b42118ea-9654-4dba-a7eb-80d2f935586d';
   $pane->panel = 'middle';
   $pane->type = 'block';
-  $pane->subtype = 'views-libros-block_1';
+  $pane->subtype = 'libro-libreria_home_search';
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
     'override_title' => 0,
     'override_title_text' => '',
+    'override_title_heading' => 'h2',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -80,11 +81,49 @@ function libro_default_page_manager_handlers() {
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();
-  $pane->uuid = 'f916320a-c72d-4e65-b551-75bc25ffab07';
-  $display->content['new-f916320a-c72d-4e65-b551-75bc25ffab07'] = $pane;
-  $display->panels['middle'][0] = 'new-f916320a-c72d-4e65-b551-75bc25ffab07';
+  $pane->uuid = 'b42118ea-9654-4dba-a7eb-80d2f935586d';
+  $display->content['new-b42118ea-9654-4dba-a7eb-80d2f935586d'] = $pane;
+  $display->panels['middle'][0] = 'new-b42118ea-9654-4dba-a7eb-80d2f935586d';
+  $pane = new stdClass();
+  $pane->pid = 'new-4a4b8451-4ece-4d1d-b4d0-f102f6dfb35a';
+  $pane->panel = 'middle';
+  $pane->type = 'views';
+  $pane->subtype = 'libros';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_pager_settings' => 0,
+    'use_pager' => 1,
+    'nodes_per_page' => '12',
+    'pager_id' => '0',
+    'offset' => '0',
+    'more_link' => 0,
+    'feed_icons' => 0,
+    'panel_args' => 0,
+    'link_to_view' => 0,
+    'args' => '',
+    'url' => '',
+    'display' => 'books_category',
+    'context' => array(
+      0 => '',
+    ),
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 1;
+  $pane->locks = array();
+  $pane->uuid = '4a4b8451-4ece-4d1d-b4d0-f102f6dfb35a';
+  $display->content['new-4a4b8451-4ece-4d1d-b4d0-f102f6dfb35a'] = $pane;
+  $display->panels['middle'][1] = 'new-4a4b8451-4ece-4d1d-b4d0-f102f6dfb35a';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-f916320a-c72d-4e65-b551-75bc25ffab07';
+  $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $export['term_view_panel_context'] = $handler;
 

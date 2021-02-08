@@ -36,47 +36,6 @@ function libro_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
-  $context->name = 'libros_por_categoria';
-  $context->description = '';
-  $context->tag = 'Libro';
-  $context->conditions = array(
-    'taxonomy_term' => array(
-      'values' => array(
-        'materias' => 'materias',
-      ),
-      'options' => array(
-        'term_form' => '0',
-      ),
-    ),
-  );
-  $context->reactions = array(
-    'block' => array(
-      'blocks' => array(
-        'libro-libreria_home_search' => array(
-          'module' => 'libro',
-          'delta' => 'libreria_home_search',
-          'region' => 'content_top',
-          'weight' => '-10',
-        ),
-      ),
-    ),
-    'menu' => array(
-      0 => 'menu-menu-nagusia:libreria',
-    ),
-    'theme_html' => array(
-      'class' => 'block-book-search',
-    ),
-  );
-  $context->condition_mode = 0;
-
-  // Translatables
-  // Included for use with string extractors like potx.
-  t('Libro');
-  $export['libros_por_categoria'] = $context;
-
-  $context = new stdClass();
-  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
-  $context->api_version = 3;
   $context->name = 'libros_secciones';
   $context->description = 'Libros secciones';
   $context->tag = 'Tienda online';
@@ -93,16 +52,13 @@ function libro_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'libro-libreria_home_search' => array(
+        'libro-libreria_home_bizikrak' => array(
           'module' => 'libro',
-          'delta' => 'libreria_home_search',
-          'region' => 'content_top',
+          'delta' => 'libreria_home_bizikrak',
+          'region' => 'banners',
           'weight' => '-10',
         ),
       ),
-    ),
-    'menu' => array(
-      0 => 'main-menu:tienda',
     ),
   );
   $context->condition_mode = 0;
@@ -201,12 +157,6 @@ function libro_context_default_contexts() {
           'module' => 'libro',
           'delta' => 'libreria_home_destacado',
           'region' => 'content_middle',
-          'weight' => '-10',
-        ),
-        'views-libros-libros_mas_vendidos' => array(
-          'module' => 'views',
-          'delta' => 'libros-libros_mas_vendidos',
-          'region' => 'content_bottom',
           'weight' => '-10',
         ),
       ),

@@ -24,7 +24,6 @@ function libro_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Tienda';
-  $handler->display->display_options['css_class'] = 'book-page-view book-recomendados-view';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'más';
@@ -712,7 +711,7 @@ function libro_views_default_views() {
   $handler->display->display_options['filters']['field_libro_portada_fid']['operator'] = 'not empty';
 
   /* Display: Libros por categoria */
-  $handler = $view->new_display('block', 'Libros por categoria', 'block_1');
+  $handler = $view->new_display('block', 'Libros por categoria', 'books_category');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'full';
@@ -727,6 +726,20 @@ function libro_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
   $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
+  $handler->display->display_options['style_options']['columns_horizontal'] = '-1';
+  $handler->display->display_options['style_options']['columns_vertical'] = '4';
+  $handler->display->display_options['style_options']['columns_xs'] = '12';
+  $handler->display->display_options['style_options']['columns_sm'] = '6';
+  $handler->display->display_options['style_options']['columns_md'] = '4';
+  $handler->display->display_options['style_options']['columns_lg'] = '3';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['view_mode'] = 'card_book';
+  $handler->display->display_options['row_options']['links'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Contenido: Referenced products */
   $handler->display->display_options['relationships']['field_libro_producto_product_id']['id'] = 'field_libro_producto_product_id';
@@ -922,6 +935,7 @@ function libro_views_default_views() {
     t('<i class="fa fa-book fa-26x book-cover-not-found"></i>'),
     t('Page'),
     t('Librería'),
+    t('more'),
     t('<h2 class="block">Recomendamos</h2>'),
     t('Precio'),
     t('Books block home'),
@@ -1496,6 +1510,7 @@ function libro_views_default_views() {
     t('Dilve'),
     t('Argitaletxea'),
     t('Page'),
+    t('more'),
     t('Libros de la semana'),
     t('queue'),
     t('Libros por isbn'),
@@ -1607,7 +1622,7 @@ function libro_views_default_views() {
     t('Desc'),
     t('leer más [+]'),
     t('Bloque'),
-    t('más'),
+    t('more'),
   );
   $export['libros_blog'] = $view;
 
@@ -1746,6 +1761,7 @@ function libro_views_default_views() {
     t('Peso'),
     t('Stock'),
     t('Page'),
+    t('more'),
   );
   $export['productos_admin'] = $view;
 
@@ -2068,6 +2084,7 @@ function libro_views_default_views() {
     t('Desc'),
     t('Nombre'),
     t('Secciones'),
+    t('more'),
     t('Secciones movil'),
     t('Secciones lateral'),
     t('Secciones Home tienda  EUS'),
@@ -2186,6 +2203,7 @@ function libro_views_default_views() {
     t('<i class="fa fa-book fa-26x book-cover-not-found"></i>'),
     t('title'),
     t('Services'),
+    t('more'),
   );
   $export['service_libros'] = $view;
 
