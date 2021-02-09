@@ -21,6 +21,7 @@ features[fe_nodequeue][] = libros_editorial
 features[fe_nodequeue][] = traductores_cas
 features[fe_nodequeue][] = traductores_eus
 features[features_api][] = api:2
+features[field_base][] = body
 features[field_base][] = field_autor_nacimiento
 features[field_base][] = field_autor_traductor
 features[field_base][] = field_donacion
