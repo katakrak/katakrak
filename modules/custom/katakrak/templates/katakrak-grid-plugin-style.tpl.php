@@ -14,29 +14,11 @@
 ?>
 
 <div id="views-bootstrap-grid-<?php print $id ?>" class="<?php print $classes ?>">
-  <?php if ($options['alignment'] == 'horizontal'): ?>
-
-  <div class="row">
+  <div class="row <?php print $row_class?>">
     <?php foreach ($rows as $row): ?>
-      <div class="col col-lg-<?php print $columns_lg ?> col-md-<?php print $columns_md ?> col-sm-<?php print $columns_sm ?> col-xs-<?php print $columns_xs ?>">
+      <div class="col col-lg-2 col-md-3 col-sm-6 ">
         <?php print $row ?>
       </div>
     <?php endforeach ?>
-    </div>
-
-  <?php else: ?>
-    <?php foreach(array('lg', 'md', 'sm', 'xs') as $size): ?>
-    <div class="row visible-<?php print $size ?>">
-      <?php $items = 'items_'.$size; ?>
-      <?php foreach (${$items} as $column): ?>
-        <div class="col col-<?php print $size?>-<?php print 12/count(${$items}) ?>">
-          <?php foreach ($column['content'] as $row): ?>
-            <?php print $row['content'] ?>
-          <?php endforeach ?>
-        </div>
-      <?php endforeach ?>
-    </div>
-  <?php endforeach; ?>
-
-  <?php endif ?>
+  </div>
 </div>

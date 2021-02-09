@@ -7,7 +7,7 @@ function template_preprocess_katakrak_grid_plugin_style(&$vars) {
   $view     = $vars['view'];
   $options  = $view->style_plugin->options;
   $horizontal = ($options['alignment'] === 'horizontal');
-
+  $vars['row_class'] = $options['row_class'];
   // Split items by rows and columns.
   //$vars['items'] = _katakrak_view_grid_split_rows($vars, $columns, $horizontal);
   $vars['columns_lg'] = 12 / $options['columns_lg'];
