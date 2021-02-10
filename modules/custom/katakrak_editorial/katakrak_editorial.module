@@ -55,13 +55,6 @@ function katakrak_editorial_block_view($delta) {
   }
   return $block;
 }
-/**
- * Implements hook_init
- */
-function katakrak_editorial_init() {
-  
-}
-
 
 /**
  * Implements hook_menu
