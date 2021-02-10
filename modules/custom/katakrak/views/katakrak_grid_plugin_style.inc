@@ -14,10 +14,12 @@ class katakrak_grid_plugin_style extends views_plugin_style {
   public function option_definition() {
     $options = parent::option_definition();
     $options['alignment'] = array('default' => 'horizontal');
-    $options['columns_lg'] = array('default' => '2');
+    $options['columns_lg'] = array('default' => 2);
     $options['columns_md'] = array('default' => '2');
     $options['columns_sm'] = array('default' => '2');
     $options['columns_xs'] = array('default' => '2');
+    $options['row_class'] = array('default' => 'mt-3');
+
     return $options;
   }
 
@@ -67,6 +69,11 @@ class katakrak_grid_plugin_style extends views_plugin_style {
       '#default_value' => $this->options['columns_xs'],
       '#options' => array_combine($options, $options),
       '#required' => TRUE,
+    );
+    $form['row_class'] = array(
+      '#type' => 'textfield',
+      '#title' => 'Class for row',
+      '#default_value' => $this->options['row_class'],
     );
   }
 }

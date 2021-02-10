@@ -28,6 +28,12 @@ function katakrak_kantina_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'katakrak_kantina-katakrak_kantina_nav_submenu' => array(
+          'module' => 'katakrak_kantina',
+          'delta' => 'katakrak_kantina_nav_submenu',
+          'region' => 'banners',
+          'weight' => '-10',
+        ),
         'katakrak_kantina-kantina_page_hero' => array(
           'module' => 'katakrak_kantina',
           'delta' => 'kantina_page_hero',
@@ -94,7 +100,7 @@ function katakrak_kantina_context_default_contexts() {
       ),
     ),
     'menu' => array(
-      0 => 'main-menu:node/2133',
+      0 => 'menu-menu-nagusia:node/83552',
     ),
   );
   $context->condition_mode = 0;

@@ -168,6 +168,7 @@ function geslib_cron() {
   $geslib_dir = DRUPAL_ROOT.'/'.variable_get('geslib_directory', 'sites/default/files/geslib');
   $file_to_process = _geslib_get_file_to_process();
   
+  //Si hay una nueva importación de geslib, lo pasamos a la tabla geslib_lines
   if ($file_to_process) {
     $geslib_file = file_get_contents($geslib_dir."/".$file_to_process);
     $geslib_file_array = explode("\n", $geslib_file);
@@ -222,6 +223,7 @@ function geslib_cron() {
     drupal_write_record('geslib_log', $log);
     
   }
+  //Si no hay nueva importación, procesamos las línes de la tabla geslib_lines
   else {
     $last_processed_file = db_select('geslib_log', 'g')->fields('g', array('imported_file'))
             ->orderBy('g.id', 'DESC')->execute()->fetchField();

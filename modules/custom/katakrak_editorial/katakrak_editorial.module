@@ -19,6 +19,10 @@ function katakrak_editorial_block_info() {
     'info' => t('Submenu editorial autoras'),
     'cache' => DRUPAL_CACHE_GLOBAL
   );
+  $blocks['editorial_filter_autores'] = array(
+    'info' => t('Filter autoras'),
+    'cache' => DRUPAL_CACHE_GLOBAL
+  );
   return $blocks;
 }
 
@@ -42,6 +46,12 @@ function katakrak_editorial_block_view($delta) {
         l(t('Traductoras/es'), 'editorial/traductores')
       );
       $block['content'] = theme('katakrak_nav_secundary', array('links' => $links));
+      break;
+    case 'editorial_filter_autores':
+      drupal_add_js('https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js', 'external');
+      drupal_add_js(drupal_get_path('module', 'katakrak_editorial').'/katakrak_editorial.js');
+      $block['content'] = theme('editorial_filter_autoras');
+      break;
   }
   return $block;
 }
@@ -49,7 +59,7 @@ function katakrak_editorial_block_view($delta) {
  * Implements hook_init
  */
 function katakrak_editorial_init() {
-  drupal_add_js(drupal_get_path('module', 'katakrak_editorial').'/katakrak_editorial.js');
+  
 }
 
 
@@ -90,6 +100,10 @@ function katakrak_editorial_theme() {
         'form_download' => NULL,
 		    'node' => NULL,
       )
+    ),
+    'editorial_filter_autoras' => array(
+      'template' => 'editorial-filter-autoras',
+      'path' => $path . '/templates',
     ),
   );
 }

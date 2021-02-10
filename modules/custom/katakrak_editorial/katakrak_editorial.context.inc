@@ -34,6 +34,12 @@ function katakrak_editorial_context_default_contexts() {
           'region' => 'content',
           'weight' => '-10',
         ),
+        'katakrak_editorial-editorial_filter_autores' => array(
+          'module' => 'katakrak_editorial',
+          'delta' => 'editorial_filter_autores',
+          'region' => 'content_top',
+          'weight' => '-10',
+        ),
       ),
     ),
   );

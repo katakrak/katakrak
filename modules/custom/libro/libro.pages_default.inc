@@ -178,6 +178,29 @@ function libro_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
   $pane = new stdClass();
+  $pane->pid = 'new-350628c4-b260-45d3-890a-6ef794ad3b05';
+  $pane->panel = 'center';
+  $pane->type = 'block';
+  $pane->subtype = 'libro-libreria_home_search';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = '350628c4-b260-45d3-890a-6ef794ad3b05';
+  $display->content['new-350628c4-b260-45d3-890a-6ef794ad3b05'] = $pane;
+  $display->panels['center'][0] = 'new-350628c4-b260-45d3-890a-6ef794ad3b05';
+  $pane = new stdClass();
   $pane->pid = 'new-1744bff1-4c02-4595-bcc3-d204c1dc82ef';
   $pane->panel = 'center';
   $pane->type = 'views';
@@ -210,11 +233,11 @@ function libro_default_page_manager_handlers() {
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 0;
+  $pane->position = 1;
   $pane->locks = array();
   $pane->uuid = '1744bff1-4c02-4595-bcc3-d204c1dc82ef';
   $display->content['new-1744bff1-4c02-4595-bcc3-d204c1dc82ef'] = $pane;
-  $display->panels['center'][0] = 'new-1744bff1-4c02-4595-bcc3-d204c1dc82ef';
+  $display->panels['center'][1] = 'new-1744bff1-4c02-4595-bcc3-d204c1dc82ef';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
