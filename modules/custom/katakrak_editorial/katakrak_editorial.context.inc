@@ -20,7 +20,7 @@ function katakrak_editorial_context_default_contexts() {
   $context->conditions = array(
     'views' => array(
       'values' => array(
-        'editorial:page_3' => 'editorial:page_3',
+        'editorial:autores' => 'editorial:autores',
         'editorial:page_4' => 'editorial:page_4',
       ),
     ),
