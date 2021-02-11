@@ -9,13 +9,13 @@
       </div>
     </div>
     <div class="col-sm-6">
-                   <div class="form-group">
-                    
-                     <select class="form-control">
-                         <option selected="">Todos</option>
-                         <option>Escfitores</option>
-                         <option>Traductores</option>
-                       </select>
-                     </div><!-- /.form-group-->
-                 </div>
+      <div class="form-group">
+
+        <select class="form-control filter-autores-traductores">
+            <option selected="">Todos</option>
+            <option>Escfitores</option>
+            <option>Traductores</option>
+          </select>
+        </div><!-- /.form-group-->
+    </div>
   </div>
