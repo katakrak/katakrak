@@ -1,7 +1,7 @@
 <?php
 
 function kapital_preprocess_html(&$variables) {
-  drupal_add_css('https://xabiangos.com/katakrak-bs/css/main.css', array('type' => 'external'));
+  drupal_add_css('https://xabiangos.com/katakrak-bs/css/main.css', array('type' => 'external', 'weight' => 10000));
 }
 /**
  * @file

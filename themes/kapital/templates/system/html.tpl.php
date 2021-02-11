@@ -66,6 +66,7 @@
     <script src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="https://xabiangos.com/katakrak-bs/css/main.css" />
   <?php print $scripts; ?>
 </head>
 <body<?php print $body_attributes; ?>>
