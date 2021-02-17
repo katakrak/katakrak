@@ -310,8 +310,9 @@ function katakrak_editorial_strongarm() {
     1 => 'field_imagen',
     2 => 'field_libro_autores',
     3 => 'field_autor_apellido',
-    4 => 'status',
-    5 => 'created',
+    4 => 'field_tipo_de_autor',
+    5 => 'status',
+    6 => 'created',
   );
   $export['i18n_sync_node_type_autor_ed'] = $strongarm;
 

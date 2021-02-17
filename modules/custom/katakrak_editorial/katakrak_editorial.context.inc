@@ -28,15 +28,15 @@ function katakrak_editorial_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'katakrak_editorial-editorial_autores_nav_secunday' => array(
-          'module' => 'katakrak_editorial',
-          'delta' => 'editorial_autores_nav_secunday',
-          'region' => 'content',
-          'weight' => '-10',
-        ),
         'katakrak_editorial-editorial_filter_autores' => array(
           'module' => 'katakrak_editorial',
           'delta' => 'editorial_filter_autores',
+          'region' => 'content',
+          'weight' => '-10',
+        ),
+        'katakrak_editorial-editorial_autores_nav_secunday' => array(
+          'module' => 'katakrak_editorial',
+          'delta' => 'editorial_autores_nav_secunday',
           'region' => 'content_top',
           'weight' => '-10',
         ),
