@@ -413,7 +413,7 @@ function libro_theme() {
  */
 function libro_entity_info_alter(&$entity_info) {
   $entity_info['node']['view modes']['card_book'] = array(
-    'label' => t('Card Book'),
+    'label' => t('Card Book SM'),
     'custom settings' => TRUE,
   );
   $entity_info['node']['view modes']['card_book_md'] = array(

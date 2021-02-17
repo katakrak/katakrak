@@ -594,9 +594,10 @@ function katakrak_editorial_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'card_book' => array(
-        'label' => 'above',
+        'label' => 'hidden',
+        'module' => 'node_reference',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'node_reference_plain',
         'weight' => 0,
       ),
       'card_book_editorial' => array(
@@ -849,8 +850,14 @@ function katakrak_editorial_field_default_field_instances() {
     'display' => array(
       'card_book' => array(
         'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
         'weight' => 0,
       ),
       'card_book_editorial' => array(

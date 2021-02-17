@@ -9,7 +9,7 @@
     <h1><?php print $node->title?></h1>
     <h2 class="mt-0"><?php print render($content['field_libro_subtitulo']) ?></h2>
     <p>
-      <h4><?php print render($content['field_libro_autores'])  ?></h4>
+      <h4><?php print render($content['field_libro_ed_autor'])  ?></h4>
       <?php if (!empty($node->traductores)): ?>
         <?php print t('Traducción de !name', array('!name' => $node->traductores)) ?>
       <?php endif; ?>
@@ -118,7 +118,7 @@
 <div class="hidden color-fondo"><?php print $node->field_libro_ed_color['und'][0]['value'] ?></div>
 <?php endif; ?>
 <?php if ($view_mode == 'card_book'): ?>
-<div class="card-book-editorial">
+<div class="card-book-smgrid">
   <div class="cover">
     <?php print render($content['field_libro_portada']) ?>
   </div><!-- /cover -->
@@ -128,9 +128,9 @@
         <?php print $node->title?>
       </a>
       </h3>
-      <p class="mb-05">Louise Michel</p>
-      <p class="price">22,00€</p>
-      <p class="small success">Disponible</p>
+      <p class="mb-05"><?php print render($content['field_libro_ed_autor']) ?></p>
+      <p class="price"><?php print $content['field_libro_ed_precio'][0]['#markup'] ?>€</p>
+      <p class="small success"><?php print t('Disponible') ?></p>
     </div><!-- /.description -->
 </div><!-- /.card-book -->
 <?php endif; ?>

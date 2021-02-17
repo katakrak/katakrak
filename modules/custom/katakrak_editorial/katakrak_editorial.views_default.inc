@@ -126,7 +126,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'katakrak_grid_plugin_style';
   $handler->display->display_options['style_options']['columns_lg'] = '2';
-  $handler->display->display_options['style_options']['row_class'] = 'mt-3 mb-2';
+  $handler->display->display_options['style_options']['row_class'] = 'mt-3 mb-2 row-flex';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'node';
@@ -694,7 +694,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'katakrak_grid_plugin_style';
   $handler->display->display_options['style_options']['columns_lg'] = '2';
-  $handler->display->display_options['style_options']['row_class'] = 'mt-3 mb-2';
+  $handler->display->display_options['style_options']['row_class'] = 'mt-3 mb-2 row-flex';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'node';

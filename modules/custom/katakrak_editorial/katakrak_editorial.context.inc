@@ -60,40 +60,14 @@ function katakrak_editorial_context_default_contexts() {
   $context->conditions = array(
     'views' => array(
       'values' => array(
+        'editorial:autores' => 'editorial:autores',
         'editorial:page_1' => 'editorial:page_1',
+        'editorial:page_4' => 'editorial:page_4',
+        'editorial:page_catalogo' => 'editorial:page_catalogo',
       ),
     ),
   );
-  $context->reactions = array(
-    'block' => array(
-      'blocks' => array(
-        'views-editorial-block_3' => array(
-          'module' => 'views',
-          'delta' => 'editorial-block_3',
-          'region' => 'content_middle',
-          'weight' => '-10',
-        ),
-        'views-editorial-block_5' => array(
-          'module' => 'views',
-          'delta' => 'editorial-block_5',
-          'region' => 'content_middle',
-          'weight' => '-9',
-        ),
-        'views-editorial-block_8' => array(
-          'module' => 'views',
-          'delta' => 'editorial-block_8',
-          'region' => 'content_middle',
-          'weight' => '-8',
-        ),
-        'views-editorial-block_9' => array(
-          'module' => 'views',
-          'delta' => 'editorial-block_9',
-          'region' => 'content_middle',
-          'weight' => '-7',
-        ),
-      ),
-    ),
-  );
+  $context->reactions = array();
   $context->condition_mode = 0;
 
   // Translatables
@@ -130,7 +104,7 @@ function katakrak_editorial_context_default_contexts() {
       ),
     ),
     'menu' => array(
-      0 => 'main-menu:editorial',
+      0 => 'menu-menu-nagusia:editorial',
     ),
     'theme' => array(
       'title' => '',
@@ -164,7 +138,6 @@ function katakrak_editorial_context_default_contexts() {
       'values' => array(
         'editorial' => 'editorial',
         'editorial:page_1' => 'editorial:page_1',
-        'editorial:page_3' => 'editorial:page_3',
         'editorial:page_4' => 'editorial:page_4',
         'editorial:page_6' => 'editorial:page_6',
         'editorial:page_catalogo' => 'editorial:page_catalogo',
@@ -183,7 +156,7 @@ function katakrak_editorial_context_default_contexts() {
       ),
     ),
     'menu' => array(
-      0 => 'main-menu:editorial',
+      0 => 'menu-menu-nagusia:editorial',
     ),
   );
   $context->condition_mode = 0;
