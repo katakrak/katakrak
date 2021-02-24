@@ -210,8 +210,8 @@
         <?php endif; ?>
     </div><!-- /description -->
     </div><!-- /.card-book-md-->
-<?php elseif($view_mode == 'card_book_editorial'): ?>
-    <div class="card-book-editorial">
+<?php elseif($view_mode == 'card_book_smgrid'): ?>
+    <div class="card-book-smgrid">
   <div class="<?php print $content['cover_class'] ?>">
       <?php print render($content['field_libro_portada']) ?>
 

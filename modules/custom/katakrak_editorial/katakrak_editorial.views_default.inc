@@ -52,7 +52,7 @@ function katakrak_editorial_views_default_views() {
     'blog_portada' => 0,
     'libros_recomendados' => 0,
   );
-  /* Campo: Content: Portada */
+  /* Campo: Contenido: Portada */
   $handler->display->display_options['fields']['field_libro_portada']['id'] = 'field_libro_portada';
   $handler->display->display_options['fields']['field_libro_portada']['table'] = 'field_data_field_libro_portada';
   $handler->display->display_options['fields']['field_libro_portada']['field'] = 'field_libro_portada';
@@ -63,7 +63,7 @@ function katakrak_editorial_views_default_views() {
     'image_style' => 'editorial_page',
     'image_link' => 'content',
   );
-  /* Campo: Content: Title */
+  /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -74,7 +74,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_class'] = 'book-title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Campo: Content: Autor */
+  /* Campo: Contenido: Autor */
   $handler->display->display_options['fields']['field_libro_ed_autor']['id'] = 'field_libro_ed_autor';
   $handler->display->display_options['fields']['field_libro_ed_autor']['table'] = 'field_data_field_libro_ed_autor';
   $handler->display->display_options['fields']['field_libro_ed_autor']['field'] = 'field_libro_ed_autor';
@@ -82,34 +82,34 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['fields']['field_libro_ed_autor']['element_type'] = 'h4';
   $handler->display->display_options['fields']['field_libro_ed_autor']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_libro_ed_autor']['delta_offset'] = '0';
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Contenido: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['relationship'] = 'field_libro_ed_resenas_nid';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published status */
+  /* Filter criterion: Contenido: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Contenido: Tipo */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'libro_ed' => 'libro_ed',
   );
-  /* Filter criterion: Content: Language */
+  /* Filter criterion: Contenido: Idioma */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
   $handler->display->display_options['filters']['language']['field'] = 'language';
   $handler->display->display_options['filters']['language']['value'] = array(
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
-  /* Filter criterion: Content: Idioma (field_libro_idioma) */
+  /* Filter criterion: Contenido: Idioma (field_libro_idioma) */
   $handler->display->display_options['filters']['field_libro_idioma_value']['id'] = 'field_libro_idioma_value';
   $handler->display->display_options['filters']['field_libro_idioma_value']['table'] = 'field_data_field_libro_idioma';
   $handler->display->display_options['filters']['field_libro_idioma_value']['field'] = 'field_libro_idioma_value';
@@ -133,7 +133,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Content: Portada */
+  /* Campo: Contenido: Portada */
   $handler->display->display_options['fields']['field_libro_portada']['id'] = 'field_libro_portada';
   $handler->display->display_options['fields']['field_libro_portada']['table'] = 'field_data_field_libro_portada';
   $handler->display->display_options['fields']['field_libro_portada']['field'] = 'field_libro_portada';
@@ -144,7 +144,7 @@ function katakrak_editorial_views_default_views() {
     'image_style' => 'editorial_page',
     'image_link' => 'content',
   );
-  /* Campo: Content: Title */
+  /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -156,21 +156,21 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published status */
+  /* Filter criterion: Contenido: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Contenido: Tipo */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'libro_ed' => 'libro_ed',
   );
-  /* Filter criterion: Content: Language */
+  /* Filter criterion: Contenido: Idioma */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
   $handler->display->display_options['filters']['language']['field'] = 'language';
@@ -202,7 +202,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Content: Foto */
+  /* Campo: Contenido: Foto */
   $handler->display->display_options['fields']['field_imagen']['id'] = 'field_imagen';
   $handler->display->display_options['fields']['field_imagen']['table'] = 'field_data_field_imagen';
   $handler->display->display_options['fields']['field_imagen']['field'] = 'field_imagen';
@@ -217,7 +217,7 @@ function katakrak_editorial_views_default_views() {
     'image_link' => 'content',
   );
   $handler->display->display_options['fields']['field_imagen']['delta_offset'] = '0';
-  /* Campo: Field: Nombre y apellido */
+  /* Campo: Campo: Nombre y apellido */
   $handler->display->display_options['fields']['field_autor_apellido']['id'] = 'field_autor_apellido';
   $handler->display->display_options['fields']['field_autor_apellido']['table'] = 'field_data_field_autor_apellido';
   $handler->display->display_options['fields']['field_autor_apellido']['field'] = 'field_autor_apellido';
@@ -225,24 +225,24 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['fields']['field_autor_apellido']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_autor_apellido']['alter']['path'] = 'node/[nid]';
   $handler->display->display_options['fields']['field_autor_apellido']['element_type'] = 'h3';
-  $handler->display->display_options['fields']['field_autor_apellido']['element_class'] = 'h3-small mt-0';
+  $handler->display->display_options['fields']['field_autor_apellido']['element_class'] = 'h3-small mt-0 text-center';
   $handler->display->display_options['fields']['field_autor_apellido']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Field: Nombre y apellido (field_autor_apellido) */
+  /* Sort criterion: Campo: Nombre y apellido (field_autor_apellido) */
   $handler->display->display_options['sorts']['field_autor_apellido_value']['id'] = 'field_autor_apellido_value';
   $handler->display->display_options['sorts']['field_autor_apellido_value']['table'] = 'field_data_field_autor_apellido';
   $handler->display->display_options['sorts']['field_autor_apellido_value']['field'] = 'field_autor_apellido_value';
   $handler->display->display_options['sorts']['field_autor_apellido_value']['relationship'] = 'field_libro_ed_traductor_nid';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published status */
+  /* Filter criterion: Contenido: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Contenido: Tipo */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -250,7 +250,7 @@ function katakrak_editorial_views_default_views() {
     'autor_ed' => 'autor_ed',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Language */
+  /* Filter criterion: Contenido: Idioma */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
   $handler->display->display_options['filters']['language']['field'] = 'language';
@@ -258,7 +258,7 @@ function katakrak_editorial_views_default_views() {
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
   $handler->display->display_options['filters']['language']['group'] = 1;
-  /* Filter criterion: Content: Tipo de autor (field_tipo_de_autor) */
+  /* Filter criterion: Contenido: Tipo de autor (field_tipo_de_autor) */
   $handler->display->display_options['filters']['field_tipo_de_autor_value']['id'] = 'field_tipo_de_autor_value';
   $handler->display->display_options['filters']['field_tipo_de_autor_value']['table'] = 'field_data_field_tipo_de_autor';
   $handler->display->display_options['filters']['field_tipo_de_autor_value']['field'] = 'field_tipo_de_autor_value';
@@ -293,7 +293,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Content: Foto */
+  /* Campo: Contenido: Foto */
   $handler->display->display_options['fields']['field_imagen']['id'] = 'field_imagen';
   $handler->display->display_options['fields']['field_imagen']['table'] = 'field_data_field_imagen';
   $handler->display->display_options['fields']['field_imagen']['field'] = 'field_imagen';
@@ -307,7 +307,7 @@ function katakrak_editorial_views_default_views() {
     'image_link' => 'content',
   );
   $handler->display->display_options['fields']['field_imagen']['delta_offset'] = '0';
-  /* Campo: Field: Nombre y apellido */
+  /* Campo: Campo: Nombre y apellido */
   $handler->display->display_options['fields']['field_autor_apellido']['id'] = 'field_autor_apellido';
   $handler->display->display_options['fields']['field_autor_apellido']['table'] = 'field_data_field_autor_apellido';
   $handler->display->display_options['fields']['field_autor_apellido']['field'] = 'field_autor_apellido';
@@ -315,24 +315,24 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['fields']['field_autor_apellido']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_autor_apellido']['alter']['path'] = 'node/[nid]';
   $handler->display->display_options['fields']['field_autor_apellido']['element_type'] = 'h3';
-  $handler->display->display_options['fields']['field_autor_apellido']['element_class'] = 'h3-small mt-0';
+  $handler->display->display_options['fields']['field_autor_apellido']['element_class'] = 'h3-small mt-0 text-center';
   $handler->display->display_options['fields']['field_autor_apellido']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Field: Nombre y apellido (field_autor_apellido) */
+  /* Sort criterion: Campo: Nombre y apellido (field_autor_apellido) */
   $handler->display->display_options['sorts']['field_autor_apellido_value']['id'] = 'field_autor_apellido_value';
   $handler->display->display_options['sorts']['field_autor_apellido_value']['table'] = 'field_data_field_autor_apellido';
   $handler->display->display_options['sorts']['field_autor_apellido_value']['field'] = 'field_autor_apellido_value';
   $handler->display->display_options['sorts']['field_autor_apellido_value']['relationship'] = 'field_libro_ed_autor_nid';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published status */
+  /* Filter criterion: Contenido: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Contenido: Tipo */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -340,7 +340,7 @@ function katakrak_editorial_views_default_views() {
     'autor_ed' => 'autor_ed',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Language */
+  /* Filter criterion: Contenido: Idioma */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
   $handler->display->display_options['filters']['language']['field'] = 'language';
@@ -348,7 +348,7 @@ function katakrak_editorial_views_default_views() {
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
   $handler->display->display_options['filters']['language']['group'] = 1;
-  /* Filter criterion: Content: Tipo de autor (field_tipo_de_autor) */
+  /* Filter criterion: Contenido: Tipo de autor (field_tipo_de_autor) */
   $handler->display->display_options['filters']['field_tipo_de_autor_value']['id'] = 'field_tipo_de_autor_value';
   $handler->display->display_options['filters']['field_tipo_de_autor_value']['table'] = 'field_data_field_tipo_de_autor';
   $handler->display->display_options['filters']['field_tipo_de_autor_value']['field'] = 'field_tipo_de_autor_value';
@@ -376,7 +376,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Content: Portada */
+  /* Campo: Contenido: Portada */
   $handler->display->display_options['fields']['field_libro_portada']['id'] = 'field_libro_portada';
   $handler->display->display_options['fields']['field_libro_portada']['table'] = 'field_data_field_libro_portada';
   $handler->display->display_options['fields']['field_libro_portada']['field'] = 'field_libro_portada';
@@ -387,7 +387,7 @@ function katakrak_editorial_views_default_views() {
     'image_style' => 'book_medium',
     'image_link' => 'content',
   );
-  /* Campo: Content: Title */
+  /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -398,7 +398,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['fields']['title']['element_class'] = 'book-title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Autor (field_libro_ed_autor) */
+  /* Contextual filter: Contenido: Autor (field_libro_ed_autor) */
   $handler->display->display_options['arguments']['field_libro_ed_autor_nid']['id'] = 'field_libro_ed_autor_nid';
   $handler->display->display_options['arguments']['field_libro_ed_autor_nid']['table'] = 'field_data_field_libro_ed_autor';
   $handler->display->display_options['arguments']['field_libro_ed_autor_nid']['field'] = 'field_libro_ed_autor_nid';
@@ -410,21 +410,21 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['arguments']['field_libro_ed_autor_nid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published status */
+  /* Filter criterion: Contenido: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Contenido: Tipo */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'libro_ed' => 'libro_ed',
   );
-  /* Filter criterion: Content: Language */
+  /* Filter criterion: Contenido: Idioma */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
   $handler->display->display_options['filters']['language']['field'] = 'language';
@@ -448,7 +448,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Content: Portada */
+  /* Campo: Contenido: Portada */
   $handler->display->display_options['fields']['field_libro_portada']['id'] = 'field_libro_portada';
   $handler->display->display_options['fields']['field_libro_portada']['table'] = 'field_data_field_libro_portada';
   $handler->display->display_options['fields']['field_libro_portada']['field'] = 'field_libro_portada';
@@ -459,7 +459,7 @@ function katakrak_editorial_views_default_views() {
     'image_style' => 'book_medium',
     'image_link' => 'content',
   );
-  /* Campo: Content: Title */
+  /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -470,7 +470,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['fields']['title']['element_class'] = 'book-title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Traductor (field_libro_ed_traductor) */
+  /* Contextual filter: Contenido: Traductor (field_libro_ed_traductor) */
   $handler->display->display_options['arguments']['field_libro_ed_traductor_nid']['id'] = 'field_libro_ed_traductor_nid';
   $handler->display->display_options['arguments']['field_libro_ed_traductor_nid']['table'] = 'field_data_field_libro_ed_traductor';
   $handler->display->display_options['arguments']['field_libro_ed_traductor_nid']['field'] = 'field_libro_ed_traductor_nid';
@@ -482,21 +482,21 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['arguments']['field_libro_ed_traductor_nid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published status */
+  /* Filter criterion: Contenido: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Contenido: Tipo */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'libro_ed' => 'libro_ed',
   );
-  /* Filter criterion: Content: Language */
+  /* Filter criterion: Contenido: Idioma */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
   $handler->display->display_options['filters']['language']['field'] = 'language';
@@ -532,14 +532,14 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Content: Reseñas (field_libro_ed_resenas) */
+  /* Relationship: Contenido: Reseñas (field_libro_ed_resenas) */
   $handler->display->display_options['relationships']['field_libro_ed_resenas_nid']['id'] = 'field_libro_ed_resenas_nid';
   $handler->display->display_options['relationships']['field_libro_ed_resenas_nid']['table'] = 'field_data_field_libro_ed_resenas';
   $handler->display->display_options['relationships']['field_libro_ed_resenas_nid']['field'] = 'field_libro_ed_resenas_nid';
   $handler->display->display_options['relationships']['field_libro_ed_resenas_nid']['required'] = TRUE;
   $handler->display->display_options['relationships']['field_libro_ed_resenas_nid']['delta'] = '-1';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Field: Imagen */
+  /* Campo: Campo: Imagen */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -552,7 +552,7 @@ function katakrak_editorial_views_default_views() {
     'image_link' => 'content',
   );
   $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
-  /* Campo: Content: Title */
+  /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -564,7 +564,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['fields']['title']['element_class'] = 'book-title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Contenido: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
@@ -572,21 +572,21 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published status */
+  /* Filter criterion: Contenido: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Language */
+  /* Filter criterion: Contenido: Idioma */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
   $handler->display->display_options['filters']['language']['field'] = 'language';
   $handler->display->display_options['filters']['language']['value'] = array(
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
-  /* Filter criterion: Content: Idioma (field_libro_idioma) */
+  /* Filter criterion: Contenido: Idioma (field_libro_idioma) */
   $handler->display->display_options['filters']['field_libro_idioma_value']['id'] = 'field_libro_idioma_value';
   $handler->display->display_options['filters']['field_libro_idioma_value']['table'] = 'field_data_field_libro_idioma';
   $handler->display->display_options['filters']['field_libro_idioma_value']['field'] = 'field_libro_idioma_value';
@@ -622,14 +622,14 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Content: Reseñas (field_libro_ed_resenas) */
+  /* Relationship: Contenido: Reseñas (field_libro_ed_resenas) */
   $handler->display->display_options['relationships']['field_libro_ed_resenas_nid']['id'] = 'field_libro_ed_resenas_nid';
   $handler->display->display_options['relationships']['field_libro_ed_resenas_nid']['table'] = 'field_data_field_libro_ed_resenas';
   $handler->display->display_options['relationships']['field_libro_ed_resenas_nid']['field'] = 'field_libro_ed_resenas_nid';
   $handler->display->display_options['relationships']['field_libro_ed_resenas_nid']['required'] = TRUE;
   $handler->display->display_options['relationships']['field_libro_ed_resenas_nid']['delta'] = '-1';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Field: Imagen */
+  /* Campo: Campo: Imagen */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -642,7 +642,7 @@ function katakrak_editorial_views_default_views() {
     'image_link' => 'content',
   );
   $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
-  /* Campo: Content: Title */
+  /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -654,7 +654,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['fields']['title']['element_class'] = 'book-title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Contenido: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
@@ -662,21 +662,21 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published status */
+  /* Filter criterion: Contenido: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Language */
+  /* Filter criterion: Contenido: Idioma */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
   $handler->display->display_options['filters']['language']['field'] = 'language';
   $handler->display->display_options['filters']['language']['value'] = array(
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
-  /* Filter criterion: Content: Idioma (field_libro_idioma) */
+  /* Filter criterion: Contenido: Idioma (field_libro_idioma) */
   $handler->display->display_options['filters']['field_libro_idioma_value']['id'] = 'field_libro_idioma_value';
   $handler->display->display_options['filters']['field_libro_idioma_value']['table'] = 'field_data_field_libro_idioma';
   $handler->display->display_options['filters']['field_libro_idioma_value']['field'] = 'field_libro_idioma_value';
@@ -692,9 +692,14 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'katakrak_grid_plugin_style';
+  $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
+  $handler->display->display_options['style_options']['columns_horizontal'] = '-1';
+  $handler->display->display_options['style_options']['columns_vertical'] = '4';
+  $handler->display->display_options['style_options']['columns_xs'] = '12';
+  $handler->display->display_options['style_options']['columns_sm'] = '6';
+  $handler->display->display_options['style_options']['columns_md'] = '4';
   $handler->display->display_options['style_options']['columns_lg'] = '2';
-  $handler->display->display_options['style_options']['row_class'] = 'mt-3 mb-2 row-flex';
+  $handler->display->display_options['style_options']['column_class'] = 'mt-3 mb-2 row-flex';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'node';
@@ -703,14 +708,14 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Content: Nid */
+  /* Campo: Contenido: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Campo: Content: Portada */
+  /* Campo: Contenido: Portada */
   $handler->display->display_options['fields']['field_libro_portada']['id'] = 'field_libro_portada';
   $handler->display->display_options['fields']['field_libro_portada']['table'] = 'field_data_field_libro_portada';
   $handler->display->display_options['fields']['field_libro_portada']['field'] = 'field_libro_portada';
@@ -721,7 +726,7 @@ function katakrak_editorial_views_default_views() {
     'image_style' => 'editorial_page',
     'image_link' => 'content',
   );
-  /* Campo: Content: Title */
+  /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -732,7 +737,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_class'] = 'book-title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Campo: Content: Autor */
+  /* Campo: Contenido: Autor */
   $handler->display->display_options['fields']['field_libro_ed_autor']['id'] = 'field_libro_ed_autor';
   $handler->display->display_options['fields']['field_libro_ed_autor']['table'] = 'field_data_field_libro_ed_autor';
   $handler->display->display_options['fields']['field_libro_ed_autor']['field'] = 'field_libro_ed_autor';
@@ -740,7 +745,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['fields']['field_libro_ed_autor']['element_type'] = 'h4';
   $handler->display->display_options['fields']['field_libro_ed_autor']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_libro_ed_autor']['delta_offset'] = '0';
-  /* Campo: Content: Donación */
+  /* Campo: Contenido: Donación */
   $handler->display->display_options['fields']['field_donacion']['id'] = 'field_donacion';
   $handler->display->display_options['fields']['field_donacion']['table'] = 'field_data_field_donacion';
   $handler->display->display_options['fields']['field_donacion']['field'] = 'field_donacion';
@@ -761,21 +766,21 @@ function katakrak_editorial_views_default_views() {
   );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published status */
+  /* Filter criterion: Contenido: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Contenido: Tipo */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'libro_ed' => 'libro_ed',
   );
-  /* Filter criterion: Content: Language */
+  /* Filter criterion: Contenido: Idioma */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
   $handler->display->display_options['filters']['language']['field'] = 'language';
@@ -798,14 +803,14 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Content: Reseñas (field_libro_ed_resenas) */
+  /* Relationship: Contenido: Reseñas (field_libro_ed_resenas) */
   $handler->display->display_options['relationships']['field_libro_ed_resenas_nid']['id'] = 'field_libro_ed_resenas_nid';
   $handler->display->display_options['relationships']['field_libro_ed_resenas_nid']['table'] = 'field_data_field_libro_ed_resenas';
   $handler->display->display_options['relationships']['field_libro_ed_resenas_nid']['field'] = 'field_libro_ed_resenas_nid';
   $handler->display->display_options['relationships']['field_libro_ed_resenas_nid']['required'] = TRUE;
   $handler->display->display_options['relationships']['field_libro_ed_resenas_nid']['delta'] = '-1';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Field: Imagen */
+  /* Campo: Campo: Imagen */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -818,7 +823,7 @@ function katakrak_editorial_views_default_views() {
     'image_link' => 'content',
   );
   $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
-  /* Campo: Content: Title */
+  /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -830,7 +835,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['fields']['title']['element_class'] = 'book-title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Contenido: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
@@ -838,21 +843,21 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published status */
+  /* Filter criterion: Contenido: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Contenido: Tipo */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'libro_ed' => 'libro_ed',
   );
-  /* Filter criterion: Content: Language */
+  /* Filter criterion: Contenido: Idioma */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
   $handler->display->display_options['filters']['language']['field'] = 'language';
@@ -1035,13 +1040,13 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['header']['area']['empty'] = TRUE;
   $handler->display->display_options['header']['area']['content'] = '<a href="/node/add/libro-ed">Añadir libro</a>';
   $handler->display->display_options['header']['area']['format'] = 'sinopsis';
-  /* Campo: Content: Title */
+  /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Content: Subtitulo */
+  /* Campo: Contenido: Subtitulo */
   $handler->display->display_options['fields']['field_libro_subtitulo']['id'] = 'field_libro_subtitulo';
   $handler->display->display_options['fields']['field_libro_subtitulo']['table'] = 'field_data_field_libro_subtitulo';
   $handler->display->display_options['fields']['field_libro_subtitulo']['field'] = 'field_libro_subtitulo';
@@ -1050,7 +1055,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['fields']['field_libro_subtitulo']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_libro_subtitulo']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_libro_subtitulo']['field_api_classes'] = TRUE;
-  /* Campo: Content: Portada */
+  /* Campo: Contenido: Portada */
   $handler->display->display_options['fields']['field_libro_portada']['id'] = 'field_libro_portada';
   $handler->display->display_options['fields']['field_libro_portada']['table'] = 'field_data_field_libro_portada';
   $handler->display->display_options['fields']['field_libro_portada']['field'] = 'field_libro_portada';
@@ -1059,7 +1064,7 @@ function katakrak_editorial_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => '',
   );
-  /* Campo: Content: Año */
+  /* Campo: Contenido: Año */
   $handler->display->display_options['fields']['field_libro_year']['id'] = 'field_libro_year';
   $handler->display->display_options['fields']['field_libro_year']['table'] = 'field_data_field_libro_year';
   $handler->display->display_options['fields']['field_libro_year']['field'] = 'field_libro_year';
@@ -1071,18 +1076,18 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['fields']['nodequeue_links']['field'] = 'nodequeue_links';
   $handler->display->display_options['fields']['nodequeue_links']['label'] = '';
   $handler->display->display_options['fields']['nodequeue_links']['element_label_colon'] = FALSE;
-  /* Campo: Content: Link to edit content */
+  /* Campo: Contenido: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['label'] = '';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
-  /* Sort criterion: Content: Updated date */
+  /* Sort criterion: Contenido: Fecha de modificación */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
   $handler->display->display_options['sorts']['changed']['field'] = 'changed';
   $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Contenido: Tipo */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -1105,13 +1110,13 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Autores editorial';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Content: Title */
+  /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Content: Foto */
+  /* Campo: Contenido: Foto */
   $handler->display->display_options['fields']['field_imagen']['id'] = 'field_imagen';
   $handler->display->display_options['fields']['field_imagen']['table'] = 'field_data_field_imagen';
   $handler->display->display_options['fields']['field_imagen']['field'] = 'field_imagen';
@@ -1121,7 +1126,7 @@ function katakrak_editorial_views_default_views() {
     'image_link' => '',
   );
   $handler->display->display_options['fields']['field_imagen']['delta_offset'] = '0';
-  /* Campo: Content: Language */
+  /* Campo: Contenido: Idioma */
   $handler->display->display_options['fields']['language']['id'] = 'language';
   $handler->display->display_options['fields']['language']['table'] = 'node';
   $handler->display->display_options['fields']['language']['field'] = 'language';
@@ -1131,7 +1136,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['fields']['nodequeue_links']['field'] = 'nodequeue_links';
   $handler->display->display_options['fields']['nodequeue_links']['label'] = '';
   $handler->display->display_options['fields']['nodequeue_links']['element_label_colon'] = FALSE;
-  /* Campo: Content: Link to edit content */
+  /* Campo: Contenido: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
@@ -1139,7 +1144,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Contenido: Tipo */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -1170,7 +1175,7 @@ function katakrak_editorial_views_default_views() {
     t('siguiente ›'),
     t('última »'),
     t('<a href="/node/add/libro-ed">Añadir libro</a>'),
-    t('Title'),
+    t('Título'),
     t('Subtitulo'),
     t('Portada'),
     t('Urtea'),
@@ -1179,7 +1184,7 @@ function katakrak_editorial_views_default_views() {
     t('Página'),
     t('Autores editorial'),
     t('Foto'),
-    t('Language'),
+    t('Idioma'),
   );
   $export['editorial_admin'] = $view;
 

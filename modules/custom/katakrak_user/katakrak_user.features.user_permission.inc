@@ -730,7 +730,6 @@ function katakrak_user_user_default_permissions() {
     'module' => 'node',
   );
 
-
   // Exported permission: 'delete any receta content'.
   $permissions['delete any receta content'] = array(
     'name' => 'delete any receta content',
@@ -814,7 +813,6 @@ function katakrak_user_user_default_permissions() {
     ),
     'module' => 'node',
   );
-
 
   // Exported permission: 'delete own receta content'.
   $permissions['delete own receta content'] = array(
@@ -1176,7 +1174,6 @@ function katakrak_user_user_default_permissions() {
     'module' => 'node',
   );
 
-
   // Exported permission: 'edit own receta content'.
   $permissions['edit own receta content'] = array(
     'name' => 'edit own receta content',
@@ -1206,7 +1203,6 @@ function katakrak_user_user_default_permissions() {
     'roles' => array(),
     'module' => 'taxonomy',
   );
-
 
   // Exported permission: 'edit terms in proxima_aparici_n'.
   $permissions['edit terms in proxima_aparici_n'] = array(

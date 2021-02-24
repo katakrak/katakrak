@@ -24,13 +24,13 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_editorial' => array(
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_md' => array(
+      'card_book_smgrid' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -85,13 +85,13 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_editorial' => array(
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_md' => array(
+      'card_book_smgrid' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -140,13 +140,13 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_editorial' => array(
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_md' => array(
+      'card_book_smgrid' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -200,13 +200,13 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_editorial' => array(
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_md' => array(
+      'card_book_smgrid' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -263,13 +263,13 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_editorial' => array(
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_md' => array(
+      'card_book_smgrid' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -317,13 +317,13 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_editorial' => array(
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_md' => array(
+      'card_book_smgrid' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -403,13 +403,13 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_editorial' => array(
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_md' => array(
+      'card_book_smgrid' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -463,13 +463,13 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_editorial' => array(
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_md' => array(
+      'card_book_smgrid' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -554,13 +554,13 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_editorial' => array(
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_md' => array(
+      'card_book_smgrid' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -615,13 +615,13 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_editorial' => array(
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_md' => array(
+      'card_book_smgrid' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -686,13 +686,13 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_editorial' => array(
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_md' => array(
+      'card_book_smgrid' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -741,13 +741,13 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_editorial' => array(
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_md' => array(
+      'card_book_smgrid' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -915,13 +915,13 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_editorial' => array(
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_md' => array(
+      'card_book_smgrid' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -981,13 +981,13 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_editorial' => array(
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_md' => array(
+      'card_book_smgrid' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -1037,13 +1037,13 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_editorial' => array(
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_md' => array(
+      'card_book_smgrid' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -1096,13 +1096,13 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_editorial' => array(
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_md' => array(
+      'card_book_smgrid' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -1161,13 +1161,13 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_editorial' => array(
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_md' => array(
+      'card_book_smgrid' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -1219,13 +1219,13 @@ function katakrak_agenda_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_editorial' => array(
+      'card_book_md' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
       ),
-      'card_book_md' => array(
+      'card_book_smgrid' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',

@@ -70,13 +70,6 @@ function katakrak_blog_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'diff_enable_revisions_page_node_boletin';
-  $strongarm->value = 1;
-  $export['diff_enable_revisions_page_node_boletin'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'diff_show_preview_changes_node_blog';
   $strongarm->value = 1;
   $export['diff_show_preview_changes_node_blog'] = $strongarm;
@@ -84,23 +77,9 @@ function katakrak_blog_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'diff_show_preview_changes_node_boletin';
-  $strongarm->value = 1;
-  $export['diff_show_preview_changes_node_boletin'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'diff_view_mode_preview_node_blog';
   $strongarm->value = 'full';
   $export['diff_view_mode_preview_node_blog'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'diff_view_mode_preview_node_boletin';
-  $strongarm->value = 'full';
-  $export['diff_view_mode_preview_node_boletin'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -184,13 +163,6 @@ function katakrak_blog_strongarm() {
   $strongarm->name = 'i18n_node_default_language_for_blog';
   $strongarm->value = '-- current --';
   $export['i18n_node_default_language_for_blog'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'i18n_node_default_language_for_boletin';
-  $strongarm->value = '-- current --';
-  $export['i18n_node_default_language_for_boletin'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
