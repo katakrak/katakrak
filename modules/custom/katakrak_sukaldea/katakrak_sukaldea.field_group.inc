@@ -22,11 +22,12 @@ function katakrak_sukaldea_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Información para el menu',
-    'weight' => '5',
+    'weight' => '2',
     'children' => array(
-      0 => 'field_errezeta_familia',
+      0 => 'field_errezeta_nombre_carta',
       1 => 'field_vegetariano',
-      2 => 'field_errezeta_nombre_carta',
+      2 => 'field_produktua_alergenos',
+      3 => 'field_errezeta_nombre_carta_eus',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -52,7 +53,7 @@ function katakrak_sukaldea_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Preparacion',
-    'weight' => '3',
+    'weight' => '4',
     'children' => array(
       0 => 'field_errezeta_prezioa',
       1 => 'field_produktua_kopurua',
@@ -82,7 +83,7 @@ function katakrak_sukaldea_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Producto final',
-    'weight' => '4',
+    'weight' => '5',
     'children' => array(
       0 => 'field_errezeta_porzio_kopurua',
       1 => 'field_produktua_prezioa',

@@ -11,33 +11,6 @@
 function katakrak_sukaldea_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_errezeta_familia'.
-  $field_bases['field_errezeta_familia'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_errezeta_familia',
-    'indexes' => array(
-      'tid' => array(
-        0 => 'tid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'taxonomy',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => array(
-          'vocabulary' => 'tags',
-          'parent' => 0,
-        ),
-      ),
-      'options_list_callback' => 'i18n_taxonomy_allowed_values',
-    ),
-    'translatable' => 0,
-    'type' => 'taxonomy_term_reference',
-  );
-
   // Exported field_base: 'field_errezeta_kopurua'.
   $field_bases['field_errezeta_kopurua'] = array(
     'active' => 1,
@@ -64,6 +37,27 @@ function katakrak_sukaldea_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_errezeta_nombre_carta',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_errezeta_nombre_carta_eus'.
+  $field_bases['field_errezeta_nombre_carta_eus'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_errezeta_nombre_carta_eus',
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -195,27 +189,6 @@ function katakrak_sukaldea_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'entityreference',
-  );
-
-  // Exported field_base: 'field_nombre_plato'.
-  $field_bases['field_nombre_plato'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_nombre_plato',
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'max_length' => 255,
-    ),
-    'translatable' => 0,
-    'type' => 'text',
   );
 
   // Exported field_base: 'field_osagai_izena'.

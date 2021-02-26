@@ -136,67 +136,6 @@ function katakrak_sukaldea_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sukalde_errezeta-field_errezeta_familia'.
-  $field_instances['node-sukalde_errezeta-field_errezeta_familia'] = array(
-    'bundle' => 'sukalde_errezeta',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'Una de las siguientes familias:
-reposteria
-cenas
-menú del día',
-    'display' => array(
-      'card_book' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'card_book_md' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'card_book_smgrid' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'default' => array(
-        'label' => 'above',
-        'module' => 'i18n_taxonomy',
-        'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
-        'weight' => 9,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_errezeta_familia',
-    'label' => 'Familia',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'taxonomy',
-      'settings' => array(
-        'autocomplete_path' => 'taxonomy/autocomplete',
-        'size' => 60,
-      ),
-      'type' => 'taxonomy_autocomplete',
-      'weight' => 7,
-    ),
-  );
-
   // Exported field_instance:
   // 'node-sukalde_errezeta-field_errezeta_nombre_carta'.
   $field_instances['node-sukalde_errezeta-field_errezeta_nombre_carta'] = array(
@@ -240,6 +179,65 @@ menú del día',
     'entity_type' => 'node',
     'field_name' => 'field_errezeta_nombre_carta',
     'label' => 'Nombre para carta',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-sukalde_errezeta-field_errezeta_nombre_carta_eus'.
+  $field_instances['node-sukalde_errezeta-field_errezeta_nombre_carta_eus'] = array(
+    'bundle' => 'sukalde_errezeta',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_smgrid' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 14,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_errezeta_nombre_carta_eus',
+    'label' => 'Nombre para carta euskera',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -320,7 +318,7 @@ menú del día',
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -521,64 +519,6 @@ menú del día',
     ),
   );
 
-  // Exported field_instance: 'node-sukalde_errezeta-field_nombre_plato'.
-  $field_instances['node-sukalde_errezeta-field_nombre_plato'] = array(
-    'bundle' => 'sukalde_errezeta',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'El nombre del plato tal y como se visualiza en el menú.',
-    'display' => array(
-      'card_book' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'card_book_md' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'card_book_smgrid' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 10,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_nombre_plato',
-    'label' => 'Nombre del plato',
-    'required' => 1,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 11,
-    ),
-  );
-
   // Exported field_instance: 'node-sukalde_errezeta-field_producto_primario'.
   $field_instances['node-sukalde_errezeta-field_producto_primario'] = array(
     'bundle' => 'sukalde_errezeta',
@@ -636,7 +576,62 @@ menú del día',
         'display_label' => 0,
       ),
       'type' => 'options_onoff',
-      'weight' => 8,
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'node-sukalde_errezeta-field_produktua_alergenos'.
+  $field_instances['node-sukalde_errezeta-field_produktua_alergenos'] = array(
+    'bundle' => 'sukalde_errezeta',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_smgrid' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 13,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_produktua_alergenos',
+    'label' => 'Alergenos',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 7,
     ),
   );
 
@@ -1074,16 +1069,14 @@ menú del día',
   // Translatables
   // Included for use with string extractors like potx.
   t('Alergenos');
-  t('El nombre del plato tal y como se visualiza en el menú.');
   t('El peso de una unidad de este producto, expresado en gramos.');
   t('El precio de la unidad del producto. Sin IVA');
   t('En cuantas porciones se divide la receta. Se usa para calcular los precios recomendados');
-  t('Familia');
   t('Izena');
   t('Kopurua');
   t('Marca esta casilla si la receta es para venta directa al público');
-  t('Nombre del plato');
   t('Nombre para carta');
+  t('Nombre para carta euskera');
   t('Osagaia');
   t('PVP');
   t('Para una preparación. La unidad ');
@@ -1095,10 +1088,6 @@ menú del día',
   t('Preparacion');
   t('Producto primario');
   t('Produktua');
-  t('Una de las siguientes familias:
-reposteria
-cenas
-menú del día');
   t('Unidad');
   t('Unitatea');
   t('Vegetariano');

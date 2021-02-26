@@ -11,6 +11,223 @@
 function katakrak_kantina_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance:
+  // 'field_collection_item-field_menu_categoria-field_menu_nombre_categoria'.
+  $field_instances['field_collection_item-field_menu_categoria-field_menu_nombre_categoria'] = array(
+    'bundle' => 'field_menu_categoria',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_menu_nombre_categoria',
+    'label' => 'Nombre categoria',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_menu_categoria-field_menu_platos'.
+  $field_instances['field_collection_item-field_menu_categoria-field_menu_platos'] = array(
+    'bundle' => 'field_menu_categoria',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'node_reference',
+        'settings' => array(),
+        'type' => 'node_reference_default',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'entityconnect' => array(
+      'button' => array(
+        'unload_add_button' => 0,
+        'unload_edit_button' => 0,
+      ),
+      'icon' => array(
+        'show_add_icon' => 0,
+        'show_edit_icon' => 0,
+      ),
+    ),
+    'field_name' => 'field_menu_platos',
+    'label' => 'Platos',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'node_reference',
+      'settings' => array(
+        'autocomplete_match' => 'contains',
+        'autocomplete_path' => 'node_reference/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'node_reference_autocomplete',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_menu_tipo_menu-field_menu_categoria'.
+  $field_instances['field_collection_item-field_menu_tipo_menu-field_menu_categoria'] = array(
+    'bundle' => 'field_menu_tipo_menu',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Agregar',
+          'delete' => 'Eliminar',
+          'description' => TRUE,
+          'edit' => 'Editar',
+          'translate' => 'Traducir',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_menu_categoria',
+    'label' => 'Categoria',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_menu_tipo_menu-field_menu_tipo_titulo'.
+  $field_instances['field_collection_item-field_menu_tipo_menu-field_menu_tipo_titulo'] = array(
+    'bundle' => 'field_menu_tipo_menu',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_menu_tipo_titulo',
+    'label' => 'Titulo',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'node-eguneko_menua-field_menu_tipo_menu'.
+  $field_instances['node-eguneko_menua-field_menu_tipo_menu'] = array(
+    'bundle' => 'eguneko_menua',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_smgrid' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Agregar',
+          'delete' => 'Eliminar',
+          'description' => TRUE,
+          'edit' => 'Editar',
+          'translate' => 'Traducir',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_menu_tipo_menu',
+    'label' => 'Pestañas',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 31,
+    ),
+  );
+
   // Exported field_instance: 'node-kantina_productor-body'.
   $field_instances['node-kantina_productor-body'] = array(
     'bundle' => 'kantina_productor',
@@ -523,13 +740,18 @@ function katakrak_kantina_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Categoria');
   t('Cuerpo');
   t('Descripción');
   t('El enlace a su web CON el http://');
   t('Imagen');
   t('Ingredientes');
   t('Media');
+  t('Nombre categoria');
+  t('Pestañas');
+  t('Platos');
   t('Tipo receta');
+  t('Titulo');
   t('enlace');
 
   return $field_instances;
