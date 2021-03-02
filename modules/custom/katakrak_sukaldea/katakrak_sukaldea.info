@@ -45,6 +45,7 @@ features[field_instance][] = node-sukalde_errezeta-field_errezeta_osagai
 features[field_instance][] = node-sukalde_errezeta-field_errezeta_porzio_kopurua
 features[field_instance][] = node-sukalde_errezeta-field_errezeta_preparacion
 features[field_instance][] = node-sukalde_errezeta-field_errezeta_prezioa
+features[field_instance][] = node-sukalde_errezeta-field_image
 features[field_instance][] = node-sukalde_errezeta-field_producto_primario
 features[field_instance][] = node-sukalde_errezeta-field_produktua_alergenos
 features[field_instance][] = node-sukalde_errezeta-field_produktua_kopurua

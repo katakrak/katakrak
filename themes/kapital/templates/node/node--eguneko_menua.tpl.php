@@ -79,26 +79,120 @@
  *
  * @ingroup templates
  */
+global $language;
+$idioma = $language->language;
 ?>
-  <?php if ((!$page && !empty($title)) || !empty($title_prefix) || !empty($title_suffix) || $display_submitted): ?>
-  <header>
-    <?php print render($title_prefix); ?>
-    <?php if (!$page && !empty($title)): ?>
-    <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
-    <?php endif; ?>
-    <?php print render($title_suffix); ?>
-    <?php if ($display_submitted): ?>
-    <span class="submitted">
-      <?php print $user_picture; ?>
-      <?php print $submitted; ?>
-    </span>
-    <?php endif; ?>
-  </header>
-  <?php endif; ?>
-  <?php
-    // Hide comments, tags, and links now so that we can render them later.
-    hide($content['comments']);
-    hide($content['links']);
-    hide($content['field_tags']);
-    print render($content);
-  ?>
+<ul class="nav nav-secondary hidden-xs">
+  <?php foreach($node->field_menu_tipo_menu['und'] as $tab): ?>
+  
+    <li>
+      <a href="#<?php print slugify($tab['field_collection']->field_menu_tipo_titulo['und'][0]['value']) ?>" aria-controls="home" role="tab" data-toggle="tab"><?php print t($tab['field_collection']->field_menu_tipo_titulo['und'][0]['value']) ?></a>
+      </li>
+  <?php endforeach; ?>
+</ul>
+
+
+
+
+<select class="form-control visible-xs-block">
+  <?php foreach($node->field_menu_tipo_menu['und'] as $tab): ?>
+    <option><?php print t($tab['field_collection']->field_menu_tipo_titulo['und'][0]['value'])?></option>
+<?php endforeach; ?>
+</select>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="tab-content mb-2">
+    <?php foreach($node->field_menu_tipo_menu['und'] as $i => $tab): ?>
+      <?php //dpm($tab) ?>
+      <div role="tabpanel" class="tab-pane <?php print $i == 0 ? 'active' : '' ?>" id="<?php print slugify($tab['field_collection']->field_menu_tipo_titulo['und'][0]['value']) ?>">
+        <!-- <h3 class="text-center">Menú del día</h3>
+        <p class="text-center">Menús variados con productos de temporada y equilibrados</p> -->
+        <?php foreach ($tab['field_collection']->field_menu_categoria['und'] as $categoria): ?>
+        <?php //dpm($categoria) ?>
+        <div class="row mt-4">
+          <div class="col-sm-5 mb-1">
+            <div id="carousel-entrantes" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <?php foreach ($categoria['field_collection']->field_menu_platos['und'] as $i => $plato): ?>
+                <?php $plato = $plato['node']?>
+                <?php if ($plato->field_image['und'][0]):?>
+                  <li data-target="#<?php print $plato->field_image['und'][0]['filename'] ?>" data-slide-to="<?php print $i ?>" class="active"></li>
+                <?php endif; ?>
+                <?php endforeach; ?>
+              </ol>
+                
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox">
+                <?php foreach ($categoria['field_collection']->field_menu_platos['und'] as $i => $plato): ?>
+                <?php $plato = $plato['node']; ?>
+                <?php if ($plato->field_image['und'][0]):?>
+                  <div class="item <?php print $i == 0 ? 'active' : '' ?>" id="<?php print $plato->field_image['und'][0]['filename'] ?>">
+                  <?php print theme('image_style', array('style_name' => 'receta_page', 'path' => $plato->field_image['und'][0]['uri'])) ?>
+                  <div class="carousel-caption">
+                    <?php if ($idioma == 'es'): ?>
+                    <h3><?php print $plato->title ?></h3>
+                    <?php else: ?>
+                    <h3><?php print $plato->field_errezeta_nombre_carta_eus['und'][0]['value'] ?></h3>
+                    <?php endif; ?>
+                    <p>Lorem ipsum</p>
+                  </div>
+                </div><!-- item-active -->
+                <?php endif; ?>
+                <?php endforeach; ?>
+              </div><!-- carousel-inner -->
+
+              <!-- Controls -->
+              <a class="left carousel-control" href="#carousel-entrantes" role="button" data-slide="prev">
+                <img src="/sites/all/themes/kapital/images/angle-left.svg" width="30" height="30" alt="Anterior">
+              </a>
+              <a class="right carousel-control" href="#carousel-entrantes" role="button" data-slide="next">
+                <img src="/sites/all/themes/kapital/images/angle-right.svg" width="30" height="30" alt="Siguiente">
+              </a>
+            </div>
+
+          </div><!-- /.col-->
+          <div class="col-sm-7">
+                <h1 class="mt-0"><?php print t($categoria['field_collection']->field_menu_nombre_categoria['und'][0]['value'])?></h1>
+                <p class="small text-gray">Descripción</p>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th><?php print t('Plato') ?></th>
+                        <th><?php print t('Alérgenos') ?></th>
+                        <?php if ($tab['field_collection']->field_menu_tipo_titulo['und'][0]['value'] != 'Menú del día'): ?>
+                        <th><?php print t('Precio') ?></th>
+                        <?php endif; ?>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php foreach ($categoria['field_collection']->field_menu_platos['und'] as $i => $plato): ?>
+                      <?php $plato = $plato['node'];?>
+                        <tr>
+                          <?php if ($idioma == 'es'): ?>
+                          <td><?php print $plato->title ?></td>
+                          <?php else: ?>
+                          <td><?php print $plato->field_errezeta_nombre_carta_eus['und'][0]['value'] ?></td>
+                          <?php endif; ?>
+                          <td>Iconos</td>
+                          <?php if ($tab['field_collection']->field_menu_tipo_titulo['und'][0]['value'] != 'Menú del día'): ?>
+                          <td><?php print $plato->field_produktua_prezioa['und'][0]['value'] ?>€</td>
+                          <?php endif; ?>
+                        </tr>
+                      <?php endforeach; ?>
+                    </tbody>
+                  </table>
+                </div>
+
+            </div><!-- /.col-->
+          </div><!-- /.row-->
+        <?php endforeach; ?>
+      </div><!-- /.tab-pane-->
+
+    <?php    endforeach; ?>
+         </div><!-- /.tab-content-->
+  </div><!-- /.col-->
+</div><!-- /.row-->

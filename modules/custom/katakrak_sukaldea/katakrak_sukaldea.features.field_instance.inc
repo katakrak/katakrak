@@ -318,7 +318,7 @@ function katakrak_sukaldea_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -519,6 +519,74 @@ function katakrak_sukaldea_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-sukalde_errezeta-field_image'.
+  $field_instances['node-sukalde_errezeta-field_image'] = array(
+    'bundle' => 'sukalde_errezeta',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_smgrid' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 15,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_image',
+    'label' => 'Imagen',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 9,
+    ),
+  );
+
   // Exported field_instance: 'node-sukalde_errezeta-field_producto_primario'.
   $field_instances['node-sukalde_errezeta-field_producto_primario'] = array(
     'bundle' => 'sukalde_errezeta',
@@ -576,7 +644,7 @@ function katakrak_sukaldea_field_default_field_instances() {
         'display_label' => 0,
       ),
       'type' => 'options_onoff',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -1072,6 +1140,7 @@ function katakrak_sukaldea_field_default_field_instances() {
   t('El peso de una unidad de este producto, expresado en gramos.');
   t('El precio de la unidad del producto. Sin IVA');
   t('En cuantas porciones se divide la receta. Se usa para calcular los precios recomendados');
+  t('Imagen');
   t('Izena');
   t('Kopurua');
   t('Marca esta casilla si la receta es para venta directa al público');

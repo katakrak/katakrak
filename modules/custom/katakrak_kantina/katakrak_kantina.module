@@ -73,7 +73,7 @@ function katakrak_kantina_block_view($delta) {
       break;
     case 'katakrak_kantina_nav_submenu':
       $links = array(
-        l(t('Menú'), 'editorial/autores'),
+        l(t('Menú y carta'), 'node/44194'),
         l(t('Caterings'), 'editorial'),
         l(t('Nuestros productores'), 'cantina/productores'),
       );

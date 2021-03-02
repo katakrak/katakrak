@@ -28,6 +28,7 @@ function katakrak_sukaldea_field_group_info() {
       1 => 'field_vegetariano',
       2 => 'field_produktua_alergenos',
       3 => 'field_errezeta_nombre_carta_eus',
+      4 => 'field_image',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -53,7 +54,7 @@ function katakrak_sukaldea_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Preparacion',
-    'weight' => '4',
+    'weight' => '5',
     'children' => array(
       0 => 'field_errezeta_prezioa',
       1 => 'field_produktua_kopurua',
@@ -83,7 +84,7 @@ function katakrak_sukaldea_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Producto final',
-    'weight' => '5',
+    'weight' => '6',
     'children' => array(
       0 => 'field_errezeta_porzio_kopurua',
       1 => 'field_produktua_prezioa',

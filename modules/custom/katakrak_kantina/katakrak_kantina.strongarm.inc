@@ -14,6 +14,13 @@ function katakrak_kantina_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'diff_enable_revisions_page_node_eguneko_menua';
+  $strongarm->value = 1;
+  $export['diff_enable_revisions_page_node_eguneko_menua'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'diff_enable_revisions_page_node_kantina_productor';
   $strongarm->value = 1;
   $export['diff_enable_revisions_page_node_kantina_productor'] = $strongarm;
@@ -21,9 +28,23 @@ function katakrak_kantina_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'diff_show_preview_changes_node_eguneko_menua';
+  $strongarm->value = 1;
+  $export['diff_show_preview_changes_node_eguneko_menua'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'diff_show_preview_changes_node_kantina_productor';
   $strongarm->value = 1;
   $export['diff_show_preview_changes_node_kantina_productor'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_view_mode_preview_node_eguneko_menua';
+  $strongarm->value = 'full';
+  $export['diff_view_mode_preview_node_eguneko_menua'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -154,6 +175,13 @@ function katakrak_kantina_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_default_language_for_eguneko_menua';
+  $strongarm->value = '-- current --';
+  $export['i18n_node_default_language_for_eguneko_menua'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'i18n_node_default_language_for_kantina_productor';
   $strongarm->value = '-- current --';
   $export['i18n_node_default_language_for_kantina_productor'] = $strongarm;
@@ -162,7 +190,7 @@ function katakrak_kantina_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'i18n_node_extended_eguneko_menua';
-  $strongarm->value = 1;
+  $strongarm->value = '1';
   $export['i18n_node_extended_eguneko_menua'] = $strongarm;
 
   $strongarm = new stdClass();
