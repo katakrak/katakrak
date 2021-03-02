@@ -22,6 +22,15 @@ function katakrak_user_theme() {
   );
 }
 
+function katakrak_user_permission() {
+  return array(
+    'view tabs' => array(
+      'title' => t('View tabs in content'),
+      'description' => t('Perform administration tasks for my module.'),
+    ),
+  );
+}
+
 /**
  * 
  */
