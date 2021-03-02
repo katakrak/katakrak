@@ -75,7 +75,7 @@ function kapital_preprocess_page(&$vars) {
     $vars['user_name'] = $user->name;
     $vars['uid'] = $user->uid;
   }
-  if (!user_is_anonymous()) 
+  if (user_is_anonymous()) 
     unset($vars['tabs']);
   //dpm($vars);
 }
