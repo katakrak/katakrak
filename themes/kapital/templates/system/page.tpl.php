@@ -101,7 +101,7 @@
   <?php print render($page['hero']) ?>  
   <div class="<?php print $section_title ?>">
     <div class="container">
-      <h1 class="text-center"><?php print $title ?></h1>
+      <!--<h1 class="text-center"><?php print $title ?></h1>-->
       <?php print render($page['content_top']) ?>
       <?php print render($page['content']); ?>
     </div>

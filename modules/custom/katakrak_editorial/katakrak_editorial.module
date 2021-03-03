@@ -11,6 +11,14 @@ include_once 'katakrak_editorial.features.inc';
  */
 function katakrak_editorial_block_info() {
   $blocks = array();
+  $blocks['editorial_page_hero'] = array(
+    'info' => t('Bloque principal página editorial'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['editorial_page_highlight'] = array(
+    'info' => t('Bloque con cuatro items destacados editorial'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   $blocks['katakrak_editorial_nav_submenu'] = array(
     'info' => t('Submenu editorial'),
     'cache' => DRUPAL_CACHE_GLOBAL
@@ -31,8 +39,15 @@ function katakrak_editorial_block_info() {
  */
 function katakrak_editorial_block_view($delta) {
   switch($delta) {
+    case 'editorial_page_hero':
+      $block['content'] = theme('katakrak_editorial_page_hero');
+      break;
+    case 'editorial_page_highlight':
+      $block['content'] = theme('katakrak_editorial_page_highlight');
+      break;
     case 'katakrak_editorial_nav_submenu':
       $links = array(
+        l(t('Acerca de la editorial'), 'editorial'),
         l(t('Catálogo'), 'editorial/catalogo'),
         l(t('Autoras'), 'editorial/autores'),
         l(t('En los medios'), 'editorial'),
@@ -60,6 +75,15 @@ function katakrak_editorial_block_view($delta) {
  * Implements hook_menu
  */
 function katakrak_editorial_menu() {
+  $items['editorial'] = array(
+    'title' => 'Editorial',
+    'page callback' => 'theme',
+    'page arguments' => array('katakrak_editorial_landing'),
+    'access callback' => 'user_access',
+    'access arguments' => array('access content'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 100,
+  );
   $items['donate/%node'] = array(
     'title callback' => 'katakrak_editorial_donacion_title',
 	  'title arguments' => array(1),
@@ -96,6 +120,18 @@ function katakrak_editorial_theme() {
     ),
     'editorial_filter_autoras' => array(
       'template' => 'editorial-filter-autoras',
+      'path' => $path . '/templates',
+    ),
+    'katakrak_editorial_landing' => array(
+      'template' => 'katakrak-editorial-landing', 
+      'path' => $path . '/templates',
+    ),
+    'katakrak_editorial_page_hero' => array(
+      'template' => 'katakrak-editorial-page-hero', 
+      'path' => $path . '/templates',
+    ),
+    'katakrak_editorial_page_highlight' => array(
+      'template' => 'katakrak-editorial-page-highlight', 
       'path' => $path . '/templates',
     ),
   );

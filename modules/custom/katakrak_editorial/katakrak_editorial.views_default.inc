@@ -119,6 +119,7 @@ function katakrak_editorial_views_default_views() {
 
   /* Display: Landing editorial */
   $handler = $view->new_display('page', 'Landing editorial', 'page_1');
+  $handler->display->display_options['enabled'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '8';
