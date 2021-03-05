@@ -41,25 +41,15 @@
         <?php foreach (element_children($primary_nav) as $menu_id): ?>
          <?php $menu_item = $primary_nav[$menu_id];?>
           <li class="<?php print $menu_item['#below'] ? 'dropdown' : ''; print $menu_item['#original_link']['in_active_trail'] ? ' active': ''  ?> nav-item">
-            <?php if (empty($menu_item['#below'])): ?>
-              <?php print l($menu_item['#title'], $menu_item['#href'], array('attributes' => array('class' => array('nav-link')))) ?>
-            <?php else: ?>
-              <a href="<?php print url($menu_item['link']['href']) ?>" class="nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php print $menu_item['#title'] ?> <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <?php foreach (element_children($menu_item['#below']) as $menu_child_id): ?>
-                <?php $menu_child = $menu_item['#below'][$menu_child_id] ?>
-                <li><a href="<?php print url($menu_child['#href']) ?>"><?php print $menu_child['#title'] ?></a></li>
-                <?php endforeach; ?>
-              </ul>
-            <?php endif; ?>
+            <?php print l(t($menu_item['#title']), $menu_item['#href'], array('attributes' => array('class' => array('nav-link')))) ?>
           </li>
         <?php endforeach; ?>
         <li role="separator" class="divider visible-xs-block"></li>
         <li class="nav-item visible-xs-block">
-          <a class="nav-link" href="<?php print $href_cas?>">Castellano</a> 
+          <a class="nav-link" href="<?php print $href_cas?>"><?php print t('Castellano') ?></a> 
         </li>
         <li class="nav-item visible-xs-block">
-          <a class="nav-link" href="<?php print $href_eus?>">Euskera</a> 
+          <a class="nav-link" href="<?php print $href_eus?>"><?php print t('Euskera') ?></a> 
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->

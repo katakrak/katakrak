@@ -10,26 +10,26 @@ function kapital_preprocess_html(&$variables) {
  * Place your custom PHP code in this file.
  */
 function kapital_preprocess_page(&$vars) {
-  $variables['primary_nav'] = FALSE;
-  if ($vars['main_menu']) {
-    // Load the tree.
-    $tree = menu_tree_page_data(variable_get('menu_main_links_source', 'main-menu'));
-
-    // Localize the tree.
-    $tree = i18n_menu_localize_tree($tree);
-
-    // Build links.
-    $vars['primary_nav'] = menu_tree_output($tree);
-
-    // Provide default theme wrapper function.
-    $vars['primary_nav']['#theme_wrappers'] = array('menu_tree__primary');
-    foreach (element_children($vars['primary_nav']) as $child) {
-      $vars['primary_nav'][$child]['#attributes']['class'][] = 'nav-item';
-      if ($vars['primary_nav'][$child]['#original_link']['in_active_trail']) {
-        $vars['primary_nav'][$child]['#attributes']['class'][] = 'active';
-      }
-    }
-  }
+//  $variables['primary_nav'] = FALSE;
+//  if ($vars['main_menu']) {
+//    // Load the tree.
+//    $tree = menu_tree_page_data(variable_get('menu_main_links_source', 'main-menu'));
+//
+//    // Localize the tree.
+//    $tree = i18n_menu_localize_tree($tree);
+//
+//    // Build links.
+//    $vars['primary_nav'] = menu_tree_output($tree);
+//
+//    // Provide default theme wrapper function.
+//    $vars['primary_nav']['#theme_wrappers'] = array('menu_tree__primary');
+//    foreach (element_children($vars['primary_nav']) as $child) {
+//      $vars['primary_nav'][$child]['#attributes']['class'][] = 'nav-item';
+//      if ($vars['primary_nav'][$child]['#original_link']['in_active_trail']) {
+//        $vars['primary_nav'][$child]['#attributes']['class'][] = 'active';
+//      }
+//    }
+//  }
   global $user;
   //Añadimos fontawesom
   drupal_add_js('https://kit.fontawesome.com/10471300b3.js', 'external');
