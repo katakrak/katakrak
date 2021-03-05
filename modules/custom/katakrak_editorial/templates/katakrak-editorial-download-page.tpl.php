@@ -9,7 +9,9 @@
       <p class="text-gray small"><i class="far fa-file-pdf"></i> <?php print t('DESCARGA PDF') ?></p>
         <h1><?php print $node->title ?> </h1>
         <p>
-            De <a href="#">Judith Shklar</a>
+          <?php foreach ($node->autores as $i => $autor): ?>
+          <?php print l($autor->title, 'node/'.$autor->nid) ?><?php print $i == count($node->autores)-1? ' ' : ', '; ?>
+          <?php endforeach; ?>
         </p>
         <p class="lead"><?php print t("Tras el PDF que te descargarás hay mucho trabajo. <br>Haz tu aportación según consideres.") ?></p>
         <?php print render($form_donate) ?> 
