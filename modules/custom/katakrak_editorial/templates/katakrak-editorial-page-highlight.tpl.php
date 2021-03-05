@@ -19,7 +19,6 @@
       </a>
     </div>
     <div class="col-sm-6 col-md-4">
-      <a href="<?php print url('editorial/distribucion')?>" class="features">
         <p>
           <img src="/sites/all/themes/kapital/images/default.jpg" class="img-responsive" alt="Katakrak Cantina">
         </p>

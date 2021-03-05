@@ -61,7 +61,6 @@ features[field_instance][] = node-page-body
 features[field_instance][] = node-page-field_adjunto
 features[field_instance][] = node-page-field_image
 features[image][] = extra_large
-features[menu_custom][] = menu-enlaces
 features[menu_custom][] = menu-menu-nagusia
 features[menu_links][] = menu-menu-nagusia_agenda:agenda
 features[menu_links][] = menu-menu-nagusia_blog:blog

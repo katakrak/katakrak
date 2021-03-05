@@ -1,6 +1,6 @@
 <div class="row">
       <div class="col-sm-6 col-md-3">
-        <a href="#" class="features">
+        <a href="<?php print url('node/44194') ?>" class="features">
           <p>
             <img src="/sites/all/themes/kapital/images/cantina-menus.jpg" class="img-responsive" alt="Katakrak Cantina">
           </p>
@@ -9,7 +9,7 @@
         </a>
       </div>
       <div class="col-sm-6 col-md-3">
-        <a href="#" class="features">
+        <a href="<?php print url('cantina/catering') ?>" class="features">
           <p>
             <img src="/sites/all/themes/kapital/images/cantina-reservas.jpg" class="img-responsive" alt="Katakrak Cantina">
           </p>
@@ -27,7 +27,7 @@
         </a>
       </div>
       <div class="col-sm-6 col-md-3">
-        <a href="#" class="features">
+        <a href="<?php print url('cantina/grupo') ?>" class="features">
           <p>
             <img src="/sites/all/themes/kapital/images/cantina-productoras.jpg" class="img-responsive" alt="Katakrak Cantina">
           </p>

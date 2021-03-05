@@ -22,12 +22,30 @@ function katakrak_kantina_query_alter($query) {
  */
 function katakrak_kantina_menu() {
   $items['cantina']  = array(
-    'title' => 'cantina',
+    'title arguments' => array('La cantina de Katakrak'),
     'page callback' => 'theme',
     'page arguments' => array('katakrak_kantina_landing'),
     'access callback' => 'user_access',
     'access arguments' => array('access content'),
-    'type' => MENU_LOCAL_TASK,
+    'type' => MENU_NORMAL_ITEM,
+    'weight' => 100,
+  );
+  $items['cantina/catering']  = array(
+    'title arguments' => array('Reservas y catering'),
+    'page callback' => 'theme',
+    'page arguments' => array('katakrak_kantina_landing_catering'),
+    'access callback' => 'user_access',
+    'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+    'weight' => 100,
+  );
+  $items['cantina/grupo']  = array(
+    'title' => t('Grupo de consumo'),
+    'page callback' => 'theme',
+    'page arguments' => array('katakrak_kantina_landing_grupo'),
+    'access callback' => 'user_access',
+    'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
     'weight' => 100,
   );
   return $items;
@@ -73,8 +91,9 @@ function katakrak_kantina_block_view($delta) {
       break;
     case 'katakrak_kantina_nav_submenu':
       $links = array(
+        l(t('Conoce la cantina'), 'cantina'),
         l(t('Menú y carta'), 'node/44194'),
-        l(t('Caterings'), 'editorial'),
+        l(t('Caterings'), 'cantina/catering'),
         l(t('Nuestros productores'), 'cantina/productores'),
       );
       $block['content'] = theme("katakrak_navbar_submenu", array('links' => $links));
@@ -101,10 +120,18 @@ function katakrak_kantina_theme() {
       'template' => 'katakrak-kantina-page-carousel', 
       'path' => $path . '/templates',
     ),
-    'katakrak_kantina_landing' =>array(
+    'katakrak_kantina_landing' => array(
       'template' => 'katakrak-kantina-landing', 
       'path' => $path . '/templates',
-    )
+    ),
+    'katakrak_kantina_landing_catering' => array(
+      'template' => 'katakrak-kantina-landing-catering', 
+      'path' => $path . '/templates',
+    ),
+    'katakrak_kantina_landing_grupo' =>array(
+      'template' => 'katakrak-kantina-landing-grupo', 
+      'path' => $path . '/templates',
+    ),
   );
 }
 

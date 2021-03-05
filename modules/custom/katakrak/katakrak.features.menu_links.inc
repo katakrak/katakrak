@@ -107,7 +107,7 @@ function katakrak_menu_default_menu_links() {
   $menu_links['menu-menu-nagusia_tienda-online:tienda'] = array(
     'menu_name' => 'menu-menu-nagusia',
     'link_path' => 'tienda',
-    'router_path' => 'tienda',
+    'router_path' => '',
     'link_title' => 'Tienda online',
     'options' => array(
       'attributes' => array(

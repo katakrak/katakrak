@@ -79,6 +79,12 @@ function katakrak_kantina_context_default_contexts() {
         'node_form' => '1',
       ),
     ),
+    'path' => array(
+      'values' => array(
+        'cantina/*' => 'cantina/*',
+        'kantina/*' => 'kantina/*',
+      ),
+    ),
     'views' => array(
       'values' => array(
         'kantina_blog:page' => 'kantina_blog:page',
@@ -100,7 +106,7 @@ function katakrak_kantina_context_default_contexts() {
       ),
     ),
     'menu' => array(
-      0 => 'menu-menu-nagusia:node/83552',
+      0 => 'menu-menu-nagusia:cantina',
     ),
   );
   $context->condition_mode = 0;
