@@ -13,7 +13,7 @@ function kapital_preprocess_page(&$vars) {
   $variables['primary_nav'] = FALSE;
   if ($vars['main_menu']) {
     // Load the tree.
-    $tree = menu_tree_page_data(variable_get('menu_main_links_source', 'menu-menu-nagusia'));
+    $tree = menu_tree_page_data(variable_get('menu_main_links_source', 'main-menu'));
 
     // Localize the tree.
     $tree = i18n_menu_localize_tree($tree);
@@ -30,7 +30,6 @@ function kapital_preprocess_page(&$vars) {
       }
     }
   }
-  
   global $user;
   //Añadimos fontawesom
   drupal_add_js('https://kit.fontawesome.com/10471300b3.js', 'external');

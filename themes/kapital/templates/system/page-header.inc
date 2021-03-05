@@ -38,16 +38,17 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="navbar-nav navbar-centered">
            
-        <?php foreach ($primary_nav as $menu_item): ?>
-         
-          <li class="<?php print $menu_item['below'] ? 'dropdown' : ''; print $menu_item['#original_link']['in_active_trail'] ? ' active': ''  ?> nav-item">
-            <?php if (empty($menu_item['below'])): ?>
+        <?php foreach (element_children($primary_nav) as $menu_id): ?>
+         <?php $menu_item = $primary_nav[$menu_id];?>
+          <li class="<?php print $menu_item['#below'] ? 'dropdown' : ''; print $menu_item['#original_link']['in_active_trail'] ? ' active': ''  ?> nav-item">
+            <?php if (empty($menu_item['#below'])): ?>
               <?php print l($menu_item['#title'], $menu_item['#href'], array('attributes' => array('class' => array('nav-link')))) ?>
             <?php else: ?>
-              <a href="<?php print url($menu_item['link']['href']) ?>" class="nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php print $menu_item['link']['title'] ?> <span class="caret"></span></a>
+              <a href="<?php print url($menu_item['link']['href']) ?>" class="nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php print $menu_item['#title'] ?> <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <?php foreach ($menu_item['below'] as $menu_child): ?>
-                <li><a href="<?php print url($menu_child['link']['href']) ?>"><?php print $menu_child['link']['title'] ?></a></li>
+                <?php foreach (element_children($menu_item['#below']) as $menu_child_id): ?>
+                <?php $menu_child = $menu_item['#below'][$menu_child_id] ?>
+                <li><a href="<?php print url($menu_child['#href']) ?>"><?php print $menu_child['#title'] ?></a></li>
                 <?php endforeach; ?>
               </ul>
             <?php endif; ?>

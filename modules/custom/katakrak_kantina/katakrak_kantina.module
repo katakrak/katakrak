@@ -22,16 +22,16 @@ function katakrak_kantina_query_alter($query) {
  */
 function katakrak_kantina_menu() {
   $items['cantina']  = array(
-    'title arguments' => array('La cantina de Katakrak'),
+    'title' => t('La cantina de Katakrak'),
     'page callback' => 'theme',
     'page arguments' => array('katakrak_kantina_landing'),
     'access callback' => 'user_access',
     'access arguments' => array('access content'),
+    'menu_name' => 'main-menu',
     'type' => MENU_NORMAL_ITEM,
-    'weight' => 100,
   );
   $items['cantina/catering']  = array(
-    'title arguments' => array('Reservas y catering'),
+    'title' => t('Reservas y catering'),
     'page callback' => 'theme',
     'page arguments' => array('katakrak_kantina_landing_catering'),
     'access callback' => 'user_access',
