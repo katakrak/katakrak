@@ -23,7 +23,6 @@
  *
  * @ingroup views_templates
  */
-
 ?>
 <div class="col-md-4 col-sm-6 mb-2 col-post">
 <div class="post">
