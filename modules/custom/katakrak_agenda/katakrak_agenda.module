@@ -37,7 +37,7 @@ function katakrak_agenda_block_info() {
   );
   $blocks['agenda_landing_form'] = array(
     'info' => t('Landing agenda Formulario'),
-    'cache' => DRUPAL_CACHE_GLOBAL,
+    'cache' => DRUPAL_NO_CACHE,
   );
   return $blocks;
 }
@@ -73,7 +73,7 @@ function katakrak_agenda_block_view($delta) {
       $block['content'] = theme('katakrak_agenda_landing_baldosas');
       break;
     case 'agenda_landing_form':
-      $block['content'] = theme('katakrak_agenda_landing_destacado');
+      $block['content'] = drupal_get_form('katakrak_agenda_reserva_form');
       break;
     
   }
@@ -114,6 +114,10 @@ function katakrak_agenda_theme() {
       'template' => 'katakrak-agenda-landing-baldosas',
       'path' => $path . '/templates',
     ),
+    'katakrak_agenda_organiza_landing' => array(
+      'template' => 'katakrak-agenda-organiza-landing',
+      'path' => $path.'/templates',
+    ),
   );
 }
 
@@ -125,24 +129,41 @@ function katakrak_agenda_menu() {
     'type' => MENU_LOCAL_TASK,
     'weight' => 100,
   );
+  $items['organiza_evento'] = array(
+    'title' => 'Organiza tu evento',
+    'page arguments' => array('katakrak_agenda_organiza_landing'),
+    'page callback' => 'theme',
+    'access arguments' => array('access content'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 100,
+  );
   return $items;
 }
 
 function katakrak_agenda_pagina_medios() {
-    $eventos_db = views_get_view_result('agenda', 'events_page');
-    $eventos = array();
-    foreach($eventos_db as $evento_db) {
-        $term = taxonomy_term_load($evento_db->field_field_event_type[0]['raw']['tid']);
-       
-        $evento = new stdClass();
-        $evento->type = $term->name . " | " . i18n_taxonomy_term_name($term, 'eu');
-        $evento->title = $evento_db->node_title;
-        
-        $timestamp = $evento_db->field_data_field_event_date_field_event_date_value;
-        $evento->fecha = format_date($timestamp, 'custom', 'd F H:i '). $evento->fecha = format_date($timestamp, 'custom', 'F\k d ', NULL, 'eu');
-        $eventos[] = $evento;
-    }
-    return theme('agenda_medios', array('actos' => $eventos));
+  $eventos_db = views_get_view_result('agenda', 'events_page');
+  $eventos = array();
+  foreach($eventos_db as $evento_db) {
+      $term = taxonomy_term_load($evento_db->field_field_event_type[0]['raw']['tid']);
+
+      $evento = new stdClass();
+      $evento->type = $term->name . " | " . i18n_taxonomy_term_name($term, 'eu');
+      $evento->title = $evento_db->node_title;
+
+      $timestamp = $evento_db->field_data_field_event_date_field_event_date_value;
+      $evento->fecha = format_date($timestamp, 'custom', 'd F H:i '). $evento->fecha = format_date($timestamp, 'custom', 'F\k d ', NULL, 'eu');
+      $eventos[] = $evento;
+  }
+  return theme('agenda_medios', array('actos' => $eventos));
+}
+
+function katakrak_agenda_reserva_form($form, &$form_state) {
+  $form['nombre'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Nombre y apellidos'),
+    '#required' => TRUE,
+  );
+  return $form;
 }
 
 function katakrak_agenda_node_presave($node) {

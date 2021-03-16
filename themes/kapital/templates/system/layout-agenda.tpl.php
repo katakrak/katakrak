@@ -108,8 +108,14 @@
   </div>
   <?php print render($page['content_middle']) ?>
   
-  <div class="container">
-    <?php print render($page['content_bottom']) ?>
-  </div>
+  <?php if ($page['content_bottom']): ?>
+  <section id="form">
+    <div class="bg-pink-p">
+      <div class="container">
+        <?php print render($page['content_bottom']) ?>
+      </div>
+    </div>
+  </section>
+  <?php endif; ?>
 </main>
 <?php include 'page-footer.inc'; ?>

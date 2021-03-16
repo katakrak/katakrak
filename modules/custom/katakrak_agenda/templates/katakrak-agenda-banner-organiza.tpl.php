@@ -1,5 +1,5 @@
 <div class="banner">
-  <a href="#">
-    <i class="far fa-calendar-alt"></i> <strong>Organiza tu evento en Katakrak</strong>
+  <a href="<?php print url('organiza_evento')?>">
+    <i class="far fa-calendar-alt"></i> <strong><?php print t('Organiza tu evento en Katakrak') ?></strong>
   </a>
 </div>
