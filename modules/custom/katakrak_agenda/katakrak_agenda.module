@@ -118,6 +118,9 @@ function katakrak_agenda_theme() {
       'template' => 'katakrak-agenda-organiza-landing',
       'path' => $path.'/templates',
     ),
+    'katakrak_agenda_reserva_form' => array(
+      'template' => 'katakrak-agenda-reserva-form',
+    ),
   );
 }
 
@@ -163,6 +166,7 @@ function katakrak_agenda_reserva_form($form, &$form_state) {
     '#title' => t('Nombre y apellidos'),
     '#required' => TRUE,
   );
+  $form['#theme'] = 'katakrak_agenda_reserva_form';
   return $form;
 }
 
