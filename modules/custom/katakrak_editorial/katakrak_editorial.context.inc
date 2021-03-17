@@ -151,8 +151,8 @@ function katakrak_editorial_context_default_contexts() {
     ),
     'path' => array(
       'values' => array(
-        'editorial' => 'editorial',
-        'argitaletxea' => 'argitaletxea',
+        'editorial*' => 'editorial*',
+        'argitaletxea*' => 'argitaletxea*',
       ),
     ),
     'views' => array(
@@ -177,7 +177,7 @@ function katakrak_editorial_context_default_contexts() {
       ),
     ),
     'menu' => array(
-      0 => 'menu-menu-nagusia:editorial',
+      0 => 'main-menu:editorial',
     ),
   );
   $context->condition_mode = 0;
