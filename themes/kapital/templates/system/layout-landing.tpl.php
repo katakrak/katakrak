@@ -108,9 +108,18 @@
   <div class="<?php print $section_title ?>">
     <div class="container">  
       <?php print render($page['content']); ?>
-      <?php print render($page['content_bottom']) ?>
     </div>
   </div>
     
+  
+  <?php if ($page['content_bottom']): ?>
+  <section id="form">
+    <div class="bg-pink-p">
+      <div class="container">
+        <?php print render($page['content_bottom']) ?>
+      </div>
+    </div>
+  </section>
+  <?php endif; ?>
 </main>
 <?php include 'page-footer.inc'; ?>

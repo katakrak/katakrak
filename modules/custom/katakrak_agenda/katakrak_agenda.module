@@ -120,6 +120,9 @@ function katakrak_agenda_theme() {
     ),
     'katakrak_agenda_reserva_form' => array(
       'template' => 'katakrak-agenda-reserva-form',
+      'arguments' => array('form' => NULL),
+      'render element' => 'form',
+      'path' => $path . '/templates',
     ),
   );
 }
@@ -165,6 +168,49 @@ function katakrak_agenda_reserva_form($form, &$form_state) {
     '#type' => 'textfield',
     '#title' => t('Nombre y apellidos'),
     '#required' => TRUE,
+  );
+  $form['email'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Email'),
+    '#required' => TRUE,
+  );
+  $form['telefono'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Email'),
+    '#required' => TRUE,
+  );
+  $form['date'] = array(
+    '#title' => t('Cuándo te gustaría utilizar la sala'),
+    '#type' => 'date_popup',
+    '#date_type' => DATE_DATETIME,
+    '#date_timezone' => date_default_timezone(),
+    '#date_format' => 'm/d/Y h:i a',
+    '#date_increment' => 1,
+    '#date_year_range' => '-3:+3',
+  );
+  $form['sala'] = array(
+    '#type' => 'radios',
+    '#title' => t('Qué sala que deseas reservar'),
+    '#options' => array(
+      'sala_actos' => t('Salón de actos'), 
+      'sala_reuniones' => t('Sala de reuniones')
+    ),
+    '#default_value' => 'sala_actos',
+  );
+  
+  $form['explicacion'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Breve explicación del acto'),
+  );
+  
+  $form['lopd_check'] = array(
+    '#type' => 'checkbox',
+    '#title' => t("Acepto las ").l(t('condiciones legales'), 'lopd'),  
+    '#required' => TRUE,
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Enviar')
   );
   $form['#theme'] = 'katakrak_agenda_reserva_form';
   return $form;

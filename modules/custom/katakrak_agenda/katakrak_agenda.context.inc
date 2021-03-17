@@ -80,7 +80,7 @@ function katakrak_agenda_context_default_contexts() {
   $context->conditions = array(
     'path' => array(
       'values' => array(
-        'agenda-landing' => 'agenda-landing',
+        'organiza_evento' => 'organiza_evento',
       ),
     ),
   );
@@ -103,6 +103,12 @@ function katakrak_agenda_context_default_contexts() {
           'module' => 'katakrak_agenda',
           'delta' => 'agenda_landing_visitado',
           'region' => 'content_middle',
+          'weight' => '-10',
+        ),
+        'katakrak_agenda-agenda_landing_form' => array(
+          'module' => 'katakrak_agenda',
+          'delta' => 'agenda_landing_form',
+          'region' => 'content_bottom',
           'weight' => '-10',
         ),
       ),
