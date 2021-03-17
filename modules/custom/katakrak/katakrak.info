@@ -45,6 +45,7 @@ dsname = Katakrak
 features[box][] = about_us
 features[box][] = footer
 features[box][] = twitter_feed
+features[context][] = landing_conocenos
 features[context][] = sitewide
 features[ctools][] = boxes:box:1
 features[ctools][] = context:context:3

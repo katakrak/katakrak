@@ -14,6 +14,52 @@ function katakrak_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'landing_conocenos';
+  $context->description = 'Landing for conocenos';
+  $context->tag = 'landing';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'conocenos' => 'conocenos',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'katakrak-katakrak_conocenos_destacado' => array(
+          'module' => 'katakrak',
+          'delta' => 'katakrak_conocenos_destacado',
+          'region' => 'banners',
+          'weight' => '-10',
+        ),
+        'katakrak-katakrak_conocenos_baldosas' => array(
+          'module' => 'katakrak',
+          'delta' => 'katakrak_conocenos_baldosas',
+          'region' => 'content_top',
+          'weight' => '-10',
+        ),
+        'katakrak-katakrak_conocenos_visita' => array(
+          'module' => 'katakrak',
+          'delta' => 'katakrak_conocenos_visita',
+          'region' => 'content_bottom',
+          'weight' => '-10',
+        ),
+      ),
+      'layout' => 'landing',
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Landing for conocenos');
+  t('landing');
+  $export['landing_conocenos'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'sitewide';
   $context->description = 'Sitewide context';
   $context->tag = 'Sitewide';

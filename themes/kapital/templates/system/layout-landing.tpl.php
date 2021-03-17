@@ -75,8 +75,8 @@
  */
 ?>
 <?php include 'page-header.inc' ?>
-<?php print render($page['banners']) ?>
 <main class="main <?php print $section_title ?>">
+<?php print render($page['banners']) ?>
   <div class="row">
     <section<?php print $content_column_class; ?>>
  
@@ -113,12 +113,8 @@
     
   
   <?php if ($page['content_bottom']): ?>
-  <section id="form">
-    <div class="bg-pink-p">
-      <div class="container">
+  <section id="content-bottom">
         <?php print render($page['content_bottom']) ?>
-      </div>
-    </div>
   </section>
   <?php endif; ?>
 </main>

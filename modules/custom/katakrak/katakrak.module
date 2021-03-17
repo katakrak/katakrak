@@ -61,17 +61,24 @@ function katakrak_theme() {
         'links' => NULL,
       ),
     ),
+    'katakrak_landing_conocenos' => array(
+      'template' => 'katakrak-landing-conocenos',
+      'path' => $path . '/templates',
+    ),
+    'katakrak_conocenos_destacado' => array(
+      'template' => 'katakrak-conocenos-destacado',
+      'path' => $path . '/templates',
+    ),
+    'katakrak_conocenos_baldosas' => array(
+      'template' => 'katakrak-conocenos-baldosas',
+      'path' => $path . '/templates',
+    ),
+    'katakrak_conocenos_visita' => array(
+      'template' => 'katakrak-conocenos-visita',
+      'path' => $path . '/templates',
+    ),
   );
 }
-
-/** 
- * 
- */
-//function katakrak_block_info_alter(&$blocks, $theme, $code_blocks) {
-//  foreach ($blocks['layer_slider'] as &$slider) {
-//    $slider['cache'] = DRUPAL_NO_CACHE;
-//  }
-//}
 
 /**
  * Implements hook_block_info().
@@ -103,6 +110,21 @@ function katakrak_block_info() {
     // Not worth caching.
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['katakrak_conocenos_destacado'] = array(
+    'info' => t('Katakrak Conocenos destacado'),
+    // Not worth caching.
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['katakrak_conocenos_baldosas'] = array(
+    'info' => t('Katakrak Conocenos baldosas'),
+    // Not worth caching.
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['katakrak_conocenos_visita'] = array(
+    'info' => t('Katakrak Conocenos visita virtual'),
+    // Not worth caching.
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   return $blocks;
 }
 
@@ -128,6 +150,15 @@ function katakrak_block_view($delta) {
       $block['content'] = '<p>
         <a href="'.url('<front>').'" class="btn btn-transparent"> <i class="fas fa-arrow-left small"></i> '.t('Volver al inicio').'</a>
         </p>';
+      break;
+    case 'katakrak_conocenos_destacado':
+      $block['content'] = theme('katakrak_conocenos_destacado');
+      break;
+    case 'katakrak_conocenos_baldosas':
+      $block['content'] = theme('katakrak_conocenos_baldosas');
+      break;
+    case 'katakrak_conocenos_visita':
+      $block['content'] = theme('katakrak_conocenos_visita');
       break;
    }
 
@@ -182,6 +213,12 @@ function katakrak_newsletter_suscribe_form_submit($form, &$form_state) {
  */
 function katakrak_menu() {
   $items = array();
+  $items['conocenos'] = array(
+    'title' => t('Conócenos'),
+    'page callback' => 'theme',
+    'page arguments' => array('katakrak_landing_conocenos'),
+    'access arguments' => array('administer site configuration'),
+  );
   $items['admin/config/portadas'] = array(
     'title' => t('Portadas'),
     'description' => 'Dilve options',

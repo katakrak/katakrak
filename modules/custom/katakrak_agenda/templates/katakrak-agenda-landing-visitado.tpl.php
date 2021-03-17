@@ -1,5 +1,5 @@
 <div class="mt-2">
-        <h2>Nos han visitado</h2>
+        <h2><?php print t('Nos han visitado') ?></h2>
         
           <div id="carousel-cantina" class="carousel slide mt-2" data-ride="carousel">
             <!-- Indicators -->
