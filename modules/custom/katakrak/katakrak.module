@@ -217,7 +217,7 @@ function katakrak_menu() {
     'title' => t('Conócenos'),
     'page callback' => 'theme',
     'page arguments' => array('katakrak_landing_conocenos'),
-    'access arguments' => array('administer site configuration'),
+    'access arguments' => array('access content'),
   );
   $items['admin/config/portadas'] = array(
     'title' => t('Portadas'),
