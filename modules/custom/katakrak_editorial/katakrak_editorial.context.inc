@@ -21,7 +21,7 @@ function katakrak_editorial_context_default_contexts() {
     'views' => array(
       'values' => array(
         'editorial:autores' => 'editorial:autores',
-        'editorial:page_4' => 'editorial:page_4',
+        'editorial:traductores' => 'editorial:traductores',
       ),
     ),
   );

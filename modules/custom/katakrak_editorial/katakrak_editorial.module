@@ -6,6 +6,7 @@
 
 include_once 'katakrak_editorial.features.inc';
 
+
 /**
  * Implements hook_block_info().
  */
