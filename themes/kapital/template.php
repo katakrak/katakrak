@@ -111,7 +111,7 @@ function kapital_preprocess_search_results(&$vars) {
  * @ingroup themable
  */
 function kapital_lt_unified_login_page($variables) {
-
+  
   $login_form = $variables['login_form'];
   $register_form = $variables['register_form'];
   $active_form = $variables['active_form'];

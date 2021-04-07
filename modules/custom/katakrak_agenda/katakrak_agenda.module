@@ -176,7 +176,7 @@ function katakrak_agenda_reserva_form($form, &$form_state) {
   );
   $form['telefono'] = array(
     '#type' => 'textfield',
-    '#title' => t('Email'),
+    '#title' => t('Teléfono'),
     '#required' => TRUE,
   );
   $form['date'] = array(
@@ -187,6 +187,7 @@ function katakrak_agenda_reserva_form($form, &$form_state) {
     '#date_format' => 'm/d/Y h:i a',
     '#date_increment' => 1,
     '#date_year_range' => '-3:+3',
+    '#required' => TRUE,  
   );
   $form['sala'] = array(
     '#type' => 'radios',
@@ -201,6 +202,7 @@ function katakrak_agenda_reserva_form($form, &$form_state) {
   $form['explicacion'] = array(
     '#type' => 'textarea',
     '#title' => t('Breve explicación del acto'),
+    '#required' => TRUE, 
   );
   
   $form['lopd_check'] = array(
@@ -214,6 +216,24 @@ function katakrak_agenda_reserva_form($form, &$form_state) {
   );
   $form['#theme'] = 'katakrak_agenda_reserva_form';
   return $form;
+}
+
+
+function katakrak_agenda_reserva_form_validate($form, &$form_state) {
+  if (!valid_email_address($form_state['values']['email']))
+    form_set_error('email', t("El email introducido es incorrecto"));
+}
+
+function katakrak_agenda_reserva_form_submit($form, &$form_state) {
+  
+  $nombre = $form_state['input']['nombre'];
+  $email = $form_state['input']['email'];
+  $telefono = $form_state['input']['telefono'];
+  $fecha = $form_state['input']['date'];
+  $sala = $form_state['input']['sala'];
+  $explicacion = $form_state['input']['explicacion'];
+  
+  rules_invoke_component('rules_envio_formulario_organizar_un_acto', $nombre, $email, $telefono, $fecha, $fecha, $sala, $explicacion);
 }
 
 function katakrak_agenda_node_presave($node) {

@@ -24,7 +24,7 @@
   <?php if ($options['alignment'] == 'horizontal'): ?>
 
     <?php foreach ($items as $row): ?>
-      <div class="row row-cards">
+      <div class="row row-cards has-photo">
         <?php foreach ($row['content'] as $key => $column): ?>
           <div class="<?php print $col_classes ?> ">
             <?php print $column['content'] ?>
