@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="row mt-3">
     <?php if ($form['checkout_review']): ?>
@@ -8,10 +9,18 @@
       <nav class="nav-select"><?php print render($form['commerce_shipping']) ?></nav>
       <?php print render($form['informacion_envio']) ?>
       <?php print render($form['customer_profile_billing']) ?>
+      <?php if (isset($form['customer_profile_billing']['#access'])): ?><?php else:?>
+        <hr>
+        <?php endif; ?>
       <?php print render($form['customer_profile_shipping']) ?>
+      
       <?php print render($form['recogida']) ?>
+      
     </div>
-    <div class="col-md-4"><?php print render($form['cart_contents']) ?></div>
+    <div class="col-md-4">
+      <?php print render($form['cart_contents']) ?>
+      <?php print render($form['commerce_coupon']) ?>
+    </div>
     
   </div>
   <hr class="hr-dark">
@@ -19,4 +28,4 @@
     <?php print render ($form['buttons']) ?>
   </div>
 </div>
-<div class=""><?php print drupal_render_children($form) ?> </div>
+<div class="hidden"><?php print drupal_render_children($form) ?> </div>
