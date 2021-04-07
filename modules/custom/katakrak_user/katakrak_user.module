@@ -43,7 +43,9 @@ function katakrak_user_menu_alter(&$items) {
  * @return type
  */
 function katakrak_user_form_alter(&$form, &$form_state, $form_id) {
-
+  if ($form_id == 'user_register_form' || $form_id == 'user_login') {
+    $form['actions']['submit']['#attributes']['class'] = array('mb-3', 'mt-2');
+  }
 }
 
 
