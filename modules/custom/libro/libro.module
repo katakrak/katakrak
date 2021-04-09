@@ -752,7 +752,7 @@ function libro_search_home_form($form, &$form_state) {
     '#required' => TRUE,
     '#attributes' => array(
       'placeholder' => t('Título, autor o ISBN'),
-      'class' => array('mr-1'),
+      'class' => array('mr-1', 'input-lg'),
     ),
     '#theme_wrappers' => array(),
   );
@@ -760,7 +760,7 @@ function libro_search_home_form($form, &$form_state) {
     '#type' => 'submit',
     '#value' => '<i class="fas fa-search"></i> '.t('Buscar'),
     '#attributes' => array(
-      'class' => array('btn btn-secondary'),
+      'class' => array('btn btn-primary btn-lg'),
     )
   );
   $form['#theme'] = 'libro_search_home_form';

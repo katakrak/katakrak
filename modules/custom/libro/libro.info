@@ -48,6 +48,7 @@ features[ctools][] = page_manager:pages_default:1
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
 features[fe_nodequeue][] = libros_recomendados
+features[fe_nodequeue][] = recomendados_ensayo
 features[features_api][] = api:2
 features[field_base][] = commerce_price
 features[field_base][] = commerce_stock

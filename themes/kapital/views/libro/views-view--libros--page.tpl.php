@@ -28,8 +28,11 @@
  */
 ?>
 <div class="<?php print $classes; ?>">
-  <hr>
-  <h1 class="text-center mt-1"><?php print t('Recomendamos') ?></h1>
+  <?php print render($title_prefix); ?>
+  <?php if ($title): ?>
+    <?php print $title; ?>
+  <?php endif; ?>
+  <?php print render($title_suffix); ?>
   <?php if ($header): ?>
     <div class="view-header">
       <?php print $header; ?>
@@ -49,7 +52,7 @@
   <?php endif; ?>
 
   <?php if ($rows): ?>
-    <div class="scrolling-wrapper mt-2">
+    <div class="view-content">
       <?php print $rows; ?>
     </div>
   <?php elseif ($empty): ?>
@@ -85,4 +88,3 @@
   <?php endif; ?>
 
 </div><?php /* class view */ ?>
-

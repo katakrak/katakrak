@@ -64,6 +64,31 @@ function libro_fe_nodequeue_export_fields() {
     'count' => 0,
   );
 
+  // Exported nodequeues: recomendados_ensayo
+  $nodequeues['recomendados_ensayo'] = array(
+    'name' => 'recomendados_ensayo',
+    'title' => 'recomendados ensayo',
+    'subqueue_title' => '',
+    'size' => 6,
+    'link' => 'recomendados ensayo',
+    'link_remove' => 'quitar de portada',
+    'owner' => 'nodequeue',
+    'show_in_ui' => 1,
+    'show_in_tab' => 1,
+    'show_in_links' => 1,
+    'reference' => 0,
+    'reverse' => 0,
+    'i18n' => 0,
+    'insert_at_front' => 0,
+    'unique_entries' => 0,
+    'subqueues' => 1,
+    'types' => array(
+      0 => 'libro',
+    ),
+    'roles' => array(),
+    'count' => 0,
+  );
+
   return $nodequeues;
 }
 
