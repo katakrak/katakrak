@@ -4,7 +4,7 @@
               <img src="/sites/all/themes/kapital/images/protocolo-covid19.png" alt="Te cuidamos, nos cuidamos" class="img-covid" title="Conoce el protocolo Covid-19">
             </a>
             <h1 class="h1-lg"><?php print t('Entra en Katakrak') ?></h1>
-            <p class="lead"><?php print t('Conoce el proyecto') ?></p>
+            <p class="lead"><?php print l(t('Conoce el proyecto'), 'conocenos') ?></p>
            <p>
             <svg class="map-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
             viewBox="0 0 737 244" style="enable-background:new 0 0 737 244;" xml:space="preserve">
@@ -47,15 +47,15 @@
               <a xlink:href="#">
               <polygon class="st1" points="82.4,8.9 356.5,8.9 429.9,44.9 8.2,44.9 	"/>
             </a>
-            <a xlink:href="#" class="link2">
+            <a xlink:href="<?php print url('organiza_evento') ?>" class="link2">
               <text transform="matrix(1 0 0 1 480.791 82.1006)" class="text-tag"><?php print t('SALA DE ACTOS') ?></text>
               <polygon class="st2" points="423.9,44.5 345.2,44.5 333.9,44.5 15.5,44.5 15.5,122.7 345.2,122.7 345.2,99.7 423.9,99.7 	"/>
             </a>
-            <a xlink:href="#" class="link3">
+            <a xlink:href="<?php print url('libreria') ?>" class="link3">
               <text transform="matrix(1 0 0 1 480.791 82.1006)" class="text-tag"><?php print t('LIBRERÍA') ?></text>
               <polygon class="st3" points="344.6,99.2 344.6,121.4 15.5,121.4 15.5,213.9 424,213.9 424,147.9 424,121.4 424,99.2 	"/>
             </a>
-            <a xlink:href="#" class="link1">
+            <a xlink:href="<?php print url('kantina') ?>" class="link1">
               <text transform="matrix(1 0 0 1 480.791 82.1006)" class="text-tag"><?php print t('CANTINA') ?></text>
               <rect x="424.3" y="170.9" class="st4" width="307.5" height="64.7"/>
             </a>

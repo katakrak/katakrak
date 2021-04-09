@@ -1,21 +1,13 @@
-<p class="quote"><?php print t("Libros, cafés y algo más.<br>Debates y pensamiento.<br>Un espacio para el común.")?></p>
+<h2><?php print t('Ven a Katakrak') ?></h2>
 <ul class="list-unstyled">
-  <li class="list-item">
-    <?php print l(t('¿Qué es Katakrak?'), ''); ?>
-  </li>
-  <li class="list-item">
-    <?php print l(t('Tienda online'), ''); ?>
-  </li>
-  <li class="list-item">
-    <?php print l(t('El espacio'), ''); ?>
-  </li>
-  <li class="list-item">
-    <?php print l(t('La editorial'), ''); ?>
-  </li>
-  <li class="list-item">
-    <?php print l(t('Agenda'), ''); ?>
-  </li>
-  <li class="list-item">
-    <?php print l(t('Blog'), ''); ?>
-  </li>
+  <li class="list-item">C/Mayor 54 K Nagusia</li>
+  <li class="list-item">31001 Navarra-Nafarroa</li>
+  <!-- <li class="list-item">
+    <a class="" href="#">Localízanos</a>
+  </li> -->
+</ul>
+<ul class="list-unstyled">
+  <li class="list-style"><?php print t('Abierto de lunes a sábado') ?></li>
+  <li class="list-item"> <span class="strong"><?php print t('Librería') ?>: </span> 10:00-14:00 17:00-20:30</li>
+  <li class="list-item"><span class="strong"><?php print t('Cantina') ?>: </span>  L,M,M 10:00-22:00 | J,V,S 10:00-01:00</li>
 </ul>

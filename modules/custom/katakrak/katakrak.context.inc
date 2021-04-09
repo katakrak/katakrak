@@ -91,16 +91,10 @@ function katakrak_context_default_contexts() {
           'region' => 'footer_second',
           'weight' => '-10',
         ),
-        'katakrak-footer_third' => array(
-          'module' => 'katakrak',
-          'delta' => 'footer_third',
-          'region' => 'footer_third',
-          'weight' => '-10',
-        ),
         'mailchimp_signup-recibe_nuestro_boletin_semanal' => array(
           'module' => 'mailchimp_signup',
           'delta' => 'recibe_nuestro_boletin_semanal',
-          'region' => 'footer_fourth',
+          'region' => 'footer_third',
           'weight' => '-10',
         ),
       ),

@@ -307,9 +307,10 @@ function libro_field_default_field_instances() {
         'weight' => 0,
       ),
       'card_book_smgrid' => array(
-        'label' => 'above',
+        'label' => 'hidden',
+        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'taxonomy_term_reference_link',
         'weight' => 0,
       ),
       'default' => array(

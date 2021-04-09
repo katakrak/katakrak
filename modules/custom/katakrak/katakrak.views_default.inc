@@ -105,13 +105,13 @@ function katakrak_views_default_views() {
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = '<a href="/node/add/imagen">Crear imagen</a>';
   $handler->display->display_options['header']['area']['format'] = 'sinopsis';
-  /* Campo: Contenido: Título */
+  /* Campo: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Contenido: Idioma */
+  /* Campo: Content: Language */
   $handler->display->display_options['fields']['language']['id'] = 'language';
   $handler->display->display_options['fields']['language']['table'] = 'node';
   $handler->display->display_options['fields']['language']['field'] = 'language';
@@ -120,12 +120,12 @@ function katakrak_views_default_views() {
   $handler->display->display_options['fields']['nodequeue_links']['table'] = 'node';
   $handler->display->display_options['fields']['nodequeue_links']['field'] = 'nodequeue_links';
   $handler->display->display_options['fields']['nodequeue_links']['label'] = 'Promocionar';
-  /* Campo: Contenido: Link to edit content */
+  /* Campo: Content: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['label'] = 'Editar';
-  /* Campo: Contenido: Foto */
+  /* Campo: Nodo: Foto */
   $handler->display->display_options['fields']['field_imagen']['id'] = 'field_imagen';
   $handler->display->display_options['fields']['field_imagen']['table'] = 'field_data_field_imagen';
   $handler->display->display_options['fields']['field_imagen']['field'] = 'field_imagen';
@@ -139,16 +139,16 @@ function katakrak_views_default_views() {
   $handler->display->display_options['fields']['nodequeue_links_1']['table'] = 'node';
   $handler->display->display_options['fields']['nodequeue_links_1']['field'] = 'nodequeue_links';
   $handler->display->display_options['fields']['nodequeue_links_1']['label'] = 'Queue';
-  /* Sort criterion: Contenido: Fecha de modificación */
+  /* Sort criterion: Content: Updated date */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
   $handler->display->display_options['sorts']['changed']['field'] = 'changed';
   $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
-  /* Sort criterion: Contenido: Páginas (field_libro_paginas) */
+  /* Sort criterion: Nodo: Páginas (field_libro_paginas) */
   $handler->display->display_options['sorts']['field_libro_paginas_value']['id'] = 'field_libro_paginas_value';
   $handler->display->display_options['sorts']['field_libro_paginas_value']['table'] = 'field_data_field_libro_paginas';
   $handler->display->display_options['sorts']['field_libro_paginas_value']['field'] = 'field_libro_paginas_value';
-  /* Filter criterion: Contenido: Tipo */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -156,7 +156,7 @@ function katakrak_views_default_views() {
     'imagen' => 'imagen',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Contenido: Etiqueta (field_imagen_etiqueta) */
+  /* Filter criterion: Nodo: Etiqueta (field_imagen_etiqueta) */
   $handler->display->display_options['filters']['field_imagen_etiqueta_tid']['id'] = 'field_imagen_etiqueta_tid';
   $handler->display->display_options['filters']['field_imagen_etiqueta_tid']['table'] = 'field_data_field_imagen_etiqueta';
   $handler->display->display_options['filters']['field_imagen_etiqueta_tid']['field'] = 'field_imagen_etiqueta_tid';
@@ -202,14 +202,15 @@ function katakrak_views_default_views() {
     t('siguiente ›'),
     t('última »'),
     t('<a href="/node/add/imagen">Crear imagen</a>'),
-    t('Título'),
-    t('Idioma'),
+    t('Title'),
+    t('Language'),
     t('Promocionar'),
     t('Editar'),
     t('Foto'),
     t('Queue'),
     t('Etiqueta'),
     t('Page'),
+    t('more'),
   );
   $export['imagenes_admin'] = $view;
 
