@@ -14,14 +14,12 @@
                   <img src="/sites/all/themes/kapital/images/silvia-federici.jpg" alt="Katakrak Cantina">
                 <div class="carousel-caption">
                   <h3>Silvia Federici</h3>
-                  <p>Lorem ipsum</p>
                 </div>
               </div><!-- item-active -->
               <div class="item" id="sala2">
                 <img src="/sites/all/themes/kapital/images/kyanga.jpg" alt="Katakrak Cantina">
                 <div class="carousel-caption">
                   <h3>Kyanga Taylor</h3>
-                  <p>Lorem ipsum</p>
                 </div>
               </div><!-- item-active -->
               

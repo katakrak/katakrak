@@ -2,7 +2,7 @@
   <div class="col-sm-6">
     <div class="well well-custom well-border">
       <h3 class="mt-0"><?php print t('Datos de facturación') ?></h3>
-      <p><?php print t('Nombre y apellidos:') ?><br>
+      <p><?php print t('Nombre y apellidos') ?>:<br>
         <strong><?php print $billing->commerce_customer_address['und'][0]['name_line'] ?></strong></p>
       <p><?php print t('Dirección') ?><br>
       <strong><?php print $billing->commerce_customer_address['und'][0]['thoroughfare'] ?> </strong><br>

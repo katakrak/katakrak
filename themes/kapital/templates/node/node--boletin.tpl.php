@@ -92,7 +92,7 @@
     <p class="text-gray">28/05/2020</p>
           
     <?php foreach($node->field_boletin_body['und'] as $body): ?>
-      <?php $body = field_collection_item_load($body['value']); dpm($body) ?>
+      <?php $body = field_collection_item_load($body['value']);?>
         <?php if ($body->field_boletin_body_subtitulo['und'][0]['value']): ?>
         <div class="post-item">
           <h2><?php print $body->field_boletin_body_subtitulo['und'][0]['value'] ?></h2>              

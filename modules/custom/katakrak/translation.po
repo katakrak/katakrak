@@ -1,0 +1,631 @@
+#: /cas/editorial
+msgid ""
+"Fue posible gracias a la experiencia acumulada en la librería, al "
+"contacto frecuente con textos políticos o teóricos, y a las "
+"editoriales amigas."
+msgstr ""
+"Posiblea izan da etab etab "
+"contacto frecuente con textos políticos o teóricos, y a las "
+"editoriales amigas."
+
+#: /cas/editorial
+msgid "Ver catálogo"
+msgstr "Ikusi katalogoa"
+
+#: /cas
+msgid "Conoce el proyecto"
+msgstr "Ezagutu proiektua"
+
+#: /eus/egin-zaitez-bazkide
+msgid "«Nola egin krak» hitzaldi sorta"
+msgstr ""
+
+#: /cas/lib/lucharon-contra-la-hidra-del-patriarcado
+msgid "Secciones lateral"
+msgstr ""
+
+#: /eus/liburudenda
+msgid "Bizikrak"
+msgstr ""
+
+
+#: /cas/checkout/11625/shipping
+msgid "Tu nombre para cuando vengas a recoger el pedido"
+msgstr ""
+
+#: /cas/checkout/11625/shipping
+msgid "Teléfono"
+msgstr ""
+
+#: /cas/checkout/11625/shipping
+msgid "Un número de teléfono para que te contactemos"
+msgstr ""
+
+#: /cas/checkout/11625/shipping
+msgid "Por favor, introduce un número de teléfono válido"
+msgstr ""
+
+
+#: /cas/checkout/11772/shipping
+msgid "La dirección para la entrega"
+msgstr ""
+
+
+#: /cas/checkout/11772/shipping
+msgid "Mañana"
+msgstr ""
+
+#: /cas/checkout/11772/shipping
+msgid "Tarde"
+msgstr ""
+
+
+#: /eus/lib/las-aventuras-de-huckleberry-finn-0
+msgid ""
+"Sin stock en tienda. Se puede adquirir igualmente pero tardará entre "
+"3 y 4 días más el envío."
+msgstr ""
+
+
+#: /eus/lib/las-neuronas-espejo-0
+msgid "Reimpresion"
+msgstr ""
+
+#: /eus/lib/caminando-sobre-el-alambre
+msgid "En espera de recibir"
+msgstr ""
+
+#: /cas
+msgid "Suscribirme!"
+msgstr ""
+
+#: /cas
+msgid ""
+"Libros, cafés y algo más.<br>Debates y pensamiento.<br>Un espacio "
+"para el común."
+msgstr ""
+
+#: /cas
+msgid "¿Qué es Katakrak?"
+msgstr ""
+
+#: /cas
+msgid "Tienda online"
+msgstr ""
+
+#: /cas
+msgid "El espacio"
+msgstr ""
+
+#: /cas
+msgid "La editorial"
+msgstr ""
+
+
+#: /cas
+msgid "Ir al carro de la compra"
+msgstr ""
+
+
+
+#: /cas
+msgid "Conocemos a nuestras productoras y productores. Sabemos qué te damos y cómo está hecho."
+msgstr ""
+
+#: /cas
+msgid "Cantina"
+msgstr ""
+
+
+#: /conocenos
+msgid "Basada en proveedores locales y productos ecológicos"
+msgstr ""
+
+#: /conocenos
+msgid "Librería"
+msgstr ""
+
+#: /cas
+msgid "Apostamos por la literatura transformadora, capaz de reordenar los relatos individuales y colectivos"
+msgstr ""
+
+#: /cas
+msgid "Especializada en feminismos, geografía crítica y literatura revolucionaria traducida al euskera"
+msgstr ""
+
+#: /cas
+msgid "Sala de actos"
+msgstr ""
+
+#: /cas
+msgid "Organiza tu acto. Tenemos una agenda de 290 actividades anuales"
+msgstr ""
+
+#: /cas
+msgid "Ven a Katakrak"
+msgstr ""
+
+#: /cas
+msgid "Abierto de lunes a sábado"
+msgstr ""
+
+#: /conocenos
+msgid "Somos mucho más..."
+msgstr ""
+
+
+#: /conocenos
+msgid "Un colectivo que secunda todas las <b>huelgas generales</b>, vengan de donde vengan."
+msgstr ""
+
+
+#: /conocenos
+msgid "Una <b>asamblea de 16 personas</b> que han optado por el proyecto como forma de vida, a medio camino entre el autoempleo y la militancia."
+msgstr ""
+
+
+#: /conocenos
+msgid "Una <a href="/hazte-socixs" target="_blank">comunidad de socixs</a> que sostiene y enriquece el proyecto."
+msgstr ""
+
+
+#: /conocenos
+msgid "Un <b>lugar de encuentro</b> para colectivos."
+msgstr ""
+
+
+#: /conocenos
+msgid "Un edificio en la <b>calle Mayor</b> destinado a usos sociales a perpetuidad."
+msgstr ""
+
+
+#: /conocenos
+msgid "Una <b>sala disponible</b> para convocatorias urgentes ante cualquier atropello."
+msgstr ""
+
+
+#: /conocenos
+msgid "Un proyecto <b>autónomo</b>, que no depende de subvenciones ni tiene detrás ninguna estructura partidista."
+msgstr ""
+
+
+#: /conocenos
+msgid "Un repositorio con <b>650 audios</b> entre charlas, colaboraciones de radio y otros eventos."
+msgstr ""
+
+
+#: /conocenos
+msgid "Un polo de atracción de saberes que <b>conecta</b> Iruñea con circuitos militantes y académicos muy diversos: Silvia Federici, Keeanga Yamatha-Taylor, Lisa Vollmer, Sandro Mezzadra, Cristina Fallarás, Dave Randall…."
+msgstr ""
+
+
+
+#: /conocenos
+msgid "Una voz con presencia en la esfera pública. Un amplificador de <b>discursos radicales</b>."
+msgstr ""
+
+
+#: /conocenos
+msgid "Una retaguardia, un lugar donde se cuecen los debates y un piso firme desde donde se lanzan y se comunican diferentes iniciativas de <b>transformación social</b>."
+msgstr ""
+
+
+#: /conocenos
+msgid "Visita virtual"
+msgstr ""
+
+#: /conocenos
+msgid "Para que no te pierdas"
+msgstr ""
+
+
+
+#: /cas/hazte-socix
+msgid "'Volver al inicio'"
+msgstr ""
+
+
+#: /
+msgid "Te has suscrito correctamente al boletín de noticias de Katakrak. Pronto recibirás un mail para confirmar tu suscripción."
+msgstr ""
+
+
+#: /cas
+msgid "Conócenos"
+msgstr ""
+
+
+#: /cas
+msgid "Hemos envíado un mail a tu dirección de correo con las instrucciones para completar tu suscripción"
+msgstr ""
+
+
+#: /cas
+msgid "Email inválido"
+msgstr ""
+
+
+#: /agenda
+msgid "Organiza tu evento en Katakrak"
+msgstr ""
+
+
+#: /organiza_evento
+msgid "Organiza un acto en Katakrak"
+msgstr ""
+
+#: /organiza_evento
+msgid "Colectivos, personas a título individual, fundaciones y otro tipo de combinaciones sociales organizan actos.
+      Tú también puedes hacerlo."
+msgstr ""
+
+
+#: /organiza_evento
+msgid "Si quieres reservar un acto en Katakrak, este formulario nos será de ayuda:"
+msgstr ""
+
+
+#: /organiza_evento
+msgid "Quiero organizar un acto"
+msgstr ""
+
+
+#: /organiza_evento
+msgid "Presenta tu libro"
+msgstr ""
+
+
+#: /organiza_evento
+msgid "Programa tu concierto"
+msgstr ""
+
+
+#: /organiza_evento
+msgid "Un espacio par tu charla"
+msgstr ""
+
+
+#: /organiza_evento
+msgid "Nos han visitado"
+msgstr ""
+
+
+#: /organiza_evento
+msgid "Sala luminosa de 8X20m"
+msgstr ""
+
+
+#: /organiza_evento
+msgid "80 sillas"
+msgstr ""
+
+
+#: /organiza_evento
+msgid "3 micros con cable y 2 sin cable"
+msgstr ""
+
+#: /organiza_evento
+msgid "Hilo musical"
+msgstr ""
+
+
+#: /organiza_evento
+msgid "1 mesa de mezclas con salida Minijack"
+msgstr ""
+
+#: /organiza_evento
+msgid "1 proyector BenQ 526E"
+msgstr ""
+
+
+#: /organiza_evento
+msgid "Calefacción y aire acondicionado"
+msgstr ""
+
+#: /organiza_evento
+msgid "Acogedor suelo de madera"
+msgstr ""
+
+
+#: /organiza_evento
+msgid "Subiendo las escaleras del salón de actos está la sala de reuniones: una habitación para 15-24 personas. Apta para dar cursos."
+msgstr ""
+
+#: /organiza_evento
+msgid "Entre otros allí se realizan los grupos de lectura mensualmente. Allí se reúne también cada semana el equipo de la cooperativa de iniciativa social que trabaja en Katakrak."
+msgstr ""
+
+
+#: /organiza_evento
+msgid "Este formulario nos ayudará a saber qué necesitas."
+msgstr ""
+
+#: /organiza_evento
+msgid "Nombre y apellidos"
+msgstr ""
+
+#: /organiza_evento
+msgid "Teléfono"
+msgstr ""
+
+#: /organiza_evento
+msgid "Cuándo te gustaría utilizar la sala"
+msgstr ""
+
+
+#: /organiza_evento
+msgid "Qué sala que deseas reservar"
+msgstr ""
+
+
+#: /organiza_evento
+msgid "Salón de actos"
+msgstr ""
+
+
+#: /organiza_evento
+msgid "Sala de reuniones"
+msgstr ""
+
+
+#: /organiza_evento
+msgid "Breve explicación del acto"
+msgstr ""
+
+
+#: /organiza_evento
+msgid "condiciones legale"
+msgstr ""
+
+
+#: /organiza_evento
+msgid "Acepto las"
+msgstr ""
+
+
+#: /agenda
+msgid "Futuros"
+msgstr ""
+
+
+#: /agenda
+msgid "Pasados"
+msgstr ""
+
+#: /agenda
+msgid "Audios"
+msgstr ""
+
+
+#: /agenda
+msgid "Grupos de lectura"
+msgstr ""
+
+#: /agenda
+msgid "Buscar eventos"
+msgstr ""
+
+#: /eus/bloga
+msgid "Todos los blogs"
+msgstr ""
+
+#: /eus/bloga
+msgid "Cultura"
+msgstr ""
+
+#: /eus/bloga
+msgid "Medios"
+msgstr ""
+
+#: /eus/bloga
+msgid "Cocina"
+msgstr ""
+
+#: /eus/bloga
+msgid "Buscar artículos"
+msgstr ""
+
+#: /eus/blogs/periferia-cultura-y-reflexi-n
+msgid "siguiente ›"
+msgstr ""
+
+#: /eus/blogs/periferia-cultura-y-reflexi-n
+msgid "« primera"
+msgstr ""
+
+
+
+#: /eus/blogs/periferia-cultura-y-reflexi-n
+msgid "‹ anterior"
+msgstr ""
+
+
+
+#: /eus/blogs/periferia-cultura-y-reflexi-n
+msgid "última »"
+msgstr ""
+
+
+#: /eus/buletina/egin-zaitez-katakrakeko-bazkide
+msgid "Listado de artículos"
+msgstr ""
+
+#: /eus/buletina/egin-zaitez-katakrakeko-bazkide
+msgid "Eventos relacionados"
+msgstr ""
+
+
+#: /eus/cart
+msgid "Mi compra"
+msgstr ""
+
+#: /eus/cart
+msgid "Forma de envio"
+msgstr ""
+
+#: /eus/cart
+msgid "Datos personales"
+msgstr ""
+
+#: /eus/cart
+msgid "Pago del pedido"
+msgstr ""
+
+#: /eus/cart
+msgid "Artículo"
+msgstr ""
+
+#: /eus/cart
+msgid "Seguir comprando"
+msgstr ""
+
+#: /eus/cart
+msgid "Hacer el pedido"
+msgstr ""
+
+#: /eus/cart
+msgid "IVA incluido"
+msgstr ""
+
+#: /eus/cart
+msgid "Regala Katakrak"
+msgstr ""
+
+#: /eus/cart
+msgid "Este pedido es un regalo"
+msgstr ""
+
+#: /eus/cart
+msgid "Saber más"
+msgstr ""
+
+#: /eus/cart
+msgid "Si tu pedido es un regalo, lo envolveremos con cariño en papel de estraza. Tanto si se envía a un domicilio como si seleccionas la opción de recoger en Katakrak."
+msgstr ""
+
+#: /eus/checkout/11885
+msgid "Te llevamos los libros a casa en bici. Solamente para Pamplona y comarca. Tendrás tus libros en xx horas."
+msgstr ""
+
+#: /eus/checkout/11885
+msgid "Haces la compra y cuando tengamos el pedido preparado te avisamos para que pases a por ellos."
+msgstr ""
+
+#: /eus/checkout/11885
+msgid "El método más económico. No tiene número de seguimiento ni certificación. No nos hacemos responsables de posibles extravíos."
+msgstr ""
+
+#: /eus/checkout/11885
+msgid "Mensajeria 48H"
+msgstr ""
+
+#: /eus/checkout/11885
+msgid "Mensajería. En tu casa 48 horas después de que salgan de la librería."
+msgstr ""
+
+#: /eus/checkout/11885
+msgid "Selecciona forma de envío o recogida"
+msgstr ""
+
+#: /eus/checkout/11885
+msgid "Selecciona forma de envío o recogida"
+msgstr ""
+
+#: /eus/checkout/11885
+msgid "Selecciona forma de envío o recogida"
+msgstr ""
+
+#: /eus/checkout/11885
+msgid "Resumen de compra"
+msgstr ""
+
+#: /eus/checkout/11885
+msgid "Cnt."
+msgstr "Kop."
+
+#: /eus/checkout/11885
+msgid "Volver"
+msgstr ""
+
+#: /eus/checkout/11885
+msgid "Siguiente paso"
+msgstr ""
+
+#: /eus/checkout/14899/review
+msgid "Antes de continuar, revisa que tus datos sean correctos."
+msgstr ""
+
+#: /eus/checkout/11885/review
+msgid "Datos de facturación"
+msgstr ""
+
+#: /eus/checkout/11885/review
+msgid "Datos de envío"
+msgstr ""
+
+#: /eus/checkout/11885
+msgid "Ir al pago"
+msgstr ""
+
+#: /eus/argitaletxea
+msgid "Nos centramos en textos de ensayo político. Ahí incluimos el feminismo, el urbanismo, la economía y los debates sobre música. También contamos con varios títulos de libros de historia o sobre Europa."
+msgstr ""
+
+#: /eus/argitaletxea
+msgid "El debate colectivo, el intercambio y las propuestas de gente próxima a Katakrak forman parte del proceso de selección del fondo y de los títulos a publicar. Nos apoyamos en el saber y la composición colectiva para diseñar un catálogo con sentido."
+msgstr ""
+
+#: /eus/argitaletxea
+msgid "Autoras/es"
+msgstr ""
+
+#: /eus/argitaletxea
+msgid "Todo lo que ha salido de nuestra factoría"
+msgstr ""
+
+#: /eus/argitaletxea
+msgid "Conoce a quienes producen los textos"
+msgstr ""
+
+#: /eus/argitaletxea
+msgid "Para profesionales del libro"
+msgstr ""
+
+#: /eus/argitaletxea
+msgid "Queremos que los libros en los que trabajamos tengan su recorrido, sirvan para acompañar procesos de organización social o abran nuevas líneas de debate."
+msgstr ""
+
+#: /eus/argitaletxea
+msgid "El último brazo que le salió a Katakrak, publicó sus primeros libros en diciembre de 2016 y nació de un modo poco habitual."
+msgstr ""
+
+#: /eus/argitaletxea
+msgid "Fue posible gracias a la experiencia acumulada en la librería, al contacto frecuente con textos políticos o teóricos, y a las editoriales amigas."
+msgstr ""
+
+#: /eus/argitaletxea
+msgid "Ver catálogo"
+
+#: /eus/argitaletxea
+msgid "Catálogo"
+msgstr ""
+
+#: /eus/argitaletxea
+msgid "Autoras"
+msgstr ""
+
+#: /eus/argitaletxea
+msgid "En los medios"
+msgstr ""
+
+#: /eus/editorial/autores
+msgid "Traductoras/es"
+msgstr ""
+
+#: /eus/editorial/autores
+msgid "Nombre de autor"
+msgstr ""
+
+#: /eus/editorial/medios
+msgid "Todas las referencias en la prensa a nuestros libros"
+msgstr ""
