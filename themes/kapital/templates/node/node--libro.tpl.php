@@ -83,7 +83,11 @@
 <?php if ($page): ?>
 <div class="book">
   <div class="cover">
-     <?php print render($content['field_libro_portada']) ?>
+    <?php if ($node->field_libro_portada['und'][0]['fid']): ?>
+      <?php print render($content['field_libro_portada']) ?>
+    <?php else: ?>
+      <?php print theme_image(array('path' => '/sites/all/themes/kapital/images/default-cover.jpg',  'attributes' => array('class' => 'img-responsive'))) ?>
+    <?php endif; ?>
   </div><!-- /cover -->
   <div class="visible-xs-block">
     <h1><?php print $node->title ?></h1>
@@ -171,7 +175,11 @@
 <?php if ($view_mode == 'card_book'): ?>
 <div class="card-book-sm">
   <div class="<?php print $content['cover_class'] ?>">
-    <?php print render($content['field_libro_portada']) ?>
+    <?php if ($node->field_libro_portada['und'][0]['fid']): ?>
+      <?php print render($content['field_libro_portada']) ?>
+    <?php else: ?>
+      <?php print theme_image(array('path' => '/sites/all/themes/kapital/images/default-cover.jpg',  'attributes' => array('class' => 'img-responsive'))) ?>
+    <?php endif; ?>
   </div><!-- /cover -->
   <div class="description">
     <h3 class="book-title-sm">
@@ -191,7 +199,11 @@
 <?php elseif($view_mode == 'card_book_md'): ?>
 <div class="card-book-md">
     <div class="cover">
-     <?php print render($content['field_libro_portada']) ?>
+    <?php if ($node->field_libro_portada['und'][0]['fid']): ?>
+      <?php print render($content['field_libro_portada']) ?>
+    <?php else: ?>
+      <?php print theme_image(array('path' => '/sites/all/themes/kapital/images/default-cover.jpg',  'attributes' => array('class' => 'img-responsive'))) ?>
+    <?php endif; ?>
       </div><!-- /cover -->
     <div class="description">
         <h3 class="mt-0">
@@ -211,24 +223,28 @@
     </div><!-- /description -->
     </div><!-- /.card-book-md-->
 <?php elseif($view_mode == 'card_book_smgrid'): ?>
-    <div class="card-book-smgrid">
-  <div class="<?php print $content['cover_class'] ?>">
-      <?php print render($content['field_libro_portada']) ?>
+  <div class="card-book-smgrid">
+    <div class="<?php print $content['cover_class'] ?>">
+      <?php if ($node->field_libro_portada['und'][0]['fid']): ?>
+        <?php print render($content['field_libro_portada']) ?>
+      <?php else: ?>
+        <?php print theme_image(array('path' => '/sites/all/themes/kapital/images/default-cover.jpg',  'attributes' => array('class' => 'img-responsive'))) ?>
+      <?php endif; ?>
 
-  </div><!-- /cover -->
-  <div class="description">
-    <h3 class="book-title-sm mb-1">
-      <?php print l($node->title, 'node/'.$node->nid) ?>
-    </h3>
-      <p><?php print render($content['field_libro_autores']) ?></p>
-      <p class="price"><?php print $content['product:commerce_price'][0]['#markup'] ?></p>
-      <?php if ($node->disponibilidad == DISPONIBLE_LIBRERIA): ?>
-      <p class="success"><?php print t('Disponible') ?></p>
-    <?php elseif( $node->disponibilidad == DISPONIBLE_DISTRIBUIDOR): ?>
-      <p class="text-warning"><?php print t('Disponible en @count días', array('@count' => distribuidores_plazo($node->plazo))) ?></p>
-    <?php elseif($node->disponibilidad == NO_DISPONIBLE): ?>
-      <p class="text-danger"><?php print t('No disponible') ?></p>
-    <?php endif; ?>
-  </div><!-- /description -->
-</div><!-- /.card-book-sm-->
+    </div><!-- /cover -->
+    <div class="description">
+      <h3 class="book-title-sm mb-1">
+        <?php print l($node->title, 'node/'.$node->nid) ?>
+      </h3>
+        <p><?php print render($content['field_libro_autores']) ?></p>
+        <p class="price"><?php print $content['product:commerce_price'][0]['#markup'] ?></p>
+        <?php if ($node->disponibilidad == DISPONIBLE_LIBRERIA): ?>
+        <p class="success"><?php print t('Disponible') ?></p>
+      <?php elseif( $node->disponibilidad == DISPONIBLE_DISTRIBUIDOR): ?>
+        <p class="text-warning"><?php print t('Disponible en @count días', array('@count' => distribuidores_plazo($node->plazo))) ?></p>
+      <?php elseif($node->disponibilidad == NO_DISPONIBLE): ?>
+        <p class="text-danger"><?php print t('No disponible') ?></p>
+      <?php endif; ?>
+    </div><!-- /description -->
+  </div><!-- /.card-book-sm-->
 <?php endif; ?>
