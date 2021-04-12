@@ -24,19 +24,19 @@
               <div class="item active">
                 <img src="/sites/all/themes/kapital/images/bg-cantina.jpg" alt="Katakrak Cantina">
                 <div class="carousel-caption">
-                  Descripción 1
+                  
                 </div>
               </div>
               <div class="item">
                 <img src="/sites/all/themes/kapital/images/bg-cantina.jpg" alt="Katakrak Cantina">
                 <div class="carousel-caption">
-                  Descripción 2
+                  
                 </div>
               </div>
               <div class="item">
                 <img src="/sites/all/themes/kapital/images/bg-cantina.jpg" alt="Katakrak Cantina">
                 <div class="carousel-caption">
-                  Descripción 3
+                  
                 </div>
               </div>
 

@@ -1,114 +1,7 @@
-#: /cas/editorial
-msgid ""
-"Fue posible gracias a la experiencia acumulada en la librería, al "
-"contacto frecuente con textos políticos o teóricos, y a las "
-"editoriales amigas."
-msgstr ""
-"Posiblea izan da etab etab "
-"contacto frecuente con textos políticos o teóricos, y a las "
-"editoriales amigas."
-
-#: /cas/editorial
-msgid "Ver catálogo"
-msgstr "Ikusi katalogoa"
-
-#: /cas
-msgid "Conoce el proyecto"
-msgstr "Ezagutu proiektua"
-
-#: /eus/egin-zaitez-bazkide
-msgid "«Nola egin krak» hitzaldi sorta"
-msgstr ""
-
-#: /cas/lib/lucharon-contra-la-hidra-del-patriarcado
-msgid "Secciones lateral"
-msgstr ""
-
-#: /eus/liburudenda
-msgid "Bizikrak"
-msgstr ""
-
-
-#: /cas/checkout/11625/shipping
-msgid "Tu nombre para cuando vengas a recoger el pedido"
-msgstr ""
-
-#: /cas/checkout/11625/shipping
-msgid "Teléfono"
-msgstr ""
-
-#: /cas/checkout/11625/shipping
-msgid "Un número de teléfono para que te contactemos"
-msgstr ""
-
-#: /cas/checkout/11625/shipping
-msgid "Por favor, introduce un número de teléfono válido"
-msgstr ""
-
-
-#: /cas/checkout/11772/shipping
-msgid "La dirección para la entrega"
-msgstr ""
-
-
-#: /cas/checkout/11772/shipping
-msgid "Mañana"
-msgstr ""
-
-#: /cas/checkout/11772/shipping
-msgid "Tarde"
-msgstr ""
-
-
-#: /eus/lib/las-aventuras-de-huckleberry-finn-0
-msgid ""
-"Sin stock en tienda. Se puede adquirir igualmente pero tardará entre "
-"3 y 4 días más el envío."
-msgstr ""
-
-
-#: /eus/lib/las-neuronas-espejo-0
-msgid "Reimpresion"
-msgstr ""
-
-#: /eus/lib/caminando-sobre-el-alambre
-msgid "En espera de recibir"
-msgstr ""
-
-#: /cas
-msgid "Suscribirme!"
-msgstr ""
-
-#: /cas
-msgid ""
-"Libros, cafés y algo más.<br>Debates y pensamiento.<br>Un espacio "
-"para el común."
-msgstr ""
-
-#: /cas
-msgid "¿Qué es Katakrak?"
-msgstr ""
-
-#: /cas
-msgid "Tienda online"
-msgstr ""
-
-#: /cas
-msgid "El espacio"
-msgstr ""
-
-#: /cas
-msgid "La editorial"
-msgstr ""
-
-
-#: /cas
-msgid "Ir al carro de la compra"
-msgstr ""
 
 
 
-#: /cas
+#: /conocenos
 msgid "Conocemos a nuestras productoras y productores. Sabemos qué te damos y cómo está hecho."
 msgstr ""
 
@@ -255,8 +148,7 @@ msgid "Organiza un acto en Katakrak"
 msgstr ""
 
 #: /organiza_evento
-msgid "Colectivos, personas a título individual, fundaciones y otro tipo de combinaciones sociales organizan actos.
-      Tú también puedes hacerlo."
+msgid "Colectivos, personas a título individual, fundaciones y otro tipo de combinaciones sociales organizan actos. Tú también puedes hacerlo."
 msgstr ""
 
 
@@ -567,6 +459,37 @@ msgstr ""
 msgid "Ir al pago"
 msgstr ""
 
+
+#: /cas/checkout/11625/shipping
+msgid "Tu nombre para cuando vengas a recoger el pedido"
+msgstr ""
+
+#: /cas/checkout/11625/shipping
+msgid "Teléfono"
+msgstr ""
+
+#: /cas/checkout/11625/shipping
+msgid "Un número de teléfono para que te contactemos"
+msgstr ""
+
+#: /cas/checkout/11625/shipping
+msgid "Por favor, introduce un número de teléfono válido"
+msgstr ""
+
+
+#: /cas/checkout/11772/shipping
+msgid "La dirección para la entrega"
+msgstr ""
+
+
+#: /cas/checkout/11772/shipping
+msgid "Mañana"
+msgstr ""
+
+#: /cas/checkout/11772/shipping
+msgid "Tarde"
+msgstr ""
+
 #: /eus/argitaletxea
 msgid "Nos centramos en textos de ensayo político. Ahí incluimos el feminismo, el urbanismo, la economía y los debates sobre música. También contamos con varios títulos de libros de historia o sobre Europa."
 msgstr ""
@@ -605,6 +528,7 @@ msgstr ""
 
 #: /eus/argitaletxea
 msgid "Ver catálogo"
+msgstr "Ikusi katalogoa"
 
 #: /eus/argitaletxea
 msgid "Catálogo"
@@ -629,3 +553,241 @@ msgstr ""
 #: /eus/editorial/medios
 msgid "Todas las referencias en la prensa a nuestros libros"
 msgstr ""
+
+#: /eus/editorial/distribucion
+msgid "Madrid, Castilla La-Mancha, Castilla"
+msgstr ""
+
+#: /eus/editorial/distribucion
+msgid "Euskadi, Navarra, Aragón, La Rioja"
+msgstr ""
+
+#: /eus/editorial/distribucion
+msgid "Catalunya"
+msgstr ""
+
+#: /eus/editorial/distribucion
+msgid "País Valenciá, Illes Balears"
+msgstr ""
+
+#: /eus/editorial/distribucion
+msgid "Galicia, Asturias, León, Cantabria"
+msgstr ""
+
+#: /eus/editorial/distribucion
+msgid "Andalucía, Extremadura"
+msgstr ""
+
+#: /eus/editorial/distribucion
+msgid "América"
+msgstr ""
+
+#: /eus/cantina
+msgid "Productos ecológicos y de temporada. Huertas, granjas y bodegas cercanas. Somos parte de un circuito de pequeñas apuestas por la soberanía alimentaria, la economía alternativa y el buen comer."
+msgstr "Produktu ekologikoak eta garaikoak. Gertuko baratzekin, etxaldeekin eta mahastizainekin  dugu harremana. Elikadura subirautzarekin, ekonomia sozial eraldatzailearekin eta ongi jateko tokiekin zirkuitu bat osatzen dugu."
+
+#: /eus/cantina
+msgid "Si quieres reservar una mesa o hacer un pedido para llevar, llámanos al <a href="tel:+34948225520">948225520"
+msgstr "Jateko mahaia gorde nahi baduzu ala eramateko janaria nahi baduzu deitu <a href="tel:+34948225520"> zenbakira."
+
+#: /eus/cantina
+msgid "Conoce la cantina"
+msgstr ""
+
+#: /eus/cantina
+msgid "Menú y carta"
+msgstr ""
+
+#: /eus/cantina
+msgid "Caterings"
+msgstr ""
+
+#: /eus/cantina
+msgid "Nuestros productores"
+msgstr ""
+
+#: /eus/cantina
+msgid "¿Qué tenemos hoy? Consulta nuestro menú del mediodía y la carta de las cenas."
+msgstr "Zer dugu gaur? Begiratu gure eguerdiko menua eta afarietako eskaintza."
+
+#: /eus/cantina
+msgid "Menús"
+msgstr "Menua"
+
+#: /eus/cantina
+msgid "Comida para eventos"
+msgstr "Ekitaldietarako jatekoak"
+
+#: /eus/cantina
+msgid "Si realizas un acto en Katakrak y quieres acompañarlo con algo para comer y beber, mira lo que hacemos."
+msgstr "Katakraken ekitaldi bat antolatzen baduzu jakiekin eta edariekin lagundu dezakezu, begiratu gure eskaintza."
+
+#: /eus/cantina
+msgid "Productoras/es"
+msgstr "Ekoizleak"
+
+#: /eus/cantina
+msgid "La gente con la que trabajamos. Quién hace lo que consumes aquí."
+msgstr "Nork lantzen du jaten duguna? "
+
+#: /eus/cantina
+msgid "Grupo de consumo"
+msgstr "Kontsumo taldea"
+
+#: /eus/cantina
+msgid "Para que lo hagas en tu casa."
+msgstr "Zeure etxean presta ezazu."
+
+#: /eus/cantina
+msgid "Somos una cooperativa de iniciativa social"
+msgstr ""
+
+#: /eus/cantina
+msgid "Ponemos en práctica un modelo de hostelería basado en las relaciones económicas justas, sostenibles y cercanas tanto con otras personas y colectivos como con el territorio."
+msgstr ""
+
+#: /eus/cantina
+msgid "Conocemos a nuestras productoras y productores. Sabemos qué te damos y cómo está hecho."
+msgstr ""
+
+#: /eus/cantina
+msgid "Nuestro café es de comercio justo, nuestra leche es ecológica del Baztan, nuestras verduras de huertas de Vidaurreta, Estella o Caparroso y nuestro pan artesano del horno de Ujué."
+msgstr ""
+
+#: /eus/cantina
+msgid "Nos gusta lo fresco y lo hecho en casa. Cambiamos a menudo nuestra oferta, según la temporada. Hacemos nuestra propia repostería y nuestra propia cerveza."
+msgstr ""
+
+#: /eus/men-del-d-katakrak
+msgid "Menú del día"
+msgstr ""
+
+#: /eus/men-del-d-katakrak
+msgid "Para llevar"
+msgstr ""
+
+#: /eus/men-del-d-katakrak
+msgid "Entrantes"
+msgstr ""
+
+#: /eus/men-del-d-katakrak
+msgid "Plato"
+msgstr ""
+
+#: /eus/men-del-d-katakrak
+msgid "Alérgenos"
+msgstr ""
+
+#: /eus/cantina/catering
+msgid "Comida para eventos"
+msgstr ""
+
+#: /eus/cantina/catering
+msgid "Tenemos años de experiencia en redondear todo tipo de encuentros con buena comida sobre la mesa."
+msgstr ""
+
+#: /eus/cantina/catering
+msgid "Desde un picoteo al finalizar una charla hasta una cena de postín. Tanto en nuestro propio local como en otras localizaciones."
+msgstr ""
+
+#: /eus/cantina/catering
+msgid "Si quieres un presupuesto a partir de tus necesidades, llama al <a href="tel:948225520" target="_blank">948225520</a>"
+msgstr ""
+
+#: /eus/cantina/catering
+msgid "Algunos ejemplos de cosas que ya hemos hecho:"
+msgstr ""
+
+#: /eus/cantina/catering
+msgid "Vino, tortilla y canapés en la sala de arriba"
+msgstr ""
+
+#: /eus/cantina/catering
+msgid "Cervezas, fritos, patatas y quesos para un cumpleaños en la cantina"
+msgstr ""
+
+#: /eus/cantina/catering
+msgid "Una paella gigante en la meta de una etapa ciclista, en Estella"
+msgstr ""
+
+#: /eus/cantina/catering
+msgid "Café y bizcochos para el descanso de unas jornadas de formación, en Traperos de Emaús"
+msgstr ""
+
+#: /eus/cantina/catering
+msgid "Lasañas gigantes (de 16 raciones) por encargo"
+msgstr ""
+
+#: /eus/cantina/catering
+msgid "Cena de 4 entrantes, principal, postre, café y copa para 100 comensales"
+msgstr ""
+
+#: /eus/cantina/grupo
+msgid "Grupo de consumo"
+msgstr ""
+
+
+#: /eus/cantina/grupo
+msgid "Cestas de productos ecológicos de temporada.<br>Todos los lunes en Katakrak"
+msgstr ""
+
+#: /eus/cantina/grupo
+msgid "Danos tu teléfono y te incluiremos en el <a href="#">grupo de Whatsapp</a> con el que gestionamos los pedidos."
+msgstr ""
+
+#: /eus/cantina/grupo
+msgid "Puedes hacerlo en la cantina o llamando al <a href="tel:948225520" target="_blank">948225520</a>."
+msgstr ""
+
+#: /eus/cantina/grupo
+msgid "Caparroso (Navarra)"
+msgstr ""
+
+#: /eus/cantina/grupo
+msgid "El Puente Viejo son Asier y Silvia, que trabajan un terreno y una tienda de productos ecológicos en Caparroso."
+msgstr ""
+
+#: /eus/cantina/grupo
+msgid "Traen fruta y verdura para la cantina de Katakrak y, desde octubre del 2020, cada lunes las ricas cestas del grupo de consumo."
+msgstr ""
+
+#: /eus/cantina/grupo
+msgid "Saber más"
+msgstr ""
+
+
+
+#: /eus/lib/las-neuronas-espejo-0
+msgid "Reimpresion"
+msgstr ""
+
+#: /eus/lib/caminando-sobre-el-alambre
+msgid "En espera de recibir"
+msgstr ""
+
+#: /cas
+msgid "Suscribirme!"
+msgstr ""
+
+#: /cas
+msgid ""
+"Libros, cafés y algo más.<br>Debates y pensamiento.<br>Un espacio "
+"para el común."
+msgstr ""
+
+#: /cas
+msgid "¿Qué es Katakrak?"
+msgstr ""
+
+#: /cas
+msgid "Tienda online"
+msgstr ""
+
+#: /cas
+msgid "El espacio"
+msgstr ""
+
+#: /cas
+msgid "La editorial"
+msgstr ""
+

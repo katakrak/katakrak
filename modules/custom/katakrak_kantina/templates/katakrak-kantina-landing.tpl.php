@@ -4,7 +4,7 @@
     </div>
     <div class="col-sm-6 p-4">
       
-<p class="lead"><?php print t('Nuestro café es de comercio justo, nuestra leche es ecológica del Baztan, nuestras verduras de huertas de Vidaurreta, Estella o Caparroso y nuestro pan artesano del horno de Ujué. ')?>
+<p class="lead"><?php print t('Nuestro café es de comercio justo, nuestra leche es ecológica del Baztan, nuestras verduras de huertas de Vidaurreta, Estella o Caparroso y nuestro pan artesano del horno de Ujué.')?>
 </p>
 </div>
   </div>
