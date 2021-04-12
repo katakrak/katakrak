@@ -88,8 +88,8 @@
   </div><!-- /description -->
 </div>
 <div class="row">
+  <?php if ($node->resenas): ?>
   <div class="col-sm-6">
-    <?php if ($node->resenas): ?>
     <hr class="hr-dark">
     <h2 class="text-center"><?php print t("En la prensa")?></h2>
     <div class="scroll-v h500">
@@ -100,9 +100,10 @@
         </a>
       <?php endforeach; ?>
     </div>
-    <?php endif; ?>
   </div>
-  <div class="col-sm-6">
+  <?php endif; ?>
+  
+  <div class="col-sm-6 <?php print $node->resenas ? '': 'col-sm-offset-3' ?> ">
     <hr class="hr-dark">
     <?php foreach($node->autores as $autor): ?>
       <h2 class="text-center"><?php print t('Acerca de !autor', array('!autor' => $autor->title)) ?></h2>
