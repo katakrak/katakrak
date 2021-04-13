@@ -18,7 +18,7 @@
 <hr>
     <div class="row mt-2">
         <div class="col-sm-8 col-sm-offset-2">
-   s que ya hemos hecho:') ?></h2>
+          <h2><?php print t('Algunos ejemplos de cosas que ya hemos hecho:') ?></h2>
            <ul class="mt-2 mb-3">
              <li><?php print t('Vino, tortilla y canapés en la sala de arriba') ?></li>
             <li><?php print t('Cervezas, fritos, patatas y quesos para un cumpleaños en la cantina') ?></li>

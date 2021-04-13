@@ -55,7 +55,7 @@
               <text transform="matrix(1 0 0 1 480.791 82.1006)" class="text-tag"><?php print t('LIBRERÍA') ?></text>
               <polygon class="st3" points="344.6,99.2 344.6,121.4 15.5,121.4 15.5,213.9 424,213.9 424,147.9 424,121.4 424,99.2 	"/>
             </a>
-            <a xlink:href="<?php print url('kantina') ?>" class="link1">
+            <a xlink:href="<?php print url('cantina') ?>" class="link1">
               <text transform="matrix(1 0 0 1 480.791 82.1006)" class="text-tag"><?php print t('CANTINA') ?></text>
               <rect x="424.3" y="170.9" class="st4" width="307.5" height="64.7"/>
             </a>

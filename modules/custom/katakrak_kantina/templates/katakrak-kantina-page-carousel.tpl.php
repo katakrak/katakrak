@@ -2,7 +2,7 @@
         
       <div class="row mt-2" id="saber-mas">
         <div class="col-sm-4">
-          <h2><?php print t('Somos una cooperativa de iniciativa social') ?> </h2>
+          <h2><?php print t('¿A qué llamamos buen comer?') ?> </h2>
           <p class="lead"><?php print t('Ponemos en práctica un modelo de hostelería basado en las relaciones económicas justas, sostenibles y cercanas tanto con otras personas y colectivos como con el territorio.') ?></p>
           <p class="lead"><?php print t('Conocemos a nuestras productoras y productores. Sabemos qué te damos y cómo está hecho.') ?></p>
           

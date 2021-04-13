@@ -4,9 +4,10 @@
   <div class="cta-text">
     <div>
       <h1 class="h1-lg"><?php print t("¿Buscas un libro?") ?></h1>
-      <p class="lead"><?php print t('Te lo llevamos de la forma más sostenible') ?></p>
+      <p class="lead"><?php print t('Echa un vistazo a las últimas novedades.') ?></p>
+      <p class="lead"><?php print t('O sumérgete en nuestro fondo.') ?></p>
     </div>
-    <button class="btn btn-dark"><?php print t('Tienda online') ?></button>
+    <a class="btn btn-dark" href="<?php print url('tienda')?>"><?php print t('Tienda online') ?></a>
   </div><!--/.cta-text -->
   <div class="books">
    <div class="books-col">
