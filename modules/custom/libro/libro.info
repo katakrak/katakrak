@@ -39,6 +39,7 @@ dependencies[] = views_bootstrap
 dependencies[] = views_content_cache
 features[box][] = bizikrak
 features[context][] = faq-libreria
+features[context][] = landing_libreria
 features[context][] = libros_secciones
 features[context][] = node_book
 features[context][] = pagina_libreria

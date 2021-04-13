@@ -36,6 +36,46 @@ function libro_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'landing_libreria';
+  $context->description = '';
+  $context->tag = 'Landing';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'libreria' => 'libreria',
+        'liburudenda' => 'liburudenda',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'libro-libreria_landing_hero' => array(
+          'module' => 'libro',
+          'delta' => 'libreria_landing_hero',
+          'region' => 'hero',
+          'weight' => '-10',
+        ),
+        'libro-libreria_landing_highlight' => array(
+          'module' => 'libro',
+          'delta' => 'libreria_landing_highlight',
+          'region' => 'content_top',
+          'weight' => '-10',
+        ),
+      ),
+      'layout' => 'landing',
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Landing');
+  $export['landing_libreria'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'libros_secciones';
   $context->description = 'Libros secciones';
   $context->tag = 'Tienda online';
