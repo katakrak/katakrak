@@ -103,10 +103,10 @@
   </div>
   <?php endif; ?>
   
-  <div class="col-sm-6 <?php print $node->resenas ? '': 'col-sm-offset-3' ?> ">
+  <div class="col-sm-6 <?php print $node->resenas ? '': 'col-sm-offset-3' ?>">
     <hr class="hr-dark">
     <?php foreach($node->autores as $autor): ?>
-      <h2 class="text-center"><?php print t('Acerca de !autor', array('!autor' => $autor->title)) ?></h2>
+      <h2 class="<?php print $node->resenas ? 'text-center': '' ?>"><?php print t('Acerca de !autor', array('!autor' => $autor->title)) ?></h2>
       <?php print theme('image_style', array('style_name' => 'autor_editorial_ficha_libro', 'path' => $autor->field_imagen['und'][0]['uri'], 'attributes' => array('class' => array('img-shadow book-author')))) ?>
       <p><?php print $autor->field_autor_nacimiento['und'][0]['value'] ?></p>
       <p><?php print truncate_utf8($autor->body['und'][0]['value'], 640, TRUE, TRUE) ?></p>
