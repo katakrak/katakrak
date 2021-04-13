@@ -136,6 +136,84 @@ function katakrak_sukaldea_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-sukalde_errezeta-field_alergenos'.
+  $field_instances['node-sukalde_errezeta-field_alergenos'] = array(
+    'bundle' => 'sukalde_errezeta',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_smgrid' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 16,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_alergenos',
+    'label' => 'Alergenos',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'select_or_other',
+      'settings' => array(
+        'available_options' => 'L|Lacteos
+G|Cereales con gluten
+H|Huevos
+P|Pescado
+M|Moluscos
+CR|Crustáceos
+C|Cacahuetes
+F|Frutos secos
+S|Soja
+A|Apio
+M|Mostaza
+S|Sésamo
+AL|Altramuz
+SU|Sulfitos',
+        'available_options_php' => '',
+        'markup_available_options_php' => '&lt;none&gt;',
+        'other' => 'Other',
+        'other_size' => 60,
+        'other_title' => '',
+        'other_unknown_defaults' => 'other',
+        'sort_options' => 0,
+      ),
+      'type' => 'select_or_other_buttons',
+      'weight' => 7,
+    ),
+  );
+
   // Exported field_instance:
   // 'node-sukalde_errezeta-field_errezeta_nombre_carta_eus'.
   $field_instances['node-sukalde_errezeta-field_errezeta_nombre_carta_eus'] = array(
@@ -524,7 +602,7 @@ function katakrak_sukaldea_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 9,
+      'weight' => 8,
     ),
   );
 
@@ -585,61 +663,6 @@ function katakrak_sukaldea_field_default_field_instances() {
         'display_label' => 0,
       ),
       'type' => 'options_onoff',
-      'weight' => 7,
-    ),
-  );
-
-  // Exported field_instance: 'node-sukalde_errezeta-field_produktua_alergenos'.
-  $field_instances['node-sukalde_errezeta-field_produktua_alergenos'] = array(
-    'bundle' => 'sukalde_errezeta',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'card_book' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'card_book_md' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'card_book_smgrid' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 13,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_produktua_alergenos',
-    'label' => 'Alergenos',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
       'weight' => 7,
     ),
   );
@@ -763,117 +786,6 @@ function katakrak_sukaldea_field_default_field_instances() {
       'settings' => array(),
       'type' => 'number',
       'weight' => 9,
-    ),
-  );
-
-  // Exported field_instance: 'node-sukalde_errezeta-field_vegetariano'.
-  $field_instances['node-sukalde_errezeta-field_vegetariano'] = array(
-    'bundle' => 'sukalde_errezeta',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'card_book' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'card_book_md' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'card_book_smgrid' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 10,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_vegetariano',
-    'label' => 'Vegetariano',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
-      'weight' => 8,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'node-sukalde_produktua-field_produktua_alergenos'.
-  $field_instances['node-sukalde_produktua-field_produktua_alergenos'] = array(
-    'bundle' => 'sukalde_produktua',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'card_book' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'card_book_md' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'card_book_smgrid' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 3,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_produktua_alergenos',
-    'label' => 'Alergenos',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
-      'weight' => 5,
     ),
   );
 
@@ -1099,7 +1011,6 @@ function katakrak_sukaldea_field_default_field_instances() {
   t('Produktua');
   t('Unidad');
   t('Unitatea');
-  t('Vegetariano');
   t('peso');
 
   return $field_instances;

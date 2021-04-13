@@ -108,8 +108,10 @@ $idioma = $language->language;
       <div role="tabpanel" class="tab-pane <?php print $i == 0 ? 'active' : '' ?>" id="<?php print slugify($tab['field_collection']->field_menu_tipo_titulo['und'][0]['value']) ?>">
         <!-- <h3 class="text-center">Menú del día</h3>
         <p class="text-center">Menús variados con productos de temporada y equilibrados</p> -->
+        
         <?php foreach ($tab['field_collection']->field_menu_categoria['und'] as $categoria): ?>
         <?php //dpm($categoria) ?>
+        
         <div class="row mt-4">
           <div class="col-sm-5 mb-1">
             <div id="carousel-entrantes" class="carousel slide" data-ride="carousel">
@@ -137,7 +139,7 @@ $idioma = $language->language;
                     <?php else: ?>
                     <h3><?php print $plato->field_errezeta_nombre_carta_eus['und'][0]['value'] ?></h3>
                     <?php endif; ?>
-                    <p>Lorem ipsum</p>
+                    <p></p>
                   </div>
                 </div><!-- item-active -->
                 <?php endif; ?>
@@ -156,13 +158,13 @@ $idioma = $language->language;
           </div><!-- /.col-->
           <div class="col-sm-7">
                 <h1 class="mt-0"><?php print t($categoria['field_collection']->field_menu_nombre_categoria['und'][0]['value'])?></h1>
-                <p class="small text-gray">Descripción</p>
+                
                 <div class="table-responsive">
                   <table class="table">
                     <thead>
                       <tr>
                         <th><?php print t('Plato') ?></th>
-                        <th><?php print t('Alérgenos') ?></th>
+                        <th><?php print t('Alérgenos') ?>*</th>
                         <?php if ($tab['field_collection']->field_menu_tipo_titulo['und'][0]['value'] != 'Menú del día'): ?>
                         <th><?php print t('Precio') ?></th>
                         <?php endif; ?>
@@ -177,7 +179,11 @@ $idioma = $language->language;
                           <?php else: ?>
                           <td><?php print $plato->field_errezeta_nombre_carta_eus['und'][0]['value'] ?></td>
                           <?php endif; ?>
-                          <td>Iconos</td>
+                          <td>
+                            <?php foreach($plato->field_alergenos['und'] as $alergeno): ?>
+                              <?php print $alergeno['value'] ?>
+                            <?php endforeach; ?>
+                          </td>
                           <?php if ($tab['field_collection']->field_menu_tipo_titulo['und'][0]['value'] != 'Menú del día'): ?>
                           <td><?php print $plato->field_produktua_prezioa['und'][0]['value'] ?>€</td>
                           <?php endif; ?>
@@ -189,10 +195,47 @@ $idioma = $language->language;
 
             </div><!-- /.col-->
           </div><!-- /.row-->
+          
         <?php endforeach; ?>
+          <div class="row">
+            <div class="col-sm-5"></div>
+            <div class="col-sm-7"><p class=""><?php print t($tab['field_collection']->field_menu_tipo_descripcion['und'][0]['value'])?></p></div>
+          </div>
       </div><!-- /.tab-pane-->
 
     <?php    endforeach; ?>
          </div><!-- /.tab-content-->
   </div><!-- /.col-->
+  
+  <p><?php print t('*Información sobre alérgenos') ?>
+  <ul>
+    <li>L = <?php print t('Lacteos') ?></li>
+    <li>G = <?php print t('Cereales con gluten') ?></li>
+    <li>H = <?php print t('Huevos') ?>Huevos</li>
+    <li>P = <?php print t('Pescado') ?></li>
+    <li>M = <?php print t('Molúscos') ?></li>
+    <li>CR = <?php print t('Crustáceos') ?></li>
+    <li>C = <?php print t('Cacahuetes') ?></li>
+    <li>F = <?php print t('Frutos secos') ?></li>
+    <li>S = <?php print t('Soja') ?></li>
+    <li>A = <?php print t('Apio') ?></li>
+    <li>M = <?php print t('Mostaza') ?></li>
+    <li>S = <?php print t('Sésamo') ?></li>
+    <li>A = <?php print t('Altramuz') ?></li>
+    <li>SU = <?php print t('Sulfitos') ?></li>
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </p>
 </div><!-- /.row-->

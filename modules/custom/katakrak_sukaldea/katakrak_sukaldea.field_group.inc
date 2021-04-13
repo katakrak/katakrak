@@ -24,11 +24,9 @@ function katakrak_sukaldea_field_group_info() {
     'label' => 'Información para el menu',
     'weight' => '2',
     'children' => array(
-      0 => 'field_errezeta_nombre_carta',
-      1 => 'field_vegetariano',
-      2 => 'field_produktua_alergenos',
-      3 => 'field_errezeta_nombre_carta_eus',
-      4 => 'field_image',
+      0 => 'field_errezeta_nombre_carta_eus',
+      1 => 'field_image',
+      2 => 'field_alergenos',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
