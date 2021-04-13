@@ -40,6 +40,14 @@ function libro_menu() {
     'type' => MENU_LOCAL_TASK,
     'weight' => 100,
   );
+  $items['libreria'] = array(
+    'title' => 'Librería',
+    'page callback' => 'theme',
+    'page arguments' => array('libreria_landing'),
+    'access callback' => 'user_access',
+    'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+  );
   $items['libro'] = array(
     'title' => 'Portada',
     'page callback' => 'todostuslibros_ficha',
@@ -318,6 +326,14 @@ function libro_block_info() {
     'info' => t('Listado de categorías primarias en la landing de librería'),
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['libreria_landing_hero'] = array(
+    'info' => t('Hero de landing librería'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['libreria_landing_highlight'] = array(
+    'info' => t('Highlight de landing librería'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   return $blocks;
 }
 
@@ -356,6 +372,13 @@ function libro_block_view($delta) {
         else {
           $block['content'] .= views_embed_view('secciones', 'secciones_home_tienda_eus');
         }
+      break;
+    case 'libreria_landing_hero':
+      $block['content'] = theme('libreria_landing_hero');
+      break;
+    case 'libreria_landing_highlight':
+      $block['content'] = theme('libreria_landing_highlight');
+      break;    
   }
   return $block;
 }
@@ -387,6 +410,18 @@ function libro_theme() {
     'libreria_home_destacado' => array(
       'template' => 'libreria-home-destacado',
       'path' => $path . '/templates',
+    ),
+    'libreria_landing' => array(
+      'template' => 'libreria-landing',
+      'path' => $path . '/templates',
+    ),
+    'libreria_landing_hero' => array(
+      'template' => 'libreria-landing-hero',
+      'path' => $path . '/templates',
+    ),
+    'libreria_landing_highlight' => array(
+      'template' => 'libreria-landing-highlight',
+      'path' => $path . '/templates'
     ),
   );
 }
