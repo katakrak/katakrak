@@ -135,17 +135,29 @@ function libro_context_default_contexts() {
           'region' => 'content',
           'weight' => '-10',
         ),
+        'views-libros-recomendados_narrativa' => array(
+          'module' => 'views',
+          'delta' => 'libros-recomendados_narrativa',
+          'region' => 'content',
+          'weight' => '1',
+        ),
+        'views-libros-recomendados_infantil' => array(
+          'module' => 'views',
+          'delta' => 'libros-recomendados_infantil',
+          'region' => 'content',
+          'weight' => '2',
+        ),
         'libro-libreria_categorias' => array(
           'module' => 'libro',
           'delta' => 'libreria_categorias',
           'region' => 'content',
-          'weight' => '-9',
+          'weight' => '4',
         ),
-        'libro-libreria_home_bono_regalo' => array(
-          'module' => 'libro',
-          'delta' => 'libreria_home_bono_regalo',
-          'region' => 'banners',
-          'weight' => '-10',
+        'views-libros-recomendados_comic' => array(
+          'module' => 'views',
+          'delta' => 'libros-recomendados_comic',
+          'region' => 'content',
+          'weight' => '3',
         ),
         'libro-libreria_home_bizikrak' => array(
           'module' => 'libro',

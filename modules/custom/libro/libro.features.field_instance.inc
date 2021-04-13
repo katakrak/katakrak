@@ -1923,7 +1923,7 @@ function libro_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Mostrar en el listado general de secciones',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1951,6 +1951,43 @@ function libro_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'taxonomy_term-materias-field_seccion_portada'.
+  $field_instances['taxonomy_term-materias-field_seccion_portada'] = array(
+    'bundle' => 'materias',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Mostrar en la portada de la web. Solamente mostramos 8 secciones',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 4,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_seccion_portada',
+    'label' => 'Mostrar en portada',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 0,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 44,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Apellido');
@@ -1966,6 +2003,9 @@ function libro_field_default_field_instances() {
   t('Imagen');
   t('Isbn');
   t('Mostrar');
+  t('Mostrar en el listado general de secciones');
+  t('Mostrar en la portada de la web. Solamente mostramos 8 secciones');
+  t('Mostrar en portada');
   t('Nombre');
   t('Nombre euskera');
   t('Peso');

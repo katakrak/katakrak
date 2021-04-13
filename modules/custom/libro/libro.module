@@ -336,23 +336,6 @@ function libro_block_view($delta) {
       }
       $block['content'] = theme('katakrak_libro_estilo', array('link' => $link));
       break;
-    case 'katakrak_secciones':
-      if ($voc = taxonomy_vocabulary_machine_name_load('materias')) {
-        $block['subject'] = t('Por secciones');
-        $tags = tagclouds_get_tags(array($voc->vid), variable_get('tagclouds_levels', 6), variable_get('tagclouds_block_tags_' . $voc->vid, 12));
-
-        //$tags = tagclouds_sort_tags($tags, "hook_block_view");;
-        $tags = tagclouds_sort_tags($tags);
-
-        $block['content'] = theme('tagclouds_weighted', array('terms' => $tags)); //return a chunk of 12 tags
-        if ($language->language == 'es') {
-          $block['content'] .= views_embed_view('secciones', 'secciones_es');
-        }
-        else {
-          $block['content'] .= views_embed_view('secciones', 'secciones_eu');
-        }
-      }
-      break;
     case 'libreria_home_search':
       $form = drupal_get_form('libro_search_home_form');
       $block['content'] = theme('katakrak_search_block', array('form' => $form));
@@ -368,10 +351,10 @@ function libro_block_view($delta) {
       break;
     case 'libreria_categorias':
       if ($language->language == 'es') {
-          $block['content'] .= views_embed_view('secciones', 'secciones_block');
+          $block['content'] .= views_embed_view('secciones', 'secciones_home_tienda');
         }
         else {
-          $block['content'] .= views_embed_view('secciones', 'secciones_eus');
+          $block['content'] .= views_embed_view('secciones', 'secciones_home_tienda_eus');
         }
   }
   return $block;

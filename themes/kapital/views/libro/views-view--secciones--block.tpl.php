@@ -1,7 +1,6 @@
 <?php
 
 /**
- * Este es el bloque de recomendados ensayo
  * @file
  * Main view template.
  *
@@ -28,13 +27,8 @@
  * @ingroup views_templates
  */
 ?>
-<h1 class="text-center"><?php print t('Novedades de ensayo') ?></h1>
 <div class="<?php print $classes; ?>">
-  <?php print render($title_prefix); ?>
-  <?php if ($title): ?>
-    <?php print $title; ?>
-  <?php endif; ?>
-  <?php print render($title_suffix); ?>
+  <h1 class="text-center"><?php print t('Secciones') ?></h1>
   <?php if ($header): ?>
     <div class="view-header">
       <?php print $header; ?>
@@ -90,4 +84,3 @@
   <?php endif; ?>
 
 </div><?php /* class view */ ?>
-<hr>

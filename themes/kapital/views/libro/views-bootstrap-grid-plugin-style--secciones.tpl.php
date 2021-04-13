@@ -19,13 +19,8 @@
 <?php if (!empty($title)): ?>
   <h3><?php print $title ?></h3>
 <?php endif ?>
-<p class="text-center mt-1">
-  <a  class="btn btn-transparent" data-toggle="collapse" href="#secciones">
-    <?php print t('Mostrar secciones (ver solución)') ?>
-  </a> 
-</p> 
+
 <div id="views-bootstrap-grid-<?php print $id ?>" class="<?php print $classes ?>">
-    <div id="secciones" class="collapse">
   <?php if ($options['alignment'] == 'horizontal'): ?>
 
     <?php foreach ($items as $row): ?>
@@ -61,4 +56,3 @@
 
   <?php endif ?>
 </div>
-    </div>
