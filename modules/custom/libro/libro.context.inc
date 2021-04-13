@@ -42,6 +42,7 @@ function libro_context_default_contexts() {
   $context->conditions = array(
     'taxonomy_term' => array(
       'values' => array(
+        'autores' => 'autores',
         'materias' => 'materias',
       ),
       'options' => array(
@@ -59,6 +60,9 @@ function libro_context_default_contexts() {
           'weight' => '-10',
         ),
       ),
+    ),
+    'menu' => array(
+      0 => 'main-menu:tienda',
     ),
   );
   $context->condition_mode = 0;
@@ -93,6 +97,12 @@ function libro_context_default_contexts() {
           'delta' => 'main',
           'region' => 'content',
           'weight' => '-9',
+        ),
+        'libro-libreria_home_bizikrak' => array(
+          'module' => 'libro',
+          'delta' => 'libreria_home_bizikrak',
+          'region' => 'banners',
+          'weight' => '-10',
         ),
         'libro-libreria_home_search' => array(
           'module' => 'libro',
