@@ -137,7 +137,7 @@ function katakrak_kantina_field_default_field_instances() {
     'bundle' => 'field_menu_tipo_menu',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Para poner información tipo precios, horarios etc. Tened en cuenta que la traducción al euskera hay que meterla por otro sitio',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -784,6 +784,7 @@ function katakrak_kantina_field_default_field_instances() {
   t('Ingredientes');
   t('Media');
   t('Nombre categoria');
+  t('Para poner información tipo precios, horarios etc. Tened en cuenta que la traducción al euskera hay que meterla por otro sitio');
   t('Pestañas');
   t('Platos');
   t('Tipo receta');

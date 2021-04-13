@@ -142,7 +142,7 @@ function katakrak_agenda_context_default_contexts() {
   );
   $context->reactions = array(
     'menu' => array(
-      0 => 'menu-menu-nagusia:agenda',
+      0 => 'main-menu:agenda',
     ),
   );
   $context->condition_mode = 0;

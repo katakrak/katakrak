@@ -106,7 +106,7 @@ function katakrak_kantina_context_default_contexts() {
       ),
     ),
     'menu' => array(
-      0 => 'menu-menu-nagusia:cantina',
+      0 => 'main-menu:cantina',
     ),
   );
   $context->condition_mode = 0;
