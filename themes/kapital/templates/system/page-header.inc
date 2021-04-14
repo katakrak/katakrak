@@ -21,7 +21,6 @@
   </ul>
 </nav>
 
-
 <nav class="navbar navbar-default navbar-custom">
   <div class="container-fluid">
     <div class="navbar-header">

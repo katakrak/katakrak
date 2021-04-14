@@ -6,6 +6,65 @@
 
 include_once 'katakrak_sukaldea.features.inc';
 
+function katakrak_sukaldea_init() {
+  $alergenos = array(
+    'G' => array(
+      'name' => t('Cereales con gluten'),
+      'image' => 'gluten.svg',
+      ),
+    'H' => array(
+      'name' => t('Huevos'),
+      'image' => 'huevos.svg',
+      ),
+    'M' => array(
+      'name' => t('Moluscos'),
+      'image' => 'moluscos.svg',
+      ),
+    'CR' => array(
+      'name' => t('Crustáceos'),
+      'image' => 'crustaceos.svg',
+      ),
+    'P' => array(
+      'name' => t('Pescado'),
+      'image' => 'pescado.svg',
+      ),
+    'C' => array(
+      'name' => t('Cacahuetes'),
+      'image' => 'cacahuetes.svg',
+      ),
+    'F' => array(
+      'name' => t('Frutos secos'),
+      'image' => 'frutos-secos.svg',
+      ),
+    'S' => array(
+      'name' => t('Soja'),
+      'image' => 'soja.svg',
+      ),
+    'A' => array(
+      'name' => t('Apio'),
+      'image' => 'apio.svg',
+      ),
+    '' => array(
+      'name' => t('Mostaza'),
+      'image' => 'mostaza.svg',
+      ),
+    'S' => array(
+      'name' => t('Sésamo'),
+      'image' => 'sesamo.svg',
+      ),
+    'AL' => array(
+      'name' => t('Altramuz'),
+      'image' => 'altramuces.svg',
+      ),
+    'SU' => array(
+      'name' => t('Sulfitos'),
+      'image' => 'sulfitos.svg',
+      ),
+  );
+  variable_set('alergenos', $alergenos);
+}
+
+
 function katakrak_sukaldea_menu() {
   $items = array();
   $items['admin/config/sukaldea'] = array(
