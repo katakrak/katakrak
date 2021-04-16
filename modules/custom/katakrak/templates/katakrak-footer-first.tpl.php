@@ -1,6 +1,7 @@
 <h2><?php print t('Ven a Katakrak') ?></h2>
 <ul class="list-unstyled">
   <li class="list-item">C/Mayor 54 K Nagusia</li>
+  <li class="list-item">Pamplona-Iruñea</li>
   <li class="list-item">31001 Navarra-Nafarroa</li>
   <!-- <li class="list-item">
     <a class="" href="#">Localízanos</a>

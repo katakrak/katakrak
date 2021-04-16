@@ -113,7 +113,7 @@
       <p><?php print $autor->field_autor_nacimiento['und'][0]['value'] ?></p>
       <p><?php print truncate_utf8($autor->body['und'][0]['value'], 640, TRUE, TRUE) ?></p>
       <p><?php print l(t('Saber más'), 'node/'.$autor->nid, array('attributes' => array('class' => array('btn btn-secondary')))) ?></p>
-  <?php endforeach; ?>
+    <?php endforeach; ?>
    
   </div>
 </div>

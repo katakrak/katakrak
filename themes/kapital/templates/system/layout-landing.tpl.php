@@ -76,11 +76,12 @@
 ?>
 <?php include 'page-header.inc' ?>
 <main class="main <?php print $section_title ?>">
+  <div class="row"><?php print $messages; ?></div>
 <?php print render($page['banners']) ?>
   <div class="row">
     <section<?php print $content_column_class; ?>>
  
-      <?php print $messages; ?>
+      
       <?php if (!empty($tabs)): ?>
         <?php print render($tabs); ?>
       <?php endif; ?>

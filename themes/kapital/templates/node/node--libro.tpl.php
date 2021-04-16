@@ -236,7 +236,7 @@
       <h3 class="book-title-sm mb-1">
         <?php print l($node->title, 'node/'.$node->nid) ?>
       </h3>
-        <p><?php print render($content['field_libro_autores']) ?></p>
+        <?php print render($content['field_libro_autores']) ?>
         <p class="price"><?php print $content['product:commerce_price'][0]['#markup'] ?></p>
         <?php if ($node->disponibilidad == DISPONIBLE_LIBRERIA): ?>
         <p class="success"><?php print t('Disponible') ?></p>

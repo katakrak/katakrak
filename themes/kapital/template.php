@@ -35,7 +35,7 @@ function kapital_preprocess_page(&$vars) {
   drupal_add_js('https://kit.fontawesome.com/10471300b3.js', 'external');
   
   //Definimos enlace de donde estamos
-  $vars['donde_estamos'] = l('<i class="fas fa-location-arrow" aria-hidden="true"></i> <span class="hidden-xs">'.t('¿Dónde estamos?').'</span>', 'contacto', array('html' => TRUE, 'attributes' => array('target' => '_blank')));//<a href="" target="_blank">
+  $vars['donde_estamos'] = l('<i class="fas fa-location-arrow" aria-hidden="true"></i> <span class="hidden-xs">'.t('¿Dónde estamos?').'</span>', 'contact', array('html' => TRUE, 'attributes' => array('target' => '_blank')));//<a href="" target="_blank">
   
   //Las dos versiones del logo
   $vars['logo_small'] = 'sites/all/themes/kapital/images/katakrak-icon.svg';

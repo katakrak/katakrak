@@ -81,6 +81,7 @@
  */
 global $language;
 $idioma = $language->language;
+$alergenos = variable_get('alergenos');
 ?>
 <ul class="nav nav-secondary hidden-xs">
   <?php foreach($node->field_menu_tipo_menu['und'] as $tab): ?>
@@ -181,7 +182,9 @@ $idioma = $language->language;
                           <?php endif; ?>
                           <td>
                             <?php foreach($plato->field_alergenos['und'] as $alergeno): ?>
-                              <?php print $alergeno['value'] ?>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="<?php print $alergenos[$alergeno['value']]['name'] ?>">
+                                <img src="/sites/all/themes/kapital/images/alergenos/<?php print $alergenos[$alergeno['value']]['image'] ?>" width="30" height="30" alt="<?php print $alergenos[$alergeno['value']]['name'] ?>">
+                              </a>
                             <?php endforeach; ?>
                           </td>
                           <?php if ($tab['field_collection']->field_menu_tipo_titulo['und'][0]['value'] != 'Menú del día'): ?>
@@ -207,7 +210,7 @@ $idioma = $language->language;
          </div><!-- /.tab-content-->
   </div><!-- /.col-->
   
-  <p><?php print t('*Información sobre alérgenos') ?>
+  <!--<p><?php print t('*Información sobre alérgenos') ?>
   <ul>
     <li>L = <?php print t('Lacteos') ?></li>
     <li>G = <?php print t('Cereales con gluten') ?></li>
@@ -223,7 +226,7 @@ $idioma = $language->language;
     <li>S = <?php print t('Sésamo') ?></li>
     <li>A = <?php print t('Altramuz') ?></li>
     <li>SU = <?php print t('Sulfitos') ?></li>
-  </ul>
+  </ul>-->
 
 
 
