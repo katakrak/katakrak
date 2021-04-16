@@ -89,6 +89,12 @@ function libro_context_default_contexts() {
         'term_form' => '0',
       ),
     ),
+    'views' => array(
+      'values' => array(
+        'secciones:pagina_secciones' => 'secciones:pagina_secciones',
+        'secciones:pagina_secciones_eus' => 'secciones:pagina_secciones_eus',
+      ),
+    ),
   );
   $context->reactions = array(
     'block' => array(
@@ -98,6 +104,24 @@ function libro_context_default_contexts() {
           'delta' => 'libreria_home_bizikrak',
           'region' => 'banners',
           'weight' => '-10',
+        ),
+        'libro-libreria_secciones_breadcrumb' => array(
+          'module' => 'libro',
+          'delta' => 'libreria_secciones_breadcrumb',
+          'region' => 'content_top',
+          'weight' => '-10',
+        ),
+        'libro-libreria_home_search' => array(
+          'module' => 'libro',
+          'delta' => 'libreria_home_search',
+          'region' => 'content_top',
+          'weight' => '-9',
+        ),
+        'libro-libreria_secciones_titulo' => array(
+          'module' => 'libro',
+          'delta' => 'libreria_secciones_titulo',
+          'region' => 'content_top',
+          'weight' => '-8',
         ),
       ),
     ),

@@ -334,6 +334,14 @@ function libro_block_info() {
     'info' => t('Highlight de landing librería'),
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['libreria_secciones_breadcrumb'] = array(
+    'info' => t('Breadcrumb de secciones'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['libreria_secciones_titulo'] = array(
+    'info' => t('Título de sección en la tienda online'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   return $blocks;
 }
 
@@ -372,6 +380,49 @@ function libro_block_view($delta) {
         else {
           $block['content'] .= views_embed_view('secciones', 'secciones_home_tienda_eus');
         }
+      break;
+    case 'libreria_secciones_breadcrumb':
+      $tid = arg(2);
+      $links[] = '<li>'.l(t('Tienda online'), 'tienda').'</li>';
+      
+      if (arg(1) == 'secciones')
+        $links[] = '<li class="active">'.t('Secciones').'</li>';
+      else {
+        if (isset($tid)) {
+
+          $term = taxonomy_term_load($tid);
+          if ($term->vocabulary_machine_name == 'materias'){
+            $links[] = '<li>'.l(t('Secciones'), 'tienda/secciones').'</li>';
+            global $language;
+            if ($language->language == 'es')
+              $links[] = '<li class="active">'.$term->name.'</li>';
+            else
+              $links[] = '<li class="active">'.$term->field_nombre_euskera['und'][0]['value'].'</li>';
+          }
+          else
+             $links[] = '<li class="active">'.$term->name.'</li>';
+        }
+      }
+      $block['content'] = theme('libreria_secciones_breadcrumb', array('links' => $links));
+      break;
+    case 'libreria_secciones_titulo':
+      if (arg(1) == 'secciones'){
+        $title = t('Secciones de la tienda');
+        $texto = t('Accede a los libros de cada sección');
+      }
+      $tid = arg(2);
+      if (isset($tid)) {
+        $term = taxonomy_term_load($tid);
+        if ($term->vocabulary_machine_name == 'materias'){
+          if ($language->language == 'es')
+            $title = t("Todos los libros sobre @name",array('@name' => $term->name ));
+          else
+            $title = t("Todos los libros sobre @name",array('@name' => $term->field_nombre_euskera['und'][0]['value'] ));
+        }
+        else
+          $title = t("Todos los libros de @name",array('@name' => $term->name ));
+      }
+      $block['content'] = theme('libreria_secciones_titulo', array('title' => $title, 'text' => $texto));
       break;
     case 'libreria_landing_hero':
       $block['content'] = theme('libreria_landing_hero');
@@ -422,6 +473,21 @@ function libro_theme() {
     'libreria_landing_highlight' => array(
       'template' => 'libreria-landing-highlight',
       'path' => $path . '/templates'
+    ),
+    'libreria_secciones_breadcrumb' => array(
+      'template' => 'libreria-secciones-breadcrumb',
+      'path' => $path . '/templates',
+      'arguments' => array(
+        'links' => NULL,
+      ),
+    ),
+    'libreria_secciones_titulo' => array(
+      'template' => 'libreria-secciones-titulo',
+      'path' => $path . '/templates',
+      'arguments' => array(
+        'title' => NULL,
+        'text' => NULL
+      ),
     ),
   );
 }

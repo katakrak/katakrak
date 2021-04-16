@@ -187,8 +187,7 @@ function katakrak_sukaldea_field_default_field_instances() {
       'active' => 1,
       'module' => 'select_or_other',
       'settings' => array(
-        'available_options' => 'L|Lacteos
-G|Cereales con gluten
+        'available_options' => 'G|Cereales con gluten
 H|Huevos
 P|Pescado
 M|Moluscos
@@ -210,6 +209,67 @@ SU|Sulfitos',
         'sort_options' => 0,
       ),
       'type' => 'select_or_other_buttons',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'node-sukalde_errezeta-field_errezeta_familia'.
+  $field_instances['node-sukalde_errezeta-field_errezeta_familia'] = array(
+    'bundle' => 'sukalde_errezeta',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Una de las siguientes familias:
+reposteria
+cenas
+menú del día',
+    'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_smgrid' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 9,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_errezeta_familia',
+    'label' => 'Familia',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
       'weight' => 7,
     ),
   );
@@ -993,6 +1053,7 @@ SU|Sulfitos',
   t('El peso de una unidad de este producto, expresado en gramos.');
   t('El precio de la unidad del producto. Sin IVA');
   t('En cuantas porciones se divide la receta. Se usa para calcular los precios recomendados');
+  t('Familia');
   t('Imagen');
   t('Izena');
   t('Kopurua');
@@ -1009,6 +1070,10 @@ SU|Sulfitos',
   t('Preparacion');
   t('Producto primario');
   t('Produktua');
+  t('Una de las siguientes familias:
+reposteria
+cenas
+menú del día');
   t('Unidad');
   t('Unitatea');
   t('peso');

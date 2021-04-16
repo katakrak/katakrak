@@ -27,12 +27,6 @@ function katakrak_search_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'libro-libreria_home_bono_regalo' => array(
-          'module' => 'libro',
-          'delta' => 'libreria_home_bono_regalo',
-          'region' => 'banners',
-          'weight' => '-10',
-        ),
         'libro-libreria_home_bizikrak' => array(
           'module' => 'libro',
           'delta' => 'libreria_home_bizikrak',
