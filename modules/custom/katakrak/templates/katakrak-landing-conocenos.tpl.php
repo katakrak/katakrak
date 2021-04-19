@@ -33,7 +33,7 @@
             <ul class="list-bordered">
               <li><?php print t('Un edificio en la <b>calle Mayor</b> destinado a usos sociales a perpetuidad.') ?></li>
               <li><?php print t('Una <b>sala disponible</b> para convocatorias urgentes ante cualquier atropello.') ?></li>
-              <li><?php print t('Un domicilio donde <b>militantes anticapitalistas</b> han cumplido arrestos.') ?>Un domicilio donde <b>militantes anticapitalistas</b> han cumplido arrestos.</li>
+              <li><?php print t('Un domicilio donde <b>militantes anticapitalistas</b> han cumplido arrestos.') ?></li>
               <li><?php print t('Un proyecto <b>autónomo</b>, que no depende de subvenciones ni tiene detrás ninguna estructura partidista.') ?></li>
             </ul>
           </div>

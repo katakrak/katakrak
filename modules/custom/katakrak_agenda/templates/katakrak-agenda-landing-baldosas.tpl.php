@@ -20,7 +20,7 @@
           <p>
             <img src="/sites/all/themes/kapital/images/sala-charla.jpg" class="img-responsive" alt="Organiza tu charla en Katakrak">
           </p>
-          <h3><?php print t('Un espacio par tu charla')?></h3>
+          <h3><?php print t('Un espacio para tu charla')?></h3>
           
         </a>
       </div>

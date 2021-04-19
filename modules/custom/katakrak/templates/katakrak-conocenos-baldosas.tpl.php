@@ -23,7 +23,7 @@
             <img src="/sites/all/themes/kapital/images/color/libreria10.jpg" class="img-responsive" alt="Katakrak Editorial">
           </p>
           <h3><?php print t('Editorial') ?></h3>
-          <p><?php t('Especializada en feminismos, geografía crítica y literatura revolucionaria traducida al euskera') ?></p>
+          <p><?php print t('Especializada en feminismos, geografía crítica y literatura transformadora traducida al euskera') ?></p>
         </a>
       </div>
       <div class="col-sm-6 col-md-3">
