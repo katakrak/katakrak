@@ -127,6 +127,44 @@ function katakrak_kantina_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_menu_tipo_menu-field_menu_pest_activo'.
+  $field_instances['field_collection_item-field_menu_tipo_menu-field_menu_pest_activo'] = array(
+    'bundle' => 'field_menu_tipo_menu',
+    'default_value' => array(
+      0 => array(
+        'value' => 1,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_menu_pest_activo',
+    'label' => 'Activo',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 0,
+      ),
+      'type' => 'options_onoff',
       'weight' => 2,
     ),
   );
@@ -775,6 +813,7 @@ function katakrak_kantina_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Activo');
   t('Categoria');
   t('Cuerpo');
   t('Descripcion');

@@ -82,13 +82,15 @@
 global $language;
 $idioma = $language->language;
 $alergenos = variable_get('alergenos');
+dpm($node->field_menu_tipo_menu['und']);
 ?>
 <ul class="nav nav-secondary hidden-xs">
-  <?php foreach($node->field_menu_tipo_menu['und'] as $tab): ?>
-  
-    <li>
+  <?php foreach($node->field_menu_tipo_menu['und'] as $i => $tab): ?>
+  <?php if ($tab['field_collection']->field_menu_pest_activo['und'][0]['value']): ?>
+    <li class="<?php print $i == 0 ? 'active': '' ?>">
       <a href="#<?php print slugify($tab['field_collection']->field_menu_tipo_titulo['und'][0]['value']) ?>" aria-controls="home" role="tab" data-toggle="tab"><?php print t($tab['field_collection']->field_menu_tipo_titulo['und'][0]['value']) ?></a>
       </li>
+      <?php endif; ?>
   <?php endforeach; ?>
 </ul>
 
@@ -105,7 +107,7 @@ $alergenos = variable_get('alergenos');
   <div class="col-sm-12">
     <div class="tab-content mb-2">
     <?php foreach($node->field_menu_tipo_menu['und'] as $i => $tab): ?>
-      <?php //dpm($tab) ?>
+      <?php if ($tab['field_collection']->field_menu_pest_activo['und'][0]['value']): ?>
       <div role="tabpanel" class="tab-pane <?php print $i == 0 ? 'active' : '' ?>" id="<?php print slugify($tab['field_collection']->field_menu_tipo_titulo['und'][0]['value']) ?>">
         <!-- <h3 class="text-center">Menú del día</h3>
         <p class="text-center">Menús variados con productos de temporada y equilibrados</p> -->
@@ -200,13 +202,15 @@ $alergenos = variable_get('alergenos');
           </div><!-- /.row-->
           
         <?php endforeach; ?>
+          <?php if ($tab['field_collection']->field_menu_tipo_descripcion['und'][0]['value']): ?>
           <div class="row">
             <div class="col-sm-5"></div>
             <div class="col-sm-7"><p class=""><?php print t($tab['field_collection']->field_menu_tipo_descripcion['und'][0]['value'])?></p></div>
           </div>
+          <?php endif; ?>
       </div><!-- /.tab-pane-->
-
-    <?php    endforeach; ?>
+      <?php endif; ?>
+    <?php  endforeach; ?>
          </div><!-- /.tab-content-->
   </div><!-- /.col-->
   

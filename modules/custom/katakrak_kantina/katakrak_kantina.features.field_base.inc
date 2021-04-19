@@ -81,6 +81,31 @@ function katakrak_kantina_field_default_field_bases() {
     'type' => 'text',
   );
 
+  // Exported field_base: 'field_menu_pest_activo'.
+  $field_bases['field_menu_pest_activo'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_menu_pest_activo',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => 'No',
+        1 => 'Activa',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
+  );
+
   // Exported field_base: 'field_menu_platos'.
   $field_bases['field_menu_platos'] = array(
     'active' => 1,
