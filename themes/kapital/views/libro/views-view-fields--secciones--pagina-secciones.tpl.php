@@ -23,11 +23,13 @@
  *
  * @ingroup views_templates
  */
+$term = taxonomy_term_load($fields['tid']->raw);
+
 ?>
 
 <a class="card-link" href="<?php print url('taxonomy/term/'.$fields['tid']->raw) ?>">
   <div class="d-flex">
-    <?php print $fields['field_image']->content ?>
+    <?php print theme('image', array('path' => $term->field_image['und'][0]['uri'], 'attributes' => array('class' => array('is-circle is-seccion')))) ?>
     <p><?php print $fields['name']->raw ?></p>
   </div><!-- /.d-flex -->
 </a>
