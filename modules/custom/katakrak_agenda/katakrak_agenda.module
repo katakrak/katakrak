@@ -184,7 +184,7 @@ function katakrak_agenda_reserva_form($form, &$form_state) {
     '#type' => 'date_popup',
     '#date_type' => DATE_DATETIME,
     '#date_timezone' => date_default_timezone(),
-    '#date_format' => 'm/d/Y h:i a',
+    '#date_format' => 'd/m/Y H:i',
     '#date_increment' => 1,
     '#date_year_range' => '-3:+3',
     //'#required' => TRUE,  
