@@ -121,7 +121,6 @@ function katakrak_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'commerce_enabled_currencies';
   $strongarm->value = array(
-    'EUR' => 'EUR',
     'AED' => 0,
     'AFN' => 0,
     'ANG' => 0,
@@ -165,6 +164,7 @@ function katakrak_strongarm() {
     'EGP' => 0,
     'ERN' => 0,
     'ETB' => 0,
+    'EUR' => 'EUR',
     'FJD' => 0,
     'FKP' => 0,
     'GBP' => 0,
@@ -273,10 +273,112 @@ function katakrak_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'eu_cookie_compliance';
+  $strongarm->value = array(
+    'accept_all_categories_button_label' => 'Accept all cookies',
+    'allowed_cookies' => '',
+    'automatic_cookies_removal' => 1,
+    'better_support_for_screen_readers' => 0,
+    'consent_storage_method' => 'basic',
+    'containing_element' => 'body',
+    'cookie_name' => '',
+    'cookie_policy_version' => '1.0.0',
+    'cookie_session' => 0,
+    'disabled_javascripts' => '',
+    'disagree_button_label' => 'No, gracias',
+    'disagree_do_not_show_popup' => 0,
+    'domains_list' => '',
+    'domains_option' => '1',
+    'enable_save_preferences_button' => 1,
+    'exclude_admin_pages' => 0,
+    'exclude_paths' => '',
+    'exclude_uid_1' => 0,
+    'fixed_top_position' => 0,
+    'info_template' => 'new',
+    'method' => 'opt_in',
+    'mobile_breakpoint' => '768',
+    'mobile_popup_info' => array(
+      'format' => 'sinopsis',
+      'value' => '',
+    ),
+    'popup_agree_button_message' => 'De acuerdo',
+    'popup_agreed' => array(
+      'format' => 'sinopsis',
+      'value' => '',
+    ),
+    'popup_agreed_enabled' => 0,
+    'popup_bg_hex' => '0779bf',
+    'popup_clicking_confirmation' => FALSE,
+    'popup_delay' => '1000',
+    'popup_disagree_button_message' => 'No, quiero saber más',
+    'popup_enabled' => 1,
+    'popup_find_more_button_message' => 'More info',
+    'popup_height' => '',
+    'popup_hide_agreed' => 0,
+    'popup_hide_button_message' => 'Ocultar',
+    'popup_info' => array(
+      'format' => 'filtered_html',
+      'value' => 'Necesitamos utilizar cookies para mejorar tu experiencia de usuario',
+    ),
+    'popup_link' => 'lopd',
+    'popup_link_new_window' => 1,
+    'popup_link_translate' => 1,
+    'popup_position' => NULL,
+    'popup_scrolling_confirmation' => FALSE,
+    'popup_text_hex' => 'ffffff',
+    'popup_width' => '100%',
+    'reload_page' => 0,
+    'save_preferences_button_label' => 'Save preferences',
+    'script_scope' => 'footer',
+    'show_disagree_button' => TRUE,
+    'use_bare_css' => 0,
+    'use_mobile_message' => 0,
+    'withdraw_action_button_label' => '',
+    'withdraw_button_on_info_popup' => 0,
+    'withdraw_enabled' => 0,
+    'withdraw_message' => array(
+      'format' => 'sinopsis',
+      'value' => '',
+    ),
+    'withdraw_tab_button_label' => '',
+  );
+  $export['eu_cookie_compliance'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'eu_cookie_compliance_categories';
+  $strongarm->value = array();
+  $export['eu_cookie_compliance_categories'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'eu_cookie_compliance_cookie_lifetime';
+  $strongarm->value = '100';
+  $export['eu_cookie_compliance_cookie_lifetime'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'eu_cookie_compliance_domain';
+  $strongarm->value = '';
+  $export['eu_cookie_compliance_domain'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'eu_cookie_compliance_domain_all_sites';
+  $strongarm->value = 0;
+  $export['eu_cookie_compliance_domain_all_sites'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__imagen';
   $strongarm->value = array(
-    'view_modes' => array(),
     'extra_fields' => array(
+      'display' => array(),
       'form' => array(
         'language' => array(
           'weight' => '2',
@@ -284,15 +386,15 @@ function katakrak_strongarm() {
         'metatags' => array(
           'weight' => '4',
         ),
-        'title' => array(
-          'weight' => '0',
-        ),
         'path' => array(
           'weight' => '3',
         ),
+        'title' => array(
+          'weight' => '0',
+        ),
       ),
-      'display' => array(),
     ),
+    'view_modes' => array(),
   );
   $export['field_bundle_settings_node__imagen'] = $strongarm;
 
@@ -301,9 +403,48 @@ function katakrak_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__page';
   $strongarm->value = array(
+    'extra_fields' => array(
+      'display' => array(
+        'language' => array(
+          'default' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+        ),
+        'sharethis' => array(
+          'default' => array(
+            'visible' => TRUE,
+            'weight' => '10',
+          ),
+        ),
+      ),
+      'form' => array(
+        'language' => array(
+          'weight' => '3',
+        ),
+        'metatags' => array(
+          'weight' => '6',
+        ),
+        'path' => array(
+          'weight' => '4',
+        ),
+        'title' => array(
+          'weight' => '0',
+        ),
+      ),
+    ),
     'view_modes' => array(
-      'teaser' => array(
-        'custom_settings' => TRUE,
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'email_html' => array(
+        'custom_settings' => FALSE,
+      ),
+      'email_plain' => array(
+        'custom_settings' => FALSE,
+      ),
+      'email_textalt' => array(
+        'custom_settings' => FALSE,
       ),
       'full' => array(
         'custom_settings' => FALSE,
@@ -317,50 +458,11 @@ function katakrak_strongarm() {
       'search_result' => array(
         'custom_settings' => FALSE,
       ),
-      'diff_standard' => array(
-        'custom_settings' => FALSE,
-      ),
-      'email_plain' => array(
-        'custom_settings' => FALSE,
-      ),
-      'email_html' => array(
-        'custom_settings' => FALSE,
-      ),
-      'email_textalt' => array(
-        'custom_settings' => FALSE,
+      'teaser' => array(
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
-      ),
-    ),
-    'extra_fields' => array(
-      'form' => array(
-        'title' => array(
-          'weight' => '0',
-        ),
-        'path' => array(
-          'weight' => '4',
-        ),
-        'language' => array(
-          'weight' => '3',
-        ),
-        'metatags' => array(
-          'weight' => '6',
-        ),
-      ),
-      'display' => array(
-        'language' => array(
-          'default' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-        ),
-        'sharethis' => array(
-          'default' => array(
-            'weight' => '10',
-            'visible' => TRUE,
-          ),
-        ),
       ),
     ),
   );
@@ -401,6 +503,18 @@ function katakrak_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'language_negotiation_language';
   $strongarm->value = array(
+    'language-default' => array(
+      'callbacks' => array(
+        'language' => 'language_from_default',
+      ),
+    ),
+    'locale-browser' => array(
+      'cache' => 0,
+      'callbacks' => array(
+        'language' => 'locale_language_from_browser',
+      ),
+      'file' => 'includes/locale.inc',
+    ),
     'locale-url' => array(
       'callbacks' => array(
         'language' => 'locale_language_from_url',
@@ -408,18 +522,6 @@ function katakrak_strongarm() {
         'url_rewrite' => 'locale_language_url_rewrite_url',
       ),
       'file' => 'includes/locale.inc',
-    ),
-    'locale-browser' => array(
-      'callbacks' => array(
-        'language' => 'locale_language_from_browser',
-      ),
-      'file' => 'includes/locale.inc',
-      'cache' => 0,
-    ),
-    'language-default' => array(
-      'callbacks' => array(
-        'language' => 'language_from_default',
-      ),
     ),
   );
   $export['language_negotiation_language'] = $strongarm;
@@ -465,11 +567,11 @@ function katakrak_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'locale_language_providers_weight_language';
   $strongarm->value = array(
-    'locale-url' => '-10',
-    'locale-browser' => '-9',
-    'locale-user' => '-8',
-    'locale-session' => '-7',
     'language-default' => '-6',
+    'locale-browser' => '-9',
+    'locale-session' => '-7',
+    'locale-url' => '-10',
+    'locale-user' => '-8',
   );
   $export['locale_language_providers_weight_language'] = $strongarm;
 

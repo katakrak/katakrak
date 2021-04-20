@@ -135,22 +135,6 @@ function katakrak_user_user_default_permissions() {
     'module' => 'captcha',
   );
 
-  // Exported permission: 'administer EU Cookie Compliance categories'.
-  $permissions['administer EU Cookie Compliance categories'] = array(
-    'name' => 'administer EU Cookie Compliance categories',
-    'roles' => array(),
-    'module' => 'eu_cookie_compliance',
-  );
-
-  // Exported permission: 'administer EU Cookie Compliance popup'.
-  $permissions['administer EU Cookie Compliance popup'] = array(
-    'name' => 'administer EU Cookie Compliance popup',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'eu_cookie_compliance',
-  );
-
   // Exported permission: 'administer actions'.
   $permissions['administer actions'] = array(
     'name' => 'administer actions',
@@ -861,16 +845,6 @@ function katakrak_user_user_default_permissions() {
       'authenticated user' => 'authenticated user',
     ),
     'module' => 'diff',
-  );
-
-  // Exported permission: 'display EU Cookie Compliance popup'.
-  $permissions['display EU Cookie Compliance popup'] = array(
-    'name' => 'display EU Cookie Compliance popup',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'anonymous user' => 'anonymous user',
-    ),
-    'module' => 'eu_cookie_compliance',
   );
 
   // Exported permission: 'display drupal links'.

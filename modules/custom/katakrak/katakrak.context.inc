@@ -27,21 +27,21 @@ function katakrak_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'katakrak-katakrak_conocenos_destacado' => array(
-          'module' => 'katakrak',
-          'delta' => 'katakrak_conocenos_destacado',
-          'region' => 'banners',
-          'weight' => '-10',
-        ),
         'katakrak-katakrak_conocenos_baldosas' => array(
-          'module' => 'katakrak',
           'delta' => 'katakrak_conocenos_baldosas',
+          'module' => 'katakrak',
           'region' => 'content_top',
           'weight' => '-10',
         ),
-        'katakrak-katakrak_conocenos_visita' => array(
+        'katakrak-katakrak_conocenos_destacado' => array(
+          'delta' => 'katakrak_conocenos_destacado',
           'module' => 'katakrak',
+          'region' => 'banners',
+          'weight' => '-10',
+        ),
+        'katakrak-katakrak_conocenos_visita' => array(
           'delta' => 'katakrak_conocenos_visita',
+          'module' => 'katakrak',
           'region' => 'content_bottom',
           'weight' => '-10',
         ),
@@ -73,27 +73,27 @@ function katakrak_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'katakrak_commerce-katakrak_commerce_cart' => array(
-          'module' => 'katakrak_commerce',
-          'delta' => 'katakrak_commerce_cart',
-          'region' => 'header_right',
-          'weight' => '-10',
-        ),
         'katakrak-footer_first' => array(
-          'module' => 'katakrak',
           'delta' => 'footer_first',
+          'module' => 'katakrak',
           'region' => 'footer_first',
           'weight' => '-10',
         ),
         'katakrak-footer_second' => array(
-          'module' => 'katakrak',
           'delta' => 'footer_second',
+          'module' => 'katakrak',
           'region' => 'footer_second',
           'weight' => '-10',
         ),
+        'katakrak_commerce-katakrak_commerce_cart' => array(
+          'delta' => 'katakrak_commerce_cart',
+          'module' => 'katakrak_commerce',
+          'region' => 'header_right',
+          'weight' => '-10',
+        ),
         'mailchimp_signup-recibe_nuestro_boletin_semanal' => array(
-          'module' => 'mailchimp_signup',
           'delta' => 'recibe_nuestro_boletin_semanal',
+          'module' => 'mailchimp_signup',
           'region' => 'footer_third',
           'weight' => '-10',
         ),

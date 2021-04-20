@@ -34,8 +34,8 @@ function katakrak_user_context_default_contexts() {
     'block' => array(
       'blocks' => array(
         'katakrak_user-katakrak_user_login_help' => array(
-          'module' => 'katakrak_user',
           'delta' => 'katakrak_user_login_help',
+          'module' => 'katakrak_user',
           'region' => 'banners',
           'weight' => '-10',
         ),
@@ -45,8 +45,8 @@ function katakrak_user_context_default_contexts() {
       0 => 'menu-menu-nagusia:tienda',
     ),
     'theme' => array(
-      'title' => 'login',
       'subtitle' => '',
+      'title' => 'login',
     ),
   );
   $context->condition_mode = 1;
@@ -74,8 +74,8 @@ function katakrak_user_context_default_contexts() {
     'block' => array(
       'blocks' => array(
         'katakrak_user-katakrak_user_nav_secundary' => array(
-          'module' => 'katakrak_user',
           'delta' => 'katakrak_user_nav_secundary',
+          'module' => 'katakrak_user',
           'region' => 'banners',
           'weight' => '-10',
         ),
