@@ -44,6 +44,15 @@ function katakrak_user_user_default_permissions() {
     'module' => 'devel',
   );
 
+  // Exported permission: 'access library reports'.
+  $permissions['access library reports'] = array(
+    'name' => 'access library reports',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'libraries',
+  );
+
   // Exported permission: 'access mailchimp signup pages'.
   $permissions['access mailchimp signup pages'] = array(
     'name' => 'access mailchimp signup pages',
@@ -631,11 +640,31 @@ function katakrak_user_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'create kantina_productor content'.
+  $permissions['create kantina_productor content'] = array(
+    'name' => 'create kantina_productor content',
+    'roles' => array(
+      'Editor' => 'Editor',
+      'Sukaldari' => 'Sukaldari',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'create libro_ed content'.
   $permissions['create libro_ed content'] = array(
     'name' => 'create libro_ed content',
     'roles' => array(
       'Editor' => 'Editor',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'create portfolio content'.
+  $permissions['create portfolio content'] = array(
+    'name' => 'create portfolio content',
+    'roles' => array(
+      'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -706,11 +735,31 @@ function katakrak_user_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete any kantina_productor content'.
+  $permissions['delete any kantina_productor content'] = array(
+    'name' => 'delete any kantina_productor content',
+    'roles' => array(
+      'Editor' => 'Editor',
+      'Sukaldari' => 'Sukaldari',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete any libro_ed content'.
   $permissions['delete any libro_ed content'] = array(
     'name' => 'delete any libro_ed content',
     'roles' => array(
       'Editor' => 'Editor',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete any portfolio content'.
+  $permissions['delete any portfolio content'] = array(
+    'name' => 'delete any portfolio content',
+    'roles' => array(
+      'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -790,11 +839,31 @@ function katakrak_user_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete own kantina_productor content'.
+  $permissions['delete own kantina_productor content'] = array(
+    'name' => 'delete own kantina_productor content',
+    'roles' => array(
+      'Editor' => 'Editor',
+      'Sukaldari' => 'Sukaldari',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete own libro_ed content'.
   $permissions['delete own libro_ed content'] = array(
     'name' => 'delete own libro_ed content',
     'roles' => array(
       'Editor' => 'Editor',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete own portfolio content'.
+  $permissions['delete own portfolio content'] = array(
+    'name' => 'delete own portfolio content',
+    'roles' => array(
+      'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -1015,11 +1084,31 @@ function katakrak_user_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit any kantina_productor content'.
+  $permissions['edit any kantina_productor content'] = array(
+    'name' => 'edit any kantina_productor content',
+    'roles' => array(
+      'Editor' => 'Editor',
+      'Sukaldari' => 'Sukaldari',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit any libro_ed content'.
   $permissions['edit any libro_ed content'] = array(
     'name' => 'edit any libro_ed content',
     'roles' => array(
       'Editor' => 'Editor',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit any portfolio content'.
+  $permissions['edit any portfolio content'] = array(
+    'name' => 'edit any portfolio content',
+    'roles' => array(
+      'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -1140,11 +1229,31 @@ function katakrak_user_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit own kantina_productor content'.
+  $permissions['edit own kantina_productor content'] = array(
+    'name' => 'edit own kantina_productor content',
+    'roles' => array(
+      'Editor' => 'Editor',
+      'Sukaldari' => 'Sukaldari',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit own libro_ed content'.
   $permissions['edit own libro_ed content'] = array(
     'name' => 'edit own libro_ed content',
     'roles' => array(
       'Editor' => 'Editor',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit own portfolio content'.
+  $permissions['edit own portfolio content'] = array(
+    'name' => 'edit own portfolio content',
+    'roles' => array(
+      'Editor' => 'Editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
