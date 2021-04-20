@@ -137,7 +137,6 @@ function katakrak_block_view($delta) {
       $block['content'] = theme('katakrak_social_block');
       break;
     case 'footer_first':
-      $block['title'] = 'Katakrak Liburuak';
       $block['content'] = theme('katakrak_footer_first');
       break;
     case 'footer_second':

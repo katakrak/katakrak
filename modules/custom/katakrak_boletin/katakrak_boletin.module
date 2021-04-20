@@ -119,9 +119,9 @@ function katakrak_boletin_preview($node) {
 function katakrak_boletin_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'mailchimp_signup_subscribe_block_recibe_nuestro_boletin_semanal_form') {
     $form['actions']['submit']['#value'] = t('Suscribirme!'); 
-    $form['actions']['submit']['#attributes'] = array('class' => array('btn btn-primary'));
+    $form['actions']['submit']['#attributes'] = array('class' => array('btn btn-primary mt-3'));
     foreach (array('EMAIL', 'FNAME', 'LNAME') as $value) {
-      $form['mergevars'][$value]['#attributes']['placeholder'] = t($form['mergevars'][$value]['#attributes']['placeholder']);
+      $form['mergevars'][$value]['#attributes']['placeholder'] = t($form['mergevars'][$value]['#title']);
       //$form['mergevars'][$value]['#attributes']['class'] = array('form-control form-control-sm');
       unset($form['mergevars'][$value]['#title']);
     }
