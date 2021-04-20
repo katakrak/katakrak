@@ -69,7 +69,7 @@ function katakrak_socios_block_view($delta = '') {
       // Create your block content here
       $args = array(
       'form_signup' => render(drupal_get_form('katakrak_socios_signup_form')),
-      'form_aportacion' => render(drupal_get_form('katakrak_socios_aportacion_form')),
+      'form_aportacion' => render(drupal_get_form('katakrak_socios_aportacion_form', 'DON')),
     );
       $block['content'] = theme('katakrak_socixs_campana', $args);
       break;
