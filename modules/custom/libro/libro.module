@@ -395,6 +395,7 @@ function libro_block_view($delta) {
             $links[] = array(
              'link' => l(t('Secciones'), 'tienda/secciones'), 
             );
+          }
             global $language;
             if ($language->language == 'es'){
               $links[] = array(
@@ -410,8 +411,9 @@ function libro_block_view($delta) {
             }
               
           }
+          
       }
-      }
+      
       $block['content'] = theme('katakrak_breadcrumb', array('links' => $links));
       break;
     case 'libreria_secciones_titulo':
