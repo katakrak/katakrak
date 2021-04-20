@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_contact.box.inc
@@ -18,11 +19,11 @@ function katakrak_contact_default_box() {
   $box->title = '';
   $box->description = 'Mapa';
   $box->options = array(
-    'body' => array(
-      'value' => '<iframe src="https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0xd5092f74996f207%3A0xa6b732eaa3b47b44!2sNagusia+Kalea%2C+54%2C+31001+Iru%C3%B1a%2C+Nafarroa%2C+Espainia!5e0!3m2!1seu!2s!4v1386062278823" width="600" height="450" frameborder="0" style="border:0"></iframe>',
-      'format' => 'full_html',
-    ),
     'additional_classes' => '',
+    'body' => array(
+      'format' => 'full_html',
+      'value' => '<iframe src="https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0xd5092f74996f207%3A0xa6b732eaa3b47b44!2sNagusia+Kalea%2C+54%2C+31001+Iru%C3%B1a%2C+Nafarroa%2C+Espainia!5e0!3m2!1seu!2s!4v1386062278823" width="600" height="450" frameborder="0" style="border:0"></iframe>',
+    ),
   );
   $export['mapa'] = $box;
 

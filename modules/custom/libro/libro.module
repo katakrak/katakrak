@@ -403,7 +403,7 @@ function libro_block_view($delta) {
              $links[] = '<li class="active">'.$term->name.'</li>';
         }
       }
-      $block['content'] = theme('libreria_secciones_breadcrumb', array('links' => $links));
+      $block['content'] = theme('katakrak_breadcrumb', array('links' => $links));
       break;
     case 'libreria_secciones_titulo':
       if (arg(1) == 'secciones'){

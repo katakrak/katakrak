@@ -30,10 +30,10 @@ function katakrak_commerce_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'commerce_checkout_completion_message';
   $strongarm->value = array(
+    'format' => 'filtered_html',
     'value' => 'Tu número de pedido es el [commerce-order:order-number]. Puedes ver <a href="[commerce-order:url]">tu pedidor</a> en tu página de usuario.
 
 <a href="[site:url]">Volver a la portada.</a>',
-    'format' => 'filtered_html',
   );
   $export['commerce_checkout_completion_message'] = $strongarm;
 

@@ -28,8 +28,8 @@ function katakrak_search_context_default_contexts() {
     'block' => array(
       'blocks' => array(
         'libro-libreria_home_bizikrak' => array(
-          'module' => 'libro',
           'delta' => 'libreria_home_bizikrak',
+          'module' => 'libro',
           'region' => 'banners',
           'weight' => '-9',
         ),

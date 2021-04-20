@@ -508,13 +508,6 @@ function katakrak_strongarm() {
         'language' => 'language_from_default',
       ),
     ),
-    'locale-browser' => array(
-      'cache' => 0,
-      'callbacks' => array(
-        'language' => 'locale_language_from_browser',
-      ),
-      'file' => 'includes/locale.inc',
-    ),
     'locale-url' => array(
       'callbacks' => array(
         'language' => 'locale_language_from_url',

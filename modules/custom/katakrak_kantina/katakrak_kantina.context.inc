@@ -20,36 +20,36 @@ function katakrak_kantina_context_default_contexts() {
   $context->conditions = array(
     'path' => array(
       'values' => array(
-        'kantina' => 'kantina',
         'cantina' => 'cantina',
+        'kantina' => 'kantina',
       ),
     ),
   );
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'katakrak_kantina-katakrak_kantina_nav_submenu' => array(
+        'katakrak_kantina-kantina_page_carousel' => array(
+          'delta' => 'kantina_page_carousel',
           'module' => 'katakrak_kantina',
-          'delta' => 'katakrak_kantina_nav_submenu',
-          'region' => 'banners',
+          'region' => 'content_middle',
           'weight' => '-10',
         ),
         'katakrak_kantina-kantina_page_hero' => array(
-          'module' => 'katakrak_kantina',
           'delta' => 'kantina_page_hero',
+          'module' => 'katakrak_kantina',
           'region' => 'hero',
           'weight' => '-10',
         ),
         'katakrak_kantina-kantina_page_highlight' => array(
-          'module' => 'katakrak_kantina',
           'delta' => 'kantina_page_highlight',
+          'module' => 'katakrak_kantina',
           'region' => 'content_top',
           'weight' => '-10',
         ),
-        'katakrak_kantina-kantina_page_carousel' => array(
+        'katakrak_kantina-katakrak_kantina_nav_submenu' => array(
+          'delta' => 'katakrak_kantina_nav_submenu',
           'module' => 'katakrak_kantina',
-          'delta' => 'kantina_page_carousel',
-          'region' => 'content_middle',
+          'region' => 'banners',
           'weight' => '-10',
         ),
       ),
@@ -71,12 +71,12 @@ function katakrak_kantina_context_default_contexts() {
   $context->tag = 'Kantina';
   $context->conditions = array(
     'node' => array(
+      'options' => array(
+        'node_form' => '1',
+      ),
       'values' => array(
         'eguneko_menua' => 'eguneko_menua',
         'receta' => 'receta',
-      ),
-      'options' => array(
-        'node_form' => '1',
       ),
     ),
     'path' => array(
@@ -98,8 +98,8 @@ function katakrak_kantina_context_default_contexts() {
     'block' => array(
       'blocks' => array(
         'katakrak_kantina-katakrak_kantina_nav_submenu' => array(
-          'module' => 'katakrak_kantina',
           'delta' => 'katakrak_kantina_nav_submenu',
+          'module' => 'katakrak_kantina',
           'region' => 'banners',
           'weight' => '-10',
         ),

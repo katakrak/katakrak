@@ -77,6 +77,17 @@ function katakrak_theme() {
       'template' => 'katakrak-conocenos-visita',
       'path' => $path . '/templates',
     ),
+    'katakrak_breadcrumb' => array(
+      'template' => 'katakrak-breadcrumb',
+      'variables' => array(
+        'links' => NULL
+      ),
+      'path' => $path . '/templates',
+    ),
+    'katakrak_donde_estamos_contacto' => array(
+      'template' => 'katakrak-donde-estamos-contacto',
+      'path' => $path . '/templates',
+    ),
   );
 }
 
@@ -125,6 +136,22 @@ function katakrak_block_info() {
     // Not worth caching.
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['katakrak_contact_map'] = array(
+    'info' => t('Mapa bloque contacto'),
+    // Not worth caching.
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['katakrak_contact_bc'] = array(
+    'info' => t('Breadcrumb pagina contacto'),
+    // Not worth caching.
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['katakrak_donde_estamos_contact'] = array(
+    'info' => t('Donde estamos contacto'),
+    // Not worth caching.
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  
   return $blocks;
 }
 
@@ -150,6 +177,8 @@ function katakrak_block_view($delta) {
         <a href="'.url('<front>').'" class="btn btn-transparent"> <i class="fas fa-arrow-left small"></i> '.t('Volver al inicio').'</a>
         </p>';
       break;
+    case 'breadcrumb_contact':
+      break;
     case 'katakrak_conocenos_destacado':
       $block['content'] = theme('katakrak_conocenos_destacado');
       break;
@@ -158,6 +187,23 @@ function katakrak_block_view($delta) {
       break;
     case 'katakrak_conocenos_visita':
       $block['content'] = theme('katakrak_conocenos_visita');
+      break;
+    case 'katakrak_contact_map':
+      $block['content'] = '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d731.6596084500173!2d-1.6479784076479538!3d42.81712610446638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5092f74996f207%3A0x9cdf98cfcff8f89c!2sKatakrak%20Liburuak!5e0!3m2!1ses!2ses!4v1618408076015!5m2!1ses!2ses" width="100%" height="800" style="border:0;" allowfullscreen="" loading="lazy"></iframe>';
+      break;
+    case 'katakrak_contact_bc':
+      $links[] = array(
+        'link' => l(t('Inicio'), 'azala'),
+        'active' => FALSE,
+      );
+      $links[] = array(
+        'link' => t('Dónde estamos'),
+        'active' => TRUE,
+      );  
+      $block['content'] = theme('katakrak_breadcrumb', array('links' => $links));
+      break;
+    case 'katakrak_donde_estamos_contact':
+      $block['content'] = theme('katakrak_donde_estamos_contacto');
       break;
    }
 

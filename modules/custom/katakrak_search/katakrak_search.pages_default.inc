@@ -18,22 +18,22 @@ function katakrak_search_default_page_manager_pages() {
   $page->admin_description = '';
   $page->path = 'buscar/%type/!term';
   $page->access = array(
-    'type' => 'none',
     'settings' => NULL,
+    'type' => 'none',
   );
   $page->menu = array();
   $page->arguments = array(
-    'type' => array(
-      'id' => 2,
-      'identifier' => 'Type',
+    'term' => array(
+      'id' => 3,
+      'identifier' => 'Term',
       'name' => 'string',
       'settings' => array(
         'use_tail' => 0,
       ),
     ),
-    'term' => array(
-      'id' => 3,
-      'identifier' => 'Term',
+    'type' => array(
+      'id' => 2,
+      'identifier' => 'Type',
       'name' => 'string',
       'settings' => array(
         'use_tail' => 0,
@@ -53,57 +53,57 @@ function katakrak_search_default_page_manager_pages() {
   $handler->handler = 'panel_context';
   $handler->weight = -3;
   $handler->conf = array(
-    'title' => 'Book search',
-    'no_blocks' => 0,
-    'pipeline' => 'standard',
-    'body_classes_to_remove' => '',
-    'body_classes_to_add' => '',
-    'css_id' => '',
-    'css' => '',
-    'contexts' => array(),
-    'relationships' => array(),
     'access' => array(
+      'logic' => 'or',
       'plugins' => array(
         0 => array(
+          'context' => 'argument_string_2',
           'name' => 'string_equal',
+          'not' => FALSE,
           'settings' => array(
+            'case' => 0,
             'operator' => '=',
             'value' => 'libros',
-            'case' => 0,
           ),
-          'context' => 'argument_string_2',
-          'not' => FALSE,
         ),
         1 => array(
+          'context' => 'argument_string_2',
           'name' => 'string_equal',
+          'not' => FALSE,
           'settings' => array(
+            'case' => 0,
             'operator' => '=',
             'value' => 'liburuak',
-            'case' => 0,
           ),
-          'context' => 'argument_string_2',
-          'not' => FALSE,
         ),
       ),
-      'logic' => 'or',
     ),
+    'body_classes_to_add' => '',
+    'body_classes_to_remove' => '',
+    'contexts' => array(),
+    'css' => '',
+    'css_id' => '',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'relationships' => array(),
+    'title' => 'Book search',
   );
   $display = new panels_display();
   $display->layout = 'search';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
-      'default' => NULL,
-      'left' => NULL,
-      'right' => NULL,
       'col_left' => NULL,
       'content' => NULL,
       'content_top' => NULL,
-      'middle' => NULL,
+      'default' => NULL,
       'facet_left' => NULL,
-      'facet_right' => NULL,
       'facet_middle' => NULL,
+      'facet_right' => NULL,
       'facetapi_badge' => NULL,
+      'left' => NULL,
+      'middle' => NULL,
+      'right' => NULL,
       'search_sort' => NULL,
     ),
   );
@@ -122,28 +122,28 @@ function katakrak_search_default_page_manager_pages() {
   $pane->shown = FALSE;
   $pane->access = array();
   $pane->configuration = array(
-    'keys_action' => 'none',
-    'keys' => '',
-    'keys_required' => 1,
-    'filters_action' => 'append',
-    'filters' => 'bundle:libro',
-    'rows' => '12',
-    'env_id' => 'host_solr',
-    'sort_action' => 'none',
-    'sort' => '',
     'breadcrumb' => 1,
+    'context' => 'argument_string_3',
+    'empty_override' => 0,
+    'empty_override_format' => 'plain_text',
+    'empty_override_text' => array(
+      'format' => 'plain_text',
+      'value' => '',
+    ),
+    'empty_override_title' => '',
+    'env_id' => 'host_solr',
+    'filters' => 'bundle:libro',
+    'filters_action' => 'append',
+    'keys' => '',
+    'keys_action' => 'none',
+    'keys_required' => 1,
+    'log' => 0,
+    'rows' => '12',
+    'sort' => '',
+    'sort_action' => 'none',
+    'substitute' => 0,
     'title_override' => 1,
     'title_override_text' => '<none>',
-    'empty_override' => 0,
-    'empty_override_title' => '',
-    'empty_override_text' => array(
-      'value' => '',
-      'format' => 'plain_text',
-    ),
-    'empty_override_format' => 'plain_text',
-    'log' => 0,
-    'substitute' => 0,
-    'context' => 'argument_string_3',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -164,29 +164,29 @@ function katakrak_search_default_page_manager_pages() {
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'keys_action' => 'none',
-    'keys' => '',
-    'keys_required' => 1,
-    'filters_action' => 'append',
-    'filters' => 'bundle:libro',
-    'rows' => '12',
-    'env_id' => 'host_solr',
-    'sort_action' => 'none',
-    'sort' => '',
     'breadcrumb' => 1,
+    'context' => 'argument_string_3',
+    'empty_override' => 0,
+    'empty_override_format' => 'plain_text',
+    'empty_override_text' => array(
+      'format' => 'plain_text',
+      'value' => '',
+    ),
+    'empty_override_title' => '',
+    'env_id' => 'host_solr',
+    'filters' => 'bundle:libro',
+    'filters_action' => 'append',
+    'keys' => '',
+    'keys_action' => 'none',
+    'keys_required' => 1,
+    'log' => 0,
+    'rows' => '12',
+    'sort' => '',
+    'sort_action' => 'none',
+    'substitute' => 0,
+    'tipo' => 'libros',
     'title_override' => 1,
     'title_override_text' => '',
-    'empty_override' => 0,
-    'empty_override_title' => '',
-    'empty_override_text' => array(
-      'value' => '',
-      'format' => 'plain_text',
-    ),
-    'empty_override_format' => 'plain_text',
-    'log' => 0,
-    'substitute' => 0,
-    'context' => 'argument_string_3',
-    'tipo' => 'libros',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -249,8 +249,8 @@ function katakrak_search_default_page_manager_pages() {
   $pane->access = array();
   $pane->configuration = array(
     'override_title' => 0,
-    'override_title_text' => '',
     'override_title_heading' => 'h2',
+    'override_title_text' => '',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -271,13 +271,13 @@ function katakrak_search_default_page_manager_pages() {
   $pane->shown = FALSE;
   $pane->access = array();
   $pane->configuration = array(
-    'path_type' => 'same',
-    'path' => '',
     'override_prompt' => 0,
-    'prompt' => '',
-    'show_keys' => 1,
     'override_title' => 0,
     'override_title_text' => '',
+    'path' => '',
+    'path_type' => 'same',
+    'prompt' => '',
+    'show_keys' => 1,
   );
   $pane->cache = array();
   $pane->style = array(
@@ -299,8 +299,8 @@ function katakrak_search_default_page_manager_pages() {
   $pane->access = array();
   $pane->configuration = array(
     'override_title' => 0,
-    'override_title_text' => '',
     'override_title_heading' => 'h2',
+    'override_title_text' => '',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -414,46 +414,46 @@ function katakrak_search_default_page_manager_pages() {
   $handler->handler = 'panel_context';
   $handler->weight = -2;
   $handler->conf = array(
-    'title' => 'Event search',
-    'no_blocks' => 0,
-    'pipeline' => 'standard',
-    'body_classes_to_remove' => '',
-    'body_classes_to_add' => '',
-    'css_id' => '',
-    'css' => '',
-    'contexts' => array(),
-    'relationships' => array(),
     'access' => array(
+      'logic' => 'and',
       'plugins' => array(
         0 => array(
+          'context' => 'argument_string_2',
           'name' => 'string_equal',
+          'not' => FALSE,
           'settings' => array(
+            'case' => 0,
             'operator' => '=',
             'value' => 'agenda',
-            'case' => 0,
           ),
-          'context' => 'argument_string_2',
-          'not' => FALSE,
         ),
       ),
-      'logic' => 'and',
     ),
+    'body_classes_to_add' => '',
+    'body_classes_to_remove' => '',
+    'contexts' => array(),
+    'css' => '',
+    'css_id' => '',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'relationships' => array(),
+    'title' => 'Event search',
   );
   $display = new panels_display();
   $display->layout = 'search';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
-      'default' => NULL,
-      'left' => NULL,
-      'right' => NULL,
       'col_left' => NULL,
       'content' => NULL,
-      'facet_left' => NULL,
-      'facet_right' => NULL,
-      'facet_middle' => NULL,
       'content_top' => NULL,
+      'default' => NULL,
+      'facet_left' => NULL,
+      'facet_middle' => NULL,
+      'facet_right' => NULL,
       'facetapi_badge' => NULL,
+      'left' => NULL,
+      'right' => NULL,
       'search_sort' => NULL,
     ),
   );
@@ -472,29 +472,29 @@ function katakrak_search_default_page_manager_pages() {
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'keys_action' => 'none',
-    'keys' => '',
-    'keys_required' => 1,
-    'filters_action' => 'override',
-    'filters' => 'bundle:event',
-    'rows' => '20',
-    'env_id' => '',
-    'tipo' => 'agenda',
-    'sort_action' => 'none',
-    'sort' => '',
     'breadcrumb' => 1,
+    'context' => 'argument_string_3',
+    'empty_override' => 0,
+    'empty_override_format' => 'plain_text',
+    'empty_override_text' => array(
+      'format' => 'plain_text',
+      'value' => '',
+    ),
+    'empty_override_title' => '',
+    'env_id' => '',
+    'filters' => 'bundle:event',
+    'filters_action' => 'override',
+    'keys' => '',
+    'keys_action' => 'none',
+    'keys_required' => 1,
+    'log' => 0,
+    'rows' => '20',
+    'sort' => '',
+    'sort_action' => 'none',
+    'substitute' => 0,
+    'tipo' => 'agenda',
     'title_override' => 1,
     'title_override_text' => '',
-    'empty_override' => 0,
-    'empty_override_title' => '',
-    'empty_override_text' => array(
-      'value' => '',
-      'format' => 'plain_text',
-    ),
-    'empty_override_format' => 'plain_text',
-    'log' => 0,
-    'substitute' => 0,
-    'context' => 'argument_string_3',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -520,41 +520,41 @@ function katakrak_search_default_page_manager_pages() {
   $handler->handler = 'panel_context';
   $handler->weight = 0;
   $handler->conf = array(
-    'title' => 'Search',
-    'no_blocks' => 0,
-    'pipeline' => 'standard',
-    'body_classes_to_remove' => '',
-    'body_classes_to_add' => '',
-    'css_id' => '',
-    'css' => '',
-    'contexts' => array(),
-    'relationships' => array(),
     'access' => array(
+      'logic' => 'and',
       'plugins' => array(
         0 => array(
+          'context' => 'argument_string_2',
           'name' => 'string_equal',
+          'not' => FALSE,
           'settings' => array(
+            'case' => 0,
             'operator' => '=',
             'value' => 'all',
-            'case' => 0,
           ),
-          'context' => 'argument_string_2',
-          'not' => FALSE,
         ),
       ),
-      'logic' => 'and',
     ),
+    'body_classes_to_add' => '',
+    'body_classes_to_remove' => '',
+    'contexts' => array(),
+    'css' => '',
+    'css_id' => '',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'relationships' => array(),
+    'title' => 'Search',
   );
   $display = new panels_display();
   $display->layout = 'search';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
+      'col_left' => NULL,
+      'content' => NULL,
       'default' => NULL,
       'left' => NULL,
       'right' => NULL,
-      'col_left' => NULL,
-      'content' => NULL,
     ),
   );
   $display->cache = array();
@@ -660,13 +660,13 @@ function katakrak_search_default_page_manager_pages() {
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'path_type' => 'custom',
-    'path' => 'search/books',
     'override_prompt' => 0,
-    'prompt' => '',
-    'show_keys' => 1,
     'override_title' => 1,
     'override_title_text' => '',
+    'path' => 'search/books',
+    'path_type' => 'custom',
+    'prompt' => '',
+    'show_keys' => 1,
   );
   $pane->cache = array();
   $pane->style = array(
@@ -709,10 +709,10 @@ function katakrak_search_default_page_manager_pages() {
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'title_override' => FALSE,
-    'title_override_text' => '',
     'override_title' => 0,
     'override_title_text' => '',
+    'title_override' => FALSE,
+    'title_override_text' => '',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -733,28 +733,28 @@ function katakrak_search_default_page_manager_pages() {
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'keys_action' => 'none',
-    'keys' => '',
-    'keys_required' => 0,
-    'filters_action' => 'none',
-    'filters' => '',
-    'rows' => '10',
-    'env_id' => 'solr',
-    'sort_action' => 'none',
-    'sort' => '',
     'breadcrumb' => 0,
+    'context' => 'argument_string_3',
+    'empty_override' => 0,
+    'empty_override_format' => 'plain_text',
+    'empty_override_text' => array(
+      'format' => 'plain_text',
+      'value' => '',
+    ),
+    'empty_override_title' => '',
+    'env_id' => 'solr',
+    'filters' => '',
+    'filters_action' => 'none',
+    'keys' => '',
+    'keys_action' => 'none',
+    'keys_required' => 0,
+    'log' => 0,
+    'rows' => '10',
+    'sort' => '',
+    'sort_action' => 'none',
+    'substitute' => 0,
     'title_override' => 1,
     'title_override_text' => '',
-    'empty_override' => 0,
-    'empty_override_title' => '',
-    'empty_override_text' => array(
-      'value' => '',
-      'format' => 'plain_text',
-    ),
-    'empty_override_format' => 'plain_text',
-    'log' => 0,
-    'substitute' => 0,
-    'context' => 'argument_string_3',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -780,43 +780,43 @@ function katakrak_search_default_page_manager_pages() {
   $handler->handler = 'panel_context';
   $handler->weight = -1;
   $handler->conf = array(
-    'title' => 'Blog search',
-    'no_blocks' => 0,
-    'pipeline' => 'standard',
-    'body_classes_to_remove' => '',
-    'body_classes_to_add' => '',
-    'css_id' => '',
-    'css' => '',
-    'contexts' => array(),
-    'relationships' => array(),
-    'name' => '',
     'access' => array(
       'logic' => 'and',
       'plugins' => array(
         0 => array(
+          'context' => 'argument_string_2',
           'name' => 'string_equal',
+          'not' => FALSE,
           'settings' => array(
+            'case' => 0,
             'operator' => '=',
             'value' => 'blogs',
-            'case' => 0,
           ),
-          'context' => 'argument_string_2',
-          'not' => FALSE,
         ),
       ),
     ),
+    'body_classes_to_add' => '',
+    'body_classes_to_remove' => '',
+    'contexts' => array(),
+    'css' => '',
+    'css_id' => '',
+    'name' => '',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'relationships' => array(),
+    'title' => 'Blog search',
   );
   $display = new panels_display();
   $display->layout = 'search';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
-      'default' => NULL,
-      'facet_left' => NULL,
-      'facet_right' => NULL,
-      'facet_middle' => NULL,
       'content' => NULL,
       'content_top' => NULL,
+      'default' => NULL,
+      'facet_left' => NULL,
+      'facet_middle' => NULL,
+      'facet_right' => NULL,
       'facetapi_badge' => NULL,
       'search_sort' => NULL,
     ),
@@ -836,29 +836,29 @@ function katakrak_search_default_page_manager_pages() {
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'keys_action' => 'none',
-    'keys' => '',
-    'keys_required' => 1,
-    'filters_action' => 'override',
-    'filters' => 'bundle:blog',
-    'rows' => '15',
-    'env_id' => '',
-    'sort_action' => 'none',
-    'sort' => '',
     'breadcrumb' => 1,
+    'context' => 'argument_string_3',
+    'empty_override' => 0,
+    'empty_override_format' => 'plain_text',
+    'empty_override_text' => array(
+      'format' => 'plain_text',
+      'value' => '',
+    ),
+    'empty_override_title' => '',
+    'env_id' => '',
+    'filters' => 'bundle:blog',
+    'filters_action' => 'override',
+    'keys' => '',
+    'keys_action' => 'none',
+    'keys_required' => 1,
+    'log' => 0,
+    'rows' => '15',
+    'sort' => '',
+    'sort_action' => 'none',
+    'substitute' => 0,
+    'tipo' => 'blogs',
     'title_override' => 1,
     'title_override_text' => '',
-    'empty_override' => 0,
-    'empty_override_title' => '',
-    'empty_override_text' => array(
-      'value' => '',
-      'format' => 'plain_text',
-    ),
-    'empty_override_format' => 'plain_text',
-    'log' => 0,
-    'substitute' => 0,
-    'context' => 'argument_string_3',
-    'tipo' => 'blogs',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -871,6 +871,29 @@ function katakrak_search_default_page_manager_pages() {
   $pane->uuid = '3eb2e9fb-de1d-4bc7-aeee-feff177ae557';
   $display->content['new-3eb2e9fb-de1d-4bc7-aeee-feff177ae557'] = $pane;
   $display->panels['content'][0] = 'new-3eb2e9fb-de1d-4bc7-aeee-feff177ae557';
+  $pane = new stdClass();
+  $pane->pid = 'new-de594a9d-d2b0-4f32-baee-b05c56091156';
+  $pane->panel = 'content_top';
+  $pane->type = 'block';
+  $pane->subtype = 'katakrak_blog-katakrak_blog_search';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 0,
+    'override_title_heading' => 'h2',
+    'override_title_text' => '',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = 'de594a9d-d2b0-4f32-baee-b05c56091156';
+  $display->content['new-de594a9d-d2b0-4f32-baee-b05c56091156'] = $pane;
+  $display->panels['content_top'][0] = 'new-de594a9d-d2b0-4f32-baee-b05c56091156';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

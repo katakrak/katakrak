@@ -58,24 +58,24 @@ function katakrak_kantina_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__eguneko_menua';
   $strongarm->value = array(
-    'view_modes' => array(),
     'extra_fields' => array(
+      'display' => array(),
       'form' => array(
+        'language' => array(
+          'weight' => '0',
+        ),
         'metatags' => array(
           'weight' => '40',
-        ),
-        'title' => array(
-          'weight' => '-5',
         ),
         'path' => array(
           'weight' => '30',
         ),
-        'language' => array(
-          'weight' => '0',
+        'title' => array(
+          'weight' => '-5',
         ),
       ),
-      'display' => array(),
     ),
+    'view_modes' => array(),
   );
   $export['field_bundle_settings_node__eguneko_menua'] = $strongarm;
 
@@ -84,21 +84,21 @@ function katakrak_kantina_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__kantina_productor';
   $strongarm->value = array(
-    'view_modes' => array(),
     'extra_fields' => array(
+      'display' => array(),
       'form' => array(
-        'title' => array(
-          'weight' => '-5',
+        'language' => array(
+          'weight' => '0',
         ),
         'path' => array(
           'weight' => '30',
         ),
-        'language' => array(
-          'weight' => '0',
+        'title' => array(
+          'weight' => '-5',
         ),
       ),
-      'display' => array(),
     ),
+    'view_modes' => array(),
   );
   $export['field_bundle_settings_node__kantina_productor'] = $strongarm;
 
@@ -107,9 +107,48 @@ function katakrak_kantina_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__receta';
   $strongarm->value = array(
+    'extra_fields' => array(
+      'display' => array(
+        'language' => array(
+          'default' => array(
+            'visible' => FALSE,
+            'weight' => '0',
+          ),
+        ),
+        'sharethis' => array(
+          'default' => array(
+            'visible' => TRUE,
+            'weight' => '10',
+          ),
+        ),
+      ),
+      'form' => array(
+        'language' => array(
+          'weight' => '1',
+        ),
+        'metatags' => array(
+          'weight' => '3',
+        ),
+        'path' => array(
+          'weight' => '2',
+        ),
+        'title' => array(
+          'weight' => '0',
+        ),
+      ),
+    ),
     'view_modes' => array(
-      'teaser' => array(
-        'custom_settings' => TRUE,
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'email_html' => array(
+        'custom_settings' => FALSE,
+      ),
+      'email_plain' => array(
+        'custom_settings' => FALSE,
+      ),
+      'email_textalt' => array(
+        'custom_settings' => FALSE,
       ),
       'full' => array(
         'custom_settings' => FALSE,
@@ -123,50 +162,11 @@ function katakrak_kantina_strongarm() {
       'search_result' => array(
         'custom_settings' => FALSE,
       ),
-      'diff_standard' => array(
-        'custom_settings' => FALSE,
-      ),
-      'email_plain' => array(
-        'custom_settings' => FALSE,
-      ),
-      'email_html' => array(
-        'custom_settings' => FALSE,
-      ),
-      'email_textalt' => array(
-        'custom_settings' => FALSE,
+      'teaser' => array(
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
-      ),
-    ),
-    'extra_fields' => array(
-      'form' => array(
-        'language' => array(
-          'weight' => '1',
-        ),
-        'metatags' => array(
-          'weight' => '3',
-        ),
-        'title' => array(
-          'weight' => '0',
-        ),
-        'path' => array(
-          'weight' => '2',
-        ),
-      ),
-      'display' => array(
-        'language' => array(
-          'default' => array(
-            'weight' => '0',
-            'visible' => FALSE,
-          ),
-        ),
-        'sharethis' => array(
-          'default' => array(
-            'weight' => '10',
-            'visible' => TRUE,
-          ),
-        ),
       ),
     ),
   );

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * katakrak_contact.context.inc
@@ -26,19 +27,32 @@ function katakrak_contact_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'boxes-mapa' => array(
-          'module' => 'boxes',
-          'delta' => 'mapa',
-          'region' => 'contact_map',
+        'katakrak-katakrak_contact_bc' => array(
+          'delta' => 'katakrak_contact_bc',
+          'module' => 'katakrak',
+          'region' => 'content_top',
           'weight' => '-10',
         ),
-        'system-main' => array(
-          'module' => 'system',
-          'delta' => 'main',
+        'katakrak-katakrak_contact_map' => array(
+          'delta' => 'katakrak_contact_map',
+          'module' => 'katakrak',
+          'region' => 'content_middle',
+          'weight' => '-10',
+        ),
+        'katakrak-katakrak_donde_estamos_contact' => array(
+          'delta' => 'katakrak_donde_estamos_contact',
+          'module' => 'katakrak',
           'region' => 'content',
           'weight' => '-10',
         ),
+        'system-main' => array(
+          'delta' => 'main',
+          'module' => 'system',
+          'region' => 'content',
+          'weight' => '-9',
+        ),
       ),
+      'layout' => 'contact',
     ),
   );
   $context->condition_mode = 0;

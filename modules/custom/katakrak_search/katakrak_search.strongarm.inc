@@ -38,21 +38,21 @@ function katakrak_search_strongarm() {
   $strongarm->name = 'apachesolr_search_mlt_blocks';
   $strongarm->value = array(
     'mlt-001' => array(
-      'name' => 'More like this',
-      'num_results' => '5',
+      'delta' => 'mlt-001',
+      'mlt_custom_filters' => '',
+      'mlt_env_id' => 'solr',
       'mlt_fl' => array(
         'label' => 'label',
         'taxonomy_names' => 'taxonomy_names',
       ),
-      'mlt_env_id' => 'solr',
-      'mlt_mintf' => '1',
-      'mlt_mindf' => '1',
-      'mlt_minwl' => '3',
-      'mlt_maxwl' => '15',
       'mlt_maxqt' => '20',
+      'mlt_maxwl' => '15',
+      'mlt_mindf' => '1',
+      'mlt_mintf' => '1',
+      'mlt_minwl' => '3',
       'mlt_type_filters' => array(),
-      'mlt_custom_filters' => '',
-      'delta' => 'mlt-001',
+      'name' => 'More like this',
+      'num_results' => '5',
     ),
   );
   $export['apachesolr_search_mlt_blocks'] = $strongarm;

@@ -29,8 +29,8 @@ function katakrak_commerce_context_default_contexts() {
     'block' => array(
       'blocks' => array(
         'katakrak_commerce-checkout_breadcrumb' => array(
-          'module' => 'katakrak_commerce',
           'delta' => 'checkout_breadcrumb',
+          'module' => 'katakrak_commerce',
           'region' => 'content_top',
           'weight' => '-10',
         ),

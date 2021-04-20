@@ -1,5 +1,5 @@
 <ol class="breadcrumb">
   <?php foreach ($links as $link): ?>
-    <?php print $link ?>
+    <li <?php $link['active'] ? 'class="active"': ''?>><?php print $link['link'] ?></li>
   <?php endforeach; ?>
 </ol>
