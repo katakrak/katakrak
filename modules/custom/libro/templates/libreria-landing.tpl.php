@@ -4,7 +4,7 @@
     </div><!-- /.col -->
     <div class="col-sm-6 p-4">
       <h3><?php print t('La novedad') ?></h3>
-      <p><?php t('Nos gusta estar atentas a lo que se va publicando, tanto por las editoriales consolidades como por pequeños experimentos editoriales. No nos gustan los servicios de novedades automáticos: seleccionamos lo que queremos recibir siempre.') ?></p>
+      <p><?php print t('Nos gusta estar atentas a lo que se va publicando, tanto por las editoriales consolidades como por pequeños experimentos editoriales. No nos gustan los servicios de novedades automáticos: seleccionamos lo que queremos recibir siempre.') ?></p>
     </div><!-- /.col -->
   </div><!-- /.d-flex -->
 
