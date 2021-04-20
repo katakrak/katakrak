@@ -19,11 +19,11 @@ function katakrak_blog_context_default_contexts() {
   $context->tag = 'Blog';
   $context->conditions = array(
     'taxonomy_term' => array(
-      'values' => array(
-        'blog_type' => 'blog_type',
-      ),
       'options' => array(
         'term_form' => '1',
+      ),
+      'values' => array(
+        'blog_type' => 'blog_type',
       ),
     ),
     'views' => array(
@@ -35,17 +35,17 @@ function katakrak_blog_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'katakrak_blog-katakrak_blog_search' => array(
-          'module' => 'katakrak_blog',
-          'delta' => 'katakrak_blog_search',
-          'region' => 'content',
-          'weight' => '-9',
-        ),
         'katakrak_blog-katakrak_blog_nav_secundary' => array(
-          'module' => 'katakrak_blog',
           'delta' => 'katakrak_blog_nav_secundary',
+          'module' => 'katakrak_blog',
           'region' => 'content_top',
           'weight' => '-10',
+        ),
+        'katakrak_blog-katakrak_blog_search' => array(
+          'delta' => 'katakrak_blog_search',
+          'module' => 'katakrak_blog',
+          'region' => 'content',
+          'weight' => '-9',
         ),
       ),
       'layout' => 'agenda',
@@ -70,12 +70,12 @@ function katakrak_blog_context_default_contexts() {
   $context->tag = 'Blog';
   $context->conditions = array(
     'node' => array(
+      'options' => array(
+        'node_form' => '1',
+      ),
       'values' => array(
         'blog' => 'blog',
         'boletin' => 'boletin',
-      ),
-      'options' => array(
-        'node_form' => '1',
       ),
     ),
   );

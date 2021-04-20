@@ -20,40 +20,40 @@ function katakrak_blog_default_page_manager_handlers() {
   $handler->handler = 'panel_context';
   $handler->weight = 0;
   $handler->conf = array(
-    'title' => 'Panel',
-    'no_blocks' => 0,
-    'pipeline' => 'standard',
-    'body_classes_to_remove' => '',
-    'body_classes_to_add' => '',
-    'css_id' => '',
-    'css' => '',
-    'contexts' => array(),
-    'relationships' => array(
-      0 => array(
-        'identifier' => 'Término de taxonomía from Nodo (on Nodo: Blog_type [field_blog_type])',
-        'keyword' => 'blogtype',
-        'name' => 'entity_from_field:field_blog_type-node-taxonomy_term',
-        'delta' => 0,
-        'context' => 'argument_entity_id:node_1',
-        'id' => 1,
-      ),
-    ),
-    'name' => '',
     'access' => array(
+      'logic' => 'and',
       'plugins' => array(
         0 => array(
+          'context' => 'argument_entity_id:node_1',
           'name' => 'node_type',
+          'not' => FALSE,
           'settings' => array(
             'type' => array(
               'blog' => 'blog',
             ),
           ),
-          'context' => 'argument_entity_id:node_1',
-          'not' => FALSE,
         ),
       ),
-      'logic' => 'and',
     ),
+    'body_classes_to_add' => '',
+    'body_classes_to_remove' => '',
+    'contexts' => array(),
+    'css' => '',
+    'css_id' => '',
+    'name' => '',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'relationships' => array(
+      0 => array(
+        'context' => 'argument_entity_id:node_1',
+        'delta' => 0,
+        'id' => 1,
+        'identifier' => 'Término de taxonomía from Nodo (on Nodo: Blog_type [field_blog_type])',
+        'keyword' => 'blogtype',
+        'name' => 'entity_from_field:field_blog_type-node-taxonomy_term',
+      ),
+    ),
+    'title' => 'Panel',
   );
   $display = new panels_display();
   $display->layout = 'blog';
@@ -62,8 +62,8 @@ function katakrak_blog_default_page_manager_handlers() {
     'style_settings' => array(
       'default' => NULL,
       'header' => NULL,
-      'right' => NULL,
       'left' => NULL,
+      'right' => NULL,
     ),
   );
   $display->cache = array();
@@ -81,14 +81,14 @@ function katakrak_blog_default_page_manager_handlers() {
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'link' => 1,
-    'markup' => 'h1',
-    'id' => '',
     'class' => 'panel-term-name',
     'context' => 'relationship_entity_from_field:field_blog_type-node-taxonomy_term_1',
+    'id' => '',
+    'link' => 1,
+    'markup' => 'h1',
     'override_title' => 1,
-    'override_title_text' => '',
     'override_title_heading' => 'h2',
+    'override_title_text' => '',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -109,16 +109,16 @@ function katakrak_blog_default_page_manager_handlers() {
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
+    'build_mode' => 'full',
+    'context' => 'argument_entity_id:node_1',
+    'identifier' => '',
+    'leave_node_title' => 1,
+    'link' => 0,
     'links' => 1,
     'no_extras' => 1,
     'override_title' => 1,
-    'override_title_text' => '',
-    'identifier' => '',
-    'link' => 0,
-    'leave_node_title' => 1,
-    'build_mode' => 'full',
-    'context' => 'argument_entity_id:node_1',
     'override_title_heading' => 'h2',
+    'override_title_text' => '',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -139,12 +139,12 @@ function katakrak_blog_default_page_manager_handlers() {
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'context' => array(
-      0 => 'argument_entity_id:node_1',
-    ),
     'arguments' => array(
       'field_blog_type_tid' => '%blogtype:tid',
       'nid' => '%node:nid',
+    ),
+    'context' => array(
+      0 => 'argument_entity_id:node_1',
     ),
   );
   $pane->cache = array();
@@ -172,31 +172,31 @@ function katakrak_blog_default_page_manager_handlers() {
   $handler->handler = 'panel_context';
   $handler->weight = 3;
   $handler->conf = array(
-    'title' => 'Blog',
-    'no_blocks' => 0,
-    'pipeline' => 'standard',
-    'body_classes_to_remove' => '',
-    'body_classes_to_add' => 'blog-page',
-    'css_id' => '',
-    'css' => '',
-    'contexts' => array(),
-    'relationships' => array(),
-    'name' => '',
     'access' => array(
+      'logic' => 'and',
       'plugins' => array(
         0 => array(
+          'context' => 'argument_term_1',
           'name' => 'term_vocabulary',
+          'not' => FALSE,
           'settings' => array(
             'machine_name' => array(
               'blog_type' => 'blog_type',
             ),
           ),
-          'context' => 'argument_term_1',
-          'not' => FALSE,
         ),
       ),
-      'logic' => 'and',
     ),
+    'body_classes_to_add' => 'blog-page',
+    'body_classes_to_remove' => '',
+    'contexts' => array(),
+    'css' => '',
+    'css_id' => '',
+    'name' => '',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'relationships' => array(),
+    'title' => 'Blog',
   );
   $display = new panels_display();
   $display->layout = 'blog';
@@ -204,9 +204,9 @@ function katakrak_blog_default_page_manager_handlers() {
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
-      'right' => NULL,
-      'left' => NULL,
       'header' => NULL,
+      'left' => NULL,
+      'right' => NULL,
     ),
   );
   $display->cache = array();
@@ -225,8 +225,8 @@ function katakrak_blog_default_page_manager_handlers() {
   $pane->access = array();
   $pane->configuration = array(
     'override_title' => 0,
-    'override_title_text' => '',
     'override_title_heading' => 'h2',
+    'override_title_text' => '',
   );
   $pane->cache = array();
   $pane->style = array(

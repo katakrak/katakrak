@@ -21,22 +21,22 @@ function katakrak_blog_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Reseñas prensa',
-    'weight' => '12',
     'children' => array(
       0 => 'field_cita',
       1 => 'field_fuente_cita',
     ),
-    'format_type' => 'fieldset',
     'format_settings' => array(
       'formatter' => 'collapsible',
       'instance_settings' => array(
-        'description' => '',
         'classes' => 'group-resenas-prensa field-group-fieldset',
-        'required_fields' => 1,
+        'description' => '',
         'id' => '',
+        'required_fields' => 1,
       ),
     ),
+    'format_type' => 'fieldset',
+    'label' => 'Reseñas prensa',
+    'weight' => '12',
   );
   $field_groups['group_resenas_prensa|node|blog|form'] = $field_group;
 
