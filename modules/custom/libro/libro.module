@@ -336,11 +336,11 @@ function libro_block_info() {
   );
   $blocks['libreria_secciones_breadcrumb'] = array(
     'info' => t('Breadcrumb de secciones'),
-    'cache' => DRUPAL_CACHE_GLOBAL,
+    'cache' => DRUPAL_CACHE_PER_PAGE,
   );
   $blocks['libreria_secciones_titulo'] = array(
     'info' => t('Título de sección en la tienda online'),
-    'cache' => DRUPAL_CACHE_GLOBAL,
+    'cache' => DRUPAL_CACHE_PER_PAGE,
   );
   return $blocks;
 }
