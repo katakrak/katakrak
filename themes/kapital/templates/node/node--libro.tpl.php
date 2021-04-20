@@ -200,7 +200,7 @@
 <div class="card-book-md">
     <div class="cover">
     <?php if ($node->field_libro_portada['und'][0]['fid']): ?>
-      <?php print render($content['field_libro_portada']) ?>
+      <?php print theme_image(array('path' => $node->field_libro_portada['und'][0]['uri'],  'attributes' => array('class' => 'img-responsive') ?>
     <?php else: ?>
       <?php print theme_image(array('path' => '/sites/all/themes/kapital/images/default-cover.jpg',  'attributes' => array('class' => 'img-responsive'))) ?>
     <?php endif; ?>
