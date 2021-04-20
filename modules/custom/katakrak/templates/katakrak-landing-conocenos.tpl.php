@@ -15,12 +15,12 @@
         </div>
         <div class="col-sm-6">
          <p>
-            <img src="https://images.unsplash.com/photo-1569000972288-5cae2681da22?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1650&q=80" class="img-responsive" alt="Katakrak">
+           <img src="/sites/all/themes/kapital/images/conocenos-destacado1.jpg" class="img-responsive" alt="Katakrak">
           </p>
           </div><!-- /.col -->
       </div><!-- /.row-->
         </div><!-- /.container -->
-        <hr>
+        
    <div class="mt-3 pb-2">
     <div class="container">
       <div class="row mt-2">
@@ -39,7 +39,7 @@
           </div>
       </div><!-- /.row-->
         </div><!-- /.container -->
-        <hr>
+        
   
    <div class="mt-3 pb-2">
     <div class="container">
