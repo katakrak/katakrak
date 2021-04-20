@@ -392,15 +392,29 @@ function libro_block_view($delta) {
 
           $term = taxonomy_term_load($tid);
           if ($term->vocabulary_machine_name == 'materias'){
-            $links[] = '<li>'.l(t('Secciones'), 'tienda/secciones').'</li>';
+            $links[] = array(
+             'link' => l(t('Secciones'), 'tienda/secciones'), 
+            );
             global $language;
-            if ($language->language == 'es')
-              $links[] = '<li class="active">'.$term->name.'</li>';
-            else
-              $links[] = '<li class="active">'.$term->field_nombre_euskera['und'][0]['value'].'</li>';
+            if ($language->language == 'es'){
+              $links[] = array(
+                'link' =>$term->name, 
+                'active' => TRUE,
+              );
+            } 
+            else {
+              $links[] = array(
+                'link' =>$term->field_nombre_euskera['und'][0]['value'], 
+                'active' => TRUE,
+              );
+            }
+              
           }
           else
-             $links[] = '<li class="active">'.$term->name.'</li>';
+            $links[] = array(
+                'link' =>$term->name, 
+                'active' => TRUE,
+              );
         }
       }
       $block['content'] = theme('katakrak_breadcrumb', array('links' => $links));
