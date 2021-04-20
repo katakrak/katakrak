@@ -410,9 +410,7 @@ function libro_block_view($delta) {
             }
               
           }
-          else
-            
-        }
+      }
       }
       $block['content'] = theme('katakrak_breadcrumb', array('links' => $links));
       break;
