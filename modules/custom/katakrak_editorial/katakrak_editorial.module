@@ -236,3 +236,8 @@ function katakrak_editorial_node_load($nodes, $types) {
     }
   }
 }
+
+function katakrak_editorial_node_view($node, $view_mode) {
+  if ($node->type == 'libro_ed' && $view_mode == 'full')
+    drupal_add_js(drupal_get_path('module', 'katakrak_editorial').'/katakrak_editorial.js');
+}
