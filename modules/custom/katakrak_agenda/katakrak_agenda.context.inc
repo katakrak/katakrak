@@ -114,6 +114,9 @@ function katakrak_agenda_context_default_contexts() {
       ),
       'layout' => 'landing',
     ),
+    'menu' => array(
+      0 => 'main-menu:agenda',
+    ),
   );
   $context->condition_mode = 0;
 

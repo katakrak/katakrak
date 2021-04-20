@@ -39,6 +39,6 @@
 </div><!-- /.row -->
 <?php if ($node->field_event_libro['und'][0]): ?>
   <hr class="hr-dark">
-  <h3 class="mb-2">Libro recomendado:</h3>
+  <h3 class="mb-2"><?php print t('Libro recomendado') ?>:</h3>
   <?php print render($content['field_event_libro']) ?>
 <?php endif; ?>
