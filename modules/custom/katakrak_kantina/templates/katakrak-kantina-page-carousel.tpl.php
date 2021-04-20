@@ -8,18 +8,18 @@
           
         </div>
         <div class="col-sm-8">
-          <!-- <p class="mt-2">
-            <img src="images/cantina-cafe.jpg" class="img-responsive" alt="Katakrak Cantina">
-          </p> -->
-          <div id="carousel-cantina" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
+           <p class="mt-2">
+            <img src="/sites/all/themes/kapital/images/cantina-destacado3.jpg" class="img-responsive" alt="Katakrak Cantina">
+          </p>
+          <!--<div id="carousel-cantina" class="carousel slide" data-ride="carousel">
+            
             <ol class="carousel-indicators">
               <li data-target="#cantina1" data-slide-to="0" class="active"></li>
               <li data-target="#cantina2" data-slide-to="1"></li>
               <li data-target="#cantina3" data-slide-to="2"></li>
             </ol>
           
-            <!-- Wrapper for slides -->
+            
             <div class="carousel-inner" role="listbox">
               <div class="item active">
                 <img src="/sites/all/themes/kapital/images/bg-cantina.jpg" alt="Katakrak Cantina">
@@ -42,14 +42,14 @@
 
             </div>
           
-            <!-- Controls -->
+           
             <a class="left carousel-control" href="#carousel-cantina" role="button" data-slide="prev">
               <img src="/sites/all/themes/kapital/images/angle-left.svg" width="30" height="30" alt="Anterior">
             </a>
             <a class="right carousel-control" href="#carousel-cantina" role="button" data-slide="next">
               <img src="/sites/all/themes/kapital/images/angle-right.svg" width="30" height="30" alt="Siguiente">
             </a>
-          </div>
+          </div>-->
       
       </div>
   </div>

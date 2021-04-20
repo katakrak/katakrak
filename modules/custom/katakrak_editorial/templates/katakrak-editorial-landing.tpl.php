@@ -1,7 +1,7 @@
 <div class="container">
   <div class="d-flex-fullwidth vcenter">
     <div class="col-sm-6 p-0 mt-3">
-     <img src="/sites/all/themes/kapital/images/default.jpg" class="img-responsive" alt="<?php print t('Katakrak Editorial') ?>">
+      <img src="/sites/all/themes/kapital/images/editorial-destacado1.jpg" class="img-responsive" alt="<?php print t('Katakrak Editorial') ?>">
     </div>
     <div class="col-sm-6 p-4">
      
@@ -21,7 +21,7 @@
 
 </div>
     <div class="col-sm-6 p-0">
-      <img src="/sites/all/themes/kapital/images/default.jpg" class="img-responsive" alt="<?php print t('Katakrak Editorial') ?>">
+      <img src="/sites/all/themes/kapital/images/editorial-destacado2.jpg" class="img-responsive" alt="<?php print t('Katakrak Editorial') ?>">
      </div>
   </div>
  </div>
