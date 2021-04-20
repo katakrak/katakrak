@@ -51,14 +51,14 @@ function libro_context_default_contexts() {
     'block' => array(
       'blocks' => array(
         'libro-libreria_landing_hero' => array(
-          'module' => 'libro',
           'delta' => 'libreria_landing_hero',
+          'module' => 'libro',
           'region' => 'hero',
           'weight' => '-10',
         ),
         'libro-libreria_landing_highlight' => array(
-          'module' => 'libro',
           'delta' => 'libreria_landing_highlight',
+          'module' => 'libro',
           'region' => 'content_top',
           'weight' => '-10',
         ),
@@ -81,12 +81,12 @@ function libro_context_default_contexts() {
   $context->tag = 'Tienda online';
   $context->conditions = array(
     'taxonomy_term' => array(
+      'options' => array(
+        'term_form' => '0',
+      ),
       'values' => array(
         'autores' => 'autores',
         'materias' => 'materias',
-      ),
-      'options' => array(
-        'term_form' => '0',
       ),
     ),
     'views' => array(
@@ -100,26 +100,26 @@ function libro_context_default_contexts() {
     'block' => array(
       'blocks' => array(
         'libro-libreria_home_bizikrak' => array(
-          'module' => 'libro',
           'delta' => 'libreria_home_bizikrak',
+          'module' => 'libro',
           'region' => 'banners',
           'weight' => '-10',
         ),
-        'libro-libreria_secciones_breadcrumb' => array(
-          'module' => 'libro',
-          'delta' => 'libreria_secciones_breadcrumb',
-          'region' => 'content_top',
-          'weight' => '-10',
-        ),
         'libro-libreria_home_search' => array(
-          'module' => 'libro',
           'delta' => 'libreria_home_search',
+          'module' => 'libro',
           'region' => 'content_top',
           'weight' => '-9',
         ),
-        'libro-libreria_secciones_titulo' => array(
+        'libro-libreria_secciones_breadcrumb' => array(
+          'delta' => 'libreria_secciones_breadcrumb',
           'module' => 'libro',
+          'region' => 'content_top',
+          'weight' => '-10',
+        ),
+        'libro-libreria_secciones_titulo' => array(
           'delta' => 'libreria_secciones_titulo',
+          'module' => 'libro',
           'region' => 'content_top',
           'weight' => '-8',
         ),
@@ -145,34 +145,34 @@ function libro_context_default_contexts() {
   $context->tag = 'Tienda online';
   $context->conditions = array(
     'node' => array(
-      'values' => array(
-        'libro' => 'libro',
-      ),
       'options' => array(
         'node_form' => '0',
+      ),
+      'values' => array(
+        'libro' => 'libro',
       ),
     ),
   );
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'system-main' => array(
-          'module' => 'system',
-          'delta' => 'main',
-          'region' => 'content',
-          'weight' => '-9',
-        ),
         'libro-libreria_home_bizikrak' => array(
-          'module' => 'libro',
           'delta' => 'libreria_home_bizikrak',
+          'module' => 'libro',
           'region' => 'banners',
           'weight' => '-10',
         ),
         'libro-libreria_home_search' => array(
-          'module' => 'libro',
           'delta' => 'libreria_home_search',
+          'module' => 'libro',
           'region' => 'content_top',
           'weight' => '-10',
+        ),
+        'system-main' => array(
+          'delta' => 'main',
+          'module' => 'system',
+          'region' => 'content',
+          'weight' => '-9',
         ),
       ),
     ),
@@ -203,47 +203,47 @@ function libro_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'libro-libreria_home_search' => array(
-          'module' => 'libro',
-          'delta' => 'libreria_home_search',
-          'region' => 'content',
-          'weight' => '-10',
-        ),
-        'views-libros-recomendados_narrativa' => array(
-          'module' => 'views',
-          'delta' => 'libros-recomendados_narrativa',
-          'region' => 'content',
-          'weight' => '1',
-        ),
-        'views-libros-recomendados_infantil' => array(
-          'module' => 'views',
-          'delta' => 'libros-recomendados_infantil',
-          'region' => 'content',
-          'weight' => '7',
-        ),
-        'views-libros-recomendados_comic' => array(
-          'module' => 'views',
-          'delta' => 'libros-recomendados_comic',
-          'region' => 'content',
-          'weight' => '4',
-        ),
         'libro-libreria_categorias' => array(
-          'module' => 'libro',
           'delta' => 'libreria_categorias',
+          'module' => 'libro',
           'region' => 'content',
           'weight' => '10',
         ),
         'libro-libreria_home_bizikrak' => array(
-          'module' => 'libro',
           'delta' => 'libreria_home_bizikrak',
+          'module' => 'libro',
           'region' => 'banners',
           'weight' => '-9',
         ),
         'libro-libreria_home_destacado' => array(
-          'module' => 'libro',
           'delta' => 'libreria_home_destacado',
+          'module' => 'libro',
           'region' => 'content_middle',
           'weight' => '-9',
+        ),
+        'libro-libreria_home_search' => array(
+          'delta' => 'libreria_home_search',
+          'module' => 'libro',
+          'region' => 'content',
+          'weight' => '-10',
+        ),
+        'views-libros-recomendados_comic' => array(
+          'delta' => 'libros-recomendados_comic',
+          'module' => 'views',
+          'region' => 'content',
+          'weight' => '4',
+        ),
+        'views-libros-recomendados_infantil' => array(
+          'delta' => 'libros-recomendados_infantil',
+          'module' => 'views',
+          'region' => 'content',
+          'weight' => '7',
+        ),
+        'views-libros-recomendados_narrativa' => array(
+          'delta' => 'libros-recomendados_narrativa',
+          'module' => 'views',
+          'region' => 'content',
+          'weight' => '1',
         ),
       ),
     ),

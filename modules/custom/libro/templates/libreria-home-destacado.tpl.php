@@ -20,7 +20,7 @@
             <div class="col-sm-4">
               <img src="/sites/all/themes/kapital/images/trato-cercano.png" class="img-responsive img-feat" alt="<?php print t('Trato cercano') ?>">
               <p class="text-center mt-2">
-                <strong><?php print t('Trato cercano') ?></strong><br><?php print t('Escribenos con cualquier duda que tengas.') ?>
+                <strong><?php print t('Trato cercano') ?></strong><br><?php print t('Escríbenos con cualquier duda que tengas.') ?>
               </p>
             </div><!-- /.col -->
           </div><!-- /.row -->

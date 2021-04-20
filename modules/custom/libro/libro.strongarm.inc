@@ -65,9 +65,414 @@ function libro_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__libro';
   $strongarm->value = array(
+    'extra_fields' => array(
+      'display' => array(
+        'language' => array(
+          'card_book' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'card_book_editorial' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'card_book_md' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'card_book_smgrid' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'default' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'search_index' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'search_result' => array(
+            'visible' => FALSE,
+            'weight' => '0',
+          ),
+          'teaser' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+        ),
+        'product:commerce_price' => array(
+          'card_book' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'card_book_editorial' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'card_book_md' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'card_book_smgrid' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'default' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'search_index' => array(
+            'visible' => FALSE,
+            'weight' => '0',
+          ),
+          'search_result' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'teaser' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+        ),
+        'product:commerce_product_tariff_service' => array(
+          'card_book' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'card_book_editorial' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'card_book_md' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'card_book_smgrid' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'default' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'search_index' => array(
+            'visible' => FALSE,
+            'weight' => '0',
+          ),
+          'search_result' => array(
+            'visible' => FALSE,
+            'weight' => '0',
+          ),
+          'teaser' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+        ),
+        'product:commerce_product_tariff_weight' => array(
+          'card_book' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'card_book_editorial' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'card_book_md' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'card_book_smgrid' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'default' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'search_index' => array(
+            'visible' => FALSE,
+            'weight' => '0',
+          ),
+          'search_result' => array(
+            'visible' => FALSE,
+            'weight' => '0',
+          ),
+          'teaser' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+        ),
+        'product:commerce_stock' => array(
+          'card_book' => array(
+            'visible' => TRUE,
+            'weight' => '37',
+          ),
+          'card_book_editorial' => array(
+            'visible' => TRUE,
+            'weight' => '37',
+          ),
+          'card_book_md' => array(
+            'visible' => TRUE,
+            'weight' => '37',
+          ),
+          'card_book_smgrid' => array(
+            'visible' => TRUE,
+            'weight' => '37',
+          ),
+          'default' => array(
+            'visible' => TRUE,
+            'weight' => '37',
+          ),
+          'search_index' => array(
+            'visible' => FALSE,
+            'weight' => '37',
+          ),
+          'search_result' => array(
+            'visible' => FALSE,
+            'weight' => '37',
+          ),
+          'teaser' => array(
+            'visible' => TRUE,
+            'weight' => '37',
+          ),
+        ),
+        'product:field_peso_medio' => array(
+          'card_book' => array(
+            'visible' => TRUE,
+            'weight' => '38',
+          ),
+          'card_book_editorial' => array(
+            'visible' => TRUE,
+            'weight' => '38',
+          ),
+          'card_book_md' => array(
+            'visible' => TRUE,
+            'weight' => '38',
+          ),
+          'card_book_smgrid' => array(
+            'visible' => TRUE,
+            'weight' => '38',
+          ),
+          'default' => array(
+            'visible' => TRUE,
+            'weight' => '38',
+          ),
+          'search_index' => array(
+            'visible' => FALSE,
+            'weight' => '38',
+          ),
+          'search_result' => array(
+            'visible' => FALSE,
+            'weight' => '38',
+          ),
+          'teaser' => array(
+            'visible' => TRUE,
+            'weight' => '38',
+          ),
+        ),
+        'product:field_product_peso' => array(
+          'card_book' => array(
+            'visible' => TRUE,
+            'weight' => '36',
+          ),
+          'card_book_editorial' => array(
+            'visible' => TRUE,
+            'weight' => '36',
+          ),
+          'card_book_md' => array(
+            'visible' => TRUE,
+            'weight' => '36',
+          ),
+          'card_book_smgrid' => array(
+            'visible' => TRUE,
+            'weight' => '36',
+          ),
+          'default' => array(
+            'visible' => TRUE,
+            'weight' => '36',
+          ),
+          'search_index' => array(
+            'visible' => FALSE,
+            'weight' => '36',
+          ),
+          'search_result' => array(
+            'visible' => FALSE,
+            'weight' => '36',
+          ),
+          'teaser' => array(
+            'visible' => TRUE,
+            'weight' => '36',
+          ),
+        ),
+        'product:sku' => array(
+          'card_book' => array(
+            'visible' => TRUE,
+            'weight' => '-10',
+          ),
+          'card_book_editorial' => array(
+            'visible' => TRUE,
+            'weight' => '-10',
+          ),
+          'card_book_md' => array(
+            'visible' => TRUE,
+            'weight' => '-10',
+          ),
+          'card_book_smgrid' => array(
+            'visible' => TRUE,
+            'weight' => '-10',
+          ),
+          'default' => array(
+            'visible' => FALSE,
+            'weight' => '-10',
+          ),
+          'search_index' => array(
+            'visible' => FALSE,
+            'weight' => '-10',
+          ),
+          'search_result' => array(
+            'visible' => FALSE,
+            'weight' => '-10',
+          ),
+          'teaser' => array(
+            'visible' => FALSE,
+            'weight' => '-10',
+          ),
+        ),
+        'product:status' => array(
+          'card_book' => array(
+            'visible' => TRUE,
+            'weight' => '5',
+          ),
+          'card_book_editorial' => array(
+            'visible' => TRUE,
+            'weight' => '5',
+          ),
+          'card_book_md' => array(
+            'visible' => TRUE,
+            'weight' => '5',
+          ),
+          'card_book_smgrid' => array(
+            'visible' => TRUE,
+            'weight' => '5',
+          ),
+          'default' => array(
+            'visible' => FALSE,
+            'weight' => '5',
+          ),
+          'search_index' => array(
+            'visible' => FALSE,
+            'weight' => '5',
+          ),
+          'search_result' => array(
+            'visible' => FALSE,
+            'weight' => '5',
+          ),
+          'teaser' => array(
+            'visible' => FALSE,
+            'weight' => '5',
+          ),
+        ),
+        'product:title' => array(
+          'card_book' => array(
+            'visible' => TRUE,
+            'weight' => '-5',
+          ),
+          'card_book_editorial' => array(
+            'visible' => TRUE,
+            'weight' => '-5',
+          ),
+          'card_book_md' => array(
+            'visible' => TRUE,
+            'weight' => '-5',
+          ),
+          'card_book_smgrid' => array(
+            'visible' => TRUE,
+            'weight' => '-5',
+          ),
+          'default' => array(
+            'visible' => FALSE,
+            'weight' => '-5',
+          ),
+          'search_index' => array(
+            'visible' => TRUE,
+            'weight' => '-5',
+          ),
+          'search_result' => array(
+            'visible' => FALSE,
+            'weight' => '-5',
+          ),
+          'teaser' => array(
+            'visible' => FALSE,
+            'weight' => '-5',
+          ),
+        ),
+        'sharethis' => array(
+          'card_book' => array(
+            'visible' => TRUE,
+            'weight' => '10',
+          ),
+          'card_book_editorial' => array(
+            'visible' => TRUE,
+            'weight' => '10',
+          ),
+          'card_book_md' => array(
+            'visible' => TRUE,
+            'weight' => '10',
+          ),
+          'card_book_smgrid' => array(
+            'visible' => TRUE,
+            'weight' => '10',
+          ),
+          'default' => array(
+            'visible' => TRUE,
+            'weight' => '10',
+          ),
+          'teaser' => array(
+            'visible' => TRUE,
+            'weight' => '10',
+          ),
+        ),
+      ),
+      'form' => array(
+        'language' => array(
+          'weight' => '1',
+        ),
+        'metatags' => array(
+          'weight' => '12',
+        ),
+        'path' => array(
+          'weight' => '12',
+        ),
+        'title' => array(
+          'weight' => '0',
+        ),
+      ),
+    ),
     'view_modes' => array(
-      'teaser' => array(
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'email_html' => array(
+        'custom_settings' => FALSE,
+      ),
+      'email_plain' => array(
+        'custom_settings' => FALSE,
+      ),
+      'email_textalt' => array(
+        'custom_settings' => FALSE,
+      ),
+      'full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'home_event' => array(
         'custom_settings' => TRUE,
+      ),
+      'revision' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rss' => array(
+        'custom_settings' => FALSE,
       ),
       'search_index' => array(
         'custom_settings' => TRUE,
@@ -75,416 +480,11 @@ function libro_strongarm() {
       'search_result' => array(
         'custom_settings' => TRUE,
       ),
-      'full' => array(
-        'custom_settings' => FALSE,
-      ),
-      'rss' => array(
-        'custom_settings' => FALSE,
-      ),
-      'diff_standard' => array(
-        'custom_settings' => FALSE,
+      'teaser' => array(
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
-      ),
-      'revision' => array(
-        'custom_settings' => FALSE,
-      ),
-      'home_event' => array(
-        'custom_settings' => TRUE,
-      ),
-      'email_plain' => array(
-        'custom_settings' => FALSE,
-      ),
-      'email_html' => array(
-        'custom_settings' => FALSE,
-      ),
-      'email_textalt' => array(
-        'custom_settings' => FALSE,
-      ),
-    ),
-    'extra_fields' => array(
-      'form' => array(
-        'language' => array(
-          'weight' => '1',
-        ),
-        'title' => array(
-          'weight' => '0',
-        ),
-        'path' => array(
-          'weight' => '12',
-        ),
-        'metatags' => array(
-          'weight' => '12',
-        ),
-      ),
-      'display' => array(
-        'product:sku' => array(
-          'default' => array(
-            'weight' => '-10',
-            'visible' => FALSE,
-          ),
-          'search_index' => array(
-            'weight' => '-10',
-            'visible' => FALSE,
-          ),
-          'search_result' => array(
-            'weight' => '-10',
-            'visible' => FALSE,
-          ),
-          'teaser' => array(
-            'weight' => '-10',
-            'visible' => FALSE,
-          ),
-          'card_book' => array(
-            'weight' => '-10',
-            'visible' => TRUE,
-          ),
-          'card_book_md' => array(
-            'weight' => '-10',
-            'visible' => TRUE,
-          ),
-          'card_book_editorial' => array(
-            'weight' => '-10',
-            'visible' => TRUE,
-          ),
-          'card_book_smgrid' => array(
-            'weight' => '-10',
-            'visible' => TRUE,
-          ),
-        ),
-        'product:title' => array(
-          'default' => array(
-            'weight' => '-5',
-            'visible' => FALSE,
-          ),
-          'search_index' => array(
-            'weight' => '-5',
-            'visible' => TRUE,
-          ),
-          'search_result' => array(
-            'weight' => '-5',
-            'visible' => FALSE,
-          ),
-          'teaser' => array(
-            'weight' => '-5',
-            'visible' => FALSE,
-          ),
-          'card_book' => array(
-            'weight' => '-5',
-            'visible' => TRUE,
-          ),
-          'card_book_md' => array(
-            'weight' => '-5',
-            'visible' => TRUE,
-          ),
-          'card_book_editorial' => array(
-            'weight' => '-5',
-            'visible' => TRUE,
-          ),
-          'card_book_smgrid' => array(
-            'weight' => '-5',
-            'visible' => TRUE,
-          ),
-        ),
-        'product:status' => array(
-          'default' => array(
-            'weight' => '5',
-            'visible' => FALSE,
-          ),
-          'search_index' => array(
-            'weight' => '5',
-            'visible' => FALSE,
-          ),
-          'search_result' => array(
-            'weight' => '5',
-            'visible' => FALSE,
-          ),
-          'teaser' => array(
-            'weight' => '5',
-            'visible' => FALSE,
-          ),
-          'card_book' => array(
-            'weight' => '5',
-            'visible' => TRUE,
-          ),
-          'card_book_md' => array(
-            'weight' => '5',
-            'visible' => TRUE,
-          ),
-          'card_book_editorial' => array(
-            'weight' => '5',
-            'visible' => TRUE,
-          ),
-          'card_book_smgrid' => array(
-            'weight' => '5',
-            'visible' => TRUE,
-          ),
-        ),
-        'product:commerce_price' => array(
-          'default' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'search_index' => array(
-            'weight' => '0',
-            'visible' => FALSE,
-          ),
-          'search_result' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'teaser' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'card_book' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'card_book_md' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'card_book_editorial' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'card_book_smgrid' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-        ),
-        'product:commerce_product_tariff_weight' => array(
-          'default' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'search_index' => array(
-            'weight' => '0',
-            'visible' => FALSE,
-          ),
-          'search_result' => array(
-            'weight' => '0',
-            'visible' => FALSE,
-          ),
-          'teaser' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'card_book' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'card_book_md' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'card_book_editorial' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'card_book_smgrid' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-        ),
-        'product:commerce_product_tariff_service' => array(
-          'default' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'search_index' => array(
-            'weight' => '0',
-            'visible' => FALSE,
-          ),
-          'search_result' => array(
-            'weight' => '0',
-            'visible' => FALSE,
-          ),
-          'teaser' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'card_book' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'card_book_md' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'card_book_editorial' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'card_book_smgrid' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-        ),
-        'product:commerce_stock' => array(
-          'default' => array(
-            'weight' => '37',
-            'visible' => TRUE,
-          ),
-          'search_index' => array(
-            'weight' => '37',
-            'visible' => FALSE,
-          ),
-          'search_result' => array(
-            'weight' => '37',
-            'visible' => FALSE,
-          ),
-          'teaser' => array(
-            'weight' => '37',
-            'visible' => TRUE,
-          ),
-          'card_book' => array(
-            'weight' => '37',
-            'visible' => TRUE,
-          ),
-          'card_book_md' => array(
-            'weight' => '37',
-            'visible' => TRUE,
-          ),
-          'card_book_editorial' => array(
-            'weight' => '37',
-            'visible' => TRUE,
-          ),
-          'card_book_smgrid' => array(
-            'weight' => '37',
-            'visible' => TRUE,
-          ),
-        ),
-        'product:field_product_peso' => array(
-          'default' => array(
-            'weight' => '36',
-            'visible' => TRUE,
-          ),
-          'search_index' => array(
-            'weight' => '36',
-            'visible' => FALSE,
-          ),
-          'search_result' => array(
-            'weight' => '36',
-            'visible' => FALSE,
-          ),
-          'teaser' => array(
-            'weight' => '36',
-            'visible' => TRUE,
-          ),
-          'card_book' => array(
-            'weight' => '36',
-            'visible' => TRUE,
-          ),
-          'card_book_md' => array(
-            'weight' => '36',
-            'visible' => TRUE,
-          ),
-          'card_book_editorial' => array(
-            'weight' => '36',
-            'visible' => TRUE,
-          ),
-          'card_book_smgrid' => array(
-            'weight' => '36',
-            'visible' => TRUE,
-          ),
-        ),
-        'language' => array(
-          'search_index' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'search_result' => array(
-            'weight' => '0',
-            'visible' => FALSE,
-          ),
-          'default' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'teaser' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'card_book' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'card_book_md' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'card_book_editorial' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'card_book_smgrid' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-        ),
-        'product:field_peso_medio' => array(
-          'search_index' => array(
-            'weight' => '38',
-            'visible' => FALSE,
-          ),
-          'search_result' => array(
-            'weight' => '38',
-            'visible' => FALSE,
-          ),
-          'default' => array(
-            'weight' => '38',
-            'visible' => TRUE,
-          ),
-          'teaser' => array(
-            'weight' => '38',
-            'visible' => TRUE,
-          ),
-          'card_book' => array(
-            'weight' => '38',
-            'visible' => TRUE,
-          ),
-          'card_book_md' => array(
-            'weight' => '38',
-            'visible' => TRUE,
-          ),
-          'card_book_editorial' => array(
-            'weight' => '38',
-            'visible' => TRUE,
-          ),
-          'card_book_smgrid' => array(
-            'weight' => '38',
-            'visible' => TRUE,
-          ),
-        ),
-        'sharethis' => array(
-          'default' => array(
-            'weight' => '10',
-            'visible' => TRUE,
-          ),
-          'teaser' => array(
-            'weight' => '10',
-            'visible' => TRUE,
-          ),
-          'card_book' => array(
-            'weight' => '10',
-            'visible' => TRUE,
-          ),
-          'card_book_md' => array(
-            'weight' => '10',
-            'visible' => TRUE,
-          ),
-          'card_book_editorial' => array(
-            'weight' => '10',
-            'visible' => TRUE,
-          ),
-          'card_book_smgrid' => array(
-            'weight' => '10',
-            'visible' => TRUE,
-          ),
-        ),
       ),
     ),
   );

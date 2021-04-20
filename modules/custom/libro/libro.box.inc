@@ -19,11 +19,11 @@ function libro_default_box() {
   $box->title = 'Bizikrak';
   $box->description = 'Bizikrak banner';
   $box->options = array(
-    'body' => array(
-      'value' => '<img src="https://katakrak.net/sites/all/themes/coworker/images/bizikrak.gif" >',
-      'format' => 'full_html',
-    ),
     'additional_classes' => '',
+    'body' => array(
+      'format' => 'full_html',
+      'value' => '<img src="https://katakrak.net/sites/all/themes/coworker/images/bizikrak.gif" >',
+    ),
   );
   $export['bizikrak'] = $box;
 

@@ -21,8 +21,6 @@ function libro_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Info de geslib',
-    'weight' => '5',
     'children' => array(
       0 => 'field_libro_autores',
       1 => 'field_libro_categoria',
@@ -38,15 +36,17 @@ function libro_field_group_info() {
       11 => 'language',
       12 => 'path',
     ),
-    'format_type' => 'fieldset',
     'format_settings' => array(
       'formatter' => 'collapsible',
       'instance_settings' => array(
-        'description' => '',
         'classes' => 'group-libro-geslib field-group-fieldset',
+        'description' => '',
         'required_fields' => 1,
       ),
     ),
+    'format_type' => 'fieldset',
+    'label' => 'Info de geslib',
+    'weight' => '5',
   );
   $field_groups['group_libro_geslib|node|libro|form'] = $field_group;
 
