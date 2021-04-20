@@ -51,7 +51,7 @@ function katakrak_blog_context_default_contexts() {
       'layout' => 'agenda',
     ),
     'menu' => array(
-      0 => 'menu-menu-nagusia:blog',
+      0 => 'main-menu:blog',
     ),
   );
   $context->condition_mode = 0;
@@ -78,10 +78,15 @@ function katakrak_blog_context_default_contexts() {
         'boletin' => 'boletin',
       ),
     ),
+    'path' => array(
+      'values' => array(
+        'buscar/blogs*' => 'buscar/blogs*',
+      ),
+    ),
   );
   $context->reactions = array(
     'menu' => array(
-      0 => 'menu-menu-nagusia:blog',
+      0 => 'main-menu:blog',
     ),
   );
   $context->condition_mode = 0;
