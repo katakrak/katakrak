@@ -383,10 +383,10 @@ function libro_block_view($delta) {
       break;
     case 'libreria_secciones_breadcrumb':
       $tid = arg(2);
-      $links[] = '<li>'.l(t('Tienda online'), 'tienda').'</li>';
+      $links[] = array('link' => l(t('Tienda online'), 'tienda'));
       
       if (arg(1) == 'secciones')
-        $links[] = '<li class="active">'.t('Secciones').'</li>';
+        $links[] = array('link' => t('Secciones'), 'active' => TRUE);
       else {
         if (isset($tid)) {
 
@@ -411,10 +411,7 @@ function libro_block_view($delta) {
               
           }
           else
-            $links[] = array(
-                'link' =>$term->name, 
-                'active' => TRUE,
-              );
+            
         }
       }
       $block['content'] = theme('katakrak_breadcrumb', array('links' => $links));
