@@ -35,22 +35,22 @@ function katakrak_agenda_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'katakrak_agenda-katakrak_agenda_search' => array(
-          'module' => 'katakrak_agenda',
-          'delta' => 'katakrak_agenda_search',
-          'region' => 'content',
-          'weight' => '-10',
-        ),
         'katakrak_agenda-katakrak_agenda_banner_organiza' => array(
-          'module' => 'katakrak_agenda',
           'delta' => 'katakrak_agenda_banner_organiza',
+          'module' => 'katakrak_agenda',
           'region' => 'banners',
           'weight' => '-10',
         ),
         'katakrak_agenda-katakrak_agenda_nav_secundary' => array(
-          'module' => 'katakrak_agenda',
           'delta' => 'katakrak_agenda_nav_secundary',
+          'module' => 'katakrak_agenda',
           'region' => 'content_top',
+          'weight' => '-10',
+        ),
+        'katakrak_agenda-katakrak_agenda_search' => array(
+          'delta' => 'katakrak_agenda_search',
+          'module' => 'katakrak_agenda',
+          'region' => 'content',
           'weight' => '-10',
         ),
       ),
@@ -60,8 +60,8 @@ function katakrak_agenda_context_default_contexts() {
       0 => 'menu-menu-nagusia:agenda',
     ),
     'theme' => array(
-      'title' => 'Agenda',
       'subtitle' => '',
+      'title' => 'Agenda',
     ),
   );
   $context->condition_mode = 0;
@@ -87,28 +87,28 @@ function katakrak_agenda_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'katakrak_agenda-agenda_landing_destacado' => array(
-          'module' => 'katakrak_agenda',
-          'delta' => 'agenda_landing_destacado',
-          'region' => 'banners',
-          'weight' => '-10',
-        ),
         'katakrak_agenda-agenda_landing_baldosas' => array(
-          'module' => 'katakrak_agenda',
           'delta' => 'agenda_landing_baldosas',
+          'module' => 'katakrak_agenda',
           'region' => 'content_top',
           'weight' => '-10',
         ),
-        'katakrak_agenda-agenda_landing_visitado' => array(
+        'katakrak_agenda-agenda_landing_destacado' => array(
+          'delta' => 'agenda_landing_destacado',
           'module' => 'katakrak_agenda',
-          'delta' => 'agenda_landing_visitado',
-          'region' => 'content_middle',
+          'region' => 'banners',
           'weight' => '-10',
         ),
         'katakrak_agenda-agenda_landing_form' => array(
-          'module' => 'katakrak_agenda',
           'delta' => 'agenda_landing_form',
+          'module' => 'katakrak_agenda',
           'region' => 'content_bottom',
+          'weight' => '-10',
+        ),
+        'katakrak_agenda-agenda_landing_visitado' => array(
+          'delta' => 'agenda_landing_visitado',
+          'module' => 'katakrak_agenda',
+          'region' => 'content_middle',
           'weight' => '-10',
         ),
       ),
@@ -131,12 +131,12 @@ function katakrak_agenda_context_default_contexts() {
   $context->tag = 'Agenda';
   $context->conditions = array(
     'node' => array(
+      'options' => array(
+        'node_form' => '0',
+      ),
       'values' => array(
         'ciclo' => 'ciclo',
         'event' => 'event',
-      ),
-      'options' => array(
-        'node_form' => '0',
       ),
     ),
   );

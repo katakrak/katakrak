@@ -20,30 +20,30 @@ function katakrak_agenda_default_page_manager_handlers() {
   $handler->handler = 'panel_context';
   $handler->weight = 2;
   $handler->conf = array(
-    'title' => 'Ciclos',
-    'no_blocks' => 0,
-    'pipeline' => 'standard',
-    'body_classes_to_remove' => '',
-    'body_classes_to_add' => '',
-    'css_id' => '',
-    'css' => '',
-    'contexts' => array(),
-    'relationships' => array(),
     'access' => array(
+      'logic' => 'and',
       'plugins' => array(
         0 => array(
+          'context' => 'argument_term_1',
           'name' => 'term_vocabulary',
+          'not' => FALSE,
           'settings' => array(
             'machine_name' => array(
               'ciclo' => 'ciclo',
             ),
           ),
-          'context' => 'argument_term_1',
-          'not' => FALSE,
         ),
       ),
-      'logic' => 'and',
     ),
+    'body_classes_to_add' => '',
+    'body_classes_to_remove' => '',
+    'contexts' => array(),
+    'css' => '',
+    'css_id' => '',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'relationships' => array(),
+    'title' => 'Ciclos',
   );
   $display = new panels_display();
   $display->layout = 'onecol';
@@ -69,16 +69,16 @@ function katakrak_agenda_default_page_manager_handlers() {
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'label' => 'hidden',
-    'formatter' => 'image',
+    'context' => 'argument_term_1',
     'delta_limit' => 0,
     'delta_offset' => '0',
     'delta_reversed' => FALSE,
+    'formatter' => 'image',
     'formatter_settings' => array(
-      'image_style' => '',
       'image_link' => 'content',
+      'image_style' => '',
     ),
-    'context' => 'argument_term_1',
+    'label' => 'hidden',
     'override_title' => 1,
     'override_title_text' => '',
   );
@@ -101,13 +101,13 @@ function katakrak_agenda_default_page_manager_handlers() {
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'label' => 'hidden',
-    'formatter' => 'file_default',
+    'context' => 'argument_term_1',
     'delta_limit' => '0',
     'delta_offset' => '0',
     'delta_reversed' => 0,
+    'formatter' => 'file_default',
     'formatter_settings' => array(),
-    'context' => 'argument_term_1',
+    'label' => 'hidden',
     'override_title' => 0,
     'override_title_text' => '',
   );

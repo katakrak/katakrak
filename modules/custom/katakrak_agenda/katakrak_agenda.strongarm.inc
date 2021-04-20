@@ -107,9 +107,54 @@ function katakrak_agenda_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__ciclo';
   $strongarm->value = array(
+    'extra_fields' => array(
+      'display' => array(
+        'language' => array(
+          'default' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+        ),
+        'sharethis' => array(
+          'default' => array(
+            'visible' => TRUE,
+            'weight' => '10',
+          ),
+        ),
+      ),
+      'form' => array(
+        'language' => array(
+          'weight' => '1',
+        ),
+        'metatags' => array(
+          'weight' => '4',
+        ),
+        'path' => array(
+          'weight' => '3',
+        ),
+        'title' => array(
+          'weight' => '0',
+        ),
+      ),
+    ),
     'view_modes' => array(
-      'teaser' => array(
+      'card_book' => array(
         'custom_settings' => TRUE,
+      ),
+      'card_book_md' => array(
+        'custom_settings' => TRUE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'email_html' => array(
+        'custom_settings' => FALSE,
+      ),
+      'email_plain' => array(
+        'custom_settings' => FALSE,
+      ),
+      'email_textalt' => array(
+        'custom_settings' => FALSE,
       ),
       'full' => array(
         'custom_settings' => FALSE,
@@ -123,56 +168,11 @@ function katakrak_agenda_strongarm() {
       'search_result' => array(
         'custom_settings' => FALSE,
       ),
-      'diff_standard' => array(
-        'custom_settings' => FALSE,
-      ),
-      'email_plain' => array(
-        'custom_settings' => FALSE,
-      ),
-      'email_html' => array(
-        'custom_settings' => FALSE,
-      ),
-      'email_textalt' => array(
-        'custom_settings' => FALSE,
+      'teaser' => array(
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
-      ),
-      'card_book' => array(
-        'custom_settings' => TRUE,
-      ),
-      'card_book_md' => array(
-        'custom_settings' => TRUE,
-      ),
-    ),
-    'extra_fields' => array(
-      'form' => array(
-        'language' => array(
-          'weight' => '1',
-        ),
-        'metatags' => array(
-          'weight' => '4',
-        ),
-        'title' => array(
-          'weight' => '0',
-        ),
-        'path' => array(
-          'weight' => '3',
-        ),
-      ),
-      'display' => array(
-        'language' => array(
-          'default' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-        ),
-        'sharethis' => array(
-          'default' => array(
-            'weight' => '10',
-            'visible' => TRUE,
-          ),
-        ),
       ),
     ),
   );
@@ -183,15 +183,68 @@ function katakrak_agenda_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__event';
   $strongarm->value = array(
+    'extra_fields' => array(
+      'display' => array(
+        'language' => array(
+          'default' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'home_event' => array(
+            'visible' => TRUE,
+            'weight' => '1',
+          ),
+          'teaser' => array(
+            'visible' => TRUE,
+            'weight' => '3',
+          ),
+        ),
+        'sharethis' => array(
+          'default' => array(
+            'visible' => TRUE,
+            'weight' => '10',
+          ),
+        ),
+      ),
+      'form' => array(
+        'language' => array(
+          'weight' => '0',
+        ),
+        'metatags' => array(
+          'weight' => '40',
+        ),
+        'path' => array(
+          'weight' => '30',
+        ),
+        'title' => array(
+          'weight' => '-5',
+        ),
+      ),
+    ),
     'view_modes' => array(
-      'teaser' => array(
+      'card_book' => array(
         'custom_settings' => TRUE,
       ),
-      'home_event' => array(
+      'card_book_md' => array(
         'custom_settings' => TRUE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'email_html' => array(
+        'custom_settings' => FALSE,
+      ),
+      'email_plain' => array(
+        'custom_settings' => FALSE,
+      ),
+      'email_textalt' => array(
+        'custom_settings' => FALSE,
       ),
       'full' => array(
         'custom_settings' => FALSE,
+      ),
+      'home_event' => array(
+        'custom_settings' => TRUE,
       ),
       'rss' => array(
         'custom_settings' => FALSE,
@@ -202,64 +255,11 @@ function katakrak_agenda_strongarm() {
       'search_result' => array(
         'custom_settings' => FALSE,
       ),
-      'diff_standard' => array(
-        'custom_settings' => FALSE,
-      ),
-      'email_plain' => array(
-        'custom_settings' => FALSE,
-      ),
-      'email_html' => array(
-        'custom_settings' => FALSE,
-      ),
-      'email_textalt' => array(
-        'custom_settings' => FALSE,
+      'teaser' => array(
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
-      ),
-      'card_book' => array(
-        'custom_settings' => TRUE,
-      ),
-      'card_book_md' => array(
-        'custom_settings' => TRUE,
-      ),
-    ),
-    'extra_fields' => array(
-      'form' => array(
-        'language' => array(
-          'weight' => '0',
-        ),
-        'title' => array(
-          'weight' => '-5',
-        ),
-        'path' => array(
-          'weight' => '30',
-        ),
-        'metatags' => array(
-          'weight' => '40',
-        ),
-      ),
-      'display' => array(
-        'language' => array(
-          'teaser' => array(
-            'weight' => '3',
-            'visible' => TRUE,
-          ),
-          'default' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'home_event' => array(
-            'weight' => '1',
-            'visible' => TRUE,
-          ),
-        ),
-        'sharethis' => array(
-          'default' => array(
-            'weight' => '10',
-            'visible' => TRUE,
-          ),
-        ),
       ),
     ),
   );

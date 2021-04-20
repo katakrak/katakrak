@@ -21,21 +21,21 @@ function katakrak_agenda_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Info',
-    'weight' => '2',
     'children' => array(
       0 => 'field_image',
       1 => 'field_ciclo_descripci_n',
     ),
-    'format_type' => 'fieldset',
     'format_settings' => array(
       'formatter' => 'collapsible',
       'instance_settings' => array(
-        'description' => '',
         'classes' => 'group-ciclo-info field-group-fieldset',
+        'description' => '',
         'required_fields' => 1,
       ),
     ),
+    'format_type' => 'fieldset',
+    'label' => 'Info',
+    'weight' => '2',
   );
   $field_groups['group_ciclo_info|node|ciclo|form'] = $field_group;
 
