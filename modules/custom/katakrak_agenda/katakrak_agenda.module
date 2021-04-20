@@ -184,10 +184,9 @@ function katakrak_agenda_reserva_form($form, &$form_state) {
     '#type' => 'date_popup',
     '#date_type' => DATE_DATETIME,
     '#date_timezone' => date_default_timezone(),
-    '#date_format' => 'm/d/Y h:i a',
     '#date_increment' => 1,
     '#date_year_range' => '-3:+3',
-    //'#required' => TRUE,  
+    '#required' => TRUE,  
   );
   $form['sala'] = array(
     '#type' => 'radios',
@@ -225,15 +224,16 @@ function katakrak_agenda_reserva_form_validate($form, &$form_state) {
 }
 
 function katakrak_agenda_reserva_form_submit($form, &$form_state) {
-  
+  dpm($form_state);
   $nombre = $form_state['input']['nombre'];
   $email = $form_state['input']['email'];
   $telefono = $form_state['input']['telefono'];
-  $fecha = $form_state['input']['date'];
+  $fecha = $form_state['input']['date']['date'].' '.$form_state['input']['date']['time'];
   $sala = $form_state['input']['sala'];
   $explicacion = $form_state['input']['explicacion'];
-  
-  rules_invoke_component('rules_envio_del_formulario_organizar_acto', $nombre, $email, $telefono, $fecha, $fecha, $sala, $explicacion);
+  rules_invoke_component('rules_envio_del_formulario_organizar_acto', $nombre, $email, $telefono, $fecha, $sala, $explicacion);
+  drupal_set_message('Muchas gracias por ponerte en contacto.');
+  //rules_invoke_component('rules_envio_del_formulario_organizar_acto', $nombre, $email, $telefono, $fecha, $sala, $explicacion);
 }
 
 function katakrak_agenda_node_presave($node) {
