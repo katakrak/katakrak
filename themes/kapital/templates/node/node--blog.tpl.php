@@ -11,8 +11,8 @@
     <h1 class="mt-0"><?php print $node->title ?></h1>
     <p><?php print render($content['field_blog_cuerpo']) ?></p>
     <hr>
-    <h4>Compártelo:</h4>
-    <p>RRSS</p>
+    <!--TODO<h4>Compártelo:</h4>
+    <p>RRSS</p>-->
   </div><!-- /.col-->
 </div><!-- /.row -->
 <?php if ($node->field_blog_libro['und'][0]): ?>

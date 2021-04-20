@@ -104,8 +104,8 @@
       <?php endif; ?>
     
     <?php endforeach; ?>
-    <h4><?php print t('Compártelo') ?>:</h4>
-    <p>RRSS</p>
+    <!--TODO<h4><?php print t('Compártelo') ?>:</h4>
+    <p>RRSS</p>-->
   </div><!-- /.col-->
         
 </div><!-- /.row -->
