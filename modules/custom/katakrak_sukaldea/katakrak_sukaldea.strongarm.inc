@@ -58,21 +58,21 @@ function katakrak_sukaldea_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__sukalde_errezeta';
   $strongarm->value = array(
-    'view_modes' => array(),
     'extra_fields' => array(
+      'display' => array(),
       'form' => array(
-        'title' => array(
-          'weight' => '0',
+        'metatags' => array(
+          'weight' => '5',
         ),
         'path' => array(
           'weight' => '1',
         ),
-        'metatags' => array(
-          'weight' => '5',
+        'title' => array(
+          'weight' => '0',
         ),
       ),
-      'display' => array(),
     ),
+    'view_modes' => array(),
   );
   $export['field_bundle_settings_node__sukalde_errezeta'] = $strongarm;
 
@@ -81,18 +81,18 @@ function katakrak_sukaldea_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__sukalde_produktua';
   $strongarm->value = array(
-    'view_modes' => array(),
     'extra_fields' => array(
+      'display' => array(),
       'form' => array(
-        'title' => array(
-          'weight' => '0',
-        ),
         'path' => array(
           'weight' => '1',
         ),
+        'title' => array(
+          'weight' => '0',
+        ),
       ),
-      'display' => array(),
     ),
+    'view_modes' => array(),
   );
   $export['field_bundle_settings_node__sukalde_produktua'] = $strongarm;
 

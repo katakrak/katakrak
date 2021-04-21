@@ -8,6 +8,26 @@ include_once 'katakrak_sukaldea.features.inc';
 
 function katakrak_sukaldea_init() {
   $alergenos = array(
+    'A' => array(
+      'name' => t('Apio'),
+      'image' => 'apio.svg',
+      ),
+    'AL' => array(
+      'name' => t('Altramuz'),
+      'image' => 'altramuces.svg',
+      ),
+    'C' => array(
+      'name' => t('Cacahuetes'),
+      'image' => 'cacahuetes.svg',
+      ),
+    'CR' => array(
+      'name' => t('Crustáceos'),
+      'image' => 'crustaceos.svg',
+      ),
+    'F' => array(
+      'name' => t('Frutos secos'),
+      'image' => 'frutos-secos.svg',
+      ),
     'G' => array(
       'name' => t('Cereales con gluten'),
       'image' => 'gluten.svg',
@@ -16,45 +36,30 @@ function katakrak_sukaldea_init() {
       'name' => t('Huevos'),
       'image' => 'huevos.svg',
       ),
+    
+    'L' => array(
+      'name' => t('Lácteos'),
+      'image' => 'lacteos.svg',
+      ),
     'M' => array(
       'name' => t('Moluscos'),
       'image' => 'moluscos.svg',
       ),
-    'CR' => array(
-      'name' => t('Crustáceos'),
-      'image' => 'crustaceos.svg',
+    'MO' => array(
+      'name' => t('Mostaza'),
+      'image' => 'mostaza.svg',
       ),
     'P' => array(
       'name' => t('Pescado'),
       'image' => 'pescado.svg',
       ),
-    'C' => array(
-      'name' => t('Cacahuetes'),
-      'image' => 'cacahuetes.svg',
-      ),
-    'F' => array(
-      'name' => t('Frutos secos'),
-      'image' => 'frutos-secos.svg',
-      ),
-    'S' => array(
-      'name' => t('Soja'),
-      'image' => 'soja.svg',
-      ),
-    'A' => array(
-      'name' => t('Apio'),
-      'image' => 'apio.svg',
-      ),
-    '' => array(
-      'name' => t('Mostaza'),
-      'image' => 'mostaza.svg',
-      ),
     'S' => array(
       'name' => t('Sésamo'),
       'image' => 'sesamo.svg',
       ),
-    'AL' => array(
-      'name' => t('Altramuz'),
-      'image' => 'altramuces.svg',
+    'SO' => array(
+      'name' => t('Soja'),
+      'image' => 'soja.svg',
       ),
     'SU' => array(
       'name' => t('Sulfitos'),

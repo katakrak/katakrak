@@ -187,19 +187,20 @@ function katakrak_sukaldea_field_default_field_instances() {
       'active' => 1,
       'module' => 'select_or_other',
       'settings' => array(
-        'available_options' => 'G|Cereales con gluten
-H|Huevos
-P|Pescado
-M|Moluscos
-CR|Crustáceos
+        'available_options' => 'A|Apio
+AL|Altramuz
 C|Cacahuetes
+CR|Crustáceos
 F|Frutos secos
-S|Soja
-A|Apio
+G|Cereales con gluten
+H|Huevos
+L|Leche
+M|Moluscos
 M|Mostaza
 S|Sésamo
-AL|Altramuz
-SU|Sulfitos',
+SO|Soja
+SU|Sulfitos
+P|Pescado',
         'available_options_php' => '',
         'markup_available_options_php' => '&lt;none&gt;',
         'other' => 'Other',

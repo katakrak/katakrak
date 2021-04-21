@@ -21,23 +21,23 @@ function katakrak_sukaldea_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Información para el menu',
-    'weight' => '2',
     'children' => array(
       0 => 'field_errezeta_nombre_carta_eus',
       1 => 'field_image',
       2 => 'field_alergenos',
     ),
-    'format_type' => 'fieldset',
     'format_settings' => array(
       'formatter' => 'collapsible',
       'instance_settings' => array(
-        'description' => '',
         'classes' => 'group-menu field-group-fieldset',
-        'required_fields' => 1,
+        'description' => '',
         'id' => '',
+        'required_fields' => 1,
       ),
     ),
+    'format_type' => 'fieldset',
+    'label' => 'Información para el menu',
+    'weight' => '2',
   );
   $field_groups['group_menu|node|sukalde_errezeta|form'] = $field_group;
 
@@ -51,23 +51,23 @@ function katakrak_sukaldea_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Preparacion',
-    'weight' => '5',
     'children' => array(
       0 => 'field_errezeta_prezioa',
       1 => 'field_produktua_kopurua',
       2 => 'field_errezeta_preparacion',
     ),
-    'format_type' => 'fieldset',
     'format_settings' => array(
       'formatter' => 'collapsible',
       'instance_settings' => array(
-        'description' => '',
         'classes' => 'group-preparacion field-group-fieldset',
-        'required_fields' => 1,
+        'description' => '',
         'id' => '',
+        'required_fields' => 1,
       ),
     ),
+    'format_type' => 'fieldset',
+    'label' => 'Preparacion',
+    'weight' => '5',
   );
   $field_groups['group_preparacion|node|sukalde_errezeta|form'] = $field_group;
 
@@ -81,22 +81,22 @@ function katakrak_sukaldea_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Producto final',
-    'weight' => '6',
     'children' => array(
       0 => 'field_errezeta_porzio_kopurua',
       1 => 'field_produktua_prezioa',
     ),
-    'format_type' => 'fieldset',
     'format_settings' => array(
       'formatter' => 'collapsible',
       'instance_settings' => array(
-        'description' => '',
         'classes' => 'group-producto-final field-group-fieldset',
-        'required_fields' => 1,
+        'description' => '',
         'id' => '',
+        'required_fields' => 1,
       ),
     ),
+    'format_type' => 'fieldset',
+    'label' => 'Producto final',
+    'weight' => '6',
   );
   $field_groups['group_producto_final|node|sukalde_errezeta|form'] = $field_group;
 
