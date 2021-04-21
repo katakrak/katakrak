@@ -117,12 +117,6 @@ function katakrak_blog_strongarm() {
       ),
     ),
     'view_modes' => array(
-      'card_book' => array(
-        'custom_settings' => TRUE,
-      ),
-      'card_book_md' => array(
-        'custom_settings' => TRUE,
-      ),
       'diff_standard' => array(
         'custom_settings' => FALSE,
       ),

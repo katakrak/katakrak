@@ -404,35 +404,6 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['arguments']['field_blog_libro_nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_blog_libro_nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_blog_libro_nid']['summary_options']['items_per_page'] = '25';
-  $translatables['blog'] = array(
-    t('Master'),
-    t('Blogs'),
-    t('más'),
-    t('Aplicar'),
-    t('Reiniciar'),
-    t('Ordenar por'),
-    t('Asc'),
-    t('Desc'),
-    t('Nid'),
-    t('Bide-izena'),
-    t('Home'),
-    t('Blog articles for category'),
-    t('more'),
-    t('Elementos por página'),
-    t('- Todos -'),
-    t('Desplazamiento'),
-    t('« primera'),
-    t('‹ anterior'),
-    t('siguiente ›'),
-    t('última »'),
-    t('Todo(s)'),
-    t('Related blog posts'),
-    t('Otras entradas'),
-    t('View panes'),
-    t('Blogs landing page'),
-    t('Blog'),
-    t('Reseñas de libro'),
-  );
   $export['blog'] = $view;
 
   $view = new view();

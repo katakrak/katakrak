@@ -19,11 +19,11 @@ function katakrak_boletin_context_default_contexts() {
   $context->tag = 'Boletin';
   $context->conditions = array(
     'node' => array(
-      'values' => array(
-        'boletin' => 'boletin',
-      ),
       'options' => array(
         'node_form' => '1',
+      ),
+      'values' => array(
+        'boletin' => 'boletin',
       ),
     ),
   );
@@ -53,8 +53,8 @@ function katakrak_boletin_context_default_contexts() {
     'block' => array(
       'blocks' => array(
         'katakrak-newsletter_suscribe' => array(
-          'module' => 'katakrak',
           'delta' => 'newsletter_suscribe',
+          'module' => 'katakrak',
           'region' => 'highlighted',
           'weight' => '-10',
         ),

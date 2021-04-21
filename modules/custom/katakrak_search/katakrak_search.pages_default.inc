@@ -175,7 +175,7 @@ function katakrak_search_default_page_manager_pages() {
     'empty_override_title' => '',
     'env_id' => 'host_solr',
     'filters' => 'bundle:libro',
-    'filters_action' => 'append',
+    'filters_action' => 'override',
     'keys' => '',
     'keys_action' => 'none',
     'keys_required' => 1,

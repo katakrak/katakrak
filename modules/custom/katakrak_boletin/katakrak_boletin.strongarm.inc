@@ -86,9 +86,48 @@ function katakrak_boletin_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__boletin';
   $strongarm->value = array(
+    'extra_fields' => array(
+      'display' => array(
+        'language' => array(
+          'default' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+        ),
+        'sharethis' => array(
+          'default' => array(
+            'visible' => TRUE,
+            'weight' => '10',
+          ),
+        ),
+      ),
+      'form' => array(
+        'language' => array(
+          'weight' => '1',
+        ),
+        'metatags' => array(
+          'weight' => '12',
+        ),
+        'path' => array(
+          'weight' => '6',
+        ),
+        'title' => array(
+          'weight' => '0',
+        ),
+      ),
+    ),
     'view_modes' => array(
-      'teaser' => array(
-        'custom_settings' => TRUE,
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'email_html' => array(
+        'custom_settings' => FALSE,
+      ),
+      'email_plain' => array(
+        'custom_settings' => FALSE,
+      ),
+      'email_textalt' => array(
+        'custom_settings' => FALSE,
       ),
       'full' => array(
         'custom_settings' => FALSE,
@@ -102,56 +141,11 @@ function katakrak_boletin_strongarm() {
       'search_result' => array(
         'custom_settings' => FALSE,
       ),
-      'diff_standard' => array(
-        'custom_settings' => FALSE,
-      ),
-      'email_plain' => array(
-        'custom_settings' => FALSE,
-      ),
-      'email_html' => array(
-        'custom_settings' => FALSE,
-      ),
-      'email_textalt' => array(
-        'custom_settings' => FALSE,
+      'teaser' => array(
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
-      ),
-      'card_book' => array(
-        'custom_settings' => TRUE,
-      ),
-      'card_book_md' => array(
-        'custom_settings' => TRUE,
-      ),
-    ),
-    'extra_fields' => array(
-      'form' => array(
-        'title' => array(
-          'weight' => '0',
-        ),
-        'path' => array(
-          'weight' => '6',
-        ),
-        'language' => array(
-          'weight' => '1',
-        ),
-        'metatags' => array(
-          'weight' => '12',
-        ),
-      ),
-      'display' => array(
-        'language' => array(
-          'default' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-        ),
-        'sharethis' => array(
-          'default' => array(
-            'weight' => '10',
-            'visible' => TRUE,
-          ),
-        ),
       ),
     ),
   );
@@ -185,11 +179,11 @@ function katakrak_boletin_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'i18n_sync_node_type_boletin';
   $strongarm->value = array(
-    0 => 'field_boletin_libros',
-    1 => 'field_boletin_eventos',
-    2 => 'field_link_imagen',
-    3 => 'field_blog_adjunto',
-    4 => 'field_boletin_imagen',
+    0 => 'field_boletin_imagen',
+    1 => 'field_boletin_libros',
+    2 => 'field_boletin_eventos',
+    3 => 'field_link_imagen',
+    4 => 'field_blog_adjunto',
   );
   $export['i18n_sync_node_type_boletin'] = $strongarm;
 
