@@ -318,7 +318,7 @@ function katakrak_search_default_page_manager_pages() {
   $pane->panel = 'facet_left';
   $pane->type = 'block';
   $pane->subtype = 'facetapi-PAPjfNGXLf8kwELGjKWKtreSo3uLpN7o';
-  $pane->shown = TRUE;
+  $pane->shown = FALSE;
   $pane->access = array();
   $pane->configuration = array(
     'override_title' => 0,
@@ -340,7 +340,7 @@ function katakrak_search_default_page_manager_pages() {
   $pane->panel = 'facet_middle';
   $pane->type = 'block';
   $pane->subtype = 'facetapi-epXisguuKvVoi6fMMxKqzboj7TLY0Uv4';
-  $pane->shown = TRUE;
+  $pane->shown = FALSE;
   $pane->access = array();
   $pane->configuration = array(
     'override_title' => 0,
@@ -362,7 +362,7 @@ function katakrak_search_default_page_manager_pages() {
   $pane->panel = 'facet_right';
   $pane->type = 'block';
   $pane->subtype = 'facetapi-10g0ejljiIMmKZgIOLoj9YiSr0A0LxYe';
-  $pane->shown = TRUE;
+  $pane->shown = FALSE;
   $pane->access = array();
   $pane->configuration = array(
     'override_title' => 0,
