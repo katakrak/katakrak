@@ -6,6 +6,7 @@
 
 include_once 'katakrak_commerce.features.inc';
 
+
 function katakrak_commerce_init() {
   drupal_add_js(drupal_get_path('module', 'katakrak_commerce').'/katakrak_commerce.js');
 }
@@ -61,6 +62,11 @@ function katakrak_commerce_theme() {
         'shipping_method' => NULL,
       ),
     ),
+    'commerce_order__commerce_order' => array(
+      'render element' => 'elements',
+      'template' => 'commerce_order__commerce_order'
+    )
+    
   );  
 }
 
@@ -412,6 +418,15 @@ function katakrak_commerce_cart_is_bizikrak($order) {
   foreach ($order->commerce_line_items['und'] as $line_item) {
     $line = commerce_line_item_load($line_item['line_item_id']);
     if ($line->data['shipping_service']['name'] == 'bizikrak')
+      return TRUE;
+  }
+  return FALSE;
+}
+
+function katakrak_commerce_cart_is_mensajeria($order) {
+  foreach ($order->commerce_line_items['und'] as $line_item) {
+    $line = commerce_line_item_load($line_item['line_item_id']);
+    if ($line->data['shipping_service']['name'] == 'mensajeria_48_h')
       return TRUE;
   }
   return FALSE;
