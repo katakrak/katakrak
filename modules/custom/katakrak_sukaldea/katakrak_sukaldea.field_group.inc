@@ -25,6 +25,7 @@ function katakrak_sukaldea_field_group_info() {
       0 => 'field_errezeta_nombre_carta_eus',
       1 => 'field_image',
       2 => 'field_alergenos',
+      3 => 'field_errezeta_descripcion',
     ),
     'format_settings' => array(
       'formatter' => 'collapsible',

@@ -32,6 +32,25 @@ function katakrak_sukaldea_field_default_field_bases() {
     'type' => 'text',
   );
 
+  // Exported field_base: 'field_errezeta_descripcion'.
+  $field_bases['field_errezeta_descripcion'] = array(
+    'active' => 1,
+    'cardinality' => 2,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_errezeta_descripcion',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'text_long',
+  );
+
   // Exported field_base: 'field_errezeta_familia'.
   $field_bases['field_errezeta_familia'] = array(
     'active' => 1,

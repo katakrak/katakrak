@@ -210,6 +210,65 @@ P|Pescado',
         'sort_options' => 0,
       ),
       'type' => 'select_or_other_buttons',
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-sukalde_errezeta-field_errezeta_descripcion'.
+  $field_instances['node-sukalde_errezeta-field_errezeta_descripcion'] = array(
+    'bundle' => 'sukalde_errezeta',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'El primer campo es la descripción en castellano, el segundo para euskera',
+    'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_smgrid' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 17,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_errezeta_descripcion',
+    'label' => 'Descripción',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 2,
+      ),
+      'type' => 'text_textarea',
       'weight' => 7,
     ),
   );
@@ -663,7 +722,7 @@ menú del día',
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 8,
+      'weight' => 9,
     ),
   );
 
@@ -1051,8 +1110,10 @@ menú del día',
   // Translatables
   // Included for use with string extractors like potx.
   t('Alergenos');
+  t('Descripción');
   t('El peso de una unidad de este producto, expresado en gramos.');
   t('El precio de la unidad del producto. Sin IVA');
+  t('El primer campo es la descripción en castellano, el segundo para euskera');
   t('En cuantas porciones se divide la receta. Se usa para calcular los precios recomendados');
   t('Familia');
   t('Imagen');

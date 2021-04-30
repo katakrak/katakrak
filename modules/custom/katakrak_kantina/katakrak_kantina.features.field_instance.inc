@@ -17,7 +17,7 @@ function katakrak_kantina_field_default_field_instances() {
     'bundle' => 'field_menu_categoria',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'El primero en castellano, el segundo en euskera',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -127,7 +127,7 @@ function katakrak_kantina_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -165,7 +165,7 @@ function katakrak_kantina_field_default_field_instances() {
         'display_label' => 0,
       ),
       'type' => 'options_onoff',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -175,7 +175,7 @@ function katakrak_kantina_field_default_field_instances() {
     'bundle' => 'field_menu_tipo_menu',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Para poner información tipo precios, horarios etc. Tened en cuenta que la traducción al euskera hay que meterla por otro sitio',
+    'description' => 'Para poner información tipo precios, horarios etc. El primer campo es en castellano, el segundo en euskera',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -197,7 +197,7 @@ function katakrak_kantina_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'rows' => 5,
+        'rows' => 2,
       ),
       'type' => 'text_textarea',
       'weight' => 1,
@@ -210,7 +210,7 @@ function katakrak_kantina_field_default_field_instances() {
     'bundle' => 'field_menu_tipo_menu',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'El primer campo en castellano, el segundo en euskera',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -819,11 +819,13 @@ function katakrak_kantina_field_default_field_instances() {
   t('Descripcion');
   t('Descripción');
   t('El enlace a su web CON el http://');
+  t('El primer campo en castellano, el segundo en euskera');
+  t('El primero en castellano, el segundo en euskera');
   t('Imagen');
   t('Ingredientes');
   t('Media');
   t('Nombre categoria');
-  t('Para poner información tipo precios, horarios etc. Tened en cuenta que la traducción al euskera hay que meterla por otro sitio');
+  t('Para poner información tipo precios, horarios etc. El primer campo es en castellano, el segundo en euskera');
   t('Pestañas');
   t('Platos');
   t('Tipo receta');

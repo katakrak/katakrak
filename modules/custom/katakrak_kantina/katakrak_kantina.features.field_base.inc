@@ -63,7 +63,7 @@ function katakrak_kantina_field_default_field_bases() {
   // Exported field_base: 'field_menu_nombre_categoria'.
   $field_bases['field_menu_nombre_categoria'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => 2,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_menu_nombre_categoria',
@@ -156,7 +156,7 @@ function katakrak_kantina_field_default_field_bases() {
   // Exported field_base: 'field_menu_tipo_descripcion'.
   $field_bases['field_menu_tipo_descripcion'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => 2,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_menu_tipo_descripcion',
@@ -201,7 +201,7 @@ function katakrak_kantina_field_default_field_bases() {
   // Exported field_base: 'field_menu_tipo_titulo'.
   $field_bases['field_menu_tipo_titulo'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => 2,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_menu_tipo_titulo',

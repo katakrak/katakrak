@@ -81,14 +81,14 @@
  */
 global $language;
 $idioma = $language->language;
+$idioma_index = $idioma == 'es'? 0 : 1;
 $alergenos = variable_get('alergenos');
-dpm($node->field_menu_tipo_menu['und']);
 ?>
 <ul class="nav nav-secondary hidden-xs">
   <?php foreach($node->field_menu_tipo_menu['und'] as $i => $tab): ?>
   <?php if ($tab['field_collection']->field_menu_pest_activo['und'][0]['value']): ?>
     <li class="<?php print $i == 0 ? 'active': '' ?>">
-      <a href="#<?php print slugify($tab['field_collection']->field_menu_tipo_titulo['und'][0]['value']) ?>" aria-controls="home" role="tab" data-toggle="tab"><?php print t($tab['field_collection']->field_menu_tipo_titulo['und'][0]['value']) ?></a>
+      <a href="#<?php print slugify($tab['field_collection']->field_menu_tipo_titulo['und'][$idioma_index]['value']) ?>" aria-controls="home" role="tab" data-toggle="tab"><?php print $tab['field_collection']->field_menu_tipo_titulo['und'][$idioma_index]['value'] ?></a>
       </li>
       <?php endif; ?>
   <?php endforeach; ?>
@@ -99,7 +99,7 @@ dpm($node->field_menu_tipo_menu['und']);
 
 <select class="form-control visible-xs-block">
   <?php foreach($node->field_menu_tipo_menu['und'] as $tab): ?>
-    <option><?php print t($tab['field_collection']->field_menu_tipo_titulo['und'][0]['value'])?></option>
+    <option><?php print $tab['field_collection']->field_menu_tipo_titulo['und'][$idioma_index]['value'] ?></option>
 <?php endforeach; ?>
 </select>
 
@@ -108,7 +108,7 @@ dpm($node->field_menu_tipo_menu['und']);
     <div class="tab-content mb-2">
     <?php foreach($node->field_menu_tipo_menu['und'] as $i => $tab): ?>
       <?php if ($tab['field_collection']->field_menu_pest_activo['und'][0]['value']): ?>
-      <div role="tabpanel" class="tab-pane <?php print $i == 0 ? 'active' : '' ?>" id="<?php print slugify($tab['field_collection']->field_menu_tipo_titulo['und'][0]['value']) ?>">
+      <div role="tabpanel" class="tab-pane <?php print $i == 0 ? 'active' : '' ?>" id="<?php print slugify($tab['field_collection']->field_menu_tipo_titulo['und'][$idioma_index]['value']) ?>">
         <!-- <h3 class="text-center">Menú del día</h3>
         <p class="text-center">Menús variados con productos de temporada y equilibrados</p> -->
         
@@ -160,7 +160,7 @@ dpm($node->field_menu_tipo_menu['und']);
 
           </div><!-- /.col-->
           <div class="col-sm-7">
-                <h1 class="mt-0"><?php print t($categoria['field_collection']->field_menu_nombre_categoria['und'][0]['value'])?></h1>
+                <h1 class="mt-0"><?php print $categoria['field_collection']->field_menu_nombre_categoria['und'][$idioma_index]['value']?></h1>
                 
                 <div class="table-responsive">
                   <table class="table">
@@ -193,6 +193,11 @@ dpm($node->field_menu_tipo_menu['und']);
                           <td><?php print $plato->field_produktua_prezioa['und'][0]['value'] ?>€</td>
                           <?php endif; ?>
                         </tr>
+                        <?php if ($plato->field_errezeta_descripcion['und'][$idioma_index]['value']): ?>
+                        <tr>
+                          <td colspan="2"><p class="small"><?php print $plato->field_errezeta_descripcion['und'][$idioma_index]['value'] ?></p></td>
+                        </tr>
+                        <?php endif; ?>
                       <?php endforeach; ?>
                     </tbody>
                   </table>
