@@ -22,15 +22,15 @@ function katakrak_editorial_block_info() {
   );
   $blocks['katakrak_editorial_nav_submenu'] = array(
     'info' => t('Submenu editorial'),
-    'cache' => DRUPAL_CACHE_GLOBAL
+    'cache' => DRUPAL_CACHE_PER_PAGE
   );  
   $blocks['editorial_autores_nav_secunday'] = array(
     'info' => t('Submenu editorial autoras'),
-    'cache' => DRUPAL_CACHE_GLOBAL
+    'cache' => DRUPAL_CACHE_PER_PAGE
   );
   $blocks['editorial_filter_autores'] = array(
     'info' => t('Filter autoras'),
-    'cache' => DRUPAL_CACHE_GLOBAL
+    'cache' => DRUPAL_CACHE_PER_PAGE
   );
   return $blocks;
 }
