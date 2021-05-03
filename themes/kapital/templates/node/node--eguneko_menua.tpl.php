@@ -150,10 +150,10 @@ $alergenos = variable_get('alergenos');
               </div><!-- carousel-inner -->
 
               <!-- Controls -->
-              <a class="left carousel-control" href="#carousel-entrantes" role="button" data-slide="prev">
+              <a class="left carousel-control" href="#carousel-entrantes-<?php print $cat_id?>" role="button" data-slide="prev">
                 <img src="/sites/all/themes/kapital/images/angle-left.svg" width="30" height="30" alt="Anterior">
               </a>
-              <a class="right carousel-control" href="#carousel-entrantes" role="button" data-slide="next">
+              <a class="right carousel-control" href="#carousel-entrantes-<?php print $cat_id?>" role="button" data-slide="next">
                 <img src="/sites/all/themes/kapital/images/angle-right.svg" width="30" height="30" alt="Siguiente">
               </a>
             </div>
