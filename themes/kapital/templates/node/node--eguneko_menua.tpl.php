@@ -112,12 +112,12 @@ $alergenos = variable_get('alergenos');
         <!-- <h3 class="text-center">Menú del día</h3>
         <p class="text-center">Menús variados con productos de temporada y equilibrados</p> -->
         
-        <?php foreach ($tab['field_collection']->field_menu_categoria['und'] as $categoria): ?>
+        <?php foreach ($tab['field_collection']->field_menu_categoria['und'] as $cat_id => $categoria): ?>
         <?php //dpm($categoria) ?>
         
         <div class="row mt-4">
           <div class="col-sm-5 mb-1">
-            <div id="carousel-entrantes" class="carousel slide" data-ride="carousel">
+            <div id="carousel-<?php print $cat_id ?>" class="carousel slide" data-ride="carousel">
               <!-- Indicators -->
               <ol class="carousel-indicators">
                 <?php foreach ($categoria['field_collection']->field_menu_platos['und'] as $i => $plato): ?>
