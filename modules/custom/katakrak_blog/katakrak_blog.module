@@ -26,7 +26,7 @@ function katakrak_blog_block_info() {
   );
   $blocks['katakrak_blog_nav_secundary'] = array(
     'info' => t('Bloque de navegación secundario de blog'),
-    'cache' => DRUPAL_CACHE_GLOBAL,
+    'cache' => DRUPAL_CACHE_PER_PAGE,
   );
   return $blocks;
 }

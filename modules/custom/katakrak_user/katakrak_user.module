@@ -67,7 +67,7 @@ function katakrak_user_block_info() {
   );
   $blocks['katakrak_user_nav_secundary'] = array(
     'info' => t('Submenu usuario'),
-    'cache' => DRUPAL_CACHE_GLOBAL
+    'cache' => DRUPAL_CACHE_PER_PAGE
   ); 
   return $blocks;
 }

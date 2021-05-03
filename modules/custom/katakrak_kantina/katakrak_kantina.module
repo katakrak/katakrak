@@ -70,7 +70,7 @@ function katakrak_kantina_block_info() {
   );
   $blocks['katakrak_kantina_nav_submenu'] = array(
     'info' => t('Submenu kantina'),
-    'cache' => DRUPAL_CACHE_GLOBAL
+    'cache' => DRUPAL_CACHE_PER_PAGE
   );  
   return $blocks;
 }

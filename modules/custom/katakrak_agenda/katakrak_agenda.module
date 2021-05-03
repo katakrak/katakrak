@@ -17,7 +17,7 @@ function katakrak_agenda_block_info() {
   );
   $blocks['katakrak_agenda_nav_secundary'] = array(
     'info' => t('Bloque de navegación secundario de agenda'),
-    'cache' => DRUPAL_CACHE_GLOBAL,
+    'cache' => DRUPAL_CACHE_PER_PAGE,
   );
   $blocks['katakrak_agenda_search'] = array(
     'info' => t('Bloque búsqueda agenda'),
