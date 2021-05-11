@@ -1468,15 +1468,9 @@ function libro_field_default_field_instances() {
       ),
       'default' => array(
         'label' => 'hidden',
-        'module' => 'title',
-        'settings' => array(
-          'enable_trim' => FALSE,
-          'title_class' => '',
-          'title_link' => '',
-          'title_style' => 'h3',
-          'trim_length' => 50,
-        ),
-        'type' => 'title_linked',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_plain',
         'weight' => 6,
       ),
       'home_event' => array(

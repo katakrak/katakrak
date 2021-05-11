@@ -26,13 +26,13 @@
 
       <?php $view_libros_trad = views_get_view_result('editorial', 'libros_traductor', $node->tnid)?>
       <?php if ($view_libros_trad): ?>
-        <h2 class="mb-2"><?php print t('Libros traducidos:')?></h2>
+        <h2 class="mb-2"><?php print t('Libros traducidos')?>:</h2>
         <?php print views_embed_view('editorial', 'libros_traductor', $node->tnid) ?>
       <?php endif; ?>
 
       <?php $view_libreria = views_get_view_result('libros', 'libros_rel_autor', $node->field_libro_autores['und'][0]['tid'])?>
       <?php if ($view_libreria): ?>
-        <h2 class="mb-2"><?php print t('En la librería:')?></h2>
+        <h2 class="mb-2"><?php print t('En la librería')?>:</h2>
         <?php print views_embed_view('libros', 'libros_rel_autor', $node->field_libro_autores['und'][0]['tid']) ?>
       <?php endif; ?>
 <?php endif; ?>

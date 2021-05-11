@@ -91,6 +91,7 @@
   </div><!-- /cover -->
   <div class="visible-xs-block">
     <h1><?php print $node->title ?></h1>
+    <h2 class="mt-0"><?php print render($content['field_libro_subtitulo']) ?></h2>
     <p>
       <?php print $content['autores'] ?>
     </p>
@@ -117,6 +118,7 @@
   </div><!-- /buy -->
   <div class="description">
     <h1 class="hidden-xs"><?php print $node->title ?></h1>
+    <h2 class="mt-0"><?php print render($content['field_libro_subtitulo']) ?></h2>
     <?php if ($content['autores']): ?>
       <p class="hidden-xs">
           <?php print $content['autores'] ?>
