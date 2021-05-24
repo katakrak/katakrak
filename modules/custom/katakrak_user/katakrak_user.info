@@ -38,7 +38,6 @@ dependencies[] = node
 dependencies[] = page_manager
 dependencies[] = panels
 dependencies[] = queue_ui
-dependencies[] = recaptcha
 dependencies[] = rules
 dependencies[] = services
 dependencies[] = sharethis
