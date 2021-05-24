@@ -194,9 +194,9 @@ $alergenos = variable_get('alergenos');
                           <?php endif; ?>
                         </tr>
                         <?php if ($plato->field_errezeta_descripcion['und'][$idioma_index]['value']): ?>
-                        <tr>
+                        <!--<tr>
                           <td colspan="2"><p class="small"><?php print $plato->field_errezeta_descripcion['und'][$idioma_index]['value'] ?></p></td>
-                        </tr>
+                        </tr>-->
                         <?php endif; ?>
                       <?php endforeach; ?>
                     </tbody>

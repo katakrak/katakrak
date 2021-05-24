@@ -218,7 +218,7 @@ function katakrak_commerce_default_rules_configuration() {
     }
   }');
   $items['rules_pedido_procesado'] = entity_import('rules_config', '{ "rules_pedido_procesado" : {
-      "LABEL" : "El pedido ha sido procesado",
+      "LABEL" : "Actualizar pedido (recogida en tienda)",
       "PLUGIN" : "reaction rule",
       "OWNER" : "rules",
       "REQUIRES" : [ "rules", "commerce_shipping", "commerce_order", "mimemail", "entity" ],

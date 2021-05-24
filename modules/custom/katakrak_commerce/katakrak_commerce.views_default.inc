@@ -1705,33 +1705,6 @@ function katakrak_commerce_views_default_views() {
     'page_1' => 0,
   );
   $handler->display->display_options['attachment_position'] = 'after';
-  $translatables['katakrak_commerce_user_orders'] = array(
-    t('Defaults'),
-    t('Pedidos'),
-    t('más'),
-    t('Aplicar'),
-    t('Reiniciar'),
-    t('Ordenar por'),
-    t('Asc'),
-    t('Desc'),
-    t('No ha realizado ningún pedido con nosotros todavía.'),
-    t('Representative shipping line item'),
-    t('Uid'),
-    t('Forma de envio'),
-    t('Order number'),
-    t('<a class="primary" href="#" data-toggle="modal" data-target="#[order_number]">[order_number]</a>
-[commerce_line_items]
-<p class="small mt-1">[commerce_shipping_service]</p>'),
-    t('Fecha'),
-    t('Total'),
-    t('Order status'),
-    t('Todo(s)'),
-    t('User Orders'),
-    t('more'),
-    t('Orders MODAL'),
-    t('Líneas de pedido'),
-    t('Forma de envío'),
-  );
   $export['katakrak_commerce_user_orders'] = $view;
 
   $view = new view();
