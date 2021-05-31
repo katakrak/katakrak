@@ -228,6 +228,9 @@ function katakrak_agenda_strongarm() {
       'card_book_md' => array(
         'custom_settings' => TRUE,
       ),
+      'card_book_smgrid' => array(
+        'custom_settings' => TRUE,
+      ),
       'diff_standard' => array(
         'custom_settings' => FALSE,
       ),

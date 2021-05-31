@@ -683,6 +683,7 @@ function katakrak_commerce_views_default_views() {
     t('Correo electrónico'),
     t('Estado de pedido'),
     t('Admin page'),
+    t('more'),
     t('Forma de envío'),
     t('Mensaje de registro'),
     t('Address - Nombre completo'),
@@ -1104,6 +1105,7 @@ function katakrak_commerce_views_default_views() {
     t('Datos de facturación'),
     t('Estado de pedido'),
     t('Page'),
+    t('more'),
     t('Data export'),
   );
   $export['donaciones'] = $view;
@@ -1241,6 +1243,7 @@ function katakrak_commerce_views_default_views() {
     t('Placed date'),
     t('Todo(s)'),
     t('Page'),
+    t('more'),
     t('Data export'),
   );
   $export['historico_pedidos'] = $view;
@@ -1400,13 +1403,14 @@ function katakrak_commerce_views_default_views() {
     t('Ordenar por'),
     t('Asc'),
     t('Desc'),
-    t('Total'),
+    t('Order total'),
     t('Line items referenced by commerce_line_items'),
     t('Products referenced by commerce_product'),
     t('Nodo referencing products from field_libro_producto'),
     t('Artículo'),
     t('Cnt.'),
     t('.'),
+    t('Total'),
     t('Todo(s)'),
   );
   $export['katakrak_commerce_cart_summary'] = $view;
@@ -1727,6 +1731,7 @@ function katakrak_commerce_views_default_views() {
     t('Estado del pedido'),
     t('Todo(s)'),
     t('User Orders'),
+    t('more'),
     t('Orders MODAL'),
     t('Líneas de pedido'),
     t('Forma de envío'),
@@ -2012,6 +2017,7 @@ function katakrak_commerce_views_default_views() {
     t('[quantity] [line_item_title] [commerce_total]'),
     t('Todo(s)'),
     t('Resumen'),
+    t('more'),
     t('Detalle'),
     t('Portada'),
     t('Producto'),

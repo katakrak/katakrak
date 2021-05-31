@@ -46,16 +46,6 @@ dependencies[] = strongarm
 dependencies[] = system
 dependencies[] = taxonomy
 dependencies[] = views
-<<<<<<< HEAD
-dependencies[] = admin_menu
-<<<<<<< HEAD
-features[user_permission][] = access library reports
-<<<<<<< HEAD
-features[variable][] = user_cancel_method
->>>>>>> master
-dependencies[] = features
->>>>>>> master
-features[variable][] = logintoboggan_confirm_email_at_registration
 features[captcha_points][] = contact_personal_form
 features[captcha_points][] = contact_site_form
 features[captcha_points][] = user_login
@@ -115,7 +105,6 @@ features[user_permission][] = administer panels layouts
 features[user_permission][] = administer panels pane styles
 features[user_permission][] = administer panels region styles
 features[user_permission][] = administer panels styles
-features[user_permission][] = administer recaptcha
 features[user_permission][] = administer rules
 features[user_permission][] = administer services
 features[user_permission][] = administer sharethis
@@ -257,6 +246,7 @@ features[user_permission][] = view own private files
 features[user_permission][] = view pane admin links
 features[user_permission][] = view private files
 features[user_role][] = administrator
+features[variable][] = logintoboggan_confirm_email_at_registration
 features[variable][] = logintoboggan_immediate_login_on_register
 features[variable][] = logintoboggan_login_successful_message
 features[variable][] = logintoboggan_login_with_email
@@ -267,6 +257,7 @@ features[variable][] = logintoboggan_purge_unvalidated_user_interval
 features[variable][] = logintoboggan_redirect_on_confirm
 features[variable][] = logintoboggan_redirect_on_register
 features[variable][] = logintoboggan_unified_login
+features[variable][] = user_cancel_method
 features[variable][] = user_email_verification
 features[variable][] = user_mail_cancel_confirm_body
 features[variable][] = user_mail_cancel_confirm_subject
