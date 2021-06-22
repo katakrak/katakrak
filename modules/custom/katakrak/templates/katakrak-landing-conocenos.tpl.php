@@ -10,7 +10,7 @@
             <li><?php print t('Una <b>cooperativa</b>. Todo es de todos, todo el mundo cobra igual, no hay jefes.') ?></li>
             <li><?php print t('Una <a href="/hazte-socixs" target="_blank">comunidad de socixs</a> que sostiene y enriquece el proyecto.') ?></li>
             <li><?php print t('Un <b>lugar de encuentro</b> para colectivos.') ?></li>
-            <li><?php print t('Un espacio inserto en <b>redes políticas</b> de Iruñerria, Nafarroa, EH, Estado español y globales.') ?></li>
+            <li><?php print t('Un espacio inserto en <strong>redes políticas</strong> de Iruñerria, Nafarroa, EH, Estado español y globales.') ?></li>
           </ul>
         </div>
         <div class="col-sm-6">
@@ -33,7 +33,7 @@
             <ul class="list-bordered">
               <li><?php print t('Un edificio en la <b>calle Mayor</b> destinado a usos sociales a perpetuidad.') ?></li>
               <li><?php print t('Una <b>sala disponible</b> para convocatorias urgentes ante cualquier atropello.') ?></li>
-              <li><?php print t('Un domicilio donde <b>militantes anticapitalistas</b> han cumplido arrestos.') ?></li>
+              <li><?php print t('Un domicilio donde <strong>militantes anticapitalistas</strong> han cumplido arrestos.') ?></li>
               <li><?php print t('Un proyecto <b>autónomo</b>, que no depende de subvenciones ni tiene detrás ninguna estructura partidista.') ?></li>
             </ul>
           </div>
