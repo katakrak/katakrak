@@ -240,7 +240,7 @@ function katakrak_blog_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'node_reference',
         'settings' => array(
-          'node_reference_view_mode' => 'card_book_md',
+          'node_reference_view_mode' => 'card_book_smgrid',
         ),
         'type' => 'node_reference_node',
         'weight' => 8,

@@ -246,6 +246,12 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '3';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Nodo: Blog_type (field_blog_type) */
   $handler->display->display_options['arguments']['field_blog_type_tid']['id'] = 'field_blog_type_tid';
@@ -404,6 +410,35 @@ function katakrak_blog_views_default_views() {
   $handler->display->display_options['arguments']['field_blog_libro_nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_blog_libro_nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_blog_libro_nid']['summary_options']['items_per_page'] = '25';
+  $translatables['blog'] = array(
+    t('Master'),
+    t('Blogs'),
+    t('más'),
+    t('Aplicar'),
+    t('Reiniciar'),
+    t('Ordenar por'),
+    t('Asc'),
+    t('Desc'),
+    t('Nid'),
+    t('Bide-izena'),
+    t('Home'),
+    t('Blog articles for category'),
+    t('more'),
+    t('Elementos por página'),
+    t('- Todos -'),
+    t('Desplazamiento'),
+    t('« primera'),
+    t('‹ anterior'),
+    t('siguiente ›'),
+    t('última »'),
+    t('Todo(s)'),
+    t('Related blog posts'),
+    t('Otras entradas'),
+    t('View panes'),
+    t('Blogs landing page'),
+    t('Blog'),
+    t('Reseñas de libro'),
+  );
   $export['blog'] = $view;
 
   $view = new view();

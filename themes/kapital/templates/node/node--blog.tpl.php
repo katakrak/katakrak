@@ -24,6 +24,6 @@
   <hr class="hr-dark">
 <?php $related_blogs = views_get_view_result('blog', 'related_blog_posts', $node->field_blog_type['und'][0]['tid'], $node->nid); ?>
 <?php if ($related_blogs): ?>
-  <h3 class="mb-2"><?php print t('Artículos relacionados')?></h3>
+  <h3 class="mb-2"><?php print t('Más artículos sobre este tema')?></h3>
   <div class="row mt-1"><?php print views_embed_view('blog', 'related_blog_posts', $node->field_blog_type['und'][0]['tid'], $node->nid) ?></div>
 <?php endif; ?>
