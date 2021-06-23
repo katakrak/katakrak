@@ -1,7 +1,7 @@
 (function ($) {
   Drupal.behaviors.katakrak_editorial = {
     attach: function (context, settings) {
-      $('main.main').css('background-color', convertHex($('.color-fondo').html(), '15'));
+      $('main.main').css('background-color', convertHex($('.color-fondo').html(), '30'));
        $('.imagen-autor-ed  img').each(function(index) {
           $(this).addClass('img-circle');
        });
