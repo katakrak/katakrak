@@ -168,7 +168,7 @@ layouts[contact][regions][] = "footer_fourth"
 ;; Stylesheets
 ;;;;;;;;;;;;;;;;;;;;;
 
-;stylesheets[all][] = css/main.css
+stylesheets[all][] = css/main.css
 stylesheets[all][] = css/style.css
 
 
