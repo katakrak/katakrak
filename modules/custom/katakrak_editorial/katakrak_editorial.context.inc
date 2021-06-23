@@ -28,16 +28,16 @@ function katakrak_editorial_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'katakrak_editorial-editorial_filter_autores' => array(
+        'katakrak_editorial-editorial_autores_nav_secunday' => array(
+          'delta' => 'editorial_autores_nav_secunday',
           'module' => 'katakrak_editorial',
-          'delta' => 'editorial_filter_autores',
-          'region' => 'content',
+          'region' => 'content_top',
           'weight' => '-10',
         ),
-        'katakrak_editorial-editorial_autores_nav_secunday' => array(
+        'katakrak_editorial-editorial_filter_autores' => array(
+          'delta' => 'editorial_filter_autores',
           'module' => 'katakrak_editorial',
-          'delta' => 'editorial_autores_nav_secunday',
-          'region' => 'content_top',
+          'region' => 'content',
           'weight' => '-10',
         ),
       ),
@@ -60,8 +60,8 @@ function katakrak_editorial_context_default_contexts() {
   $context->conditions = array(
     'path' => array(
       'values' => array(
-        'editorial' => 'editorial',
         'argitaletxea' => 'argitaletxea',
+        'editorial' => 'editorial',
       ),
     ),
   );
@@ -69,14 +69,14 @@ function katakrak_editorial_context_default_contexts() {
     'block' => array(
       'blocks' => array(
         'katakrak_editorial-editorial_page_hero' => array(
-          'module' => 'katakrak_editorial',
           'delta' => 'editorial_page_hero',
+          'module' => 'katakrak_editorial',
           'region' => 'hero',
           'weight' => '-10',
         ),
         'katakrak_editorial-editorial_page_highlight' => array(
-          'module' => 'katakrak_editorial',
           'delta' => 'editorial_page_highlight',
+          'module' => 'katakrak_editorial',
           'region' => 'content_top',
           'weight' => '-10',
         ),
@@ -99,11 +99,11 @@ function katakrak_editorial_context_default_contexts() {
   $context->tag = 'Editorial';
   $context->conditions = array(
     'node' => array(
-      'values' => array(
-        'libro_ed' => 'libro_ed',
-      ),
       'options' => array(
         'node_form' => '1',
+      ),
+      'values' => array(
+        'libro_ed' => 'libro_ed',
       ),
     ),
   );
@@ -111,8 +111,8 @@ function katakrak_editorial_context_default_contexts() {
     'block' => array(
       'blocks' => array(
         'libro-libreria_home_search' => array(
-          'module' => 'libro',
           'delta' => 'libreria_home_search',
+          'module' => 'libro',
           'region' => 'content_top',
           'weight' => '-10',
         ),
@@ -122,8 +122,8 @@ function katakrak_editorial_context_default_contexts() {
       0 => 'menu-menu-nagusia:editorial',
     ),
     'theme' => array(
-      'title' => '',
       'subtitle' => '',
+      'title' => '',
     ),
   );
   $context->condition_mode = 0;
@@ -142,17 +142,17 @@ function katakrak_editorial_context_default_contexts() {
   $context->tag = 'Editorial';
   $context->conditions = array(
     'node' => array(
-      'values' => array(
-        'autor_ed' => 'autor_ed',
-      ),
       'options' => array(
         'node_form' => '1',
+      ),
+      'values' => array(
+        'autor_ed' => 'autor_ed',
       ),
     ),
     'path' => array(
       'values' => array(
-        'editorial*' => 'editorial*',
         'argitaletxea*' => 'argitaletxea*',
+        'editorial*' => 'editorial*',
       ),
     ),
     'views' => array(
@@ -169,8 +169,8 @@ function katakrak_editorial_context_default_contexts() {
     'block' => array(
       'blocks' => array(
         'katakrak_editorial-katakrak_editorial_nav_submenu' => array(
-          'module' => 'katakrak_editorial',
           'delta' => 'katakrak_editorial_nav_submenu',
+          'module' => 'katakrak_editorial',
           'region' => 'banners',
           'weight' => '-10',
         ),

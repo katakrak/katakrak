@@ -21,22 +21,22 @@ function katakrak_editorial_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Descarga/Donacion',
-    'weight' => '16',
     'children' => array(
       0 => 'field_donacion',
       1 => 'field_libro_ed_pdf_descarga',
     ),
-    'format_type' => 'fieldset',
     'format_settings' => array(
       'formatter' => 'collapsible',
       'instance_settings' => array(
-        'description' => '',
         'classes' => 'group-descarga field-group-fieldset',
-        'required_fields' => 1,
+        'description' => '',
         'id' => '',
+        'required_fields' => 1,
       ),
     ),
+    'format_type' => 'fieldset',
+    'label' => 'Descarga/Donacion',
+    'weight' => '16',
   );
   $field_groups['group_descarga|node|libro_ed|form'] = $field_group;
 
@@ -50,8 +50,6 @@ function katakrak_editorial_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Ficha técnica',
-    'weight' => '11',
     'children' => array(
       0 => 'field_libro_ed_encuadernacion',
       1 => 'field_libro_ed_precio',
@@ -60,16 +58,18 @@ function katakrak_editorial_field_group_info() {
       4 => 'field_libro_isbn',
       5 => 'field_libro_paginas',
     ),
-    'format_type' => 'fieldset',
     'format_settings' => array(
       'formatter' => 'collapsible',
       'instance_settings' => array(
-        'description' => '',
         'classes' => 'group-libro-ed-ficha field-group-fieldset',
-        'required_fields' => 1,
+        'description' => '',
         'id' => '',
+        'required_fields' => 1,
       ),
     ),
+    'format_type' => 'fieldset',
+    'label' => 'Ficha técnica',
+    'weight' => '11',
   );
   $field_groups['group_libro_ed_ficha|node|libro_ed|form'] = $field_group;
 

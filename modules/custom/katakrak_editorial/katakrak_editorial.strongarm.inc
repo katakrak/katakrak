@@ -58,9 +58,45 @@ function katakrak_editorial_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__autor_ed';
   $strongarm->value = array(
+    'extra_fields' => array(
+      'display' => array(
+        'language' => array(
+          'default' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+        ),
+        'sharethis' => array(
+          'default' => array(
+            'visible' => TRUE,
+            'weight' => '10',
+          ),
+        ),
+      ),
+      'form' => array(
+        'language' => array(
+          'weight' => '2',
+        ),
+        'metatags' => array(
+          'weight' => '6',
+        ),
+        'path' => array(
+          'weight' => '3',
+        ),
+        'title' => array(
+          'weight' => '0',
+        ),
+      ),
+    ),
     'view_modes' => array(
-      'teaser' => array(
+      'card_book' => array(
         'custom_settings' => TRUE,
+      ),
+      'card_book_md' => array(
+        'custom_settings' => TRUE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
       ),
       'full' => array(
         'custom_settings' => FALSE,
@@ -74,47 +110,11 @@ function katakrak_editorial_strongarm() {
       'search_result' => array(
         'custom_settings' => FALSE,
       ),
-      'diff_standard' => array(
-        'custom_settings' => FALSE,
+      'teaser' => array(
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
-      ),
-      'card_book' => array(
-        'custom_settings' => TRUE,
-      ),
-      'card_book_md' => array(
-        'custom_settings' => TRUE,
-      ),
-    ),
-    'extra_fields' => array(
-      'form' => array(
-        'metatags' => array(
-          'weight' => '6',
-        ),
-        'title' => array(
-          'weight' => '0',
-        ),
-        'path' => array(
-          'weight' => '3',
-        ),
-        'language' => array(
-          'weight' => '2',
-        ),
-      ),
-      'display' => array(
-        'sharethis' => array(
-          'default' => array(
-            'weight' => '10',
-            'visible' => TRUE,
-          ),
-        ),
-        'language' => array(
-          'default' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-        ),
       ),
     ),
   );
@@ -125,9 +125,117 @@ function katakrak_editorial_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__libro_ed';
   $strongarm->value = array(
+    'extra_fields' => array(
+      'display' => array(
+        'language' => array(
+          'card_book' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'card_book_md' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'default' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+        ),
+        'product:commerce_price' => array(
+          'card_book' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'card_book_md' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+          'default' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+        ),
+        'product:sku' => array(
+          'card_book' => array(
+            'visible' => FALSE,
+            'weight' => '-10',
+          ),
+          'card_book_md' => array(
+            'visible' => FALSE,
+            'weight' => '-10',
+          ),
+          'default' => array(
+            'visible' => FALSE,
+            'weight' => '-10',
+          ),
+        ),
+        'product:status' => array(
+          'card_book' => array(
+            'visible' => FALSE,
+            'weight' => '5',
+          ),
+          'card_book_md' => array(
+            'visible' => FALSE,
+            'weight' => '5',
+          ),
+          'default' => array(
+            'visible' => FALSE,
+            'weight' => '5',
+          ),
+        ),
+        'product:title' => array(
+          'card_book' => array(
+            'visible' => FALSE,
+            'weight' => '-5',
+          ),
+          'card_book_md' => array(
+            'visible' => FALSE,
+            'weight' => '-5',
+          ),
+          'default' => array(
+            'visible' => FALSE,
+            'weight' => '-5',
+          ),
+        ),
+        'sharethis' => array(
+          'card_book' => array(
+            'visible' => TRUE,
+            'weight' => '10',
+          ),
+          'card_book_md' => array(
+            'visible' => TRUE,
+            'weight' => '10',
+          ),
+          'default' => array(
+            'visible' => TRUE,
+            'weight' => '10',
+          ),
+        ),
+      ),
+      'form' => array(
+        'language' => array(
+          'weight' => '1',
+        ),
+        'metatags' => array(
+          'weight' => '10',
+        ),
+        'path' => array(
+          'weight' => '8',
+        ),
+        'title' => array(
+          'weight' => '0',
+        ),
+      ),
+    ),
     'view_modes' => array(
-      'teaser' => array(
+      'card_book' => array(
         'custom_settings' => TRUE,
+      ),
+      'card_book_md' => array(
+        'custom_settings' => TRUE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
       ),
       'full' => array(
         'custom_settings' => FALSE,
@@ -141,119 +249,11 @@ function katakrak_editorial_strongarm() {
       'search_result' => array(
         'custom_settings' => FALSE,
       ),
-      'diff_standard' => array(
-        'custom_settings' => FALSE,
+      'teaser' => array(
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
-      ),
-      'card_book' => array(
-        'custom_settings' => TRUE,
-      ),
-      'card_book_md' => array(
-        'custom_settings' => TRUE,
-      ),
-    ),
-    'extra_fields' => array(
-      'form' => array(
-        'metatags' => array(
-          'weight' => '10',
-        ),
-        'title' => array(
-          'weight' => '0',
-        ),
-        'path' => array(
-          'weight' => '8',
-        ),
-        'language' => array(
-          'weight' => '1',
-        ),
-      ),
-      'display' => array(
-        'sharethis' => array(
-          'default' => array(
-            'weight' => '10',
-            'visible' => TRUE,
-          ),
-          'card_book' => array(
-            'weight' => '10',
-            'visible' => TRUE,
-          ),
-          'card_book_md' => array(
-            'weight' => '10',
-            'visible' => TRUE,
-          ),
-        ),
-        'language' => array(
-          'default' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'card_book' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'card_book_md' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-        ),
-        'product:sku' => array(
-          'default' => array(
-            'weight' => '-10',
-            'visible' => FALSE,
-          ),
-          'card_book' => array(
-            'weight' => '-10',
-            'visible' => FALSE,
-          ),
-          'card_book_md' => array(
-            'weight' => '-10',
-            'visible' => FALSE,
-          ),
-        ),
-        'product:title' => array(
-          'default' => array(
-            'weight' => '-5',
-            'visible' => FALSE,
-          ),
-          'card_book' => array(
-            'weight' => '-5',
-            'visible' => FALSE,
-          ),
-          'card_book_md' => array(
-            'weight' => '-5',
-            'visible' => FALSE,
-          ),
-        ),
-        'product:status' => array(
-          'default' => array(
-            'weight' => '5',
-            'visible' => FALSE,
-          ),
-          'card_book' => array(
-            'weight' => '5',
-            'visible' => FALSE,
-          ),
-          'card_book_md' => array(
-            'weight' => '5',
-            'visible' => FALSE,
-          ),
-        ),
-        'product:commerce_price' => array(
-          'default' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'card_book' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-          'card_book_md' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-        ),
       ),
     ),
   );
@@ -340,7 +340,8 @@ function katakrak_editorial_strongarm() {
     16 => 'field_libro_ed_resenas',
     17 => 'field_donacion',
     18 => 'field_libro_ed_pdf_descarga',
-    19 => 'status',
+    19 => 'field_libro_ed_color',
+    20 => 'status',
   );
   $export['i18n_sync_node_type_libro_ed'] = $strongarm;
 

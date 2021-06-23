@@ -190,6 +190,67 @@ function katakrak_editorial_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-autor_ed-field_autor_traductor'.
+  $field_instances['node-autor_ed-field_autor_traductor'] = array(
+    'bundle' => 'autor_ed',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Indicar si el autor es traductor',
+    'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_smgrid' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_autor_traductor',
+    'label' => 'Traductor',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 0,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 9,
+    ),
+  );
+
   // Exported field_instance: 'node-autor_ed-field_imagen'.
   $field_instances['node-autor_ed-field_imagen'] = array(
     'bundle' => 'autor_ed',
@@ -1758,6 +1819,7 @@ function katakrak_editorial_field_default_field_instances() {
   t('Fecha y lugar nacimiento');
   t('Foto');
   t('Idioma');
+  t('Indicar si el autor es traductor');
   t('Isbn');
   t('Nombre y apellido');
   t('Pdf para descarga');
