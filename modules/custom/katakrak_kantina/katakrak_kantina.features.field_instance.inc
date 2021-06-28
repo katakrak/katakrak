@@ -190,7 +190,7 @@ function katakrak_kantina_field_default_field_instances() {
     'label' => 'Descripcion',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -200,6 +200,40 @@ function katakrak_kantina_field_default_field_instances() {
         'rows' => 2,
       ),
       'type' => 'text_textarea',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_menu_tipo_menu-field_menu_tipo_tiene_precio'.
+  $field_instances['field_collection_item-field_menu_tipo_menu-field_menu_tipo_tiene_precio'] = array(
+    'bundle' => 'field_menu_tipo_menu',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 4,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_menu_tipo_tiene_precio',
+    'label' => 'Tiene precio',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 0,
+      ),
+      'type' => 'options_onoff',
       'weight' => 1,
     ),
   );
@@ -828,6 +862,7 @@ function katakrak_kantina_field_default_field_instances() {
   t('Para poner información tipo precios, horarios etc. El primer campo es en castellano, el segundo en euskera');
   t('Pestañas');
   t('Platos');
+  t('Tiene precio');
   t('Tipo receta');
   t('Titulo');
   t('enlace');

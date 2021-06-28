@@ -79,6 +79,7 @@
  *
  * @ingroup templates
  */
+
 global $language;
 $idioma = $language->language;
 $idioma_index = $idioma == 'es'? 0 : 1;
@@ -99,18 +100,28 @@ $alergenos = variable_get('alergenos');
 
 <select class="form-control visible-xs-block">
   <?php foreach($node->field_menu_tipo_menu['und'] as $tab): ?>
+  <?php dpm($tab); ?>
     <option><?php print $tab['field_collection']->field_menu_tipo_titulo['und'][$idioma_index]['value'] ?></option>
 <?php endforeach; ?>
 </select>
 
 <div class="row">
   <div class="col-sm-12">
+      
+    
     <div class="tab-content mb-2">
     <?php foreach($node->field_menu_tipo_menu['und'] as $i => $tab): ?>
+      
       <?php if ($tab['field_collection']->field_menu_pest_activo['und'][0]['value']): ?>
       <div role="tabpanel" class="tab-pane <?php print $i == 0 ? 'active' : '' ?>" id="<?php print slugify($tab['field_collection']->field_menu_tipo_titulo['und'][$idioma_index]['value']) ?>">
-        <!-- <h3 class="text-center">Menú del día</h3>
-        <p class="text-center">Menús variados con productos de temporada y equilibrados</p> -->
+        
+        <?php if ($tab['field_collection']->field_menu_tipo_descripcion['und'][0]['value']): ?>
+        <div class="alert alert-primary mt-2 text-center" role="alert">
+          
+          
+          <?php print $tab['field_collection']->field_menu_tipo_descripcion['und'][$idioma_index]['value'] ?>
+        </div>
+        <?php endif; ?>
         
         <?php foreach ($tab['field_collection']->field_menu_categoria['und'] as $cat_id => $categoria): ?>
         <?php //dpm($categoria) ?>
@@ -168,7 +179,8 @@ $alergenos = variable_get('alergenos');
                       <tr>
                         <th><?php print t('Plato') ?></th>
                         <th><?php print t('Alérgenos') ?>*</th>
-                        <?php if ($tab['field_collection']->field_menu_tipo_titulo['und'][0]['value'] != 'Menú del día'): ?>
+                        
+                        <?php if ($tab['field_collection']->field_menu_tipo_tiene_precio['und'][0]['value'] == 1): ?>
                         <th><?php print t('Precio') ?></th>
                         <?php endif; ?>
                       </tr>
@@ -178,7 +190,12 @@ $alergenos = variable_get('alergenos');
                       <?php $plato = $plato['node'];?>
                         <tr>
                           <?php if ($idioma == 'es'): ?>
-                          <td><?php print $plato->title ?></td>
+                          <td>
+                            <p>
+                              <span class="strong"><?php print $plato->title ?></span>
+                              <br>
+                              <?php print $plato->field_errezeta_descripcion['und'][$idioma_index]['value'] ?>
+                            </p></td>
                           <?php else: ?>
                           <td><?php print $plato->field_errezeta_nombre_carta_eus['und'][0]['value'] ?></td>
                           <?php endif; ?>
@@ -189,13 +206,13 @@ $alergenos = variable_get('alergenos');
                               </a>
                             <?php endforeach; ?>
                           </td>
-                          <?php if ($tab['field_collection']->field_menu_tipo_titulo['und'][0]['value'] != 'Menú del día'): ?>
+                          <?php if ($tab['field_collection']->field_menu_tipo_tiene_precio['und'][0]['value'] == 1): ?>
                           <td><?php print $plato->field_produktua_prezioa['und'][0]['value'] ?>€</td>
                           <?php endif; ?>
                         </tr>
                         <?php if ($plato->field_errezeta_descripcion['und'][$idioma_index]['value']): ?>
                         <!--<tr>
-                          <td colspan="2"><p class="small"><?php print $plato->field_errezeta_descripcion['und'][$idioma_index]['value'] ?></p></td>
+                          <td colspan="2"><p class="small"></p></td>
                         </tr>-->
                         <?php endif; ?>
                       <?php endforeach; ?>
@@ -207,12 +224,6 @@ $alergenos = variable_get('alergenos');
           </div><!-- /.row-->
           
         <?php endforeach; ?>
-          <?php if ($tab['field_collection']->field_menu_tipo_descripcion['und'][0]['value']): ?>
-          <div class="row">
-            <div class="col-sm-5"></div>
-            <div class="col-sm-7"><p class=""><?php print t($tab['field_collection']->field_menu_tipo_descripcion['und'][0]['value'])?></p></div>
-          </div>
-          <?php endif; ?>
       </div><!-- /.tab-pane-->
       <?php endif; ?>
     <?php  endforeach; ?>
