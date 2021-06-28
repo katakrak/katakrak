@@ -100,7 +100,7 @@ $alergenos = variable_get('alergenos');
 
 <select class="form-control visible-xs-block">
   <?php foreach($node->field_menu_tipo_menu['und'] as $tab): ?>
-  <?php dpm($tab); ?>
+  
     <option><?php print $tab['field_collection']->field_menu_tipo_titulo['und'][$idioma_index]['value'] ?></option>
 <?php endforeach; ?>
 </select>
