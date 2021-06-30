@@ -98,10 +98,10 @@ $alergenos = variable_get('alergenos');
 
 
 
-<select class="form-control visible-xs-block">
+<select class="form-control tabs visible-xs-block">
   <?php foreach($node->field_menu_tipo_menu['und'] as $tab): ?>
   
-    <option><?php print $tab['field_collection']->field_menu_tipo_titulo['und'][$idioma_index]['value'] ?></option>
+  <option value="<?php print slugify($tab['field_collection']->field_menu_tipo_titulo['und'][$idioma_index]['value'])?>"><?php print $tab['field_collection']->field_menu_tipo_titulo['und'][$idioma_index]['value'] ?></option>
 <?php endforeach; ?>
 </select>
 

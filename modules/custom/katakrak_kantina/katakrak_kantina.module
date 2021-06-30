@@ -16,6 +16,10 @@ function katakrak_kantina_query_alter($query) {
    }
 }
 
+function katakrak_kantina_init() {
+  drupal_add_js(drupal_get_path('module', 'katakrak_kantina').'/katakrak_kantina.js');
+}
+
 /**
  * Implements hook_menu
  * @return type
