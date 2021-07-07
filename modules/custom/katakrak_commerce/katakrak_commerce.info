@@ -22,6 +22,7 @@ features[field_instance][] = commerce_order-commerce_order-field_regalo
 features[rules_config][] = commerce_checkout_confirmacion_pedido_correo_ordinario
 features[rules_config][] = commerce_checkout_confirmacion_pedido_tipsa
 features[rules_config][] = katakrak_commerce_actualizar_pedido_mensajeria_
+features[rules_config][] = katakrak_commerce_el_pedido_est_siendo_procesado
 features[rules_config][] = katakrak_commerce_el_pedido_ha_sido_enviado
 features[rules_config][] = rules_asignar_rol_cliente
 features[rules_config][] = rules_assign_shipping

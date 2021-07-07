@@ -65,6 +65,14 @@ function katakrak_commerce_theme() {
     'commerce_order__commerce_order' => array(
       'render element' => 'elements',
       'template' => 'commerce_order__commerce_order'
+    ),
+    
+    'katakrak_commerce_order_page_breadcrumb' => array(
+      'template' => 'katakrak-commerce-orde-page-breadcrumb',
+      'path' => $path . '/templates',
+      'arguments' => array(
+        'commerce_order' => NULL,
+      ),
     )
     
   );  
@@ -85,6 +93,12 @@ function katakrak_commerce_block_info() {
     // Not worth caching.
     'cache' => DRUPAL_CACHE_PER_PAGE,
   );
+  $blocks['order_page_breadcrumb'] = array(
+    'info' => t('Un breadcrumb para la página de pedido'),
+    // Not worth caching.
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  
   return $blocks;
 }
 
@@ -154,7 +168,9 @@ function katakrak_commerce_block_view($delta) {
     $block['content'] = theme('katakrak_commerce_checkout_breadcrumb', array('steps' => $steps));
     return $block;
   }
-  
+   if ($delta == 'order_page_breadcrumb') {
+     
+   }
 }
 
 function katakrak_commerce_commerce_checkout_pane_info_alter(&$panes) {

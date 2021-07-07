@@ -21,7 +21,8 @@
  * regardless of any changes in the aliasing that might happen if
  * the view is modified.
  */
+global $user;
 ?>
-<a class="primary" href="#" data-toggle="modal" data-target="#<?php print $row->commerce_order_order_number ?>"><?php print $row->commerce_order_order_number ?></a>
+<a class="primary" href="<?php print '/user/'.$user->uid.'/orders/'.$row->commerce_order_order_number?>"><?php print $row->commerce_order_order_number ?></a>
 <?php print $row->field_commerce_line_items[0]['rendered']['#markup'] ?>
 <p class="small mt-1"><?php print t('Forma de envio: <strong>!method</strong>', array('!method' => $row->_field_data['commerce_order_shipping_line_item_representiative_line_item_']['entity']->line_item_label ))?></p>

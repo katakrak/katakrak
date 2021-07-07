@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Katakrak Liburuak: espacio librería, cantina, tienda online y eventos en Pamplona-Iruña">
+    <meta name="author" content="Katakrak">
+    <title>Katakrak Liburuak</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Font awesome kit -->
+    <script src="https://kit.fontawesome.com/10471300b3.js" crossorigin="anonymous"></script>
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Main Custom CSS -->
+    <link href="css/main.css" rel="stylesheet">
+  </head>
+  <body>
+    
+    <nav class="navbar-secondary">
+      <ul class="list-inline mb-0">
+        <li class="list-inline-item">
+          <a href="mailto:info@katakrak.net" target="_blank"> <i class="far fa-envelope "></i> <span class="hidden-xs">info@katakrak.net</span></a>
+        </li>
+        <li class="list-inline-item">
+          <a href="tel:+34948225520" target="_blank"><i class="fas fa-phone"></i> <span class="hidden-xs">948 225 520</span></a> 
+        </li>
+        <li class="list-inline-item">
+          <a href="#" target="_blank"><i class="fas fa-location-arrow"></i> <span class="hidden-xs">¿Dónde estamos?</span></a> 
+        </li>
+        <li class="list-inline-item hidden-xs">
+          <div class="dropdown ">
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownIdioma" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-globe-africa small hidden-xs"></i> Cas
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownIdioma">
+              <a class="dropdown-item active" href="#">Cas</a>
+              <a class="dropdown-item" href="#">Eus</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+
+    <nav class="navbar navbar-default navbar-custom">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="btn btn-transparent navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+          </button>
+          <a class="navbar-brand" href="#">
+            <img src="images/katakrak-icon.svg" alt="Katakrak Liburuak" class="logo-main visible-xs-block">
+            <img src="images/katakrak-logo.svg" alt="Katakrak Liburuak" class="logo-main visible-sm" >
+            <img src="images/katakrak-logo-h.svg" alt="Katakrak Liburuak" class="logo-main visible-md visible-lg" >
+          </a>
+        </div>
+    
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="navbar-nav navbar-centered">
+            <li class="nav-item ">
+              <a class="nav-link" href=tienda.html>Tienda online</a>
+            </li>
+           <li class="dropdown nav-item">
+              <a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Espacios <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Cantina</a></li>
+                <li><a href="#">Librería</a></li>
+                <li><a href="#">Sala de actos</a></li>
+              </ul>
+            </li> 
+            <li class="dropdown nav-item ">
+              <a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Editorial <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Acerca de la editorial</a></li>
+                <li><a href="#">Catálogo</a></li>
+                <li ><a href="#">Autores</a></li>
+                <li><a href="#">Distribución</a></li>
+                <li><a href="#">En los medios</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="agenda.html">Agenda</a> 
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="blog.html">Blog</a> 
+            </li>
+            <li role="separator" class="divider visible-xs-block"></li>
+            <li class="nav-item visible-xs-block">
+              <a class="nav-link" href="#">Castellano</a> 
+            </li>
+            <li class="nav-item visible-xs-block">
+              <a class="nav-link" href="#">Euskera</a> 
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+
+        <div class="navbar-xs-items d-flex">
+          <button class="btn btn-transparent dropdown-toggle" data-toggle="dropdown">
+            <i class="fas fa-user-circle "></i> <span class="hidden-xs">El-Hajj Malik El-Shabazz</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Mi cuenta</a></li>
+            <li><a href="#">Mis pedidos</a></li>
+            <li><a href="#">Newsletter</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Cerrar sesión</a></li>
+          </ul>
+          
+            <button class="btn btn-transparent" type="button">
+              <i class="fas fa-shopping-cart"></i> <span class="badge badge-pill badge-custom">1</span> <span class="sr-only">Items en tu cesta</span>
+            </button>
+            
+        </div>
+      </div><!-- /.container-fluid -->
+    </nav>
+    
+
+<main class="main">
+    <div class="container">
+        <h1 class="text-center">Pedido K-21-345</h1>
+        <p class="text-center">Resumen del pedido</p>
+        <div class="wizard mt-2">
+          <a class="step is-completed">
+            <div class="wizard-dot">
+              <div class="wizard-connector is-transparent"></div>
+              <div class="wizard-number">
+                <span>01</span>
+              </div><!-- wizard-number -->
+              <div class="wizard-connector"></div>
+            </div><!-- wizard-dot -->
+            <p>Pedido efectuado</p>
+          </a><!-- step -->
+          <a class="step is-completed">
+            <div class="wizard-dot">
+              <div class="wizard-connector"></div>
+              <div class="wizard-number">
+                <span>2</span>
+              </div><!-- wizard-number -->
+              <div class="wizard-connector"></div>
+            </div><!-- wizard-dot -->
+            <p>Enviado </p>
+          </a><!-- step -->
+          <a class="step is-active">
+            <div class="wizard-dot">
+              <div class="wizard-connector"></div>
+              <div class="wizard-number">
+                <span>03</span>
+              </div><!-- wizard-number -->
+              <div class="wizard-connector"></div>
+            </div><!-- wizard-dot -->
+            <p>En reparto</p>
+          </a><!-- step -->
+          <a class="step">
+            <div class="wizard-dot">
+              <div class="wizard-connector"></div>
+              <div class="wizard-number">
+                <span>04</span>
+              </div><!-- wizard-number -->
+              <div class="wizard-connector is-transparent"></div>
+            </div><!-- wizard-dot -->
+            <p>Llega mañana</p>
+          </a><!-- step -->
+        </div><!-- /.wizard -->
+
+        <div class="row mt-3">
+          <div class="col-md-8">
+            <div class="well well-custom well-border">
+              <h2 class="mt-0">Datos del pedido</h2>
+              <div class="table-responsive mt-2 mb-0">
+                <table class="table table-resumen">
+                  <tbody>
+                    <tr>
+                      <th>Referencia</th>
+                      <td>REF XXXX</td>
+                    </tr>
+                    <tr>
+                      <th>Subtotal</th>
+                      <td>29,50€</td>
+                    </tr>
+                    <tr>
+                      <th>Transporte</th>
+                      <td>3,99€</td>
+                    </tr>
+                    <tr>
+                      <th>Importe total</th>
+                      <td>33,49€</td>
+                    </tr>
+                    <tr>
+                      <th>Fecha de compra</th>
+                      <td>21/05/2021 11:47</td>
+                    </tr>
+                    <tr>
+                      <th>Estado</th>
+                      <td>Inicial</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div><!-- /.well -->
+            <div class="well well-custom well-border">
+              <h3 class="mt-0">Dirección de envío</h3>
+              <div class="table-responsive mt-2 mb-0">
+                <table class="table table-resumen">
+                  <tbody>
+                    <tr>
+                      <th>Nombre y apellidos</th>
+                      <td>Juan Pérez Pérez</td>
+                    </tr>
+                    <tr>
+                      <th>Dirección</th>
+                      <td>Calle Mayor, 23, 2º derecha. 31001 Pamplona-Iruña, Navarra</td>
+                    </tr>
+                    <tr>
+                      <th>Teléfono</th>
+                      <td>666 666 666</td>
+                    </tr>
+                    <tr>
+                      <th>Importe total</th>
+                      <td>33,49€</td>
+                    </tr>
+                    <tr>
+                      <th>Fecha de compra</th>
+                      <td>21/05/2021 11:47</td>
+                    </tr>
+                    <tr>
+                      <th>Estado</th>
+                      <td>Inicial</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div><!-- /.well -->
+            <div class="well well-custom well-border">
+              <h3 class="mt-0">Dirección de facturación</h3>
+              <div class="table-responsive mt-2 mb-0">
+                <table class="table table-resumen">
+                  <tbody>
+                    <tr>
+                      <th>Nombre y apellidos</th>
+                      <td>Juan Pérez Pérez</td>
+                    </tr>
+                    <tr>
+                      <th>Dirección</th>
+                      <td>Calle Mayor, 23, 2º derecha. 31001 Pamplona-Iruña, Navarra</td>
+                    </tr>
+                    <tr>
+                      <th>Teléfono</th>
+                      <td>666 666 666</td>
+                    </tr>
+                    <tr>
+                      <th>Importe total</th>
+                      <td>33,49€</td>
+                    </tr>
+                    <tr>
+                      <th>Fecha de compra</th>
+                      <td>21/05/2021 11:47</td>
+                    </tr>
+                    <tr>
+                      <th>Estado</th>
+                      <td>Inicial</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div><!-- /.well -->
+            <div class="well well-custom well-border pb-0">
+              <h3 class="mt-0">Forma de envío</h3>
+              <div class="table-responsive mt-2 mb-0">
+                <table class="table table-resumen">
+                  <tbody>
+                    <tr>
+                      <th>Mensajería</th>
+                      <td class="text-right">
+                        <a class="btn btn-primary" href="#" target="_blank">Seguimiento del pedido</a>
+                      </td>
+                    </tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+              
+            </div><!-- /.well -->
+          </div><!-- /.col -->
+          <div class="col-md-4">
+            <div class="well well-custom">
+              <h2 class="text-center mt-0">Resumen de compra</h2>
+      
+      <table class="table table-shop mt-2">
+          <thead>
+              <tr>
+                  <th colspan="2">Artículo</th>
+                 
+                  <th class="text-right">Precio</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td class="cover">
+                      <img src="images/book-lg.jpg" alt="Título del libro" class="img-responsive">
+                  </td>
+                  <td class="title">
+                      <h3 class="book-title-sm">
+                          <a href="#">
+                              Después de la utopía. El declive de la fe política
+                          </a>
+                      </h3>
+                    </td>
+                    
+                  <td class="precio text-right">
+                      <span class="visible-xs-inline-block">Precio: </span> <strong>22,00€</strong>
+                  </td>
+              </tr>
+              <tr>
+                <td class="cover">
+                    <img src="images/book-lg.jpg" alt="Título del libro" class="img-responsive">
+                </td>
+                <td class="title">
+                    <h3 class="book-title-sm">
+                        <a href="#">
+                          Pentsamenduaren Historia Euskal Herrian
+                        </a>
+                    </h3>
+                  </td>
+                  
+                <td class="precio text-right">
+                    <span class="visible-xs-inline-block">Precio: </span> <strong>22,00€</strong>
+                </td>
+            </tr>
+            <tr>
+              <td class="cover">
+                  <img src="images/book-lg.jpg" alt="Título del libro" class="img-responsive">
+              </td>
+              <td class="title">
+                  <h3 class="book-title-sm">
+                      <a href="#">
+                        Pentsamenduaren Historia Euskal Herrian
+                      </a>
+                  </h3>
+                </td>
+                
+              <td class="precio text-right">
+                  <span class="visible-xs-inline-block">Precio: </span> <strong>44,00€</strong><br>(2)
+              </td>
+          </tr>
+          <tr>
+            <td class="cover">
+                <img src="images/book-lg.jpg" alt="Título del libro" class="img-responsive">
+            </td>
+            <td class="title">
+                <h3 class="book-title-sm">
+                    <a href="#">
+                      Pentsamenduaren Historia Euskal Herrian
+                    </a>
+                </h3>
+              </td>
+              
+            <td class="precio text-right">
+                <span class="visible-xs-inline-block">Precio: </span> <strong>22,00€</strong>
+            </td>
+        </tr>
+          </tbody>
+      </table>
+  </div>
+          </div>
+        </div><!-- /.row -->
+
+
+    </div><!-- /.container -->
+</main><!-- /.main -->
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-md-3">
+        <h2>Katakrak Liburuak</h2>
+        <p class="quote">Libros, cafés y algo más.<br>Debates y pensamiento.<br>Un espacio para el común.</p>
+        <ul class="list-unstyled">
+            <li class="list-item">
+                <a class="" href="que-es-katakrak.html" >¿Qué es Katakrak?</a>
+              </li>
+              <li class="list-item">
+                <a class="" href="tienda.html">Tienda online</a>
+              </li>
+              <li class="list-item">
+                <a class="" href="el-espacio.html">Espacio</a>
+              </li>
+              <li class="list-item">
+                <a class="" href="la-editorial.html">Editorial</a>
+              </li>
+              <li class="list-item">
+                <a class="" href="agenda.html">Agenda</a>
+              </li>
+              <li class="list-item">
+                <a class="" href="blog.html">Blog</a>
+              </li>
+        </ul>
+      </div><!-- /.col -->
+      <div class="col-sm-6 col-md-3">
+        <h2>Ven a Katakrak</h2>
+        <ul class="list-unstyled">
+          <li class="list-item">C/ Mayor 54, Pamplona-Iruñea</li>
+          <li class="list-item">31001 Navarra-Nafarroa</li>
+          <li class="list-item">
+            <a class="" href="#">Localízanos</a>
+          </li>
+        </ul>
+
+        <ul class="list-unstyled">
+          <li class="list-style">Abierto de lunes a sábado:</li>
+          <li class="list-item"> <span class="strong">Librería: </span> 10:00-20:30</li>
+          <li class="list-item"><span class="strong">Cantina: </span>  L,M,M 10:00-22:00 | J,V,S 10:00-01:00</li>
+        </ul>
+
+       
+        <ul class="list-unstyled">
+          <li class="list-item">Escríbenos a:  <a href="mailto:info@katakrak.net">info@katakrak.net</a></li>
+          <li class="list-item">O llámanos al <a href="tel:+34948225520">948225520</a> </li>
+          
+        </ul>
+
+      </div><!-- /.col -->
+        <!-- Add the extra clearfix for only the required viewport -->
+  <div class="clearfix visible-sm-block"></div>
+      <div class="col-sm-6 col-md-3">
+        <h2>Social</h2>
+       <ul class="list-unstyled list-social mt-3">
+          <li class="list-item ">
+            <a class="d-flex" href="https://www.facebook.com/katakrak54" target="_blank" title="Facebook">
+              <i class="fab fa-facebook-f"></i>
+              <span>Facebook</span>
+            </a>
+          </li>
+          <li class="list-item ">
+            <a class="d-flex" href="http://twitter.com/katakrak54" target="_blank" title="Twitter">
+              <i class="fab fa-twitter"></i>
+              <span>Twitter</span>
+            </a>
+          </li>
+          <li class="list-item">
+            <a class="d-flex" href="https://www.instagram.com/katakrak54/" target="_blank" title="Instagram">
+              <i class="fab fa-instagram"></i>
+              <span>Instagram</span>
+            </a>
+          </li>
+          <li class="list-item">
+            <a class="d-flex" href="https://t.me/katakrak54" target="_blank" title="Telegram">
+              <i class="fab fa-telegram-plane"></i>
+              <span>Telegram</span>
+            </a>
+          </li>
+          <li class="list-item ">
+            <a class="d-flex" href="http://soundcloud.com/katakrak54" target="_blank" title="Soundcloud">
+              <i class="fab fa-soundcloud"></i>
+              <span>Soundcloud</span>
+            </a>
+          </li>
+          <li class="list-item">
+            <a class="d-flex" href="https://katakrak.net/cas/events/feed" target="_blank" title="Feed">
+              <i class="fas fa-rss"></i>
+              <span>RSS eventos feed</span>
+            </a>
+          </li>
+        </ul>
+        
+          
+      </div><!-- /.col -->
+      <div class="col-sm-6 col-md-3">
+        <h2>Suscríbete a la Newsletter</h2>
+        <p>Prometemos no darte la chapa más de lo necesario</p>
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control form-control-sm" id="formGroupExampleInput" placeholder="Nombre y apellidos" focus>
+          </div>
+          <div class="form-group">
+            <input type="mail" class="form-control form-control-sm" id="formGroupExampleInput" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"> <span class="small">Acepto las <a href="#">condiciones legales</a></span>
+              </label>
+            </div>
+          </div>
+          <button class="btn btn-primary d-block">Suscribirme</button>
+        </form>
+        
+      </div><!-- /.col -->
+
+    </div><!-- /.row -->
+  </div>
+</footer>
+
+ <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+ <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+ <!-- Include all compiled plugins (below), or include individual files as needed -->
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+  </body>
+</html>

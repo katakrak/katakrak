@@ -22,9 +22,8 @@
  * - $row: The raw result object from the query, with all data it fetched.
  *
  * @ingroup views_templates
- */
-?>
-<div class="modal fade" id="<?php print $fields['order_number']->raw ?>" tabindex="-1" role="dialog" aria-labelledby="detallePedido">
+
+ * <div class="modal fade" id="<?php print $fields['order_number']->raw ?>" tabindex="-1" role="dialog" aria-labelledby="detallePedido">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -45,3 +44,6 @@
     </div>
   </div>
 </div>
+ * 
+ *  */
+?>
