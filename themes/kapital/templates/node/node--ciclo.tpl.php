@@ -13,7 +13,6 @@
               
             </div>
           </div>
-         <p>(?) Damos información sobre cómo apuntarse... precios si lo hubiere...</p>
         <hr>
             
         <!--TODO<h4>Compártelo:</h4>
