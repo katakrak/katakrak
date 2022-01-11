@@ -1536,6 +1536,15 @@ function katakrak_user_user_default_permissions() {
     'module' => 'panels',
   );
 
+  // Exported permission: 'ver boletin bibliotecas'.
+  $permissions['ver boletin bibliotecas'] = array(
+    'name' => 'ver boletin bibliotecas',
+    'roles' => array(
+      'Biblioteca' => 'Biblioteca',
+    ),
+    'module' => 'katakrak_boletin',
+  );
+
   // Exported permission: 'view any commerce_coupon entity'.
   $permissions['view any commerce_coupon entity'] = array(
     'name' => 'view any commerce_coupon entity',

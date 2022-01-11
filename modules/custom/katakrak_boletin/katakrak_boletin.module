@@ -97,6 +97,15 @@ function katakrak_boletin_theme() {
   );
 }
 
+function katakrak_boletin_permission() {
+  return array(
+    'ver boletin bibliotecas' => array(
+      'title' => t('Ver boletín de bibliotecas'),
+      'description' => t('Permiso para ver el boletín de las bibliotecas'),
+    ),
+  );
+}
+
 function katakrak_boletin_codigo($node) {
   if ($node->type == 'boletin')
     return check_plain(theme('boletin_codigo', array('node' => $node)));

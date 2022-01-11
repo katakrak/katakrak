@@ -1414,7 +1414,7 @@ body.outlook p {
                       </th>
                     </tr>
                   </tbody>
-                </table class="row collapse">
+                </table>
                   <tbody>
 				    <tr>
                       <th class="small-12 large-12 columns first" style="padding-left: 0">
@@ -1479,7 +1479,7 @@ body.outlook p {
                             </tr>
                           </tbody>
                         </table>
-                        <? endif; ?>
+                        <?php endif; ?>
                       </th>
                       <th class="expander"></th>
                     </tr>
