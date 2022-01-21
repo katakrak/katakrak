@@ -58,10 +58,10 @@
                      value="<?php print $key; ?>"
                      <?php if (in_array($category['checkbox_default_state'], array('checked', 'required'))) : ?>checked<?php endif; ?>
                      <?php if ($category['checkbox_default_state'] === 'required') : ?>disabled<?php endif; ?> >
-              <label for="cookie-category-<?php print drupal_html_class($key); ?>"><?php print check_plain($category['label']); ?></label>
+              <label for="cookie-category-<?php print drupal_html_class($key); ?>"><?php print filter_xss($category['label']); ?></label>
             </div>
           <?php if (isset($category['description'])) : ?>
-            <div class="eu-cookie-compliance-category-description"><?php print check_plain($category['description']) ?></div>
+            <div class="eu-cookie-compliance-category-description"><?php print filter_xss($category['description']) ?></div>
           <?php endif; ?>
         </div>
         <?php } //end for ?>

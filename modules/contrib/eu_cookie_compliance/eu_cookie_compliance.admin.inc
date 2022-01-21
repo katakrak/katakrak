@@ -22,6 +22,7 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
   $form = array();
 
   $popup_settings = eu_cookie_compliance_get_settings();
+
   $default_filter_format = filter_default_format();
   if ($default_filter_format === 'filtered_html' && filter_format_load('full_html')) {
     $default_filter_format = 'full_html';
@@ -218,7 +219,7 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
     '#title' => t('Disable JavaScripts'),
     '#default_value' => isset($popup_settings['disabled_javascripts']) ? $popup_settings['disabled_javascripts'] : '',
     '#description' => t("<span style='word-break: break-word;'>Include the full path of JavaScripts, each on a separate line. When using the opt-in or opt-out consent options, you can block certain JavaScript files from being loaded when consent isn't given. The on-site JavaScripts should be written as root relative paths <strong>without the leading slash</strong>, you can use public://path/to/file.js and private://path/to/file.js, and off-site JavaScripts should be written as complete URLs <strong>with the leading http(s)://</strong>. Note that after the user gives consent, the scripts will be executed in the order you enter here.<br /><br />Libraries and scripts that attach to Drupal.behaviors are supported. To indicate a behavior that needs to be loaded on consent, append the behavior name after the script with a | (vertical bar).<br /><strong>Note that Drupal behavior name parameter is optional</strong>, but may be required to achieve your objective.</span>") .
-      '<br /><br />' . t('When using the consent method "Opt-in with categories", you can link the script to a specific category by using the format: "category:path/to/the/script.js".'),
+    '<br /><br />' . t('When using the consent method "Opt-in with categories", you can link the script to a specific category by using the format: "category:path/to/the/script.js".'),
   );
 
   $form['cookies'] = array(
@@ -238,19 +239,19 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
     '#tree' => TRUE,
   );
 
-  $form['cookies']['eu_cookie_compliance']['automatic_cookies_removal'] = [
+  $form['cookies']['eu_cookie_compliance']['automatic_cookies_removal'] = array(
     '#type' => 'checkbox',
     '#title' => t("Enable cookie(s) automatic-removal when consent isn't given."),
     '#default_value' => isset($popup_settings['automatic_cookies_removal']) ? $popup_settings['automatic_cookies_removal'] : TRUE,
-  ];
+  );
 
   $form['cookies']['eu_cookie_compliance']['allowed_cookies'] = array(
     '#type' => 'textarea',
     '#title' => t('Allowed cookies'),
     '#default_value' => isset($popup_settings['allowed_cookies']) ? $popup_settings['allowed_cookies'] : '',
     '#description' => t("Include the name of cookies, each on a separate line. When using the opt-in or opt-out consent options, this module will <strong>delete cookies that are not allowed</strong> every few seconds when consent isn't given. PHP session cookies and the cookie for this module are always allowed.") .
-      '<br /><br />' . t('When using the consent method "Opt-in with categories", you can link the cookie to a specific consent category by using the format: "category:cookie_name".  Only when consent is given for the given category, will the cookie be allowed.') .
-      '<br />' . t('Cookie names can contain "*" characters which mean a series of any characters.'),
+    '<br /><br />' . t('When using the consent method "Opt-in with categories", you can link the cookie to a specific consent category by using the format: "category:cookie_name".  Only when consent is given for the given category, will the cookie be allowed.') .
+    '<br />' . t('Cookie names can contain "*" characters which mean a series of any characters.'),
     '#states' => array(
       'visible' => array(
         'input[name="eu_cookie_compliance[automatic_cookies_removal]"]' => array('checked' => TRUE),
@@ -638,7 +639,12 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
     'top' => 'Top',
   );
 
-  $popup_position_value = ($popup_settings['popup_position'] === TRUE ? 'top' : ($popup_settings['popup_position'] === FALSE ? 'bottom' : $popup_settings['popup_position']));
+  if (!empty($popup_settings['popup_position'])) {
+    $popup_position_value = ($popup_settings['popup_position'] === TRUE ? 'top' : ($popup_settings['popup_position'] === FALSE ? 'bottom' : $popup_settings['popup_position']));
+  }
+  else {
+    $popup_position_value = 'bottom';
+  }
 
   $form['appearance']['eu_cookie_compliance']['popup_position'] = array(
     '#type' => 'radios',
@@ -820,6 +826,27 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
     '#description' => t('Sets the cookie name that is used to check whether the user has agreed or not. This option is useful when policies change and the user needs to agree again.'),
   );
 
+  $form['advanced']['eu_cookie_compliance']['cookie_value_disagreed'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Cookie value (disagreed)'),
+    '#default_value' => isset($popup_settings['cookie_value_disagreed']) ? $popup_settings['cookie_value_disagreed'] : '0',
+    '#description' => t('The cookie value which will be set where the user has disagreed.'),
+  );
+
+  $form['advanced']['eu_cookie_compliance']['cookie_value_agreed_show_thank_you'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Cookie value (agreed, show thank you banner)'),
+    '#default_value' => isset($popup_settings['cookie_value_agreed_show_thank_you']) ? $popup_settings['cookie_value_agreed_show_thank_you'] : '1',
+    '#description' => t('The cookie value which will be set where the user has agreed and we will show a thank-you banner.'),
+  );
+
+  $form['advanced']['eu_cookie_compliance']['cookie_value_agreed'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Cookie value (agreed)'),
+    '#default_value' => isset($popup_settings['cookie_value_agreed']) ? $popup_settings['cookie_value_agreed'] : '2',
+    '#description' => t('The cookie value which will be set where the user has agreed.'),
+  );
+
   $form['advanced']['eu_cookie_compliance_cookie_lifetime'] = array(
     '#type' => 'textfield',
     '#title' => t('Cookie lifetime'),
@@ -953,7 +980,10 @@ function eu_cookie_compliance_admin_form_validate(array $form, array &$form_stat
   // link with full url.
   if ((strpos($popup_link, '#') !== FALSE) && (strpos($popup_link, 'http') === FALSE)) {
     $fragment = explode('#', $popup_link);
-    $popup_link = url($fragment[0], array('fragment' => $fragment[1], 'absolute' => TRUE));
+    $popup_link = url($fragment[0], array(
+      'fragment' => $fragment[1],
+      'absolute' => TRUE,
+    ));
     form_set_error('eu_cookie_compliance][popup_link', t('Looks like your privacy policy link contains a fragment #. You should make this an absolute url, e.g. @link', array('@link' => $popup_link)));
   }
 
