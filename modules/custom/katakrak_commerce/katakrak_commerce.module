@@ -692,7 +692,7 @@ function katakrak_commerce_form_commerce_checkout_form_alter(&$form, &$form_stat
   }
 }
 
-function katakrak_commerce_checkout_form_validate($form, &$form_state, $form_id) {
+function katakrak_commerce_checkout_form_validate($form, &$form_state) {
   //Validamos que el número esté bien
   $telefono = str_replace(' ', '', $form_state['input']['telefono_recogida']);
   if (!is_numeric($telefono) || strlen($telefono) != 9) {
