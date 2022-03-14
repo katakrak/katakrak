@@ -765,7 +765,7 @@ function todostuslibros_ficha() {
       $dilve = new DilveSearch(variable_get('dilve_user', ''), variable_get('dilve_pass', ''));
       $book = $dilve->search($_GET['isbn']);
       
-      if (!is_string($book))//Si está en dilve creamos la ficha
+      if (!is_string($book) && $book['price'])//Si está en dilve creamos la ficha
         $node = libro_crear_ficha($book);
       else { //Si no intentamos sacar la info de cegal
         $cegal = new CegalSearch(variable_get('cegal_user', ''), variable_get('cegal_clave', ''));
