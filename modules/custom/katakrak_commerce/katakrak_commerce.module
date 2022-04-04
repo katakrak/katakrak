@@ -449,6 +449,7 @@ function katakrak_commerce_cart_is_mensajeria($order) {
 }
 
 function katakrak_commerce_form_alter(&$form, &$form_state, $form_id) {
+  dpm ($form_id);
   if ($form_id == 'views_form_commerce_cart_form_katakrak_default') {
     foreach (element_children($form['edit_delete']) as $key) {
       $form['edit_delete'][$key]['#attributes']['class'] = array('btn btn-secondary');
@@ -551,6 +552,7 @@ function katakrak_commerce_form_alter(&$form, &$form_state, $form_id) {
   
   if ($form_id == 'commerce_checkout_form_shipping'){
     drupal_set_title(t('Datos personales'));
+    dpm($form);
   }
   if ($form_id == 'commerce_checkout_form_review'){
     
