@@ -19,6 +19,6 @@
     <a href="http://www.culturaydeporte.gob.es/" target="_blank" title="Ir a la web de Ministerio de Cultura y Deporte de España">
       <img src="/sites/all/themes/kapital/images/logo-ministerio-dglfl.jpg" alt="<?php print t('Ministerio de Cultura y Deporte de España') ?>" class="img-cultura">
     </a>
-    <p><?php print t('Este proyecto ha recibido una ayuda del Ministerio de Cultura y Deporte')?><p>
+    <p><?php print t('Este proyecto ha recibido una ayuda extraordinaria del Ministerio de Cultura y Deporte')?><p>
   </div>
 </footer>
