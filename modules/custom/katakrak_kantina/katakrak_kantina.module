@@ -1,187 +1,205 @@
-<?php
-/**
- * @file
- * Code for the Katakrak_Kantina feature.
- */
+  <?php
+  /**
+   * @file
+   * Code for the Katakrak_Kantina feature.
+   */
 
-include_once 'katakrak_kantina.features.inc';
+  include_once 'katakrak_kantina.features.inc';
 
-/**
- * Implement hook_query alter
- * @param type $query
- */
-function katakrak_kantina_query_alter($query) {
-   if ($query->hasTag('node_export_features')) {
-     $query->condition('n.type', 'page');
-   }
-}
-
-function katakrak_kantina_init() {
-  drupal_add_js(drupal_get_path('module', 'katakrak_kantina').'/katakrak_kantina.js');
-}
-
-/**
- * Implements hook_menu
- * @return type
- */
-function katakrak_kantina_menu() {
-  $items['cantina']  = array(
-    'title' => t('La cantina de Katakrak'),
-    'page callback' => 'theme',
-    'page arguments' => array('katakrak_kantina_landing'),
-    'access callback' => 'user_access',
-    'access arguments' => array('access content'),
-    'menu_name' => 'main-menu',
-    'type' => MENU_NORMAL_ITEM,
-  );
-  $items['cantina/catering']  = array(
-    'title' => t('Reservas y catering'),
-    'page callback' => 'theme',
-    'page arguments' => array('katakrak_kantina_landing_catering'),
-    'access callback' => 'user_access',
-    'access arguments' => array('access content'),
-    'type' => MENU_NORMAL_ITEM,
-    'weight' => 100,
-  );
-  $items['cantina/grupo']  = array(
-    'title' => t('Grupo de consumo'),
-    'page callback' => 'theme',
-    'page arguments' => array('katakrak_kantina_landing_grupo'),
-    'access callback' => 'user_access',
-    'access arguments' => array('access content'),
-    'type' => MENU_NORMAL_ITEM,
-    'weight' => 100,
-  );
-  return $items;
-}
-
-/**
- * Implements hook_block_info().
- */
-function katakrak_kantina_block_info() {
-  $blocks = array();
-  $blocks['kantina_page_hero'] = array(
-    'info' => t('Bloque principal página kantina'),
-    'cache' => DRUPAL_CACHE_GLOBAL,
-  );
-  $blocks['kantina_page_highlight'] = array(
-    'info' => t('Bloque con cuatro items destacados kantina'),
-    'cache' => DRUPAL_CACHE_GLOBAL,
-  );
-  $blocks['kantina_page_carousel'] = array(
-    'info' => t('Bloque con carrusel en katina'),
-    'cache' => DRUPAL_CACHE_GLOBAL,
-  );
-  $blocks['katakrak_kantina_nav_submenu'] = array(
-    'info' => t('Submenu kantina'),
-    'cache' => DRUPAL_CACHE_PER_PAGE
-  );  
-  return $blocks;
-}
-
-/**
- * Implements hook_block_view().
- */
-function katakrak_kantina_block_view($delta) {
-  switch ($delta) {
-    case 'kantina_page_hero':
-      $block['content'] = theme('katakrak_kantina_page_hero');
-      break;
-    case 'kantina_page_highlight':
-      $block['content'] = theme('katakrak_kantina_page_highlight');
-      break;
-    case 'kantina_page_carousel':
-      $block['content'] = theme('katakrak_kantina_page_carousel');
-      break;
-    case 'katakrak_kantina_nav_submenu':
-      $links = array(
-        l(t('Conoce la cantina'), 'cantina'),
-        l(t('Menú y carta'), 'node/44194'),
-        l(t('Caterings'), 'cantina/catering'),
-        l(t('Nuestros productores'), 'cantina/productores'),
-      );
-      $block['content'] = theme("katakrak_navbar_submenu", array('links' => $links));
-      break;
+  /**
+   * Implement hook_query alter
+   * @param type $query
+   */
+  function katakrak_kantina_query_alter($query) {
+     if ($query->hasTag('node_export_features')) {
+       $query->condition('n.type', 'page');
+     }
   }
-  return $block;
-}
 
-/**
- * Implementation of hook_theme
- */
-function katakrak_kantina_theme() {
-  $path = drupal_get_path('module', 'katakrak_kantina');
-  return array(
-    'katakrak_kantina_page_hero' => array(
-      'template' => 'katakrak-kantina-page-hero',
-      'path' => $path . '/templates',
-    ),
-    'katakrak_kantina_page_highlight' => array(
-      'template' => 'katakrak-kantina-page-highlight', 
-      'path' => $path . '/templates',
-    ),
-    'katakrak_kantina_page_carousel' => array(
-      'template' => 'katakrak-kantina-page-carousel', 
-      'path' => $path . '/templates',
-    ),
-    'katakrak_kantina_landing' => array(
-      'template' => 'katakrak-kantina-landing', 
-      'path' => $path . '/templates',
-    ),
-    'katakrak_kantina_landing_catering' => array(
-      'template' => 'katakrak-kantina-landing-catering', 
-      'path' => $path . '/templates',
-    ),
-    'katakrak_kantina_landing_grupo' =>array(
-      'template' => 'katakrak-kantina-landing-grupo', 
-      'path' => $path . '/templates',
-    ),
-  );
-}
-
-
-/**
-* Implements hook_mollom_form_list().
-*/
-function katakrak_kantina_mollom_form_list() {
-  $forms['katakrak_kantina_reserva_form'] = array(
-    'title' => t('Reserva form'),
-  );
-  return $forms;
-}
-/**
-* Implements hook_mollom_form_info().
-*/
-function katakrak_kantina_mollom_form_info($form_id) {
-  switch ($form_id) {
-    case 'katakrak_kantina_reserva_form':
-      $form_info = array(
-        'mode' => MOLLOM_MODE_CAPTCHA,   
-      );
-      return $form_info;
+  function katakrak_kantina_init() {
+    drupal_add_js(drupal_get_path('module', 'katakrak_kantina').'/katakrak_kantina.js');
   }
-}
 
-//function katakrak_kantina_preprocess_katakrak_kantina_page_header(&$vars) {
-//  $vars['logo'] = l(theme('image', array('path' => drupal_get_path('theme', 'coworker'). '/images/kantina/kantina.jpg')), 'cantina', array('html' => TRUE));
-//  $dedia_imagen = theme('image', array('path' => drupal_get_path('theme', 'coworker'). '/images/kantina/dedia.jpg'));
-//  $denoche_imagen = theme('image', array('path' => drupal_get_path('theme', 'coworker'). '/images/kantina/denoche.jpg'));
-//  $blog_imagen = theme('image', array('path' => drupal_get_path('theme', 'coworker'). '/images/kantina/kantina_blog.jpg'));
-//  if ($vars['lang'] == 'es') {
-//    $vars['link_dedia'] = l($dedia_imagen.'<h3>De día</h3>', 'node/44194', array('html' => TRUE));
-//    $vars['link_denoche'] = l($denoche_imagen.'<h3>De noche</h3>', 'cantina/denoche', array('html' => TRUE));
-//    $vars['link_blog'] = l($blog_imagen.'<h3>Blog</h3>', 'cantina/blog', array('html' => TRUE));
-//  }
-//  elseif ($vars['lang'] == 'eu') {
-//    $vars['link_dedia'] = l($dedia_imagen.'<h3>Egunez</h3>', 'node/44194', array('html' => TRUE));
-//    $vars['link_denoche'] = l($denoche_imagen.'<h3>Gauez</h3>', 'node/2222', array('html' => TRUE));
-//    $vars['link_blog'] = l($blog_imagen.'<h3>Blog</h3>', 'cantina/blog', array('html' => TRUE));
-//  }
-//}
-//
-//function katakrak_kantina_preprocess_katakrak_kantina_menu_page(&$vars) {
-//    global $language;
-//    $node = node_load(44194);
-//    $translations = translation_node_get_translations($node->tnid);
-//    $vars['node'] = node_load($translations[$language->language]->nid);
-//}
+  /**
+   * Implements hook_menu
+   * @return type
+   */
+  function katakrak_kantina_menu() {
+    $items['cantina']  = array(
+      'title' => t('La cantina de Katakrak'),
+      'page callback' => 'theme',
+      'page arguments' => array('katakrak_kantina_landing'),
+      'access callback' => 'user_access',
+      'access arguments' => array('access content'),
+      'menu_name' => 'main-menu',
+      'type' => MENU_NORMAL_ITEM,
+    );
+    $items['cantina/catering']  = array(
+      'title' => t('Reservas y catering'),
+      'page callback' => 'theme',
+      'page arguments' => array('katakrak_kantina_landing_catering'),
+      'access callback' => 'user_access',
+      'access arguments' => array('access content'),
+      'type' => MENU_NORMAL_ITEM,
+      'weight' => 100,
+    );
+    $items['cantina/grupo']  = array(
+      'title' => t('Grupo de consumo'),
+      'page callback' => 'theme',
+      'page arguments' => array('katakrak_kantina_landing_grupo'),
+      'access callback' => 'user_access',
+      'access arguments' => array('access content'),
+      'type' => MENU_NORMAL_ITEM,
+      'weight' => 100,
+    );
+    $items['cantina/ziclop']  = array(
+      'title' => t('Comida para llevar'),
+      'page callback' => 'katakrak_kantina_landing_ziclop',
+      'access callback' => 'user_access',
+      'access arguments' => array('access content'),
+      'type' => MENU_NORMAL_ITEM,
+      'weight' => 100,
+    );
+    return $items;
+  }
+
+  /**
+   * Implements hook_block_info().
+   */
+  function katakrak_kantina_block_info() {
+    $blocks = array();
+    $blocks['kantina_page_hero'] = array(
+      'info' => t('Bloque principal página kantina'),
+      'cache' => DRUPAL_CACHE_GLOBAL,
+    );
+    $blocks['kantina_page_highlight'] = array(
+      'info' => t('Bloque con cuatro items destacados kantina'),
+      'cache' => DRUPAL_CACHE_GLOBAL,
+    );
+    $blocks['kantina_page_carousel'] = array(
+      'info' => t('Bloque con carrusel en katina'),
+      'cache' => DRUPAL_CACHE_GLOBAL,
+    );
+    $blocks['katakrak_kantina_nav_submenu'] = array(
+      'info' => t('Submenu kantina'),
+      'cache' => DRUPAL_CACHE_PER_PAGE
+    );  
+    return $blocks;
+  }
+
+  /**
+   * Implements hook_block_view().
+   */
+  function katakrak_kantina_block_view($delta) {
+    switch ($delta) {
+      case 'kantina_page_hero':
+        $block['content'] = theme('katakrak_kantina_page_hero');
+        break;
+      case 'kantina_page_highlight':
+        $block['content'] = theme('katakrak_kantina_page_highlight');
+        break;
+      case 'kantina_page_carousel':
+        $block['content'] = theme('katakrak_kantina_page_carousel');
+        break;
+      case 'katakrak_kantina_nav_submenu':
+        $links = array(
+          l(t('Conoce la cantina'), 'cantina'),
+          l(t('Menú y carta'), 'node/44194'),
+          l(t('Caterings'), 'cantina/catering'),
+          //l(t('Para llevar'), 'cantina/ziclop'),
+          l(t('Nuestros productores'), 'cantina/productores'),
+        );
+        $block['content'] = theme("katakrak_navbar_submenu", array('links' => $links));
+        break;
+    }
+    return $block;
+  }
+
+  function katakrak_kantina_landing_ziclop(){
+    drupal_add_js('https://ziclop.coopcycle.org/js/coopcycle.js', 'external');
+    return theme ('katakrak_kantina_landing_ziklop');
+  }
+
+  /**
+   * Implementation of hook_theme
+   */
+  function katakrak_kantina_theme() {
+    $path = drupal_get_path('module', 'katakrak_kantina');
+    return array(
+      'katakrak_kantina_page_hero' => array(
+        'template' => 'katakrak-kantina-page-hero',
+        'path' => $path . '/templates',
+      ),
+      'katakrak_kantina_page_highlight' => array(
+        'template' => 'katakrak-kantina-page-highlight', 
+        'path' => $path . '/templates',
+      ),
+      'katakrak_kantina_page_carousel' => array(
+        'template' => 'katakrak-kantina-page-carousel', 
+        'path' => $path . '/templates',
+      ),
+      'katakrak_kantina_landing' => array(
+        'template' => 'katakrak-kantina-landing', 
+        'path' => $path . '/templates',
+      ),
+      'katakrak_kantina_landing_catering' => array(
+        'template' => 'katakrak-kantina-landing-catering', 
+        'path' => $path . '/templates',
+      ),
+      'katakrak_kantina_landing_grupo' =>array(
+        'template' => 'katakrak-kantina-landing-grupo', 
+        'path' => $path . '/templates',
+      ),
+      'katakrak_kantina_landing_ziklop' => array(
+        'template' => 'katakrak-kantina-landing-ziklop', 
+        'path' => $path . '/templates',
+      )
+    );
+  }
+
+
+  /**
+  * Implements hook_mollom_form_list().
+  */
+  function katakrak_kantina_mollom_form_list() {
+    $forms['katakrak_kantina_reserva_form'] = array(
+      'title' => t('Reserva form'),
+    );
+    return $forms;
+  }
+  /**
+  * Implements hook_mollom_form_info().
+  */
+  function katakrak_kantina_mollom_form_info($form_id) {
+    switch ($form_id) {
+      case 'katakrak_kantina_reserva_form':
+        $form_info = array(
+          'mode' => MOLLOM_MODE_CAPTCHA,   
+        );
+        return $form_info;
+    }
+  }
+
+  //function katakrak_kantina_preprocess_katakrak_kantina_page_header(&$vars) {
+  //  $vars['logo'] = l(theme('image', array('path' => drupal_get_path('theme', 'coworker'). '/images/kantina/kantina.jpg')), 'cantina', array('html' => TRUE));
+  //  $dedia_imagen = theme('image', array('path' => drupal_get_path('theme', 'coworker'). '/images/kantina/dedia.jpg'));
+  //  $denoche_imagen = theme('image', array('path' => drupal_get_path('theme', 'coworker'). '/images/kantina/denoche.jpg'));
+  //  $blog_imagen = theme('image', array('path' => drupal_get_path('theme', 'coworker'). '/images/kantina/kantina_blog.jpg'));
+  //  if ($vars['lang'] == 'es') {
+  //    $vars['link_dedia'] = l($dedia_imagen.'<h3>De día</h3>', 'node/44194', array('html' => TRUE));
+  //    $vars['link_denoche'] = l($denoche_imagen.'<h3>De noche</h3>', 'cantina/denoche', array('html' => TRUE));
+  //    $vars['link_blog'] = l($blog_imagen.'<h3>Blog</h3>', 'cantina/blog', array('html' => TRUE));
+  //  }
+  //  elseif ($vars['lang'] == 'eu') {
+  //    $vars['link_dedia'] = l($dedia_imagen.'<h3>Egunez</h3>', 'node/44194', array('html' => TRUE));
+  //    $vars['link_denoche'] = l($denoche_imagen.'<h3>Gauez</h3>', 'node/2222', array('html' => TRUE));
+  //    $vars['link_blog'] = l($blog_imagen.'<h3>Blog</h3>', 'cantina/blog', array('html' => TRUE));
+  //  }
+  //}
+  //
+  //function katakrak_kantina_preprocess_katakrak_kantina_menu_page(&$vars) {
+  //    global $language;
+  //    $node = node_load(44194);
+  //    $translations = translation_node_get_translations($node->tnid);
+  //    $vars['node'] = node_load($translations[$language->language]->nid);
+  //}
