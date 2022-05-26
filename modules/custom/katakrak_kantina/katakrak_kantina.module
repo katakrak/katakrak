@@ -106,7 +106,7 @@
           l(t('Conoce la cantina'), 'cantina'),
           l(t('Menú y carta'), 'node/44194'),
           l(t('Caterings'), 'cantina/catering'),
-          //l(t('Para llevar'), 'cantina/ziclop'),
+          l(t('Para llevar'), 'cantina/ziclop'),
           l(t('Nuestros productores'), 'cantina/productores'),
         );
         $block['content'] = theme("katakrak_navbar_submenu", array('links' => $links));
