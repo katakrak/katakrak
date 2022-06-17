@@ -6,6 +6,32 @@
  */
 
 /**
+ * Implements hook_default_commerce_discount().
+ */
+function katakrak_default_commerce_discount() {
+  $items = array();
+  $items['discount_descuento_biblioteca'] = entity_import('commerce_discount', '{
+    "name" : "discount_descuento_biblioteca",
+    "label" : "Descuento biblioteca",
+    "type" : "product_discount",
+    "status" : "0",
+    "component_title" : "Descuento bibliotecas",
+    "sort_order" : "10",
+    "commerce_discount_offer" : {
+      "type" : "percentage",
+      "commerce_percentage" : { "und" : [ { "value" : "10.00" } ] }
+    },
+    "commerce_compatibility_strategy" : { "und" : [ { "value" : "any" } ] },
+    "commerce_compatibility_selection" : [],
+    "commerce_discount_date" : [],
+    "inline_conditions" : [],
+    "discount_usage_per_person" : [],
+    "discount_usage_limit" : []
+  }');
+  return $items;
+}
+
+/**
  * Implements hook_ctools_plugin_api().
  */
 function katakrak_ctools_plugin_api($module = NULL, $api = NULL) {

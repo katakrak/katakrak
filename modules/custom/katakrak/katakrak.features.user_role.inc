@@ -14,7 +14,7 @@ function katakrak_user_default_roles() {
   // Exported role: Cliente.
   $roles['Cliente'] = array(
     'name' => 'Cliente',
-    'weight' => 3,
+    'weight' => 7,
   );
 
   // Exported role: Editor.
@@ -29,9 +29,9 @@ function katakrak_user_default_roles() {
     'weight' => 6,
   );
 
-  // Exported role: Biblioteca.
+  // Exported role: Librero.
   $roles['Biblioteca'] = array(
-    'name' => 'Cliente',
+    'name' => 'Biblioteca',
     'weight' => 7,
   );
   return $roles;
