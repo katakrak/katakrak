@@ -314,6 +314,10 @@ function libro_block_info() {
     'info' => t('Home tienda online. Bloque Bizikrak'),
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['libreria_home_cerrada'] = array(
+    'info' => t('Banner tienda online cerrada'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   $blocks['libreria_home_bono_regalo'] = array(
     'info' => t('Home tienda online. Bono regalo'),
     'cache' => DRUPAL_CACHE_GLOBAL,
@@ -366,6 +370,9 @@ function libro_block_view($delta) {
       break;
     case 'libreria_home_bizikrak':
       $block['content'] = theme('libreria_home_bizikrak');
+      break;
+    case 'libreria_home_cerrada':
+      $block['content'] = theme('libreria_home_cerrada');
       break;
     case 'libreria_home_bono_regalo':
       $block['content'] = theme('libreria_home_bono_regalo');
@@ -463,6 +470,10 @@ function libro_theme() {
     ),
     'libreria_home_bizikrak' => array(
       'template' => 'libreria-home-bizikrak',
+      'path' => $path . '/templates',
+    ),
+    'libreria_home_cerrada' => array(
+      'template' => 'libreria-home-cerrada',
       'path' => $path . '/templates',
     ),
     'libreria_home_bono_regalo' => array(
