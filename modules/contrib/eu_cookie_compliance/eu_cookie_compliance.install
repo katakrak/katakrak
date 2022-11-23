@@ -91,6 +91,19 @@ function eu_cookie_compliance_uninstall() {
   variable_del('eu_cookie_compliance_cookie_lifetime');
   variable_del('eu_cookie_compliance_domain');
   variable_del('eu_cookie_compliance_domain_all_sites');
+
+  variable_del('eu_cookie_compliance_categories');
+
+  $languages = language_list();
+  $variable_names = array('eu_cookie_compliance', 'eu_cookie_compliance_categories');
+  foreach ($variable_names as $variable) {
+    foreach ($languages as $langcode => $language) {
+      i18n_variable_del($variable, $langcode);
+    }
+  }
+
+
+
   cache_clear_all('variables', 'cache');
 }
 

@@ -817,7 +817,7 @@ function eu_cookie_compliance_js_alter(&$javascript) {
 
           unset($javascript[$script]);
         }
-        else {
+        elseif ($js_disabled_script_position !== FALSE) { //// else {
           _eu_cookie_compliance_remove_script_from_loader($javascript, $script, $js_disabled_script_position);
         }
       }
