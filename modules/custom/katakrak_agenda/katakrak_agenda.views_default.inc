@@ -518,6 +518,13 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['fields']['field_ciclo_curso']['element_type'] = 'p';
   $handler->display->display_options['fields']['field_ciclo_curso']['element_class'] = 'mb-0';
   $handler->display->display_options['fields']['field_ciclo_curso']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Nodequeue: Position */
+  $handler->display->display_options['sorts']['position']['id'] = 'position';
+  $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
+  $handler->display->display_options['sorts']['position']['field'] = 'position';
+  $handler->display->display_options['sorts']['position']['relationship'] = 'nodequeue_rel';
+  $handler->display->display_options['sorts']['position']['order'] = 'DESC';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
@@ -811,7 +818,6 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['arguments']['date_argument']['default_action'] = 'default';
   $handler->display->display_options['arguments']['date_argument']['exception']['title'] = 'Todo(s)';
   $handler->display->display_options['arguments']['date_argument']['default_argument_type'] = 'date';
-  $handler->display->display_options['arguments']['date_argument']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['date_argument']['date_fields'] = array(
     'field_data_field_event_date.field_event_date_value' => 'field_data_field_event_date.field_event_date_value',
   );
@@ -1585,7 +1591,6 @@ function katakrak_agenda_views_default_views() {
     t('Todo(s)'),
     t('Events page'),
     t('Agenda'),
-    t('more'),
     t('[field_event_date]'),
     t('Eventos pasados'),
     t('Pasados'),
@@ -1902,7 +1907,6 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['arguments']['date_argument']['default_action'] = 'empty';
   $handler->display->display_options['arguments']['date_argument']['exception']['title'] = 'Todo(s)';
   $handler->display->display_options['arguments']['date_argument']['default_argument_type'] = 'date';
-  $handler->display->display_options['arguments']['date_argument']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['date_argument']['granularity'] = 'year';
   $handler->display->display_options['arguments']['date_argument']['date_fields'] = array(
     'field_data_field_event_date.field_event_date_value' => 'field_data_field_event_date.field_event_date_value',
@@ -1953,38 +1957,6 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
-  $translatables['agenda_admin'] = array(
-    t('Master'),
-    t('Agenda admin'),
-    t('más'),
-    t('Aplicar'),
-    t('Reiniciar'),
-    t('Ordenar por'),
-    t('Asc'),
-    t('Desc'),
-    t('Elementos por página'),
-    t('- Todos -'),
-    t('Desplazamiento'),
-    t('« primera'),
-    t('‹ anterior'),
-    t('siguiente ›'),
-    t('última »'),
-    t('<a href="/node/add/event">Crear evento</a>'),
-    t('Título'),
-    t('Fecha'),
-    t('Event type'),
-    t('Imagen'),
-    t('Idioma'),
-    t('Promocionar'),
-    t('Editar'),
-    t('Page'),
-    t('more'),
-    t('References'),
-    t('Agenda reference'),
-    t('Agenda actos pasados'),
-    t('Data export'),
-    t('Todo(s)'),
-  );
   $export['agenda_admin'] = $view;
 
   $view = new view();
@@ -2230,7 +2202,6 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['arguments']['date_argument']['default_action'] = 'empty';
   $handler->display->display_options['arguments']['date_argument']['exception']['title'] = 'Todo(s)';
   $handler->display->display_options['arguments']['date_argument']['default_argument_type'] = 'date';
-  $handler->display->display_options['arguments']['date_argument']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['date_argument']['granularity'] = 'year';
   $handler->display->display_options['arguments']['date_argument']['date_fields'] = array(
     'field_data_field_event_date.field_event_date_value' => 'field_data_field_event_date.field_event_date_value',
@@ -2275,7 +2246,6 @@ function katakrak_agenda_views_default_views() {
     t('Título'),
     t('Idioma'),
     t('Page'),
-    t('more'),
     t('Add/remove links'),
     t('References'),
     t('Agenda reference'),
@@ -2500,38 +2470,6 @@ function katakrak_agenda_views_default_views() {
   /* Display: Services */
   $handler = $view->new_display('services', 'Services', 'services_1');
   $handler->display->display_options['path'] = 'service_agenda';
-  $translatables['service_agenda'] = array(
-    t('Master'),
-    t('más'),
-    t('Aplicar'),
-    t('Reiniciar'),
-    t('Ordenar por'),
-    t('Asc'),
-    t('Desc'),
-    t('Elementos por página'),
-    t('- Todos -'),
-    t('Desplazamiento'),
-    t('« primera'),
-    t('‹ anterior'),
-    t('siguiente ›'),
-    t('última »'),
-    t('title'),
-    t('fecha'),
-    t('id'),
-    t('imagen_acto'),
-    t('thumbnail'),
-    t('description'),
-    t('link'),
-    t('<a href="http://katakrak.net/node/[nid]">ver mas</a>'),
-    t('hora'),
-    t('mes'),
-    t('dia'),
-    t('tipo_evento'),
-    t('event_tid'),
-    t('Todo(s)'),
-    t('Services'),
-    t('more'),
-  );
   $export['service_agenda'] = $view;
 
   return $export;
