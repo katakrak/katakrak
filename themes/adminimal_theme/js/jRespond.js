@@ -1,7 +1,7 @@
 /*! jRespond.js v 0.10 | Author: Jeremy Fields [jeremy.fields@viget.com], 2013 | License: MIT */
 
 // Universal Module Definition
-;(function (window, name, fn) {
+(function (window, name, fn) {
 	// Node module pattern
     if (typeof module === "object" && module && typeof module.exports === "object") {
         module.exports = fn;
