@@ -76,6 +76,11 @@
 ?>
 <?php include 'page-header.inc' ?>
 <?php print render($page['banners']) ?>
+<?php
+/**
+ * @var string $section_title
+ */
+?>
 <main class="main <?php print $section_title ?>">
   <div class="row">
     <section<?php print $content_column_class; ?>>
@@ -98,7 +103,7 @@
 
   </section>
   </div>
-  <?php print render($page['hero']) ?>  
+  <?php print render($page['hero']) ?>
   <div class="<?php print $section_title ?>">
     <div class="container">
       <!--<h1 class="text-center"><?php print $title ?></h1>-->
@@ -107,7 +112,7 @@
     </div>
   </div>
   <?php print render($page['content_middle']) ?>
-  
+
   <div class="container">
     <?php print render($page['content_bottom']) ?>
   </div>

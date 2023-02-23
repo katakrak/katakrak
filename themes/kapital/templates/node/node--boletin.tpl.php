@@ -89,25 +89,25 @@
   </div><!-- /.col-->
   <div class="col-sm-9">
     <h1 class="mt-0"><?php print $node->title ?></h1>
-    <p class="text-gray">28/05/2020</p>
-          
+    <p class="text-gray"><?php echo date('d/m/Y',$node->created); ?></p>
+
     <?php foreach($node->field_boletin_body['und'] as $body): ?>
       <?php $body = field_collection_item_load($body['value']);?>
         <?php if ($body->field_boletin_body_subtitulo['und'][0]['value']): ?>
         <div class="post-item">
-          <h2><?php print $body->field_boletin_body_subtitulo['und'][0]['value'] ?></h2>              
+          <h2><?php print $body->field_boletin_body_subtitulo['und'][0]['value'] ?></h2>
             <?php print check_markup($body->field_boletin_body_texto['und'][0]['value'], $body->field_boletin_body_texto['und'][0]['format']) ?>
         </div>
       <?php else:?>
         <p><?php print check_markup($body->field_boletin_body_texto['und'][0]['value'], $body->field_boletin_body_texto['und'][0]['format']) ?></p>
         <hr>
       <?php endif; ?>
-    
+
     <?php endforeach; ?>
     <!--TODO<h4><?php print t('Compártelo') ?>:</h4>
     <p>RRSS</p>-->
   </div><!-- /.col-->
-        
+
 </div><!-- /.row -->
 
 <hr class="hr-dark">
