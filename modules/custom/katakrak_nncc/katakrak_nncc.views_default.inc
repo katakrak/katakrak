@@ -374,10 +374,10 @@ function katakrak_nncc_views_default_views() {
     5 => '5',
   );
 
-  /* Display: Catálogo */
-  $handler = $view->new_display('page', 'Catálogo', 'page_catalogo');
+  /* Display: Cursos */
+  $handler = $view->new_display('page', 'Cursos', 'page_cursos');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Catálogo';
+  $handler->display->display_options['title'] = 'Cursos';
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'mt-3 mb-2';
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -470,7 +470,7 @@ function katakrak_nncc_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'libro_ed' => 'libro_ed',
+    'ciclo' => 'ciclo',
   );
   /* Filter criterion: Contenido: Idioma */
   $handler->display->display_options['filters']['language']['id'] = 'language';
@@ -479,9 +479,9 @@ function katakrak_nncc_views_default_views() {
   $handler->display->display_options['filters']['language']['value'] = array(
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
-  $handler->display->display_options['path'] = 'editorial/catalogo';
+  $handler->display->display_options['path'] = 'ciclos/cursos';
   $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Catálogo';
+  $handler->display->display_options['menu']['title'] = 'Cursos';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $handler->display->display_options['menu']['context'] = 0;
@@ -595,7 +595,7 @@ function katakrak_nncc_views_default_views() {
     t('field_libro_ed_resenas'),
     t('Medios EUS'),
     t('Hedabideetan'),
-    t('Catálogo'),
+    t('Cursos'),
     t('<div class="btn">
                       <i class="icon-download"></i>
 <a href="/donate/[nid]">Descargar</a>
