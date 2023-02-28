@@ -18,25 +18,39 @@ function katakrak_nncc_context_default_contexts() {
   $context->description = '';
   $context->tag = 'Ciclos';
   $context->conditions = array(
+    'node' => array(
+      'options' => array(
+        'node_form' => '1',
+      ),
+      'values' => array(
+        'ciclo' => 'ciclo',
+      ),
+    ),
     'path' => array(
       'values' => array(
         'ciclos' => 'ciclos',
         'zikloak' => 'zikloak',
       ),
     ),
+    'views' => array(
+      'values' => array(
+        'ciclos' => 'ciclos',
+        'ciclos:page_1' => 'ciclos:page_1',
+      ),
+    ),
   );
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'katakrak_editorial-editorial_page_hero' => array(
-          'delta' => 'editorial_page_hero',
-          'module' => 'katakrak_editorial',
+        'katakrak_nncc-nncc_page_hero' => array(
+          'delta' => 'nncc_page_hero',
+          'module' => 'katakrak_nncc',
           'region' => 'hero',
           'weight' => '-10',
         ),
-        'katakrak_editorial-editorial_page_highlight' => array(
-          'delta' => 'editorial_page_highlight',
-          'module' => 'katakrak_editorial',
+        'katakrak_nncc-nncc_page_highlight' => array(
+          'delta' => 'nncc_page_highlight',
+          'module' => 'katakrak_nncc',
           'region' => 'content_top',
           'weight' => '-10',
         ),
