@@ -25,7 +25,24 @@ function katakrak_nncc_context_default_contexts() {
       ),
     ),
   );
-  $context->reactions = array();
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'katakrak_editorial-editorial_page_hero' => array(
+          'delta' => 'editorial_page_hero',
+          'module' => 'katakrak_editorial',
+          'region' => 'hero',
+          'weight' => '-10',
+        ),
+        'katakrak_editorial-editorial_page_highlight' => array(
+          'delta' => 'editorial_page_highlight',
+          'module' => 'katakrak_editorial',
+          'region' => 'content_top',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
   $context->condition_mode = 0;
 
   // Translatables
