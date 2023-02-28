@@ -23,7 +23,7 @@ function katakrak_editorial_block_info() {
   $blocks['katakrak_editorial_nav_submenu'] = array(
     'info' => t('Submenu editorial'),
     'cache' => DRUPAL_CACHE_PER_PAGE
-  );  
+  );
   $blocks['editorial_autores_nav_secunday'] = array(
     'info' => t('Submenu editorial autoras'),
     'cache' => DRUPAL_CACHE_PER_PAGE
@@ -133,19 +133,19 @@ function katakrak_editorial_theme() {
       'path' => $path . '/templates',
     ),
     'katakrak_editorial_landing' => array(
-      'template' => 'katakrak-editorial-landing', 
+      'template' => 'katakrak-editorial-landing',
       'path' => $path . '/templates',
     ),
     'katakrak_editorial_distribucion_landing' => array(
-      'template' => 'katakrak-editorial-distribucion-landing', 
+      'template' => 'katakrak-editorial-distribucion-landing',
       'path' => $path . '/templates',
     ),
     'katakrak_editorial_page_hero' => array(
-      'template' => 'katakrak-editorial-page-hero', 
+      'template' => 'katakrak-editorial-page-hero',
       'path' => $path . '/templates',
     ),
     'katakrak_editorial_page_highlight' => array(
-      'template' => 'katakrak-editorial-page-highlight', 
+      'template' => 'katakrak-editorial-page-highlight',
       'path' => $path . '/templates',
     ),
   );
@@ -172,7 +172,7 @@ function katakrak_editorial_download_access_info($commerce_order) {
 }
 
 function katakrak_editorial_download($commerce_order){
-  
+
   foreach($commerce_order->commerce_line_items['und'] as $line_items) {
     $line_item = commerce_line_item_load($line_items['line_item_id']);
     if ($line_item->type == 'commerce_donate') {
@@ -185,7 +185,7 @@ function katakrak_editorial_download($commerce_order){
 }
 
 function katakrak_editorial_donation($node) {
-	
+
 	$form_donate = donacion_generar_form('DON', $node->nid);
   $form_download = drupal_render(drupal_get_form('katakrak_commerce_form_download', array($node), TRUE, 'Pulsa aquí para descargar'));
 
@@ -195,7 +195,7 @@ function katakrak_editorial_donation($node) {
 
 
 /**
- * 
+ *
  * @param type $nodes
  * @param type $types
  */
@@ -211,7 +211,7 @@ function katakrak_editorial_node_load($nodes, $types) {
 					$traductores .= ', ';
 			}
       $node->traductores = $traductores;
-			
+
 			foreach($node->field_libro_ed_autor['und'] as $i => $aut_nid) {
 				$autor = node_load($aut_nid['nid']);
         $trad = translation_node_get_translations($autor->tnid);
