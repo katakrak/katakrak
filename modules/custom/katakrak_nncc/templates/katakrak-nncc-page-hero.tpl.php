@@ -8,7 +8,7 @@
     </p>
     <p><?php print t('Fue posible gracias a la experiencia acumulada en la librería, al contacto frecuente con textos políticos o teóricos, y a las editoriales amigas.') ?></p>
     <p class="lead lead-hero mt-2">
-      <a class="btn btn-primary" href="<?php print url('editorial/catalogo') ?>"><?php print t('Ver catálogo') ?></a>
+      <a class="btn btn-primary" href="<?php print url('editorial/catalogo') ?>"><?php print t('Ver cursos') ?></a>
     </p>
 
   </div>
