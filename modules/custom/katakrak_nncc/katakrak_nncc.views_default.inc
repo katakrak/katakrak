@@ -137,7 +137,7 @@ function katakrak_nncc_views_default_views() {
   $handler->display->display_options['style_options']['column_class'] = 'col';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
@@ -184,6 +184,13 @@ function katakrak_nncc_views_default_views() {
   $handler->display->display_options['filters']['language']['field'] = 'language';
   $handler->display->display_options['filters']['language']['value'] = array(
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
+  /* Filter criterion: Contenido: Tipo (field_ciclo_tipo) */
+  $handler->display->display_options['filters']['field_ciclo_tipo_value']['id'] = 'field_ciclo_tipo_value';
+  $handler->display->display_options['filters']['field_ciclo_tipo_value']['table'] = 'field_data_field_ciclo_tipo';
+  $handler->display->display_options['filters']['field_ciclo_tipo_value']['field'] = 'field_ciclo_tipo_value';
+  $handler->display->display_options['filters']['field_ciclo_tipo_value']['value'] = array(
+    'nncc' => 'nncc',
   );
   $handler->display->display_options['path'] = 'ciclos';
   $handler->display->display_options['menu']['type'] = 'normal';
@@ -394,9 +401,7 @@ function katakrak_nncc_views_default_views() {
   $handler->display->display_options['style_options']['column_class'] = 'col';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'node';
-  $handler->display->display_options['row_options']['view_mode'] = 'card_book';
-  $handler->display->display_options['row_options']['links'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
@@ -478,6 +483,13 @@ function katakrak_nncc_views_default_views() {
   $handler->display->display_options['filters']['language']['field'] = 'language';
   $handler->display->display_options['filters']['language']['value'] = array(
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
+  /* Filter criterion: Contenido: Tipo (field_ciclo_tipo) */
+  $handler->display->display_options['filters']['field_ciclo_tipo_value']['id'] = 'field_ciclo_tipo_value';
+  $handler->display->display_options['filters']['field_ciclo_tipo_value']['table'] = 'field_data_field_ciclo_tipo';
+  $handler->display->display_options['filters']['field_ciclo_tipo_value']['field'] = 'field_ciclo_tipo_value';
+  $handler->display->display_options['filters']['field_ciclo_tipo_value']['value'] = array(
+    'nncc' => 'nncc',
   );
   $handler->display->display_options['path'] = 'ciclos/cursos';
   $handler->display->display_options['menu']['type'] = 'normal';
