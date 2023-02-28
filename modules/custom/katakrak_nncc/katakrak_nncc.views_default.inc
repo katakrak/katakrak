@@ -23,7 +23,7 @@ function katakrak_nncc_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Editorial';
+  $handler->display->display_options['title'] = 'Ciclos';
   $handler->display->display_options['use_more_always'] = TRUE;
   $handler->display->display_options['use_more_text'] = 'más';
   $handler->display->display_options['link_display'] = 'page_6';
@@ -916,7 +916,7 @@ function katakrak_nncc_views_default_views() {
   $handler->display->display_options['menu']['context_only_inline'] = 0;
   $translatables['ciclos'] = array(
     t('Master'),
-    t('Editorial'),
+    t('Ciclos'),
     t('más'),
     t('Aplicar'),
     t('Reiniciar'),
