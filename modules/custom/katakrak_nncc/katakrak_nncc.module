@@ -121,7 +121,7 @@ function katakrak_nncc_block_view($delta) {
 function katakrak_nncc_theme() {
 	$path = drupal_get_path('module', 'katakrak_nncc');
   return array(
-    'katakrak_nncc_download_page' => array(
+    /* 'katakrak_nncc_download_page' => array(
       'template' => 'katakrak-nncc-download-page',
       'path' => $path . '/templates',
       'arguments' => array(
@@ -129,11 +129,11 @@ function katakrak_nncc_theme() {
         'form_download' => NULL,
 		    'node' => NULL,
       )
-    ),
-    'nncc_filter_intervinientes' => array(
+    ), */
+    /* 'nncc_filter_intervinientes' => array(
       'template' => 'nncc-filter-intervinientes',
       'path' => $path . '/templates',
-    ),
+    ), */
     'katakrak_nncc_landing' => array(
       'template' => 'katakrak-nncc-landing',
       'path' => $path . '/templates',
