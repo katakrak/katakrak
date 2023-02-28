@@ -1,5 +1,5 @@
 <div class="d-flex-fullwidth">
-  <div class=" col-sm-6 bg-image bg-dark bg-editorial col-flex hero-img-empty"></div>
+  <div class=" col-sm-6 bg-image bg-dark bg-nncc col-flex hero-img-empty"></div>
   <div class="col-sm-6 col-flex bg-yellow-p" id="reservar">
     <h1 class="h1-lg"><?php print t('Centro de Estudios') ?></h1>
     <p class="lead lead-hero-2 mt-2"><?php print t('Queremos que los libros en los que trabajamos tengan su recorrido, sirvan para acompañar procesos de organización social o abran nuevas líneas de debate.') ?></p>
