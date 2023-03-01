@@ -87,61 +87,17 @@ function katakrak_nncc_block_view($delta) {
     'type' => MENU_LOCAL_TASK,
     'weight' => 100,
   );
-  /* $items['editorial/distribucion'] = array(
-    'title' => 'Distribución',
-    'page callback' => 'theme',
-    'page arguments' => array('katakrak_editorial_distribucion_landing'),
-    'access callback' => 'user_access',
-    'access arguments' => array('access content'),
-    'type' => MENU_LOCAL_TASK,
-    'weight' => 100,
-  );
-  $items['donate/%node'] = array(
-    'title callback' => 'katakrak_editorial_donacion_title',
-	  'title arguments' => array(1),
-    'page callback' => 'katakrak_editorial_donation',
-    'page arguments' => array(1),
-    'access callback' => 'katakrak_editorial_access_node_info',
-	  'access arguments' => array(1),
-    'type' => MENU_LOCAL_TASK,
-    'weight' => 100,
-  );
-  $items['download/%commerce_order']  = array(
-    'title' => 'Descarga',
-    'page callback' => 'katakrak_editorial_download',
-    'page arguments' => array(1),
-    'access callback' => 'katakrak_editorial_download_access_info',
-	  'access arguments' => array(1),
-    'type' => MENU_LOCAL_TASK,
-    'weight' => 100,
-  ); */
+
   return $items;
 }
 
 function katakrak_nncc_theme() {
 	$path = drupal_get_path('module', 'katakrak_nncc');
   return array(
-    /* 'katakrak_nncc_download_page' => array(
-      'template' => 'katakrak-nncc-download-page',
-      'path' => $path . '/templates',
-      'arguments' => array(
-        'form_donate' => NULL,
-        'form_download' => NULL,
-		    'node' => NULL,
-      )
-    ), */
-    /* 'nncc_filter_intervinientes' => array(
-      'template' => 'nncc-filter-intervinientes',
-      'path' => $path . '/templates',
-    ), */
     'katakrak_nncc_landing' => array(
       'template' => 'katakrak-nncc-landing',
       'path' => $path . '/templates',
     ),
-    /* 'katakrak_editorial_distribucion_landing' => array(
-      'template' => 'katakrak-editorial-distribucion-landing',
-      'path' => $path . '/templates',
-    ), */
     'katakrak_nncc_page_hero' => array(
       'template' => 'katakrak-nncc-page-hero',
       'path' => $path . '/templates',
@@ -154,90 +110,17 @@ function katakrak_nncc_theme() {
 }
 
 
-/* function katakrak_editorial_donacion_title($node) {
-  $title = t("Descargar @title", array('@title' => $node->title));
-  drupal_set_title($title);
-	return $title;
-} */
-
 function katakrak_nncc_access_node_info($node) {
 	if ($node->type == "ciclo")
 		return true;
 }
-
-function katakrak_nncc_download_access_info($commerce_order) {
-  global $user;
-  if ($commerce_order->uid == $user->uid || user_access('administer site'))
-    return TRUE;
-  else
-    return FALSE;
-}
-
-/* function katakrak_nncc_download($commerce_order){
-
-  foreach($commerce_order->commerce_line_items['und'] as $line_items) {
-    $line_item = commerce_line_item_load($line_items['line_item_id']);
-    if ($line_item->type == 'commerce_donate') {
-      $nid = substr($line_item->commerce_display_path['und'][0]['value'], strpos($line_item->commerce_display_path['und'][0]['value'], '/')+1);
-      $node = node_load($nid);
-      $nodes[] = $node;
-    }
-  }
-  return drupal_render(drupal_get_form('katakrak_commerce_form_download', $nodes, FALSE, 'Enlaces para la descarga'));
-} */
-
-/* function katakrak_editorial_donation($node) {
-
-	$form_donate = donacion_generar_form('DON', $node->nid);
-  $form_download = drupal_render(drupal_get_form('katakrak_commerce_form_download', array($node), TRUE, 'Pulsa aquí para descargar'));
-
-	return theme('katakrak_editorial_download_page', array('form_donate' => $form_donate, 'form_download' => $form_download, 'node' => $node));
-} */
-
-
 
 /**
  *
  * @param type $nodes
  * @param type $types
  */
-/* function katakrak_nncc_node_load($nodes, $types) {
-  global $language;
-  if (count(array_intersect(array('ciclo'), $types))) {
-    foreach($nodes as $node) {
-      $traductores = '';
-      foreach($node->field_libro_ed_traductor['und'] as $i => $trad_nid) {
-				$traductor = node_load($trad_nid['nid']);
-				$traductores .= l($traductor->title, 'node/'.$traductor->nid);
-				if (count($node->field_libro_ed_traductor['und']) > $i+1)
-					$traductores .= ', ';
-			}
-      $node->traductores = $traductores;
 
-			foreach($node->field_libro_ed_autor['und'] as $i => $aut_nid) {
-				$autor = node_load($aut_nid['nid']);
-        $trad = translation_node_get_translations($autor->tnid);
-        $autor_trad = node_load($trad[$node->language]->nid);
-        $node->autores[] = $autor_trad;
-			}
-
-      $resenas = array();
-      if ($node->field_libro_ed_resenas) {
-        foreach ($node->field_libro_ed_resenas['und'] as $res_nid) {
-          $resena = node_load($res_nid['nid']);
-          if ($resena->field_cita){
-            $res_temp = new stdClass();
-            $res_temp->nid = $resena->nid;
-            $res_temp->cita = $resena->field_cita['und'][0]['value'];
-            $res_temp->fuente = $resena->field_fuente_cita['und'][0]['value'];
-            $resenas[] = $res_temp;
-          }
-        }
-      }
-      $node->resenas = $resenas;
-    }
-  }
-} */
 
 function katakrak_nncc_node_view($node, $view_mode) {
   if ($node->type == 'ciclo' && $view_mode == 'full')
