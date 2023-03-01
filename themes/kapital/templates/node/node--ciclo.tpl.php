@@ -5,6 +5,7 @@
   <div class="col-sm-4">
     <?php print render($content['field_image']) ?>
     <hr class="hr-dark">
+    <?php var_dump($content['field_url_denda']); ?>
     <a href="<?php $content['field_url_denda'] ?>"><?php print t('Apuntarse'); ?></a>
     <hr class="hr-dark">
     <h3 class="mb-2"><?php print t('Producto relacionado') ?></h3>
