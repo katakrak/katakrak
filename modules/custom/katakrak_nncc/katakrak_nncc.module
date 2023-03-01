@@ -21,18 +21,6 @@ include_once 'katakrak_nncc.features.inc';
     'info' => t('Bloque con cuatro items destacados nncc'),
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
-  $blocks['katakrak_nncc_nav_submenu'] = array(
-    'info' => t('Submenu nncc'),
-    'cache' => DRUPAL_CACHE_PER_PAGE
-  );
-  $blocks['nncc_intervinientes_nav_secunday'] = array(
-    'info' => t('Submenu nncc intervinientes'),
-    'cache' => DRUPAL_CACHE_PER_PAGE
-  );
-  $blocks['nncc_filter_intervinientes'] = array(
-    'info' => t('Filter intervinientes'),
-    'cache' => DRUPAL_CACHE_PER_PAGE
-  );
   return $blocks;
 }
 
@@ -46,28 +34,6 @@ function katakrak_nncc_block_view($delta) {
       break;
     case 'nncc_page_highlight':
       $block['content'] = theme('katakrak_nncc_page_highlight');
-      break;
-    case 'katakrak_nncc_nav_submenu':
-      $links = array(
-        l(t('Acerca de los Ciclos'), 'ciclos'),
-        l(t('Catálogo'), 'nncc/catalogo'),
-        l(t('Autoras'), 'nncc/autores'),
-        l(t('En los medios'), 'nncc/medios'),
-        l(t('Distribución'), 'nncc/distribucion'),
-      );
-      $block['content'] = theme("katakrak_navbar_submenu", array('links' => $links));
-      break;
-    case 'nncc_intervinientes_nav_secunday':
-      $links = array(
-        l(t('Autoras/es'),'nncc/intervinientes'),
-        //l(t('Traductoras/es'), 'editorial/traductores')
-      );
-      $block['content'] = theme('katakrak_nav_secundary', array('links' => $links));
-      break;
-    case 'nncc_filter_intervinientes':
-      drupal_add_js('https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js', 'external');
-      drupal_add_js(drupal_get_path('module', 'katakrak_nncc').'/katakrak_nncc.js');
-      $block['content'] = theme('nncc_filter_intervinientes');
       break;
   }
   return $block;
