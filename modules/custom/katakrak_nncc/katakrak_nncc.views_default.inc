@@ -141,16 +141,14 @@ function katakrak_nncc_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Contenido: Portada */
-  $handler->display->display_options['fields']['field_libro_portada']['id'] = 'field_libro_portada';
-  $handler->display->display_options['fields']['field_libro_portada']['table'] = 'field_data_field_libro_portada';
-  $handler->display->display_options['fields']['field_libro_portada']['field'] = 'field_libro_portada';
-  $handler->display->display_options['fields']['field_libro_portada']['label'] = '';
-  $handler->display->display_options['fields']['field_libro_portada']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_libro_portada']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_libro_portada']['settings'] = array(
-    'image_style' => 'editorial_page',
-    'image_link' => 'content',
+  /* Campo: Campo: Imagen */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
   );
   /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -225,23 +223,14 @@ function katakrak_nncc_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Contenido: Nid */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'node';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['label'] = '';
-  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Campo: Contenido: Portada */
-  $handler->display->display_options['fields']['field_libro_portada']['id'] = 'field_libro_portada';
-  $handler->display->display_options['fields']['field_libro_portada']['table'] = 'field_data_field_libro_portada';
-  $handler->display->display_options['fields']['field_libro_portada']['field'] = 'field_libro_portada';
-  $handler->display->display_options['fields']['field_libro_portada']['label'] = '';
-  $handler->display->display_options['fields']['field_libro_portada']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_libro_portada']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_libro_portada']['settings'] = array(
-    'image_style' => 'editorial_page',
-    'image_link' => 'content',
+  /* Campo: Campo: Imagen */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => 'medium',
+    'image_link' => '',
   );
   /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -254,33 +243,6 @@ function katakrak_nncc_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_class'] = 'book-title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Campo: Contenido: Autor */
-  $handler->display->display_options['fields']['field_libro_ed_autor']['id'] = 'field_libro_ed_autor';
-  $handler->display->display_options['fields']['field_libro_ed_autor']['table'] = 'field_data_field_libro_ed_autor';
-  $handler->display->display_options['fields']['field_libro_ed_autor']['field'] = 'field_libro_ed_autor';
-  $handler->display->display_options['fields']['field_libro_ed_autor']['label'] = '';
-  $handler->display->display_options['fields']['field_libro_ed_autor']['element_type'] = 'h4';
-  $handler->display->display_options['fields']['field_libro_ed_autor']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_libro_ed_autor']['delta_offset'] = '0';
-  /* Campo: Contenido: Donación */
-  $handler->display->display_options['fields']['field_donacion']['id'] = 'field_donacion';
-  $handler->display->display_options['fields']['field_donacion']['table'] = 'field_data_field_donacion';
-  $handler->display->display_options['fields']['field_donacion']['field'] = 'field_donacion';
-  $handler->display->display_options['fields']['field_donacion']['label'] = '';
-  $handler->display->display_options['fields']['field_donacion']['alter']['text'] = '<div class="btn">
-                      <i class="icon-download"></i>
-<a href="/donate/[nid]">Descargar</a>
-                    </div>';
-  $handler->display->display_options['fields']['field_donacion']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_donacion']['type'] = 'commerce_product_reference_title_link';
-  $handler->display->display_options['fields']['field_donacion']['settings'] = array(
-    'button_text' => 'Comprar',
-    'show_quantity' => 0,
-    'default_quantity' => '1',
-    'combine' => 1,
-    'show_single_product_attributes' => 0,
-    'line_item_type' => 'commerce_donate',
-  );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Contenido: Published status */
@@ -329,11 +291,8 @@ function katakrak_nncc_views_default_views() {
     t('Desc'),
     t('queue'),
     t('Landing ciclos'),
+    t('Imagen'),
     t('Cursos'),
-    t('<div class="btn">
-                      <i class="icon-download"></i>
-<a href="/donate/[nid]">Descargar</a>
-                    </div>'),
   );
   $export['ciclos'] = $view;
 
