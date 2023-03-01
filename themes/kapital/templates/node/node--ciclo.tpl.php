@@ -6,7 +6,7 @@
     <?php print render($content['field_image']) ?>
     <hr class="hr-dark">
 
-    <a href="<?php echo $content['field_url_denda']; ?>"><?php print t('Apuntarse'); ?></a>
+    <a href="<?php echo render($content['field_url_denda']['#items'][0]['value']); ?>"><?php print t('Apuntarse'); ?></a>
     <hr class="hr-dark">
     <h3 class="mb-2"><?php print t('Producto relacionado') ?></h3>
      <?php print render($content['field_producto_ciclo']) ?>
