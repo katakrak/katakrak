@@ -40,12 +40,6 @@ function katakrak_nncc_context_default_contexts() {
           'region' => 'hero',
           'weight' => '-10',
         ),
-        'katakrak_nncc-nncc_page_highlight' => array(
-          'delta' => 'nncc_page_highlight',
-          'module' => 'katakrak_nncc',
-          'region' => 'content_top',
-          'weight' => '-10',
-        ),
       ),
     ),
   );
@@ -61,7 +55,7 @@ function katakrak_nncc_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'pagina_nncc';
   $context->description = 'Páginas NNCC';
-  $context->tag = 'NNCC';
+  $context->tag = 'Ciclos';
   $context->conditions = array(
     'node' => array(
       'options' => array(
@@ -89,7 +83,7 @@ function katakrak_nncc_context_default_contexts() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('NNCC');
+  t('Ciclos');
   t('Páginas NNCC');
   $export['pagina_nncc'] = $context;
 

@@ -162,6 +162,16 @@ function katakrak_nncc_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_class'] = 'book-title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Campo: Contenido: Descripción */
+  $handler->display->display_options['fields']['field_ciclo_descripci_n']['id'] = 'field_ciclo_descripci_n';
+  $handler->display->display_options['fields']['field_ciclo_descripci_n']['table'] = 'field_data_field_ciclo_descripci_n';
+  $handler->display->display_options['fields']['field_ciclo_descripci_n']['field'] = 'field_ciclo_descripci_n';
+  $handler->display->display_options['fields']['field_ciclo_descripci_n']['label'] = '';
+  $handler->display->display_options['fields']['field_ciclo_descripci_n']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_ciclo_descripci_n']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['field_ciclo_descripci_n']['settings'] = array(
+    'trim_length' => '600',
+  );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Contenido: Published status */
@@ -247,6 +257,10 @@ function katakrak_nncc_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_class'] = 'book-title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Campo: Contenido: Descripción */
+  $handler->display->display_options['fields']['field_ciclo_descripci_n']['id'] = 'field_ciclo_descripci_n';
+  $handler->display->display_options['fields']['field_ciclo_descripci_n']['table'] = 'field_data_field_ciclo_descripci_n';
+  $handler->display->display_options['fields']['field_ciclo_descripci_n']['field'] = 'field_ciclo_descripci_n';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Contenido: Published status */
@@ -296,6 +310,7 @@ function katakrak_nncc_views_default_views() {
     t('queue'),
     t('Landing ciclos'),
     t('Cursos'),
+    t('Descripción'),
   );
   $export['ciclos'] = $view;
 
