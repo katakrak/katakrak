@@ -18,24 +18,10 @@ function katakrak_nncc_context_default_contexts() {
   $context->description = '';
   $context->tag = 'Ciclos';
   $context->conditions = array(
-    'node' => array(
-      'options' => array(
-        'node_form' => '1',
-      ),
-      'values' => array(
-        'ciclo' => 'ciclo',
-      ),
-    ),
     'path' => array(
       'values' => array(
         'ciclos' => 'ciclos',
         'zikloak' => 'zikloak',
-      ),
-    ),
-    'views' => array(
-      'values' => array(
-        'ciclos' => 'ciclos',
-        'ciclos:page_1' => 'ciclos:page_1',
       ),
     ),
   );
