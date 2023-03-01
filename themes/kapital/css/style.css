@@ -4,6 +4,9 @@
   Aquí van estilos míos
  */
  
+ * {
+    overflow-x: hidden;
+ }
  .commerce_shipping legend {
      display: none;
  }
