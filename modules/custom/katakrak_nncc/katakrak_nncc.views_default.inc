@@ -131,9 +131,9 @@ function katakrak_nncc_views_default_views() {
   $handler->display->display_options['style_options']['columns_horizontal'] = '-1';
   $handler->display->display_options['style_options']['columns_vertical'] = '4';
   $handler->display->display_options['style_options']['columns_xs'] = '12';
-  $handler->display->display_options['style_options']['columns_sm'] = '6';
-  $handler->display->display_options['style_options']['columns_md'] = '4';
-  $handler->display->display_options['style_options']['columns_lg'] = '3';
+  $handler->display->display_options['style_options']['columns_sm'] = '12';
+  $handler->display->display_options['style_options']['columns_md'] = '6';
+  $handler->display->display_options['style_options']['columns_lg'] = '4';
   $handler->display->display_options['style_options']['column_class'] = 'col';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
@@ -149,19 +149,17 @@ function katakrak_nncc_views_default_views() {
   $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
-    'image_style' => 'medium',
+    'image_style' => 'event_teaser',
     'image_link' => 'content',
   );
   /* Campo: Contenido: Título */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['max_length'] = '25';
-  $handler->display->display_options['fields']['title']['alter']['trim'] = TRUE;
-  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
-  $handler->display->display_options['fields']['title']['element_class'] = 'book-title';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['label'] = '';
+  $handler->display->display_options['fields']['title_1']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title_1']['element_label_type'] = 'h3';
+  $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
   /* Campo: Contenido: Descripción */
   $handler->display->display_options['fields']['field_ciclo_descripci_n']['id'] = 'field_ciclo_descripci_n';
   $handler->display->display_options['fields']['field_ciclo_descripci_n']['table'] = 'field_data_field_ciclo_descripci_n';
@@ -170,7 +168,7 @@ function katakrak_nncc_views_default_views() {
   $handler->display->display_options['fields']['field_ciclo_descripci_n']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_ciclo_descripci_n']['type'] = 'text_summary_or_trimmed';
   $handler->display->display_options['fields']['field_ciclo_descripci_n']['settings'] = array(
-    'trim_length' => '600',
+    'trim_length' => '300',
   );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;

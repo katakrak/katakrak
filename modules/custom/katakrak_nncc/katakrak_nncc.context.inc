@@ -28,12 +28,6 @@ function katakrak_nncc_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'katakrak_nncc-nncc_landing' => array(
-          'delta' => 'nncc_landing',
-          'module' => 'katakrak_nncc',
-          'region' => 'content_bottom',
-          'weight' => '-10',
-        ),
         'katakrak_nncc-nncc_page_hero' => array(
           'delta' => 'nncc_page_hero',
           'module' => 'katakrak_nncc',
