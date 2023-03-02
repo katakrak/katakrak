@@ -4,9 +4,10 @@
   Aquí van estilos míos
  */
 
-*:not(#admin-menu) {
+
+/* *:not(#admin-menu) {
     overflow-x: hidden;
-}
+} */
 
 .commerce_shipping legend {
     display: none;
