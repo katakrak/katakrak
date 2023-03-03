@@ -105,12 +105,6 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['fields']['field_libro_ed_autor']['element_type'] = 'h4';
   $handler->display->display_options['fields']['field_libro_ed_autor']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_libro_ed_autor']['delta_offset'] = '0';
-  /* Sort criterion: Nodequeue: Position */
-  $handler->display->display_options['sorts']['position']['id'] = 'position';
-  $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
-  $handler->display->display_options['sorts']['position']['field'] = 'position';
-  $handler->display->display_options['sorts']['position']['relationship'] = 'nodequeue_rel';
-  $handler->display->display_options['sorts']['position']['order'] = 'DESC';
   /* Filter criterion: Contenido: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';

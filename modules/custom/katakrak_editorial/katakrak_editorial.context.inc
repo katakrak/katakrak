@@ -159,8 +159,6 @@ function katakrak_editorial_context_default_contexts() {
       'values' => array(
         'editorial' => 'editorial',
         'editorial:page_1' => 'editorial:page_1',
-        'editorial:page_4' => 'editorial:page_4',
-        'editorial:page_6' => 'editorial:page_6',
         'editorial:page_catalogo' => 'editorial:page_catalogo',
       ),
     ),
