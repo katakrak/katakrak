@@ -32,10 +32,10 @@ function katakrak_editorial_block_info() {
     'info' => t('Filter autoras'),
     'cache' => DRUPAL_CACHE_PER_PAGE
   );
-  $blocks['katakrak_editorial_secciones_titulo'] = array(
+  /* $blocks['katakrak_editorial_secciones_titulo'] = array(
     'info' => t('Título de sección en la editorial'),
     'cache' => DRUPAL_CACHE_PER_PAGE,
-  );
+  ); */
   return $blocks;
 }
 
@@ -50,13 +50,13 @@ function katakrak_editorial_block_view($delta) {
     case 'editorial_page_highlight':
       $block['content'] = theme('katakrak_editorial_page_highlight');
       break;
-    case 'katakrak_editorial_secciones_titulo':
+    /* case 'katakrak_editorial_secciones_titulo': */
       /* if (arg(1) == 'secciones'){ */
-        $title = t('Secciones de la editorial');
-        $texto = t('Accede a los libros de cada sección');
+        /* $title = t('Secciones de la editorial');
+        $texto = t('Accede a los libros de cada sección'); */
       /* } */
-      $block['content'] = theme('katakrak_editorial_secciones_titulo', array('title' => $title, 'text' => $texto));
-      break;
+      /* $block['content'] = theme('katakrak_editorial_secciones_titulo', array('title' => $title, 'text' => $texto));
+      break; */
     case 'katakrak_editorial_nav_submenu':
       $links = array(
         l(t('Acerca de la editorial'), 'editorial'),
@@ -159,14 +159,14 @@ function katakrak_editorial_theme() {
       'template' => 'katakrak-editorial-page-highlight',
       'path' => $path . '/templates',
     ),
-    'katakrak_editorial_secciones_titulo' => array(
+    /* 'katakrak_editorial_secciones_titulo' => array(
       'template' => 'katakrak-editorial-secciones-titulo',
       'path' => $path . '/templates',
       'arguments' => array(
         'title' => NULL,
         'text' => NULL
       ),
-    ),
+    ), */
   );
 }
 
