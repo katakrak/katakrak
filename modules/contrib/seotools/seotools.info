@@ -1,0 +1,26 @@
+name = SEO Tools
+description = Suite of advanced search engine optimization tools for Drupal
+core = 7.x
+package = SEO
+dependencies[] = alchemy
+dependencies[] = alchemy_contentanalysis
+dependencies[] = contentanalysis
+dependencies[] = contentoptimizer
+dependencies[] = globalredirect
+dependencies[] = insight
+dependencies[] = kwresearch
+dependencies[] = kwresearch_google
+dependencies[] = libraries
+dependencies[] = metatag
+dependencies[] = pathauto
+dependencies[] = redirect
+dependencies[] = xmlsitemap
+dependencies[] = xmlsitemap_node
+configure = admin/config/search/seotools
+
+; Information added by Drupal.org packaging script on 2017-07-14
+version = "7.x-1.1+4-dev"
+core = "7.x"
+project = "seotools"
+datestamp = "1500071644"
+
