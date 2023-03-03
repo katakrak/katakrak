@@ -48,7 +48,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['style_options']['columns_md'] = '3';
   $handler->display->display_options['style_options']['columns_lg'] = '2';
   $handler->display->display_options['row_plugin'] = 'node';
-  $handler->display->display_options['row_options']['view_mode'] = 'card_book_smgrid';
+  $handler->display->display_options['row_options']['view_mode'] = 'card_book';
   /* Relationship: Nodequeue: Queue */
   $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
   $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
@@ -911,6 +911,39 @@ function katakrak_editorial_views_default_views() {
 
   /* Display: Ensayo CAS */
   $handler = $view->new_display('block', 'Ensayo CAS', 'editorial_ensayo');
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Contenido: libro (field_editorial_libro) */
+  $handler->display->display_options['relationships']['field_editorial_libro_nid']['id'] = 'field_editorial_libro_nid';
+  $handler->display->display_options['relationships']['field_editorial_libro_nid']['table'] = 'field_data_field_editorial_libro';
+  $handler->display->display_options['relationships']['field_editorial_libro_nid']['field'] = 'field_editorial_libro_nid';
+  $handler->display->display_options['relationships']['field_editorial_libro_nid']['required'] = TRUE;
+  $handler->display->display_options['relationships']['field_editorial_libro_nid']['delta'] = '-1';
+  /* Relationship: Nodequeue: Queue */
+  $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
+  $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
+  $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
+  $handler->display->display_options['relationships']['nodequeue_rel']['required'] = TRUE;
+  $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
+  $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
+    'editorial_ensayo_cas' => 'editorial_ensayo_cas',
+    'evento_home' => 0,
+    'producto_kafeta_destacado' => 0,
+    'blog_portada' => 0,
+    'libros_recomendados' => 0,
+    'libros_editorial' => 0,
+    'autore_editorial_eus' => 0,
+    'autores_editorial' => 0,
+    'traductores_cas' => 0,
+    'traductores_eus' => 0,
+    'grupos_de_lectura' => 0,
+    'recomendados_comic' => 0,
+    'recomendados_ensayo' => 0,
+    'recomendados_infantil' => 0,
+    'recomendados_narrativa' => 0,
+    'ciclos_cas' => 0,
+    'blitz_ensayo_breve_cas' => 0,
+    'editorial_narrativa_eus' => 0,
+  );
   $handler->display->display_options['block_description'] = 'Ensayo';
 
   /* Display: Ensayo EUS */
@@ -932,6 +965,80 @@ function katakrak_editorial_views_default_views() {
     'eu' => 'eu',
   );
   $handler->display->display_options['block_description'] = 'Ensayo EUS';
+
+  /* Display: Blitz Ensayo Breve */
+  $handler = $view->new_display('block', 'Blitz Ensayo Breve', 'block_2');
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Contenido: libro (field_editorial_libro) */
+  $handler->display->display_options['relationships']['field_editorial_libro_nid']['id'] = 'field_editorial_libro_nid';
+  $handler->display->display_options['relationships']['field_editorial_libro_nid']['table'] = 'field_data_field_editorial_libro';
+  $handler->display->display_options['relationships']['field_editorial_libro_nid']['field'] = 'field_editorial_libro_nid';
+  $handler->display->display_options['relationships']['field_editorial_libro_nid']['required'] = TRUE;
+  $handler->display->display_options['relationships']['field_editorial_libro_nid']['delta'] = '-1';
+  /* Relationship: Nodequeue: Queue */
+  $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
+  $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
+  $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
+  $handler->display->display_options['relationships']['nodequeue_rel']['required'] = TRUE;
+  $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
+  $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
+    'blitz_ensayo_breve_cas' => 'blitz_ensayo_breve_cas',
+    'evento_home' => 0,
+    'producto_kafeta_destacado' => 0,
+    'blog_portada' => 0,
+    'libros_recomendados' => 0,
+    'libros_editorial' => 0,
+    'autore_editorial_eus' => 0,
+    'autores_editorial' => 0,
+    'traductores_cas' => 0,
+    'traductores_eus' => 0,
+    'grupos_de_lectura' => 0,
+    'recomendados_comic' => 0,
+    'recomendados_ensayo' => 0,
+    'recomendados_infantil' => 0,
+    'recomendados_narrativa' => 0,
+    'editorial_ensayo_cas' => 0,
+    'ciclos_cas' => 0,
+    'editorial_narrativa_eus' => 0,
+  );
+  $handler->display->display_options['block_description'] = 'Blitz';
+
+  /* Display: Narrativa en euskera */
+  $handler = $view->new_display('block', 'Narrativa en euskera', 'block_3');
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Contenido: libro (field_editorial_libro) */
+  $handler->display->display_options['relationships']['field_editorial_libro_nid']['id'] = 'field_editorial_libro_nid';
+  $handler->display->display_options['relationships']['field_editorial_libro_nid']['table'] = 'field_data_field_editorial_libro';
+  $handler->display->display_options['relationships']['field_editorial_libro_nid']['field'] = 'field_editorial_libro_nid';
+  $handler->display->display_options['relationships']['field_editorial_libro_nid']['required'] = TRUE;
+  $handler->display->display_options['relationships']['field_editorial_libro_nid']['delta'] = '-1';
+  /* Relationship: Nodequeue: Queue */
+  $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
+  $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
+  $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
+  $handler->display->display_options['relationships']['nodequeue_rel']['required'] = TRUE;
+  $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
+  $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
+    'editorial_narrativa_eus' => 'editorial_narrativa_eus',
+    'evento_home' => 0,
+    'producto_kafeta_destacado' => 0,
+    'blog_portada' => 0,
+    'libros_recomendados' => 0,
+    'libros_editorial' => 0,
+    'autore_editorial_eus' => 0,
+    'autores_editorial' => 0,
+    'traductores_cas' => 0,
+    'traductores_eus' => 0,
+    'grupos_de_lectura' => 0,
+    'recomendados_comic' => 0,
+    'recomendados_ensayo' => 0,
+    'recomendados_infantil' => 0,
+    'recomendados_narrativa' => 0,
+    'editorial_ensayo_cas' => 0,
+    'ciclos_cas' => 0,
+    'blitz_ensayo_breve_cas' => 0,
+  );
+  $handler->display->display_options['block_description'] = 'Blitz';
   $translatables['editorial'] = array(
     t('Master'),
     t('más'),
@@ -964,8 +1071,12 @@ function katakrak_editorial_views_default_views() {
     t('Página Medios'),
     t('En los medios'),
     t('Ensayo CAS'),
+    t('field_editorial_libro'),
     t('Ensayo'),
     t('Ensayo EUS'),
+    t('Blitz Ensayo Breve'),
+    t('Blitz'),
+    t('Narrativa en euskera'),
   );
   $export['editorial'] = $view;
 
