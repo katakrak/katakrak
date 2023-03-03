@@ -298,7 +298,9 @@ function katakrak_editorial_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'i18n_node_options_libro_ed';
-  $strongarm->value = array();
+  $strongarm->value = array(
+    0 => 'current',
+  );
   $export['i18n_node_options_libro_ed'] = $strongarm;
 
   $strongarm = new stdClass();

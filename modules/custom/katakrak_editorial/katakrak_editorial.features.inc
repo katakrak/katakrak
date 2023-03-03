@@ -82,6 +82,81 @@ function katakrak_editorial_fe_nodequeue_export_fields() {
     'count' => 0,
   );
 
+  // Exported nodequeues: blitz_ensayo_breve_cas
+  $nodequeues['blitz_ensayo_breve_cas'] = array(
+    'name' => 'blitz_ensayo_breve_cas',
+    'title' => 'Blitz, ensayo breve',
+    'subqueue_title' => '',
+    'size' => 6,
+    'link' => '+ Añadir a "Blitz, ensayo breve"',
+    'link_remove' => '- Quitar de "Blitz, ensayo breve"',
+    'owner' => 'nodequeue',
+    'show_in_ui' => 1,
+    'show_in_tab' => 1,
+    'show_in_links' => 1,
+    'reference' => 0,
+    'reverse' => 0,
+    'i18n' => 0,
+    'insert_at_front' => 0,
+    'unique_entries' => 0,
+    'subqueues' => 1,
+    'types' => array(
+      0 => 'libro_ed',
+    ),
+    'roles' => array(),
+    'count' => 0,
+  );
+
+  // Exported nodequeues: editorial_ensayo_cas
+  $nodequeues['editorial_ensayo_cas'] = array(
+    'name' => 'editorial_ensayo_cas',
+    'title' => 'Editorial Ensayo',
+    'subqueue_title' => '',
+    'size' => 6,
+    'link' => '+ Añadir a "Editorial Ensayo"',
+    'link_remove' => '- Borrar de "Editorial Ensayo"',
+    'owner' => 'nodequeue',
+    'show_in_ui' => 1,
+    'show_in_tab' => 1,
+    'show_in_links' => 1,
+    'reference' => 0,
+    'reverse' => 0,
+    'i18n' => 0,
+    'insert_at_front' => 0,
+    'unique_entries' => 0,
+    'subqueues' => 1,
+    'types' => array(
+      0 => 'libro_ed',
+    ),
+    'roles' => array(),
+    'count' => 0,
+  );
+
+  // Exported nodequeues: editorial_narrativa_eus
+  $nodequeues['editorial_narrativa_eus'] = array(
+    'name' => 'editorial_narrativa_eus',
+    'title' => 'Editorial Narrativa',
+    'subqueue_title' => '',
+    'size' => 6,
+    'link' => '+ Añadir a "Editorial Narrativa"',
+    'link_remove' => '- Quitar de "Editorial Narrativa"',
+    'owner' => 'nodequeue',
+    'show_in_ui' => 1,
+    'show_in_tab' => 1,
+    'show_in_links' => 1,
+    'reference' => 0,
+    'reverse' => 0,
+    'i18n' => 0,
+    'insert_at_front' => 0,
+    'unique_entries' => 0,
+    'subqueues' => 1,
+    'types' => array(
+      0 => 'libro_ed',
+    ),
+    'roles' => array(),
+    'count' => 0,
+  );
+
   // Exported nodequeues: libros_editorial
   $nodequeues['libros_editorial'] = array(
     'name' => 'libros_editorial',
