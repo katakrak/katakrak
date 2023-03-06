@@ -967,7 +967,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['block_description'] = 'Ensayo EUS';
 
   /* Display: Blitz Ensayo Breve */
-  $handler = $view->new_display('block', 'Blitz Ensayo Breve', 'block_2');
+  $handler = $view->new_display('block', 'Blitz Ensayo Breve', 'editorial_blitz');
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Contenido: libro (field_editorial_libro) */
   $handler->display->display_options['relationships']['field_editorial_libro_nid']['id'] = 'field_editorial_libro_nid';
