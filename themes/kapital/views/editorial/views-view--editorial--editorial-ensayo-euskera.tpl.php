@@ -29,7 +29,7 @@
 ?>
 
 <div class="<?php print $classes; ?>">
-<h1 class="text-center"><?php print t('Ensayo en Euskera') ?></h1>
+<h1 class="text-center"><?php print t('Ensayo en euskera') ?></h1>
 <?php if ($header): ?>
     <div class="view-header">
       <?php print $header; ?>
