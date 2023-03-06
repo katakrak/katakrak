@@ -56,7 +56,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['relationships']['nodequeue_rel']['required'] = TRUE;
   $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
   $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
-    'editorial_ensayo_cas' => 'editorial_ensayo_cas',
+    'editorial_ensayo_euskera' => 'editorial_ensayo_euskera',
     'evento_home' => 0,
     'producto_kafeta_destacado' => 0,
     'blog_portada' => 0,
@@ -71,6 +71,7 @@ function katakrak_editorial_views_default_views() {
     'recomendados_ensayo' => 0,
     'recomendados_infantil' => 0,
     'recomendados_narrativa' => 0,
+    'editorial_ensayo_cas' => 0,
     'ciclos_cas' => 0,
     'blitz_ensayo_breve_cas' => 0,
     'editorial_narrativa_eus' => 0,
