@@ -1038,7 +1038,7 @@ function katakrak_editorial_views_default_views() {
     'ciclos_cas' => 0,
     'blitz_ensayo_breve_cas' => 0,
   );
-  $handler->display->display_options['block_description'] = 'Blitz';
+  $handler->display->display_options['block_description'] = 'Narrativa Euskera';
   $translatables['editorial'] = array(
     t('Master'),
     t('más'),
@@ -1077,6 +1077,7 @@ function katakrak_editorial_views_default_views() {
     t('Blitz Ensayo Breve'),
     t('Blitz'),
     t('Narrativa en euskera'),
+    t('Narrativa Euskera'),
   );
   $export['editorial'] = $view;
 
