@@ -947,7 +947,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['block_description'] = 'Ensayo';
 
   /* Display: Ensayo EUS */
-  $handler = $view->new_display('block', 'Ensayo EUS', 'block_1');
+  $handler = $view->new_display('block', 'Ensayo EUS', 'editorial_ensayo_euskera');
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Contenido: Published status */
