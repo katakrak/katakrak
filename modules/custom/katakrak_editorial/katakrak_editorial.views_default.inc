@@ -1004,7 +1004,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['block_description'] = 'Blitz';
 
   /* Display: Narrativa en euskera */
-  $handler = $view->new_display('block', 'Narrativa en euskera', 'block_3');
+  $handler = $view->new_display('block', 'Narrativa en euskera', 'editorial_narrativa_euskera');
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Contenido: libro (field_editorial_libro) */
   $handler->display->display_options['relationships']['field_editorial_libro_nid']['id'] = 'field_editorial_libro_nid';
