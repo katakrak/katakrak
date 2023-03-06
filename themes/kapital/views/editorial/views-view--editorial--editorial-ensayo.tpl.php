@@ -29,7 +29,7 @@
 ?>
 
 <div class="<?php print $classes; ?>">
-<h1 class="text-center"><?php print t('Ensayo en Castellano') ?></h1>
+<h1 class="text-center"><?php print t('Ensayo') ?></h1>
 <?php if ($header): ?>
     <div class="view-header">
       <?php print $header; ?>
