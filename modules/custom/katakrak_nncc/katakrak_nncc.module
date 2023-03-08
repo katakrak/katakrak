@@ -39,9 +39,9 @@ function katakrak_nncc_block_view($delta) {
     case 'nncc_page_highlight':
       $block['content'] = theme('katakrak_nncc_page_highlight');
       break;
-      case 'nncc_landing':
-        $block['content'] = theme('katakrak_nncc_landing');
-        break;
+    case 'nncc_landing':
+      $block['content'] = theme('katakrak_nncc_landing');
+      break;
   }
   return $block;
 }
