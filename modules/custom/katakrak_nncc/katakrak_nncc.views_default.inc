@@ -160,16 +160,28 @@ function katakrak_nncc_views_default_views() {
   $handler->display->display_options['fields']['title_1']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title_1']['element_label_type'] = 'h3';
   $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
-  /* Campo: Contenido: Descripción */
-  $handler->display->display_options['fields']['field_ciclo_descripci_n']['id'] = 'field_ciclo_descripci_n';
-  $handler->display->display_options['fields']['field_ciclo_descripci_n']['table'] = 'field_data_field_ciclo_descripci_n';
-  $handler->display->display_options['fields']['field_ciclo_descripci_n']['field'] = 'field_ciclo_descripci_n';
-  $handler->display->display_options['fields']['field_ciclo_descripci_n']['label'] = '';
-  $handler->display->display_options['fields']['field_ciclo_descripci_n']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_ciclo_descripci_n']['type'] = 'text_summary_or_trimmed';
-  $handler->display->display_options['fields']['field_ciclo_descripci_n']['settings'] = array(
-    'trim_length' => '300',
+  /* Campo: Contenido: Fechas ciclo */
+  $handler->display->display_options['fields']['field_fecha_comienzo_ciclo']['id'] = 'field_fecha_comienzo_ciclo';
+  $handler->display->display_options['fields']['field_fecha_comienzo_ciclo']['table'] = 'field_data_field_fecha_comienzo_ciclo';
+  $handler->display->display_options['fields']['field_fecha_comienzo_ciclo']['field'] = 'field_fecha_comienzo_ciclo';
+  $handler->display->display_options['fields']['field_fecha_comienzo_ciclo']['label'] = '';
+  $handler->display->display_options['fields']['field_fecha_comienzo_ciclo']['element_type'] = 'strong';
+  $handler->display->display_options['fields']['field_fecha_comienzo_ciclo']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_fecha_comienzo_ciclo']['settings'] = array(
+    'format_type' => 'media',
+    'custom_date_format' => '',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
   );
+  /* Campo: Contenido: Intro portada ciclos */
+  $handler->display->display_options['fields']['field_intro_portada_ciclos']['id'] = 'field_intro_portada_ciclos';
+  $handler->display->display_options['fields']['field_intro_portada_ciclos']['table'] = 'field_data_field_intro_portada_ciclos';
+  $handler->display->display_options['fields']['field_intro_portada_ciclos']['field'] = 'field_intro_portada_ciclos';
+  $handler->display->display_options['fields']['field_intro_portada_ciclos']['label'] = '';
+  $handler->display->display_options['fields']['field_intro_portada_ciclos']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Contenido: Published status */
