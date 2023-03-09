@@ -20,6 +20,10 @@ function katakrak_editorial_block_info() {
     'info' => t('Bloque con cuatro items destacados editorial'),
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['katakrak_editorial_landing'] = array(
+    'info' => t('Bloques editorial inferior'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   $blocks['katakrak_editorial_nav_submenu'] = array(
     'info' => t('Submenu editorial'),
     'cache' => DRUPAL_CACHE_PER_PAGE
@@ -46,10 +50,13 @@ function katakrak_editorial_block_view($delta) {
   switch($delta) {
     case 'editorial_page_hero':
       $block['content'] = theme('katakrak_editorial_page_hero');
-      break;
+    break;
     case 'editorial_page_highlight':
       $block['content'] = theme('katakrak_editorial_page_highlight');
-      break;
+    break;
+    case 'katakrak_editorial_landing':
+      $block['content'] = theme('katakrak_editorial_landing');
+    break;
     /* case 'katakrak_editorial_secciones_titulo': */
       /* if (arg(1) == 'secciones'){ */
         /* $title = t('Secciones de la editorial');
