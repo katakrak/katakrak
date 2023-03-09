@@ -10,7 +10,7 @@ include_once 'katakrak_agenda.features.inc';
  * Implements hook_block_info().
  */
 function katakrak_agenda_block_info() {
-  $blocks = array();  
+  $blocks = array();
   $blocks['katakrak_agenda_banner_organiza'] = array(
     'info' => t('Bloque "Banner" de organizar un evento'),
     'cache' => DRUPAL_CACHE_GLOBAL,
@@ -38,6 +38,18 @@ function katakrak_agenda_block_info() {
   $blocks['agenda_landing_form'] = array(
     'info' => t('Landing agenda Formulario'),
     'cache' => DRUPAL_NO_CACHE,
+  );
+  $blocks['centro_estudios_page_hero'] = array(
+    'info' => t('Bloque principal página del centro de estudios'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['centro_estudios_page_highlight'] = array(
+    'info' => t('Bloque con cuatro items destacados Centro Estudios'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['centro_estudios_landing'] = array(
+    'info' => t('Bloque landing Centro Estudios'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
   );
   return $blocks;
 }
@@ -75,7 +87,15 @@ function katakrak_agenda_block_view($delta) {
     case 'agenda_landing_form':
       $block['content'] = drupal_get_form('katakrak_agenda_reserva_form');
       break;
-    
+      case 'centro_estudios_page_hero':
+        $block['content'] = theme('katakrak_agenda_centro_estudios_page_hero');
+        break;
+      case 'centro_estudios_page_highlight':
+        $block['content'] = theme('katakrak_agenda_centro_estudios_page_highlight');
+        break;
+      case 'centro_estudios_landing':
+        $block['content'] = theme('katakrak_agenda_centro_estudios_landing');
+        break;
   }
   return $block;
 }
@@ -122,6 +142,18 @@ function katakrak_agenda_theme() {
       'template' => 'katakrak-agenda-reserva-form',
       'arguments' => array('form' => NULL),
       'render element' => 'form',
+      'path' => $path . '/templates',
+    ),
+    'katakrak_agenda_centro_estudios_landing' => array(
+      'template' => 'katakrak-agenda-centro-estudios-landing',
+      'path' => $path . '/templates',
+    ),
+    'katakrak_agenda_centro_estudios_page_hero' => array(
+      'template' => 'katakrak-agenda-centro-estudios-page-hero',
+      'path' => $path . '/templates',
+    ),
+    'katakrak_agenda_centro_estudios_page_highlight' => array(
+      'template' => 'katakrak-agenda-centro-estudios-page-highlight',
       'path' => $path . '/templates',
     ),
   );
@@ -187,27 +219,27 @@ function katakrak_agenda_reserva_form($form, &$form_state) {
     '#date_format' => 'd/m/Y H:i',
     '#date_increment' => 1,
     '#date_year_range' => '-3:+3',
-    //'#required' => TRUE,  
+    //'#required' => TRUE,
   );
   $form['sala'] = array(
     '#type' => 'radios',
     '#title' => t('Qué sala que deseas reservar'),
     '#options' => array(
-      'sala_actos' => t('Salón de actos'), 
+      'sala_actos' => t('Salón de actos'),
       'sala_reuniones' => t('Sala de reuniones')
     ),
     '#default_value' => 'sala_actos',
   );
-  
+
   $form['explicacion'] = array(
     '#type' => 'textarea',
     '#title' => t('Breve explicación del acto'),
-    '#required' => TRUE, 
+    '#required' => TRUE,
   );
-  
+
   $form['lopd_check'] = array(
     '#type' => 'checkbox',
-    '#title' => t("Acepto las ").l(t('condiciones legales'), 'lopd'),  
+    '#title' => t("Acepto las ").l(t('condiciones legales'), 'lopd'),
     '#required' => TRUE,
   );
   $form['submit'] = array(
@@ -225,14 +257,14 @@ function katakrak_agenda_reserva_form_validate($form, &$form_state) {
 }
 
 function katakrak_agenda_reserva_form_submit($form, &$form_state) {
-  
+
   $nombre = $form_state['input']['nombre'];
   $email = $form_state['input']['email'];
   $telefono = $form_state['input']['telefono'];
   $fecha = $form_state['input']['date']['date']. ' '.$form_state['input']['date']['time'];
   $sala = $form_state['input']['sala'];
   $explicacion = $form_state['input']['explicacion'];
-  
+
   rules_invoke_component('rules_envio_del_formulario_organizar_acto', $nombre, $email, $telefono, $fecha, $sala, $explicacion);
   drupal_set_message('Muchas gracias por utilizar el formulario. Pronto nos pondremos en contacto contigo');
 }
@@ -269,31 +301,31 @@ function katakrak_agenda_node_load($nodes, $types) {
 
 
 /**
- * 
+ *
  * @param type $form
  * @param type $form_state
- * @return 
+ * @return
  */
 function katakrak_agenda_search_form($form, &$form_state) {
- 
+
   $query = explode('/', current_path());
-  
+
   $form['search_term'] = array(
     '#type' => 'textfield',
     '#title' => t('Nombre'),
     '#title_display' => 'invisible',
     '#required' => TRUE,
-    '#attributes' => array(    
+    '#attributes' => array(
       'class' => array('mr-1'),
     ),
     '#theme_wrappers' => array(),
   );
-  
+
   if (count($query) < 3)
     $form['search_term']['#attributes']['placeholder'] = t('Buscar eventos');
   else
     $form['search_term']['#attributes']['value'] = $query[2];
-  
+
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => '<i class="fas fa-search"></i> '.t('Buscar'),
@@ -302,7 +334,7 @@ function katakrak_agenda_search_form($form, &$form_state) {
     )
   );
   $form['#theme'] = 'libro_search_home_form';
-  return $form; 
+  return $form;
 }
 
 function katakrak_agenda_search_form_submit($form, &$form_state) {
