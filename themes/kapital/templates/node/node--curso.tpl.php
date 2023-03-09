@@ -16,21 +16,16 @@
             <div>
               <h1 class="mt-0"><?php print $node->title ?></h1>
              <p class="lead"><?php print render($content['field_curso_descripcion']) ?></p>
-
             </div>
           </div>
         <hr>
-
         <!--TODO<h4>Compártelo:</h4>
         <p>RRSS</p>-->
         </div><!-- /.col-->
-
-
-
     </div><!-- /.row -->
     <hr class="hr-dark">
     <h3 class="mb-2"><?php print t('Eventos relacionados') ?></h3>
-     <?php print views_embed_view('agenda', 'citas_ciclo', $node->nid) ?>
+     <?php print views_embed_view('agenda', 'citas_curso', $node->nid) ?>
 
     <hr class="hr-dark">
     <h3 class="mb-2"><?php print t('Libros relacionados') ?></h3>
