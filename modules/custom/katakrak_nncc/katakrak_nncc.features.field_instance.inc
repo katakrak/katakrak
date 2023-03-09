@@ -103,7 +103,7 @@ function katakrak_nncc_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_fecha_comienzo_ciclo',
     'label' => 'Fechas ciclo',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'default_value' => 'now',
       'default_value2' => 'same',
@@ -169,7 +169,7 @@ function katakrak_nncc_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_intro_portada_ciclos',
     'label' => 'Intro portada ciclos',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
