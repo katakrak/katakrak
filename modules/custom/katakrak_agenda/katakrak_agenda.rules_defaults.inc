@@ -14,7 +14,7 @@ function katakrak_agenda_default_rules_configuration() {
       "LABEL" : "Envio del formulario organizar acto",
       "PLUGIN" : "action set",
       "OWNER" : "rules",
-      "REQUIRES" : [ "rules", "mimemail" ],
+      "REQUIRES" : [ "rules_i18n", "rules", "mimemail" ],
       "USES VARIABLES" : {
         "nombre" : { "label" : "Nombre y apellidos", "type" : "text" },
         "email" : { "label" : "Email", "type" : "text" },

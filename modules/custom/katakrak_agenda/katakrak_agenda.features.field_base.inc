@@ -29,20 +29,24 @@ function katakrak_agenda_field_default_field_bases() {
       'entity_translation_sync' => FALSE,
       'referenceable_types' => array(
         'article' => 0,
+        'autor_ed' => 0,
         'blog' => 0,
         'boletin' => 0,
+        'boletin_bibliotecas' => 0,
         'ciclo' => 0,
+        'donation' => 0,
         'eguneko_menua' => 0,
         'event' => 'event',
         'imagen' => 0,
         'itinerario' => 0,
+        'kantina_productor' => 0,
         'libro' => 0,
+        'libro_ed' => 0,
         'page' => 0,
         'portfolio' => 0,
         'receta' => 0,
         'simplenews' => 0,
         'sukalde_errezeta' => 0,
-        'sukalde_kontuak' => 0,
         'sukalde_produktua' => 0,
       ),
       'view' => array(
@@ -188,6 +192,7 @@ function katakrak_agenda_field_default_field_bases() {
       'allowed_values' => array(
         'irakurle' => 'Irakurle taldea',
         'jornadas' => 'Jornadas',
+        'nncc' => 'Nociones comunes',
       ),
       'allowed_values_function' => '',
       'entity_translation_sync' => FALSE,
@@ -231,7 +236,11 @@ function katakrak_agenda_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_event_date',
-    'indexes' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
     'locked' => 0,
     'module' => 'date',
     'settings' => array(
@@ -508,6 +517,61 @@ function katakrak_agenda_field_default_field_bases() {
     'type' => 'color_field_rgb',
   );
 
+  // Exported field_base: 'field_fecha_comienzo_ciclo'.
+  $field_bases['field_fecha_comienzo_ciclo'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_id_type' => NULL,
+    'entity_types' => array(),
+    'field_name' => 'field_fecha_comienzo_ciclo',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+      'value2' => array(
+        0 => 'value2',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'date',
+    'settings' => array(
+      'granularity' => array(
+        'day' => 'day',
+        'hour' => 0,
+        'minute' => 0,
+        'month' => 'month',
+        'second' => 0,
+        'year' => 'year',
+      ),
+      'timezone_db' => '',
+      'todate' => 'required',
+      'tz_handling' => 'none',
+    ),
+    'translatable' => 0,
+    'type' => 'date',
+  );
+
+  // Exported field_base: 'field_intro_portada_ciclos'.
+  $field_bases['field_intro_portada_ciclos'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_id_type' => NULL,
+    'entity_types' => array(),
+    'field_name' => 'field_intro_portada_ciclos',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'text_long',
+  );
+
   // Exported field_base: 'field_soundcloud'.
   $field_bases['field_soundcloud'] = array(
     'active' => 1,
@@ -524,6 +588,28 @@ function katakrak_agenda_field_default_field_bases() {
     'module' => 'text',
     'settings' => array(
       'max_length' => 2000,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_url_denda'.
+  $field_bases['field_url_denda'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_id_type' => NULL,
+    'entity_types' => array(),
+    'field_name' => 'field_url_denda',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
     ),
     'translatable' => 0,
     'type' => 'text',

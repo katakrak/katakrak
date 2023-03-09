@@ -112,7 +112,7 @@ function katakrak_agenda_strongarm() {
         'language' => array(
           'default' => array(
             'visible' => TRUE,
-            'weight' => '0',
+            'weight' => '3',
           ),
         ),
         'sharethis' => array(
@@ -132,8 +132,14 @@ function katakrak_agenda_strongarm() {
         'path' => array(
           'weight' => '3',
         ),
+        'redirect' => array(
+          'weight' => '30',
+        ),
         'title' => array(
           'weight' => '0',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '30',
         ),
       ),
     ),
@@ -142,6 +148,9 @@ function katakrak_agenda_strongarm() {
         'custom_settings' => TRUE,
       ),
       'card_book_md' => array(
+        'custom_settings' => TRUE,
+      ),
+      'card_book_smgrid' => array(
         'custom_settings' => TRUE,
       ),
       'diff_standard' => array(
