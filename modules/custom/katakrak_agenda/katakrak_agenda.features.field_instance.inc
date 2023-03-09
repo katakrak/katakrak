@@ -528,7 +528,7 @@ function katakrak_agenda_field_default_field_instances() {
     'bundle' => 'ciclo',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Indica aquí la url de este curso en denda.katakrak.net',
+    'description' => '',
     'display' => array(
       'card_book' => array(
         'label' => 'above',
@@ -549,10 +549,10 @@ function katakrak_agenda_field_default_field_instances() {
         'weight' => 0,
       ),
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'module' => 'text',
         'settings' => array(),
-        'type' => 'text_plain',
+        'type' => 'text_default',
         'weight' => 9,
       ),
       'teaser' => array(
@@ -577,7 +577,7 @@ function katakrak_agenda_field_default_field_instances() {
         'size' => 255,
       ),
       'type' => 'text_textfield',
-      'weight' => 11,
+      'weight' => 33,
     ),
   );
 
@@ -1718,7 +1718,6 @@ function katakrak_agenda_field_default_field_instances() {
   t('Idioma del acto');
   t('Image');
   t('Imagen');
-  t('Indica aquí la url de este curso en denda.katakrak.net');
   t('Intro portada ciclos');
   t('Libro');
   t('Libros');
