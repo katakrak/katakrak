@@ -41,7 +41,7 @@ function katakrak_agenda_field_default_field_instances() {
         'module' => 'node_reference',
         'settings' => array(),
         'type' => 'node_reference_default',
-        'weight' => 4,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -103,7 +103,7 @@ function katakrak_agenda_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 8,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -158,7 +158,7 @@ function katakrak_agenda_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 6,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -220,7 +220,7 @@ function katakrak_agenda_field_default_field_instances() {
           'node_reference_view_mode' => 'card_book_md',
         ),
         'type' => 'node_reference_node',
-        'weight' => 2,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -282,7 +282,7 @@ function katakrak_agenda_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 5,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -344,7 +344,7 @@ function katakrak_agenda_field_default_field_instances() {
           'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
-        'weight' => 0,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -377,7 +377,7 @@ function katakrak_agenda_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 31,
+      'weight' => 11,
     ),
   );
 
@@ -419,7 +419,7 @@ function katakrak_agenda_field_default_field_instances() {
           'colorbox_node_style_first' => 'blog_post_page',
         ),
         'type' => 'colorbox',
-        'weight' => 7,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -471,7 +471,7 @@ function katakrak_agenda_field_default_field_instances() {
     'bundle' => 'ciclo',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Añade este texto para mostrarlo en la página de inicio de los ciclos',
+    'description' => '',
     'display' => array(
       'card_book' => array(
         'label' => 'above',
@@ -492,10 +492,11 @@ function katakrak_agenda_field_default_field_instances() {
         'weight' => 0,
       ),
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'above',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 1,
+        'type' => 'text_default',
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -519,7 +520,7 @@ function katakrak_agenda_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 32,
+      'weight' => 12,
     ),
   );
 
@@ -528,7 +529,7 @@ function katakrak_agenda_field_default_field_instances() {
     'bundle' => 'ciclo',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Aquí añadiremos el url a denta.katakrak.net para suscripciones a cursos del centro de estudios.',
     'display' => array(
       'card_book' => array(
         'label' => 'above',
@@ -564,7 +565,7 @@ function katakrak_agenda_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_url_denda',
-    'label' => 'url_denda',
+    'label' => 'URL denda',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -577,7 +578,7 @@ function katakrak_agenda_field_default_field_instances() {
         'size' => 255,
       ),
       'type' => 'text_textfield',
-      'weight' => 33,
+      'weight' => 13,
     ),
   );
 
@@ -1707,7 +1708,7 @@ function katakrak_agenda_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Actos');
   t('Adjunto');
-  t('Añade este texto para mostrarlo en la página de inicio de los ciclos');
+  t('Aquí añadiremos el url a denta.katakrak.net para suscripciones a cursos del centro de estudios.');
   t('Ciclo');
   t('Color');
   t('Date');
@@ -1727,8 +1728,8 @@ function katakrak_agenda_field_default_field_instances() {
   t('Streaming');
   t('Tipo');
   t('Title');
+  t('URL denda');
   t('curso');
-  t('url_denda');
 
   return $field_instances;
 }

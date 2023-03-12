@@ -1,7 +1,7 @@
 name = Katakrak Agenda
 core = 7.x
 package = Katakrak
-version = 7.x-1.4
+version = 7.x-1.5
 project = katakrak_agenda
 dependencies[] = calendar
 dependencies[] = color_field
