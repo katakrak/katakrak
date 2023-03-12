@@ -106,11 +106,11 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['fields']['field_libro_ed_autor']['element_type'] = 'h4';
   $handler->display->display_options['fields']['field_libro_ed_autor']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_libro_ed_autor']['delta_offset'] = '0';
-  /* Sort criterion: Contenido: Fecha de modificación */
-  $handler->display->display_options['sorts']['changed']['id'] = 'changed';
-  $handler->display->display_options['sorts']['changed']['table'] = 'node';
-  $handler->display->display_options['sorts']['changed']['field'] = 'changed';
-  $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
+  /* Sort criterion: Contenido: Nid */
+  $handler->display->display_options['sorts']['nid']['id'] = 'nid';
+  $handler->display->display_options['sorts']['nid']['table'] = 'node';
+  $handler->display->display_options['sorts']['nid']['field'] = 'nid';
+  $handler->display->display_options['sorts']['nid']['order'] = 'DESC';
   /* Filter criterion: Contenido: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -123,7 +123,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['filters']['language']['table'] = 'node';
   $handler->display->display_options['filters']['language']['field'] = 'language';
   $handler->display->display_options['filters']['language']['value'] = array(
-    'es' => 'es',
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
 
   /* Display: Landing editorial */
@@ -174,7 +174,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['value'] = '0';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
   /* Filter criterion: Contenido: Tipo */
@@ -930,7 +930,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['relationships']['nodequeue_rel']['required'] = TRUE;
   $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
   $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
-    'editorial_ensayo_cas' => 'editorial_ensayo_cas',
+    'editorial_ensayo' => 'editorial_ensayo',
     'evento_home' => 0,
     'producto_kafeta_destacado' => 0,
     'blog_portada' => 0,
@@ -945,14 +945,17 @@ function katakrak_editorial_views_default_views() {
     'recomendados_ensayo' => 0,
     'recomendados_infantil' => 0,
     'recomendados_narrativa' => 0,
-    'ciclos_cas' => 0,
-    'blitz_ensayo_breve_cas' => 0,
-    'editorial_narrativa_eus' => 0,
+    'centro_de_estudios' => 0,
+    'editorial_ensayo_euskera' => 0,
+    'editorial_narrativa' => 0,
+    'blitz_ensayo_breve' => 0,
   );
-  $handler->display->display_options['block_description'] = 'Ensayo';
-
-  /* Display: Ensayo EUS */
-  $handler = $view->new_display('block', 'Ensayo EUS', 'editorial_ensayo_euskera');
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Contenido: Nid */
+  $handler->display->display_options['sorts']['nid']['id'] = 'nid';
+  $handler->display->display_options['sorts']['nid']['table'] = 'node';
+  $handler->display->display_options['sorts']['nid']['field'] = 'nid';
+  $handler->display->display_options['sorts']['nid']['order'] = 'DESC';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Contenido: Published status */
@@ -967,7 +970,55 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['filters']['language']['table'] = 'node';
   $handler->display->display_options['filters']['language']['field'] = 'language';
   $handler->display->display_options['filters']['language']['value'] = array(
-    'eu' => 'eu',
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
+  $handler->display->display_options['block_description'] = 'Ensayo';
+
+  /* Display: Ensayo EUS */
+  $handler = $view->new_display('block', 'Ensayo EUS', 'editorial_ensayo_euskera');
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Nodequeue: Queue */
+  $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
+  $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
+  $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
+  $handler->display->display_options['relationships']['nodequeue_rel']['required'] = TRUE;
+  $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
+  $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
+    'editorial_ensayo_euskera' => 'editorial_ensayo_euskera',
+    'evento_home' => 0,
+    'producto_kafeta_destacado' => 0,
+    'blog_portada' => 0,
+    'libros_recomendados' => 0,
+    'libros_editorial' => 0,
+    'autore_editorial_eus' => 0,
+    'autores_editorial' => 0,
+    'traductores_cas' => 0,
+    'traductores_eus' => 0,
+    'grupos_de_lectura' => 0,
+    'recomendados_comic' => 0,
+    'recomendados_ensayo' => 0,
+    'recomendados_infantil' => 0,
+    'recomendados_narrativa' => 0,
+    'centro_de_estudios' => 0,
+    'editorial_ensayo' => 0,
+    'editorial_narrativa' => 0,
+    'blitz_ensayo_breve' => 0,
+  );
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Contenido: Published status */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Contenido: Idioma */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
   $handler->display->display_options['block_description'] = 'Ensayo EUS';
 
@@ -987,7 +1038,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['relationships']['nodequeue_rel']['required'] = TRUE;
   $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
   $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
-    'blitz_ensayo_breve_cas' => 'blitz_ensayo_breve_cas',
+    'blitz_ensayo_breve' => 'blitz_ensayo_breve',
     'evento_home' => 0,
     'producto_kafeta_destacado' => 0,
     'blog_portada' => 0,
@@ -1002,9 +1053,26 @@ function katakrak_editorial_views_default_views() {
     'recomendados_ensayo' => 0,
     'recomendados_infantil' => 0,
     'recomendados_narrativa' => 0,
-    'editorial_ensayo_cas' => 0,
-    'ciclos_cas' => 0,
-    'editorial_narrativa_eus' => 0,
+    'centro_de_estudios' => 0,
+    'editorial_ensayo' => 0,
+    'editorial_ensayo_euskera' => 0,
+    'editorial_narrativa' => 0,
+  );
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Contenido: Published status */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Contenido: Idioma */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
   $handler->display->display_options['block_description'] = 'Blitz';
 
@@ -1024,7 +1092,7 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['relationships']['nodequeue_rel']['required'] = TRUE;
   $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
   $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
-    'editorial_narrativa_eus' => 'editorial_narrativa_eus',
+    'editorial_narrativa' => 'editorial_narrativa',
     'evento_home' => 0,
     'producto_kafeta_destacado' => 0,
     'blog_portada' => 0,
@@ -1039,9 +1107,13 @@ function katakrak_editorial_views_default_views() {
     'recomendados_ensayo' => 0,
     'recomendados_infantil' => 0,
     'recomendados_narrativa' => 0,
-    'editorial_ensayo_cas' => 0,
-    'ciclos_cas' => 0,
+    'centro_de_estudios' => 0,
+    'editorial_ensayo' => 0,
+    'editorial_ensayo_euskera' => 0,
+    'blitz_ensayo_breve' => 0,
     'blitz_ensayo_breve_cas' => 0,
+    'editorial_ensayo_cas' => 0,
+    'editorial_narrativa_eus' => 0,
   );
   $handler->display->display_options['block_description'] = 'Narrativa Euskera';
   $translatables['editorial'] = array(

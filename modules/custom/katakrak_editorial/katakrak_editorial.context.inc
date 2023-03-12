@@ -132,30 +132,30 @@ function katakrak_editorial_context_default_contexts() {
           'delta' => '44383dfbcb8fff91d365de447606bb07',
           'module' => 'views',
           'region' => 'content_top',
-          'weight' => '-87',
+          'weight' => '-88',
         ),
         'views-d1750993613d6d2886e60049a5ecf5f1' => array(
           'delta' => 'd1750993613d6d2886e60049a5ecf5f1',
           'module' => 'views',
           'region' => 'content_top',
-          'weight' => '-84',
+          'weight' => '-87',
         ),
         'views-editorial-editorial_blitz' => array(
           'delta' => 'editorial-editorial_blitz',
           'module' => 'views',
           'region' => 'content_top',
-          'weight' => '-86',
+          'weight' => '-85',
         ),
         'views-editorial-editorial_ensayo' => array(
           'delta' => 'editorial-editorial_ensayo',
           'module' => 'views',
           'region' => 'content_top',
-          'weight' => '-85',
+          'weight' => '-86',
         ),
       ),
     ),
   );
-  $context->condition_mode = 0;
+  $context->condition_mode = 1;
 
   // Translatables
   // Included for use with string extractors like potx.
@@ -190,6 +190,12 @@ function katakrak_editorial_context_default_contexts() {
           'delta' => 'editorial_page_highlight',
           'module' => 'katakrak_editorial',
           'region' => 'content_top',
+          'weight' => '-10',
+        ),
+        'katakrak_editorial-katakrak_editorial_landing' => array(
+          'delta' => 'katakrak_editorial_landing',
+          'module' => 'katakrak_editorial',
+          'region' => 'content_bottom',
           'weight' => '-10',
         ),
       ),

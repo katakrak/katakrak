@@ -455,7 +455,7 @@ function katakrak_editorial_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'above',
@@ -525,10 +525,10 @@ function katakrak_editorial_field_default_field_instances() {
         'weight' => 0,
       ),
       'card_book_smgrid' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'above',
@@ -602,7 +602,7 @@ function katakrak_editorial_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'above',
@@ -671,10 +671,10 @@ function katakrak_editorial_field_default_field_instances() {
         'weight' => 0,
       ),
       'card_book_smgrid' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -748,7 +748,7 @@ function katakrak_editorial_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 25,
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'above',
@@ -810,7 +810,7 @@ function katakrak_editorial_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 24,
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -867,7 +867,7 @@ function katakrak_editorial_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -940,7 +940,7 @@ function katakrak_editorial_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 23,
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -1004,7 +1004,7 @@ function katakrak_editorial_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 22,
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -1066,7 +1066,7 @@ function katakrak_editorial_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 21,
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'above',
@@ -1123,7 +1123,7 @@ function katakrak_editorial_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'above',
@@ -1193,7 +1193,7 @@ function katakrak_editorial_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 20,
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -1251,7 +1251,7 @@ function katakrak_editorial_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 19,
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -1324,7 +1324,7 @@ function katakrak_editorial_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -1387,7 +1387,7 @@ function katakrak_editorial_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -1442,7 +1442,7 @@ function katakrak_editorial_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 18,
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'above',
@@ -1500,7 +1500,7 @@ function katakrak_editorial_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 17,
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -1562,10 +1562,10 @@ function katakrak_editorial_field_default_field_instances() {
         'weight' => 0,
       ),
       'card_book_smgrid' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -1718,7 +1718,7 @@ function katakrak_editorial_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 16,
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -1776,7 +1776,7 @@ function katakrak_editorial_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'hidden',

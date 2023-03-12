@@ -136,10 +136,6 @@ function katakrak_editorial_strongarm() {
             'visible' => TRUE,
             'weight' => '0',
           ),
-          'card_book_smgrid' => array(
-            'visible' => TRUE,
-            'weight' => '3',
-          ),
           'default' => array(
             'visible' => TRUE,
             'weight' => '0',
@@ -153,10 +149,6 @@ function katakrak_editorial_strongarm() {
           'card_book_md' => array(
             'visible' => TRUE,
             'weight' => '0',
-          ),
-          'card_book_smgrid' => array(
-            'visible' => TRUE,
-            'weight' => '2',
           ),
           'default' => array(
             'visible' => TRUE,
@@ -172,10 +164,6 @@ function katakrak_editorial_strongarm() {
             'visible' => FALSE,
             'weight' => '-10',
           ),
-          'card_book_smgrid' => array(
-            'visible' => TRUE,
-            'weight' => '0',
-          ),
           'default' => array(
             'visible' => FALSE,
             'weight' => '-10',
@@ -189,10 +177,6 @@ function katakrak_editorial_strongarm() {
           'card_book_md' => array(
             'visible' => FALSE,
             'weight' => '5',
-          ),
-          'card_book_smgrid' => array(
-            'visible' => TRUE,
-            'weight' => '4',
           ),
           'default' => array(
             'visible' => FALSE,
@@ -208,10 +192,6 @@ function katakrak_editorial_strongarm() {
             'visible' => FALSE,
             'weight' => '-5',
           ),
-          'card_book_smgrid' => array(
-            'visible' => TRUE,
-            'weight' => '1',
-          ),
           'default' => array(
             'visible' => FALSE,
             'weight' => '-5',
@@ -225,10 +205,6 @@ function katakrak_editorial_strongarm() {
           'card_book_md' => array(
             'visible' => TRUE,
             'weight' => '10',
-          ),
-          'card_book_smgrid' => array(
-            'visible' => TRUE,
-            'weight' => '5',
           ),
           'default' => array(
             'visible' => TRUE,
