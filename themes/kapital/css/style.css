@@ -3,15 +3,23 @@
  * your custom CSS modifications here.
   Aquí van estilos míos
  */
- 
- .commerce_shipping legend {
-     display: none;
- }
- #edit-informacion-envio label{
-     display: none;
- }
- 
- fieldset.checkout-buttons {
-     border: none;
- }
- 
+
+
+/* *:not(#admin-menu) {
+    overflow-x: hidden;
+} */
+
+.commerce_shipping legend {
+    display: none;
+}
+
+#edit-informacion-envio label {
+    display: none;
+}
+
+fieldset.checkout-buttons {
+    border: none;
+}
+
+
+}

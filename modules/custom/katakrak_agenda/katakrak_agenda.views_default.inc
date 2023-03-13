@@ -1957,6 +1957,37 @@ function katakrak_agenda_views_default_views() {
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
+  $translatables['agenda_admin'] = array(
+    t('Master'),
+    t('Agenda admin'),
+    t('más'),
+    t('Aplicar'),
+    t('Reiniciar'),
+    t('Ordenar por'),
+    t('Asc'),
+    t('Desc'),
+    t('Elementos por página'),
+    t('- Todos -'),
+    t('Desplazamiento'),
+    t('« primera'),
+    t('‹ anterior'),
+    t('siguiente ›'),
+    t('última »'),
+    t('<a href="/node/add/event">Crear evento</a>'),
+    t('Título'),
+    t('Fecha'),
+    t('Event type'),
+    t('Imagen'),
+    t('Idioma'),
+    t('Promocionar'),
+    t('Editar'),
+    t('Page'),
+    t('References'),
+    t('Agenda reference'),
+    t('Agenda actos pasados'),
+    t('Data export'),
+    t('Todo(s)'),
+  );
   $export['agenda_admin'] = $view;
 
   $view = new view();
@@ -2470,6 +2501,37 @@ function katakrak_agenda_views_default_views() {
   /* Display: Services */
   $handler = $view->new_display('services', 'Services', 'services_1');
   $handler->display->display_options['path'] = 'service_agenda';
+  $translatables['service_agenda'] = array(
+    t('Master'),
+    t('más'),
+    t('Aplicar'),
+    t('Reiniciar'),
+    t('Ordenar por'),
+    t('Asc'),
+    t('Desc'),
+    t('Elementos por página'),
+    t('- Todos -'),
+    t('Desplazamiento'),
+    t('« primera'),
+    t('‹ anterior'),
+    t('siguiente ›'),
+    t('última »'),
+    t('title'),
+    t('fecha'),
+    t('id'),
+    t('imagen_acto'),
+    t('thumbnail'),
+    t('description'),
+    t('link'),
+    t('<a href="http://katakrak.net/node/[nid]">ver mas</a>'),
+    t('hora'),
+    t('mes'),
+    t('dia'),
+    t('tipo_evento'),
+    t('event_tid'),
+    t('Todo(s)'),
+    t('Services'),
+  );
   $export['service_agenda'] = $view;
 
   return $export;
