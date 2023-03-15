@@ -9,7 +9,7 @@
     <a href="<?php echo render($content['field_url_denda']['#items'][0]['value']); ?>"><?php print t('Apuntarse'); ?></a>
     <hr class="hr-dark">
   <?php endif; ?>
-    <!-- <h3 class="mb-2"><?php print t('Producto relacionado') ?></h3>-->
+    <!-- <h3 class="mb-2"><?php //print t('Producto relacionado') ?></h3>-->
      <?php //print render($content['field_producto_ciclo']) ?>
     </div><!-- /.col-->
         <div class="col-sm-8">
