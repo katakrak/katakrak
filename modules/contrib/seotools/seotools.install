@@ -1,0 +1,77 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function seotools_install() {
+  //drupal_install_schema('seotools');
+
+  // Set default values for Insight Content Analysis.
+  seotools_update_7001();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function seotools_uninstall() {
+  //drupal_uninstall_schema('seotools');
+}
+
+/**
+ * Implements hook_schema().
+ */
+function seotools_schema() {
+	return array();
+  $schema['seotools_cache'] = array(
+    'description' => 'Creates database table to store keyword data.',
+    'fields' => array(
+      'cid' => array(
+        'type' => 'varchar',
+        'length' => '255',
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'cache id.',
+      ),
+      'data' => array(
+        'type' => 'text',
+        'description' => 'stores the cached data',
+      ),
+      'start_date' => array(
+        'type' => 'char',
+        'length' => '10',
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'start date of query',
+      ),
+      'end_date' => array(
+        'type' => 'char',
+        'length' => '10',
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'end date of query',
+      ),
+      'records' => array(
+        'type' => 'int',
+        'size' => 'small',
+        'description' => 'number of records in data',
+      ), //autogen
+    ),
+    'indexes' => array(
+      'cid' => array('cid'),
+      'start_date' => array('start_date'),
+    ),
+  );
+
+  return $schema;
+}
+
+/**
+ * Update existing SEO Tools with default Insight settings.
+ */
+function seotools_update_7001() {
+  $defaults = array(
+    'seo' => 'seo',
+    'insight_content' => 0,
+  );
+  variable_set('insight_contentanalysis_autorun_analyzers', $defaults);
+}

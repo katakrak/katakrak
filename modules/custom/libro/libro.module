@@ -92,7 +92,7 @@ function libro_add_to_cart_submit($form, &$form_state) {
 }
 
 /**
- * 
+ *
  * @param type $form
  * @param type $form_state
  * @param type $node
@@ -100,7 +100,7 @@ function libro_add_to_cart_submit($form, &$form_state) {
  */
 function libro_portada_form($form, $form_state, $node) {
   $ean = $node->field_libro_ean['und'][0]['value'];
-  
+
   $url = sprintf("http://image.casadellibro.com/a/l/t0/%s/%s.jpg", substr($ean, 11, 2), $ean);
 
   $form['image'] = array(
@@ -178,7 +178,7 @@ function libro_metainfo_form_submit($form, &$form_state){
     ),
     'finished' => 'libro_metainfo_finish',
   );
-  batch_set($batch);  
+  batch_set($batch);
 }
 
 function libro_metainfo_process($limit, $max, $recheck, &$context) {
@@ -201,10 +201,10 @@ function libro_metainfo_process($limit, $max, $recheck, &$context) {
   }
   $nodes->orderBy('n.nid', 'DESC');
   $nids = $nodes->range(0, $limit)->execute()->fetchAll();
-  
+
   $dilve  = new DilveSearch(variable_get('dilve_user', ''), variable_get('dilve_pass', ''));
   $cegal = new CegalSearch(variable_get('cegal_user', ''), variable_get('cegal_clave', ''));
-  
+
   foreach ($nids as $nid) {
     watchdog('libro', $nid->nid);
     $meta = FALSE;
@@ -212,7 +212,7 @@ function libro_metainfo_process($limit, $max, $recheck, &$context) {
     $node = node_load($nid->nid);
     //Primero comprobamos si el libro está en dilve
     $book = $dilve->search($node->field_libro_ean['und'][0]['value']);
-    
+
     //Si el resultado es string, significa que el libro no está en dilve
     if (is_string($book)) {
       $node->field_libro_dilve['und'][0]['value'] = 2;
@@ -225,7 +225,7 @@ function libro_metainfo_process($limit, $max, $recheck, &$context) {
       catch (PDOException $e){
         watchdog('libro', $e->getMessage());
       }
-      
+
       $meta = TRUE;
       $context['results']['in_dilve']++;
       if(file_exists($node->field_libro_portada['und'][0]['uri'])){
@@ -238,9 +238,9 @@ function libro_metainfo_process($limit, $max, $recheck, &$context) {
       $ean = $node->field_libro_ean['und'][0]['value'];
       $url = sprintf("http://image.casadellibro.com/a/l/t0/%s/%s.jpg", substr($ean, 11, 2), $ean);
       $request = drupal_http_request($url);
-      
+
       if ($request->code == 200) {
-        $ext = substr($request->headers['content-type'], strrpos($request->headers['content-type'], '/') + 1);  
+        $ext = substr($request->headers['content-type'], strrpos($request->headers['content-type'], '/') + 1);
         $filename = $node->field_libro_ean['und'][0]['value'].'.'.$ext;
         $file = create_cover($request->data, $filename);
         if (!empty($file)) {
@@ -262,17 +262,17 @@ function libro_metainfo_process($limit, $max, $recheck, &$context) {
           $node->field_libro_portada['und'][0]['alt'] = $node->title;
           $tiene_portada = TRUE;
         }
-        
+
       }
     }
-    
+
     if ($tiene_portada)
       $context['results']['portadas']++;
-    
+
     node_save($node);
     $context['sandbox']['progress'] += 1;
   }
-  
+
 
   $context['message'] = t("Processed @progress of @max books", array('@progress' => $context['sandbox']['progress'], '@max' => $context['sandbox']['max']));
   if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
@@ -284,7 +284,7 @@ function libro_metainfo_finish($success, $results, $operations) {
   if ($success) {
     drupal_set_message(t("@count book found in dilve", array('@count' => $results['in_dilve'])));
     drupal_set_message(t("@count book covers downloaded", array('@count' => $results['portadas'])));
-    
+
   }
   else {
     // An error occurred.
@@ -391,7 +391,7 @@ function libro_block_view($delta) {
     case 'libreria_secciones_breadcrumb':
       $tid = arg(2);
       $links[] = array('link' => l(t('Tienda online'), 'tienda'));
-      
+
       if (arg(1) == 'secciones')
         $links[] = array('link' => t('Secciones'), 'active' => TRUE);
       else {
@@ -400,27 +400,27 @@ function libro_block_view($delta) {
           $term = taxonomy_term_load($tid);
           if ($term->vocabulary_machine_name == 'materias'){
             $links[] = array(
-             'link' => l(t('Secciones'), 'tienda/secciones'), 
+             'link' => l(t('Secciones'), 'tienda/secciones'),
             );
           }
             global $language;
             if ($language->language == 'es'){
               $links[] = array(
-                'link' =>$term->name, 
-                'active' => TRUE,
-              );
-            } 
-            else {
-              $links[] = array(
-                'link' =>$term->field_nombre_euskera['und'][0]['value'], 
+                'link' =>$term->name,
                 'active' => TRUE,
               );
             }
-              
+            else {
+              $links[] = array(
+                'link' =>$term->field_nombre_euskera['und'][0]['value'],
+                'active' => TRUE,
+              );
+            }
+
           }
-          
+
       }
-      
+
       $block['content'] = theme('katakrak_breadcrumb', array('links' => $links));
       break;
     case 'libreria_secciones_titulo':
@@ -447,7 +447,7 @@ function libro_block_view($delta) {
       break;
     case 'libreria_landing_highlight':
       $block['content'] = theme('libreria_landing_highlight');
-      break;    
+      break;
   }
   return $block;
 }
@@ -532,7 +532,7 @@ function libro_entity_info_alter(&$entity_info) {
   );
 }
 function libro_peso_moda_form($form, &$form_state) {
-  
+
   $form['valor_peso'] = array(
     '#title' => t("Peso por defecto."),
     '#description' => t('Expresado en gramos'),
@@ -545,7 +545,7 @@ function libro_peso_moda_form($form, &$form_state) {
     '#type' => 'submit',
     '#value' => t('Borrar pesos pequeños'),
   );
-  
+
   $form['asignar_peso'] = array(
     '#type' => 'submit',
     '#value' => t('Asignar peso medio'),
@@ -565,7 +565,7 @@ function libro_peso_moda_form_submit($form, &$form_state) {
   if ($form_state['clicked_button']['#value'] == t('Asignar peso medio')) {
     //Lanzar batch que actualice todos los pesos
     variable_set('libro_avg_weight', $form_state['values']['valor_peso']);
-    
+
     $batch = array(
       'title' => t('Actualizando pesos'),
       'operations' => array(
@@ -585,7 +585,7 @@ function libro_peso_batch_process(&$context) {
     $context['sandbox']['max'] = $products_db->execute()->rowCount();
   }
   $products = $products_db->range($context['sandbox']['progress'], 100)->execute()->fetchAll();
-  
+
   foreach ($products as $product_id) {
     $libro = commerce_product_load($product_id->product_id);
     if (!isset($libro->field_product_peso) || $libro->field_product_peso['und'][0]['weight'] < variable_get('libro_avg_weight', 0)) {
@@ -608,7 +608,7 @@ function libro_peso_batch_process(&$context) {
 function libro_peso_batch_process_finish($success, $results, $operations) {
   if ($success) {
     drupal_set_message(t("@count libros han sido asignados un peso medio", array('@count' => $results['asignados'])));
-    
+
   }
   else {
     // An error occurred.
@@ -624,7 +624,7 @@ function libro_peso_batch_process_finish($success, $results, $operations) {
  */
 /*function libro_cron() {
   $results = db_query("SELECT COUNT(*) AS total, field_product_peso_weight FROM  {field_data_field_product_peso} p INNER JOIN {field_data_commerce_stock} s  ON s.entity_id = p.entity_id WHERE commerce_stock_value > 0 GROUP BY  field_product_peso_weight ORDER BY total DESC LIMIT 0,10")->fetchAll();
- 
+
   $total = 0;
   $freq = 0;
   foreach ($results as $res) {
@@ -632,7 +632,7 @@ function libro_peso_batch_process_finish($success, $results, $operations) {
     $freq += $res->total;
   }
   $avg = $total / $freq;
-  
+
   $avg_round = ceil($avg / 10) * 10;
   variable_set('libro_avg_weight', $avg_round);
 }*/
@@ -652,14 +652,14 @@ function libro_node_view($node, $view_mode, $langcode) {
       $node->sinopsis = truncate_utf8($node->field_libro_sinopsis['und'][0]['value'], 650, TRUE, TRUE);
       if ( strlen($node->field_libro_sinopsis['und'][0]['value']) > 650) {
         $node->leer_mas = substr($node->field_libro_sinopsis['und'][0]['value'], strlen($node->sinopsis) -3);
-      } 
+      }
     }
-    
+
     if ($node->field_libro_portada['und'][0]['filename'] == 'nocover.png')
       $node->content['cover_class'] = 'nocover';
     else
       $node->content['cover_class'] = 'cover';
-    
+
     $product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
     if ($product->commerce_stock['und'][0]['value'] > 0) {
       $node->disponibilidad = DISPONIBLE_LIBRERIA;
@@ -685,7 +685,7 @@ function libro_node_view($node, $view_mode, $langcode) {
 }
 
 /**
- * 
+ *
  * @param type $node
  */
 function libro_node_presave($node) {
@@ -709,7 +709,7 @@ function libro_node_presave($node) {
 }
 
 /**
- * 
+ *
  * @param type $nodes
  * @param type $types
  */
@@ -759,35 +759,35 @@ function _get_book_by_ean($ean) {
   return node_load($result[0]->nid);
 }
 /**
- * 
+ *
  */
 function todostuslibros_ficha() {
   if ($_GET['isbn']) {
     $options = array('query' => array(
       'utm_source'=>'todostuslibros',
-      'utm_medium'=>'todostuslibros',   
+      'utm_medium'=>'todostuslibros',
       ));
     $isbn = $_GET['isbn'];
     $ean = preg_replace("/[^a-zA-Z0-9]/", "", $isbn);
     $result = views_get_view_result('libros_admin', 'libros_por_ean', $ean);
-    
+
     if ($result)
       drupal_goto('node/'.$result[0]->nid, $options);
     else {//Primero intentamos cargar la info de dilve
       $dilve = new DilveSearch(variable_get('dilve_user', ''), variable_get('dilve_pass', ''));
       $book = $dilve->search($_GET['isbn']);
-      
+
       if (!is_string($book) && $book['price'])//Si está en dilve creamos la ficha
         $node = libro_crear_ficha($book);
       else { //Si no intentamos sacar la info de cegal
         $cegal = new CegalSearch(variable_get('cegal_user', ''), variable_get('cegal_clave', ''));
         $book = $cegal->ficha($isbn);
-        if ($book) 
+        if ($book)
           $node = libro_crear_ficha($book);
       }
       if ($node)
         drupal_goto('node/'.$node->nid, $options);
-    }   
+    }
   }
   else {
     drupal_not_found();
@@ -795,9 +795,9 @@ function todostuslibros_ficha() {
 }
 
 /**
- * Checks if the cover exists and if it does returns the file object. 
+ * Checks if the cover exists and if it does returns the file object.
  * It it doesn't exists downloads it and creates the object
- * 
+ *
  * @param type $url
  * @param type $isbn
  * @return type
@@ -811,9 +811,9 @@ function create_cover($data, $filename, $mimetype = 'image/jpeg', $force = FALSE
   //Si existe comprobamos que efectivamente el archivo está. Si no lo creamos
   if ($fid) {
     $file = file_load($fid[0]->fid);
-    
+
     if ((!file_exists($filepath) || $force)) {
-   
+
       file_put_contents($filepath, $data);
     }
   }
@@ -835,7 +835,7 @@ function create_cover($data, $filename, $mimetype = 'image/jpeg', $force = FALSE
     $file->uid = $user->uid;
     $file->filename = $filename;
     $file->filemime = $image->info['mime_type'];
-    $file->filesize = $image->info['file_size']; 
+    $file->filesize = $image->info['file_size'];
     $file->status = 1;
     $file->timestamp = REQUEST_TIME;
     file_save($file);
@@ -845,13 +845,13 @@ function create_cover($data, $filename, $mimetype = 'image/jpeg', $force = FALSE
 }
 
 /**
- * 
+ *
  * @param type $form
  * @param type $form_state
- * @return 
+ * @return
  */
 function libro_search_home_form($form, &$form_state) {
-  
+
   $form['search_term'] = array(
     '#type' => 'textfield',
     '#title' => t('Nombre'),
@@ -863,13 +863,13 @@ function libro_search_home_form($form, &$form_state) {
     ),
     '#theme_wrappers' => array(),
   );
-  
+
   if (arg(0) == 'buscar' && arg(1) == 'libros') {
     $form['search_term']['#default_value'] = arg(2);
   }
-    
-  
-  
+
+
+
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => '<i class="fas fa-search"></i> '.t('Buscar'),
@@ -878,7 +878,7 @@ function libro_search_home_form($form, &$form_state) {
     )
   );
   $form['#theme'] = 'libro_search_home_form';
-  return $form; 
+  return $form;
 }
 
 function libro_search_home_form_submit($form, &$form_state) {
@@ -888,8 +888,8 @@ function libro_search_home_form_submit($form, &$form_state) {
 function libro_generar_boton_product($nid, $anadir = FALSE) {
   $node = node_load($nid);
   $product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
-  
-  
+
+
   $default_quantity = 1;
   $product_ids = array($product->product_id);
 
@@ -912,7 +912,7 @@ function libro_generar_boton_product($nid, $anadir = FALSE) {
 }
 
 /**
- * A partir de un array con información de un isbn crea un libro y su 
+ * A partir de un array con información de un isbn crea un libro y su
  * producto de commerce asociado
  * @param type $book
  * @param $update Si hay que actualizar un nodo exitente o no
@@ -937,16 +937,16 @@ function libro_crear_ficha($book, $update = FALSE, $node = NULL) {
     $commerce_product->type = 'libro';
     $commerce_product->sku = $book['ean'];
   }
-  
+
   $title = truncate_utf8($book['title'],128, TRUE, TRUE);
   if ($book['title']) {
     $commerce_product->title = $title;
     $node->title = $title;
     $node->title_field['und'][0]['value'] = $title;
   }
-  
+
   $node->field_libro_isbn['und'][0]['value'] = $book['isbn'];
-  
+
   $node->field_libro_ean['und'][0]['value'] = $book['ean'];
 
 
@@ -974,10 +974,10 @@ function libro_crear_ficha($book, $update = FALSE, $node = NULL) {
   }
 
   if (isset($book['description'])) {
-    $node->field_libro_sinopsis['und'][0]['value'] = $book['description'];                
+    $node->field_libro_sinopsis['und'][0]['value'] = $book['description'];
     $node->field_libro_sinopsis['und'][0]['format'] = 'sinopsis';
   }
-  
+
   if (isset($book["subtitle"])) {
     $node->field_libro_subtitulo['und'][0]['value'] = $book['subtitle'];
   }
@@ -1004,25 +1004,25 @@ function libro_crear_ficha($book, $update = FALSE, $node = NULL) {
   if ($book['cover_url']) {
     $request = drupal_http_request($book['cover_url']);
     if ($request->code == 200) {
-      $ext = substr($request->headers['content-type'], strrpos($request->headers['content-type'], '/') + 1); 
+      $ext = substr($request->headers['content-type'], strrpos($request->headers['content-type'], '/') + 1);
       $filename = $node->field_libro_ean['und'][0]['value'].'.'.$ext;
       $file = create_cover($request->data, $filename);
     }
   }
-  
+
   if (isset($book['portada'])) {
     $filename = $book['ean'].'.'.$book['portada']['format'];
     $file = create_cover($book['portada']['data'], $filename);
   }
-  
+
   if (!empty($file)) {
     $node->field_libro_portada['und'][0] = $file;
     $node->field_libro_portada['und'][0]['title'] = $node->title;
     $node->field_libro_portada['und'][0]['alt'] = $node->title;
   }
-  
+
   commerce_product_save($commerce_product);
-  
+
   $node->field_libro_producto['und'][0]['product_id'] = $commerce_product->product_id;
   node_save($node);
   return $node;

@@ -20,6 +20,7 @@ define('NODEQUEUE_OK', 0);
 define('NODEQUEUE_INVALID_POSITION', 1);
 define('NODEQUEUE_INVALID_NID', 2);
 define('NODEQUEUE_DUPLICATE_POSITION', 3);
+define('NODEQUEUE_DEBUG', TRUE);
 
 /* --- HOOKS ---------------------------------------------------------------- */
 

@@ -1,0 +1,11 @@
+name = "Keyword Research Google"
+description = "Provides integration of Google AdWords Keyword Tool data for Keyword Research."
+package = SEO
+dependencies[] = kwresearch
+core = 7.x
+; Information added by Drupal.org packaging script on 2017-07-27
+version = "7.x-1.0-beta1+3-dev"
+core = "7.x"
+project = "kwresearch"
+datestamp = "1501189197"
+

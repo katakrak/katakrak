@@ -467,5 +467,15 @@ function katakrak_agenda_strongarm() {
   $strongarm->value = '';
   $export['pathauto_taxonomy_term_event_type_pattern'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'xmlsitemap_settings_node_ciclo';
+  $strongarm->value = array(
+    'priority' => '0.5',
+    'status' => '0',
+  );
+  $export['xmlsitemap_settings_node_ciclo'] = $strongarm;
+
   return $export;
 }
