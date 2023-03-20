@@ -1,8 +1,8 @@
 <div class="cta cta-espacio">
         <div class="cta-text">
-            <a href="#" class="covid" data-aos="fade-in">
+            <!-- <a href="#" class="covid" data-aos="fade-in">
               <img src="/sites/all/themes/kapital/images/protocolo-covid19.png" alt="Te cuidamos, nos cuidamos" class="img-covid" title="Conoce el protocolo Covid-19">
-            </a>
+            </a> -->
             <h1 class="h1-lg"><?php print t('Entra en Katakrak') ?></h1>
             <p class="lead"><?php print l(t('Conoce el proyecto'), 'conocenos') ?></p>
            <p>
@@ -75,26 +75,26 @@
                 <path d="M52.2,88H31.8v35.6h20.4V88z M49.2,120.6H34.8V91h14.4V120.6z"/>
                 <path d="M307.6,114.8h6.5v-6.4h6.5v-6.6h22.5v-0.1h3.3v-0.4h0.3V45.9h-3v20.2H326v32.6h-8.4v6.6h-6.5v6.4h-6.5v10.4h3V114.8z
                    M329,69.1h14.4v29.6H329V69.1z"/>
-                <polygon points="442.8,219.4 435.8,219.4 435.8,212.5 423.4,212.5 423.4,215.5 432.8,215.5 432.8,222.4 439.8,222.4 439.8,229.2 
+                <polygon points="442.8,219.4 435.8,219.4 435.8,212.5 423.4,212.5 423.4,215.5 432.8,215.5 432.8,222.4 439.8,222.4 439.8,229.2
                   446.6,229.2 446.6,234.9 449.6,234.9 449.6,226.2 442.8,226.2 		"/>
                 <path d="M714.1,201.5v35.7h19.2v-35.7H714.1z M730.3,234.2h-13.2v-29.7h13.2V234.2z"/>
                 <path d="M585.1,237h65.1v-28.1h-65.1V237z M588.1,211.9h59.1V234h-59.1V211.9z"/>
               </g>
-              
-            </g>
-         </svg>          
- 
-            
-            </p>
-          
-     
-        </div><!--/.cta-text -->
-       
-      
-       
 
-       
-          
-       
-        
+            </g>
+         </svg>
+
+
+            </p>
+
+
+        </div><!--/.cta-text -->
+
+
+
+
+
+
+
+
       </div><!--/.cta-espacio -->
