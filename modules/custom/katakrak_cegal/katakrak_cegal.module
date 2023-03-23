@@ -5,7 +5,7 @@
  */
 function katakrak_cegal_menu() {
   $items = array();
-  
+
   $items['admin/commerce/config/cegal'] = array(
     'title' => 'Cegal',
     'description' => 'Cegal',
@@ -106,7 +106,7 @@ function katakrak_cegal_settings_form($form, &$form_state) {
       ),
       '#default_value' => 0
     );
-    
+
     $form['submit'] = array(
       '#type' => 'submit',
       '#value' => 'enviar'
@@ -115,9 +115,10 @@ function katakrak_cegal_settings_form($form, &$form_state) {
 }
 
 function katakrak_cegal_settings_form_submit($form, &$form_state) {
-  variable_set('cegal_user', $form_state['input']['cegal_user']);variable_set('cegal_clave', $form_state['input']['cegal_clave']);
+  variable_set('cegal_user', $form_state['input']['cegal_user']);
+  variable_set('cegal_clave', $form_state['input']['cegal_clave']);
   $distribuidores = variable_get('distribuidores_confianza', array());
-  
+
   foreach($distribuidores as $key => $distri) {
     if (empty($form_state['values'][$key.'_sinli_id'])) {//Si vacias el id se borra el distribuidor
       unset($distribuidores[$key]);
@@ -137,9 +138,9 @@ function katakrak_cegal_settings_form_submit($form, &$form_state) {
         'plazo' => $form_state['values'][$key.'_plazo'],
       );
     }
-      
+
   }
-  
+
   if (!empty($form_state['input']['sinli_id'])) {
     $distribuidores[$form_state['values']['sinli_id']] = array(
       'sinli_id' => $form_state['values']['sinli_id'],
@@ -165,7 +166,7 @@ function katakrak_cegal_batch_process_form($form, &$form_state) {
 }
 
 function katakrak_cegal_batch_process_form_submit($form, &$form_state) {
-  
+
   $sin_portada = $form_state['values']['sin_portada'];
   if ($form_state['clicked_button']['#value'] == 'enviar'){
     $batch = array(
@@ -181,7 +182,7 @@ function katakrak_cegal_batch_process_form_submit($form, &$form_state) {
 
 /**
  * Batch function to process all the items
- * 
+ *
  * @param type $context
  */
 function katakrak_cegal_batch_process($sin_portada, &$context){
@@ -200,15 +201,15 @@ function katakrak_cegal_batch_process($sin_portada, &$context){
     $context['results']['si_portada'] = 0;
     $context['results']['no_portada'] = 0;
   }
-  
+
   $cegal = new CegalSearch(variable_get('cegal_user', ''), variable_get('cegal_clave', ''));
   $i = 0;
   while ($i < 10) {
     $nid = $result[$context['sandbox']['progress']]->nid;
-    
+
     $node = node_load($nid);
     $image = $cegal->cover($node->field_libro_isbn['und'][0]['value']);
-    
+
     if ($image) {
       $file = create_cover($image['data'], $node->field_libro_isbn['und'][0]['value'].'.'.$image['format']);
       if (!empty($file)) {
@@ -222,11 +223,11 @@ function katakrak_cegal_batch_process($sin_portada, &$context){
     }
     else
       $context['results']['no_portada']++;
-    
+
     $i++;
     $context['sandbox']['progress'] += 1;
   }
-  
+
   $context['message'] = t("Processed @progress of @max books", array('@progress' => $context['sandbox']['progress'], '@max' => $context['sandbox']['max']));
   if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
     $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
@@ -253,7 +254,7 @@ function katakrak_cegal_portada_form ($form, &$form_state, $node) {
   $cegal = new CegalSearch(variable_get('cegal_user', ''), variable_get('cegal_clave', ''));
   $image = $cegal->cover($isbn);
   $ficha = $cegal->ficha($isbn);
-  
+
   $form['imagen'] = array(
     '#type' => 'item',
     '#markup' => '<img src="data:image/jpg;base64, '.$image['image'].'" alt="Red dot" />'
@@ -274,7 +275,7 @@ function katakrak_cegal_portada_form ($form, &$form_state, $node) {
 }
 
 function katakrak_cegal_portada_form_submit ($form, &$form_state) {
-  
+
   $node = $form_state['build_info']['args'][0];
   $file = create_cover($form_state['values']['image_data'], $form_state['values']['filename']);
   if (!empty($file)) {
@@ -290,10 +291,10 @@ function distribuidores_plazo($plazo) {
     case 1:
       return t("2-3");
       break;
-    case 2: 
+    case 2:
       return t("4-5");
       break;
-    case 3: 
+    case 3:
       return t("7");
       break;
   }
