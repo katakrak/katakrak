@@ -128,7 +128,7 @@ function katakrak_agenda_context_default_contexts() {
         'katakrak_agenda-katakrak_agenda_search' => array(
           'delta' => 'katakrak_agenda_search',
           'module' => 'katakrak_agenda',
-          'region' => 'content_top_right',
+          'region' => 'content_top',
           'weight' => '-10',
         ),
       ),
