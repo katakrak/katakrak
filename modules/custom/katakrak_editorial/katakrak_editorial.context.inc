@@ -121,7 +121,7 @@ function katakrak_editorial_context_default_contexts() {
     ),
     'views' => array(
       'values' => array(
-        'editorial:page_catalogo' => 'editorial:page_catalogo',
+        'editorial:page_2' => 'editorial:page_2',
       ),
     ),
   );
