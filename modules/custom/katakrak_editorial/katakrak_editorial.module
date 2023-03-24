@@ -66,11 +66,11 @@ function katakrak_editorial_block_view($delta) {
       break; */
     case 'katakrak_editorial_nav_submenu':
       $links = array(
-        l(t('Acerca de la editorial'), 'editorial'),
-        l(t('Catálogo'), 'editorial/catalogo'),
-        l(t('Autoras'), 'editorial/autores'),
-        l(t('En los medios'), 'editorial/medios'),
-        l(t('Distribución'), 'editorial/distribucion'),
+        l(t('Acerca de la editorial'), t('editorial')),
+        l(t('Catálogo'), t('editorial/catalogo')),
+        l(t('Autoras'), t('editorial/autores')),
+        l(t('En los medios'), t('editorial/medios')),
+        l(t('Distribución'), t('editorial/distribucion')),
       );
       $block['content'] = theme("katakrak_navbar_submenu", array('links' => $links));
       break;
