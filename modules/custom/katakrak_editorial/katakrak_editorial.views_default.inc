@@ -342,6 +342,14 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['fields']['field_autor_apellido']['element_type'] = 'h3';
   $handler->display->display_options['fields']['field_autor_apellido']['element_class'] = 'h3-small mt-0 text-center';
   $handler->display->display_options['fields']['field_autor_apellido']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_autor_apellido']['type'] = 'title_linked';
+  $handler->display->display_options['fields']['field_autor_apellido']['settings'] = array(
+    'title_style' => '_none',
+    'title_link' => 'content',
+    'enable_trim' => 0,
+    'trim_length' => '50',
+    'title_class' => '',
+  );
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Eremua: Nombre y apellido (field_autor_apellido) */
   $handler->display->display_options['sorts']['field_autor_apellido_value']['id'] = 'field_autor_apellido_value';
@@ -830,7 +838,13 @@ function katakrak_editorial_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
+  $handler->display->display_options['style_options']['columns_horizontal'] = '3';
+  $handler->display->display_options['style_options']['columns_vertical'] = '4';
+  $handler->display->display_options['style_options']['columns_xs'] = '12';
+  $handler->display->display_options['style_options']['columns_sm'] = '6';
+  $handler->display->display_options['style_options']['columns_md'] = '4';
+  $handler->display->display_options['style_options']['columns_lg'] = '4';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -1223,8 +1237,197 @@ function katakrak_editorial_views_default_views() {
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
   $handler->display->display_options['path'] = 'argitaletxea/katalogoa';
-  $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Catálogo';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Egileak orria */
+  $handler = $view->new_display('page', 'Egileak orria', 'page_3');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Egileak';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'mt-2 grid';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
+  $handler->display->display_options['style_options']['columns_horizontal'] = '-1';
+  $handler->display->display_options['style_options']['columns_vertical'] = '4';
+  $handler->display->display_options['style_options']['columns_xs'] = '12';
+  $handler->display->display_options['style_options']['columns_sm'] = '6';
+  $handler->display->display_options['style_options']['columns_md'] = '4';
+  $handler->display->display_options['style_options']['columns_lg'] = '2';
+  $handler->display->display_options['style_options']['column_class'] = 'col';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Eremua: Edukia: Foto */
+  $handler->display->display_options['fields']['field_imagen']['id'] = 'field_imagen';
+  $handler->display->display_options['fields']['field_imagen']['table'] = 'field_data_field_imagen';
+  $handler->display->display_options['fields']['field_imagen']['field'] = 'field_imagen';
+  $handler->display->display_options['fields']['field_imagen']['label'] = '';
+  $handler->display->display_options['fields']['field_imagen']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_imagen']['element_class'] = 'imagen-autor-ed';
+  $handler->display->display_options['fields']['field_imagen']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_imagen']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_imagen']['settings'] = array(
+    'image_style' => 'seccion',
+    'image_link' => 'content',
+  );
+  $handler->display->display_options['fields']['field_imagen']['delta_offset'] = '0';
+  /* Eremua: Eremua: Nombre y apellido */
+  $handler->display->display_options['fields']['field_autor_apellido']['id'] = 'field_autor_apellido';
+  $handler->display->display_options['fields']['field_autor_apellido']['table'] = 'field_data_field_autor_apellido';
+  $handler->display->display_options['fields']['field_autor_apellido']['field'] = 'field_autor_apellido';
+  $handler->display->display_options['fields']['field_autor_apellido']['label'] = '';
+  $handler->display->display_options['fields']['field_autor_apellido']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_autor_apellido']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_autor_apellido']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['field_autor_apellido']['element_class'] = 'h3-small mt-0 text-center';
+  $handler->display->display_options['fields']['field_autor_apellido']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Eremua: Nombre y apellido (field_autor_apellido) */
+  $handler->display->display_options['sorts']['field_autor_apellido_value']['id'] = 'field_autor_apellido_value';
+  $handler->display->display_options['sorts']['field_autor_apellido_value']['table'] = 'field_data_field_autor_apellido';
+  $handler->display->display_options['sorts']['field_autor_apellido_value']['field'] = 'field_autor_apellido_value';
+  $handler->display->display_options['sorts']['field_autor_apellido_value']['relationship'] = 'field_libro_ed_autor_nid';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Edukia: Published status */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Edukia: Mota */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'autor_ed' => 'autor_ed',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Edukia: Hizkuntza */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
+  $handler->display->display_options['filters']['language']['group'] = 1;
+  /* Filter criterion: Edukia: Tipo de autor (field_tipo_de_autor) */
+  $handler->display->display_options['filters']['field_tipo_de_autor_value']['id'] = 'field_tipo_de_autor_value';
+  $handler->display->display_options['filters']['field_tipo_de_autor_value']['table'] = 'field_data_field_tipo_de_autor';
+  $handler->display->display_options['filters']['field_tipo_de_autor_value']['field'] = 'field_tipo_de_autor_value';
+  $handler->display->display_options['filters']['field_tipo_de_autor_value']['value'] = array(
+    'escritor' => 'escritor',
+  );
+  $handler->display->display_options['path'] = 'argitaletxea/egileak';
+  $handler->display->display_options['menu']['title'] = 'Autores';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Hedabideetan */
+  $handler = $view->new_display('page', 'Hedabideetan', 'page_4');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Hedabideetan';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
+  $handler->display->display_options['style_options']['columns_horizontal'] = '3';
+  $handler->display->display_options['style_options']['columns_vertical'] = '4';
+  $handler->display->display_options['style_options']['columns_xs'] = '12';
+  $handler->display->display_options['style_options']['columns_sm'] = '6';
+  $handler->display->display_options['style_options']['columns_md'] = '4';
+  $handler->display->display_options['style_options']['columns_lg'] = '4';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Edukia: Reseñas (field_libro_ed_resenas) */
+  $handler->display->display_options['relationships']['field_libro_ed_resenas_nid']['id'] = 'field_libro_ed_resenas_nid';
+  $handler->display->display_options['relationships']['field_libro_ed_resenas_nid']['table'] = 'field_data_field_libro_ed_resenas';
+  $handler->display->display_options['relationships']['field_libro_ed_resenas_nid']['field'] = 'field_libro_ed_resenas_nid';
+  $handler->display->display_options['relationships']['field_libro_ed_resenas_nid']['required'] = TRUE;
+  $handler->display->display_options['relationships']['field_libro_ed_resenas_nid']['delta'] = '-1';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Eremua: Eremua: Imagen */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['relationship'] = 'field_libro_ed_resenas_nid';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => 'seccion',
+    'image_link' => 'content',
+  );
+  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
+  /* Eremua: Edukia: Izenburua */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['relationship'] = 'field_libro_ed_resenas_nid';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_class'] = 'book-title';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Eremua: Edukia: Post date */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'node';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['relationship'] = 'field_libro_ed_resenas_nid';
+  $handler->display->display_options['fields']['created']['label'] = '';
+  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created']['date_format'] = 'long';
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Edukia: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['relationship'] = 'field_libro_ed_resenas_nid';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Edukia: Published status */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Edukia: Mota */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'libro_ed' => 'libro_ed',
+  );
+  /* Filter criterion: Edukia: Hizkuntza */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
+  $handler->display->display_options['path'] = 'argitaletxea/hedabideetan';
+  $handler->display->display_options['menu']['title'] = 'Medios';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $handler->display->display_options['menu']['context'] = 0;
@@ -1269,6 +1472,7 @@ function katakrak_editorial_views_default_views() {
     t('Blitz'),
     t('Narrativa en euskera'),
     t('Narrativa Euskera'),
+    t('Egileak orria'),
   );
   $export['editorial'] = $view;
 
