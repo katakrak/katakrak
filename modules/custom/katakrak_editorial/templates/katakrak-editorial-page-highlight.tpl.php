@@ -10,7 +10,7 @@
       </a>
     </div>
     <div class="col-sm-6 col-md-4">
-      <a href="<?php print url('editorial/autores')?>" class="features">
+      <a href="<?php print url(t('editorial/autores'))?>" class="features">
         <p>
           <img src="/sites/all/themes/kapital/images/editorial-autoras.jpg" class="img-responsive" alt="Katakrak Cantina">
         </p>
@@ -27,6 +27,6 @@
         <p><?php print t('Para profesionales del libro') ?></p>
       </a>
     </div>
-    
+
   </div>
 </div>
