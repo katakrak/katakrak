@@ -1,7 +1,7 @@
 <div class="container mt-3">
   <div class="row">
     <div class="col-sm-6 col-md-4">
-      <a href="<?php print url('editorial/catalogo')?>" class="features">
+      <a href="<?php print url(t('editorial/catalogo'))?>" class="features">
         <p>
           <img src="/sites/all/themes/kapital/images/editorial-catalogo.jpg" class="img-responsive" alt="Katakrak Cantina">
         </p>
