@@ -31,7 +31,7 @@
 
 <?php foreach($rows as $id => $row) : ?>
   <div class="col col-xs-12 col-sm-12 col-md-6 col-lg-4">
-    <pre><?php var_dump($row); ?></pre>
+    <?php drupal_render($row); ?>
   </div>
 <?php endforeach; ?>
 </div>
