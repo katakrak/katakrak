@@ -8,7 +8,7 @@
  */
 ?>
 
- <div class="row row-posts mt-3">
+<div class="row row-posts mt-3">
 <?php foreach ($view->result as $event): ?>
   <div class="col-md-4 col-sm-6 mb-2 col-post">
     <div class="post">
