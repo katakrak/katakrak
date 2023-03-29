@@ -36,6 +36,11 @@ $date_formats = [
 $date_format = isset($date_formats[$lang_code]) ? $date_formats[$lang_code] : 'j \d\e F \d\e Y';
 $formatted_start_date = format_date($start_date_timestamp, 'custom', $date_format, $lang_code);
 $formatted_end_date = format_date($end_date_timestamp, 'custom', $date_format, $lang_code);
+
+$formatted_start_date_lower = strtolower($formatted_start_date);
+$formatted_end_date_lower = strtolower($formatted_end_date);
+
+
 ?>
 <?php
 if ( $lang_code = "es")
