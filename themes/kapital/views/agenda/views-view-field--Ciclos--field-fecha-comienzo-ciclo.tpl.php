@@ -26,20 +26,6 @@
 global $language;
 $lang_code = $language->language;
 
-function format_localized_date($timestamp, $format, $locale)
-{
-    $dateFormatter = new IntlDateFormatter(
-        $locale,
-        IntlDateFormatter::FULL,
-        IntlDateFormatter::FULL,
-        date_default_timezone_get(),
-        IntlDateFormatter::GREGORIAN,
-        $format
-    );
-
-    return $dateFormatter->format($timestamp);
-}
-
 $start_date_timestamp = strtotime($row->field_field_fecha_comienzo_ciclo[0]['raw']['value']);
 $end_date_timestamp = strtotime($row->field_field_fecha_comienzo_ciclo[0]['raw']['value2']);
 

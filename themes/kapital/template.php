@@ -33,16 +33,16 @@ function kapital_preprocess_page(&$vars) {
   global $user;
   //Añadimos fontawesom
   drupal_add_js('https://kit.fontawesome.com/10471300b3.js', 'external');
-  
+
   //Definimos enlace de donde estamos
   $vars['donde_estamos'] = l('<i class="fas fa-location-arrow" aria-hidden="true"></i> <span class="hidden-xs">'.t('¿Dónde estamos?').'</span>', 'contact', array('html' => TRUE, 'attributes' => array('target' => '_blank')));//<a href="" target="_blank">
-  
+
   //Las dos versiones del logo
   $vars['logo_small'] = 'sites/all/themes/kapital/images/katakrak-icon.svg';
   $vars['logo_medium'] = 'sites/all/themes/kapital/images/katakrak-logo.svg';
   $vars['logo_large'] = 'sites/all/themes/kapital/images/katakrak-logo-h.svg';
-  
-  
+
+
   //Generamos los links de idiomas
   $path = drupal_is_front_page() ? '<front>' : $_GET['q'];
   $links = language_negotiation_get_switch_links('language', $path);
@@ -60,7 +60,7 @@ function kapital_preprocess_page(&$vars) {
           'id' => 'dropdownIdioma'
         ),
         'language' => $link['language'],
-      );     
+      );
       $vars['current_language_link'] = l('<i class="fas fa-globe-africa small hidden-xs" aria-hidden="true"></i> '.$link['language']->prefix, $link['href'], $options);
     }
     else{
@@ -69,12 +69,12 @@ function kapital_preprocess_page(&$vars) {
   }
   $vars['href_cas'] = url($links->links['es']['href'], array('language' => $links->links['es']['language']));
   $vars['href_eus'] = url($links->links['eu']['href'], array('language' => $links->links['eu']['language']));
-  
+
   if (!user_is_anonymous()){
     $vars['user_name'] = $user->name;
     $vars['uid'] = $user->uid;
   }
-  if (user_is_anonymous()) 
+  if (user_is_anonymous())
     unset($vars['tabs']);
   //dpm($vars);
 }
@@ -83,7 +83,7 @@ function kapital_preprocess_search_result(&$vars) {
   global $user;
   if ($vars['result']['entity_type'] == 'node') {
     $node = node_load($vars['result']['node']->entity_id);
-    
+
   }
 }
 
@@ -92,7 +92,7 @@ function kapital_facetapi_title($vars) {
 }
 
 function kapital_preprocess_search_results(&$vars) {
- 
+
   foreach ($vars['results'] as $result) {
     $nids[] = $result['node']->entity_id;
   }
@@ -111,7 +111,7 @@ function kapital_preprocess_search_results(&$vars) {
  * @ingroup themable
  */
 function kapital_lt_unified_login_page($variables) {
-  
+
   $login_form = $variables['login_form'];
   $register_form = $variables['register_form'];
   $active_form = $variables['active_form'];
@@ -125,7 +125,7 @@ function kapital_lt_unified_login_page($variables) {
   $output .= '<ul class="nav nav-tabs nav-justified mt-2">';
   $output .= '<li class="active"><a href="#login" aria-controls="home" role="tab" data-toggle="tab">'.t('Ya tengo una cuenta').'</a></li>';
   $output .= '<li><a href="#signup" aria-controls="home" role="tab" data-toggle="tab">'.t('Crear nueva cuenta').'</a></li></ul>';
-          
+
   $output .= '<div class="tab-content">';
   // Add the login and registration forms in.
   $output .= '<div role="tabpanel" class="tab-pane active" id="login">' . $login_form . '</div>';
@@ -134,4 +134,18 @@ function kapital_lt_unified_login_page($variables) {
   $output .= '</div></div>';
 
   return $output;
+}
+
+function format_localized_date($timestamp, $format, $locale)
+{
+    $dateFormatter = new IntlDateFormatter(
+        $locale,
+        IntlDateFormatter::FULL,
+        IntlDateFormatter::FULL,
+        date_default_timezone_get(),
+        IntlDateFormatter::GREGORIAN,
+        $format
+    );
+
+    return $dateFormatter->format($timestamp);
 }
