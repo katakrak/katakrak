@@ -26,6 +26,9 @@
 global $language;
 $lang_code = $language->language;
 
+var_dump($language);
+var_dump($lang_code);
+
 $start_date_timestamp = strtotime($row->field_field_fecha_comienzo_ciclo[0]['raw']['value']);
 $end_date_timestamp = strtotime($row->field_field_fecha_comienzo_ciclo[0]['raw']['value2']);
 
