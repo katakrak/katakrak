@@ -42,9 +42,9 @@ $year_suffix = (substr($start_year, -1) == '1'
 || substr($start_year, -2) == '30'
 || substr($start_year, -2) == '50'
 || substr($start_year, -2) == '70'
-|| substr($start_year, -2) == '90') ? '\ek\o' : 'k\o';
-$day_suffix_start = (in_array(($start_day), [1, 5, 10, 30]))? '\e' : '';
-$month_suffix = '\r\e\n';
+|| substr($start_year, -2) == '90') ? '\'eko\'' : '\'ko\'';
+$day_suffix_start = (in_array(($start_day), [1, 5, 10, 30]))? '\'e\'' : '';
+$month_suffix = '\'ren\'';
 
 $date_format_start = "y{$year_suffix} MMMM{$month_suffix} d{$day_suffix_start}";
 //$date_format_start = "Y{$year_suffix} F{$month_suffix} j";
@@ -55,16 +55,16 @@ $year_suffix = (substr($end_year, -1) == '1'
 || substr($end_year, -2) == '30'
 || substr($end_year, -2) == '50'
 || substr($end_year, -2) == '70'
-|| substr($end_year, -2) == '90') ? 'eko' : 'ko';
-$day_suffix_end = (in_array($end_day, [1, 5, 10, 30]))? 'e' : '';
+|| substr($end_year, -2) == '90') ? '\'eko\'' : '\'ko\'';
+$day_suffix_end = (in_array($end_day, [1, 5, 10, 30]))? '\'e\'' : '';
 
-$date_format_end = "d\'{$day_suffix_end}\'";
+$date_format_end = "d{$day_suffix_end}";
 
 if($start_month != $end_month) {
-  $date_format_end = "MMMM\'{$month_suffix}\' {$date_format_end}";
+  $date_format_end = "MMMM{$month_suffix} {$date_format_end}";
 }
 if( $start_year != $end_year ) {
-  $date_format_end = "y\'{$year_suffix}\' {$date_format_end}";
+  $date_format_end = "y{$year_suffix} {$date_format_end}";
 }
 
 $date_formats = [
