@@ -45,7 +45,8 @@ $day_suffix = (substr($start_day, -1) == '1'
 || substr($start_day, -1) == '5'
 || substr($start_day, -1) == '10'
 || substr($start_day, -1) == '30') ? '\e' : '';
-$date_format_start = "Y{$year_suffix} F\r\e\n j{$day_suffix}";
+$month_suffix = '\r\e\n';
+$date_format_start = "Y{$year_suffix} F{$month_suffix} j{$day_suffix}";
 
 $year_suffix = (substr($end_year, -1) == '1'
 || substr($start_year, -1) == '5'
@@ -58,7 +59,8 @@ $day_suffix = (substr($end_day, -1) == '1'
 || substr($start_day, -1) == '5'
 || substr($start_day, -1) == '10'
 || substr($start_day, -1) == '30') ? '\e' : '';
-$date_format_end = "Y{$year_suffix} F\r\e\n j{$day_suffix}";
+
+$date_format_end = "Y{$year_suffix} F{$month_suffix} j{$day_suffix}";
 
 $date_formats = [
   'es' => 'j \d\e F \d\e Y',
