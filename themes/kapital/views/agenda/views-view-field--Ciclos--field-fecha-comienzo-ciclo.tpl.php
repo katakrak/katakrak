@@ -26,4 +26,4 @@
 
 FECHA
 
-//$row->field_field_fecha_comienzo_ciclo[0]['raw']['value']
+<?php $row->field_field_fecha_comienzo_ciclo[0]['raw']['value'];  ?>
