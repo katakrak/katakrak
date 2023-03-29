@@ -41,7 +41,7 @@ $formatted_end_date = format_date($end_date_timestamp, 'custom', $date_format, $
 $formatted_start_date_lower = strtolower($formatted_start_date);
 $formatted_end_date_lower = strtolower($formatted_end_date);
 
-
+var_dump($lang_code);
 ?>
 <?php
 if ( $lang_code = "es") {
