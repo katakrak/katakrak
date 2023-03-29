@@ -32,7 +32,7 @@ $end_date_timestamp = strtotime($row->field_field_fecha_comienzo_ciclo[0]['raw']
 
 $date_formats = [
   'es' => 'j \d\e F \d\e Y',
-  'eu' => 'Yk\o F(\r)\e\n j(\a)',
+  'eu' => 'Yk\o F\r\e\n j',
 ];
 $date_format = isset($date_formats[$lang_code]) ? $date_formats[$lang_code] : 'j \d\e F \d\e Y';
 $formatted_start_date = format_date($start_date_timestamp, 'custom', $date_format, $lang_code);
@@ -46,6 +46,6 @@ $formatted_end_date_lower = strtolower($formatted_end_date);
 if ( $lang_code == "es") {
   print "Del " . $formatted_start_date_lower . " al " . $formatted_end_date_lower;
 } elseif ( $lang_code == "eu") {
-  print $formatted_start_date_lower . "(e)tik" . $formatted_end_date_lower ."(e)ra";
+  print $formatted_start_date_lower . "(e)tik " . $formatted_end_date_lower ."(e)ra";
 }
 ?>
