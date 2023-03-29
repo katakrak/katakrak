@@ -43,8 +43,9 @@ $formatted_end_date_lower = strtolower($formatted_end_date);
 
 ?>
 <?php
-if ( $lang_code = "es")
+if ( $lang_code = "cas") {
   print "Del " . $formatted_start_date . " al " . $formatted_end_date;
-else
+} else {
   print $formatted_start_date . "(e)tik" . $formatted_end_date ."(e)ra";
+}
 ?>
