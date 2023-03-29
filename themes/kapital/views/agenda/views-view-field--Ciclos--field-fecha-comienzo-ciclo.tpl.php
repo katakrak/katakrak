@@ -35,7 +35,8 @@ $start_month = date('F', $start_date_timestamp);
 $end_year = date('Y', $end_date_timestamp);
 $end_day = date('j', $end_date_timestamp);
 $end_month = date('F', $end_date_timestamp);
-
+var_dump($start_day);
+var_dump($end_day);
 $year_suffix = (substr($start_year, -1) == '1'
 || substr($start_year, -1) == '5'
 || substr($start_year, -2) == '10'
