@@ -26,6 +26,20 @@
 global $language;
 $lang_code = $language->language;
 
+function format_localized_date($timestamp, $format, $locale)
+{
+    $dateFormatter = new IntlDateFormatter(
+        $locale,
+        IntlDateFormatter::FULL,
+        IntlDateFormatter::FULL,
+        date_default_timezone_get(),
+        IntlDateFormatter::GREGORIAN,
+        $format
+    );
+
+    return $dateFormatter->format($timestamp);
+}
+
 $start_date_timestamp = strtotime($row->field_field_fecha_comienzo_ciclo[0]['raw']['value']);
 $end_date_timestamp = strtotime($row->field_field_fecha_comienzo_ciclo[0]['raw']['value2']);
 
@@ -46,7 +60,7 @@ $year_suffix = (substr($start_year, -1) == '1'
 || substr($start_year, -2) == '50'
 || substr($start_year, -2) == '70'
 || substr($start_year, -2) == '90') ? '\ek\o' : 'k\o';
-$day_suffix_start = (in_array(($start_day+1), [1, 5, 10, 30]))? '\e' : '';
+$day_suffix_start = (in_array(($start_day), [1, 5, 10, 30]))? '\e' : '';
 $month_suffix = '\r\e\n';
 
 $date_format_start = "Y{$year_suffix} F{$month_suffix} j{$day_suffix_start}";
@@ -61,17 +75,17 @@ $year_suffix = (substr($end_year, -1) == '1'
 || substr($end_year, -2) == '90') ? '\ek\o' : 'k\o';
 $day_suffix_end = (in_array($end_day, [1, 5, 10, 30]))? '\e' : '';
 
-$date_format_end = "j{$day_suffix_end}";
+$date_format_end = "d{$day_suffix_end}";
 
 if($start_month != $end_month) {
-  $date_format_end = "F{$month_suffix} {$date_format_end}";
+  $date_format_end = "MMMM{$month_suffix} {$date_format_end}";
 }
 if( $start_year != $end_year ) {
-  $date_format_end = "Y{$year_suffix} {$date_format_end}";
+  $date_format_end = "y{$year_suffix} {$date_format_end}";
 }
 
 $date_formats = [
-  'es' => 'j \d\e F \d\e Y',
+  'es' => 'd \'de\' MMMM \'de\' y',
   'eu_start' => $date_format_start,
   'eu_end' => $date_format_end,
 ];
@@ -79,8 +93,11 @@ $date_formats = [
 $date_format_start = isset($date_formats[$lang_code . '_start']) ? $date_formats[$lang_code . '_start'] : 'j \d\e F \d\e Y';
 $date_format_end = isset($date_formats[$lang_code . '_end']) ? $date_formats[$lang_code . '_end'] : 'j \d\e F \d\e Y';
 
-$formatted_start_date = date($date_format_start, $start_date_timestamp);
-$formatted_end_date = date($date_format_end, $end_date_timestamp);
+$formatted_start_date = format_localized_date($start_date_timestamp, $date_format_start, $lang_code."_ES");
+$formatted_end_date = format_localized_date($end_date_timestamp, $date_format_end, $lang_code."_ES");
+
+//$formatted_start_date = date($date_format_start, $start_date_timestamp);
+//$formatted_end_date = date($date_format_end, $end_date_timestamp);
 
 /* echo "PHP Start Date: " . $php_formatted_start_date . "<br>";
 echo "PHP End Date: " . $php_formatted_end_date . "<br>"; */
