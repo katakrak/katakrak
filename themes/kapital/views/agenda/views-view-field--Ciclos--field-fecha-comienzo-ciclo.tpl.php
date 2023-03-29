@@ -43,11 +43,3 @@ if ( $lang_code = "es")
 else
   print $formatted_start_date . "(e)tik" . $formatted_end_date ."(e)ra";
 ?>
-
-
-FECHA
-<pre>
-  <?php var_dump( $row->field_field_fecha_comienzo_ciclo[0]['raw']['value'] ); ?>
-</pre>
-
-<?php echo $row->field_field_fecha_comienzo_ciclo[0]['raw']['value'];  ?>
