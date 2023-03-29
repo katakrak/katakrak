@@ -58,13 +58,13 @@ $year_suffix = (substr($end_year, -1) == '1'
 || substr($end_year, -2) == '90') ? '\ek\o' : 'k\o';
 $day_suffix_end = (in_array($end_day, [1, 5, 10, 30]))? '\e' : '';
 
-$date_format_end = "d{$day_suffix_end}";
+$date_format_end = "d\'{$day_suffix_end}\'";
 
 if($start_month != $end_month) {
-  $date_format_end = "MMMM{$month_suffix} {$date_format_end}";
+  $date_format_end = "MMMM\'{$month_suffix}\' {$date_format_end}";
 }
 if( $start_year != $end_year ) {
-  $date_format_end = "y{$year_suffix} {$date_format_end}";
+  $date_format_end = "y\'{$year_suffix}\' {$date_format_end}";
 }
 
 $date_formats = [
@@ -73,8 +73,8 @@ $date_formats = [
   'eu_end' => $date_format_end,
 ];
 
-$date_format_start = isset($date_formats[$lang_code . '_start']) ? $date_formats[$lang_code . '_start'] : 'j \d\e F \d\e Y';
-$date_format_end = isset($date_formats[$lang_code . '_end']) ? $date_formats[$lang_code . '_end'] : 'j \d\e F \d\e Y';
+$date_format_start = isset($date_formats[$lang_code . '_start']) ? $date_formats[$lang_code . '_start'] : 'd \'de\' MMMM \'de\' y';
+$date_format_end = isset($date_formats[$lang_code . '_end']) ? $date_formats[$lang_code . '_end'] : 'd \'de\' MMMM \'de\' y';
 
 $formatted_start_date = format_localized_date(
   $start_date_timestamp,
