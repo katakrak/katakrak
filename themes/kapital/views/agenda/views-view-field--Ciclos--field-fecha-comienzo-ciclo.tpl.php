@@ -55,8 +55,8 @@ $year_suffix = (substr($end_year, -1) == '1'
 || substr($end_year, -2) == '30'
 || substr($end_year, -2) == '50'
 || substr($end_year, -2) == '70'
-|| substr($end_year, -2) == '90') ? '\ek\o' : 'k\o';
-$day_suffix_end = (in_array($end_day, [1, 5, 10, 30]))? '\e' : '';
+|| substr($end_year, -2) == '90') ? 'eko' : 'ko';
+$day_suffix_end = (in_array($end_day, [1, 5, 10, 30]))? 'e' : '';
 
 $date_format_end = "d\'{$day_suffix_end}\'";
 
