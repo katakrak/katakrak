@@ -46,7 +46,7 @@ $year_suffix = (substr($start_year, -1) == '1'
 || substr($start_year, -2) == '50'
 || substr($start_year, -2) == '70'
 || substr($start_year, -2) == '90') ? '\ek\o' : 'k\o';
-$day_suffix_start = (in_array($start_day, [1, 5, 10, 30]))? '\e' : '';
+$day_suffix_start = (in_array(($start_day+1), [1, 5, 10, 30]))? '\e' : '';
 $month_suffix = '\r\e\n';
 
 $date_format_start = "Y{$year_suffix} F{$month_suffix} j{$day_suffix_start}";
@@ -78,6 +78,13 @@ $date_formats = [
 
 $date_format_start = isset($date_formats[$lang_code . '_start']) ? $date_formats[$lang_code . '_start'] : 'j \d\e F \d\e Y';
 $date_format_end = isset($date_formats[$lang_code . '_end']) ? $date_formats[$lang_code . '_end'] : 'j \d\e F \d\e Y';
+
+$php_formatted_start_date = date($date_format_start, $start_date_timestamp);
+$php_formatted_end_date = date($date_format_end, $end_date_timestamp);
+
+echo "PHP Start Date: " . $php_formatted_start_date . "<br>";
+echo "PHP End Date: " . $php_formatted_end_date . "<br>";
+
 $formatted_start_date = format_date(
                           $start_date_timestamp,
                           'custom',
