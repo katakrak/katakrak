@@ -93,8 +93,14 @@ $date_formats = [
 $date_format_start = isset($date_formats[$lang_code . '_start']) ? $date_formats[$lang_code . '_start'] : 'j \d\e F \d\e Y';
 $date_format_end = isset($date_formats[$lang_code . '_end']) ? $date_formats[$lang_code . '_end'] : 'j \d\e F \d\e Y';
 
-$formatted_start_date = format_localized_date($start_date_timestamp, $date_format_start, $lang_code."_ES");
-$formatted_end_date = format_localized_date($end_date_timestamp, $date_format_end, $lang_code."_ES");
+$formatted_start_date = format_localized_date(
+  $start_date_timestamp,
+  $date_format_start,
+  $lang_code."_ES");
+$formatted_end_date = format_localized_date(
+  $end_date_timestamp,
+  $date_format_end,
+  $lang_code."_ES");
 
 //$formatted_start_date = date($date_format_start, $start_date_timestamp);
 //$formatted_end_date = date($date_format_end, $end_date_timestamp);
