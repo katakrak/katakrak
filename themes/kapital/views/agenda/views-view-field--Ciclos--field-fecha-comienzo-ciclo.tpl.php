@@ -31,8 +31,10 @@ $end_date_timestamp = strtotime($row->field_field_fecha_comienzo_ciclo[0]['raw']
 
 $start_year = date('Y', $start_date_timestamp);
 $start_day = date('j', $start_date_timestamp);
+$start_month = date('F', $start_date_timestamp);
 $end_year = date('Y', $end_date_timestamp);
 $end_day = date('j', $end_date_timestamp);
+$end_month = date('F', $end_date_timestamp);
 
 $year_suffix = (substr($start_year, -1) == '1'
 || substr($start_year, -1) == '5'
@@ -44,8 +46,8 @@ $year_suffix = (substr($start_year, -1) == '1'
 $day_suffix_start = (in_array($start_day, [1, 5, 10, 30]))? '\e' : '';
 $month_suffix = '\r\e\n';
 
-//$date_format_start = "Y{$year_suffix} F{$month_suffix} j{$day_suffix_start}";
-$date_format_start = "Y{$year_suffix} F{$month_suffix} j";
+$date_format_start = "Y{$year_suffix} F{$month_suffix} j{$day_suffix_start}";
+//$date_format_start = "Y{$year_suffix} F{$month_suffix} j";
 
 $year_suffix = (substr($end_year, -1) == '1'
 || substr($end_year, -1) == '5'
@@ -56,12 +58,13 @@ $year_suffix = (substr($end_year, -1) == '1'
 || substr($end_year, -2) == '90') ? '\ek\o' : 'k\o';
 $day_suffix_end = (in_array($end_day, [1, 5, 10, 30]))? '\e' : '';
 
-if( $start_year == $end_year ) {
-  //$date_format_end = "F{$month_suffix} j{$day_suffix_end}";
-  $date_format_end = "F{$month_suffix} j";
-} else {
-  //$date_format_end = "Y{$year_suffix} F{$month_suffix} j{$day_suffix_end}";
-  $date_format_end = "Y{$year_suffix} F{$month_suffix} j";
+$date_format_end = "j{$day_suffix_end}";
+
+if($start_month != $end_month) {
+  $date_format_end = "F{$month_suffix} {$date_format_end}";
+}
+if( $start_year != $end_year ) {
+  $date_format_end = "Y{$year_suffix} {$date_format_end}";
 }
 
 $date_formats = [
