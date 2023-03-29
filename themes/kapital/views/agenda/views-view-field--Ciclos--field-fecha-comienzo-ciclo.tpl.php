@@ -58,10 +58,7 @@ $day_suffix = (substr($end_day, -1) == '1'
 || substr($start_day, -1) == '5'
 || substr($start_day, -1) == '10'
 || substr($start_day, -1) == '30') ? '\e' : '';
-$date_format_end = "Y{$year_suffix} F(\r)en j{$day_suffix}";
-
-
-
+$date_format_end = "Y{$year_suffix} F\r\e\n j{$day_suffix}";
 
 $date_formats = [
   'es' => 'j \d\e F \d\e Y',
