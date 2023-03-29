@@ -41,7 +41,7 @@ $year_suffix = (substr($start_year, -1) == '1'
 || substr($start_year, -2) == '50'
 || substr($start_year, -2) == '70'
 || substr($start_year, -2) == '90') ? '\ek\o' : 'k\o';
-$day_suffix = (in_array($start_day, [5, 10, 30]) ? '\e' : '';
+$day_suffix = (in_array($start_day, [5, 10, 30])) ? '\e' : '';
 $month_suffix = '\r\e\n';
 $date_format_start = "Y{$year_suffix} F{$month_suffix} j{$day_suffix}";
 
