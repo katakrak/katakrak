@@ -49,16 +49,16 @@ $month_suffix = '\r\e\n';
 $date_format_start = "Y{$year_suffix} F{$month_suffix} j{$day_suffix}";
 
 $year_suffix = (substr($end_year, -1) == '1'
-|| substr($start_year, -1) == '5'
-|| substr($start_year, -2) == '10'
-|| substr($start_year, -2) == '30'
-|| substr($start_year, -2) == '50'
-|| substr($start_year, -2) == '70'
-|| substr($start_year, -2) == '90') ? '\ek\o' : 'k\o';
+|| substr($end_year, -1) == '5'
+|| substr($end_year, -2) == '10'
+|| substr($end_year, -2) == '30'
+|| substr($end_year, -2) == '50'
+|| substr($end_year, -2) == '70'
+|| substr($end_year, -2) == '90') ? '\ek\o' : 'k\o';
 $day_suffix = (substr($end_day, -1) == '1'
-|| substr($start_day, -1) == '5'
-|| substr($start_day, -1) == '10'
-|| substr($start_day, -1) == '30') ? '\e' : '';
+|| substr($end_day, -1) == '5'
+|| substr($end_day, -1) == '10'
+|| substr($end_day, -1) == '30') ? '\e' : '';
 
 if( $start_year == $end_year ) {
   $date_format_end = "F{$month_suffix} j{$day_suffix}";
