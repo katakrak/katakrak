@@ -25,5 +25,8 @@
 
 
 FECHA
+<pre>
+  <?php var_dump( $row->field_field_fecha_comienzo_ciclo[0]['raw']['value'] ); ?>
+</pre>
 
-<?php $row->field_field_fecha_comienzo_ciclo[0]['raw']['value'];  ?>
+<?php echo $row->field_field_fecha_comienzo_ciclo[0]['raw']['value'];  ?>
