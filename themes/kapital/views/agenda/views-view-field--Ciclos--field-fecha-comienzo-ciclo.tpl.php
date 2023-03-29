@@ -79,13 +79,13 @@ $date_formats = [
 $date_format_start = isset($date_formats[$lang_code . '_start']) ? $date_formats[$lang_code . '_start'] : 'j \d\e F \d\e Y';
 $date_format_end = isset($date_formats[$lang_code . '_end']) ? $date_formats[$lang_code . '_end'] : 'j \d\e F \d\e Y';
 
-$php_formatted_start_date = date($date_format_start, $start_date_timestamp);
-$php_formatted_end_date = date($date_format_end, $end_date_timestamp);
+$formatted_start_date = date($date_format_start, $start_date_timestamp);
+$formatted_end_date = date($date_format_end, $end_date_timestamp);
 
-echo "PHP Start Date: " . $php_formatted_start_date . "<br>";
-echo "PHP End Date: " . $php_formatted_end_date . "<br>";
+/* echo "PHP Start Date: " . $php_formatted_start_date . "<br>";
+echo "PHP End Date: " . $php_formatted_end_date . "<br>"; */
 
-$formatted_start_date = format_date(
+/* $formatted_start_date = format_date(
                           $start_date_timestamp,
                           'custom',
                           $date_format_start,
@@ -94,7 +94,7 @@ $formatted_end_date = format_date(
                           $end_date_timestamp,
                           'custom',
                           $date_format_end,
-                          $lang_code);
+                          $lang_code); */
 
 $formatted_start_date_lower = strtolower($formatted_start_date);
 $formatted_end_date_lower = strtolower($formatted_end_date);
