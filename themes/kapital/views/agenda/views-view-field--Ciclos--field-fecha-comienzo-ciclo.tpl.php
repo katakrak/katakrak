@@ -41,12 +41,11 @@ $formatted_end_date = format_date($end_date_timestamp, 'custom', $date_format, $
 $formatted_start_date_lower = strtolower($formatted_start_date);
 $formatted_end_date_lower = strtolower($formatted_end_date);
 
-var_dump($lang_code);
 ?>
 <?php
-if ( $lang_code = "es") {
+if ( $lang_code == "es") {
   print "Del " . $formatted_start_date_lower . " al " . $formatted_end_date_lower;
-} elseif ( $lang_code = "eu") {
+} elseif ( $lang_code == "eu") {
   print $formatted_start_date_lower . "(e)tik" . $formatted_end_date_lower ."(e)ra";
 }
 ?>
