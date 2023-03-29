@@ -26,8 +26,6 @@
 global $language;
 $lang_code = $language->language;
 
-var_dump($language);
-var_dump($lang_code);
 
 $start_date_timestamp = strtotime($row->field_field_fecha_comienzo_ciclo[0]['raw']['value']);
 $end_date_timestamp = strtotime($row->field_field_fecha_comienzo_ciclo[0]['raw']['value2']);
@@ -46,9 +44,9 @@ $formatted_end_date_lower = strtolower($formatted_end_date);
 
 ?>
 <?php
-if ( $lang_code = "cas") {
-  print "Del " . $formatted_start_date . " al " . $formatted_end_date;
-} else {
-  print $formatted_start_date . "(e)tik" . $formatted_end_date ."(e)ra";
+if ( $lang_code = "es") {
+  print "Del " . $formatted_start_date_lower . " al " . $formatted_end_date_lower;
+} elseif ( $lang_code = "eu") {
+  print $formatted_start_date_lower . "(e)tik" . $formatted_end_date_lower ."(e)ra";
 }
 ?>
