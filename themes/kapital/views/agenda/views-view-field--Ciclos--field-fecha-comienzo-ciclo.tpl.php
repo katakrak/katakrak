@@ -26,17 +26,53 @@
 global $language;
 $lang_code = $language->language;
 
-
 $start_date_timestamp = strtotime($row->field_field_fecha_comienzo_ciclo[0]['raw']['value']);
 $end_date_timestamp = strtotime($row->field_field_fecha_comienzo_ciclo[0]['raw']['value2']);
 
+$start_year = date('Y', $start_date_timestamp);
+$start_day = date('j', $start_date_timestamp);
+$end_year = date('Y', $end_date_timestamp);
+$end_day = date('j', $end_date_timestamp);
+
+$year_suffix = (substr($start_year, -1) == '1'
+|| substr($start_year, -1) == '5'
+|| substr($start_year, -2) == '10'
+|| substr($start_year, -2) == '30'
+|| substr($start_year, -2) == '50'
+|| substr($start_year, -2) == '70'
+|| substr($start_year, -2) == '90') ? '\ek\o' : 'k\o';
+$day_suffix = (substr($start_day, -1) == '1'
+|| substr($start_day, -1) == '5'
+|| substr($start_day, -1) == '10'
+|| substr($start_day, -1) == '30') ? '\e' : '';
+$date_format_start = "Y{$year_suffix} F(\r)en j{$day_suffix}";
+
+$year_suffix = (substr($end_year, -1) == '1'
+|| substr($start_year, -1) == '5'
+|| substr($start_year, -2) == '10'
+|| substr($start_year, -2) == '30'
+|| substr($start_year, -2) == '50'
+|| substr($start_year, -2) == '70'
+|| substr($start_year, -2) == '90') ? '\ek\o' : 'k\o';
+$day_suffix = (substr($end_day, -1) == '1'
+|| substr($start_day, -1) == '5'
+|| substr($start_day, -1) == '10'
+|| substr($start_day, -1) == '30') ? '\e' : '';
+$date_format_end = "Y{$year_suffix} F(\r)en j{$day_suffix}";
+
+
+
+
 $date_formats = [
   'es' => 'j \d\e F \d\e Y',
-  'eu' => 'Yk\o F\r\e\n j',
+  'eu_start' => $date_format_start,
+  'eu_end' => $date_format_end,
 ];
-$date_format = isset($date_formats[$lang_code]) ? $date_formats[$lang_code] : 'j \d\e F \d\e Y';
-$formatted_start_date = format_date($start_date_timestamp, 'custom', $date_format, $lang_code);
-$formatted_end_date = format_date($end_date_timestamp, 'custom', $date_format, $lang_code);
+
+$date_format_start = isset($date_formats[$lang_code . '_start']) ? $date_formats[$lang_code . '_start'] : 'j \d\e F \d\e Y';
+$date_format_end = isset($date_formats[$lang_code . '_end']) ? $date_formats[$lang_code . '_end'] : 'j \d\e F \d\e Y';
+$formatted_start_date = format_date($start_date_timestamp, 'custom', $date_format_start, $lang_code);
+$formatted_end_date = format_date($end_date_timestamp, 'custom', $date_format_end, $lang_code);
 
 $formatted_start_date_lower = strtolower($formatted_start_date);
 $formatted_end_date_lower = strtolower($formatted_end_date);
@@ -46,6 +82,6 @@ $formatted_end_date_lower = strtolower($formatted_end_date);
 if ( $lang_code == "es") {
   print "Del " . $formatted_start_date_lower . " al " . $formatted_end_date_lower;
 } elseif ( $lang_code == "eu") {
-  print $formatted_start_date_lower . "(e)tik " . $formatted_end_date_lower ."(e)ra";
+  print $formatted_start_date_lower . "tik " . $formatted_end_date_lower ."ra";
 }
 ?>
