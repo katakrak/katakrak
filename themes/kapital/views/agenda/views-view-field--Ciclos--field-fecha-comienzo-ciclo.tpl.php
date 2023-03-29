@@ -41,8 +41,9 @@ $year_suffix = (substr($start_year, -1) == '1'
 || substr($start_year, -2) == '50'
 || substr($start_year, -2) == '70'
 || substr($start_year, -2) == '90') ? '\ek\o' : 'k\o';
-$day_suffix_start = (in_array($start_day, [1, 5, 10, 30])) ? '\e' : '';
+$day_suffix_start = (in_array($start_day, [1, 5, 10, 30]))? '\e' : '';
 $month_suffix = '\r\e\n';
+
 $date_format_start = "Y{$year_suffix} F{$month_suffix} j{$day_suffix_start}";
 
 $year_suffix = (substr($end_year, -1) == '1'
@@ -52,7 +53,7 @@ $year_suffix = (substr($end_year, -1) == '1'
 || substr($end_year, -2) == '50'
 || substr($end_year, -2) == '70'
 || substr($end_year, -2) == '90') ? '\ek\o' : 'k\o';
-$day_suffix_end = (in_array($end_day, [1, 5, 10, 30])) ? '\e' : '';
+$day_suffix_end = (in_array($end_day, [1, 5, 10, 30]))? '\e' : '';
 
 if( $start_year == $end_year ) {
   $date_format_end = "F{$month_suffix} j{$day_suffix_end}";
@@ -68,14 +69,20 @@ $date_formats = [
 
 $date_format_start = isset($date_formats[$lang_code . '_start']) ? $date_formats[$lang_code . '_start'] : 'j \d\e F \d\e Y';
 $date_format_end = isset($date_formats[$lang_code . '_end']) ? $date_formats[$lang_code . '_end'] : 'j \d\e F \d\e Y';
-$formatted_start_date = format_date($start_date_timestamp, 'custom', $date_format_start, $lang_code);
-$formatted_end_date = format_date($end_date_timestamp, 'custom', $date_format_end, $lang_code);
+$formatted_start_date = format_date(
+                          $start_date_timestamp,
+                          'custom',
+                          $date_format_start,
+                          $lang_code);
+$formatted_end_date = format_date(
+                          $end_date_timestamp,
+                          'custom',
+                          $date_format_end,
+                          $lang_code);
 
 $formatted_start_date_lower = strtolower($formatted_start_date);
 $formatted_end_date_lower = strtolower($formatted_end_date);
 
-?>
-<?php
 if ( $lang_code == "es") {
   print "Del " . $formatted_start_date_lower . " al " . $formatted_end_date_lower;
 } elseif ( $lang_code == "eu") {
