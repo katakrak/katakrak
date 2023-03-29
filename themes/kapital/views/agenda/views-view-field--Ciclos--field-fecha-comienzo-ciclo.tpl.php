@@ -60,7 +60,11 @@ $day_suffix = (substr($end_day, -1) == '1'
 || substr($start_day, -1) == '10'
 || substr($start_day, -1) == '30') ? '\e' : '';
 
-$date_format_end = "Y{$year_suffix} F{$month_suffix} j{$day_suffix}";
+if( $start_year == $end_year ) {
+  $date_format_end = "F{$month_suffix} j{$day_suffix}";
+} else {
+  $date_format_end = "Y{$year_suffix} F{$month_suffix} j{$day_suffix}";
+}
 
 $date_formats = [
   'es' => 'j \d\e F \d\e Y',
