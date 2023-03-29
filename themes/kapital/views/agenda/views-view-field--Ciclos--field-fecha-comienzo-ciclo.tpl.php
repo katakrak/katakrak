@@ -41,7 +41,7 @@ $year_suffix = (substr($start_year, -1) == '1'
 || substr($start_year, -2) == '50'
 || substr($start_year, -2) == '70'
 || substr($start_year, -2) == '90') ? '\ek\o' : 'k\o';
-$day_suffix = (in_array($start_day, [5, 10, 30])) ? '\e' : '';
+$day_suffix = (in_array($start_day, [1, 5, 10, 30])) ? '\e' : '';
 $month_suffix = '\r\e\n';
 $date_format_start = "Y{$year_suffix} F{$month_suffix} j{$day_suffix}";
 
@@ -52,7 +52,7 @@ $year_suffix = (substr($end_year, -1) == '1'
 || substr($end_year, -2) == '50'
 || substr($end_year, -2) == '70'
 || substr($end_year, -2) == '90') ? '\ek\o' : 'k\o';
-$day_suffix = (in_array($end_day, [5, 10, 30])) ? '\e' : '';
+$day_suffix = (in_array($end_day, [1, 5, 10, 30])) ? '\e' : '';
 
 if( $start_year == $end_year ) {
   $date_format_end = "F{$month_suffix} j{$day_suffix}";
