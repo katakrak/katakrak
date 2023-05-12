@@ -27,7 +27,7 @@ function kapital_preprocess_page(&$vars) {
 //      }
 //    }
 //  }
-var_dump($variables['theme_hook_suggestions']);
+var_dump($vars['theme_hook_suggestions']);
   global $user;
   //Añadimos fontawesome
   drupal_add_js('https://kit.fontawesome.com/10471300b3.js', 'external');
