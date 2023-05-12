@@ -210,9 +210,15 @@ function kapital_theme_registry_alter(&$registry) {
       $registry[$hook]['theme path'] = $GLOBALS['theme_path'];
     }
   }
+  $registry['maintenance_page'] = array(
+    'template' => 'maintenance-page',
+    'render element' => 'content',
+    'path' => drupal_get_path('theme', 'kapital') . '/templates',
+  );
 }
 
 function kapital_preprocess_maintenance_page(&$vars){
+
   var_dump($vars['theme_hook_suggestions']);
   $vars['custom_message'] = 'This is a custom message.';
 }
