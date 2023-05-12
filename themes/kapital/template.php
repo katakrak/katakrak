@@ -148,6 +148,70 @@ function format_localized_date($timestamp, $format, $locale)
     return $dateFormatter->format($timestamp);
 }
 
+function kapital_theme_registry_alter(&$registry) {
+  // Retrieve the active theme names.
+  $themes = _bootstrap_get_base_themes(NULL, TRUE);
+
+  // Return the theme registry unaltered if it is not Bootstrap based.
+  if (!in_array('bootstrap', $themes)) {
+    return;
+  }
+
+  // Inject the "footer" variable default in the existing "table" hook.
+  // @see https://www.drupal.org/node/806982
+  // @todo Make this discoverable in some way instead of a manual injection.
+  $registry['table']['variables']['footer'] = NULL;
+
+  // Process registered hooks in the theme registry.
+  _bootstrap_process_theme_registry($registry, $themes);
+
+  // Process registered hooks in the theme registry to add necessary theme hook
+  // suggestion phased function invocations. This must be run after separately
+  // and after all includes have been loaded.
+  _bootstrap_process_theme_registry_suggestions($registry, $themes);
+
+  /* // Merge both "html" and "page" theme hooks into "maintenance_page". Create
+  // a fake "page" variable to satisfy both "html" and "page" preprocess/process
+  // functions. Whether or not they stumble over each other doesn't matter since
+  // the "maintenance_page" theme hook uses the "content" variable instead.
+  $registry['maintenance_page']['variables']['page'] = array(
+    '#show_messages' => TRUE,
+    '#children' => NULL,
+    'page_bottom' => array(),
+    'page_top' => array(),
+  );
+  foreach (array('html', 'page') as $theme_hook) {
+    foreach (array('includes', 'preprocess functions', 'process functions') as $property) {
+      if (!isset($registry['maintenance_page'][$property])) {
+        $registry['maintenance_page'][$property] = array();
+      }
+      if (!isset($registry[$theme_hook][$property])) {
+        $registry[$theme_hook][$property] = array();
+      }
+      $registry['maintenance_page'][$property] = array_merge($registry['maintenance_page'][$property], $registry[$theme_hook][$property]);
+    }
+  } */
+
+  // Post-process theme registry. This happens after all altering has occurred.
+  foreach ($registry as $hook => $info) {
+    // Ensure uniqueness.
+    if (!empty($registry[$hook]['includes'])) {
+      $registry[$hook]['includes'] = array_unique($info['includes']);
+    }
+    if (!empty($registry[$hook]['preprocess functions'])) {
+      $registry[$hook]['preprocess functions'] = array_unique($info['preprocess functions']);
+    }
+    if (!empty($registry[$hook]['process functions'])) {
+      $registry[$hook]['process functions'] = array_unique($info['process functions']);
+    }
+
+    // Ensure "theme path" is set.
+    if (!isset($registry[$hook]['theme path'])) {
+      $registry[$hook]['theme path'] = $GLOBALS['theme_path'];
+    }
+  }
+}
+
 function kapital_preprocess_maintenance_page(&$vars){
   var_dump($vars['theme_hook_suggestions']);
   $vars['custom_message'] = 'This is a custom message.';
