@@ -149,3 +149,7 @@ function format_localized_date($timestamp, $format, $locale)
 
     return $dateFormatter->format($timestamp);
 }
+
+function kapital_preprocess_maintenance_page(&$variables){
+  $variables['custom_message'] = 'This is a custom message.';
+}
