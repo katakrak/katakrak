@@ -1,8 +1,5 @@
 <?php
 
-function kapital_preprocess_html(&$variables) {
-  //drupal_add_css('https://xabiangos.com/katakrak-bs/css/main.css', array('type' => 'external', 'weight' => 10000));
-}
 /**
  * @file
  * Bootstrap sub-theme.
@@ -30,8 +27,9 @@ function kapital_preprocess_page(&$vars) {
 //      }
 //    }
 //  }
+var_dump($variables['theme_hook_suggestions']);
   global $user;
-  //Añadimos fontawesom
+  //Añadimos fontawesome
   drupal_add_js('https://kit.fontawesome.com/10471300b3.js', 'external');
 
   //Definimos enlace de donde estamos
