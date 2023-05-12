@@ -152,4 +152,5 @@ function format_localized_date($timestamp, $format, $locale)
 
 function kapital_preprocess_maintenance_page(&$vars){
   $vars['custom_message'] = 'This is a custom message.';
+  $vars['theme_hook_suggestion'] = 'maintenance_page';
 }
