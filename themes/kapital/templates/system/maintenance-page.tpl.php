@@ -12,53 +12,84 @@
  *
  * @ingroup themeable
  */
-?><!DOCTYPE html>
-<html<?php print $html_attributes;?><?php print $rdf_namespaces;?>>
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $language->language ?>" lang="<?php print $language->language ?>" dir="<?php print $language->dir ?>">
+
 <head>
-  <link rel="profile" href="<?php print $grddl_profile; ?>" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <?php print $head; ?>
   <title><?php print $head_title; ?></title>
+  <?php print $head; ?>
   <?php print $styles; ?>
-  <!-- HTML5 element support for IE6-8 -->
-  <!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
   <?php print $scripts; ?>
 </head>
-<body<?php print $body_attributes; ?>>
-  <div id="skip-link">
-    <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
-  </div>
-  <?php print $page_top; ?>
-  <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
-    <div class="<?php print $container_class; ?>">
-      <div class="navbar-header">
-        <?php if ($logo): ?>
-          <a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+<body class="<?php print $classes; ?>">
+  <div id="page">
+    <div id="header">
+      <div id="logo-title">
+
+        <?php if (!empty($logo)): ?>
+          <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
             <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
           </a>
         <?php endif; ?>
 
-        <?php if (!empty($site_name)): ?>
-          <a class="name navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
-        <?php endif; ?>
-      </div>
-    </div>
-  </header>
-  <div class="main-container <?php print $container_class; ?>">
-    <div class="row">
-      <section class="col-sm-12">
-        <a id="main-content"></a>
-        <?php if (!empty($title)): ?>
-          <h1 class="page-header"><?php print $title; ?></h1>
-        <?php endif; ?>
-        <?php if (!empty($content)): ?>
-          <?php print $content; ?>
-        <?php endif; ?>
-      </section>
-    </div>
-  </div>
-  <?php print $page_bottom; ?>
+        <div id="name-and-slogan">
+          <?php if (!empty($site_name)): ?>
+            <h1 id="site-name">
+              <a href="<?php print $base_path ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
+            </h1>
+          <?php endif; ?>
+
+          <?php if (!empty($site_slogan)): ?>
+            <div id="site-slogan"><?php print $site_slogan; ?></div>
+          <?php endif; ?>
+        </div> <!-- /name-and-slogan -->
+      </div> <!-- /logo-title -->
+
+      <?php if (!empty($header)): ?>
+        <div id="header-region">
+          <?php print $header; ?>
+        </div>
+      <?php endif; ?>
+
+    </div> <!-- /header -->
+
+    <div id="container" class="clearfix">
+        MAINTENANCE  
+      <?php if (!empty($sidebar_first)): ?>
+        <div id="sidebar-first" class="column sidebar">
+          <?php print $sidebar_first; ?>
+        </div> <!-- /sidebar-first -->
+      <?php endif; ?>
+
+      <div id="main" class="column"><div id="main-squeeze">
+
+        <div id="content">
+          <?php if (!empty($title)): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
+          <?php if (!empty($messages)): print $messages; endif; ?>
+          <div id="content-content" class="clearfix">
+            <?php print $content; ?>
+          </div> <!-- /content-content -->
+        </div> <!-- /content -->
+
+      </div></div> <!-- /main-squeeze /main -->
+
+      <?php if (!empty($sidebar_second)): ?>
+        <div id="sidebar-second" class="column sidebar">
+          <?php print $sidebar_second; ?>
+        </div> <!-- /sidebar-second -->
+      <?php endif; ?>
+
+    </div> <!-- /container -->
+
+    <div id="footer-wrapper">
+      <div id="footer">
+        <?php if (!empty($footer)): print $footer; endif; ?>
+      </div> <!-- /footer -->
+    </div> <!-- /footer-wrapper -->
+
+  </div> <!-- /page -->
+
 </body>
 </html>
