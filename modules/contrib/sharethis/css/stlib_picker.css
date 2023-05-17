@@ -1,3 +1,8 @@
+/**
+ * @file
+ * Styling for stlib_picker.
+ */
+
 .stp_pickerLeft,
 .stp_pickerArrow,
 .stp_pickerRight {
@@ -18,18 +23,14 @@
   margin-top: 40px;
 }
 
-
 .stp_header {
   display: block;
   font-size: 1.25em;
   border-bottom: 1px solid black;
   padding: 8px;
-  background-color: #115511;
   color: #115511;
-  background: #eeeeee;
-  background: -moz-linear-gradient(top, #eeeeee 0%, #cccccc 90%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(90%,#cccccc));
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 );
+  background: rgb(238,238,238);
+  background: linear-gradient(90deg, rgba(238,238,238,1) 0%, rgba(204,204,204,1) 90%);
 }
 
 .stp_ulLeft,
@@ -37,32 +38,32 @@
   display: block;
   overflow-y: scroll;
   height: 215px;
-  margin: 0px !important;
-  padding: 0px;
+  margin: 0 !important;
+  padding: 0;
   list-style: none;
   background-color: #eeeeee;
 }
 
 .stp_li {
   border-bottom: 1px solid #ccc;
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   padding-top: 5px;
   background: #ffffee;
   vertical-align: center;
 }
 
 .stp_li img {
-  display: inline-    block;
-  margin: 0px;
-  padding: 0px;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
   margin-left: 5px;
 }
 
 .stp_liText {
   display: inline-block;
   vertical-align: top;
-  margin: 0px;
+  margin: 0;
   padding: 5px;
   margin-left: 10px;
   font-size: 1.2em;

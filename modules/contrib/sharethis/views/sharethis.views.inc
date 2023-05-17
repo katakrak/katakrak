@@ -9,17 +9,17 @@
  * Implements hook_views_data().
  */
 function sharethis_views_data() {
-  $data = array();
+  $data = [];
 
   // ShareThis link.
-  $data['node']['sharethis'] = array(
+  $data['node']['sharethis'] = [
     'title' => t('ShareThis Link'),
     'help' => t('Link provided by the ShareThis service.'),
-    'field' => array(
+    'field' => [
       'handler' => 'sharethis_handler_field_link',
       'click sortable' => FALSE,
-    ),
-  );
+    ],
+  ];
 
   return $data;
 }
@@ -32,14 +32,14 @@ function sharethis_views_data_alter(&$data) {
     foreach (search_api_index_load_multiple(FALSE) as $index) {
       $key = 'search_api_index_' . $index->machine_name;
       if (isset($data[$key])) {
-        $data[$key]['sharethis'] = array(
+        $data[$key]['sharethis'] = [
           'title' => t('ShareThis Link'),
           'help' => t('Link provided by the ShareThis service.'),
-          'field' => array(
+          'field' => [
             'handler' => 'sharethis_handler_field_link',
             'click sortable' => FALSE,
-          ),
-        );
+          ],
+        ];
       }
     }
   }
