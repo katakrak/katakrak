@@ -1,6 +1,7 @@
 <?php
 /**
  * @file
+ *
  * Install, update, and uninstall functions.
  */
 
@@ -10,11 +11,23 @@
  * Defines the database schema of the field, using the format used by the
  * Schema API.
  *
- * The data we will store here is just one 7-character element.
+ * The data we will store here is just one 7-character element and an alpha int.
  */
 function color_field_field_schema($field) {
   $columns = array(
-    'rgb' => array('type' => 'varchar', 'length' => 7, 'not null' => FALSE),
+    'rgb' => array(
+      'description' => 'The RGB hex values prefix with #',
+      'type' => 'varchar',
+      'length' => 7,
+      'not null' => FALSE,
+    ),
+    'opacity' => array(
+      'description' => 'The opacity/alphavalue property',
+      'type' => 'float',
+      'size' => 'tiny',
+      'not null' => FALSE,
+      'default' => 1,
+    ),
   );
   $indexes = array(
     'rgb' => array('rgb'),
@@ -24,7 +37,6 @@ function color_field_field_schema($field) {
     'indexes' => $indexes,
   );
 }
-
 
 /**
  * Implements hook_requirements().
@@ -58,4 +70,70 @@ function color_field_requirements($phase) {
     }
   }
   return $requirements;
+}
+
+/**
+ * Add opacity column to color field schema and populate with a default value of 1.
+ */
+function color_field_update_7000(array &$sandbox) {
+  $fields = _update_7000_field_read_fields(array(
+    'module' => 'color_field',
+    'storage_type' => 'field_sql_storage',
+    'deleted' => 0,
+  ));
+
+  foreach ($fields as $field) {
+    $tables = array(
+      _field_sql_storage_tablename($field),
+      _field_sql_storage_revision_tablename($field),
+    );
+
+    foreach ($tables as $table) {
+      // Add the opacity column to the table.
+      _color_field_update_7000_add_opacity_column($table, $field['field_name']);
+      _color_field_update_7000_populate_opacity($table, $field['field_name']);
+    }
+  }
+}
+
+/**
+ * Add opacity column to a specific table.
+ *
+ * @param string $table
+ *   The name of the database table to be updated.
+ * @param string $field_name
+ *   Keyed array of columns this table is supposed to have.
+ */
+function _color_field_update_7000_add_opacity_column($table, $field_name) {
+  $spec = array(
+    'description' => 'The opacity/alphavalue property',
+    'type' => 'float',
+    'size' => 'tiny',
+    'not null' => FALSE,
+    'default' => 1,
+  );
+
+  $spec['description'] = 'The width of the image in pixels.';
+
+  // Make sure the field does not exist yet.
+  if (!db_field_exists($table, $field_name . '_opacity')) {
+    db_add_field($table, $field_name . '_opacity', $spec);
+  }
+}
+
+/**
+ * Populate color field opacity in a specific table.
+ *
+ * @param string $table
+ *   The name of the database table to be updated.
+ * @param string $field_name
+ *   Keyed array of columns this table is supposed to have.
+ */
+function _color_field_update_7000_populate_opacity($table, $field_name) {
+  db_update($table)
+    ->fields(array(
+      $field_name . '_opacity' => 1,
+    ))
+    ->isNull($field_name . '_opacity')
+    ->execute();
 }

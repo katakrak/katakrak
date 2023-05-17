@@ -1,21 +1,22 @@
+/**
+ * @file
+ * Styling for sharethis form.
+ */
+
 .st_form {
-  color: #333333;
+  color: #333;
   padding: 10px;
-  margin: 0px;
+  margin: 0;
   margin-bottom: 25px;
   border: 1px solid darkgrey;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
   border-radius: 10px;
-  background: #eaeeef;
-  background: -moz-linear-gradient(top, #eaeeef 0%, #fff 90%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eaeeef), color-stop(90%,#fff));
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaeeef', endColorstr='#fff',GradientType=0 );
+  background: rgb(234,238,239);
+  background: linear-gradient(90deg, rgba(234,238,239,1) 0%, rgba(255,255,255,1) 90%);
 }
 
 .st_formButton,
 .st_formButtonSave {
-  margin: 0px;
+  margin: 0;
   margin-bottom: 10px;
   margin-right: 7px;
   padding: 10px;
@@ -25,23 +26,17 @@
   font-size: 1.2em;
   width: 120px;
   cursor: pointer;
-  border: 1px solid #888888;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
+  border: 1px solid #888;
   border-radius: 5px;
-  background: #eeeeee;
-  background: -moz-linear-gradient(top, #eeeeee 0%, #cccccc 90%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(90%,#cccccc));
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 );
+  background: rgb(238,238,238);
+  background: linear-gradient(90deg, rgba(238,238,238,1) 0%, rgba(204,204,204,1) 90%);
 }
 
 .st_formButton:hover,
 .st_formButtonSave:hover {
-  background: #cccccc;
-  border: 1px solid #aaaaaa;
-  background: -moz-linear-gradient(top, #cccccc 0%, #eeeeee 90%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cccccc), color-stop(90%,#eeeeee));
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', endColorstr='#eeeeee',GradientType=0 );
+  border: 1px solid #aaa;
+  background: rgb(204,204,204);
+  background: linear-gradient(90deg, rgba(204,204,204,1) 0%, rgba(238,238,238,1) 90%);
 }
 
 .st_formSubtitle {
@@ -65,7 +60,7 @@
   display: block;
   height: 285px;
   overflow: hidden;
-  border: 1px solid #aaaaaa;
+  border: 1px solid #aaa;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
@@ -76,8 +71,8 @@
 }
 
 .st_widgetPic img {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   display: block;
 }
 
@@ -93,8 +88,8 @@
 
 .st_select,
 .st_select:hover {
-  background: #aaaaaa;
-  border: 2px solid #118811;
+  background: #aaa;
+  border: 2px solid #181;
   margin-bottom: 8px;
 }
 
@@ -127,37 +122,34 @@
   display: block;
   overflow-y: scroll;
   height: 255px;
-  margin: 0px;
+  margin: 0;
   list-style: none;
-  background-color: #eeeeee;
+  background-color: #eee;
 }
 
 .st_formULHeader {
   display: block;
   font-size: 1.2em;
   padding: 10px;
-  background-color: #115511;
-  color: #115511;
-  background: #eeeeee;
-  background: -moz-linear-gradient(top, #eeeeee 0%, #cccccc 90%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(90%,#cccccc));
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 );
+  color: #151;
+  background: rgb(238,238,238);
+  background: linear-gradient(90deg, rgba(238,238,238,1) 0%, rgba(204,204,204,1) 90%);
 }
 
 .st_pickerLi {
   border-bottom: 1px solid black;
   padding: 5px;
-  background: #ffffee;
+  background: #ffe;
   cursor: pointer;
 }
 
 .st_pickerLi:hover {
-  background: #aaffcc;
+  background: #afc;
 }
 
 .st_selectLi,
 .st_selectLi:hover {
-  background: #88dd11;
+  background: #8d1;
 }
 
 .st_arrow {
@@ -208,7 +200,7 @@
   display: block;
   background: white;
   padding: 10px;
-  border: 1px solid #aaaaaa;
+  border: 1px solid #aaa;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
@@ -216,8 +208,8 @@
 
 .st_buttonSelectSprite {
   display: block;
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
 }
 
 .st_spriteCover {
@@ -254,12 +246,12 @@
 }
 
 .form-item-sharethis-option-extras {
-  margin-bottom: 0px !important;
+  margin-bottom: 0 !important;
   padding-bottom: 5px !important;
 }
 
 .form-item-sharethis-option-extras-foursquarefollow-field {
-  margin-bottom: 0px !important;
+  margin-bottom: 0 !important;
 }
 
 .st_cns_container {

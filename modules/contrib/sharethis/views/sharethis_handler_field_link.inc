@@ -8,7 +8,7 @@
 /**
  * Field handler for ShareThis.
  */
-class SharethisHandlerFieldLink extends views_handler_field_entity {
+class sharethis_handler_field_link extends views_handler_field_entity {
 
   /**
    * Render values.
@@ -23,17 +23,14 @@ class SharethisHandlerFieldLink extends views_handler_field_entity {
    * Renders sharethis link.
    */
   public function renderSharethisLink($entity) {
-    $path = url('node/' . $entity->nid, array('absolute' => TRUE));
+    $path = url('node/' . $entity->nid, ['absolute' => TRUE]);
+    sharethis_include_js();
 
-    // @todo
-    // The line below requires theming of the sharethis button HTML as described
-    // in http://drupal.org/node/1335836 . Once the theming issue is resolved,
-    // this line can be uncommented/modified to implement that functionality.
-    return theme('sharethis', array(
+    return theme('sharethis', [
       'data_options' => sharethis_get_options_array(),
       'm_title' => $entity->title,
       'm_path' => $path,
-    ));
+    ]);
   }
 
 }

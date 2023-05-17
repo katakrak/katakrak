@@ -4,11 +4,11 @@
  */
 
 // Create the drupal ShareThis object for clean code and namespacing:
-(function () {
+(function ($) {
   // Adding use strict as function encapsulation ECMA 6.
-  'use strict';
+  // 'use strict';
 
-  var drupal_st = {
+  window.drupal_st = {
     // These are handlerd for updating the widget pic class.
     multiW: function () {
       jQuery('.st_widgetPic').addClass('st_multi');
@@ -16,7 +16,8 @@
     classicW: function () {
       jQuery('.st_widgetPic').removeClass('st_multi');
     },
-    // These are the handlers for updating the button pic class (stbc = sharethisbuttonclass).
+    // These are the handlers for updating the button pic class (stbc =
+    // sharethisbuttonclass).
     smallChicklet: function () {
       drupal_st.removeButtonClasses();
       jQuery('#stb_sprite').addClass('stbc_');
@@ -62,12 +63,11 @@
     },
     setupServiceText: function () {
       jQuery('#edit-sharethis-service-option').css({display: 'none'});
-
+      var picker = jQuery('#myPicker');
+      var service = picker.data("mark");
+      stlib_picker.setupPicker(picker, service, drupal_st.serviceCallback);
       if (jQuery('input[name=sharethis_callesi]').val() === 1) {
         drupal_st.getGlobalCNSConfig();
-      }
-      else {
-        // alert('settings found');.
       }
     },
     odjs: function (scriptSrc, callBack) {
@@ -99,20 +99,18 @@
     addEvents: function () {
       jQuery('#edit-sharethis-widget-option-st-multi').click(drupal_st.multiW);
       jQuery('#edit-sharethis-widget-option-st-direct').click(drupal_st.classicW);
-
       jQuery('#edit-sharethis-button-option-stbc-').click(drupal_st.smallChicklet);
       jQuery('#edit-sharethis-button-option-stbc-large').click(drupal_st.largeChicklet);
       jQuery('#edit-sharethis-button-option-stbc-hcount').click(drupal_st.hcount);
       jQuery('#edit-sharethis-button-option-stbc-vcount').click(drupal_st.vcount);
       jQuery('#edit-sharethis-button-option-stbc-button').click(drupal_st.button);
-
       jQuery('.st_formButtonSave').click(drupal_st.updateOptions);
-
       jQuery('#st_cns_settings').find('input').live('click', drupal_st.updateDoNotHash);
     },
     serviceCallback: function () {
       var services = stlib_picker.getServices('myPicker');
       var outputString = '';
+      var i;
       for (i = 0; i < services.length; i++) {
         outputString += '\"' + _all_services[services[i]].title + ':';
         outputString += services[i] + '\",';
@@ -157,8 +155,10 @@
       }
     }
   };
-  // After the page is loaded, we want to add events to dynamically created elements.
+  // After the page is loaded, we want to add events to dynamically created
+  // elements.
   jQuery(document).ready(drupal_st.addEvents);
-  // After it's all done, hide the text field for the service picker so that no one messes up the data.
+  // After it's all done, hide the text field for the service picker so that no
+  // one messes up the data.
   jQuery(document).ready(drupal_st.setupServiceText);
-})();
+})(jQuery);

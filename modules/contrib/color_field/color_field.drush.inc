@@ -10,7 +10,7 @@
  */
 define('COLOR_FIELD_SIMPLE_COLOR_PICKER_DOWNLOAD_URI', 'https://github.com/recurser/jquery-simple-color/archive/master.zip');
 define('COLOR_FIELD_EYECON_COLOR_PICKER_DOWNLOAD_URI', 'http://www.eyecon.ro/colorpicker/colorpicker.zip');
-define('COLOR_FIELD_DEMATTE_COLOR_PICKER_DOWNLOAD_URI', 'http://www.dematte.at/colorPicker/cP_v0.91.zip');
+define('COLOR_FIELD_DEMATTE_COLOR_PICKER_DOWNLOAD_URI', 'https://github.com/PitPik/colorPicker/archive/master.zip');
 define('COLOR_FIELD_SPECTRUM_COLOR_PICKER_DOWNLOAD_URI', 'https://github.com/bgrins/spectrum/archive/master.zip');
 
 /**
@@ -225,8 +225,8 @@ function drush_color_field_eyecon($path = 'sites/all/libraries') {
  * Commands to download the Dematte Color Picker plugin.
  */
 function drush_color_field_dematte($path = 'sites/all/libraries') {
-  $filename = 'cP_v0.91.zip';
-  $unzipfilename = 'cP_v0.91';
+  $filename = 'master.zip';
+  $unzipfilename = 'colorPicker-master';
   $dirname = 'dematte-color-picker';
 
   if (!drush_shell_exec('type unzip')) {

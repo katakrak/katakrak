@@ -32,7 +32,9 @@ function sharethis_create_publisher_key() {
  * Implements hook_uninstall().
  */
 function sharethis_uninstall() {
-  db_delete('variable')->condition('name', db_like('sharethis_') . '%', 'LIKE')->execute();
+  db_delete('variable')
+    ->condition('name', db_like('sharethis_') . '%', 'LIKE')
+    ->execute();
   cache_clear_all('variables', 'cache');
 }
 
@@ -43,7 +45,9 @@ function sharethis_update_7001() {
   // Move from the st_table to the variables table.
   if (db_table_exists('st_table')) {
     // Select all options in the ShareThis table.
-    $result = db_select('st_table', 's')->fields('s', array('st_option', 'st_value'))->execute();
+    $result = db_select('st_table', 's')
+      ->fields('s', ['st_option', 'st_value'])
+      ->execute();
     while ($record = $result->fetchAssoc()) {
       // Variable name switches. publisherID stays the same.
       switch ($record['st_option']) {
@@ -75,5 +79,34 @@ function sharethis_update_7001() {
 
     // Return a success message.
     return t('Switched from the custom ShareThis table to the Variables table.');
+  }
+}
+
+/**
+ * Removes variables sharethis_override_* & sharethis_service_option.
+ *
+ * @see https://www.drupal.org/node/2759221
+ */
+function sharethis_update_7002() {
+  db_delete('variable')
+    ->condition('name', db_like('sharethis_override_') . '%', 'LIKE')
+    ->execute();
+  $sharethis_service_option = variable_get("sharethis_service_option");
+  $sharethis_service_option = str_replace('amp;', '', $sharethis_service_option);
+  $sharethis_service_option = str_replace('&quot;', '"', $sharethis_service_option);
+  variable_set("sharethis_service_option", $sharethis_service_option);
+  cache_clear_all('variables', 'cache');
+}
+
+/**
+ * Update the sharethis_location variable to an array.
+ *
+ * @see https://www.drupal.org/node/2846151
+ */
+function sharethis_update_7003() {
+  $location_places = variable_get('sharethis_location', ['content' => 'content']);
+  if (!is_array($location_places)) {
+    $location_places = ['content' => $location_places];
+    variable_set('sharethis_location', $location_places);
   }
 }

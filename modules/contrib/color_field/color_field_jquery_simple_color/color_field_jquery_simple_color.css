@@ -4,3 +4,11 @@
 .simpleColorChooser {
   z-index: 1;
 }
+.color-field-column {
+    float: left;
+    width: 48%;
+}
+
+.color-field-column .form-text {
+    width: 95%;
+}
