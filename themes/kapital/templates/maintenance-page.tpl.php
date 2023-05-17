@@ -22,6 +22,23 @@
   <?php print $head; ?>
   <?php print $styles; ?>
   <?php print $scripts; ?>
+  <style type="text/css">
+  html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#content {
+  text-align: center;
+}
+  </style> 
 </head>
 <body class="<?php print $classes; ?>">
   <div id="page">
