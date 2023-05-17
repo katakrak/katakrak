@@ -35,6 +35,11 @@
   height: 100%;
 }
 
+#content-content {
+  align-items: center;
+  justify-content: center;
+}
+
 #content {
   text-align: center;
 }
