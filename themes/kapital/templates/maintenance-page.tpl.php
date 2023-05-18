@@ -38,7 +38,7 @@
 <body>
   <div class="container">
     <div class="content">
-    <?php print $base_path; ?>
+      <?php print $base_path; ?>
       <?php print $content; ?>
     </div>
   </div>
