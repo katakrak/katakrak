@@ -40,6 +40,8 @@
     <div class="content">
       <?php print $base_path; ?>
       <?php print $content; ?>
+      <?php print $custom_message; ?>
+      <?php print $base_path; ?>
     </div>
   </div>
 </body>

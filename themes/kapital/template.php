@@ -218,8 +218,7 @@ function kapital_theme_registry_alter(&$registry) {
 }
 
 function kapital_preprocess_maintenance_page(&$vars){
-
-  var_dump($vars);
-  echo "Preprocess Maintenance page";
+  global $base_path;
+  $vars['base_path'] = $base_path;
   $vars['custom_message'] = 'This is a custom message.';
 }
