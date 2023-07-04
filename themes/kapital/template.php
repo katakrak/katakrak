@@ -222,3 +222,5 @@ function kapital_preprocess_maintenance_page(&$vars){
   $vars['base_path'] = $base_path;
   $vars['custom_message'] = 'This is a custom message.';
 }
+
+
