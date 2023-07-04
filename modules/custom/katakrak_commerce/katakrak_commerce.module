@@ -484,7 +484,7 @@ function katakrak_commerce_form_alter(&$form, &$form_state, $form_id) {
              '</div>'.
           '</div>',
       );    
-      $form['regalo'] = array(
+      $form['sanfermines'] = array(
         '#type' => 'checkbox',
         '#title' => t('Durante los días de sanfermines la librería deja de funcionar. Si haces el pedido en esas fechas, no podremos procesarlo hasta que hayan pasado esos días. Si marcas está casilla estás indicando que estás de acuerdo.'),
         '#weight' => 51,
