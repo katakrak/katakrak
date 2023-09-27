@@ -2763,3 +2763,7 @@ text.text-tag {
 .icon-description {
     display: none
 }
+
+.bw {
+    filter: grayscale(100%);
+}
