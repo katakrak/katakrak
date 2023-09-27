@@ -21,5 +21,6 @@ fieldset.checkout-buttons {
     border: none;
 }
 
-
+.bw {
+    filter: grayscale(100%);
 }
