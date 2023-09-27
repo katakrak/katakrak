@@ -1,3 +1,26 @@
+<?php 
+
+// Fetch the value of the field_event_image_class from the content array.
+$image_class = $content['field_event_image_class'][0]['#markup'];
+
+// Render the image field.
+$image_field = render($content['field_event_image']);
+
+// Use PHP's DOM manipulation functions to add the class.
+$dom = new DOMDocument();
+$dom->loadHTML($image_field, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+$images = $dom->getElementsByTagName('img');
+foreach ($images as $image) {
+    $existing_class = $image->getAttribute('class');
+    $image->setAttribute('class', $existing_class . ' ' . $image_class);
+}
+
+// Save the modified HTML.
+$modified_image_field = $dom->saveHTML();
+?>
+
+
+
 <p>
   <a href="<?php print url('agenda') ?>" class="btn btn-transparent"> <i class="fas fa-arrow-left small"></i><?php print t('Listado de eventos') ?></a>
 </p>
@@ -5,6 +28,8 @@
 <div class="row mt-2">
   <div class="col-sm-3">
     <?php print render($content['field_event_image']) ?>
+    <?php // Print the modified HTML.
+          print $modified_image_field; ?>
   </div><!-- /.col-->
   <div class="col-sm-9">
     <div class="d-flex event-title">
