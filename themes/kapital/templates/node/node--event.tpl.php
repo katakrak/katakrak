@@ -1,7 +1,7 @@
 <?php 
 
 // Fetch the value of the field_event_image_class from the content array.
-$image_class = $content['field_event_image_class'][0]['#markup'];
+$image_class = $content['field_event_image_class']['und'][0]['value'];
 
 // Render the image field.
 $image_field = render($content['field_event_image']);
