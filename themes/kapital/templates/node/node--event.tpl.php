@@ -29,6 +29,7 @@ $modified_image_field = $dom->saveHTML();
   <div class="col-sm-3">
     <?php print render($content['field_event_image']) ?>
     <?php // Print the modified HTML.
+    echo "hello";
           print $modified_image_field; ?>
   </div><!-- /.col-->
   <div class="col-sm-9">
