@@ -12,7 +12,8 @@ $dom->loadHTML($image_field, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
 $images = $dom->getElementsByTagName('img');
 foreach ($images as $image) {
     $existing_class = $image->getAttribute('class');
-    $image->setAttribute('class', $existing_class . ' ' . $image_class);
+    if ( $image_class != '' )
+      $image->setAttribute('class', $existing_class . ' ' . $image_class);
 }
 
 // Save the modified HTML.
@@ -27,10 +28,8 @@ $modified_image_field = $dom->saveHTML();
 
 <div class="row mt-2">
   <div class="col-sm-3">
-    <?php print render($content['field_event_image']) ?>
+    <?php //print render($content['field_event_image']) ?>
     <?php // Print the modified HTML.
-    echo "hello";
-    var_dump($image_class);
           print $modified_image_field; ?>
   </div><!-- /.col-->
   <div class="col-sm-9">
