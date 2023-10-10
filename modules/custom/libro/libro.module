@@ -920,7 +920,6 @@ function libro_generar_boton_product($nid, $anadir = FALSE) {
  * @return $node
  */
 function libro_crear_ficha($book, $update = FALSE, $node = NULL) {
-  dprint_r($book);
   //Si metemos la opción update cargamos la info de la base de datos
   if ($update) {
     $commerce_product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
