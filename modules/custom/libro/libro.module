@@ -143,17 +143,17 @@ function libro_portada_form_submit($form, &$form_state) {
 function libro_metainfo_form($form, &$form_state) {
    $form['limit'] = array(
     '#title' => t('Libros por iteración'),
-    '#description' => t('Catidad de libros a tratar en cada iteración de un batch'),
+    '#description' => t('Cantidad de libros a tratar en cada iteración de un batch'),
     '#type' => 'textfield',
     '#size' => 10,
-    '#default_value' => 1,
+    '#default_value' => 10,
   );
   $form['max'] = array(
     '#title' => t('Máximo número de items'),
     '#description' => t('Cantidad de libros a procesar en un batch'),
     '#type' => 'textfield',
     '#size' => 10,
-    '#default_value' => 1,
+    '#default_value' => 0,
   );
   $form['recheck'] = array(
     '#type' => 'checkbox',
@@ -172,7 +172,7 @@ function libro_metainfo_form_submit($form, &$form_state){
   $max = $form_state['values']['max'];
   $recheck = $form_state['values']['recheck'];
   $batch = array(
-    'title' => t('Recuperando portadas'),
+    'title' => t('Recuperando metadatos y portadas'),
     'operations' => array(
       array('libro_metainfo_process', array($limit, $max, $recheck)),
     ),
@@ -920,6 +920,7 @@ function libro_generar_boton_product($nid, $anadir = FALSE) {
  * @return $node
  */
 function libro_crear_ficha($book, $update = FALSE, $node = NULL) {
+  dprint_r($book);
   //Si metemos la opción update cargamos la info de la base de datos
   if ($update) {
     $commerce_product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
@@ -930,7 +931,7 @@ function libro_crear_ficha($book, $update = FALSE, $node = NULL) {
     $node->type = 'libro';
     $node->uid = 1;
 
-    $commerce_product = commerce_product_load_by_sku($book['isbn']);
+    $commerce_product = commerce_product_load_by_sku($book['ean']);
     if (!$commerce_product)
       $commerce_product = new stdClass();
 
@@ -1010,7 +1011,7 @@ function libro_crear_ficha($book, $update = FALSE, $node = NULL) {
     }
   }
 
-  if (isset($book['portada'])) {
+  if (isset($book['portada']) && !empty($book['portada']) ) {
     $filename = $book['ean'].'.'.$book['portada']['format'];
     $file = create_cover($book['portada']['data'], $filename);
   }

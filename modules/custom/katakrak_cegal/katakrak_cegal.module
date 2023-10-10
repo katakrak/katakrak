@@ -152,7 +152,7 @@ function katakrak_cegal_settings_form_submit($form, &$form_state) {
 }
 
 
-function katakrak_cegal_batch_process_form($form, &$form_state) {
+function katakrak_cegal_batch_process_form($form, &$form_state) { 
   $form['sin_portada'] = array(
     '#type' => 'checkbox',
     '#title' => t('Sin portadas'),
@@ -166,7 +166,7 @@ function katakrak_cegal_batch_process_form($form, &$form_state) {
 }
 
 function katakrak_cegal_batch_process_form_submit($form, &$form_state) {
-
+ 
   $sin_portada = $form_state['values']['sin_portada'];
   if ($form_state['clicked_button']['#value'] == 'enviar'){
     $batch = array(
@@ -254,19 +254,53 @@ function katakrak_cegal_portada_form ($form, &$form_state, $node) {
   $cegal = new CegalSearch(variable_get('cegal_user', ''), variable_get('cegal_clave', ''));
   $image = $cegal->cover($isbn);
   $ficha = $cegal->ficha($isbn);
+  $form['title'] = array(
+    '#title' => 'Título',
+    '#type' => 'textfield',
+    '#size' => 30,
+    '#default_value' => isset($ficha['title']) ? $ficha['title'] : '',
+  );
+  $form['sinopsis'] = array(
+    '#title' => 'Sinopsis',
+    '#type' => 'textarea',
+    '#size' => 30,
+    '#default_value' => isset($ficha['description']) ? $ficha['description'] : '',
+  );
+  $form['price'] = array(
+    '#title' => 'Precio',
+    '#type' => 'textfield',
+    '#size' => 20,
+    '#default_value' => isset($ficha['price']) ? $ficha['price'] : '',
+  );
+  $form['year'] = array(
+    '#title' => t('Año'),
+    '#type' => 'textfield',
+    '#size' => 20,
+    '#default_value' => isset($ficha['year']) ? substr($ficha['year'], 0, 4) : '',
+  );
+  $form['pages'] = array(
+    '#title' => t('Páginas'),
+    '#type' => 'textfield',
+    '#size' => 20,
+    '#value' => isset($ficha['pages']) ? $ficha['pages'] : '',
+  );
 
-  $form['imagen'] = array(
-    '#type' => 'item',
-    '#markup' => '<img src="data:image/jpg;base64, '.$image['image'].'" alt="Red dot" />'
-  );
-  $form['image_data'] = array(
-    '#type' => 'hidden',
-    '#value' => $image['data']
-  );
-  $form['filename'] = array(
-    '#type' => 'hidden',
-    '#value' => $node->field_libro_ean['und'][0]['value'].'.'.$image['format']
-  );
+  if (!empty($image)) {
+    
+    $form['imagen'] = array(
+      '#type' => 'item',
+      '#markup' => '<img src="data:image/jpg;base64, '.$image['image'].'" alt="" />'
+    );
+    $form['image_data'] = array(
+      '#type' => 'hidden',
+      '#value' => $image['data']
+    );
+    $form['filename'] = array(
+      '#type' => 'hidden',
+      '#value' => $node->field_libro_ean['und'][0]['value'].'.'.$image['format']
+    );
+  }
+
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => 'enviar',
@@ -283,6 +317,7 @@ function katakrak_cegal_portada_form_submit ($form, &$form_state) {
     $node->field_libro_portada['und'][0]['title'] = $node->title;
     $node->field_libro_portada['und'][0]['alt'] = $node->title;
     node_save($node);
+    $form_state['redirect'] = 'node/'.$node->nid;
   }
 }
 
