@@ -66,7 +66,7 @@ function advagg_js_compress_advagg_get_info_on_files_alter(&$return, $cached_dat
     $info = &$return[$filename];
 
     // Add in cached values.
-    if (!empty($cache_hits[$cache_id])) {
+    if (!empty($cache_hits[$cache_id]) && isset($cache_hits[$cache_id]->data)) {
       // Verify cache data.
       $cache_hits_data = array();
       foreach ($cache_hits[$cache_id]->data as $values) {
@@ -282,8 +282,6 @@ function advagg_js_compress_get_enabled_compressors(array $aggregate_settings = 
  *   TRUE to skip cache and force the compression test.
  * @param array $aggregate_settings
  *   The aggregate_settings array.
- * @param bool $add_licensing
- *   FALSE to remove Source and licensing information comment.
  * @param bool $log_errors
  *   FALSE to disable logging to watchdog on failure.
  *
@@ -326,7 +324,7 @@ function advagg_js_compress_do_it(&$contents, array $info, $compressor, $force_r
       }
     }
     else {
-      return;
+      return FALSE;
     }
 
     // Get location of random variable.
@@ -403,7 +401,7 @@ function advagg_js_compress_prep(&$contents, $filename, array $aggregate_setting
   $compressor = $aggregate_settings['variables']['advagg_js_compressor'];
 
   if ($compressor == 0) {
-    return;
+    return FALSE;
   }
   // Do nothing if the file is already minified.
   $url = file_create_url($filename);
@@ -419,7 +417,8 @@ function advagg_js_compress_prep(&$contents, $filename, array $aggregate_setting
       variable_get('advagg_js_compress_add_license', ADVAGG_JS_COMPRESS_ADD_LICENSE);
     if ($add_licensing && ($add_license_setting == 1 || $add_license_setting == 3)) {
       $contents = "/* Source and licensing information for the line(s) below can be found at $url. */\n" . $contents . ";\n/* Source and licensing information for the above line(s) can be found at $url. */\n";
-      return;
+      // Return FALSE here to not compress an already minified file.
+      return FALSE;
     }
   }
 
@@ -455,7 +454,6 @@ function advagg_js_compress_prep(&$contents, $filename, array $aggregate_setting
 
   $info = advagg_get_info_on_files(array($filename), FALSE, FALSE);
   $info = $info[$filename];
-
   $no_errors = advagg_js_compress_do_it($contents, $info, $compressor, $force_run, $aggregate_settings, $log_errors, $url);
 
   // Make sure compression ratios are good.
@@ -504,7 +502,6 @@ function advagg_js_compress_prep(&$contents, $filename, array $aggregate_setting
         || $ratio > $aggregate_settings['variables']['advagg_js_compress_max_ratio']
       ) {
         $contents = $contents_before;
-        $add_licensing = FALSE;
       }
     }
   }

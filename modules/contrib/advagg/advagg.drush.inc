@@ -187,7 +187,9 @@ function drush_advagg_cron() {
   }
   else {
     // format_plural() not always available.
-    drupal_set_message(dt('A total of @count old semaphore entries were removed.', array('@count' => count($output[4]))), 'ok');
+    drupal_set_message(dt('A total of @count old semaphore entries were removed.', array(
+      '@count' => count($output[4]),
+    )), 'ok');
   }
 
   // Output results from running advagg_remove_temp_files().
@@ -204,7 +206,9 @@ function drush_advagg_cron() {
     drupal_set_message(dt('Locale did not translate anything in any JavaScript files.'), 'ok');
   }
   else {
-    drupal_set_message(dt('Locale did translate some JavaScript files. Resulting locale js files: @files', array('@files' => print_r($output[6], TRUE))), 'ok');
+    drupal_set_message(dt('Locale did translate some JavaScript files. Resulting locale js files: @files', array(
+      '@files' => print_r($output[6], TRUE),
+    )), 'ok');
   }
 }
 

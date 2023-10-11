@@ -81,7 +81,7 @@ function advagg_missing_generate($input = '') {
     // Try again with the function input.
     $filename = $input;
     $data1 = advagg_get_hashes_from_filename($filename);
-    if (is_string($data) || !is_array($data)) {
+    if (is_string($data1) || !is_array($data1)) {
       return "$data $data1";
     }
     else {
@@ -399,10 +399,10 @@ function advagg_missing_set_farfuture_headers() {
   // intermediate caches from transforming the data and allows any
   // intermediate cache to cache it, since it's marked as a public resource.
   if (variable_get('advagg_resource_hints_use_immutable', ADVAGG_RESOURCE_HINTS_USE_IMMUTABLE)) {
-    header('Cache-Control: max-age=31449600, no-transform, public, immutable');
+    header('Cache-Control: max-age=31449600, public, immutable');
   }
   else {
-    header('Cache-Control: max-age=31449600, no-transform, public');
+    header('Cache-Control: max-age=31449600, public');
   }
 }
 
@@ -512,7 +512,7 @@ function advagg_htaccess_check_generate(array $files_to_save, $type, $force = FA
     $data .= "Options +FollowSymLinks\n";
   }
   if ($GLOBALS['base_path'] !== '/') {
-    $data .= "ErrorDocument 404 {$GLOBALS['base_path']}index.php\n";
+    $data .= "\n  ErrorDocument 404 {$GLOBALS['base_path']}index.php\n";
   }
   // See if RewriteBase is needed.
   $advagg_htaccess_rewritebase = trim(variable_get('advagg_htaccess_rewritebase', ADVAGG_HTACCESS_REWRITEBASE));
@@ -597,18 +597,18 @@ function advagg_htaccess_check_generate(array $files_to_save, $type, $force = FA
   $data .= "    <IfModule !mod_expires.c>\n";
   $data .= "      # Set a far future Cache-Control header to 52 weeks.\n";
   if (variable_get('advagg_resource_hints_use_immutable', ADVAGG_RESOURCE_HINTS_USE_IMMUTABLE)) {
-    $data .= "      Header set Cache-Control \"max-age=31449600, no-transform, public, immutable\"\n";
+    $data .= "      Header set Cache-Control \"max-age=31449600, public, immutable\"\n";
   }
   else {
-    $data .= "      Header set Cache-Control \"max-age=31449600, no-transform, public\"\n";
+    $data .= "      Header set Cache-Control \"max-age=31449600, public\"\n";
   }
   $data .= "    </IfModule>\n";
   $data .= "    <IfModule mod_expires.c>\n";
   if (variable_get('advagg_resource_hints_use_immutable', ADVAGG_RESOURCE_HINTS_USE_IMMUTABLE)) {
-    $data .= "      Header append Cache-Control \"no-transform, public, immutable\"\n";
+    $data .= "      Header append Cache-Control \"public, immutable\"\n";
   }
   else {
-    $data .= "      Header append Cache-Control \"no-transform, public\"\n";
+    $data .= "      Header append Cache-Control \"public\"\n";
   }
   $data .= "    </IfModule>\n";
   $data .= "  </IfModule>\n";
@@ -752,7 +752,7 @@ function advagg_get_files_from_hashes($type, $aggregate_filenames_hash, $aggrega
       array(':aggregate_filenames_hash' => $aggregate_filenames_hash));
     // Create join query for the advagg_files table.
     $query->join('advagg_files', 'af', 'af.filename_hash = aa.filename_hash AND
-      af.filetype = :type AND af.filesize > 0', array(':type' => $type));
+      af.filetype = :type', array(':type' => $type));
     // Select fields and ordering of the query; add in query comment as well.
     $query = $query->fields('af', array('filename'))
       ->fields($subquery_aggregates, array('settings'))
@@ -1058,7 +1058,10 @@ function advagg_get_js_aggregate_contents(array $files, array $aggregate_setting
         }
 
         // Make sure that the file is ended properly.
-        $file_contents .= "\n;/*})'\"*/\n";
+        $file_contents = trim($file_contents);
+        if (!empty($file_contents)) {
+          $file_contents .= "\n;/*})'\"*/\n";
+        }
         if (variable_get('advagg_cache_level', ADVAGG_CACHE_LEVEL) < 0) {
           $file_contents .= "/* Above code came from $filename */\n\n";
         }
@@ -1074,6 +1077,7 @@ function advagg_get_js_aggregate_contents(array $files, array $aggregate_setting
         drupal_alter('advagg_get_js_file_contents', $contents, $filename, $aggregate_settings);
       }
       // Make sure that the file is ended properly.
+      $contents = trim($contents);
       if (!empty($contents)) {
         $contents .= ";/*})'\"*/\n";
       }
@@ -1320,8 +1324,10 @@ function advagg_save_data($uri, $data, $overwrite = FALSE) {
   // name. Preserves the mime type in different stream wrapper implementations.
   $parts = pathinfo($uri);
   if (variable_get('advagg_debug', ADVAGG_DEBUG) >= 2) {
-    watchdog('advagg-debug', 'Creating URI @uri', array('@uri' => $uri), WATCHDOG_DEBUG);
-    watchdog('advagg-debug', 'File Parts <pre>@parts</pre>', array('@parts' => print_r($parts, TRUE)), WATCHDOG_DEBUG);
+    $variables = array('@uri' => $uri);
+    watchdog('advagg-debug', 'Creating URI @uri', $variables, WATCHDOG_DEBUG);
+    $variables = array('@parts' => print_r($parts, TRUE));
+    watchdog('advagg-debug', 'File Parts <pre>@parts</pre>', $variables, WATCHDOG_DEBUG);
   }
   $extension = '.' . $parts['extension'];
   if ($extension === '.gz' || $extension === '.br') {
@@ -1346,11 +1352,16 @@ function advagg_save_data($uri, $data, $overwrite = FALSE) {
       @unlink($uri);
       // Remove temporary_file if rename failed.
       if (!advagg_rename($filepath, $uri)) {
-        $errors[20] = $t('Renaming the filename (@incorrect) to (@correct) failed.', array('@incorrect' => $filepath, '@correct' => $uri));
+        $errors[20] = $t('Renaming the filename (@incorrect) to (@correct) failed.', array(
+          '@incorrect' => $filepath,
+          '@correct' => $uri,
+        ));
 
         @unlink($filepath);
         if (file_exists($filepath)) {
-          $errors[22] = $t('unlinking @file failed.', array('@file' => $filepath));
+          $errors[22] = $t('unlinking @file failed.', array(
+            '@file' => $filepath,
+          ));
         }
         watchdog('advagg', 'Rename 4 failed. Current: %current Target: %target', array(
           '%current' => $filepath,
@@ -1406,9 +1417,10 @@ function advagg_save_data($uri, $data, $overwrite = FALSE) {
 /**
  * Given a string, what is the size that it should be as a file?
  *
+ * Code from http://stackoverflow.com/a/3511239/231914.
+ *
  * @param string $string
  *   Input data to be sized in bytes.
- *   @link http://stackoverflow.com/a/3511239/231914.
  *
  * @return int
  *   Number of bytes this string uses.

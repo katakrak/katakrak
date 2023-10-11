@@ -56,6 +56,12 @@ function advagg_admin_settings_form($form, $form_state) {
     '#description' => t('Uncheck this box to completely disable AdvAgg functionality.'),
     '#recommended_value' => TRUE,
   );
+  $form['global_container']['global']['advagg_remote_version_check'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Check remote/github libraries for the latest version'),
+    '#default_value' => variable_get('advagg_remote_version_check', ADVAGG_REMOTE_VERSION_CHECK),
+    '#description' => t('This will check for the latest versions of various libraries used by AdvAgg on select admin pages. In some environments you may wish to not do these checks; uncheck this box to disable remote checks.'),
+  );
   $advagg_core_groups_default = variable_get('advagg_core_groups', ADVAGG_CORE_GROUPS);
   if (variable_get('advagg_combine_css_media', ADVAGG_COMBINE_CSS_MEDIA)
     || variable_get('advagg_ie_css_selector_limiter', ADVAGG_IE_CSS_SELECTOR_LIMITER)
@@ -89,7 +95,9 @@ function advagg_admin_settings_form($form, $form_state) {
     $description = t('It appears that there are no incompatible modules, so you should be able to safely use the Aggressive cache.');
   }
   else {
-    $description = t('It appears that there might be some incompatible modules. I would test these out before setting the cache to aggressive: %modules', array('%modules' => implode(', ', $aggressive_cache_conflicts)));
+    $description = t('It appears that there might be some incompatible modules. I would test these out before setting the cache to aggressive: %modules', array(
+      '%modules' => implode(', ', $aggressive_cache_conflicts),
+    ));
   }
   $options = array(
     -1 => t('Development ~ 300ms'),
@@ -623,7 +631,9 @@ function advagg_admin_settings_form($form, $form_state) {
   );
   $form['global_container']['css']['advagg_ie_css_selector_limiter'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Prevent more than %limit CSS selectors in an aggregated CSS file', array('%limit' => variable_get('advagg_ie_css_selector_limiter_value', ADVAGG_IE_CSS_SELECTOR_LIMITER_VALUE))),
+    '#title' => t('Prevent more than %limit CSS selectors in an aggregated CSS file', array(
+      '%limit' => variable_get('advagg_ie_css_selector_limiter_value', ADVAGG_IE_CSS_SELECTOR_LIMITER_VALUE),
+    )),
     '#default_value' => variable_get('advagg_ie_css_selector_limiter', ADVAGG_IE_CSS_SELECTOR_LIMITER),
     '#description' => t('Internet Explorer before version 10; IE9, IE8, IE7, and IE6 all have 4095 as the limit for the maximum number of css selectors that can be in a file. Enabling this will prevent CSS aggregates from being created that exceed this limit. <a href="@link">More info</a>. Use cores grouping logic needs to be unchecked in order for this to work.', array('@link' => 'http://blogs.msdn.com/b/ieinternals/archive/2011/05/14/10164546.aspx')),
     '#states' => array(
@@ -1389,7 +1399,9 @@ function advagg_admin_toggle_bypass_cookie($form, &$form_state) {
     // Cookie will last for 12 hours.
     setcookie($cookie_name, $key, REQUEST_TIME + $form_state['values']['timespan'], $GLOBALS['base_path'], '.' . $_SERVER['HTTP_HOST']);
     $_COOKIE[$cookie_name] = $key;
-    drupal_set_message(t('AdvAgg Bypass Cookie Set for %time.', array('%time' => format_interval($form_state['values']['timespan']))));
+    drupal_set_message(t('AdvAgg Bypass Cookie Set for %time.', array(
+      '%time' => format_interval($form_state['values']['timespan']),
+    )));
   }
 }
 
@@ -1557,7 +1569,9 @@ function advagg_admin_regenerate_htaccess_button() {
     drupal_set_message(t('The .htaccess files have been regenerated.'));
   }
   else {
-    drupal_set_message(t('The .htaccess files failed to be regenerated. @errors', array('@errors' => implode(', ', $errors))));
+    drupal_set_message(t('The .htaccess files failed to be regenerated. @errors', array(
+      '@errors' => implode(', ', $errors),
+    )));
   }
 }
 
@@ -1759,7 +1773,9 @@ function advagg_admin_delete_orphaned_aggregates_button() {
     drupal_set_message(t('All files have an associated db record; nothing was deleted.'));
   }
   else {
-    drupal_set_message(t('Some files had no associated db record and could be safely deleted from the file system. @raw', array('@raw' => print_r($deleted[1], TRUE))));
+    drupal_set_message(t('Some files had no associated db record and could be safely deleted from the file system. @raw', array(
+      '@raw' => print_r($deleted[1], TRUE),
+    )));
   }
 }
 
@@ -1775,7 +1791,9 @@ function advagg_admin_remove_missing_files_from_db_button() {
     drupal_set_message(t('No missing files found or they could not be safely cleared out of the database.'));
   }
   else {
-    drupal_set_message(t('Some missing files were found and could be safely cleared out of the database. <pre> @raw </pre>', array('@raw' => print_r($deleted, TRUE))));
+    drupal_set_message(t('Some missing files were found and could be safely cleared out of the database. <pre> @raw </pre>', array(
+      '@raw' => print_r($deleted, TRUE),
+    )));
   }
 }
 
@@ -1823,7 +1841,9 @@ function advagg_admin_refresh_locale_files_button() {
     drupal_set_message(t('No locale files are being used.'));
   }
   else {
-    drupal_set_message(t('The following locale files are being used: <pre>@files</pre>', array('@files' => print_r($locale_files, TRUE))));
+    drupal_set_message(t('The following locale files are being used: <pre>@files</pre>', array(
+      '@files' => print_r($locale_files, TRUE),
+    )));
   }
 }
 

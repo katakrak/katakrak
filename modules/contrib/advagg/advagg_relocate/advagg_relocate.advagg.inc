@@ -881,10 +881,10 @@ function advagg_relocate_get_remote_font_data($url, array $aggregate_settings) {
       && $response->code != 202
       && $response->code != 206
     ) {
-      return FALSE;
+      return array();
     }
     if (empty($response->data)) {
-      return FALSE;
+      return array();
     }
 
     advagg_relocate_process_http_request($response, 'font');

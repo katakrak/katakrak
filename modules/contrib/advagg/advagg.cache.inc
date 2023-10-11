@@ -96,7 +96,8 @@ function advagg_push_new_changes(array $files = array()) {
   if (empty($files)) {
     $files = advagg_scan_for_changes();
     if (variable_get('advagg_debug', ADVAGG_DEBUG) >= 2) {
-      watchdog('advagg-debug', 'Changes detected in <pre>@files</pre>.', array('@files' => print_r($files, TRUE)), WATCHDOG_DEBUG);
+      $variables = array('@files' => print_r($files, TRUE));
+      watchdog('advagg-debug', 'Changes detected in <pre>@files</pre>.', $variables, WATCHDOG_DEBUG);
     }
   }
 
@@ -109,7 +110,8 @@ function advagg_push_new_changes(array $files = array()) {
   if (variable_get('advagg_debug', ADVAGG_DEBUG) >= 2) {
     // Exception used to get a compact stack trace.
     $e = new Exception();
-    watchdog('advagg-debug', 'New changes called by: <pre>@changes</pre>', array('@changes' => print_r($e->getTraceAsString(), TRUE)), WATCHDOG_DEBUG);
+    $variables = array('@changes' => print_r($e->getTraceAsString(), TRUE));
+    watchdog('advagg-debug', 'New changes called by: <pre>@changes</pre>', $variables, WATCHDOG_DEBUG);
   }
 
   // If something changed, flush the correct caches so that change goes out.
@@ -160,7 +162,8 @@ function advagg_push_new_changes(array $files = array()) {
     // Clear out the full aggregates cache.
     foreach ($types as $ext => $bool) {
       if (variable_get('advagg_debug', ADVAGG_DEBUG) >= 2) {
-        watchdog('advagg-debug', 'Clearing cache advagg:@ext: in cache_advagg_aggregates.', array('@ext' => print_r($ext, TRUE)), WATCHDOG_DEBUG);
+        $variables = array('@ext' => print_r($ext, TRUE));
+        watchdog('advagg-debug', 'Clearing cache advagg:@ext: in cache_advagg_aggregates.', $variables, WATCHDOG_DEBUG);
       }
       cache_clear_all('advagg:' . $ext . ':', 'cache_advagg_aggregates', TRUE);
     }
@@ -186,7 +189,10 @@ function advagg_get_aggregates_using_file($filename_hash, $cid_only = FALSE) {
     ->condition('aa.filename_hash', $filename_hash);
   // Create join query for the advagg_aggregates_versions table.
   $query->join('advagg_aggregates_versions', 'aav', 'aa.aggregate_filenames_hash = aav.aggregate_filenames_hash AND aav.atime > 0');
-  $query = $query->fields('aav', array('aggregate_filenames_hash', 'aggregate_contents_hash'));
+  $query = $query->fields('aav', array(
+    'aggregate_filenames_hash',
+    'aggregate_contents_hash',
+  ));
   $query->comment('Query called from ' . __FUNCTION__ . '()');
   $results = $query->execute();
 
@@ -705,7 +711,7 @@ function advagg_remove_temp_files() {
   $top_level = substr($advagg_path[0][0], 0, strpos($advagg_path[0][0], 'advagg_css'));
 
   // Remove empty temp files from public://.
-  $files = file_scan_directory($top_level, '/file.*|fil.*\.tmp/', array(
+  $files = file_scan_directory($top_level, '/(?!files$)file.*|fil.*\.tmp/', array(
     'recurse' => FALSE,
     'callback' => 'advagg_install_delete_empty_file_if_stale',
   ));

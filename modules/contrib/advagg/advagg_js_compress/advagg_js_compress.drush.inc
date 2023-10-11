@@ -41,7 +41,6 @@ function advagg_js_compress_drush_command() {
     'aliases' => array(
       'advagg-jsc',
       'advagg-jsmin',
-      '',
     ),
   );
 

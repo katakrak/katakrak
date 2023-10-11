@@ -74,5 +74,11 @@ function metatag_test_metatag_info() {
     'multiple' => TRUE,
   );
 
+  $info['tags']['test:nodesc'] = array(
+    'label' => t('Meta tag with no description attribute'),
+    'class' => 'DrupalTextMetaTag',
+    'multiple' => TRUE,
+  );
+
   return $info;
 }

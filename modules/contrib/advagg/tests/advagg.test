@@ -299,7 +299,10 @@ class AdvAggCascadingStylesheetsTestCase extends DrupalWebTestCase {
     // A few system CSS files, ordered in a strange way.
     $system_path = drupal_get_path('module', 'system');
     drupal_add_css($system_path . '/system.menus.css', array('group' => CSS_SYSTEM));
-    drupal_add_css($system_path . '/system.base.css', array('group' => CSS_SYSTEM, 'weight' => -10));
+    drupal_add_css($system_path . '/system.base.css', array(
+      'group' => CSS_SYSTEM,
+      'weight' => -10,
+    ));
     drupal_add_css($system_path . '/system.theme.css', array('group' => CSS_SYSTEM));
     $expected = array(
       $system_path . '/system.base.css',
@@ -549,7 +552,10 @@ class AdvAggCascadingStylesheetsTestCase extends DrupalWebTestCase {
     // Note that a diff of the text can not be used for this test. Counting
     // selectors is close enough for now.
     $after_selector_count = advagg_count_css_selectors($after);
-    $this->assertEqual($before_selector_count, $after_selector_count, t('Expected %before selectors, got %after.', array('%before' => $before_selector_count, '%after' => $after_selector_count)));
+    $this->assertEqual($before_selector_count, $after_selector_count, t('Expected %before selectors, got %after.', array(
+      '%before' => $before_selector_count,
+      '%after' => $after_selector_count,
+    )));
 
     //
     // Test css file processing.
@@ -1544,8 +1550,14 @@ class AdvAggThemeTestCase extends AJAXTestCase {
         $found_markup_command = TRUE;
       }
     }
-    $this->assertFalse($found_settings_command, t('Page state still lacks the %css and %js files, as expected.', array('%css' => $expected['css'], '%js' => $expected['js'])));
-    $this->assertFalse($found_markup_command, t('Page still lacks the %css and %js files, as expected.', array('%css' => $expected['css'], '%js' => $expected['js'])));
+    $this->assertFalse($found_settings_command, t('Page state still lacks the %css and %js files, as expected.', array(
+      '%css' => $expected['css'],
+      '%js' => $expected['js'],
+    )));
+    $this->assertFalse($found_markup_command, t('Page still lacks the %css and %js files, as expected.', array(
+      '%css' => $expected['css'],
+      '%js' => $expected['js'],
+    )));
     // Submit the AJAX request and trigger adding files.
     $commands = $this->drupalPostAJAX(NULL, array('add_files' => TRUE), array('op' => t('Submit')));
     $new_settings = $this->drupalGetSettings();

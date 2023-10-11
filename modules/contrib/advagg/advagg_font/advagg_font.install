@@ -42,7 +42,7 @@ function advagg_font_requirements($phase) {
 
   // Check version.
   $lib_name = 'fontfaceobserver';
-  $module_name = 'advagg_css_compress';
+  $module_name = 'advagg_font';
   list($description, $info) = advagg_get_version_description($lib_name, $module_name);
   if (!empty($description)) {
     $requirements["{$module_name}_{$lib_name}_updates"] = array(

@@ -28,6 +28,7 @@ class MetatagTestTestTestMetatags extends MetatagTagsTestBase {
   public $tags = array(
     'test:foo',
     'test:multifoo',
+    'test:nodesc',
   );
 
   /**

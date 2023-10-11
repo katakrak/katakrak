@@ -976,6 +976,9 @@ function advagg_mod_advagg_modify_css_pre_render_alter(&$children, &$elements) {
       && $values['#browsers']['!IE'] === TRUE
       && isset($values['#browsers']['IE'])
       && $values['#browsers']['IE'] === TRUE
+      && isset($values['#attributes']['media'])
+      && $values['#attributes']['media'] !== 'print'
+      && $values['#attributes']['media'] !== 'none'
     ) {
       $last_key = $children_key;
     }
@@ -2278,7 +2281,7 @@ function advagg_mod_js_move_to_footer(array &$js) {
     }
 
     // Skip if a library and configured to do so.
-    if ($move_js_to_footer == 1 && $values['group'] <= JS_LIBRARY) {
+    if ($move_js_to_footer == 1 && isset($values['group']) && $values['group'] <= JS_LIBRARY) {
       continue;
     }
 
@@ -2487,14 +2490,14 @@ function advagg_mod_js_async_defer(array &$js) {
       }
       // jquery_update fallback.
       if (module_exists('jquery_update') && variable_get('jquery_update_jquery_cdn', 'none') !== 'none') {
-        if ($use_on_error) {
+        if ($use_on_error && !empty($jquery_update_fallback)) {
           if (!isset($values['onerror'])) {
             $values['onerror'] = '';
           }
           $values['onerror'] .= "advagg_fallback('{$jquery_update_fallback}');";
         }
         // Do not defer/async the loading of jquery.js.
-        if (!variable_get('advagg_mod_js_defer_jquery', ADVAGG_MOD_JS_DEFER_JQUERY) !== FALSE
+        if (variable_get('advagg_mod_js_defer_jquery', ADVAGG_MOD_JS_DEFER_JQUERY) !== FALSE
           && variable_get('advagg_mod_js_defer_inline_alter', ADVAGG_MOD_JS_DEFER_INLINE_ALTER)
           && variable_get('jquery_update_jquery_cdn', 'none') !== 'none'
         ) {
@@ -2521,7 +2524,7 @@ function advagg_mod_js_async_defer(array &$js) {
           $values['onerror'] .= "advagg_fallback('{$jquery_migrate_fallback}');";
         }
         // Do not defer/async the loading of jquery-migrate.
-        if (!variable_get('advagg_mod_js_defer_jquery', ADVAGG_MOD_JS_DEFER_JQUERY) !== FALSE
+        if (variable_get('advagg_mod_js_defer_jquery', ADVAGG_MOD_JS_DEFER_JQUERY) !== FALSE
           && variable_get('advagg_mod_js_defer_inline_alter', ADVAGG_MOD_JS_DEFER_INLINE_ALTER)
           && variable_get('jquery_update_jquery_cdn', 'none') !== 'none'
         ) {
@@ -2549,7 +2552,7 @@ function advagg_mod_js_async_defer(array &$js) {
           $values['onerror'] .= "advagg_fallback('{$jquery_update_ui_fallback}');";
         }
         // Do not defer/async the loading of jquery-ui.js.
-        if (!variable_get('advagg_mod_js_defer_jquery', ADVAGG_MOD_JS_DEFER_JQUERY) !== FALSE
+        if (variable_get('advagg_mod_js_defer_jquery', ADVAGG_MOD_JS_DEFER_JQUERY) !== FALSE
           && variable_get('advagg_mod_js_defer_inline_alter', ADVAGG_MOD_JS_DEFER_INLINE_ALTER)
           && variable_get('jquery_update_jquery_cdn', 'none') !== 'none'
         ) {
@@ -3764,7 +3767,7 @@ function advagg_mod_devel_shutdown_real() {
     }
 
     if ($output) {
-      // TODO: gzip this text if we are sending a gzip page.
+      // @todo gzip this text if we are sending a gzip page.
       // See drupal_page_header().
       // For some reason, this is not actually printing for cached pages even
       // though it gets executed and $output looks good.

@@ -97,11 +97,8 @@ function metatag_twitter_cards_metatag_info() {
       '#options' => array(
         'summary' => t('Summary (default)'),
         'summary_large_image' => t('Summary with large image'),
-        'photo' => t('Photo'),
         'player' => t('Media player'),
-        'gallery' => t('Gallery'),
         'app' => t('App'),
-        'product' => t('Product'),
       ),
       '#empty_option' => t('- None -'),
     ),

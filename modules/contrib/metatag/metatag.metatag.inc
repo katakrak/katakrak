@@ -211,7 +211,7 @@ function metatag_metatag_info() {
   $info['tags']['robots'] = array(
     'label' => t('Robots'),
     'description' => t("Provides search engines with specific directions for what to do when this page is indexed."),
-    'class' => 'DrupalListMetaTag',
+    'class' => 'DrupalRobotsMetaTag',
     'group' => 'advanced',
     'weight' => ++$weight,
     'form' => array(
@@ -222,10 +222,30 @@ function metatag_metatag_info() {
         'nofollow' => t('nofollow - Prevents search engines from following links on this page.'),
         'noarchive' => t('noarchive - Prevents cached copies of this page from appearing in search results.'),
         'nosnippet' => t('nosnippet - Prevents descriptions from appearing in search results, and prevents page caching.'),
-        'noodp' => t('noodp - Blocks the <a href="!opendirectory">Open Directory Project</a> description from appearing in search results.', array('!opendirectory' => 'https://www.dmoz.org/')),
-        'noydir' => t('noydir - Prevents Yahoo! from listing this page in the <a href="@ydir">Yahoo! Directory</a>.', array('@ydir' => 'https://dir.yahoo.com/')),
         'noimageindex' => t('noimageindex - Prevent search engines from indexing images on this page.'),
         'notranslate' => t('notranslate - Prevent search engines from offering to translate this page in search results.'),
+      ),
+    ),
+    'google_directives' => array(
+      'max-snippet' => array(
+        'label' => t('Google robots: Limit snippets to a certain length (max-snippet)'),
+        'description' => t("Defines a maximum number of characters as a textual snippet for this search result. <a href=\"@directives\" aria-label=\"Details of Google's ROBOTS meta tag options\">This directive can be used</a> to control indexing and serving of a snippet with the robots meta tag and the X-Robots-Tag.", array('@directives' => 'https://developers.google.com/search/reference/robots_meta_tag#directives')),
+        'type' => 'textfield',
+      ),
+      'max-image-preview' => array(
+        'label' => t('Google robots: Image preview (max-image-preview)'),
+        'description' => t("Set the maximum size of an image preview for this page in a search results. <a href=\"@directives\" aria-label=\"Details of Google's ROBOTS meta tag options\">This directive can be used</a> to control indexing and serving of a snippet with the robots meta tag and the X-Robots-Tag.", array('@directives' => 'https://developers.google.com/search/reference/robots_meta_tag#directives')),
+        'type' => 'select',
+        'options' => array(
+          'none' => t('none'),
+          'standard' => t('standard'),
+          'large' => t('large'),
+        ),
+      ),
+      'max-video-preview' => array(
+        'label' => t('Google robots: Limit video preview in seconds (max-video-preview)'),
+        'description' => t("Defines a maximum number of seconds as a video snippet for videos on this page in search results. <a href=\"@directives\" aria-label=\"Details of Google's ROBOTS meta tag options\">This directive can be used</a> to control indexing and serving of a snippet with the robots meta tag and the X-Robots-Tag.", array('@directives' => 'https://developers.google.com/search/reference/robots_meta_tag#directives')),
+        'type' => 'textfield',
       ),
     ),
   );

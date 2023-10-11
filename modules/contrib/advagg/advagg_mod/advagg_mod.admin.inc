@@ -704,10 +704,6 @@ function advagg_mod_admin_settings_form_submit($form, &$form_state) {
     register_shutdown_function('advagg_get_root_files_dir', TRUE);
     register_shutdown_function('menu_rebuild');
   }
-
-  if (empty($form_state['values']['advagg_mod_js_defer_inline_alter']) && !empty($form_state['values']['advagg_mod_js_defer_jquery'])) {
-    $form_state['values']['advagg_mod_js_defer_jquery'] = FALSE;
-  }
 }
 
 /**
