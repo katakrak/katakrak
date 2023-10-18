@@ -232,7 +232,11 @@ function katakrak_commerce_menu_alter(&$items) {
 }
 
 function katakrak_commerce_order_devel_page($order) {
-  dpm($order);      
+  dpm($order); 
+  foreach ($order->commerce_line_items['und'] as $line_item) {
+    $line = commerce_line_item_load($line_item['line_item_id']);
+    dpm($line);
+  }     
   return '';
 }
 
