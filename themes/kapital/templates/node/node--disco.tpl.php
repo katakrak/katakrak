@@ -18,13 +18,12 @@
     //Habrá que comprobar si el usuario es socixs. Por ejemplo, guardando la lista de socixs en una variable de drupal y comprobando el email. ?>
     
     <?php if ($user->uid == 1): ?>
+      39€
       <p><?php print disco_generar_boton_product($node) ?></p>
       <?php else: ?>
         <p><?php print disco_generar_boton_product($node, "diska-socixs") ?></p>
     <?php endif; ?>
     
     <hr>
-    <!--TODO<h4>Compártelo:</h4>
-    <p>RRSS</p>-->
   </div><!-- /.col-->
 </div><!-- /.row -->

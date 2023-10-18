@@ -20,6 +20,14 @@ function katakrak_socios_menu() {
     'type' => MENU_LOCAL_TASK,
     'weight' => 100,
   );
+  $items['admin/config/socixs'] = array(
+    'title' => 'Socixs',
+    'description' => 'Configuración de socixs',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('katakrak_socixs_settings_form'),
+    'access arguments' => array('administer site'),
+    'type' => MENU_LOCAL_TASK,
+  );
   return $items;
 }
 
@@ -266,6 +274,17 @@ function katakrak_socios_aportacion_form_submit($form, &$form_state) {
   commerce_cart_product_add($uid, $line_item);
   commerce_order_save($order);
   drupal_goto('cart');
+}
+
+
+function katakrak_socixs_settings_form($form, &$form_state) {
+  $form['lista_socixs'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Socixs'),
+    '#required' => TRUE,
+    '#default_value' => variable_get('lista_socixs', ''),
+  );
+  return system_settings_form($form);
 }
 
 function check_iban($iban) {
