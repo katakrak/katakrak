@@ -18,11 +18,11 @@
     //Habrá que comprobar si el usuario es socixs. Por ejemplo, guardando la lista de socixs en una variable de drupal y comprobando el email. ?>
 
       <?php if (strpos(variable_get( 'lista_socixs', '' ), $user->mail) !== false) : ?>
-        36 € (eres socio: <?php echo $user->mail; ?>)
-        <p><?php print disco_generar_boton_product($node) ?></p>
+        36 €
+        <p><?php print disco_generar_boton_product($node, "diska-socixs"); ?></p>
       <?php else : ?>
-        39 € (no eres socio: <?php echo $user->mail; ?>)
-        <p><?php print disco_generar_boton_product($node, "diska-socixs") ?></p>
+        39 €
+        <p><?php print disco_generar_boton_product($node); ?></p>
       <?php endif; ?>
 
 
