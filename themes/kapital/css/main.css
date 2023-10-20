@@ -2767,8 +2767,11 @@ text.text-tag {
 .bw {
     filter: grayscale(100%);
 }
-
+.container {
+    width:100%;
+}
 .img-fluid {
     width:100%;
     height:auto;
+    object-fit: cover;
 }
