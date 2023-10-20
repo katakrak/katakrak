@@ -2767,3 +2767,8 @@ text.text-tag {
 .bw {
     filter: grayscale(100%);
 }
+
+.img-fluid {
+    width:100%;
+    height:auto;
+}
