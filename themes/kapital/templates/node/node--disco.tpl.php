@@ -16,10 +16,18 @@
     //Si el usuario está logueado deberíamos mostrar el boton de compra del producto con el precio normal. O el producto con precio rebajado si es socixs. Y un boton de hazte socix
     //Si no está logueado, habría que poner el producto normal y un botón de hazte socixs o que si lo eres te lleve a loguearte.
     //Habrá que comprobar si el usuario es socixs. Por ejemplo, guardando la lista de socixs en una variable de drupal y comprobando el email. ?>
-
+      <strong><?php echo print t('Precio Socios'); ?></strong>
+      36 €<br />
+      <strong><?php echo print t('Precio Preventa'); ?></strong>
+      39 €<br />
+      <strong><?php echo print t('Precio completo, a partir del 12/12'); ?></strong>
+      44 €<br />
       <?php if (strpos(variable_get( 'lista_socixs', '' ), $user->mail) !== false) : ?>
-        36 €
         <p><?php print disco_generar_boton_product($node, "diska-socixs"); ?></p>
+      <?php ?>
+
+
+
       <?php else : ?>
         39 €
         <p><?php print disco_generar_boton_product($node); ?></p>
