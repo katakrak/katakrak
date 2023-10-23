@@ -14,7 +14,7 @@
             <?php if (strpos(variable_get( 'lista_socixs', '' ), $user->mail) !== false) : ?>
               <p><?php print disco_generar_boton_product($node, "diska-socixs"); ?></p>
             <?php else : ?>
-              <p><a class="btn btn-primary" href="/eus/egin-zaitez-bazkide"><?php print t('Hazte Socix'); ?></a></p>
+              <p><a class="btn btn-primary btn-block" href="/eus/egin-zaitez-bazkide"><?php print t('Hazte Socix'); ?></a></p>
             <?php endif; ?>
           </div>
           <div class="col-sm-4">
