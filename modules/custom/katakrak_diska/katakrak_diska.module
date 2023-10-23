@@ -10,9 +10,9 @@ include_once 'katakrak_diska.features.inc';
 
 
 function disco_generar_boton_product($node, $sku = "diska") {
-    
+
   $product = commerce_product_load_by_sku($sku);
-  dpm($product);
+  //dpm($product);
   $default_quantity = 1;
   $product_ids = array($product->product_id);
   // Build the line item we'll pass to the Add to form.
@@ -23,12 +23,12 @@ function disco_generar_boton_product($node, $sku = "diska") {
   $line_item->commerce_display_path['und'][0] = array(
     'value' => 'node/'.$node->nid
   );
-  
+
   // Generate a form ID for this add to cart form.
   $form_id = commerce_cart_add_to_cart_form_id($product_ids);
   $line_item->data['context']['display_path'] = current_path();
   // Build the Add to Cart form using the prepared values.
   $form = drupal_get_form($form_id, $line_item, 0, array());
   return drupal_render($form);
-  
+
   }
