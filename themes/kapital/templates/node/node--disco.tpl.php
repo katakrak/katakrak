@@ -20,9 +20,9 @@
           <div class="col-sm-4">
             <strong><?php print t('Preventa'); ?></strong><br />
             39 €<br />
+            <p><?php print disco_generar_boton_product($node, "diska-aurresalmenta"); ?></p>
           </div>
           <div class="col-sm-4">
-            <p><?php print disco_generar_boton_product($node, "diska-aurresalmenta"); ?></p>
           <strong><?php print t('A partir del 14 de noviembre'); ?></strong><br />
           44 €<br />
           <p><?php print disco_generar_boton_product($node); ?></p>
