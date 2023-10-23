@@ -9,7 +9,7 @@
         //Si no está logueado, habría que poner el producto normal y un botón de hazte socixs o que si lo eres te lleve a loguearte.
         //Habrá que comprobar si el usuario es socixs. Por ejemplo, guardando la lista de socixs en una variable de drupal y comprobando el email. ?>
           <div class="col-sm-4">
-            <strong><?php print t('Socixs'); ?></strong><br />
+            <h4><strong><?php print t('Socixs'); ?></strong></h4>
             36 €<br />
             <?php if (strpos(variable_get( 'lista_socixs', '' ), $user->mail) !== false) : ?>
               <p><?php print disco_generar_boton_product($node, "diska-socixs"); ?></p>
@@ -18,13 +18,13 @@
             <?php endif; ?>
           </div>
           <div class="col-sm-4">
-            <strong><?php print t('Preventa'); ?></strong><br />
+          <h4><strong><?php print t('Preventa'); ?></strong></h4>
             39 €<br />
             <p><?php print disco_generar_boton_product($node, "diska-aurresalmenta"); ?></p>
           </div>
           <div class="col-sm-4">
-          <strong><?php print t('A partir del 14 de noviembre'); ?></strong><br />
-          44 €<br />
+            <h4><strong><?php print t('A partir del 14 de noviembre'); ?></strong></h4>
+            44 €<br />
           <p><?php print disco_generar_boton_product($node); ?></p>
           </div>
 
