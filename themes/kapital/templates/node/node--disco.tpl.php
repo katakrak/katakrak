@@ -1,8 +1,8 @@
 <div class="row mt-2">
-  <div class="col-sm-3">
+  <div class="col-sm-3 col-xs-12">
     <?php print render($content['field_imagen']) ?>
   </div><!-- /.col-->
-  <div class="col-sm-7">
+  <div class="col-sm-7 col-xs-12">
     <div class="row">
       <?php //aqui tenemos que poner varias condiciones.
         //Si el usuario está logueado deberíamos mostrar el boton de compra del producto con el precio normal. O el producto con precio rebajado si es socixs. Y un boton de hazte socix
