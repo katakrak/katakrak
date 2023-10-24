@@ -1,9 +1,9 @@
 <div class="row mt-2">
-  <div class="col-sm-3">
+  <div class="col-sm-3 col-xs-12">
     <?php print render($content['field_imagen']) ?>
   </div><!-- /.col-->
-  <div class="col-sm-6">
-    
+  <div class="col-sm-6 col-xs-12">
+
     <h1 class="mt-0"><?php print $node->title ?></h1>
     <p><?php print render($content['body']) ?></p>
     <hr>
