@@ -21,8 +21,6 @@ function katakrak_itinerarios_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Itinerario',
-    'weight' => '1',
     'children' => array(
       0 => 'field_itinerario_descripcion',
       1 => 'field_itinerario_color',
@@ -31,16 +29,18 @@ function katakrak_itinerarios_field_group_info() {
       4 => 'path',
       5 => 'field_itinerario_imagen',
     ),
-    'format_type' => 'fieldset',
     'format_settings' => array(
-      'label' => 'Itinerario',
+      'formatter' => 'collapsible',
       'instance_settings' => array(
-        'required_fields' => 1,
         'classes' => 'group-itinerario-info field-group-fieldset',
         'description' => '',
+        'required_fields' => 1,
       ),
-      'formatter' => 'collapsible',
+      'label' => 'Itinerario',
     ),
+    'format_type' => 'fieldset',
+    'label' => 'Itinerario',
+    'weight' => '1',
   );
   $field_groups['group_itinerario_info|node|itinerario|form'] = $field_group;
 
@@ -54,21 +54,21 @@ function katakrak_itinerarios_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Paradas',
-    'weight' => '2',
     'children' => array(
       0 => 'field_itinerario_paradas',
     ),
-    'format_type' => 'fieldset',
     'format_settings' => array(
-      'label' => 'Paradas',
+      'formatter' => 'collapsed',
       'instance_settings' => array(
-        'required_fields' => 1,
         'classes' => 'group-itinerario-paradas field-group-fieldset',
         'description' => '',
+        'required_fields' => 1,
       ),
-      'formatter' => 'collapsed',
+      'label' => 'Paradas',
     ),
+    'format_type' => 'fieldset',
+    'label' => 'Paradas',
+    'weight' => '2',
   );
   $field_groups['group_itinerario_paradas|node|itinerario|form'] = $field_group;
 

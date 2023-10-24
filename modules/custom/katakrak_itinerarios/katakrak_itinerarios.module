@@ -6,7 +6,7 @@
 
 include_once 'katakrak_itinerarios.features.inc';
 
-function katakrak_itinerarios_node_load($nodes, $types) {
+/**function katakrak_itinerarios_node_load($nodes, $types) {
   if (count(array_intersect(array('itinerario'), $types))) {
     foreach($nodes as $node) {
       $paradas = array();
@@ -59,7 +59,7 @@ function katakrak_itinerarios_node_load($nodes, $types) {
       $node->portadas = $portadas_tmp;
     }
   }
-}
+}*/
 
 function katakrak_itinerarios_init() {
   $itinerarios = views_get_view_result('itinerarios');

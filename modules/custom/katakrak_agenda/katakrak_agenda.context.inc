@@ -16,7 +16,7 @@ function katakrak_agenda_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'agenda_landing';
   $context->description = 'Agenda landing page';
-  $context->tag = 'Agenda';
+  $context->tag = 'Landing';
   $context->conditions = array(
     'path' => array(
       'values' => array(
@@ -62,8 +62,8 @@ function katakrak_agenda_context_default_contexts() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Agenda');
   t('Agenda landing page');
+  t('Landing');
   $export['agenda_landing'] = $context;
 
   $context = new stdClass();
@@ -75,7 +75,9 @@ function katakrak_agenda_context_default_contexts() {
   $context->conditions = array(
     'path' => array(
       'values' => array(
+        'centro-de-estudios' => 'centro-de-estudios',
         'ciclos' => 'ciclos',
+        'ikasketa-gunea' => 'ikasketa-gunea',
         'zikloak' => 'zikloak',
       ),
     ),

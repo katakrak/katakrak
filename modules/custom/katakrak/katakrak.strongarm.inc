@@ -279,6 +279,8 @@ function katakrak_strongarm() {
     'allowed_cookies' => '',
     'automatic_cookies_removal' => 1,
     'better_support_for_screen_readers' => 0,
+    'close_button_action' => 'close_banner',
+    'close_button_enabled' => FALSE,
     'consent_storage_method' => 'basic',
     'containing_element' => 'body',
     'cookie_name' => '',
@@ -330,6 +332,8 @@ function katakrak_strongarm() {
     'popup_scrolling_confirmation' => FALSE,
     'popup_text_hex' => 'ffffff',
     'popup_width' => '100%',
+    'reject_button_enabled' => FALSE,
+    'reject_button_label' => '',
     'reload_page' => 0,
     'save_preferences_button_label' => 'Save preferences',
     'script_scope' => 'footer',
@@ -583,7 +587,7 @@ function katakrak_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'mail_system';
   $strongarm->value = array(
-    'default-system' => 'DefaultMailSystem',
+    'default-system' => 'MimeMailSystem',
   );
   $export['mail_system'] = $strongarm;
 

@@ -73,10 +73,9 @@ function katakrak_diska_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-disco-field_disco_productos'.
-  $field_instances['node-disco-field_disco_productos'] = array(
+  // Exported field_instance: 'node-disco-field_imagen'.
+  $field_instances['node-disco-field_imagen'] = array(
     'bundle' => 'disco',
-    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -99,18 +98,14 @@ function katakrak_diska_field_default_field_instances() {
         'weight' => 0,
       ),
       'default' => array(
-        'label' => 'above',
-        'module' => 'commerce_cart',
+        'label' => 'hidden',
+        'module' => 'image',
         'settings' => array(
-          'button_text' => 'Comprar',
-          'combine' => TRUE,
-          'default_quantity' => 1,
-          'line_item_type' => 'product',
-          'show_quantity' => FALSE,
-          'show_single_product_attributes' => FALSE,
+          'image_link' => '',
+          'image_style' => '',
         ),
-        'type' => 'commerce_cart_add_to_cart_form',
-        'weight' => 1,
+        'type' => 'image',
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -120,39 +115,35 @@ function katakrak_diska_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_disco_productos',
-    'label' => 'Productos',
-    'required' => 1,
+    'field_name' => 'field_imagen',
+    'label' => 'Imagen',
+    'required' => FALSE,
     'settings' => array(
-      'field_injection' => 1,
-      'referenceable_types' => array(
-        'curso_centro_de_estudios' => 0,
-        'donation' => 0,
-        'libro' => 0,
-        'product' => 'product',
-        'shipping_tariff' => 0,
-      ),
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => '[date:custom:Y]-[date:custom:m]',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'inline_entity_form',
+      'module' => 'image',
       'settings' => array(
-        'autocomplete_match' => 'contains',
-        'autocomplete_path' => 'commerce_product/autocomplete',
-        'fields' => array(),
-        'size' => 60,
-        'type_settings' => array(),
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
       ),
-      'type' => 'inline_entity_form',
-      'weight' => 41,
+      'type' => 'image_image',
+      'weight' => 43,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
-  t('Productos');
+  t('Imagen');
 
   return $field_instances;
 }

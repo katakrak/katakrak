@@ -108,7 +108,11 @@ function katakrak_commerce_field_default_field_instances() {
   // Exported field_instance: 'commerce_order-commerce_order-field_regalo'.
   $field_instances['commerce_order-commerce_order-field_regalo'] = array(
     'bundle' => 'commerce_order',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(

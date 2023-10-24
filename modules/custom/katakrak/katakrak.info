@@ -241,7 +241,6 @@ features[user_permission][] = view own unpublished content
 features[user_permission][] = view payments
 features[user_permission][] = view revisions
 features[user_permission][] = view the administration theme
-features[user_role][] = Biblioteca
 features[user_role][] = Cliente
 features[user_role][] = Editor
 features[user_role][] = Librero

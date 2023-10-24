@@ -208,13 +208,13 @@ function katakrak_agenda_strongarm() {
       ),
       'form' => array(
         'language' => array(
-          'weight' => '0',
+          'weight' => '1',
         ),
         'metatags' => array(
-          'weight' => '40',
+          'weight' => '9',
         ),
         'path' => array(
-          'weight' => '30',
+          'weight' => '2',
         ),
         'title' => array(
           'weight' => '-5',

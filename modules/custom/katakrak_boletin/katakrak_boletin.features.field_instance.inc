@@ -430,6 +430,7 @@ function katakrak_boletin_field_default_field_instances() {
       'settings' => array(
         'autocomplete_match' => 'contains',
         'autocomplete_path' => 'node_reference/autocomplete',
+        'limit' => 10,
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
@@ -586,6 +587,7 @@ function katakrak_boletin_field_default_field_instances() {
       'settings' => array(
         'autocomplete_match' => 'contains',
         'autocomplete_path' => 'node_reference/autocomplete',
+        'limit' => 10,
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
@@ -930,6 +932,7 @@ function katakrak_boletin_field_default_field_instances() {
       'settings' => array(
         'autocomplete_match' => 'contains',
         'autocomplete_path' => 'node_reference/autocomplete',
+        'limit' => 10,
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',

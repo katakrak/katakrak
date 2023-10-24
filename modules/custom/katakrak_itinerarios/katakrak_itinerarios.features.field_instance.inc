@@ -84,6 +84,7 @@ function katakrak_itinerarios_field_default_field_instances() {
       'settings' => array(
         'autocomplete_match' => 'starts_with',
         'autocomplete_path' => 'node_reference/autocomplete',
+        'limit' => 10,
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
@@ -178,6 +179,24 @@ function katakrak_itinerarios_field_default_field_instances() {
     'label' => 'Color',
     'required' => 0,
     'settings' => array(
+      'allow_empty' => FALSE,
+      'box_height' => 20,
+      'box_width' => 115,
+      'cell_height' => 10,
+      'cell_margin' => 1,
+      'cell_width' => 10,
+      'columns' => 16,
+      'default_colors' => '
+#AC725E,#D06B64,#F83A22,#FA573C,#FF7537,#FFAD46
+#42D692,#16A765,#7BD148,#B3DC6C,#FBE983
+#92E1C0,#9FE1E7,#9FC6E7,#4986E7,#9A9CFF
+#B99AFF,#C2C2C2,#CABDBF,#CCA6AC,#F691B2
+#CD74E6,#A47AE2',
+      'palette' => '',
+      'show_buttons' => FALSE,
+      'show_input' => FALSE,
+      'show_palette' => FALSE,
+      'show_palette_only' => TRUE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(

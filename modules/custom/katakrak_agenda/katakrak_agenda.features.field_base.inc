@@ -218,8 +218,8 @@ function katakrak_agenda_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         0 => array(
-          'vocabulary' => 'ciclo',
           'parent' => 0,
+          'vocabulary' => 'ciclo',
         ),
       ),
       'entity_translation_sync' => FALSE,
@@ -357,6 +357,28 @@ function katakrak_agenda_field_default_field_bases() {
     'type' => 'image',
   );
 
+  // Exported field_base: 'field_event_image_class'.
+  $field_bases['field_event_image_class'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_id_type' => NULL,
+    'entity_types' => array(),
+    'field_name' => 'field_event_image_class',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
   // Exported field_base: 'field_event_libro'.
   $field_bases['field_event_libro'] = array(
     'active' => 1,
@@ -485,8 +507,8 @@ function katakrak_agenda_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         0 => array(
-          'vocabulary' => 'event_type',
           'parent' => 0,
+          'vocabulary' => 'event_type',
         ),
       ),
       'entity_translation_sync' => FALSE,
@@ -512,6 +534,7 @@ function katakrak_agenda_field_default_field_bases() {
     'module' => 'color_field',
     'settings' => array(
       'entity_translation_sync' => FALSE,
+      'opacity' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'color_field_rgb',

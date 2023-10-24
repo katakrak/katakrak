@@ -28,6 +28,7 @@ function katakrak_itinerarios_field_default_field_bases() {
     'settings' => array(
       'default_colors' => '#8E8700
         ',
+      'opacity' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'color_field_rgb',

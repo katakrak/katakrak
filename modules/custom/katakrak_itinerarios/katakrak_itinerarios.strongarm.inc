@@ -65,24 +65,24 @@ function katakrak_itinerarios_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__itinerario';
   $strongarm->value = array(
-    'view_modes' => array(),
     'extra_fields' => array(
+      'display' => array(),
       'form' => array(
-        'title' => array(
-          'weight' => '0',
-        ),
-        'path' => array(
-          'weight' => '3',
-        ),
         'language' => array(
           'weight' => '2',
         ),
         'metatags' => array(
           'weight' => '3',
         ),
+        'path' => array(
+          'weight' => '3',
+        ),
+        'title' => array(
+          'weight' => '0',
+        ),
       ),
-      'display' => array(),
     ),
+    'view_modes' => array(),
   );
   $export['field_bundle_settings_node__itinerario'] = $strongarm;
 

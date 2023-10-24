@@ -53,7 +53,7 @@ function libro_fe_nodequeue_export_fields() {
     'show_in_links' => 1,
     'reference' => 0,
     'reverse' => 0,
-    'i18n' => 0,
+    'i18n' => 1,
     'insert_at_front' => 0,
     'unique_entries' => 0,
     'subqueues' => 1,

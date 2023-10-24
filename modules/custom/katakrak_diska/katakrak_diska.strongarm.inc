@@ -38,7 +38,20 @@ function katakrak_diska_strongarm() {
   $strongarm->name = 'field_bundle_settings_node__disco';
   $strongarm->value = array(
     'extra_fields' => array(
-      'display' => array(),
+      'display' => array(
+        'language' => array(
+          'default' => array(
+            'visible' => TRUE,
+            'weight' => '0',
+          ),
+        ),
+        'sharethis' => array(
+          'default' => array(
+            'visible' => TRUE,
+            'weight' => '10',
+          ),
+        ),
+      ),
       'form' => array(
         'language' => array(
           'weight' => '0',
@@ -54,7 +67,38 @@ function katakrak_diska_strongarm() {
         ),
       ),
     ),
-    'view_modes' => array(),
+    'view_modes' => array(
+      'card_book' => array(
+        'custom_settings' => TRUE,
+      ),
+      'card_book_md' => array(
+        'custom_settings' => TRUE,
+      ),
+      'card_book_smgrid' => array(
+        'custom_settings' => TRUE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rss' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_index' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
+      'teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
+    ),
   );
   $export['field_bundle_settings_node__disco'] = $strongarm;
 

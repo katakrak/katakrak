@@ -19,11 +19,11 @@ function katakrak_itinerarios_context_default_contexts() {
   $context->tag = 'Libro';
   $context->conditions = array(
     'node' => array(
-      'values' => array(
-        'itinerario' => 'itinerario',
-      ),
       'options' => array(
         'node_form' => '1',
+      ),
+      'values' => array(
+        'itinerario' => 'itinerario',
       ),
     ),
   );

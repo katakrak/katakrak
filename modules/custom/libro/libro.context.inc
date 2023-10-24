@@ -50,6 +50,12 @@ function libro_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'katakrak_agenda-katakrak_agenda_search' => array(
+          'delta' => 'katakrak_agenda_search',
+          'module' => 'katakrak_agenda',
+          'region' => 'content_middle',
+          'weight' => '-10',
+        ),
         'libro-libreria_landing_hero' => array(
           'delta' => 'libreria_landing_hero',
           'module' => 'libro',
@@ -208,12 +214,6 @@ function libro_context_default_contexts() {
           'module' => 'libro',
           'region' => 'content',
           'weight' => '10',
-        ),
-        'libro-libreria_home_bizikrak' => array(
-          'delta' => 'libreria_home_bizikrak',
-          'module' => 'libro',
-          'region' => 'banners',
-          'weight' => '-9',
         ),
         'libro-libreria_home_destacado' => array(
           'delta' => 'libreria_home_destacado',

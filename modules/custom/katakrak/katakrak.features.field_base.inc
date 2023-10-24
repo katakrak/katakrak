@@ -95,8 +95,8 @@ function katakrak_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         0 => array(
-          'vocabulary' => 'tags',
           'parent' => 0,
+          'vocabulary' => 'tags',
         ),
       ),
       'options_list_callback' => 'i18n_taxonomy_allowed_values',
