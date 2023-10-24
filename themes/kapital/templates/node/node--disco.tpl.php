@@ -7,8 +7,6 @@
     <h1 class="mt-0"><?php print $node->title ?></h1>
     <p><?php print render($content['body']) ?></p>
     <hr>
-    <!--TODO<h4>Compártelo:</h4>
-    <p>RRSS</p>-->
   </div><!-- /.col-->
   <div class="col-sm-3">
   <div class="row">

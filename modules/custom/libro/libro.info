@@ -20,6 +20,7 @@ dependencies[] = image
 dependencies[] = katakrak
 dependencies[] = katakrak_agenda
 dependencies[] = katakrak_cegal
+dependencies[] = katakrak_diska
 dependencies[] = katakrak_geslib
 dependencies[] = katakrak_search
 dependencies[] = katakrak_socios

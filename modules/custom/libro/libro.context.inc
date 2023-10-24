@@ -155,6 +155,7 @@ function libro_context_default_contexts() {
         'node_form' => '0',
       ),
       'values' => array(
+        'disco' => 'disco',
         'libro' => 'libro',
       ),
     ),
@@ -162,12 +163,6 @@ function libro_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'libro-libreria_home_bizikrak' => array(
-          'delta' => 'libreria_home_bizikrak',
-          'module' => 'libro',
-          'region' => 'banners',
-          'weight' => '-10',
-        ),
         'libro-libreria_home_search' => array(
           'delta' => 'libreria_home_search',
           'module' => 'libro',
