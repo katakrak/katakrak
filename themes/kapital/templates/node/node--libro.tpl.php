@@ -93,7 +93,9 @@
     <h1><?php print $node->title ?></h1>
     <h2 class="mt-0"><?php print render($content['field_libro_subtitulo']) ?></h2>
     <p>
+      <?php if (isset($content['autores'])): ?>
       <?php print $content['autores'] ?>
+      <?php endif; ?>
     </p>
   </div>  
   <div class="buy">
