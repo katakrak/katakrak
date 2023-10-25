@@ -2767,6 +2767,9 @@ text.text-tag {
 .bw {
     filter: grayscale(100%);
 }
+.content-container {
+    width:100%;
+}
 .photo-gallery{
     width:100%;
     display:flex;
