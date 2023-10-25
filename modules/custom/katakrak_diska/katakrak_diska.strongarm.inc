@@ -54,16 +54,16 @@ function katakrak_diska_strongarm() {
       ),
       'form' => array(
         'language' => array(
-          'weight' => '0',
+          'weight' => '1',
         ),
         'metatags' => array(
-          'weight' => '40',
+          'weight' => '5',
         ),
         'path' => array(
-          'weight' => '30',
+          'weight' => '2',
         ),
         'title' => array(
-          'weight' => '-5',
+          'weight' => '0',
         ),
       ),
     ),
@@ -105,8 +105,31 @@ function katakrak_diska_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'i18n_sync_node_type_disco';
+  $strongarm->name = 'i18n_node_default_language_for_disco';
+  $strongarm->value = '-- current --';
+  $export['i18n_node_default_language_for_disco'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_extended_disco';
+  $strongarm->value = '1';
+  $export['i18n_node_extended_disco'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_options_disco';
   $strongarm->value = array();
+  $export['i18n_node_options_disco'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_sync_node_type_disco';
+  $strongarm->value = array(
+    0 => 'field_imagen',
+  );
   $export['i18n_sync_node_type_disco'] = $strongarm;
 
   $strongarm = new stdClass();

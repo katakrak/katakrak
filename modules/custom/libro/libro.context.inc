@@ -155,7 +155,6 @@ function libro_context_default_contexts() {
         'node_form' => '0',
       ),
       'values' => array(
-        'disco' => 'disco',
         'libro' => 'libro',
       ),
     ),
