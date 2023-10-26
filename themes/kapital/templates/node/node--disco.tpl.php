@@ -30,7 +30,7 @@
             <p><?php print disco_generar_boton_product($node, "diska-aurresalmenta"); ?></p>
             <?php endif; ?>  
               <h4><strong><?php print t('A partir del 14 de noviembre'); ?></strong></h4>
-              <p class="price">4 €</p>
+              <p class="price">44 €</p>
               <p><?php print disco_generar_boton_product($node); ?></p>
             
               </div>     
