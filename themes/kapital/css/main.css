@@ -2265,8 +2265,8 @@ a.badge:hover {
 .cta.cta-secondary.cta-editorial {
     background:
         linear-gradient(
-          rgba(0, 0, 0, 0.9),
-          rgba(0, 0, 0, 0.9)
+          rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.5)
         ),
         #fffcd6
         url(../images/cta-editorial.jpg) center center no-repeat;
