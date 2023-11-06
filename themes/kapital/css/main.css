@@ -2264,7 +2264,8 @@ a.badge:hover {
 
 .cta.cta-secondary.cta-editorial {
     background: #fffcd6 url(../images/cta-editorial.jpg) center center no-repeat;
-    background-size: cover
+    background-size: cover;
+    text-shadow: 2px 2px #ff0000;
 }
 
 .cta.cta-secondary.cta-editorial .cta-text {
