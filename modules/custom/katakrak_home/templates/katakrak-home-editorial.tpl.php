@@ -3,7 +3,7 @@
     <div>
       <h1 class="h1-lg text-color-light"><?php print t('El disco') ?></h1>
       <p class="lead text-color-light">
-          <?php print t('<em>Hau dena</em>'); ?>:
+          <em>Hau dena</em>
           <?php print t('un doble LP con 15 canciones para celebrar 10 años y seguir celebrándolos.'); ?>
       </p>
     </div>
