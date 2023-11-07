@@ -1,7 +1,7 @@
 <div class="cta cta-secondary cta-editorial">
   <div class="cta-text">
     <div>
-      <h1 class="h1-lg text-color-light"><?php print t('Editorial > El disco') ?></h1>
+      <h1 class="h1-lg text-color-light"><?php print t('El disco') ?></h1>
       <p class="lead text-color-light">
           <?php print t('<em>Hau dena</em>'); ?>:
           <?php print t('un doble LP con 15 canciones para celebrar 10 años y seguir celebrándolos.'); ?>
