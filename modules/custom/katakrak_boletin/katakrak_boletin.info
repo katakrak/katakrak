@@ -5,7 +5,6 @@ version = 7.x-1.0
 project = katakrak_boletin
 dependencies[] = field_collection
 dependencies[] = katakrak_blog
-dependencies[] = mailchimp_signup
 features[context][] = boletin_node
 features[context][] = boletin_page
 features[ctools][] = context:context:3
