@@ -111,7 +111,7 @@ $shipping = $shipping->commerce_customer_address['und'][0];
                       <th><?php print $forma_envio ?></th>
                       <?php if (katakrak_commerce_cart_is_mensajeria($commerce_order)): ?>
                       <td class="text-right">
-                        <a class="btn btn-primary" href="https://www.seur.com/livetracking/?segOnlineIdentificador=KATA-<?php print $commerce_order->order_number?>" target="_blank"><?php print t('Seguimiento del pedido') ?></a>
+                        <a class="btn btn-primary" href="https://s.correosexpress.com/SeguimientoSinCP/search?request_locale=es_ES&shippingNumber=<?php print $commerce_order->order_number?>" target="_blank"><?php print t('Seguimiento del pedido') ?></a>
                       </td>
                       <?php endif; ?>
                     </tr>
