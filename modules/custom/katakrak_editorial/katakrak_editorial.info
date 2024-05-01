@@ -23,6 +23,7 @@ features[fe_nodequeue][] = autores_editorial
 features[fe_nodequeue][] = blitz_ensayo_breve_cas
 features[fe_nodequeue][] = editorial_ensayo_cas
 features[fe_nodequeue][] = editorial_narrativa_eus
+features[fe_nodequeue][] = editorial_poesia
 features[fe_nodequeue][] = libros_editorial
 features[fe_nodequeue][] = traductores_cas
 features[fe_nodequeue][] = traductores_eus

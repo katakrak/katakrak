@@ -157,6 +157,31 @@ function katakrak_editorial_fe_nodequeue_export_fields() {
     'count' => 0,
   );
 
+  // Exported nodequeues: editorial_poesia
+  $nodequeues['editorial_poesia'] = array(
+    'name' => 'editorial_poesia',
+    'title' => 'Editorial Poesia',
+    'subqueue_title' => '',
+    'size' => 0,
+    'link' => '+ Añadir a "Editorial Poesia"',
+    'link_remove' => '- Quitar de "Editorial Poesia"',
+    'owner' => 'nodequeue',
+    'show_in_ui' => 1,
+    'show_in_tab' => 1,
+    'show_in_links' => 1,
+    'reference' => 0,
+    'reverse' => 0,
+    'i18n' => 0,
+    'insert_at_front' => 0,
+    'unique_entries' => 0,
+    'subqueues' => 1,
+    'types' => array(
+      0 => 'libro_ed',
+    ),
+    'roles' => array(),
+    'count' => 0,
+  );
+
   // Exported nodequeues: libros_editorial
   $nodequeues['libros_editorial'] = array(
     'name' => 'libros_editorial',
