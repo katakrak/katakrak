@@ -96,6 +96,12 @@ function katakrak_editorial_context_default_contexts() {
           'region' => 'content_top',
           'weight' => '-87',
         ),
+        'views-editorial-editorial_poesia' => array(
+          'delta' => 'editorial-editorial_poesia',
+          'module' => 'views',
+          'region' => 'content_top',
+          'weight' => '-10',
+        ),
       ),
     ),
   );
@@ -151,6 +157,12 @@ function katakrak_editorial_context_default_contexts() {
           'module' => 'views',
           'region' => 'content_top',
           'weight' => '-86',
+        ),
+        'views-editorial-editorial_poesia' => array(
+          'delta' => 'editorial-editorial_poesia',
+          'module' => 'views',
+          'region' => 'content_top',
+          'weight' => '-10',
         ),
       ),
     ),
