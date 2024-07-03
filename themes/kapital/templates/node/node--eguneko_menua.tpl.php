@@ -85,7 +85,7 @@ $idioma = $language->language;
 $idioma_index = $idioma == 'es'? 0 : 1;
 $alergenos = variable_get('alergenos');
 ?>
-<ul class="nav nav-secondary hidden-xs">
+<!--<ul class="nav nav-secondary hidden-xs">
   <?php foreach($node->field_menu_tipo_menu['und'] as $i => $tab): ?>
   <?php if ($tab['field_collection']->field_menu_pest_activo['und'][0]['value']): ?>
     <li class="<?php print $i == 0 ? 'active': '' ?>">
@@ -94,10 +94,11 @@ $alergenos = variable_get('alergenos');
       <?php endif; ?>
   <?php endforeach; ?>
 </ul>
+-->
 
 
-
-
+<img src="https://www.katakrak.net/sites/default/files/jallalla_menu.jpg" alt="Menu jallalla">
+ <!--   
 <select class="form-control tabs visible-xs-block">
   <?php foreach($node->field_menu_tipo_menu['und'] as $tab): ?>
   
@@ -124,12 +125,12 @@ $alergenos = variable_get('alergenos');
         <?php endif; ?>
         
         <?php foreach ($tab['field_collection']->field_menu_categoria['und'] as $cat_id => $categoria): ?>
-        <?php //dpm($categoria) ?>
+      
         
         <div class="row mt-4">
           <div class="col-sm-5 mb-1">
             <div id="carousel-<?php print $cat_id ?>" class="carousel slide" data-ride="carousel">
-              <!-- Indicators -->
+             
               <ol class="carousel-indicators">
                 <?php foreach ($categoria['field_collection']->field_menu_platos['und'] as $i => $plato): ?>
                 <?php $plato = $plato['node']?>
@@ -140,7 +141,7 @@ $alergenos = variable_get('alergenos');
               </ol>
                 
 
-              <!-- Wrapper for slides -->
+             
               <div class="carousel-inner" role="listbox">
                 <?php foreach ($categoria['field_collection']->field_menu_platos['und'] as $i => $plato): ?>
                 <?php $plato = $plato['node']; ?>
@@ -155,12 +156,12 @@ $alergenos = variable_get('alergenos');
                     <?php endif; ?>
                     <p></p>
                   </div>
-                </div><!-- item-active -->
+                </div>
                 <?php endif; ?>
                 <?php endforeach; ?>
-              </div><!-- carousel-inner -->
+              </div>
 
-              <!-- Controls -->
+              
               <a class="left carousel-control" href="#carousel-<?php print $cat_id?>" role="button" data-slide="prev">
                 <img src="/sites/all/themes/kapital/images/angle-left.svg" width="30" height="30" alt="Anterior">
               </a>
@@ -169,7 +170,7 @@ $alergenos = variable_get('alergenos');
               </a>
             </div>
 
-          </div><!-- /.col-->
+          </div>
           <div class="col-sm-7">
                 <h1 class="mt-0"><?php print $categoria['field_collection']->field_menu_nombre_categoria['und'][$idioma_index]['value']?></h1>
                 
@@ -211,24 +212,24 @@ $alergenos = variable_get('alergenos');
                           <?php endif; ?>
                         </tr>
                         <?php if ($plato->field_errezeta_descripcion['und'][$idioma_index]['value']): ?>
-                        <!--<tr>
+                        --><!--<tr>
                           <td colspan="2"><p class="small"></p></td>
-                        </tr>-->
+                        </tr>--><!--
                         <?php endif; ?>
                       <?php endforeach; ?>
                     </tbody>
                   </table>
                 </div>
 
-            </div><!-- /.col-->
-          </div><!-- /.row-->
+            </div>
+          </div>
           
         <?php endforeach; ?>
-      </div><!-- /.tab-pane-->
+      </div>
       <?php endif; ?>
     <?php  endforeach; ?>
-         </div><!-- /.tab-content-->
-  </div><!-- /.col-->
+         </div>
+  </div>-->
   
   <!--<p><?php print t('*Información sobre alérgenos') ?>
   <ul>
@@ -247,6 +248,8 @@ $alergenos = variable_get('alergenos');
     <li>A = <?php print t('Altramuz') ?></li>
     <li>SU = <?php print t('Sulfitos') ?></li>
   </ul>-->
+
+                        
 
 
 
