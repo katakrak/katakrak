@@ -85,7 +85,7 @@ $idioma = $language->language;
 $idioma_index = $idioma == 'es'? 0 : 1;
 $alergenos = variable_get('alergenos');
 ?>
-<!--<ul class="nav nav-secondary hidden-xs">
+<ul class="nav nav-secondary hidden-xs">
   <?php foreach($node->field_menu_tipo_menu['und'] as $i => $tab): ?>
   <?php if ($tab['field_collection']->field_menu_pest_activo['und'][0]['value']): ?>
     <li class="<?php print $i == 0 ? 'active': '' ?>">
@@ -94,11 +94,9 @@ $alergenos = variable_get('alergenos');
       <?php endif; ?>
   <?php endforeach; ?>
 </ul>
--->
 
 
-<img src="https://www.katakrak.net/sites/default/files/jallalla_menu.jpg" alt="Menu jallalla">
- <!--   
+ 
 <select class="form-control tabs visible-xs-block">
   <?php foreach($node->field_menu_tipo_menu['und'] as $tab): ?>
   
@@ -212,9 +210,9 @@ $alergenos = variable_get('alergenos');
                           <?php endif; ?>
                         </tr>
                         <?php if ($plato->field_errezeta_descripcion['und'][$idioma_index]['value']): ?>
-                        --><!--<tr>
+                        <tr>
                           <td colspan="2"><p class="small"></p></td>
-                        </tr>--><!--
+                        </tr>
                         <?php endif; ?>
                       <?php endforeach; ?>
                     </tbody>
@@ -229,7 +227,7 @@ $alergenos = variable_get('alergenos');
       <?php endif; ?>
     <?php  endforeach; ?>
          </div>
-  </div>-->
+  </div>
   
   <!--<p><?php print t('*Información sobre alérgenos') ?>
   <ul>

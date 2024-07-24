@@ -492,7 +492,7 @@ function katakrak_commerce_form_alter(&$form, &$form_state, $form_id) {
       $date = new DateTime();
 
       // Set start and end dates for sanfermines.
-      $start_date = new DateTime($date->format('Y') . '-07-05');
+      $start_date = new DateTime($date->format('Y') . '-07-03');
       $end_date = new DateTime($date->format('Y') . '-07-15');
       if ($date >= $start_date && $date <= $end_date) {
         $form['sanfermines'] = array(
