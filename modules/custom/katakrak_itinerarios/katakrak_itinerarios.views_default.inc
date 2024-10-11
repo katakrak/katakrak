@@ -25,10 +25,14 @@ function katakrak_itinerarios_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Itinerarios de lectura';
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'más';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Aplicar';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordenar por';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '4';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -112,10 +116,10 @@ function katakrak_itinerarios_views_default_views() {
   $translatables['itinerarios'] = array(
     t('Master'),
     t('Itinerarios de lectura'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
+    t('más'),
+    t('Aplicar'),
+    t('Reiniciar'),
+    t('Ordenar por'),
     t('Asc'),
     t('Desc'),
     t('Nid'),
@@ -309,7 +313,6 @@ function katakrak_itinerarios_views_default_views() {
     t('Color'),
     t('<span class="color-swatch" style="background-color: [field_itinerario_color-rgb]; width: 50px; height: 50px; border-radius: 50%;">[field_itinerario_linea]</span>'),
     t('Page'),
-    t('more'),
   );
   $export['itinerarios_admin'] = $view;
 
