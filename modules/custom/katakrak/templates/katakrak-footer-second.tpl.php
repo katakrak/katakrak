@@ -14,7 +14,7 @@
           </li>
           <li class="list-item">
             <a class="d-flex" href="https://www.instagram.com/katakrak54/" target="_blank" title="Instagram">
-              <i class="fab fa-instagram"></i>
+              <i class="fa-brands fa-instagram"></i>
               <!-- <span>Instagram</span> -->
             </a>
           </li>

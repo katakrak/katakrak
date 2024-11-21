@@ -1,4 +1,4 @@
-<h2><?php print t('Social') ?></h2>
+<h2><?php print t('Sosssscial') ?></h2>
 <ul class="list-unstyled list-social mt-3">
   <li class="list-item mb-3">
     <a class="d-flex" href="https://www.facebook.com/katakrak54" target="_blank" title="Facebook">
@@ -14,7 +14,7 @@
   </li>
   <li class="list-item mb-3">
     <a class="d-flex" href="https://www.instagram.com/katakrak54/" target="_blank" title="Instagram">
-      <i class="fab fa-instagram" aria-hidden="true"></i>
+      <i class="fa-brands fa-instagram" aria-hidden="true"></i>
       <span>Instagram</span>
     </a>
   </li>

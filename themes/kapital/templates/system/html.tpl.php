@@ -60,12 +60,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
+  <script src="https://kit.fontawesome.com/4aac54f2f2.js" crossorigin="anonymous"></script>
   <?php print $styles; ?>
   <!-- HTML5 element support for IE6-8 -->
   <!--[if lt IE 9]>
     <script src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  
+
   <?php print $scripts; ?>
 </head>
 <body<?php print $body_attributes; ?>>
