@@ -67,4 +67,5 @@ $modified_image_field = $dom->saveHTML();
   <hr class="hr-dark">
   <h3 class="mb-2"><?php print t('Libro recomendado') ?>:</h3>
   <?php print render($content['field_event_libro']) ?>
+  <p><?php print views_embed_view('libros', 'books_related_event', $node->nid); ?></p>
 <?php endif; ?>
