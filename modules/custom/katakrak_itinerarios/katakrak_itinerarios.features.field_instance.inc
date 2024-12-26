@@ -699,7 +699,7 @@ function katakrak_itinerarios_field_default_field_instances() {
         'weight' => 0,
       ),
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'node_reference',
         'settings' => array(
           'node_reference_view_mode' => 'card_book',

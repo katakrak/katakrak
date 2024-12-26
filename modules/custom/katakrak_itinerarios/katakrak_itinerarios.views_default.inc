@@ -130,6 +130,7 @@ function katakrak_itinerarios_views_default_views() {
 </div>
 </div>'),
     t('Block'),
+    t('more'),
     t('Página'),
   );
   $export['itinerarios'] = $view;
@@ -313,6 +314,7 @@ function katakrak_itinerarios_views_default_views() {
     t('Color'),
     t('<span class="color-swatch" style="background-color: [field_itinerario_color-rgb]; width: 50px; height: 50px; border-radius: 50%;">[field_itinerario_linea]</span>'),
     t('Page'),
+    t('more'),
   );
   $export['itinerarios_admin'] = $view;
 
