@@ -75,6 +75,56 @@ function katakrak_itinerarios_field_default_field_bases() {
     'type' => 'image',
   );
 
+  // Exported field_base: 'field_itinerario_libros'.
+  $field_bases['field_itinerario_libros'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_id_type' => NULL,
+    'entity_types' => array(),
+    'field_name' => 'field_itinerario_libros',
+    'indexes' => array(
+      'nid' => array(
+        0 => 'nid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'node_reference',
+    'settings' => array(
+      'referenceable_types' => array(
+        'article' => 0,
+        'autor_ed' => 0,
+        'blog' => 0,
+        'boletin' => 0,
+        'boletin_bibliotecas' => 0,
+        'ciclo' => 0,
+        'disco' => 0,
+        'donation' => 0,
+        'eguneko_menua' => 0,
+        'event' => 0,
+        'imagen' => 0,
+        'itinerario' => 0,
+        'itinerario_lectura' => 0,
+        'kantina_productor' => 0,
+        'libro' => 'libro',
+        'libro_ed' => 0,
+        'page' => 0,
+        'portfolio' => 0,
+        'receta' => 0,
+        'simplenews' => 0,
+        'sukalde_errezeta' => 0,
+        'sukalde_produktua' => 0,
+      ),
+      'view' => array(
+        'args' => array(),
+        'display_name' => '',
+        'view_name' => '',
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'node_reference',
+  );
+
   // Exported field_base: 'field_itinerario_linea'.
   $field_bases['field_itinerario_linea'] = array(
     'active' => 1,
