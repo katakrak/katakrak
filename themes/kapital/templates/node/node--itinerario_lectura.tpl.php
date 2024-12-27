@@ -1,8 +1,7 @@
 <div class="row mt-2">
   <div class="col-sm-4">
     <?php print render($content['field_imagen']) ?>
-    <hr class="hr-dark">
- 
+    
     <!-- <h3 class="mb-2"><?php //print t('Producto relacionado') ?></h3>-->
      <?php //print render($content['field_producto_ciclo']) ?>
     </div><!-- /.col-->
@@ -15,7 +14,7 @@
               </p>
             </div>
           </div>
-        <hr>
+      
 
         <!--TODO<h4>Compártelo:</h4>
         <p>RRSS</p>-->
@@ -27,4 +26,5 @@
 
     <hr class="hr-dark">
     <h3 class="mb-2"><?php print t('Libros del itinerario') ?></h3>
-     <?php print render($content['field_itinerario_libros']) ?>
+     <?php //print render($content['field_itinerario_libros']) ?>
+     <?php print views_embed_view('libros', 'libros_itinerario', $node->nid) ?>
