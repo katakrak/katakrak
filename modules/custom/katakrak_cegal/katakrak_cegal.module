@@ -11,7 +11,7 @@ function katakrak_cegal_menu() {
     'description' => 'Cegal',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('katakrak_cegal_batch_process_form'),
-    'access arguments' => array('administer site'),
+    'access arguments' => array('access dilve information'),
   );
   $items['admin/commerce/config/cegal/process'] = array(
     'title' => 'Procesar portadas',
@@ -23,7 +23,7 @@ function katakrak_cegal_menu() {
     'description' => 'Configuración de módulo cegal',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('katakrak_cegal_settings_form'),
-    'access arguments' => array('administer site'),
+    'access arguments' => array('access dilve information'),
     'type' => MENU_LOCAL_TASK,
   );
    $items['node/%node/cegal'] = array(
