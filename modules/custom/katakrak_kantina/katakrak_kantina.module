@@ -104,7 +104,7 @@
       case 'katakrak_kantina_nav_submenu':
         $links = array(
           l(t('Conoce la cantina'), 'cantina'),
-          l(t('Menú y carta'), 'node/44194'),
+          l(t('Menú y carta'), 'node/397444'),
           l(t('Caterings'), 'cantina/catering'),
           l(t('Para llevar'), 'cantina/ziclop'),
           l(t('Nuestros productores'), 'cantina/productores'),
