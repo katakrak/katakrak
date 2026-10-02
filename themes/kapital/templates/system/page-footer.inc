@@ -1,3 +1,13 @@
+<?php global $language;
+ if ($language->language =="es") {
+   $legal_url ="cas/aviso-legal";
+   $privacidad_url = "cas/pol-tica-de-privacidad";
+}
+ else {
+   $legal_url = "eus/lege-oharra";
+   $privacidad_url = "";
+}
+ ?>
 <footer>
   <div class="container">
     <div class="row">
@@ -21,4 +31,10 @@
     </a>
     
   </div>
+  <footer class="colophon">
+    <div class="container">
+      <a href="/<?php print $legal_url ?>"><?php print t("Aviso legal") ?></a> · 
+      <a href="/<?php print $privacidad_url ?>"><?php print t("Política de privacidad") ?></a> · 
+      <a href=""><?php print t("") ?></a>
+   </div>
 </footer>
