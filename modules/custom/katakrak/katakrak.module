@@ -563,6 +563,14 @@ function katakrak_form_alter(&$form, &$form_state, $form_id) {
       '#description' => t('Responsable: 1978 KOOPERATIBA SCIS. Finalidad: gestionar tu cuenta y los servicios asociados. Base jurídica: tu solicitud y la prestación del servicio. Puedes ejercer tus derechos en kantina@katakrak.net. Más información: ').l(t('Política de privacidad'), $privacidad_url),
     ); 
   }
+  if ($form_id == 'commerce_checkout_form_shipping') {
+    dpm($form);
+$form['customer_profile_billing']['lopd_check'] = array(
+      '#type' => 'item', 
+      '#markup' => t('Utilizaremos tus datos para gestionar el pedido, el pago, la facturación y el envío.'),
+      '#description' => t('Responsable: 1978 KOOPERATIBA SCIS. Finalidad: gestionar tu compra y los servicios asociados. Base jurídica: ejecutar el contrato de compraventa y cumplir las obligaciones legales aplicables. Cuando sea necesario, determinados datos podrán comunicarse a proveedores de pago, transporte y servicios tecnológicos. Puedes ejercer tus derechos en kantina@katakrak.net. Más información: ').l(t('Política de privacidad'), $privacidad_url),
+    ); 
+  }
 }
 
 function katakrak_user_form_edit_after(&$form, $form_state) {

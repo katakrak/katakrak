@@ -321,7 +321,7 @@ function katakrak_field_default_field_instances() {
     'settings' => array(
       'description_field' => 0,
       'file_directory' => '',
-      'file_extensions' => 'txt',
+      'file_extensions' => 'txt pdf',
       'max_filesize' => '',
       'user_register_form' => FALSE,
     ),
@@ -329,17 +329,6 @@ function katakrak_field_default_field_instances() {
       'active' => 1,
       'module' => 'file',
       'settings' => array(
-        'imce_filefield_on' => 0,
-        'insert' => 0,
-        'insert_absolute' => FALSE,
-        'insert_class' => '',
-        'insert_default' => array(
-          0 => 'auto',
-        ),
-        'insert_styles' => array(
-          0 => 'auto',
-        ),
-        'insert_width' => '',
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',

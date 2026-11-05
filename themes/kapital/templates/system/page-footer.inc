@@ -2,10 +2,12 @@
  if ($language->language =="es") {
    $legal_url ="cas/aviso-legal";
    $privacidad_url = "cas/pol-tica-de-privacidad";
+   $cookies_url = 'cas/pol-tica-de-cookies';
 }
  else {
    $legal_url = "eus/lege-oharra";
    $privacidad_url = "eus/pribatutasun-politika";
+   $cookies_url = 'eus/cookien-politika';
 }
  ?>
 <footer>
@@ -35,6 +37,6 @@
     <div class="container">
       <a href="/<?php print $legal_url ?>"><?php print t("Aviso legal") ?></a> · 
       <a href="/<?php print $privacidad_url ?>"><?php print t("Política de privacidad") ?></a> · 
-      <a href=""><?php print t("") ?></a>
+      <a href="/<?php print $cookies_url ?>"><?php print t("Política de cookies") ?></a>
    </div>
 </footer>
