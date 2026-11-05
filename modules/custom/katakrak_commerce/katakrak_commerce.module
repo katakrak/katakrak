@@ -453,6 +453,7 @@ function katakrak_commerce_cart_is_mensajeria($order) {
 }
 
 function katakrak_commerce_form_alter(&$form, &$form_state, $form_id) {
+  global $language;
   if ($form_id == 'views_form_commerce_cart_form_katakrak_default') {
     foreach (element_children($form['edit_delete']) as $key) {
       $form['edit_delete'][$key]['#attributes']['class'] = array('btn btn-secondary');
@@ -487,7 +488,27 @@ function katakrak_commerce_form_alter(&$form, &$form_state, $form_id) {
                '</div>'.
              '</div>'.
           '</div>',
-      );    
+  );    
+      if ($language->language == 'es')
+        $contratacion_url = 'node/567295';
+      else
+        $contratacion_url = 'node/567296';
+      $form['condiciones'] = array(
+        '#type' => 'checkbox',
+	'#title' => t('Acepto las condiciones de contratación').' <a data-toggle="collapse" href="#collapseContratacion">'.t('Saber más').'</a>',
+        '#weight' => 50,
+        '#default_value' => $form_state['order']->field_regalo['und'][0]['value'],
+        '#prefix' => '<hr class="hr-dark">',
+        '#suffix' => '<div class="collapse mt-2" id="collapseContratacion">'.
+             '<div class="row">'.
+               '<div class="col-sm-5">'.
+                '<p>'.l(t('Condiciones de contratación'), $contratacion_url).'</p>'.
+               '</div>'.
+             '</div>'.
+          '</div>',
+	'#weight' => 51,
+	'#required' => TRUE,
+      );
       // Get current date.
       $date = new DateTime();
 

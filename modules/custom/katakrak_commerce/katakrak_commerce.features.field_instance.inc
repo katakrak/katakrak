@@ -30,7 +30,7 @@ function katakrak_commerce_field_default_field_instances() {
     'entity_type' => 'commerce_customer_profile',
     'field_name' => 'field_customer_telefono',
     'label' => 'Teléfono',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
