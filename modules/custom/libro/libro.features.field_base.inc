@@ -164,8 +164,8 @@ function libro_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         0 => array(
-          'parent' => 0,
           'vocabulary' => 'autores',
+          'parent' => 0,
         ),
       ),
       'options_list_callback' => 'i18n_taxonomy_allowed_values',
@@ -191,8 +191,8 @@ function libro_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         0 => array(
-          'parent' => 0,
           'vocabulary' => 'materias',
+          'parent' => 0,
         ),
       ),
       'options_list_callback' => 'i18n_taxonomy_allowed_values',
@@ -266,8 +266,8 @@ function libro_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         0 => array(
-          'parent' => 0,
           'vocabulary' => 'editoriales',
+          'parent' => 0,
         ),
       ),
       'options_list_callback' => 'i18n_taxonomy_allowed_values',
@@ -505,8 +505,8 @@ function libro_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         0 => array(
-          'parent' => 0,
           'vocabulary' => 'urtea',
+          'parent' => 0,
         ),
       ),
       'options_list_callback' => 'i18n_taxonomy_allowed_values',

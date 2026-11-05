@@ -101,7 +101,7 @@ function libro_add_to_cart_submit($form, &$form_state) {
 function libro_portada_form($form, $form_state, $node) {
   $ean = $node->field_libro_ean['und'][0]['value'];
 
-  $url = sprintf("http://image.casadellibro.com/a/l/t0/%s/%s.jpg", substr($ean, 11, 2), $ean);
+$url = sprintf("http://imagessl%s.casadellibro.com/a/l/s7/%s/%s.webp", substr($ean, 12,1), substr($ean, 11, 2), $ean);
 
   $form['image'] = array(
     '#markup' => theme('image', array(
@@ -125,8 +125,7 @@ function libro_portada_form_submit($form, &$form_state) {
   $node = $form_state['build_info']['args'][0];
   $ean = $node->field_libro_ean['und'][0]['value'];
 
-  $url = sprintf("http://image.casadellibro.com/a/l/t0/%s/%s.jpg", substr($ean, 11, 2), $ean);
-
+  $url = sprintf("http://imagessl%s.casadellibro.com/a/l/s7/%s/%s.webp", substr($ean, 12,1), substr($ean, 11, 2), $ean);
   $request = drupal_http_request($url);
   if ($request->code == 200){
     $file = create_cover($request->data, $ean.'.jpg');
@@ -236,7 +235,7 @@ function libro_metainfo_process($limit, $max, $recheck, &$context) {
     //Si no está en dilve o no ha bajado la portado probamos casadellibro
     if (!$tiene_portada) {
       $ean = $node->field_libro_ean['und'][0]['value'];
-      $url = sprintf("http://image.casadellibro.com/a/l/t0/%s/%s.jpg", substr($ean, 11, 2), $ean);
+      $url = sprintf("http://imagessl%s.casadellibro.com/a/l/s7/%s/%s.webp", substr($ean, 12,1), substr($ean, 11, 2), $ean);
       $request = drupal_http_request($url);
 
       if ($request->code == 200) {
