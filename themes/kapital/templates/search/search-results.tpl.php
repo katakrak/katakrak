@@ -9,7 +9,7 @@
  * definition lists.
  *
  * Note that modules may implement their own search type and theme function
- * completely bypassing this template.
+	 * completely bypassing this template.
  *
  * Available variables:
  * - $search_results: All results as it is rendered through

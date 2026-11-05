@@ -48,12 +48,12 @@ function libro_menu() {
     'access arguments' => array('access content'),
     'type' => MENU_NORMAL_ITEM,
   );
-  $items['libro'] = array(
+  /**$items['libro'] = array(
     'title' => 'Portada',
     'page callback' => 'todostuslibros_ficha',
     'access arguments' => array('access content'),
     'type' => MENU_CALLBACK,
-  );
+  );*/
   return $items;
 }
 
@@ -643,26 +643,7 @@ function libro_peso_batch_process_finish($success, $results, $operations) {
 function libro_node_view($node, $view_mode, $langcode) {
   if ($node->type == 'libro') {
     if ($view_mode == 'full') {
-      //Generamos a los autores separados por coma
-      $autores = array();
-      if (is_array($node->content['field_libro_autores'])) {
-        foreach (element_children($node->content['field_libro_autores']) as $key) {
-          $autores[] =  l($node->field_libro_autores['und'][$key]['taxonomy_term']->name, 'taxonomy/term/'.$node->field_libro_autores['und'][$key]['tid']);
-        }
-      }
-      $node->content['autores'] = join(', ', $autores);
-      $node->sinopsis = truncate_utf8($node->field_libro_sinopsis['und'][0]['value'], 650, TRUE, TRUE);
-      if ( strlen($node->field_libro_sinopsis['und'][0]['value']) > 650) {
-        $node->leer_mas = substr($node->field_libro_sinopsis['und'][0]['value'], strlen($node->sinopsis) -3);
-      }
-    }
-
-    if ($node->field_libro_portada['und'][0]['filename'] == 'nocover.png')
-      $node->content['cover_class'] = 'nocover';
-    else
-      $node->content['cover_class'] = 'cover';
-
-    $product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
+$product = commerce_product_load($node->field_libro_producto['und'][0]['product_id']);
     if ($product->commerce_stock['und'][0]['value'] > 0) {
       $node->disponibilidad = DISPONIBLE_LIBRERIA;
     }
@@ -683,6 +664,25 @@ function libro_node_view($node, $view_mode, $langcode) {
     if (!isset($node->disponibilidad)) {
       $node->disponibilidad = NO_DISPONIBLE;
     }
+      //Generamos a los autores separados por coma
+      $autores = array();
+      if (is_array($node->content['field_libro_autores'])) {
+        foreach (element_children($node->content['field_libro_autores']) as $key) {
+          $autores[] =  l($node->field_libro_autores['und'][$key]['taxonomy_term']->name, 'taxonomy/term/'.$node->field_libro_autores['und'][$key]['tid']);
+        }
+      }
+      $node->content['autores'] = join(', ', $autores);
+      $node->sinopsis = truncate_utf8($node->field_libro_sinopsis['und'][0]['value'], 650, TRUE, TRUE);
+      if ( strlen($node->field_libro_sinopsis['und'][0]['value']) > 650) {
+        $node->leer_mas = substr($node->field_libro_sinopsis['und'][0]['value'], strlen($node->sinopsis) -3);
+      }
+    }
+
+    if ($node->field_libro_portada['und'][0]['filename'] == 'nocover.png')
+      $node->content['cover_class'] = 'nocover';
+    else
+      $node->content['cover_class'] = 'cover';
+
   }
 }
 

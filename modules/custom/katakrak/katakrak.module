@@ -528,6 +528,41 @@ function katakrak_form_alter(&$form, &$form_state, $form_id) {
     unset($form['contact']);
     $form['#after_build'][] = 'katakrak_user_form_edit_after';
   }
+  global $language;
+  if ($language->language == 'es')
+    $privacidad_url = 'pol-tica-de-privacidad';
+  else
+    $privacidad_url = 'pribatutasun-politika';
+  if ($form_id == 'katakrak_agenda_reserva_form') {
+    $form['lopd_check'] = array(
+      '#type' => 'item',
+      '#markup' => t('Utilizaremos tus datos para gestionar tu solicitud y ponernos en contacto contigo.'),
+      '#description' => t('Responsable: 1978 KOOPERATIBA SCIS. Finalidad: gestionar el acto, actividad o reserva solicitada. Base jurídica: tu solicitud y, cuando corresponda, medidas precontractuales. Puedes ejercer tus derechos en kantina@katakrak.net. Más información: ').l(t('Política de privacidad'), $privacidad_url),
+      '#weight' => 0,
+    );
+  }
+  if ($form_id == 'katakrak_socios_signup_form') {
+    $form['lopd_check'] = array(
+      '#type' => 'item',
+      '#markup' => t('Utilizaremos tus datos para tramitar y gestionar tu relación como socix de Katakrak, incluidas las cuotas y cobros que correspondan.'),
+    '#description' => t('Responsable: 1978 KOOPERATIBA SCIS. Finalidad: alta y gestión de la relación como socix, contacto y gestión de cuotas/cobros. Base jurídica: la relación solicitada y las obligaciones legales aplicables. Cuando sea necesario, determinados datos podrán comunicarse a entidades bancarias o proveedores de pago. Puedes ejercer tus derechos en kantina@katakrak.net. Más información: ').l(t('Política de privacidad'), $privacidad_url),
+      '#weight' => 1,
+    );
+  }
+  if ($form_id == 'contact_site_form') {
+    $form['lopd_check'] = array(
+      '#type' => 'item', 
+      '#markup' => t('Utilizaremos tus datos para gestionar y responder a tu consulta.'),
+      '#description' => t('Responsable: 1978 KOOPERATIBA SCIS. Finalidad: atender tu mensaje. Base jurídica: tu solicitud. Puedes ejercer tus derechos en kantina@katakrak.net. Más información: ').l(t('Política de privacidad'), $privacidad_url),
+    ); 
+  } 
+  if ($form_id == 'user_register_form') {
+    $form['lopd_check'] = array(
+      '#type' => 'item', 
+      '#markup' => t('Utilizaremos tus datos para crear y gestionar tu cuenta de usuario.'),
+      '#description' => t('Responsable: 1978 KOOPERATIBA SCIS. Finalidad: gestionar tu cuenta y los servicios asociados. Base jurídica: tu solicitud y la prestación del servicio. Puedes ejercer tus derechos en kantina@katakrak.net. Más información: ').l(t('Política de privacidad'), $privacidad_url),
+    ); 
+  }
 }
 
 function katakrak_user_form_edit_after(&$form, $form_state) {

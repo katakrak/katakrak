@@ -26,6 +26,7 @@ function katakrak_cegal_menu() {
     'access arguments' => array('access dilve information'),
     'type' => MENU_LOCAL_TASK,
   );
+
    $items['node/%node/cegal'] = array(
     'title' => 'Cegal',
     'page callback' => 'drupal_get_form',
@@ -152,6 +153,9 @@ function katakrak_cegal_settings_form_submit($form, &$form_state) {
 }
 
 
+/**
+ * GEstion de metadatos cegal
+ */
 function katakrak_cegal_batch_process_form($form, &$form_state) { 
   $form['sin_portada'] = array(
     '#type' => 'checkbox',

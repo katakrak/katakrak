@@ -1,0 +1,240 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function katakrak_portadas_menu() {
+  $items['admin/config/media/katakrak-portadas'] = array(
+    'title' => 'Katakrak: archivos pesados',
+    'description' => 'Lista y redimensiona los archivos de un directorio que superan un tamaño mínimo.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('katakrak_portadas_peso_form'),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+/**
+ * Formulario.
+ */
+function katakrak_portadas_peso_form($form, &$form_state) {
+  $form['directorio'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Directorio'),
+    '#description' => t('URI del directorio, por ejemplo public://portadas.'),
+    '#default_value' => 'public://',
+    '#required' => TRUE,
+  );
+  $form['excluir'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Subdirectorios a excluir'),
+    '#description' => t('Rutas relativas al directorio, separadas por comas.'),
+    '#default_value' => 'styles',
+  );
+  $form['umbral_kb'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Tamaño mínimo (KB)'),
+    '#description' => t('Solo se tratarán los archivos con un peso superior a este valor.'),
+    '#default_value' => 500,
+    '#size' => 10,
+    '#required' => TRUE,
+  );
+  $form['filtro'] = array(
+    '#type' => 'radios',
+    '#title' => t('Qué archivos tratar'),
+    '#options' => array(
+      'todos' => t('Todos los que superen el tamaño'),
+      'en_bd' => t('Solo los referenciados en la base de datos'),
+      'sin_bd' => t('Solo los NO referenciados en la base de datos'),
+    ),
+    '#default_value' => 'todos',
+  );
+  $form['accion'] = array(
+    '#type' => 'radios',
+    '#title' => t('Acción'),
+    '#options' => array(
+      'listar' => t('Solo listar (genera un CSV)'),
+      'redimensionar' => t('Redimensionar las imágenes JPG/PNG para reducir su peso'),
+    ),
+    '#default_value' => 'listar',
+  );
+
+  $form['redim'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Opciones de redimensionado'),
+    '#states' => array(
+      'visible' => array(':input[name="accion"]' => array('value' => 'redimensionar')),
+    ),
+  );
+  $form['redim']['ancho'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Ancho máximo (px)'),
+    '#default_value' => 1600,
+    '#size' => 8,
+  );
+  $form['redim']['alto'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Alto máximo (px)'),
+    '#default_value' => 1600,
+    '#size' => 8,
+    '#description' => t('La imagen se reduce manteniendo la proporción y nunca se amplía.'),
+  );
+  $form['redim']['calidad'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Calidad JPEG (1-100)'),
+    '#default_value' => 80,
+    '#size' => 5,
+    '#description' => t('En PNG no tiene efecto: solo reduce el tamaño al bajar las dimensiones.'),
+  );
+  $form['redim']['simular'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Solo simular (no modificar nada)'),
+    '#description' => t('Recomendado: ejecuta primero en simulación y revisa el CSV.'),
+    '#default_value' => 1,
+  );
+  $form['redim']['backup'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Guardar copia del original antes de sustituirlo'),
+    '#default_value' => 1,
+    '#states' => array(
+      'visible' => array(':input[name="simular"]' => array('checked' => FALSE)),
+    ),
+  );
+  $form['redim']['backup_dir'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Directorio de copias de seguridad'),
+    '#description' => t('Se creará una subcarpeta con la fecha y hora de cada ejecución.'),
+    '#default_value' => 'private://katakrak_backup',
+    '#states' => array(
+      'visible' => array(
+        ':input[name="simular"]' => array('checked' => FALSE),
+        ':input[name="backup"]' => array('checked' => TRUE),
+      ),
+    ),
+  );
+  $form['redim']['confirmar'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Entiendo que los archivos originales se sustituirán por la versión redimensionada.'),
+    '#states' => array(
+      'visible' => array(':input[name="simular"]' => array('checked' => FALSE)),
+    ),
+  );
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Ejecutar'),
+  );
+  return $form;
+}
+
+/**
+ * Validación.
+ */
+function katakrak_portadas_peso_form_validate($form, &$form_state) {
+  $v = $form_state['values'];
+  $directorio = rtrim($v['directorio'], '/');
+
+  if (!file_uri_scheme($directorio) || strpos($directorio, '..') !== FALSE) {
+    form_set_error('directorio', t('Indica una URI válida (public://, private://) sin "..".'));
+    return;
+  }
+  if (!is_dir($directorio)) {
+    form_set_error('directorio', t('El directorio no existe.'));
+    return;
+  }
+  if (strpos($v['excluir'], '..') !== FALSE) {
+    form_set_error('excluir', t('Las exclusiones no pueden contener "..".'));
+  }
+  if (!is_numeric($v['umbral_kb']) || $v['umbral_kb'] < 0) {
+    form_set_error('umbral_kb', t('Indica un número válido de KB.'));
+  }
+
+  if ($v['accion'] !== 'redimensionar') {
+    return;
+  }
+
+  // Validaciones del redimensionado.
+  if (!function_exists('imagejpeg') || !function_exists('imagepng')) {
+    form_set_error('accion', t('La extensión GD de PHP no está disponible.'));
+    return;
+  }
+  foreach (array('ancho', 'alto') as $campo) {
+    if (!ctype_digit((string) $v[$campo]) || $v[$campo] < 100) {
+      form_set_error($campo, t('Indica un número entero de píxeles (mínimo 100).'));
+    }
+  }
+  if (!ctype_digit((string) $v['calidad']) || $v['calidad'] < 1 || $v['calidad'] > 100) {
+    form_set_error('calidad', t('La calidad debe estar entre 1 y 100.'));
+  }
+
+  if (empty($v['simular'])) {
+    if (empty($v['confirmar'])) {
+      form_set_error('confirmar', t('Marca la casilla de confirmación para poder modificar archivos.'));
+      return;
+    }
+    if (!empty($v['backup'])) {
+      $backup = rtrim($v['backup_dir'], '/');
+      if (!file_uri_scheme($backup) || strpos($backup, '..') !== FALSE) {
+        form_set_error('backup_dir', t('Indica una URI válida para las copias (por ejemplo private://katakrak_backup).'));
+      }
+      elseif (!file_prepare_directory($backup, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS)) {
+        form_set_error('backup_dir', t('No se pudo crear o escribir en el directorio de copias.'));
+      }
+    }
+  }
+}
+
+/**
+ * Submit: define y arranca el batch.
+ */
+function katakrak_portadas_peso_form_submit($form, &$form_state) {
+  $v = $form_state['values'];
+  $directorio = rtrim($v['directorio'], '/');
+  $redim = ($v['accion'] === 'redimensionar');
+
+  $excluir = array();
+  foreach (explode(',', $v['excluir']) as $e) {
+    $e = trim($e, " \t/");
+    if ($e !== '') {
+      $excluir[] = $e;
+    }
+  }
+
+  $simular = $redim ? !empty($v['simular']) : FALSE;
+
+  $opciones = array(
+    'accion' => $v['accion'],
+    'filtro' => $v['filtro'],
+    'umbral' => (int) round($v['umbral_kb'] * 1024),
+    'excluir' => $excluir,
+    'simular' => $simular,
+    'ancho' => (int) $v['ancho'],
+    'alto' => (int) $v['alto'],
+    'calidad' => (int) $v['calidad'],
+    'backup_dir' => ($redim && !$simular && !empty($v['backup'])) ? rtrim($v['backup_dir'], '/') : '',
+  );
+
+  if ($redim) {
+    $titulo = $simular
+      ? t('Simulando redimensionado en @dir', array('@dir' => $directorio))
+      : t('Redimensionando imágenes en @dir', array('@dir' => $directorio));
+  }
+  else {
+    $titulo = t('Listando archivos de más de @kb KB en @dir', array('@kb' => $v['umbral_kb'], '@dir' => $directorio));
+  }
+
+  $batch = array(
+    'title' => $titulo,
+    'init_message' => t('Iniciando el recorrido del directorio...'),
+    'progress_message' => '',
+    'error_message' => t('Se produjo un error durante el proceso.'),
+    'operations' => array(
+      array('katakrak_portadas_batch_calcular_peso', array($directorio, $opciones)),
+    ),
+    'finished' => 'katakrak_portadas_batch_peso_finalizado',
+    'file' => drupal_get_path('module', 'katakrak_portadas') . '/katakrak_portadas.batch.inc',
+  );
+
+  batch_set($batch);
+}

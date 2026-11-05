@@ -5,7 +5,7 @@
 }
  else {
    $legal_url = "eus/lege-oharra";
-   $privacidad_url = "";
+   $privacidad_url = "eus/pribatutasun-politika";
 }
  ?>
 <footer>

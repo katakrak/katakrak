@@ -168,7 +168,7 @@ function katakrak_agenda_menu() {
     'weight' => 100,
   );
   $items['organiza_evento'] = array(
-    'title' => 'Organiza tu evento',
+    'title' => t('Organiza tu evento'),
     'page arguments' => array('katakrak_agenda_organiza_landing'),
     'page callback' => 'theme',
     'access arguments' => array('access content'),
@@ -237,11 +237,6 @@ function katakrak_agenda_reserva_form($form, &$form_state) {
     '#required' => TRUE,
   );
 
-  $form['lopd_check'] = array(
-    '#type' => 'checkbox',
-    '#title' => t("Acepto las ").l(t('condiciones legales'), 'lopd'),
-    '#required' => TRUE,
-  );
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => t('Enviar')

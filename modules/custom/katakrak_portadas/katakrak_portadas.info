@@ -1,0 +1,5 @@
+name = Gestion portadas 
+description = Gestion portadas 
+core = 7.x
+version = "7.x-0.1"
+files[] = katakrak_portadas.batch.inc

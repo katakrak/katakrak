@@ -177,12 +177,7 @@ function katakrak_socios_signup_form($form, &$form_state) {
     '#required' => TRUE,
     '#size' => 60,
   );
-  $form['lopd_check'] = array(
-    '#type' => 'checkbox',
-    '#title' => t("Acepto las ").l(t('condiciones legales'), 'lopd'),  
-    '#required' => TRUE,
-  );
-  
+	  
   
   $form['submit'] = array(
     '#type' => 'submit',
