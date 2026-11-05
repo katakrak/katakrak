@@ -11,6 +11,67 @@
 function katakrak_agenda_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'node-ciclo-field_centro_de_estudios'.
+  $field_instances['node-ciclo-field_centro_de_estudios'] = array(
+    'bundle' => 'ciclo',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'card_book' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_md' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'card_book_smgrid' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 10,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_centro_de_estudios',
+    'label' => 'centro de estudios',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 14,
+    ),
+  );
+
   // Exported field_instance: 'node-ciclo-field_ciclo_actos'.
   $field_instances['node-ciclo-field_ciclo_actos'] = array(
     'bundle' => 'ciclo',
@@ -1813,6 +1874,7 @@ function katakrak_agenda_field_default_field_instances() {
   t('Tipo');
   t('Title');
   t('URL denda');
+  t('centro de estudios');
   t('curso');
 
   return $field_instances;

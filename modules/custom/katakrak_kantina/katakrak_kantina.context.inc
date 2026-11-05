@@ -28,6 +28,12 @@ function katakrak_kantina_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'block-1' => array(
+          'delta' => '1',
+          'module' => 'block',
+          'region' => 'content_bottom',
+          'weight' => '-10',
+        ),
         'katakrak_kantina-kantina_page_carousel' => array(
           'delta' => 'kantina_page_carousel',
           'module' => 'katakrak_kantina',

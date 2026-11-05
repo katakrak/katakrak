@@ -231,7 +231,7 @@ function katakrak_kantina_views_default_views() {
     'blog' => 'blog',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Nodo: Blog_type (field_blog_type) */
+  /* Filter criterion: Content: Blog_type (field_blog_type) */
   $handler->display->display_options['filters']['field_blog_type_tid']['id'] = 'field_blog_type_tid';
   $handler->display->display_options['filters']['field_blog_type_tid']['table'] = 'field_data_field_blog_type';
   $handler->display->display_options['filters']['field_blog_type_tid']['field'] = 'field_blog_type_tid';
@@ -431,7 +431,7 @@ function katakrak_kantina_views_default_views() {
     'image_style' => '',
     'image_link' => '',
   );
-  /* Campo: Nodo: Body */
+  /* Campo: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -439,7 +439,7 @@ function katakrak_kantina_views_default_views() {
   $handler->display->display_options['fields']['body']['element_type'] = 'p';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
-  /* Campo: Nodo: enlace */
+  /* Campo: Content: enlace */
   $handler->display->display_options['fields']['field_proveedor_link']['id'] = 'field_proveedor_link';
   $handler->display->display_options['fields']['field_proveedor_link']['table'] = 'field_data_field_proveedor_link';
   $handler->display->display_options['fields']['field_proveedor_link']['field'] = 'field_proveedor_link';
@@ -502,7 +502,7 @@ function katakrak_kantina_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Campo: Nodo: Imagen */
+  /* Campo: Content: Imagen */
   $handler->display->display_options['fields']['field_receta_imagen']['id'] = 'field_receta_imagen';
   $handler->display->display_options['fields']['field_receta_imagen']['table'] = 'field_data_field_receta_imagen';
   $handler->display->display_options['fields']['field_receta_imagen']['field'] = 'field_receta_imagen';
@@ -566,7 +566,7 @@ function katakrak_kantina_views_default_views() {
   $handler->display->display_options['header']['view']['field'] = 'view';
   $handler->display->display_options['header']['view']['view_to_insert'] = 'kantina_recetas:isotope_filter';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Nodo: Imagen */
+  /* Campo: Content: Imagen */
   $handler->display->display_options['fields']['field_receta_imagen']['id'] = 'field_receta_imagen';
   $handler->display->display_options['fields']['field_receta_imagen']['table'] = 'field_data_field_receta_imagen';
   $handler->display->display_options['fields']['field_receta_imagen']['field'] = 'field_receta_imagen';
@@ -593,7 +593,7 @@ function katakrak_kantina_views_default_views() {
   $handler->display->display_options['fields']['view_node']['label'] = '';
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['view_node']['text'] = 'leer más [+]';
-  /* Campo: Nodo: Tipo receta */
+  /* Campo: Content: Tipo receta */
   $handler->display->display_options['fields']['field_receta_tipo']['id'] = 'field_receta_tipo';
   $handler->display->display_options['fields']['field_receta_tipo']['table'] = 'field_data_field_receta_tipo';
   $handler->display->display_options['fields']['field_receta_tipo']['field'] = 'field_receta_tipo';
@@ -755,7 +755,7 @@ function katakrak_kantina_views_default_views() {
   $handler->display->display_options['fields']['language']['id'] = 'language';
   $handler->display->display_options['fields']['language']['table'] = 'node';
   $handler->display->display_options['fields']['language']['field'] = 'language';
-  /* Campo: Nodo: Imagen */
+  /* Campo: Content: Imagen */
   $handler->display->display_options['fields']['field_receta_imagen']['id'] = 'field_receta_imagen';
   $handler->display->display_options['fields']['field_receta_imagen']['table'] = 'field_data_field_receta_imagen';
   $handler->display->display_options['fields']['field_receta_imagen']['field'] = 'field_receta_imagen';
@@ -774,7 +774,7 @@ function katakrak_kantina_views_default_views() {
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
   $handler->display->display_options['sorts']['changed']['field'] = 'changed';
   $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
-  /* Sort criterion: Nodo: Páginas (field_libro_paginas) */
+  /* Sort criterion: Content: Páginas (field_libro_paginas) */
   $handler->display->display_options['sorts']['field_libro_paginas_value']['id'] = 'field_libro_paginas_value';
   $handler->display->display_options['sorts']['field_libro_paginas_value']['table'] = 'field_data_field_libro_paginas';
   $handler->display->display_options['sorts']['field_libro_paginas_value']['field'] = 'field_libro_paginas_value';
