@@ -29,7 +29,7 @@
       <div class="col-sm-6 col-md-3">
         <a href="<?php print url('cantina/grupo') ?>" class="features">
           <p>
-            <img src="/sites/all/themes/kapital/images/cantina-productoras.jpg" class="img-responsive" alt="Katakrak Cantina">
+            <img src="/sites/all/themes/kapital/images/cantina-grupo.jpg" class="img-responsive" alt="Katakrak Cantina">
           </p>
           <h3><?php print t('Grupo de consumo') ?></h3>
           <p><?php print t('Para que lo hagas en tu casa.') ?></p>
