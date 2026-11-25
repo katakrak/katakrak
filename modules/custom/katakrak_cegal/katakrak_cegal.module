@@ -320,6 +320,10 @@ function katakrak_cegal_portada_form_submit ($form, &$form_state) {
     $node->field_libro_portada['und'][0] = $file;
     $node->field_libro_portada['und'][0]['title'] = $node->title;
     $node->field_libro_portada['und'][0]['alt'] = $node->title;
+    $node->field_libro_sinopsis['und'][0] = array(
+      'value' => $form_state['values']['sinopsis'],
+      'format' => 'sinopsis',
+    );
     node_save($node);
     $form_state['redirect'] = 'node/'.$node->nid;
   }
