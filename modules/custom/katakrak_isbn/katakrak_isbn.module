@@ -1,0 +1,119 @@
+<?php
+
+/**
+ * @file
+ * Importador de CSV mediante Batch API.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function katakrak_isbn_menu() {
+  $items['admin/config/katakrak_isbn/importar'] = array(
+    'title' => 'Importar CSV',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('katakrak_isbn_importar_form'),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+/**
+ * Formulario de subida del CSV.
+ */
+function katakrak_isbn_importar_form($form, &$form_state) {
+  $form['csv'] = array(
+    '#type' => 'managed_file',
+    '#title' => t('Archivo CSV'),
+    '#upload_location' => 'temporary://',
+    '#upload_validators' => array(
+      'file_validate_extensions' => array('csv'),
+    ),
+    '#required' => TRUE,
+  );
+  $form['cabecera'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('La primera línea es una cabecera (no contiene datos)'),
+    '#default_value' => FALSE,
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Procesar'),
+  );
+  return $form;
+}
+
+/**
+ * Submit: normaliza el CSV y lanza el batch.
+ */
+function katakrak_isbn_importar_form_submit($form, &$form_state) {
+  $file = file_load($form_state['values']['csv']);
+  if (!$file) {
+    drupal_set_message(t('No se pudo cargar el archivo.'), 'error');
+    return;
+  }
+
+  $normalizado = katakrak_isbn_normalizar_csv($file->uri);
+  if (!$normalizado) {
+    drupal_set_message(t('No se pudo preparar el archivo CSV.'), 'error');
+    return;
+  }
+
+  $batch = array(
+    'title' => t('Procesando CSV'),
+    'init_message' => t('Iniciando...'),
+    'progress_message' => t('Procesando...'),
+    'error_message' => t('Se produjo un error durante el proceso.'),
+    'operations' => array(
+      array('katakrak_isbn_batch_procesar', array($normalizado['uri'], $normalizado['delimitador'], !empty($form_state['values']['cabecera']))),
+    ),
+    'finished' => 'katakrak_isbn_batch_finalizado',
+    'file' => drupal_get_path('module', 'katakrak_isbn') . '/katakrak_isbn.batch.inc',
+  );
+  batch_set($batch);
+}
+
+/**
+ * Crea una copia limpia del CSV: sin BOM, en UTF-8 y con saltos de línea "\n".
+ *
+ * También detecta el delimitador (';' o ',') mirando la primera línea.
+ *
+ * @return array|false
+ *   Array con 'uri' y 'delimitador', o FALSE si falla.
+ */
+function katakrak_isbn_normalizar_csv($uri) {
+  $ruta = drupal_realpath($uri);
+  if (!$ruta || !is_readable($ruta)) {
+    return FALSE;
+  }
+
+  $contenido = file_get_contents($ruta);
+  if ($contenido === FALSE || $contenido === '') {
+    return FALSE;
+  }
+
+  // Quitar BOM UTF-8.
+  if (substr($contenido, 0, 3) === "\xEF\xBB\xBF") {
+    $contenido = substr($contenido, 3);
+  }
+
+  // Si no es UTF-8 válido, asumir ISO-8859-1 (típico de Excel en Windows).
+  if (!drupal_validate_utf8($contenido)) {
+    $contenido = utf8_encode($contenido);
+  }
+
+  // Unificar saltos de línea (\r\n y \r -> \n).
+  $contenido = str_replace(array("\r\n", "\r"), "\n", $contenido);
+
+  // Detectar delimitador por la primera línea.
+  $primera = strtok($contenido, "\n");
+  $delimitador = (substr_count($primera, ';') >= substr_count($primera, ',')) ? ';' : ',';
+
+  $destino = file_unmanaged_save_data($contenido, 'temporary://katakrak_isbn_' . REQUEST_TIME . '.csv', FILE_EXISTS_REPLACE);
+  if (!$destino) {
+    return FALSE;
+  }
+
+  return array('uri' => $destino, 'delimitador' => $delimitador);
+}

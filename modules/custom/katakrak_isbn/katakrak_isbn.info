@@ -1,0 +1,5 @@
+name = Katakrak ISBN
+description = Procesa un CSV mediante Batch API.
+core = 7.x
+package = Custom
+files[] = katakrak_isbn.batch.inc
