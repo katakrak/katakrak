@@ -2319,8 +2319,9 @@ a.badge:hover {
 }
 
 .wrapper-banner {
-    /*background: #e6047c;*/
-    background: #1d1d1b;
+    /*background: #e6047c;
+    background: #1d1d1b;*/
+    background: #FDF7DD;
     padding: 2rem;
     margin: .5rem
 }
